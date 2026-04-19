@@ -28,10 +28,16 @@ def f : ℕ → ℤ
   decreasing_by all_goals (simp_wf; omega)
 
 /-- The answer to whether f(n) - f(n-1) ≤ n holds for all n > 1. -/
-determine solution_value : Prop := sorry
+determine solution_value : Prop := False
 
 problem uk2012_r2_p2 :
     (∀ n : ℕ, 1 < n → f n - f (n - 1) ≤ (n : ℤ)) ↔ solution_value := by
-  sorry
+  constructor
+  · intro h
+    have h242 : f 242 - f 241 ≤ (242 : ℤ) := h 242 (by norm_num)
+    revert h242
+    native_decide
+  · intro h
+    exact absurd h (fun h => h.elim)
 
 end UK2012R2P2

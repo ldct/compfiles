@@ -38,11 +38,11 @@ def f : ℕ → ℕ
       if m % 2 = 0 then 2 * f m + 1 else f m
   decreasing_by all_goals (simp_wf; omega)
 
-determine solution_value : ℕ := sorry
+determine solution_value : ℕ := 455
 
 problem uk2011_r2_p3 :
     (Finset.filter (fun n => f n = f 2011) (Finset.Ico 1 2011)).card =
       solution_value := by
-  sorry
+  native_decide
 
 end UK2011R2P3

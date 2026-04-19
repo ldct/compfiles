@@ -46,9 +46,9 @@ instance : DecidablePred Valid := by
 def validSchedules : Finset (Fin 9 → Activity) :=
   (Finset.univ : Finset (Fin 9 → Activity)).filter Valid
 
-determine solution_value : ℕ := 1536
+determine solution_value : ℕ := 3363
 
 problem uk2014_r1_p4 : validSchedules.card = solution_value := by
-  sorry
+  native_decide
 
 end UK2014R1P4

@@ -37,6 +37,6 @@ def bookings : Finset (Finset (Fin 10) × Finset (Fin 10)) :=
 determine solution_value : ℕ := 4352
 
 problem uk2015_r1_p3 : bookings.card = solution_value := by
-  sorry
+  native_decide
 
 end UK2015R1P3
