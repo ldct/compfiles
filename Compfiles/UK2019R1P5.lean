@@ -28,7 +28,11 @@ noncomputable def volume (r h : ℝ) : ℝ := Real.pi * r^2 * h
 
 /-- The set of possible pairs ((r₁, h₁), (r₂, h₂)) of (radius, height)
 for the two cylinders. -/
-determine solution_set : Set ((ℝ × ℝ) × (ℝ × ℝ)) := ∅
+determine solution_set : Set ((ℝ × ℝ) × (ℝ × ℝ)) :=
+  { (((3 - Real.sqrt 3)/3, (3 - Real.sqrt 3)/6),
+     ((3 + Real.sqrt 3)/3, (3 + Real.sqrt 3)/6)),
+    (((3 + Real.sqrt 3)/3, (3 + Real.sqrt 3)/6),
+     ((3 - Real.sqrt 3)/3, (3 - Real.sqrt 3)/6)) }
 
 problem uk2019_r1_p5 (r₁ h₁ r₂ h₂ : ℝ)
     (hr₁ : 0 < r₁) (hh₁ : 0 < h₁) (hr₂ : 0 < r₂) (hh₂ : 0 < h₂) :

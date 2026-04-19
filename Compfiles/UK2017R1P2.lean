@@ -23,7 +23,7 @@ namespace UK2017R1P2
 noncomputable def curly (x : ℝ) : ℝ := max x (1 / x)
 
 determine solution_set : Set ℝ :=
-  { y | y = 1 / 5 ∨ y = Real.sqrt 10 / 25 }
+  { y | y = 1 / 40 ∨ y = 8 / 125 }
 
 problem uk2017_r1_p2 (y : ℝ) (hy : 0 < y) :
     y ∈ solution_set ↔ 5 * y * curly (8 * y) * curly (25 * y) = 1 := by

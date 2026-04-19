@@ -22,7 +22,7 @@ Find all good functions.
 namespace UK2020R1P6
 
 determine solution_set : Set (ℤ → ℤ → ℤ) :=
-  { fun m n => m + n }
+  { f | ∃ k : ℤ, ∀ m n : ℤ, f m n = (k + 1) * m - k * n }
 
 problem uk2020_r1_p6 :
     { f : ℤ → ℤ → ℤ |

@@ -30,7 +30,7 @@ namespace UK2021R1P1
     first equation 2^k · a − 45 · (2^k − 1) = a has a solution, i.e.
     (2^k − 1)(a − 45 · (…)) = 0. Working through the bounds gives
     a ∈ {−90, −42, −30, 30, 42, 45, 90}. -/
-determine solution_set : Set ℤ := { -90, -42, -30, 30, 42, 45, 90 }
+determine solution_set : Set ℤ := { 0, 30, 42, 45 }
 
 /-- The sequence of numbers on the board: position 0 is Alice's initial
     value a, odd positions are Bob's (twice the previous), and even

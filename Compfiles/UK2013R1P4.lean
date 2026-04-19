@@ -18,7 +18,7 @@ perfect squares.
 
 namespace UK2013R1P4
 
-determine solution_set : Set ℕ := { 10, 12 }
+determine solution_set : Set ℕ := { 12, 20 }
 
 problem uk2013_r1_p4 :
     { n : ℕ | 0 < n ∧ (∃ a : ℕ, 12 * n = a^2 + 119) ∧

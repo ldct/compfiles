@@ -25,7 +25,7 @@ namespace UK2019R1P3
     (2y + 6)² − (2x + 9)² = 36 − 81 = −45, i.e.
     (2x + 9 − 2y − 6)(2x + 9 + 2y + 6) = 45. Factorising 45 over positive
     integers yields only x = 2, y = 4 (giving T = 22·? actually T = 40). -/
-determine solution_set : Set (ℕ × ℕ) := { (2, 4) }
+determine solution_set : Set (ℕ × ℕ) := { (7, 8) }
 
 problem uk2019_r1_p3 :
     { xy : ℕ × ℕ | 0 < xy.1 ∧ 0 < xy.2 ∧

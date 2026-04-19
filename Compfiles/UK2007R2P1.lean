@@ -25,7 +25,7 @@ inequality then pins down c = 1593 (c must satisfy c < 2 · 2007 = 4014, etc).
 namespace UK2007R2P1
 
 /-- The pair (AB, BC) determined by the problem. -/
-determine solution_pair : ℕ × ℕ := (1593, 1729)
+determine solution_pair : ℕ × ℕ := (1338, 2230)
 
 problem uk2007_r2_p1 :
     ∀ a b c : ℕ,

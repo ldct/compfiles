@@ -26,7 +26,7 @@ problem uk2015_r1_p4 (x : ℝ) (hx : x ≠ 0) (t : ℤ) (ht : (2 : ℤ) < t)
     (hxt : x + x⁻¹ = t) :
     (∀ n : ℕ, ∃ k : ℤ, x^n + (x^n)⁻¹ = k) ∧
     (∀ n : ℕ, 0 < n →
-      ((t : ℝ) ∣ (x^n + (x^n)⁻¹) ↔ Odd n)) := by
+      ((∃ k : ℤ, x^n + (x^n)⁻¹ = k ∧ t ∣ k) ↔ Odd n)) := by
   sorry
 
 end UK2015R1P4

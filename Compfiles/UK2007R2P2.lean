@@ -22,10 +22,10 @@ problem uk2007_r2_p2 :
     ∃ f : ℕ → ℕ × ℕ,
       StrictMono f ∧
       ∀ k, 0 < (f k).1 ∧ 0 < (f k).2 ∧
-           (f k).1 ∣ ((f k).2 + 1) ∧ (f k).2 ∣ ((f k).1 + 1) ∧
-           -- the sum is a positive integer
+           -- (m+1)/n + (n+1)/m is a positive integer, meaning
+           -- m*n divides m*(m+1) + n*(n+1)
            ∃ N : ℕ, 0 < N ∧
-             ((f k).1 + 1) * (f k).1 + ((f k).2 + 1) * (f k).2
+             (f k).1 * ((f k).1 + 1) + (f k).2 * ((f k).2 + 1)
                = N * ((f k).1 * (f k).2) := by
   sorry
 
