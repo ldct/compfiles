@@ -1,222 +1,74 @@
-     10th International Mathematical Competition for University Students
-                            Cluj-Napoca, July 2003
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
 
-                                               Day 2
+\title{IMC 2003, Cluj-Napoca \\ Day 2}
+\date{}
 
+\begin{document}
+\maketitle
 
-1. Let A and B be n × n real matrices such that AB + A + B = 0. Prove that AB = BA.
+\section*{Problem 1}
+Real $n \times n$ matrices $A, B$ with $AB + A + B = 0$. Prove $AB = BA$.
 
-Solution. Since (A + I)(B + I) = AB + A + B + I = I (I is the identity matrix), matrices
-A + I and B + I are inverses of each other. Then (A + I)(B + I) = (B + I)(A + I) and
-AB + BA.
+\subsection*{Solution}
+$(A + I)(B + I) = AB + A + B + I = I$, so $A + I$ and $B + I$ are inverses. Then $(B + I)(A + I) = I$ too, giving $BA + A + B = 0 = AB + A + B$, so $AB = BA$.
 
-2. Evaluate the limit                 Z 2x
-                                             sinm t
-                                lim                 dt (m, n ∈ N).
-                               x→0+    x       tn
+\section*{Problem 2}
+Evaluate $\displaystyle \lim_{x \to 0^+} \int_x^{2x} \frac{\sin^m t}{t^n} dt$ for $m, n \in \mathbb{N}$.
 
-                                    sin t                                               sin t
-Solution. We use the fact that             is decreasing in the interval (0, π) and lim       = 1.
-                                      t                                            t→0+0 t
-                                                 sin 2x      sin t
-For all x ∈ (0, π2 ) and t ∈ [x, 2x] we have            x<         < 1, thus
-                                                    2          t
-                                 m Z 2x m Z 2x                     Z 2x m
-                                                        sinm t
-                        
-                          sin 2x           t                              t
-                                             n
-                                               <           n
-                                                               dt <          dt,
-                            2x        x     t        x    t           x   tn
-                                 Z 2x m                  Z 2
-                                      t           m−n+1
-                                        n
-                                          dt = x              um−n du.
-                                  x   t                    1
-                      m
-              sin 2x
-The factor                 tends to 1. If m − n + 1 < 0, the limit of xm−n+1 is infinity; if
-                 2x
-                                                               R2
-m − n + 1 > 0 then 0. If m − n + 1 = 0 then xm−n+1 1 um−n du = ln 2. Hence,
-                                                    
-                                  Z2x m             0,
-                                                              m≥n
-                                     sin t
-                             lim              dt = ln 2, n − m = 1 .
-                            x→0+0       tn          
-                                                       +∞, n − m > 1.
-                                                    
-                                  x
+\subsection*{Solution}
+Since $\tfrac{\sin t}{t}$ is decreasing on $(0, \pi)$ to $1$ at $0^+$: for $t \in [x, 2x]$, $\tfrac{\sin 2x}{2x} \le \tfrac{\sin t}{t} \le 1$, so
+\[
+\bigl(\tfrac{\sin 2x}{2x}\bigr)^m \int_x^{2x} t^{m - n} dt \le \int_x^{2x} \frac{\sin^m t}{t^n} dt \le \int_x^{2x} t^{m - n} dt.
+\]
+$\int_x^{2x} t^{m-n} dt = x^{m - n + 1} \int_1^2 u^{m - n} du$. As $x \to 0^+$:
+\[
+\lim = \begin{cases} 0 & m \ge n \\ \ln 2 & n - m = 1 \\ +\infty & n - m > 1. \end{cases}
+\]
 
+\section*{Problem 3}
+$A \subset \mathbb{R}^n$ closed; $B = \{b : \exists ! a_0 \in A, |a_0 - b| = \operatorname{dist}(b, A)\}$. Show $B$ is dense.
 
+\subsection*{Solution}
+If $b_0 \in A$: $b_0 \in B$. Else let $\rho = \operatorname{dist}(b_0, A) > 0$; compactness of $A \cap \overline{B_{\rho + 1}(b_0)}$ gives some $a_0 \in A$ with $|a_0 - b_0| = \rho$. If $a_0$ unique: $b_0 \in B$. Else: any $a$ on the open segment $(a_0, b_0)$ has $\overline{B_{|a - a_0|}(a)} \subset \overline{B_\rho(b_0)}$ with boundaries touching only at $a_0$, so $a \in B$. Hence $b_0$ is an accumulation point of $B$.
 
-3. Let A be a closed subset of Rn and let B be the set of all those points b ∈ Rn for which
-there exists exactly one point a0 ∈ A such that
+\section*{Problem 4}
+Find all $n$ with a family $\mathcal F$ of 3-element subsets of $S = \{1, \ldots, n\}$ such that (i) each pair lies in exactly one $A \in \mathcal F$; (ii) if $\{a,b,x\}, \{a,c,y\}, \{b,c,z\} \in \mathcal F$, then $\{x, y, z\} \in \mathcal F$.
 
-                                      |a0 − b| = inf |a − b|.
-                                                  a∈A
+\subsection*{Solution}
+Answer: $n = 2^m - 1$.
 
-Prove that B is dense in Rn ; that is, the closure of B is Rn .
+Define $a * b = c$ iff $\{a, b, c\} \in \mathcal F$ (for $a \ne b$). Properties: $a * b = b * a$, $a * (a * b) = b$, and (from (ii)) $(a * b) * c = a * (b * c)$ for $a, b, c$ distinct.
 
-Solution. Let b0 ∈
-                 / A (otherwise b0 ∈ A ⊂ B), % = inf |a − b0 |. The intersection of the ball
-                                                        a∈A
-of radius % + 1 with centre b0 with set A is compact and there exists a0 ∈ A: |a0 − b0 | = %.
+Extend by $a * a = 0$ with new element $0$, and $0 * a = a * 0 = a$. Then $(S \cup \{0\}, *)$ is an abelian group where every element has order $\le 2$. So $|S \cup \{0\}| = 2^m$, i.e., $n = 2^m - 1$.
 
-                                                  1
-    Denote by Br (a) = {x ∈ Rn : |x − a| ≤ r} and ∂Br (a) = {x ∈ Rn : |x − a| = r} the
-ball and the sphere of center a and radius r, respectively.
-    If a0 is not the unique nearest point then for
-                                                 T any point a on the open line segment (a0 , b0 )
-we have B|a−a0 | (a) ⊂ B% (b0 ) and ∂B|a−a0 | (a) ∂B% (b0 ) = {a0 }, therefore (a0 , b0 ) ⊂ B and
-b0 is an accumulation point of set B.
+\emph{Construction:} $S = \mathbb{F}_2^m \setminus \{0\}$; $a * b = a \oplus b$ (XOR).
 
-4. Find all positive integers n for which there exists a family F of three-element subsets
-of S = {1, 2, . . . , n} satisfying the following two conditions:
+\section*{Problem 5}
+(a) Show for each $f : \mathbb{Q}^2 \to \mathbb{R}$ there is $g : \mathbb{Q} \to \mathbb{R}$ with $f(x, y) \le g(x) + g(y)$.
+(b) Find $f : \mathbb{R}^2 \to \mathbb{R}$ with no such $g$.
 
-  (i) for any two different elements a, b ∈ S, there exists exactly one A ∈ F containing
-      both a, b;
+\subsection*{Solution}
+(a) Let $\varphi : \mathbb{Q} \to \mathbb{N}$ bijection. Set $g(x) = \max\{|f(s, t)| : \varphi(s), \varphi(t) \le \varphi(x)\}$. Then $f(x, y) \le \max(g(x), g(y)) \le g(x) + g(y)$.
 
- (ii) if a, b, c, x, y, z are elements of S such that if {a, b, x}, {a, c, y}, {b, c, z} ∈ F, then
-      {x, y, z} ∈ F.
+(b) Take $f(x, y) = 1/|x - y|$ for $x \ne y$, $f(x, x) = 0$. If $g$ worked, then $g(y) \ge \tfrac{1}{|x-y|} - g(x)$, so $\lim_{y \to x} g(y) = \infty$. Let $A_k = \{x \in [0,1] : |g(x)| \le k\}$. Then $[0,1] = \bigcup A_k$ is a countable union; some $A_k$ is uncountable, hence contains a convergent sequence $x_n \to x$. But $g(x_n) \to \infty$ while $|g(x_n)| \le k$. Contradiction.
 
+\section*{Problem 6}
+$a_0 = 1$, $a_{n+1} = \tfrac{1}{n+1} \sum_{k=0}^n \tfrac{a_k}{n - k + 2}$. Find $\lim \sum_{k=0}^n a_k / 2^k$.
 
-Solution. The condition (i) of the problem allows us to define a (well-defined) operation
-∗ on the set S given by
+\subsection*{Solution}
+Generating function $f(x) = \sum a_n x^n$. Goal: $f(1/2)$.
 
-                      a ∗ b = c if and only if {a, b, c} ∈ F, where a 6= b.
+From recurrence:
+\[
+f'(x) = \sum_{n \ge 0} (n + 1) a_{n+1} x^n = \sum_{n \ge 0} \sum_{k=0}^n \frac{a_k}{n - k + 2} x^n = \sum_k a_k x^k \sum_{m \ge 0} \frac{x^m}{m + 2} = f(x) \sum_{m \ge 0} \frac{x^m}{m + 2}.
+\]
+Integrate:
+\[
+\ln f(x) = \sum_{m \ge 0} \frac{x^{m+1}}{(m+1)(m+2)} = \sum_{m \ge 0} \left(\frac{x^{m+1}}{m+1} - \frac{x^{m+1}}{m+2}\right) = -\ln(1 - x) - \frac{1}{x}\bigl(-\ln(1 - x) - x\bigr).
+\]
+Simplifying: $\ln f(x) = 1 + \bigl(1 - \tfrac{1}{x}\bigr) \ln \tfrac{1}{1 - x}$.
 
-We note that this operation is still not defined completely (we need to define a ∗ a), but
-nevertheless let us investigate its features. At first, due to (i), for a 6= b the operation
-obviously satisfies the following three conditions:
-          (a) a 6= a ∗ b 6= b;
-          (b) a ∗ b = b ∗ a;
-          (c) a ∗ (a ∗ b) = b.
-    What does the condition (ii) give? It claims that
-          (e’) x ∗ (a ∗ c) = x ∗ y = z = b ∗ c = (x ∗ a) ∗ c
-for any three different x, a, c, i.e. that the operation is associative if the arguments are
-different. Now we can complete the definition of ∗. In order to save associativity for non-
-different arguments, i.e. to make b = a ∗ (a ∗ b) = (a ∗ a) ∗ b hold, we will add to S an extra
-element, call it 0, and define
-          (d) a ∗ a = 0 and a ∗ 0 = 0 ∗ a = a.
-    Now it is easy to check that, for any a, b, c ∈ S ∪ {0}, (a),(b),(c) and (d), still hold, and
-          (e) a ∗ b ∗ c := (a ∗ b) ∗ c = a ∗ (b ∗ c).
-    We have thus obtained that (S ∪ {0}, ∗) has the structure of a finite Abelian group,
-whose elements are all of order two. Since the order of every such group is a power of 2,
-we conclude that |S ∪ {0}| = n + 1 = 2m and n = 2m − 1 for some integer m ≥ 1.
-    Given n = 2m −1, according to what we have proven till now, we will construct a family
-of three-element subsets of S satisfying (i) and (ii). Let us define the operation ∗ in the
-following manner:
-         if a = a0 + 2a1 + . . . + 2m−1 am−1 and b = b0 + 2b1 + . . . + 2m−1 bm−1 , where ai , bi
-are either 0 or 1, we put a ∗ b = |a0 − b0 | + 2|a1 − b1 | + . . . + 2m−1 |am−1 − bm−1 |.
+At $x = 1/2$: $\ln f(1/2) = 1 + (-1) \ln 2 = 1 - \ln 2$, so $f(1/2) = e/2$.
 
-                                                2
-   It is simple to check that this ∗ satisfies (a),(b),(c) and (e’). Therefore, if we include in
-F all possible triples a, b, a ∗ b, the condition (i) follows from (a),(b) and (c), whereas the
-condition (ii) follows from (e’)
-   The answer is: n = 2m − 1.
-
-5. (a) Show that for each function f : Q × Q → R there exists a function g : Q → R such
-that f (x, y) ≤ g(x) + g(y) for all x, y ∈ Q.
-    (b) Find a function f : R × R → R for which there is no function g : R → R such that
-f (x, y) ≤ g(x) + g(y) for all x, y ∈ R.
-
-Solution. a) Let ϕ : Q → N be a bijection. Define g(x) = max{|f (s, t)| : s, t ∈ Q, ϕ(s) ≤
-ϕ(x), ϕ(t) ≤ ϕ(x)}. We have f (x, y) ≤ max{g(x), g(y)} ≤ g(x) + g(y).
-                                                                 1
-    b) We shall show that the function defined by f (x, y) = |x−y|   for x 6= y and f (x, x) = 0
-satisfies the problem. If, by contradiction there exists a function g as above, it results, that
-           1
-g(y) ≥ |x−y|  − f (x) for x, y ∈ R, x 6= y; one obtains that for each x ∈ R, lim g(y) = ∞.
-                                                                                y→x
-We show, that there exists no function g having an infinite limit at each point of a bounded
-and closed interval [a, b].
-    For each k ∈ N+ denote Ak = {x ∈ [a, b] : |g(x)| ≤ k}.
-    We have obviously [a, b] = ∪∞ k=1 Ak . The set [a, b] is uncountable, so at least one of the
-sets Ak is infinite (in fact uncountable). This set Ak being infinite, there exists a sequence
-in Ak having distinct terms. This sequence will contain a convergent subsequence (xn )n∈N
-convergent to a point x ∈ [a, b]. But lim g(y) = ∞ implies that g(xn ) → ∞, a contradiction
-                                      y→x
-because |g(xn )| ≤ k, ∀n ∈ N.
-
-Second solution for part (b). Let S be the set of all sequences of real numbers. The
-                                    2
-cardinality of S is |S| = |R|ℵ0 = 2ℵ0 = 2ℵ0 = |R|. Thus, there exists a bijection h : R → S.
-Now define the function f in the following way. For any real x and positive integer n,
-let f (x, n) be the nth element of sequence h(x). If y is not a positive integer then let
-f (x, y) = 0. We prove that this function has the required property.
-    Let g be an arbitrary R → R function. We show that there exist real numbers x, y
-such that f (x, y) > g(x) + g(y). Consider the sequence (n + g(n))∞ n=1 . This sequence is an
-                               ∞
-element of S, thus (n + g(n))n=1 = h(x) for a certain real x. Then for an arbitrary positive
-integer n, f (x, n) is the nth element, f (x, n) = n + g(n). Choosing n such that n > g(x),
-we obtain f (x, n) = n + g(n) > g(x) + g(n).
-
-6. Let (an )n∈N be the sequence defined by
-                                                  n
-                                             1 X        ak
-                            a0 = 1, an+1 =                     .
-                                           n + 1 k=0 n − k + 2
-
-Find the limit                                    n
-                                                  X ak
-                                            lim            ,
-                                         n→∞
-                                                  k=0
-                                                      2k
-
-                                                  3
-if it exists.
-
-Solution. Consider the generating function f (x) = ∞              n
-                                                         P
-                                                          n=0 an x . By induction 0 < an ≤ 1,
-thus this series is absolutely convergent for |x| < 1, f (0) = 1 and the function is positive
-in the interval [0, 1). The goal is to compute f ( 12 ).
-    By the recurrence formula,
-                              ∞                       ∞ X
-                                                        n
-                     0
-                              X
-                                               n
-                                                      X          ak
-                    f (x) =         (n + 1)an+1 x =                     xn =
-                              n=0                     n=0 k=0
-                                                              n − k + 2
-
-                           ∞             ∞             ∞
-                           X
-                                     k   xn−k
-                                         X            X    xm
-                         =     ak x           = f (x)         .
-                           k=0      n=k
-                                        n−k+2         m=0
-                                                          m+2
-Then                                           Z x      ∞
-                                                 f0   X        xm+1
-             ln f (x) = ln f (x) − ln f (0) =       =                    =
-                                              0 f     m=0
-                                                          (m + 1)(m + 2)
-      ∞                                         ∞
-           xm+1         xm+1                   1 X xm+1
-                                                                        
-     X                                                                   1        1
-   =                −             =1+ 1−                       =1+ 1−        ln       ,
-     m=0
-          (m  + 1)    (m  +  2)               x   m=0
-                                                       (m + 1)           x      1 − x
-                                          
-                                           1
-                                    ln f      = 1 − ln 2,
-                                           2
-            1   e
-and thus f ( ) = .
-            2   2
-
-
-
-
-                                                4
-
+\end{document}
