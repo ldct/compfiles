@@ -1,0 +1,200 @@
+is a Cauchy sequence in H. (This is the crucial observation.) Indeed, for m > n, the norm kym − yn k                                  IMC2008, Blagoevgrad, Bulgaria
+may be computed by the above remark as                                                                                                              Day 2, July 28, 2008
+                                                          ⊤ 2
+                     d2                                              d2 n(m − n)2 m − n
+                                                                                          
+                          1    1       1     1 1        1
+       kym − yn k2 =         − ,..., − , ,...,                    =                 +
+                     2    m n          m n m           m             2      m2 n2       m2                   Problem 1. Let n, k be positive integers and suppose that the polynomial x2k − xk + 1 divides
+                                                               Rm
+                      2
+                     d (m − n)(m − n + n)        2
+                                                d m−n       d 2
+                                                                
+                                                                  1    1
+                                                                                                            x2n + xn + 1. Prove that x2k + xk + 1 divides x2n + xn + 1.
+                   =                         =            =         −      → 0, m, n → ∞.                    Solution. Let f (x) = x2n + xn + 1, g(x) = x2k − xk + 1, h(x) = x2k + xk + 1. The complex number
+                     2        m2 n              2 mn         2 n m
+                                                                                                                          π            π
+                                                                                                             x1 = cos( 3k   ) + i sin( 3k ) is a root of g(x).
+   By completeness of H, it follows that there exists a limit                                                                 πn                                                                          n
+                                                                                                                  Let α = 3k . Since g(x) divides f (x), f (x1 ) = g(x1 ) = 0. So, 0 = x2n         1 + x1 + 1 = (cos(2α) +
+                                              y = lim yn ∈ H.                                                i sin(2α)) + (cos α + i sin α) + 1 = 0, and (2 cos α + 1)(cos α + i sin α) = 0. Hence 2 cos α + 1 = 0, i.e.
+                                                    n→∞
+                                                                                                             α = ± 2π    + 2πc, where c ∈ Z.
+We claim that y sastisfies all conditions of the problem. For m > n > p, with n, p fixed, we compute                  3
+                                                                                                                                                                                    3k −1
+                                                                                                                  Let x2 be a root of the polynomial h(x). Since h(x) = xxk −1            , the roots of the polynomial h(x)
+                                                                             ⊤ 2
+                                d2                                                                           are distinct and they are x2 = cos 2πs        + i sin 2πs
+                                      
+                                          1         1      1     1         1                                                                                           , where s = 3a ± 1, a ∈ Z. It is enough to prove that
+               kxn − ym k2 =           − ,...,− ,1 − ,− ,...,−                                                                                          3k
+                                                                                                                                                           n
+                                                                                                                                                                    3k
+                                 2        m        m       m m             m                                 f (x2 ) = 0. We have f (x2 ) = x2n      2 + x2 + 1 = (cos(4sα) + sin(4sα)) + (cos(2sα) + sin(2sα)) + 1 =
+                                                                                 Rm
+                                  2                    2       2                                             (2 cos(2sα) + 1)(cos(2sα) + i sin(2sα)) = 0 (since 2 cos(2sα) + 1 = 2 cos(2s(± 2π                + 2πc)) + 1 =
+                                                                           d2
+                                                        
+                                d m − 1 (m − 1)              d m−1                                                                                                                                          3
+                             =              +              =          → , m → ∞,                             2 cos( 4πs
+                                                                                                                     3
+                                                                                                                        ) + 1 = 2 cos( 4π  3
+                                                                                                                                             (3a ± 1)) + 1 = 0).
+                                 2     m2          m2         2 m          2
+                             √                                                                               Problem 2. Two different ellipses are given. One focus of the first ellipse coincides with one focus
+showing that kxn − yk = d/ 2, as well as                                                                     of the second ellipse. Prove that the ellipses have at most two points in common.
+                                         *                                     ⊤
+                                      d2       1         1          1         1                              Solution. It is well known that an ellipse might be defined by a focus (a point) and a directrix (a
+            hxn − ym , xp − ym i =          − ,...,− ,...,1 − ,...,−                ,                        straight line), as a locus of points such that the distance to the focus divided by the distance to
+                                      2       m          m          m         m
+                                                                                 ⊤ +                       directrix is equal to a given number e < 1. So, if a point X belongs to both ellipses with the same
+                                                 1           1        1         1                            focus F and directrices l1 , l2 , then e1 · l1 X = F X = e2 · l2 X (here we denote by l1 X, l2 X distances
+                                              − ,...,1 − ,...,− ,...,−
+                                                 m           m        m         m                            between the corresponding line and the point X). The equation e1 · l1 X = e2 · l2 X defines two lines,
+                                                                                      Rm
+                                                                                                             whose equations are linear combinations with coefficients e1 , ±e2 of the normalized equations of lines
+                                      d2 m − 2                          d2
+                                                              
+                                                     2       1
+                                   =             −       1−        =−       → 0, m → ∞,                      l1 , l2 but of those two only one is relevant, since X and F should lie on the same side of each directrix.
+                                      2     m2      m        m         2m
+                                                                                                             So, we have that all possible points lie on one line. The intersection of a line and an ellipse consists
+showing that hxn − y, xp − yi = 0, so that                                                                   of at most two points.
+                                      (√                     )
+                                          2                                                                  Problem 3. Let n be a positive integer. Prove that 2n−1 divides
+                                            (xn − y) : n ∈ N
+                                         d                                                                                                          X  n 
+                                                                                                                                                                   5k .
+is indeed an orthonormal system of vectors.                                                                                                                2k + 1
+                                                                                                                                                         0≤k<n/2
+     This completes the proof in the case when T = S, which we can always take if S is countable. If
+it is not, let x′ , x′′ be any two distinct points in S \ T . Then applying the above procedure to the set                                                                                 √ n  √ n 
+                                                                                                             Solution. As is known, the Fibonacci numbers Fn can be expressed as Fn = √15    1+ 5
+                                                                                                                                                                                                2
+                                                                                                                                                                                                  − 1−2 5 .
+                                       ′       ′   ′′
+                                     T = {x , x , x1 , x2 , . . . , xn , . . .}                                                                                                           l−1
+                                                                                                                                                                                                
+                                                                                                                                                                      n     n           n
+                                                                                                                                                                1
+                                                                                                                                                                                         
+                                                                                                             Expanding this expression, we obtain that Fn = 2n−1 1 + 3 5 + ... + l 5 2 , where l is the
+it follows that
+                                                                                                             greatest odd number such that l ≤ n and s = l−1 ≤ n2 .
+                       x′ + x′′ + x1 + x2 + · · · + xn         x1 + x2 + · · · + xn                                           s
+                                                                                                                                                           2
+                    lim                                = lim                        =y                                             n
+                                                                                                                                      k                                             n
+                                                                                                                                                                                        k
+                                                                                                                           1
+                                                                                                                                       5 , which implies that 2n−1 divides 0≤k<n/2 2k+1
+                                                                                                                              P                                           P
+                   n→∞             n+2                   n→∞           n                                        So, Fn = 2n−1    2k+1
+                                                                                                                                                                                        5 .
+                                                                                                                                k=0
+satisfies that         (√             √             ) (√
+                                                                                                             Problem 4. Let Z[x] be the ring of polynomials with integer coefficients, and let f (x), g(x) ∈ Z[x] be
+                                                                                 )
+                           2 ′          2 ′′                2
+                            (x − y),     (x − y) ∪            (xn − y) : n ∈ N                               nonconstant polynomials such that g(x) divides f (x) in Z[x]. Prove that if the polynomial f (x)−2008
+                          d            d                   d
+                                                                                                             has at least 81 distinct integer roots, then the degree of g(x) is greater than 5.
+is still an orthonormal system.                                                                              Solution. Let f (x) = g(x)h(x) where h(x) is a polynomial with integer coefficients.
+    This it true for any distinct x′ , x′′ ∈ S \ T ; it follows that the entire system                          Let a1 , . . . , a81 be distinct integer roots of the polynomial f (x) − 2008. Then f (ai ) = g(ai )h(ai ) =
+                                           (√                      )
+                                                2                                                            2008 for i = 1, . . . , 81, Hence, g(a1 ), . . . , g(a81 ) are integer divisors of 2008.
+                                                  (x − y) : x ∈ S                                               Since 2008 = 23 ·251 (2, 251 are primes) then 2008 has exactly 16 distinct integer divisors (including
+                                              d
+                                                                                                             the negative divisors as well). By the pigeonhole principle, there are at least 6 equal numbers among
+is an orthonormal system of vectors in H, as required.                                                       g(a1 ), . . . , g(a81 ) (because 81 > 16 · 5). For example, g(a1) = g(a2 ) = . . . = g(a6 ) = c. So g(x) − c is
+
+                                                         4                                                                                                         1
+a nonconstant polynomial which has at least 6 distinct roots (namely a1 , . . . , a6 ). Then the degree   Problem 6. Let H be an infinite-dimensional real Hilbert space, let d > 0, and suppose that S is a
+of the polynomial g(x) − c is at least 6.                                                                 set of points (not necessarily countable) in H such that the distance between any two distinct points
+Problem 5. Let n be a positive integer, and consider the matrix A = (aij )1≤i,j≤n , where                 in S is equal to d. Show that there is a point y ∈ H such that
+                                                                                                                                                  (√                    )
+                                  (                                                                                                                   2
+                                    1 if i + j is a prime number,                                                                                       (x − y) : x ∈ S
+                            aij =                                                                                                                    d
+                                    0 otherwise.
+                                                                                                          is an orthonormal system of vectors in H.
+Prove that | det A| = k 2 for some integer k.                                                                                                                                                      √
+                                                                                                          Solution. It is clear that, if B is an orthonormal system in a Hilbert space H, then {(d/ 2)e : e ∈ B}
+Solution. Call a square matrix of type (B), if it is of the form                                          is a set of points in H, any two of which are at distance d apart. We need to show that every set S
+                                                                                                        of equidistant points is a translate of such a set.
+                             0      b12       0    ...     b1,2k−2       0                                    We begin by noting that, if x1 , x2 , x3 , x4 ∈ S are four distinct points, then
+                        b21         0       b23   ...        0       b2,2k−1 
+                                                                                                                        hx2 − x1 , x2 − x1 i = d2 ,
+                                                                              
+                        0          b32       0    .  . .  b3,2k−2       0     
+                        ..           ..      ..               .          .    .
+                                                                              
+                        .                          . ..       ..         ..                                                                   1                                             1
+                                       .       .                                                                       hx2 − x1 , x3 − x1 i =      kx2 − x1 k2 + kx3 − x1 k2 − kx2 − x3 k2 = d2 ,
+                       
+                       b2k−2,1      0     b2k−2,3 . . .      0
+                                                                               
+                                                                    b2k−2,2k−1                                                                2                                                2
+                                                                                                                                                                                             1 2 1 2
+                             0    b2k−1,2     0    . . . b2k−1,2k−2      0                                              hx2 − x1 , x4 − x3 i = hx2 − x1 , x4 − x1 i − hx2 − x1 , x3 − x1 i = d − d = 0.
+                                                                                                                                                                                             2    2
+Note that every matrix of this form has determinant zero, because it has k columns spanning a vector          This shows that scalar products among vectors which are finite linear combinations of the form
+space of dimension at most k − 1.
+   Call a square matrix of type (C), if it is of the form                                                                                             λ1 x1 + λ2 x2 + · · · + λn xn ,
+                                  
+                                     0 c11 0 c12 . . . 0 c1,k
+                                                                                                         where x1 , x2 , . . . , xn are distinct points in S and λ1 , λ2 , . . . , λn are integers with λ1 + λ2 + · · ·+ λn = 0,
+                                   c11 0 c12 0 . . . c1,k 0                                             are universal across all such sets S in all Hilbert spaces H; in particular, we may conveniently evaluate
+                                                                                                          them using examples of our choosing, such as the canonical example above in Rn . In fact this property
+                                                                       
+                                   0 c21 0 c22 . . . 0 c2,k 
+                                                                                                          trivially follows also when coefficients λi are rational, and hence by continuity any real numbers with
+                                                                       
+                            C ′ =  c21 0 c22 0 . . . c2,k 0 
+                                                                       
+                                   ..      ..    ..   .. ..   ..    ..                                  sum 0.
+                                   .        .     .    .  .    .     . 
+                                                                                                            If S = {x1 , x2 , . . . , xn } is a finite set, we form
+                                   0 ck,1 0 ck,2 . . . 0 ck,k 
+                                    ck,1 0 ck,2 0 . . . ck,k 0                                                                                            1
+                                                                                                                                                     x=     (x1 + x2 + · · · + xn ) ,
+                                                                                                                                                          n
+By permutations of rows and columns, we see that
+                                                                                                          pick a non-zero vector z ∈ [Span(x1 − x, x2 − x, . . . , xn − x)]⊥ and seek y in the form y = x + λz for
+                                                                                                          a suitable λ ∈ R. We find that
+                                                     
+                                                  C 0
+                              | det C ′ | = det         = | det C|2 ,
+                                                  0 C
+                                                                                                                         hx1 − y, x2 − yi = hx1 − x − λz, x2 − x − λzi = hx1 − x, x2 − xi + λ2 kzk2 .
+where C denotes the k × k-matrix with coefficients ci,j . Therefore, the determinant of any matrix of
+                                                                                                          hx1 − x, x2 − xi may be computed by our remark above as
+type (C) is a perfect square (up to a sign).                                                  
+    Now let X ′ be the matrix obtained from A by replacing the first row by 1 0 0 . . . 0 , and
+                                                                                                                                               *                       ⊤                            ⊤ +
+                                                                                                                                           d2     1     1 1           1       1 1       1           1
+let Y be the matrix obtained from A by replacing the entry a11 by 0. By multi-linearity of the                         hx1 − x, x2 − xi =           − 1, , , . . . ,       ,    , − 1, , . . . ,
+                                                                                                                                           2      n     n n           n       n n       n           n
+determinant, det(A) = det(X ′ ) + det(Y ). Note that X ′ can be written as                                                                                                                                  Rn
+                                                                                                                                             2                                   2
+                                                                                                                                                                     
+                                                                                                                                           d     2 1           n−2             d
+                                                                                                                                      =             −1 +                =− .
+                                                    1 0                                                                                    2     n n              n2           2n
+                                             X′ =
+                                                   v X                                                                                                         √
+                                                                                                                                  d                               2
+for some (n − 1) × (n − 1)-matrix X and some column vector v. Then det(A) = det(X) + det(Y ).             So the choice λ = √           will make all vectors        (xi − y) orthogonal to each other; it is easily
+                                                                                                                                 2nkzk                          d
+Now consider two cases. If n is odd, then X is of type (C), and Y is of type (B). Therefore,              checked as above that they will also be of length one.
+| det(A)| = | det(X)| is a perfect square. If n is even, then X is of type (B), and Y is of type (C);         Let now S be an infinite set. Pick an infinite sequence T = {x1 , x2 , . . . , xn , . . .} of distinct points
+hence | det(A)| = | det(Y )| is a perfect square.                                                         in S. We claim that the sequence
+    The set of primes can be replaced by any subset of {2} ∪ {3, 5, 7, 9, 11, . . . }.
+                                                                                                                                                            1
+                                                                                                                                                     yn =     (x1 + x2 + · · · + xn )
+                                                                                                                                                            n
+
+                                                   2                                                                                                                3
+

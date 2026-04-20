@@ -1,0 +1,286 @@
+                                      IMC 2021 Online
+                                  First Day, August 3, 2021
+                                              Solutions
+
+
+Problem 1. Let A be a real n × n matrix such that A3 = 0.
+  (a) Prove that there is a unique real n × n matrix X that satisfies the equation
+
+                                          X + AX + XA2 = A.
+
+   (b) Express X in terms of A.
+                            (proposed by Bekhzod Kurbonboev, Institute of Mathematics, Tashkent)
+
+Hint: (a) Multiply the equation by some power of A from left and another power of A from right.
+  (b) Substitute repeatedly X = A − AX − XA2 .
+
+Solution 1. First suppose that some matrix X satisfies the equation. We can obtain new equations
+if we multiply the given equation by some power of A from left and another power of A from right.
+For example,
+
+                 A2 (X + AX + XA2 )A2 = A2 XA2 + A3 ⋅ XA2 + A2 XA ⋅ A3 = A2 XA2 .
+
+The right-hand side is A2 ⋅ A ⋅ A2 = A3 ⋅ A2 = 0, so
+
+                       A2 XA2 = A2 (X + AX + XA2 )A2 = A5 = 0.    Similarly,
+                          A X = A (X + AX + XA ) = A = 0
+                           2      2            2       3
+
+                        AXA = A(X + AX + XA2 )A = A3 = 0
+                          XA2 = (X + AX + XA2 )A2 = A3 = 0
+                           AX = A(X + AX + XA2 )A = A2 .     Finally
+                             X = A − AX − XA = A − A .
+                                            2        2
+
+
+   Hence, no matrix other than A − A2 can satisfy the equation.
+   Note that the argument above does not prove that the matrix X = A − A2 satisfies the equation,
+because the steps cannot be done in reverse order. That must be verified separately. Indeed,
+
+                 X + AX + XA2 = (A − A2 ) + A(A − A2 ) + (A − A2 )A2 = A − A4 = A.
+
+   Hence, X = A − A2 is the unique solution of the equation.
+Remark. By multiplying the equation by An from left and by Ak from right we can get 9 different equations:
+
+                      X + AX + XA2 = A    XA + AXA = A2 XA2 + AXA2 = 0
+                    AX + A X + AXA = A AXA + A XA = 0 AXA2 + A2 XA2 = 0
+                          2         2   2        2
+
+                      A2 X + A2 XA2 = 0     A2 XA = 0     A2 XA2 = 0
+
+These formulas provide a system of linear equations for the nine matrices X, AX, A2 X, XA, AXA, A2 XA,
+XA2 , AXA2 and A2 XA2 .
+
+
+
+
+                                                       1
+Solution 2. We use a different approach to express X in terms of A. If some matrix X satisfies
+the equation then
+                                    X = A − AX − XA2 .
+Let us substitute this identity in the right-hand side repeatedly until X cancels out everywhere.
+Notice that by the condition A3 = 0 we have A3 = A4 = A5 = A3 X = XA4 = AXA4 = A3 XA2 = 0, so
+
+                   X = A − AX − XA2
+                     = A − A(A − AX − XA2 ) − (A − AX − XA2 )A2
+                     = A − (A2 − A2 X − AXA2 ) − (A3 − AXA2 − XA4 )
+                     = A − A2 + A2 X + 2AXA2
+                     = A − A2 + A2 (A − AX − XA2 ) + 2A(A − AX − XA2 )A2
+                     = A − A2 + (A3 − A3 X − A2 XA2 ) + 2(A4 − A2 XA2 − AXA4 )
+                     = A − A2 − 3A2 XA2
+                     = A − A2 − 3A2 (A − AX − XA2 )A2
+                     = A − A2 − 3(A5 − A3 XA2 − A2 XA4 )
+                     = A − A2 .
+
+   To complete the solution, we have to verify that X = A − A2 is indeed a solution. This step is the
+same as in Solution 1.
+
+Solution 3. Let B = I − A + A2 so that B is the inverse of I + A. Multiplying by B from the left,
+the equation is equivalent to
+                                      X + BXA2 = BA.                                         (1)
+Now assume X satisfies the equation. Multiplying by A2 from the right and using A3 = 0 we get
+XA2 = 0. Hence the equation simplifies to X = BA = A − A2 .
+  On the other hand, X = BA obviously satisfies (1).
+
+Problem 2. Let n and k be fixed positive integers, and let a be an arbitrary non-negative integer.
+Choose a random k-element subset X of {1, 2, . . . , k + a} uniformly (i.e., all k-element subsets are
+chosen with the same probability) and, independently of X, choose a random n-element subset Y of
+{1, . . . , k + n + a} uniformly.
+    Prove that the probability
+                                      P( min(Y ) > max(X))
+does not depend on a.
+                                        (proposed by Fedor Petrov, St. Petersburg State University)
+
+Hint: The sets X and Y with min(Y ) > max(X) are uniquely determined by X ∪ Y .
+
+Solution 1. The number of choices for (X, Y ) is (k+a k
+                                                        ) ⋅ (n+k+a
+                                                               n
+                                                                  ).
+   The number of such choices with min(Y ) > max(X) is equal to (n+k+an+k
+                                                                          ) since this is the number of
+choices for the n + k-element set X ∪ Y and this union together with the condition min(Y ) > max(X)
+determines X and Y uniquely (note in particular that no elements of X will be larger than k + a).
+Hence the probability is
+                                            (n+k+a)         1
+                                              n+k
+                                                       = n+k
+                                         ( k )⋅( n ) ( k )
+                                          k+a   n+k+a
+
+
+where the identity can be seen by expanding the binomial coefficients on both sides into factorials
+and canceling.
+
+                                                  2
+   Since the right hand side is independent of a, the claim follows.
+
+Solution 2. Let f be the increasing bijection from {1, 2, . . . , k + a} to {1, . . . , k + a + n} ∖ Y . Note
+that min(Y ) > max(X) if and only if min(Y ) > max(f (X)).
+   Note that
+                       {Zn ∶= Y, Zk ∶= f (X), Za ∶= f ({1, 2, . . . , k + a} ∖ X)}
+is a random partition of
+                                      {1, . . . , n + k + a} = Zn ⊔ Zk ⊔ Za
+into an n-subset, k-subset, and a-subset.
+    If an a-subset Za is fixed, the conditional probability that min(Zk ) > max(Zn ) always equals
+1/( k ). Therefore the total probability also equals 1/(n+k
+   n+k
+                                                         k
+                                                            ).
+
+Problem 3. We say that a positive real number d is good if there exists an infinite sequence
+a1 , a2 , a3 , . . . ∈ (0, d) such that for each n, the points a1 , . . . , an partition the interval [0, d] into
+segments of length at most 1/n each. Find
+
+                                                  sup {d ∣ d is good}.
+
+                                                                                    (proposed by Josef Tkadlec)
+
+Hint: To get an upper bound, use that some of the gaps after n steps are still intact some steps
+later.
+
+Solution. Let d⋆ = sup{d ∣ d is good}. We will show that d⋆ = ln(2) ≐ 0.693.
+
+   1. d⋆ ≤ ln 2:
+      Assume that some d is good and let a1 , a2 , . . . be the witness sequence.
+      Fix an integer n. By assumption, the prefix a1 , . . . , an of the sequence splits the interval [0, d]
+      into n + 1 parts, each of length at most 1/n.
+      Let 0 ≤ `1 ≤ `2 ≤ ⋅ ⋅ ⋅ ≤ `n+1 be the lengths of these parts. Now for each k = 1, . . . , n after placing
+      the next k terms an+1 , . . . , an+k , at least n + 1 − k of these initial parts remain intact. Hence
+      `n+1−k ≤ n+k
+                1
+                   . Hence
+                                                              1   1           1
+                                       d = `1 + ⋅ ⋅ ⋅ + `n+1 ≤ +     + ⋅⋅⋅ + .                              (2)
+                                                              n n+1          2n
+      As n → ∞, the RHS tends to ln(2) showing that d ≤ ln(2).
+      Hence d⋆ ≤ ln 2 as desired.
+
+   2. d⋆ ≥ ln 2:
+      Observe that
+                                              n                               n
+                                                                                          1
+                      ln 2 = ln 2n − ln n = ∑ ln(n + i) − ln(n + i − 1) = ∑ ln (1 +           ).
+                                           i=1                                i=1       n+i−1
+
+      Interpreting the summands as lengths, we think of the sum as the lengths of a partition of the
+      segment [0, ln 2] in n parts. Moreover, the maximal length of the parts is ln(1 + 1/n) < 1/n.
+      Changing n to n + 1 in the sum keeps the values of the sum, removes the summand ln(1 + 1/n),
+      and adds two summands
+                                               1               1               1
+                                    ln (1 +      ) + ln (1 +        ) = ln (1 + ) .
+                                              2n             2n + 1            n
+
+                                                           3
+      This transformation may be realized by adding one partition point in the segment of length
+      ln(1 + 1/n).
+      In total, we obtain a scheme to add partition points one by one, all the time keeping the
+      assumption that once we have n − 1 partition points and n partition segments, all the partition
+      segments are smaller than 1/n.
+      The first terms of the constructed sequence will be a1 = ln 23 , a2 = ln 54 , a3 = ln 47 , a4 = ln 98 , . . . .
+
+Remark. This remark describes in fact the same solution from a different view and some ideas behind it.
+It could be erased after marking is finished. Estimate (2) is quite natural. To prove that RHS tends to ln 2
+we use some integral estimates by
+                                           2n+1 1
+                                        ∫         dx = ln(2n + 1) − ln n.
+                                         n      x
+Here we can observe that
+                                                    2n 1
+                                                ∫        dx = ln 2
+                                                  n    x
+is independent of n. This can help us with the construction since the above equality means
+                                        n+1 1            2n+1 1                 2n+2 1
+                              I1 = ∫            dx = ∫             dx + ∫dx = I2 + I3 ,
+                                    n     x       2n    x         2n+1 x
+so, interval of length I1 can be splitted into two intervals of lengths I2 and I3 . In fact, after placing the point
+an in the construction for d = ln 2, the lengths of the n + 1 intervals are
+                                                n+2 1         n+3 1                  2n+2 1
+                                          ∫             ,∫             , ..., ∫
+                                              n+1   x        n+2   x            2n+1     x
+with total length
+                                                              2n+2 1
+                                                    d=∫                    = ln 2.
+                                                             n+1       x
+Problem 4. Let f ∶ R → R be a function. Suppose that for every ε > 0, there exists a function
+g ∶ R → (0, ∞) such that for every pair (x, y) of real numbers,
+                          if ∣x − y∣ < min {g(x), g(y)},                   then ∣f (x) − f (y)∣ < ε.
+Prove that f is the pointwise limit of a sequence of continuous R → R functions, i.e., there is a
+sequence h1 , h2 , . . . of continuous R → R functions such that lim hn (x) = f (x) for every x ∈ R.
+                                                                                      n→∞
+                              (proposed by Camille Mau, Nanyang Technological University, Singapore)
+Hint: Start from a segment in place of R and use its compactness. Or recall the cool things called
+“the Lebesgue characterization theorem” and “the Baire characterization theorem”.
+Solution 1. Since g depends also on ε, let us use the notation g(x, ε). Considering only ε = 1/n for
+positive integer n will suffice to reach our conclusions, hence we may use min{g(x, 1/m) ∣ m ≤ n} in
+place of g(x, 1/n) and thus assume g(x, ε) decreasing in ε.
+     For any x ∈ R, choose δn (x) = min{1/n, g(x, 1/n)}. Of the δn (x)-neighborhoods of all x select
+(using local compactness of the reals) an inclusion-minimal locally finite covering {Ui }. From its
+inclusion-minimality it follows that we may enumerate Ui with i ∈ Z so that Ui ∩ Uj ≠ ∅ only when
+∣i − j∣ ≤ 1 and the enumeration goes from left to right on the real line. For an assumed n, let xi be
+the center of Ui and δi = δn (xi ), so that Ui = (xi − δi , xi + δi ) and δi < 1/n for all i.
+     Now define a continuous fn ∶ R → R so that it equals f (xi ) in Ui ∖ (Ui−1 ∪ Ui+1 ), and so that fn
+changes continuously between f (xi−1 ) and f (xi ) in the intersection Ui−1 ∩ Ui .
+     Now we show that fn → f pointwise. Fix a point x and ε = 1/m > 0, and choose
+                                                n > max {1/g(x, ε), m} .
+Examine the construction of fn for any such n. Observe that g(x, ε) > 1/n > δi and 1/n < 1/m. There
+are two cases:
+
+                                                                   4
+   • x belongs to the unique Ui . Then using the monotonicity of g(x, ε) in ε we have
+                                                    1
+                        ∣xi − x∣ < δi ≤ min {g (xi , ) , g (x, ε)} ≤ min {g(xi , ε), g(x, ε)} .
+                                                    n
+      Hence
+                                        ∣f (x) − fn (x)∣ = ∣f (x) − f (xi )∣ < ε.
+
+   • x belongs to Ui−1 ∩ Ui . Similar to the previous case,
+
+                                       ∣f (x) − f (xi−1 )∣, ∣f (x) − f (xi )∣ < ε.
+
+      Since fn (x) is between fn (xi−1 ) = f (xi−1 ) and fn (xi ) = f (xi ) by construction, we have
+
+                                                 ∣f (x) − fn (x)∣ < ε.
+
+We have that ∣f (x) − fn (x)∣ < ε holds for sufficiently large n, which proves the pointwise convergence.
+
+Solution 2. This solution uses the Baire characterization theorem: A function f ∶ R → R is a
+pointwise limit of continuous functions if and only if its restriction to every non-empty closed subset
+of R has a point of continuity.
+    Assume the contrary in view of the above theorem: A ⊆ R is a non-empty closed set and f has
+no point of continuity in A. Let’s think that f is defined only on A.
+    Then for all x ∈ A there exist rationals p < q for which lim supx f > q, lim inf x f < p. Apply the
+Baire category theorem: If a complete metric space A is a countable union of sets then some of the
+sets is dense in a positive radius metric ball of A. It follows that there exist p and q, which serve for
+a subset B ⊂ A which is dense on a certain ball (in the induced metric of the real line) A1 ⊂ A. It
+yields that both sets Q = f −1 (q, ∞) and P = f −1 (−∞, p) are dense in A1 .
+    Choose ε = (q − p)/10 and find k for which the set S = {x ∶ g(x) > 1/k} is also dense on a certain
+ball A2 ⊂ A1 . Partition S into subsets where f (x) > (p + q)/2 and f (x) ⩽ (p + q)/2, one of them is
+again dense somewhere in A3 , say the latter.
+    Now take any point y ∈ A3 ∩ Q and a very close (within distance min(1/k, g(y))) to y point x
+with g(x) > 1/k but f (x) ⩽ (p + q)/2. This pair x, y contradicts the property of f from the problem
+statement.
+
+Solution 3. This solution uses the Lebesgue characterization theorem: If f ∶ R → R is a function
+and, for all real c, the sublevel and superlevel sets {x ∣ f (x) ⩾ c}, {x ∣ f (x) ⩽ c} are countable
+intersections of open sets then f is a pointwise limit of continuous functions.
+    Now the solution follows from the formula with a countable intersection of the unions of intervals:
+                                  ∞                1       1              1       1
+               {x ∣ f (x) ⩾ c} = ⋂     ⋃ (y − min { , g (y, )} , y + min { , g (y, )})                 (∗)
+                                 n,k=1 y∈R         k       n              k       n
+                                      f (y)⩾c
+
+
+and the similar formula for {x∶ f (x) ⩽ c}. It remains to prove (∗).
+    The left hand side is obviously contained in the right hand side, just put y = x.
+    To prove the opposite inclusion assume the contrary, that f (x) < c, but x is contained in the
+right hand side. Choose a positive integer n such that f (x) < c − 1/n and k such that g(x, 1/n) > 1/k.
+Then, since x belongs to the right hand side, we see that there exists y such that f (y) ⩾ c and
+                                             1 1                1         1
+                         ∣x − y∣ < min {g (y, ) , } ⩽ min {g (y, ) , g (x, )} ,
+                                             n k                n         n
+which yields f (x) ⩾ f (y) − 1/n ⩾ c − 1/n, a contradiction.
+
+
+                                                        5
+

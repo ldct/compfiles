@@ -1,0 +1,330 @@
+                        IMC 2019, Blagoevgrad, Bulgaria
+
+
+                                         Day 1, July 30, 2019
+
+
+
+
+Problem 1. Evaluate the product
+                                                ∞
+                                                Y (n3 + 3n)2
+                                                                    .
+                                                n=3
+                                                          n6 − 64
+         Proposed by Orif Ibrogimov, ETH Zurich and National University of Uzbekistan and
+        Karen Keryan, Yerevan State University and American University of Armenia, Yerevan
+
+Hint: Telescoping product.
+
+
+Solution. Let
+                                                       (n3 + 3n)2
+                                                an =              .
+                                                        n6 − 64
+     Notice that
+                        (n3 + 3n)2                     n2 (n2 + 3)2
+                an =                  =
+                     (n3 − 8)(n3 + 8)   (n − 2)(n2 + 2n + 4) · (n + 2)(n2 − 2n + 4)
+                       n       n       n2 + 3       n2 + 3
+                   =       ·       ·            ·             .
+                     n − 2 n + 2 (n − 1)2 + 3 (n + 1)2 + 3
+Hence, for N ≥ 3 we have
+          N             N
+                                     !   N
+                                                      !     N
+                                                                              !   N
+                                                                                                        !
+                                                                        2                 2
+          Y             Y    n           Y    n             Y     n +3            Y      n +3
+                an =
+          n=3           n=3
+                            n−2          n=3
+                                             n+2           n=3
+                                                               (n − 1)2 + 3       n=3
+                                                                                      (n + 1)2 + 3
+                     N (N − 1)        3·4         N2 + 3   32 + 3
+                   =           ·                · 2      ·
+                        1·2      (N + 1)(N + 2) 2 + 3 (N + 1)2 + 3
+                     72        N (N − 1)(N 2 + 3)
+                   =    ·                            
+                      7 (N + 1)(N + 2) (N + 1)2 + 3
+                     72          (1 − N1 )(1 + N32 )
+                   =    ·                                   ,
+                      7 (1 + N1 )(1 + N2 ) (1 + N1 )2 + N32
+so
+           ∞                  N
+                                                                                              !
+           Y                  Y                 72         (1 − N1 )(1 + N32 )                        72
+                an = lim            an = lim       ·                                              =      .
+                                                7 (1 + N1 )(1 + N2 ) (1 + N1 )2 + N32
+                                                                                      
+          n=3
+                       N →∞
+                              n=3
+                                         N →∞                                                         7
+
+Problem 2. A four-digit number            Y EAR is called very good if the system
+
+                                          Y x + Ey + Az + Rw = Y
+                                          Rx + Y y + Ez + Aw = E
+                                          Ax + Ry + Y z + Ew = A
+                                          Ex + Ay + Rz + Y w = R
+
+of linear equations in the variables x, y, z and w has at least two solutions. Find all very good
+YEARs in the 21st century.
+    (The 21st century starts in 2001 and ends in 2100.)
+                                           Proposed by Tomá² Bárta, Charles University, Prague
+
+                                                           1
+                                                                          
+                                                             Y   E   A   R
+                                                           R    Y   E   A
+Hint: If the solution of the system is not unique then det                 = 0.
+                                                           A    R   Y   E
+                                                             E   A   R   Y
+
+Solution. Let us apply row transformations to the augmented matrix of the system to nd its
+rank. First we add the second, third and fourth row to the rst one and divide by Y +E +A+R
+to get                                                                     
+                  1 1 1 1 1               1     1        1        1       1
+                R Y E A E  0 Y − R E − R A − R E − R
+                A R Y E A ∼ 0 R − A Y − A E − A
+                                                                           
+                                                                          0 
+                  E A R Y R               0 A−E R−E Y −E R−E
+                                                                           
+                      1         1             1            1            1
+                    0       Y −R          E−R          A−R           E − R
+                 ∼                                                         
+                    0       R−A           Y −A         E−A             0 
+                      0 A−E+Y −R              0    Y −E+A−R             0
+Let us rst omit the last column and look at the remaining 4 × 4 matrix. If E 6= R, the rst
+and second rows are linearly independent, so the rank of the matrix is at least 2 and rank of
+the augmented 4 × 5 matrix cannot be bigger than rank of the 4 × 4 matrix due to the zeros in
+the last column.
+   IF E = R, then we have three zeros in the last column, so rank of the 4×5 matrix cannot be
+bigger than rank of the 4 × 4 matrix. So, the original system has always at least one solution.
+   It follows that the system has more than one solution if and only if the 4 × 4 matrix (with
+the last column omitted) is singular. Let us rst assume that E 6= R. We apply one more
+transform to get
+                                                                                          
+      1                    1                      1                      1
+    0                  Y −R                   E−R                    A−R                  
+  ∼0 (R − A)(E − R) − (Y − R)(Y − A)
+                                                                                           
+                                                  0     (E − A)(E − R) − (A − R)(Y − A)
+      0             A−E+Y −R                      0              Y −E+A−R
+
+Obviously, this matrix is singular if and only if A − E + Y − R = 0 or the two expressions in
+the third row are equal, i.e.
+
+RE − R2 − AE + AR − Y 2 + RY + AY − AR = E 2 − AE − ER + AR − AY + RY + A2 − AR
+
+                                  0 = (E − R)2 + (A − Y )2 ,
+but this is impossible if E 6= R. If E = R, we have
+                                                                    
+             1       1            1         1           1  1   1   1
+           0      Y −R           0       A−R     ∼ 0 Y − R
+                                                              0 A − R
+        ∼                                                             .
+           0      R−A         Y −A       R − A  0 R − A Y − A R − A 
+             0 A + Y − 2R         0    Y + A − 2R       0 A−R  0 Y −R
+
+If A = Y , this matrix is singular. If A 6= Y , the matrix is regular if and only if (Y − R)2 6=
+(A − R)2 and since Y 6= A, it means that Y − R 6= −(A − R), i.e. Y + A 6= 2R. We conclude
+that YEAR is very good if and only if
+     1. E 6= R and A + Y = E + R, or
+     2. E = R and Y = A, or
+     3. E = R, A 6= Y and Y + A = 2R.
+
+
+                                               2
+   We can see that if Y = 2, E = 0, then the very good years satisfying 1 are A+2 = R 6= 0, i.e.
+2002, 2013, 2024, 2035, 2046, 2057, 2068, 2079, condition 2 is satised for 2020 and condition 3
+never satised.
+
+Problem 3. Let     f : (−1, 1) → R be a twice dierentiable function such that
+
+                               2f 0 (x) + xf 00 (x) ≥ 1 for x ∈ (−1, 1).
+
+Prove that                                  Z 1
+                                                           1
+                                                xf (x) dx ≥ .
+                                             −1            3
+          Proposed by Orif Ibrogimov, ETH Zurich and National University of Uzbekistan and
+           Karim Rakhimov, Scuola Normale Superiore and National University of Uzbekistan
+
+Hint:   2f 0 (x) + xf 00 (x) is the second derivative of a certain function.
+
+Solution. Let
+                                                                 x2
+                                          g(x) = xf (x) −           .
+                                                                 2
+Notice that
+                                  g 00 (x) = 2f 0 (x) + xf 00 (x) − 1 ≥ 0,
+so g is convex. Estimate g by its tangent at 0: let g 0 (0) = a, then
+
+                                      g(x) = g(0) + g 0 (0)x = ax
+
+and therefore
+                  Z 1                Z 1                         Z 1
+                                             x2                               x2      1
+                       xf (x) dx =    g(x) +      dx ≥                    ax +      dx = .
+                    −1             −1        2                         −1      2        3
+
+Problem 4. Dene the sequence         a0 , a1 , . . . of numbers by the following recurrence:
+
+                a0 = 1,    a1 = 2,    (n + 3)an+2 = (6n + 9)an+1 − nan             for n ≥ 0.
+
+Prove that all terms of this sequence are integers.
+                                          Proposed by Khakimboy Egamberganov, ICTP, Italy
+
+Hint: Determine the generating function       an x n .
+                                           P
+
+Solution. Take the generating function of this sequence
+
+                                                      ∞
+                                                      X
+                                            f (x) =         an x n .
+                                                      n=0
+
+It is easy to see that the sequence is increasing and
+
+              an+1   (6n + 3)an − (n − 1)an−1   6n + 3                                  an+1
+                   =                          <                          ⇒    lim sup        ≤ 6.
+               an           (n + 2)an            n+2                           n→∞       an
+So the generating function converges in some neighbourhood of 0. Then, we have
+               ∞                ∞                      ∞                    ∞
+             X
+                      n
+                              X
+                                          n+2
+                                                     X    6n + 9       n+2
+                                                                           X     n
+f (x) = 1+2x+     an x = 1+2x+     an+2 x     = 1+2x+            an+1 x −            an xn+2 .
+              n=2              n=0                    n=0
+                                                          n + 3            n=0
+                                                                               n + 3
+
+                                                      3
+                       ∞                                                   ∞
+                       X 6n + 9                                            X        n
+Let f1 (x) =                           an+1 x   n+2
+                                                       and f2 (x) =                     an xn+2 . Then
+                       n=0
+                              n+3                                             n=0
+                                                                                  n + 3
+                   ∞
+                   X                                              ∞
+                                                                  X                                   ∞
+                                                                                                      X
+           0
+(xf1 (x)) =                  (6n+9)an+1 x      n+2
+                                                      = 6x    2
+                                                                        (n+1)an+1 x +3x    n
+                                                                                                            an+1 xn+1 = 6x2 f 0 (x)+3x(f (x)−1)
+                       n=0                                        n=0                                 n=0
+and
+                       ∞
+                       X                             ∞
+                                                     X                                  ∞
+                                                                                        X
+               0
+(xf2 (x)) =                   nan x   n+2
+                                            =x   2
+                                                           (n + 1)an x − xn         2
+                                                                                               an xn = x2 (xf (x))0 − x2 f (x) = x3 f 0 (x).
+                       n=0                           n=0                                 n=0
+Using this relations, we arrive at the following dierential equation for f :
+           (xf (x))0 = 1 + 4x + (xf1 (x))0 − (xf2 (x))0 = 1 + x + (6x2 − x3 )f 0 (x) + 3xf (x)
+or, equivalently,
+                                       (x3 − 6x2 + x)f 0 (x) + (1 − 3x)f (x) − 1 − x = 0.
+So, we need solve this dierential equation in some suciently smaller neighbourhood of 0. We
+know that f (0) = 1 and we need a neighbourhood of 0 such that x2 − 6x + 1 > 0. Then
+                                          1 − 3x                   1+x
+                          f 0 (x) +      2
+                                                    f (x) =      2
+                                    x(x − 6x + 1)             x(x − 6x + 1)
+                                                           x
+for x 6= 0. So the integral multiplier is µ(x) = √                  and
+                                                       2
+                                                      x − 6x + 1
+                                                         x + x2
+                                    (f (x)µ(x))0 =                 3 ,
+                                                   (x2 − 6x + 1) 2
+so                                            √ 2                        √
+                            1−x              1   x − 6x + 1        1 − x − x2 − 6x + 1
+             f (x) =    √                 −                     =                        .
+                       2 x2 − 6x + 1 2                x                      2x
+We found the generating function of (an ) in some neighbourhood
+                                                           √             of 0, which x2 − 6x + 1 > 0.
+                                                 1 − x − x2 − 6x + 1                    √
+So our series uniformly converges to f (x) =                              in |x| < 3 − 2 2.
+                                                             2x
+    Instead of computing the coecients of the Taylor series of f (x) directly, we will nd
+another recurrence relation for (an ). It is easy to see that f (x) satises the quadratic equation
+xt2 − (1 − x)t + 1 = 0. So
+                                    xf (x)2 − (1 − x)f (x) + 1 = 0.
+Then
+    ∞
+                       !2          ∞                 ∞                              ∞ n
+                                                                                                                !                 ∞
+    X                              X                 X                              X X                                           X
+                   n                           n                   n+1                                                  n+1
+x         an x              +1 =            an x −          an x          ⇒                           ak an−k       x         =         (an+1 −an )xn+1
+    n=0                            n=0               n=0                             n=0        k=0                               n=0
+
+and from here, we get
+                                                                                   n
+                                                                                   X
+                                                            an+1 = an +                  ak an−k .
+                                                                                   k=0
+If a0 , a1 , ..., an be integers, then an+1 is also integer. We know that a0 = 1, a1 = 2 are integer
+numbers, so all terms of the sequence (an ) are integers by induction.
+Problem 5.   Determine whether there exist an odd positive integer n and n × n matrices A
+and B with integer entries, that satisfy the following conditions:
+     (1) det(B) = 1;
+     (2) AB = BA;
+     (3) A4 + 4A2 B 2 + 16B 4 = 2019I .
+   (Here I denotes the n × n identity matrix.)
+            Proposed by Orif Ibrogimov, ETH Zurich and National University of Uzbekistan
+
+                                                                               4
+Hint: Consider the determinants modulo      4.
+
+     Remark. The proposed solution was more complicated and involved; during the contest it
+turned out that a signcantly simplied solution exists  which we now provide below.
+
+     Solution 1. We show that there are no such matrices.
+     Notice that A4 + 4A2 B 2 + 16B 4 can factorized as
+
+                  A4 + 4A2 B 2 + 16B 4 = (A2 + 2AB + 4B 2 )(A2 − 2AB + 4B 2 ).
+
+Let C = A2 + 2AB + 4B 2 and D = A2 − 2AB + 4B 2 be the two factors above. Then
+
+          det C · det D = det(CD) = det(A4 + 4A2 B 2 + 16B 4 ) = det(2019I) = 2019n .
+
+   The matrices C, D have integer entries, so their determinants are integers. Moreover, from
+C ≡ D (mod 4) we can see that
+
+                                    det C ≡ det D    (mod 4).
+
+This implies that det C·det D ≡ (det C)2 (mod 4), but this is a contradiction because 2019n ≡ 3
+(mod 4) is a quadratic nonresidue modulo 4.
+
+     Solution 2. Notice that
+
+
+                           A4 ≡ A4 + 4A2 B 2 + 16B 4 = 2019I    mod 4
+
+so
+                       (det A)4 = det A4 ≡ det(2109I) = 2019n    (mod 4).
+But 2019n ≡ 3 is a quadratic nonresidue modulo 4, contradiction.
+
+
+
+
+                                                 5
+

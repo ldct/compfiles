@@ -1,0 +1,261 @@
+                                         8th IMC 2001
+                                        July 19 - July 25
+                                     Prague, Czech Republic
+
+   First day
+
+    Problem 1.
+    Let n be a positive integer. Consider an n×n matrix with entries 1, 2, . . . , n2
+written in order starting top left and moving along each row in turn left–to–
+right. We choose n entries of the matrix such that exactly one entry is chosen
+in each row and each column. What are the possible values of the sum of the
+selected entries?
+
+   Solution. Since there are exactly n rows and n columns, the choice is of
+the form
+                         {(j, σ(j)) : j = 1, . . . , n}
+where σ ∈ Sn is a permutation. Thus the corresponding sum is equal to
+                   n
+                   X                             n
+                                                 X              n
+                                                                X          n
+                                                                           X
+                         n(j − 1) + σ(j) =               nj −         n+         σ(j)
+                   j=1                           j=1            j=1        j=1
+
+             n           n           n
+             X           X           X                    n(n + 1)        n(n2 + 1)
+        =n         j−          n+          j = (n + 1)             − n2 =           ,
+             j=1         j=1         j=1
+                                                             2                2
+
+   which shows that the sum is independent of σ.
+
+   Problem 2.
+   Let r, s, t be positive integers which are pairwise relatively prime. If a and b
+are elements of a commutative multiplicative group with unity element e, and
+                t
+ar = bs = (ab) = e, prove that a = b = e.
+   Does the same conclusion hold if a and b are elements of an arbitrary non-
+commutative group?
+
+   Solution. 1. There exist integers u and v such that us + vt = 1. Since
+ab = ba, we obtain
+                                 v
+          us+vt       us        t          us       us          u
+ab = (ab)       = (ab)     (ab)      = (ab) e = (ab) = aus (bs ) = aus e = aus .
+                                             r                    us
+Therefore, br = ebr = ar br = (ab) = ausr = (ar )                      = e. Since xr + ys = 1 for
+suitable integers x and y,
+
+                                b = bxr+ys = (br )x (bs )y = e.
+
+It follows similarly that a = e as well.
+    2. This is not true. Let a = (123) and b = (34567) be cycles of the permu-
+                                                                     7
+tation group S7 of order 7. Then ab = (1234567) and a3 = b5 = (ab) = e.
+                                                 ∞
+                                                 X  tn
+   Problem 3. Find lim (1 − t)                           , where t % 1 means that t ap-
+                               t%1
+                                              n=1
+                                                  1 + tn
+proaches 1 from below.
+
+                                                     1
+     Solution.
+                              ∞                                    ∞
+                              X    tn           1−t               X     tn
+               lim (1 − t)            n
+                                        =  lim         · (− ln t)            =
+           t→1−0
+                              n=1
+                                  1+t     t→1−0 − ln t
+                                                                  n=1
+                                                                      1 + tn
+
+
+                       ∞                           ∞             Z ∞
+                       X        1                 X      1             dx
+     = lim (− ln t)              −n ln t
+                                         =  lim h           nh
+                                                               =            = ln 2.
+       t→1−0
+                       n=1
+                           1 + e           h→+0
+                                                  n=1
+                                                      1 + e       0  1 + ex
+
+
+   Problem 4.
+   Let k be a positive integer. Let p(x) be a polynomial of degree n each of
+whose coefficients is −1, 1 or 0, and which is divisible by (x − 1)k . Let q be a
+prime such that lnq q < ln(n+1)
+                           k
+                                . Prove that the complex qth roots of unity are
+roots of the polynomial p(x).
+
+     Solution. Let p(x) = (x−1)k ·r(x) and εj = e2πi·j/q (j = 1, 2, . . . , q −1). As
+is well-known, the polynomial xq−1 + xq−2 + . . . + x + 1 = (x − ε1 ) . . . (x − εq−1 )
+is irreducible, thus all ε1 , . . . , εq−1 are roots of r(x), or none of them.
+                                                                         Qq−1
+     Suppose that none of ε1 , . . . , εq−1 is a root of r(x). Then j=1 r(εj ) is a
+rational integer, which is not 0 and
+                                   q−1
+                                   Y                   q−1
+                                                       Y                     q−1
+                                                                             Y
+                (n + 1)q−1 ≥                p(εj ) =         (1 − εj )k ·          r(εj ) ≥
+                                   j=1                 j=1                   j=1
+
+                                       k
+                     q−1
+                     Y
+                ≥          (1 − εj )       = (1q−1 + 1q−2 + . . . + 11 + 1)k = q k .
+                     j=1
+
+This contradicts the condition lnq q < ln(n+1)
+                                          k
+                                               .
+
+   Problem 5.
+   Let A be an n × n complex matrix such that A 6= λI for all λ ∈ C. Prove
+that A is similar to a matrix having at most one non-zero entry on the main
+diagonal.
+
+    Solution. The statement will be proved by induction
+                                                          onn. For n = 1,
+                                                        a b
+there is nothing to do. In the case n = 2, write A =          . If b 6= 0, and
+                                                        c d
+c 6= 0 or b = c = 0 then A is similar to
+                                                           
+               1 0       a b          1  0            0      b
+                                             =
+              a/b 1      c d        −a/b 1        c − ad/b a + d
+or                                                                                
+                    1 −a/c             a     b        1 a/c                0 b − ad/c
+                                                                   =                         ,
+                    0  1               c     d        0 1                  c   a+d
+respectively. If b = c = 0 and a 6= d, then A is similar to
+                                                       
+                   1 1       a 0        1 −1          a d−a
+                                                 =              ,
+                   0 1       0 d        0 1           0     d
+
+                                                       2
+and we can perform the step seen in the case b 6= 0 again.
+                                                                          0
+   Assume
+      0 now      that n > 3 and the problem has been solved for all n < n. Let
+       A ∗
+A=                 , where A0 is (n − 1) × (n − 1) matrix. Clearly we may assume
+        ∗ β n
+                                                                           
+                                                                        0 ∗
+that A0 6= λ0 I, so the induction provides a P with, say, P −1 A0 P =           .
+                                                                        ∗ α n−1
+But then the matrix
+                   −1        0                  −1 0             
+                    P      0     A ∗         P 0          P AP ∗
+           B=                                        =
+                      0    1      ∗ β        0 1               ∗      β
+is similar to A and   its diagonal
+                                     is (0, 0, . . . , 0, α, β). On the other hand, we may
+                       0 ∗
+also view B as                   , where C is an (n − 1) × (n − 1) matrix with diagonal
+                       ∗ C n
+(0, . . . , 0, α, β). If the inductive
+                                       hypothesis is applicable to C, we would have
+  −1                              0 ∗
+Q CQ = D, with D =                             so that finally the matrix
+                                  ∗ γ n−1
+                                                                                            
+          1  0                  1 0                1  0             0 ∗        1 0               0 ∗
+E=                    ·B·                 =                                              =
+          0 Q−1                 0 Q                0 Q−1            ∗ C        0 Q               ∗ D
+
+  is similar to A and its diagonal is (0, 0, . . . , 0, γ), as required.
+  The inductive argument can fail only when n − 1 = 2 and the resulting
+matrix applying P has the form
+                                                        
+                                          0 a b
+                           P −1 AP =  c d 0 
+                                          e 0 d
+
+where d 6= 0. The numbers a, b, c, e cannot be 0 at the same time. If, say,
+b 6= 0, A is similar to
+                                                             
+        1 0 0         0 a b     1 0 0               −b     a    b
+     0 1 0  c d 0  0 1 0  =                   c     d    0 .
+        1 0 1         e 0 d    −1 0 1            e−b−d a b+d
+
+Performing half of the induction step again, the diagonal of the resulting matrix
+will be (0, d − b, d + b) (the trace is the same) and the induction step can be
+finished. The cases a 6= 0, c 6= 0 and e 6= 0 are similar.
+
+   Problem 6.
+   Suppose that the differentiable functions a, b, f, g : R → R satisfy
+
+               f (x) ≥ 0, f 0 (x) ≥ 0, g(x) > 0, g 0 (x) > 0 for all x ∈ R,
+
+      lim a(x) = A > 0,           lim b(x) = B > 0,                 lim f (x) = lim g(x) = ∞,
+      x→∞                        x→∞                             x→∞           x→∞
+
+and
+                                  f 0 (x)        f (x)
+                                          + a(x)       = b(x).
+                                  g 0 (x)        g(x)
+Prove that
+                                                  f (x)        B
+                                      lim                 =       .
+                                      x→∞ g(x)                A+1
+
+                                                      3
+    Solution. Let 0 < ε < A be an arbitrary real number. If x is sufficiently
+large then f (x) > 0, g(x) > 0, |a(x) − A| < ε, |b(x) − B| < ε and
+
+
+                             f 0 (x)        f (x)   f 0 (x)           f (x)
+(1)        B − ε < b(x) =            + a(x)       <         + (A + ε)       <
+                             g 0 (x)        g(x)    g 0 (x)           g(x)
+                                      A                   A−1 0
+           (A + ε)(A + 1) f 0 (x) g(x) + A · f (x) · g(x)      · g (x)
+         <               ·                         A                  =
+                 A                   (A + 1) · g(x) · g 0 (x)
+                                                     A 0
+                       (A + ε)(A + 1)   f (x) · g(x)
+                     =                ·         A+1 0 ,
+                             A              g(x)
+
+thus
+                                       A 0
+                          f (x) · g(x)         A(B − ε)
+(2)                               A+1 0 > (A + ε)(A + 1) .
+                              g(x)
+
+    It can be similarly obtained that, for sufficiently large x,
+                                      A 0
+                         f (x) · g(x)           A(B + ε)
+(3)                              A+1 0 < (A − ε)(A + 1) .
+                             g(x)
+
+      From ε → 0, we have
+                                                  A 0
+                                     f (x) · g(x)        B
+                           lim               A+1 0 = A + 1 .
+                          x→∞
+                                         g(x)
+
+By l’Hospital’s rule this implies
+                                                 A
+                        f (x)       f (x) · g(x)      B
+                    lim       = lim          A+1 =      .
+                   x→∞ g(x)    x→∞                  A +1
+                                        g(x)
+
+
+
+
+                                              4
+

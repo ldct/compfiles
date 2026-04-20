@@ -1,0 +1,225 @@
+                  IMC 2014, Blagoevgrad, Bulgaria
+
+
+                              Day 1, July 31, 2014
+
+
+
+
+Problem 1.   Determine all pairs (a, b) of real numbers for whi h there exists a unique
+symmetri 2 × 2 matrix M with real entries satisfying trace(M) = a and det(M) = b.
+                              (Proposed by Stephan Wagner, Stellenbos h University)
+Solution 1.   Let the matrix be              
+                                         x z
+                                      M=       .
+                                         z y
+The two onditions give us x + y = a and xy − z 2 = b. Sin e this is symmetri in x and
+y , the matrix an only be unique if x = y . Hen e 2x = a and x2 − z 2 = b. Moreover,
+if (x, y, z) solves the system of equations, so does (x, y, −z). So M an only be unique if
+z = 0. This means that 2x = a and x2 = b, so a2 = 4b.
+     If this is the ase, then M is indeed unique: if x + y = a and xy − z 2 = b, then
+
+                  (x − y)2 + 4z 2 = (x + y)2 + 4z 2 − 4xy = a2 − 4b = 0,
+
+so we must have x = y and z = 0, meaning that
+                                                      
+                                       a/2 0
+                                    M=
+                                        0 a/2
+
+is the only solution.
+Solution 2. Note that trace(M) = a and det(M) = b if and only if the two eigenvalues
+λ1 and λ2 of M are solutions of x2 − ax + b = 0. If λ1 6= λ2 , then
+                                                                
+                            λ1 0                           λ 0
+                      M1 =                    and     M2 = 2
+                             0 λ2                          0 λ1
+
+are two distin t solutions, ontradi ting uniqueness. Thus λ1 = λ2 = λ = a/2, whi h
+implies a2 = 4b on e again. In this ase, we use the fa t that M has to be diagonalisable
+as it is assumed to be symmetri . Thus there exists a matrix T su h that
+                                                     
+                                         −1      λ 0
+                                  M =T        ·         · T,
+                                                  0 λ
+
+however this redu es to M = λ(T −1 · I · T ) = λI , whi h shows again that M is unique.
+Problem 2.     Consider the following sequen e
+                    (an )∞
+                         n=1 = (1, 1, 2, 1, 2, 3, 1, 2, 3, 4, 1, 2, 3, 4, 5, 1, . . . ).
+                                                                               n
+                                                                               P
+                                                                                       ak
+Find all pairs (α, β) of positive real numbers su h that          = β.  lim k=1
+                                                                       n→∞ nα
+                                   (Proposed by Tomas Barta, Charles University, Prague)
+         Let Nn = n+1     (then aNn is the rst appearan e of number n in the sequen e)
+                             
+Solution.
+                       2
+and onsider limit of the subsequen e
+         PNn           Pn                          Pn    k+1
+                                                                       n+2
+                                                                                 1 3
+            k=1 ak       k=1 1 + · · · + k           k=1                            n (1 + 2/n)(1 + 1/n)
+bNn :=             =         n+1 α
+                                           =             2
+                                                      n+1 α
+                                                                 =     n+1
+                                                                          3
+                                                                              α = 6
+                                                                                                         .
+            Nnα                                                                    (1/2)α n2α (1 + 1/n)α
+                                                                           
+                                 2                     2                 2
+
+We an see that lim bNn is positive and nite if and only if α = 3/2. In this ase the
+                  n→∞√                                         √
+limit is equal to β = 32 . So, this pair (α, β) = ( 23 , 32 ) is the only andidate for solution.
+We will show onvergen e of the original sequen e for these values of α and β .
+   Let N be a positive integer in [Nn +1, Nn+1 ], i.e., N = Nn +m for some 1 ≤ m ≤ n+1.
+Then we have                                n+2
+                                                     m+1
+                                                           
+                                                      3
+                                                         +    2
+                                            bN =              3/2
+                                                     n+1
+                                                         
+                                                       2
+                                                           + m
+whi h an be estimated by
+                                        n+2                  n+2
+                                                                  + n+1
+                                                                             
+                                         3                    3        2
+                                  n+1
+                                          3/2 ≤ bN ≤          n+1 3/2
+                                                                                  .
+                                   2
+                                         +n                      2
+                                        √
+Sin e both bounds onverge to 32 , the sequen e bN has the same limit and we are done.
+
+
+Problem 3.             Let n be a positive integer. Show that there are positive real numbers
+a0 , a1 , . . . , an su h that for ea h hoi e of signs the polynomial
+
+                                 ±an xn ± an−1 xn−1 ± · · · ± a1 x ± a0
+
+has n distin t real roots.
+                                                   (Proposed by Stephan Neupert, TUM, Mün hen)
+Solution. We pro eed by indu tion on n. The statement is trivial for n = 1. Thus
+assume that we have some an , . . . , a0 whi h satisfy the onditions for some n. Consider
+now the polynomials
+                         P̃ (x) = ±an xn+1 ± an−1 xn ± . . . ± a1 x2 ± a0 x
+
+By indu tion hypothesis and a0 6= 0, ea h of these polynomials has n + 1 distin t zeros,
+in luding the n nonzero roots of ±an xn ± an−1 xn−1 ± . . . ± a1 x ± a0 and 0. In parti ular
+none of the polynomials has a root whi h is a lo al extremum. Hen e we an hoose some
+ε > 0 su h that for ea h su h polynomial P̃ (x) and ea h of its lo al extrema s we have
+|P̃ (s)| > ε. We laim that then ea h of the polynomials
+
+                       P (x) = ±an xn+1 ± an−1 xn ± . . . ± a1 x2 ± a0 x ± ε
+has exa tly n + 1 distin t zeros as well. As P̃ (x) has n + 1 distin t zeros, it admits a
+lo al extremum at n points. Call these lo al extrema −∞ = s0 < s1 < s2 < . . . < sn <
+sn+1 = ∞. Then for ea h i ∈ {0, 1, . . . , n} the values P̃ (si ) and P̃ (si+1 ) have opposite
+signs (with the obvious onvention at innity). By hoi e of ε the same holds true for
+P (si ) and P (si+1 ). Hen e there is at least one real zero of P (x) in ea h interval (si , si+1 ),
+i.e. P (x) has at least (and therefore exa tly) n+ 1 zeros. This shows that we have found a
+set of positive reals a′n+1 = an , a′n = an−1 , . . . , a′1 = a0 , a′0 = ε with the desired properties.
+
+
+Problem 4.       Let n > 6 be a perfe t number, and let n = pe11 · · · pekk be its prime
+fa torisation with 1 < p1 < . . . < pk . Prove that e1 is an even number.
+    A number n is perfe t if s(n) = 2n, where s(n) is the sum of the divisors of n.
+                          (Proposed by Javier Rodrigo, Universidad Ponti ia Comillas)
+Solution.        Suppose that e1Qis odd, ontrary to the statement.
+      We know that s(n) = ki=1 (1 + pi + p2i + · · · + pei i ) = 2n = 2pe11 · · · pekk . Sin e e1 is
+an odd number, p1 + 1 divides the rst fa tor 1 + p1 + p21 + · · · + pe11 , so p1 + 1 divides
+2n. Due to p1 + 1 > 2, at least one of the primes p1 , . . . , pk divides p1 + 1. The primes
+p3 , . . . , pk are greater than p1 + 1 and p1 annot divide p1 + 1, so p2 must divide p1 + 1.
+Sin e p1 + 1 < 2p2 , this possible only if p2 = p1 + 1, therefore p1 = 2 and p2 = 3. Hen e,
+6|n.
+      Now n, n2 , n3 , n6 and 1 are distin t divisors of n, so
+                                        n n n
+                          s(n) ≥ n +     + + + 1 = 2n + 1 > 2n,
+                                        2 3 6
+ ontradi tion.
+
+
+Remark. It is well-known that all even perfe t numbers have the form n = 2
+                                                                                     p−1 (2p − 1) su h
+            p
+that p and 2 − 1 are primes.
+                                                                           p
+                                 So if e1 is odd then k = 2, p1 = 2, p2 = 2 − 1, e1 = p − 1 and
+
+e2 = 1. If n > 6 then p > 2 so p is odd and e1 = p − 1 should be even.
+
+
+Problem 5.      Let A1 A2 . . . A3n be a losed broken line onsisting of 3n line segments
+in the Eu lidean plane. Suppose that no three of its verti es are ollinear, and for
+ea h index i = 1, 2, . . . , 3n, the triangle Ai Ai+1 Ai+2 has ounter lo kwise orientation and
+∠Ai Ai+1 Ai+2 = 60◦ , using the notation A3n+1 = A1 and A3n+2 = A2 . Prove that the
+                                                               3
+number of self-interse tions of the broken line is at most n2 − 2n + 1.
+                                                                     2
+                                                           A3
+                                                 A6
+
+
+
+
+                                            A4        A5
+                                       A1                       A2
+
+                                                                         (Proposed by Martin Langer)
+Solution.   Pla e the broken line inside an equilateral triangle T su h that their sides are
+parallel to the segments of the broken line. For every i = 1, 2, . . . , 3n, denote by xi the
+distan e between the segment Ai Ai+1 and that side of T whi h is parallel to Ai Ai+1 . We
+will use indi es modulo 3n everywhere.
+    It is easy to see that if i ≡ j (mod 3) then the polylines Ai Ai+1 Ai+2 and Aj Aj+1 Aj+2
+interse t at most on e, and this is possible only if either xi < xi+1 and xj > xj+1 or
+xi < xi+1 and xj > xj+1 . Moreover, su h ases over all self-interse tions. So, the number
+of self-interse tions annot ex eed number of pairs (i, j) with the property
+
+(∗) i ≡ j   (mod 3),        and (xi < xi+1 and xj > xj+1 ) or (xi > xi+1 and xj < xj+1 ).
+
+
+
+
+                            Ai+2                                             Aj+2
+
+                     xi+2              xi+1                             Ai+2         xi+1
+                                                                                       xj+1
+                Ai+3                     Ai+4                      Aj
+                                                                                       Aj+1
+                Ai                     Ai+1
+                       xi                                        Ai             xj    Ai+1
+                              xi+3                                      xi
+
+     Grouping the indi es 1, 2, . . . , 3n, by remainders modulo 3, we have n indi es in ea h
+residue lass. Altogether there are 3 n2 index pairs (i, j) with i ≡ j (mod 3). We will
+show that for every integer k with 1 ≤ k < n2 , there is some index i su h that the pair
+(i, i + 6k) does not satisfy (∗). This is already n−1   2
+                                                            pair; this will prove that there are
+at most                                        
+                                        n   n−1  3
+                                   3      −     ≥ n2 − 2n + 1
+                                        2    2   2
+self-interse tions.
+     Without loss of generality we may assume that x3n = x0 is the smallest among
+x1 , . . . , x3n . Suppose that all of the pairs
+
+         (−6k, 0),     (−6k + 1, 1),            (−6k + 2, 2),   ...,    (−1, 6k − 1),         (0, 6k)   (∗∗)
+
+satisfy (∗). Sin e x0 is minimal, we have x−6k > x0 . The pair (−6k, 0) satises (∗), so
+x−6k+1 < x1 . Then we an see that x−6k+2 > x2 , and so on; nally we get x0 > x6k .
+But this ontradi ts the minimality of x0 . Therefore, there is a pair in (**) that does not
+satisfy (∗).
+
+                            n   n−1   3 2        
+Remark. The bound 3
+                            2 −    2   = 2 n − 2n + 1 is sharp.
+

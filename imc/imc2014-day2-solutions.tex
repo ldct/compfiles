@@ -1,0 +1,314 @@
+                   IMC 2014, Blagoevgrad, Bulgaria
+
+
+                                Day 2, August 1, 2014
+
+
+
+
+Problem 1.         For a positive integer x, denote its nth de imal digit by dn(x), i.e. dn (x) ∈
+                           ∞
+{0, 1, . . . , 9} and x =     dn (x)10n−1 . Suppose that for some sequen e an n=1 , there are
+                          P                                                     ∞
+                       n=1
+only nitely many zeros in the sequen e dn(an ) n=1 . Prove that there are innitely many
+                                                           ∞
+
+positive integers that do not o ur in the sequen e (an )∞
+                                                        n=1 .
+                          (Proposed by Alexander Bolbot, State University, Novosibirsk)
+Solution 1.    By the assumption there is some index n0 su h that dn(an ) 6= 1 for n ≥ n0 .
+We show that
+                           an+1 , an+2 , . . . > 10n for n ≥ n0 .                          (1)
+                            ∞
+Noti e that in the sum an =    dk (an )10k−1 we have the term dn (an )10n−1 with dn (an ) ≥ 1.
+                            P
+                               k=1
+Therefore, an ≥ 10n−1 . Then for m > n we have am ≥ 10m > 10n. This proves (1).
+     From (1) we know that only the rst n elements, a1 , a2 , . . . , an may lie in the interval
+[1, 10n ]. Hen e, at least 10n − n integers in this interval do not o ur in the sequen e at
+all. As lim(10n − n) = ∞, this shows that there are innitely many numbers that do not
+appear among a1 , a2 , . . ..
+Solution 2. We will use Cantor's diagonal method to onstru t innitely many positive
+integers that do not o ur in the sequen e (an )
+     Assume that dn(an ) 6= 0 for n > n0 . Dene the sequen e of digits
+                                           (
+                                            2 dn (xn ) = 1
+                                      gn =
+                                            1 dn (xn ) 6= 1.
+
+Hen e gn 6= dn (an ) for every positive integer n. Let
+                                    k
+                                                          for k = 1, 2, . . . .
+                                    X
+                             xk =         gn · 10n−1
+                                    n=1
+
+    As xk+1 ≥ 10k > xk , the sequen e (xk ) is in reasing and so it ontains innitely many
+distin t positive integers. We show that the numbers xn0 , xn0 +1 , xn0 +2 , . . . no not o ur in
+the sequen e (an ); in other words, xk 6= an for every pair n ≥ 1 and k ≥ n0 of integers.
+    Indeed, if k ≥ n then dn (xk ) = gn 6= dn(an ), so xk 6= an .
+    If n > k ≥ n0 then dn (xk ) = 0 6= dn (an ), so xk 6= an .
+
+
+Problem 2.            Let A = (aij )ni,j=1 be a symmetri n × n matrix with real entries, and let
+λ1 , λ2 , . . . , λn denote its eigenvalues. Show that
+                                     X                      X
+                                              aii ajj ≥             λi λj ,
+                                    1≤i<j≤n               1≤i<j≤n
+
+and determine all matri es for whi h equality holds.
+                                     (Proposed by Martin Niepel, Comenius University, Bratislava)
+Solution.   Eigenvalues of a real symmetri matrix are real, hen e the inequality makes
+sense. Similarly, for Hermitian matri es diagonal entries as well as eigenvalues have to be
+real.
+    Sin e the tra e of a matrix is the sum of its eigenvalues, for A we have
+                                                      n
+                                                      X               n
+                                                                      X
+                                                            aii =           λi ,
+                                                      i=1             i=1
+
+and onsequently
+                                  n
+                                  X                X                  n
+                                                                      X               X
+                                        a2ii + 2          aii ajj =         λ2i + 2          λi λj .
+                                  i=1               i<j               i=1              i<j
+
+   Therefore our inequality is equivalent to
+                                                      n
+                                                      X               n
+                                                                      X
+                                                            a2ii ≤          λ2i .
+                                                      i=1             i=1
+
+   Matrix A , whi h is equal to A A (or A A in Hermitian ase), has eigenvalues λ21 , λ22 , . . . , λ2n.
+               2                               T              ∗
+
+On the other hand, the tra e of AT A gives the square of the Frobenius norm of A, so we
+have                n          n                               n
+                                                   |aij |2 = tr(AT A) = tr(A2 ) =
+                            X              X                                                   X
+                                  a2ii ≤                                                               λ2i .
+                            i=1            i,j=1                                                i=1
+
+   The inequality follows, and it is lear that the equality holds for diagonal matri es
+only.
+Remark.    Same statement is true for Hermitian matri es.
+
+
+                           sin x
+Problem 3.         Let f (x) =   , for x > 0, and let n be a positive integer. Prove that
+                             x
+             1
+f (n) (x) <     , where f (n) denotes the nth derivative of f .
+            n+1
+                                    (Proposed by Alexander Bolbot, State University, Novosibirsk)
+Solution 1.       Putting f (0) = 1 we an assume that the fun tion is analyti in R. Let
+g(x) = x n+1       n     1
+               (f (x) − n+1 ). Then g(0) = 0 and
+                                                                              
+                                                                       1
+                       g (x) = (n + 1)x f (n) (x) −
+                        ′                      n
+                                                                                    + xn+1 f (n+1) (x) =
+                                                                      n+1
+                                                             
+= xn (n + 1)f (n) (x) + xf (n+1) (x) − 1 = xn (xf (x))(n+1 − 1 = xn (sin(n+1) (x) − 1) ≤ 0.
+                                        
+
+Hen e g(x) ≤ 0 for x > 0. Taking into a ount that g ′ (x) < 0 for 0 < x < π2 we obtain
+the desired (stri t) inequality for x > 0.
+Solution 2.
+
+                   (n)           Z 1                       Z 1                            Z 1
+                            dn                                     ∂n
+       
+           sin x
+                          = n             − cos(xt)dt =               (− cos(xt)) dt =           tn gn (xt)dt
+             x             dx         0                      0    ∂xn                       0
+
+where the fun tion gn (u) an be ± sin u or ± cos u, depending on n. We only need that
+|gn | ≤ 1 and equality o urs at nitely many points. So,
+                                     (n)       Z 1                    Z 1
+                              sin x                    n                                 1
+                                             ≤         t gn (xt) dt <         tn dt =       .
+                                x                 0                      0              n+1
+
+
+
+Problem 4.     We say that a subset of Rn is k-almost ontained by a hyperplane if there
+are less than k points in that set whi h do not belong to the hyperplane. We all a nite
+set of points k-generi if there is no hyperplane that k-almost ontains the set. For ea h
+pair of positive integers k and n, nd the minimal number d(k, n) su h that every nite
+k -generi set in Rn ontains a k -generi subset with at most d(k, n) elements.
+(Proposed by Sha har Carmeli, Weizmann Inst. and Lev Radzivilovsky, Tel Aviv Univ.)
+                                   (
+                                    k · n k, n > 1
+Solution. The answer is: d(k, n) =
+                                    k + n otherwise
+    Throughout the solution, we shall often say that a hyperplanes skips a point to signify
+that the plane does not ontain that point.
+    For n = 1 the laim is obvious.
+    For k = 1 we have an arbitrary nite set of points in Rn su h that neither hyperplane
+ ontains it entirely. We an build a subset of n + 1 points step by step: on ea h step we
+add a point, not ontained in the minimal plane spanned by the previous points. Thus
+any 1-generi set ontains a non-degenerate simplex of n + 1 points, and obviously a
+non-degenerate simplex of n + 1 points annot be redu ed without loosing 1-generality.
+    In the ase k, n > 1 we shall give an example of k · n points. On ea h of the Cartesian
+axes hoose k distin t points, dierent from the origin. Let's show that this set is k-
+generi . There are two types of planes: ontaining the origin and skipping it. If a plane
+ ontains the origin, it either ontains all the hose points of a axis or skips all of them.
+Sin e no plane ontains all axes, it skips the k hosen points on one of the axes. If a plane
+skips the origin, it it ontains at most one point of ea h axis. Therefore it skips at least
+n(k − 1) points. It remains to verify a simple inequality n(k − 1) ≥ k whi h is equivalent
+to (n − 1)(k − 1) ≥ 1 whi h holds for n, k > 1.
+    The example we have shown is minimal by in lusion: if any point is removed, say a
+point from axis i, then the hyperplane xi = 0 skips only k − 1 points, and our set stops
+being k-generi . Hen e d(k, n) ≥ kn.
+    It remains to prove that Hen e d(k, n) ≥ kn for k, n > 1, meaning: for ea h k-generi
+nite set of points, it is possible to hoose a k-generi subset of at most kn points. Let
+us all a subset of points minimal if by taking out any point, we loose k-generality.
+It su es to prove that any minimal k-generi subset in Rn has at most kn points. A
+hyperplane will be alled ample if it skips pre isely k points. A point annot be removed
+from a k-generi set, if and only if it is skipped by an ample hyperplane. Thus, in a
+minimal set ea h point is skipped by an ample hyperplane.
+    Organise the following pro ess: on ea h step we hoose an ample hyperplane, and paint
+blue all the points whi h are skipped by it. Ea h time we hoose an ample hyperplane,
+whi h skips one of the unpainted points. The unpainted points at ea h step (after the
+beginning) is the interse tion of all hosen hyperplanes. The interse tion set of hosen
+hyperplanes is redu ed with ea h step (sin e at least one point is being painted on ea h
+step).
+    Noti e, that on ea h step we paint at most k points. So if we start with a minimal
+set of more then nk points, we an hoose n planes and still have at least one unpainted
+points. The interse tion of the hosen planes is a point (sin e on ea h step the dimension
+of the interse tion plane was redu ed), so there are at most nk + 1 points in the set. The
+last unpainted point will be denoted by O . The last unpainted line (whi h was formed on
+the step before the last) will be denoted by ℓ1 .
+    This line is an interse tion of all the hosen hyperplanes ex ept the last one. If we
+have more than nk points, then ℓ1 ontains exa tly k + 1 points from the set, one of whi h
+is O .
+    We ould have exe uted the same pro ess with hoosing the same hyperplanes, but in
+dierent order. Anyway, at ea h step we would paint at most k points, and after n steps
+only O would remain unpainted; so it was pre isely k points on ea h step. On step before
+the last, we might get a dierent line, whi h is interse tion of all planes ex ept the last
+one. The lines obtained in this way will be denoted ℓ1 , ℓ2 , ..., ℓn , and ea h ontains exa tly
+k points ex ept O . Sin e we have O and k points on n lines, that is the entire set. Noti e
+that the ve tors spanning these lines are linearly independent (sin e for ea h line we have
+a hyperplane ontaining all the other lines ex ept that line). So by removing O we obtain
+the example that we've des ribed already, whi h is k-generi .
+Remark.     From the proof we see, that the example is unique.
+
+
+Problem 5.            For every positive integer n, denote by Dn the number of permutations
+(x1 , . . . , xn ) of (1, 2, . . . , n) su h that xj 6= j for every 1 ≤ j ≤ n. For 1 ≤ k ≤ n2 , denote
+by ∆(n, k) the number of permutations (x1 , . . . , xn ) of (1, 2, . . . , n) su h that xi = k + i
+for every 1 ≤ i ≤ k and xj 6= j for every 1 ≤ j ≤ n. Prove that
+                                              k−1 
+                                                    k − 1 D(n+1)−(k+i)
+                                              X          
+                                 ∆(n, k) =                                   .
+                                              i=0
+                                                       i      n − (k + i)
+
+         (Proposed by Combinatori s; Ferdowsi University of Mashhad, Iran; Mirzavaziri)
+Solution.     Let ar ∈ {i1 , . . . , ik } ∩ {a1 , . . . , ak }. Thus ar = is for some s 6= r. Now there
+are two ases:
+    Case 1. as ∈ {i1 , . . . , ik }. Let as = it . In this ase a derangement x = (x1 , . . . , xn )
+satises the ondition xij = aj if and only if the derangement x′ = (x′1 , . . . , x′it −1 , x′it +1 , x′n )
+of the set [n] \ {it } satises the ondition x′ij = a′j for all j 6= t, where a′j = aj for j 6= s
+and a′s = at . This provides a one to one orresponden e between the derangements
+x = (x1 , . . . , xn ) of [n] with xij = aj for the given sets {i1 , . . . , ik } and {a1 , . . . , ak } with
+ℓ elements in their interse tions, and the derangements x′ = (x′1 , . . . , x′it −1 , x′it +1 , x′n ) of
+[n] \ {it } with xij = a′j for the given sets {i1 , . . . , ik } \ {it } and {a′1 , . . . , a′k } \ {a′t } with
+ℓ − 1 elements in their interse tions.
+    Case 2. as ∈/ {i1 , . . . , ik }. In this ase a derangement x = (x1 , . . . , xn ) satises the
+ ondition xij = aj if and only if the derangement x′ = (x′1 , . . . , x′as −1 , x′as +1 , x′n ) of the
+set [n] \ {as} satises the ondition x′ij = aj for all j 6= s. This provides a one to one
+ orresponden e between the derangements x = (x1 , . . . , xn ) of [n] with xij = aj for the
+given sets {i1 , . . . , ik } and {a1 , . . . , ak } with ℓ elements in their interse tions, and the
+derangements x′ = (x′1 , . . . , x′as −1 , x′as +1 , x′n ) of [n] \ {as } with xij = aj for the given sets
+{i1 , . . . , ik } \ {is } and {a1 , . . . , ak } \ {as } with ℓ − 1 elements in their interse tions.
+     These onsiderations show that ∆(n, k, ℓ) = ∆(n − 1, k − 1, ℓ − 1). Iterating this
+argument we have
+                                  ∆(n, k, ℓ) = ∆(n − ℓ, k − ℓ, 0).
+We an therefore assume that ℓ = 0. We thus evaluate ∆(n, k, 0), where 2k ⩽ n. For
+k = 0, we obviously have ∆(n, 0, 0) = Dn . For k ⩾ 1, we laim that
+
+                      ∆(n, k, 0) = ∆(n − 1, k − 1, 0) + ∆(n − 2, k − 1, 0).
+
+For a derangement x = (x1 , . . . , xn ) satisfying xij = aj there are two ases: xa1 = i1 or
+xa1 6= i1 .
+    If the rst ase o urs then we have to evaluate the number of derangements of the
+set [n] \ {i1 , a1 } for the given sets {i2 , . . . , ik } and {a2 , . . . , ak } with 0 elements in their
+interse tions. The number is equal to ∆(n − 2, k − 1, 0).
+    If the se ond ase o urs then we have to evaluate the number of derangements of
+the set [n] \ {a1 } for the given sets {i2 , . . . , ik } and {a2 , . . . , ak } with 0 elements in their
+interse tions. The number is equal to ∆(n − 1, k − 1, 0).
+    We now use indu tion on k to show that
+                                    k−1 
+                                          k − 1 D(n+1)−(k+i)
+                                    X          
+                     ∆(n, k, 0) =                                 ,   2 ⩽ 2k ⩽ n.
+                                     i=0
+                                             i      n − (k + i)
+
+For k = 1 we have
+                                                                                       Dn
+            ∆(n, 1, 0) = ∆(n − 1, 0, 0) + ∆(n − 2, 0, 0) = Dn−1 + Dn−2 =                  .
+                                                                                      n−1
+Now let the result be true for k − 1. We an write
+ ∆(n, k, 0) = ∆(n − 1, k − 1, 0) + ∆(n − 2, k − 1, 0)
+              k−2                                       k−2 
+                                 Dn−(k−1+i)                              D(n−1)−(k−1+i)
+                                                                  
+              X     k−2                                  X    k−2
+            =                                         +
+              i=0
+                      i    (n − 1) − (k − 1 + i) i=0            i     (n − 2) − (k − 1 + i)
+              k−2                             k−1 
+                    k − 2 D(n+1)−(k+i) X k − 2                    Dn−(k+i−1)
+              X                                           
+            =                               +
+              i=0
+                      i    n − (k + i)         i=1
+                                                     i − 1 (n − 1) − (k + i − 1)
+                          k−2 
+              D(n+1)−k X k − 2 D(n+1)−(k+i)
+                                       
+            =           +
+                n−k       i=1
+                                   i        n − (k + i)
+                                 k−2 
+                D(n+1)−(2k−1) X k − 2 D(n+1)−(k+i)
+                                                
+              +               +
+                n − (2k − 1)     i=1
+                                         i − 1 n − (k + i)
+                          k−2 
+              D(n+1)−k X  k − 2                  k − 2  D(n+1)−(k+i) D(n+1)−(2k−1)
+                                                     
+            =           +                    +                         +
+                n−k       i=1
+                                     i            i−1      n − (k + i)    n − (2k − 1)
+                          k−2 
+              D(n+1)−k X k − 1 D(n+1)−(k+i) D(n+1)−(2k−1)
+                                       
+            =           +                                 +
+                n−k       i=1
+                                   i        n −  (k + i)    n − (2k − 1)
+              k−1 
+                    k − 1 D(n+1)−(k+i)
+              X          
+            =                              .
+              i=0
+                      i    n  − (k  +  i)
+
+Remark.    As a orollary of the above problem, we an solve the rst problem. Let n = 2k,
+ij = j and aj = k + j for j = 1, . . . , k. Then a derangement x = (x1 , . . . , xn ) satises the
+ ondition xij = aj if and only if x′ = (xk+1 , . . . , xn ) is a permutation of [k]. The number of su h
+permutations x′ is k!. Thus i=0            k−i = k!.
+                             Pk−1 k−1 Dk+1−i
+                                       i
+

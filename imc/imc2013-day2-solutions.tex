@@ -1,0 +1,254 @@
+                                IMC 2013, Blagoevgrad, Bulgaria
+                                             Day 2, August 9, 2013
+
+
+
+Problem 1. Let z be a complex number with |z + 1| > 2. Prove that |z 3 + 1| > 1.
+                                (Proposed by Walther Janous and Gerhard Kirchner, Innsbruck)
+
+Solution. Since z 3 + 1 = (z + 1)(z 2 − z + 1), it suffices to prove that |z 2 − z + 1| ≥ 12 .
+   Assume that z + 1 = reϕi , where r = |z + 1| > 2, and ϕ = arg(z + 1) is some real number. Then
+
+                           z 2 − z + 1 = (reϕi − 1)2 − (reϕi − 1) + 1 = r 2 e2ϕi − 3reϕi + 3,
+
+and
+
+                        |z 2 − z + 1|2 = r 2 e2ϕi − 3reϕi + 3) r 2 e−2ϕi − 3re−ϕi + 3) =
+                                       = r 4 + 9r 2 + 9 − (6r 3 + 18r) cos ϕ + 6r 2 cos 2ϕ =
+                                       = r 4 + 9r 2 + 9 − (6r 3 + 18r) cos ϕ + 6r 2 (2 cos2 ϕ − 1) =
+                                                                2
+                                                         r2 + 3
+                                             
+                                                                      1                    1   1
+                                       = 12 r cos ϕ −               + (r 2 − 3)2 > 0 + = .
+                                                            4         4                    4   4
+This finishes the proof.
+
+
+Problem 2. Let p and q be relatively prime positive integers. Prove that
+                            pq−1
+                                      k  k  (
+                             X         p
+                                          +
+                                            q      0 if pq is even,
+                                 (−1)          =                                                       (∗)
+                             k=0
+                                                   1 if pq is odd.
+
+(Here ⌊x⌋ denotes the integer part of x.)
+                                       (Proposed by Alexander Bolbot, State University, Novosibirsk)
+
+Solution.Suppose
+              k  first that pq is even (which implies that p and q have opposite parities), and let
+          k
+                +
+           p        q
+ak = (−1)          . We show that ak + apq−1−k = 0, so the terms on the left-and side of (∗) cancel out
+in pairs.
+    For every positive integer k we have kp + p−1−k     = p−1
+                                              
+                                                  p         p
+                                                              , hence
+                                               
+    k    pq − 1 − k     k    k     pq − 1 − k     −1 − k      pq − 1 p − 1
+      +              =    −     +             −             =       −      = q−1
+    p        p          p    p         p            p            p     p
+and similarly                                      
+                                       pq − 1 − k       k
+                                                    +     = p − 1.
+                                            q           q
+Since p and q have opposite parities, it follows that kp + kq and pq−1−k
+                                                                      pq−1−k 
+                                                                     p
+                                                                          +     q
+                                                                                      have opposite
+parities and therefore apq−1−k = −ak .
+   Now suppose that pq is odd. For every index k, denote by pk and qk the remainders of k modulo p
+and q, respectively. (I.e., 0 ≤ pk < p and 0 ≤ qk < q such that k ≡ pk (mod p) and k ≡ qk (mod q).)
+   Notice that
+                                    
+                 k        k        k       k
+                     +        ≡p      +q      = (k − pk ) + (k − qk ) ≡ pk + qk (mod 2).
+                 p        q        p       q
+
+                                                             1
+   Since p and q are co-prime, by the Chinese remainder theorem the map k 7→ (pk , qk ) is a bijection
+between the sets {0, 1, . . . , pq − 1} and {0, 1, . . . , p − 1} × {0, 1, . . . , q − 1}. Hence
+       pq−1      k   k  pq−1                  p−1 q−1                   p−1
+                                                                                        !    q−1
+                                                                                                      !
+                     +
+        X                        X                X      X                 X                 X
+           (−1) p       q =          (−1)pk +qk =            (−1)i+j =            (−1)i ·        (−1)j = 1.
+           k=0                        k=0                  i=0 j=0                             i=0               j=0
+
+
+
+
+Problem 3. Suppose that v1 , . . . , vd are unit vectors in Rd . Prove that there exists a unit vector u
+such that                                                  √
+                                             |u · vi | ≤ 1/ d
+for i = 1, 2, . . . , d.
+    (Here · denotes the usual scalar product on Rd .)
+                                                 (Proposed by Tomasz Tkocz, University of Warwick)
+
+Solution. If v1 , . . . , vd are linearly dependent then we can simply take a unit vector u perpendicular to
+span(v1 , . . . , vd ). So assume that v1 , . . . , vd are linearly independent. Let w1 , . . . , wd be the dual basis
+of (v1 , . . . , vd ), i.e.                           (
+                                                        1 if i = j
+                                   wi · vj = δij =                     for 1 ≤ i, j ≤ d.
+                                                        0 if i 6= j
+From wi · vi = 1 we have |wi | ≥ 1.
+   For every sequence ε = (ε1 , . . . , εd ) ∈ {+1, −1}d of signs define uε = di=1 εi wi . Then we have
+                                                                             P
+
+                                      d
+                                      X                          d
+                                                                 X
+                      |uε · vk | =          εi (wi · vk ) =              εi δik = |εk | = 1 for k = 1, . . . , d.
+                                      i=1                        i=1
+
+   Now estimate the average of |uε |2 .
+                                                   d
+                                                                 !           d
+                                                                                           !
+     1       X               1          X          X                         X
+                    |uε |2 = d                           εi wi       ·             εj wj       =
+     2d           n
+                            2
+          ε∈{+1,−1}                  ε∈{+1,−1}n    i=1                       j=1
+                                                                                     
+                              d X
+                                d                                                              d X
+                                                                                                 d                         d
+                              X                   1               X                            X                           X
+                           =         (wi · wj )  d                            εi εj  =                 (wi · wj )δij =         |wi |2 ≥ d.
+                                                 2
+                             i=1 j=1                        ε∈{+1,−1}n                         i=1 j=1                     i=1
+
+                                                                                                             uε
+It follows that there is a ε such that |uε |2 ≥ d. For that ε the vector u =                                      satisfies the conditions.
+                                                                                                            |uε |
+
+
+Problem 4. Does there exist an infinite set M consisting of positive integers such that for any
+a, b ∈ M, with a < b, the sum a + b is square-free?
+    (A positive integer is called square-free if no perfect square greater than 1 divides it.)
+                                            (Proposed by Fedor Petrov, St. Petersburg State University)
+
+Solution. The answer is yes. We construct an infinite sequence 1 = n1 < 2 = n2 < n3 < . . . so that
+ni + nj is square-free for all i < j. Suppose that we already have some numbers n1 < . . . < nk (k ≥ 2),
+which satisfy this condition and find a suitable number nk+1 to be the next element of the sequence.
+    We will choose nk+1 of the form nk+1 = 1 + Mx, with M = ((n1 + . . . + nk + 2k)!)2 and some positive
+integer x. For i = 1, 2, . . . , k we have ni + nk+1 = 1 + Mx + ni = (1 + ni )mi , where mi and M are
+co-prime, so any perfect square dividing 1 + Mx + ni is co-prime with M.
+
+
+                                                                         2
+     In order to find a suitable x, take a large N and consider the values x = 1, 2, . . . , N. If a value
+1 ≤ x ≤ N is not suitable, this means that there is an index 1 ≤ i ≤ k and some prime p such that
+p2 |1 + Mx + ni . For p ≤ p2k this is impossible because p|M. Moreover, we also have p2 ≤ 1 + Mx + ni <
+M(N + 1), so 2k < p < M(N + 1).
+     For any fixed i and p, the values for x for which p2 |1 + Mx + ni form an arithmetic progression
+                                                     N
+with difference p2 . Therefore, there are at most 2 + 1 such values. In total, the number of unsuitable
+                                                     p
+values x is less than
+                                                                                      
+                      k                          
+                     X        X           N                 X 1             X
+                                              + 1   <  k ·  N           +             1 <
+                                                                                       
+                                          p 2              
+                                                                   p 2
+                              √
+                     i=1 2k<p< M (N +1)                       p>2k
+                                                                            √
+                                                                          p< M (N +1)
+                            X 1            1
+                                              
+                                                    p                 N     p
+                     < kN                −      + k M(N + 1) <           + k M(N + 1).
+                            p>2k
+                                   p−1 p                               2
+
+If N is big enough then this is less than N, and there exist a suitable choice for x.
+
+
+Problem 5. Consider a circular necklace with 2013 beads. Each bead can be painted either white or
+green. A painting of the necklace is called good, if among any 21 successive beads there is at least one
+green bead. Prove that the number of good paintings of the necklace is odd.
+    (Two paintings that differ on some beads, but can be obtained from each other by rotating or
+flipping the necklace, are counted as different paintings.)
+                                            (Proposed by Vsevolod Bykov and Oleksandr Rybak, Kiev)
+
+Solution 1. For k = 0, 1, . . . denote by Nk be the number of good open laces, consisting of k (white
+and green) beads in a row, such that among any 21 successive beads there is at least one green bead.
+For k ≤ 21 all laces have this property, so Nk = 2k for 0 ≤ k ≤ 20; in particular, N0 is odd, and
+N1 , . . . , N20 are even.
+    For k ≥ 21, there must be a green bead among the last 21 ones. Suppose that the last green bead
+is at the ℓth position; then ℓ ≥ k − 20. The previous ℓ − 1 beads have Nℓ−1 good colorings, and every
+such good coloring provides a good lace of length k. Hence,
+
+                             Nk = Nk−1 + Nk−2 + . . . + Nk−21    for k ≥ 21.                          (1)
+
+From (1) we can see that N21 = N0 + . . . + N20 is odd, and N22 = N1 + . . . + N21 is also odd.
+   Applying (1) again to the term Nk−1 ,
+                                                     
+    Nk = Nk−1 + . . . + Nk−21 = Nk−2 + . . . + Nk−22 + Nk−2 + . . . + Nk−21 ≡ Nk−22 (mod 2)
+
+so the sequence of parities in (Nk ) is periodic with period 22. We conclude that
+
+   • Nk is odd if k ≡ 0 (mod 22) or k ≡ 21 (mod 22);
+
+   • Nk is even otherwise.
+
+    Now consider the good circular necklaces of 2013 beads. At a fixed point between two beads cut
+each. The resulting open lace may have some consecutive white beads at the two ends, altogether at
+most 20. Suppose that there are x white beads at the beginning and y white beads at the end; then
+we have x, y ≥ and x + y ≤ 20, and we have a good open lace in the middle, between the first and the
+last green beads. That middle lace consist of 2011 − x − y beads. So, for any fixed values of x and y
+the number of such cases is N2011−x−y .
+
+                                                    3
+                                                              x       2011 − x − y   y
+
+
+   It is easy to see that from such a good open lace we can reconstruct the original circular lace.
+Therefore, the number of good circular necklaces is
+ X
+      N2011−x−y = N2011 +2N2010 +3N2009 +. . .+21N1991 ≡ N2011 +N2009 +N2007 +. . .+N1991 (mod 2).
+x+y≤20
+
+
+By 91 · 22 − 1 = 2001 the term N2001 is odd, the other terms are all even, so the number of the good
+circular necklaces is odd.
+Solution 2 (by Yoav Krauz, Israel). There is just one good monochromatic necklace. Let us
+count the parity of good necklaces having both colors.
+    For each necklace, we define an adjusted necklace, so that at position 0 we have a white bead and
+at position 1 we have a green bead. If the necklace is satisfying the condition, it corresponds to itself;
+if both beads 0 and 1 are white we rotate it (so that the bead 1 goes to place 0) until bead 1 becomes
+green; if bead 1 is green, we rotate it in the opposite direction until the bead 0 will be white. This
+procedure is called adjusting, and the place between the white and green bead which are rotated into
+places 0 and 1 will be called distinguished place. The interval consisting of the subsequent green beads
+after the distinguished place and subsequent white beads before it will be called distinguished interval.
+    For each adjusted necklace we have several necklaces corresponding to it, and the number of them
+is equal to the length of distinguished interval (the total number of beads in it) minus 1. Since we
+count only the parity, we can disregard the adjusted necklaces with even distinguished intervals and
+count once each adjusted necklace with odd distinguished interval.
+    Now we shall prove that the number of necklaces with odd distinguished intervals is even by grouping
+them in pairs. The pairing is the following. If the number of white beads with in the distinguished
+interval is even, we turn the last white bead (at the distinguished place) into green. The white interval
+remains, since a positive even number minus 1 is still positive. If the number of white beads in the
+distinguished interval is odd, we turn the green bead next to the distinguished place into white. The
+green interval remains since it was even; the white interval was odd and at most 19 so it will become
+even and at most 20, so we still get a good necklace.
+    This pairing on good necklaces with distinguished intervals of odd length shows, that the number of
+such necklaces is even; hence the total number of all good necklaces using both colors is even. Therefore,
+together with monochromatic green necklace, the number of good necklaces is odd.
+
+
+
+
+                                                    4
+

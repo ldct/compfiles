@@ -1,0 +1,262 @@
+         10th International Mathematical Competition for University Students
+                               Cluj-Napoca, July 2003
+
+                                                   Day 1
+
+
+1. (a) Let a1 , a2 , . . . be a sequence of real numbers such that a1 = 1 and an+1 > 32 an for all n.
+Prove that the sequence
+                                                    an
+                                                   3 n−1
+                                                    
+                                                    2
+
+has a finite limit or tends to infinity. (10 points)
+   (b) Prove that for all α > 1 there exists a sequence a1 , a2 , . . . with the same properties such
+that
+                                                  an
+                                            lim n−1 = α.
+                                                    3
+                                                    2
+
+(10 points)
+                              an
+Solution. (a) Let bn =            .   Then an+1 > 32 an is equivalent to bn+1 > bn , thus the sequence
+                            3 n−1
+                              
+                            2
+
+(bn ) is strictly increasing. Each increasing sequence has a finite limit or tends to infinity.
+    (b) For all α > 1 there exists a sequence 1 = b1 < b2 < . . . which converges to α. Choosing
+          n−1
+an = 32         bn , we obtain the required sequence (an ).
+
+2. Let a1 , a2 . . . , a51 be non-zero elements of a field. We simultaneously replace each element with
+the sum of the 50 remaining ones. In this way we get a sequence b1 . . . , b51 . If this new sequence is
+a permutation of the original one, what can be the characteristic of the field? (The characteristic
+of a field is p, if p is the smallest positive integer such that x + x + . . . + x = 0 for any element x
+                                                                  |     {z       }
+                                                                            p
+of the field. If there exists no such p, the characteristic is 0.) (20 points)
+Solution. Let S = a1 + a2 + · · · + a51 . Then b1 + b2 + · · · + b51 = 50S. Since b1 , b2 , · · · , b51 is a
+
+permutation of a1 , a2 , · · · , a51 , we get 50S = S, so 49S = 0. Assume that the characteristic of the
+field is not equal to 7. Then 49S = 0 implies that S = 0. Therefore bi = −ai for i = 1, 2, · · · , 51.
+On the other hand, bi = aϕ(i) , where ϕ ∈ S51 . Therefore, if the characteristic is not 2, the sequence
+a1 , a2 , · · · , a51 can be partitioned into pairs {ai , aϕ(i) } of additive inverses. But this is impossible,
+since 51 is an odd number. It follows that the characteristic of the field is 7 or 2.
+     The characteristic can be either 2 or 7. For the case of 7, x1 = . . . = x51 = 1 is a possible
+choice. For the case of 2, any elements can be chosen such that S = 0, since then bi = −ai = ai .
+
+3. Let A be an n × n real matrix such that 3A3 = A2 + A + I (I is the identity matrix). Show
+that the sequence Ak converges to an idempotent matrix. (A matrix B is called idempotent if
+B 2 = B.) (20 points)
+
+Solution. The minimal polynomial of A is a divisor of 3x3 − x2 − x − 1. This polynomial has three
+different roots. This implies that A is diagonalizable: A = C −1 DC where D is a diagonal matrix.
+The eigenvalues of the matrices A and D are all roots of polynomial 3x3 − x2 − x − 1. One of the
+three roots is 1, the remaining two roots have smaller absolute value than 1. Hence, the diagonal
+elements of Dk , which are the kth powers of the eigenvalues, tend to either 0 or 1 and the limit
+M = lim Dk is idempotent. Then lim Ak = C −1 M C is idempotent as well.
+
+4. Determine the set of all pairs (a, b) of positive integers for which the set of positive integers
+can be decomposed into two sets A and B such that a · A = b · B. (20 points)
+Solution. Clearly a and b must be different since A and B are disjoint.
+
+
+                                                        1
+   Let {a, b} be a solution and consider the sets A, B such that a · A = b · B. Denoting d = (a, b)
+the greatest common divisor of a and b, we have a = d·a1 , b = d·b1 , (a1 , b1 ) = 1 and a1 ·A = b1 ·B.
+Thus {a1 , b1 } is a solution and it is enough to determine the solutions {a, b} with (a, b) = 1.
+   If 1 ∈ A then a ∈ a · A = b · B, thus b must be a divisor of a. Similarly, if 1 ∈ B, then a is a
+divisor of b. Therefore, in all solutions, one of numbers a, b is a divisor of the other one.
+   Now we prove that if n ≥ 2, then (1, n) is a solution. For each positive integer k, let f (k)
+be the largest non-negative integer for which nf (k) |k. Then let A = {k : f (k) is odd} and
+B = {k : f (k) is even}. This is a decomposition of all positive integers such that A = n · B.
+
+5. Let g : [0, 1] → R be a continuous function and let fn : [0, 1] → R be a sequence of functions
+defined by f0 (x) = g(x) and
+
+                                  1 x
+                                   Z
+                       fn+1 (x) =      fn (t)dt (x ∈ (0, 1], n = 0, 1, 2, . . .).
+                                  x 0
+
+Determine lim fn (x) for every x ∈ (0, 1]. (20 points)
+           n→∞
+    B. We shall prove in two different ways that limn→∞ fn (x) = g(0) for every x ∈ (0, 1]. (The
+second one is more lengthy but it tells us how to calculate fn directly from g.)
+    Proof I. First we prove our claim for non-decreasing g. In this case, by induction, one can
+easily see that
+  1. each fn is non-decrasing as well, and
+  2. g(x) = f0 (x) ≥ f1 (x) ≥ f2 (x) ≥ . . . ≥ g(0)            (x ∈ (0, 1]).
+Then (2) implies that there exists
+
+                                     h(x) = lim fn (x)              (x ∈ (0, 1]).
+                                              n→∞
+
+Clearly h is non-decreasing and g(0) ≤ h(x) ≤ fn (x) for any x ∈ (0, 1], n = 0, 1, 2, . . .. Therefore
+to show that h(x) = g(0) for any x ∈ (0, 1], it is enough to prove that h(1) cannot be greater than
+g(0).
+    Suppose that h(1) > g(0). Then there exists a 0 < δ < 1 such that h(1) > g(δ). Using the
+definition, (2) and (1) we get
+                          Z 1                Z δ              Z 1
+             fn+1 (1) =         fn (t)dt ≤         g(t)dt +         fn (t)dt ≤ δg(δ) + (1 − δ)fn (1).
+                           0                  0                δ
+
+Hence
+                      fn (1) − fn+1 (1) ≥ δ(fn (1) − g(δ)) ≥ δ(h(1) − g(δ)) > 0,
+so fn (1) → −∞, which is a contradiction.
+    Similarly, we can prove our claim for non-increasing continuous functions as well.
+    Now suppose that g is an arbitrary continuous function on [0, 1]. Let
+
+                   M (x) = sup g(t),               m(x) = inf g(t)                  (x ∈ [0, 1])
+                               t∈[0,x]                        t∈[0,x]
+
+
+Then on [0, 1] m is non-increasing, M is non-decreasing, both are continuous, m(x) ≤ g(x) ≤ M (x)
+and M (0) = m(0) = g(0). Define the sequences of functions Mn (x) and mn (x) in the same way
+as fn is defined but starting with M0 = M and m0 = m.
+    Then one can easily see by induction that mn (x) ≤ fn (x) ≤ Mn (x). By the first part of the
+proof, limn mn (x) = m(0) = g(0) = M (0) = limn Mn (x) for any x ∈ (0, 1]. Therefore we must
+have limn fn (x) = g(0).
+
+
+
+
+                                                         2
+   Proof II. To make the notation clearer we shall denote the variable of fj by xj . By definition
+(and Fubini theorem) we get that
+                            Z xn+1 Z xn           Z xn−1 Z x2 Z x1
+                        1          1          1                   1
+        fn+1 (xn+1 ) =                                   ...                g(x0 )dx0 dx1 . . . dxn
+                       xn+1 0     x        xn−1 0              0 x1 0
+                              ZZ n 0
+                          1                                     dx0 dx1 . . . dxn
+                     =                                   g(x0 )
+                         xn+1    0≤x0 ≤x1 ≤...≤xn ≤xn+1            x1 . . . xn
+                              Z xn+1           ZZ                                     !
+                          1                                             dx1 . . . dxn
+                     =               g(x0 )                                             dx0 .
+                         xn+1 0                   x0 ≤x1 ≤...≤xn ≤xn+1 x1 . . . xn
+
+
+   Therefore with the notation
+                                                 ZZ
+                                                                  dx1 . . . dxn
+                                   hn (a, b) =
+                                                   a≤x1 ≤...≤xn ≤b x1 . . . xn
+
+and x = xn+1 , t = x0 we have
+                                                        Z x
+                                                  1
+                                       fn+1 (x) =                g(t)hn (t, x)dt.
+                                                  x         0
+
+    Using that hn (a, b) is the same for any permutation of x1 , . . . , xn and the fact that the integral
+is 0 on any hyperplanes (xi = xj ) we get that
+                                     ZZ                                      Z b          Z b
+                                                        dx1 . . . dxn                        dx1 . . . dxn
+                n! hn (a, b)   =                                      =             ...
+                                        a≤x1 ,...,xn ≤b x1 . . . xn           a            a  x1 . . . xn
+                                       Z b     !n
+                                           dx
+                               =                     = (log(b/a))n .
+                                        a x
+
+
+   Therefore                                           Z x
+                                                   1                (log(x/t))n
+                                    fn+1 (x) =               g(t)               dt.
+                                                   x    0                n!
+  Note that if g is constant then the definition gives fn = g. This implies on one hand that we
+must have
+                                    1 x (log(x/t))n
+                                      Z
+                                                      dt = 1
+                                    x 0        n!
+and on the other hand that, by replacing g by g − g(0), we can suppose that g(0) = 0.
+    Let x ∈ (0, 1] and ε > 0 be fixed. By continuity there exists a 0 < δ < x and an M such that
+|g(t)| < ε on [0, δ] and |g(t)| ≤ M on [0, 1] . Since
+
+                                                (log(x/δ))n
+                                             lim            =0
+                                            n→∞      n!
+there exists an n0 sucht that log(x/δ))n /n! < ε whenever n ≥ n0 . Then, for any n ≥ n0 , we have
+
+                                 1 x         (log(x/t))n
+                                   Z
+                 |fn+1 (x)| ≤         |g(t)|             dt
+                                 x 0              n!
+                                 1 δ (log(x/t))n          1 x        (log(x/δ))n
+                                   Z                        Z
+                            ≤         ε              dt +     |g(t)|             dt
+                                 x 0         n!           x δ             n!
+                                 1 x (log(x/t))n          1 x
+                                   Z                        Z
+                            ≤         ε              dt +     M εdt
+                                 x 0          n!          x δ
+                            ≤ ε + M ε.
+
+   Therefore limn f (x) = 0 = g(0).
+
+
+                                                             3
+6. Let f (z) = an z n + an−1 z n−1 + . . . + a1 z + a0 be a polynomial with real coefficients. Prove that
+if all roots of f lie in the left half-plane {z ∈ C : Re z < 0} then
+
+                                              ak ak+3 < ak+1 ak+2
+
+holds for every k = 0, 1, . . . , n − 3. (20 points)                            Q
+Solution. The polynomial f is a product of linear and quadratic factors, f (z) = i (ki z + li ) ·
+
+         2
+Q
+  j (pj z + qj z + rj ), with ki , li , pj , qj , rj ∈ R. Since all roots are in the left half-plane, for each i, ki
+and li are of the same sign, and for each j, pj , qj , rj are of the same sign, too. Hence, multiplying
+f by −1 if necessary, the roots of f don’t change and f becomes the polynomial with all positive
+coefficients.
+    For the simplicity, we extend the sequence of coefficients by an+1 = an+2 = . . . = 0 and
+a−1 = a−2 = . . . = 0 and prove the same statement for −1 ≤ k ≤ n − 2 by induction.
+    For n ≤ 2 the statement is obvious: ak+1 and ak+2 are positive and at least one of ak−1 and
+ak+3 is 0; hence, ak+1 ak+2 > ak ak+3 = 0.
+    Now assume that n ≥ 3 and the statement is true for all smaller values of n. Take a divisor of
+f (z) which has the form z 2 + pz + q where p and q are positive real numbers. (Such a divisor can
+be obtained from a conjugate pair of roots or two real roots.) Then we can write
+
+                 f (z) = (z 2 + pz + q)(bn−2 z n−2 + . . . + b1 z + b0 ) = (z 2 + pz + q)g(x).                  (1)
+
+The roots polynomial g(z) are in the left half-plane, so we have bk+1 bk+2 < bk bk+3 for all −1 ≤
+k ≤ n − 4. Defining bn−1 = bn = . . . = 0 and b−1 = b−2 = . . . = 0 as well, we also have
+bk+1 bk+2 ≤ bk bk+3 for all integer k.
+    Now we prove ak+1 ak+2 > ak ak+3 . If k = −1 or k = n − 2 then this is obvious since ak+1 ak+2
+is positive and ak ak+3 = 0. Thus, assume 0 ≤ k ≤ n − 3. By an easy computation,
+
+                                             ak+1 ak+2 − ak ak+3 =
+
+    = (qbk+1 + pbk + bk−1 )(qbk+2 + pbk+1 + bk ) − (qbk + pbk−1 + bk−2 )(qbk+3 + pbk+2 + bk+1 ) =
+                = (bk−1 bk − bk−2 bk+1 ) + p(b2k − bk−2 bk+2 ) + q(bk−1 bk+2 − bk−2 bk+3 )+
+              +p2 (bk bk+1 − bk−1 bk+2 ) + q 2 (bk+1 bk+2 − bk bk+3 ) + pq(b2k+1 − bk−1 bk+3 ).
+   We prove that all the six terms are non-negative and at least one is positive. Term p2 (bk bk+1 −
+bk−1 bk+2 ) is positive since 0 ≤ k ≤ n − 3. Also terms bk−1 bk − bk−2 bk+1 and q 2 (bk+1 bk+2 − bk bk+3 )
+are non-negative by the induction hypothesis.
+   To check the sign of p(b2k − bk−2 bk+2 ) consider
+
+           bk−1 (b2k − bk−2 bk+2 ) = bk−2 (bk bk+1 − bk−1 bk+2 ) + bk (bk−1 bk − bk−2 bk+1 ) ≥ 0.
+
+If bk−1 > 0 we can divide by it to obtain b2k −bk−2 bk+2 ≥ 0. Otherwise, if bk−1 = 0, either bk−2 = 0
+or bk+2 = 0 and thus b2k − bk−2 bk+2 = b2k ≥ 0. Therefore, p(b2k − bk−2 bk+2 ) ≥ 0 for all k. Similarly,
+pq(b2k+1 − bk−1 bk+3 ) ≥ 0.
+    The sign of q(bk−1 bk+2 − bk−2 bk+3 ) can be checked in a similar way. Consider
+
+       bk+1 (bk−1 bk+2 − bk−2 bk+3 ) = bk−1 (bk+1 bk+2 − bk bk+3 ) + bk+3 (bk−1 bk − bk−2 bk+1 ) ≥ 0.
+
+If bk+1 > 0, we can divide by it. Otherwise either bk−2 = 0 or bk+3 = 0. In all cases, we obtain
+bk−1 bk+2 − bk−2 bk+3 ≥ 0.
+    Now the signs of all terms are checked and the proof is complete.
+
+
+
+
+                                                         4
+

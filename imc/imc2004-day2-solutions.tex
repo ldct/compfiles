@@ -1,0 +1,172 @@
+             11th International Mathematical Competition for University Students
+                                   Skopje, 25–26 July 2004
+
+                                      Solutions for problems on Day 2
+
+
+1. Let A be a real 4 × 2 matrix and B be a real 2 × 4 matrix such that
+                                                              
+                                              1    0 −1 0
+                                           0      1    0 −1
+                                     AB = −1 0
+                                                               .
+                                                        1    0
+                                              0 −1 0         1
+Find BA.     [20 points]
+                    
+                     A1               
+Solution. Let A =        and B = B1 B2 where A1 , A2 , B1 , B2 are 2 × 2 matrices. Then
+                     A2
+                                     
+                         1   0 −1 0                                          
+                       0    1   0 −1    A 1
+                                                                A 1 B1  A 1 B2
+                       
+                       −1 0
+                                      =         B1 B2 =
+                                 1  0    A2                     A2 B1 A2 B2
+                         0 −1 0     1
+therefore, A1 B1 = A2 B2 = I2 and A1 B2 = A2 B1 = −I2 . Then B1 = A−1           −1          −1
+                                                                     1 , B2 = −A1 and A2 = B2 =
+−A1 . Finally,                                                           
+                                       A1                              2 0
+                         BA = B1 B2           = B1 A1 + B2 A2 = 2I2 =
+                                         A2                             0 2
+
+
+2. Let f, g : [a, b] → [0, ∞) be continuous and non-decreasing functions such that for each x ∈ [a, b] we
+have                                    Z xp            Z xp
+                                             f (t) dt ≤      g(t) dt
+                                            a                    a
+    Rbp            Rbp
+and a f (t) dt = a g(t) dt.
+              Rbp               Rbp
+   Prove that a 1 + f (t) dt ≥ a 1 + g(t) dt. [20 points]
+                      Rxp                     Rxp
+Solution. Let F (x) = a f (t) dt and G(x) = a g(t) dt. The functions F, G are convex, F (a) = 0 =
+G(a) and F (b) = G(b) by the hypothesis. We are supposed to show that
+                              Z bq                  Z bq
+                                             2                    2
+                                          0
+                                   1 + F (t) dt ≥        1 + G0 (t) dt
+                                  a                             a
+
+i.e. The length ot the graph of F is ≥ the length of the graph of G. This is clear since both functions are
+convex, their graphs have common ends and the graph of F is below the graph of G — the length of the
+graph of F is the least upper bound of the lengths of the graphs of piecewise linear functions whose values
+at the points of non-differentiability coincide with the values of F , if a convex polygon P1 is contained in
+a polygon P2 then the perimeter of P1 is ≤ the perimeter of P2 .
+
+3. Let D be the closed unit disk in the plane, and let p1 , p2 , . . . , pn be fixed points in D. Show that there
+exists a point p in D such that the sum of the distances of p to each of p1 , p2 , . . . , pn is greater than or
+equal to 1. [20 points]
+Solution. considering as vectors, thoose p to be the unit vector which points into the opposite direction as
+Pn
+   pi . Then, by the triangle inequality,
+i=1
+
+                               n
+                               X                         n
+                                                         X                n
+                                                                          X
+                                      |p − pi | ≥ np −         pi = n +         pi ≥ n..
+                               i=1                       i=1              i=1
+4. For n ≥ 1 let M be an n × n complex matrix with distinct eigenvalues λ1 , λ2 , . . . , λk , with multiplicities
+m1 , m2 , . . . , mk , respectively. Consider the linear operator LM defined by LM (X) = M X + XM T , for any
+complex n × n matrix X. Find its eigenvalues and their multiplicities. (M T denotes the transpose of M ;
+that is, if M = (mk,l ), then M T = (ml,k ).) [20 points]
+Solution. We first solve the problem for the special case when the eigenvalues of M are distinct and all sums
+λr + λs are different. Let λr and λs be two eigenvalues of M and ~vr , ~vs eigenvectors associated to them, i.e.
+                                                                                          T
+M~vj = λ~vj for j = r, s. We have M~vr (~vs )T +~vr (~vs )T M T = (M~vr )(~vs )T +~vr M~vs = λr~vr (~vs )T +λs~vr (~vs )T ,
+so ~vr (~vs ) is an eigenmatrix of LM with the eigenvalue λr + λs .
+     Notice that if λr 6= λs then vectors ~u, w~ are linearly independent and matrices ~u(w)    ~ T and w(~ ~ u)T are
+linearly independent, too. This implies that the eigenvalue λr + λs is double if r 6= s.
+     The map LM maps n2 –dimensional linear space into itself, so it has at most n2 eigenvalues. We already
+found n2 eigenvalues, so there exists no more and the problem is solved for the special case.
+     In the general case, matrix M is a limit of matrices M1 , M2 , . . . such that each of them belongs to the
+special case above. By the continuity of the eigenvalues we obtain that the eigenvalues of LM are
+     • 2λr with multiplicity m2r (r = 1, . . . , k);
+     • λr + λs with multiplicity 2mr ms (1 ≤ r < s ≤ k).
+(It can happen that the sums λr + λs are not pairwise different; for those multiple values the multiplicities
+should be summed up.)
+
+
+5. Prove that                         Z 1Z 1
+                                                            dx dy
+                                                                        ≤ 1. [20 points]
+                                       0        0   x−1 + | ln y| − 1
+Solution 1. First we use the inequality
+
+                                                    x−1 − 1 ≥ | ln x|, x ∈ (0, 1],
+
+which follows from
+                                                (x−1 − 1) x=1 = | ln x||x=1 = 0,
+                                                  1     1
+                                 (x−1 − 1)0 = − 2 ≤ − = | ln x|0 , x ∈ (0, 1].
+                                                 x      x
+Therefore             Z 1Z 1                     Z 1Z 1                    Z 1Z 1
+                                  dx dy                     dx dy                   dx dy
+                              −1
+                                               ≤                         =                    .
+                       0  0 x    + | ln y| − 1    0  0 | ln x| + | ln y|    0  0 | ln(x · y)|
+
+Substituting y = u/x, we obtain
+                    Z 1Z 1               Z 1 Z 1            Z 1
+                             dx dy               dx    du                      du
+                                       =                    =     | ln u| ·         = 1.
+                     0  0 | ln(x · y)|    0    u x  | ln u|    0            | ln u|
+
+Solution 2. Substituting s = x−1 − 1 and u = s − ln y,
+           Z 1Z 1                     Z ∞Z ∞                  Z ∞ Z u             −u
+                       dx dy                    es−u                     es        e
+                   −1
+                                    =                2
+                                                       duds =                 2
+                                                                                ds     dsdu.
+            0  0 x    + | ln y| − 1    0  s  (s + 1) u         0    0 (s + 1)       u
+                          e  s
+     Since the function (s+1)2 is convex,
+
+                                           Z u
+                                                       es                    eu
+                                                                                    
+                                                                  u
+                                                             ds ≤                  +1
+                                            0       (s + 1)2      2       (u + 1)2
+so
+       Z 1Z 1                         Z ∞                           −u        Z ∞            Z ∞
+                                                           eu
+                                                                                                      
+                     dx dy                  u                       e        1         du           −u
+                                  ≤                              +1     du =                 +     e du = 1.
+        0   0   x−1 + | ln y| − 1     0     2           (u + 1)2     u       2   0  (u + 1)2    0
+6. For n ≥ 0 define matrices An and Bn as follows: A0 = B0 = (1) and for every n > 0
+                                                                     
+                                   An−1 An−1                 An−1 An−1
+                            An =                 and Bn =                 .
+                                   An−1 Bn−1                 An−1   0
+
+Denote the sum of all elements of a matrix M by S(M ). Prove that S(Ank−1 ) = S(Akn−1 ) for every n, k ≥ 1.
+[20 points]
+Solution. The quantity S(Ak−1
+                            n ) has a special combinatorical meaning. Consider an n × k table filled with
+0’s and 1’s such that no 2 × 2 contains only 1’s. Denote the number of such fillings by Fnk . The filling of
+each row of the table corresponds to some integer ranging from 0 to 2n − 1 written in base 2. Fnk equals
+to the number of k-tuples of integers such that every two consecutive integers correspond to the filling of
+n × 2 table without 2 × 2 squares filled with 1’s.
+    Consider binary expansions of integers i and j in in−1 . . . i1 and jn jn−1 . . . j1 . There are two cases:
+
+   1. If in jn = 0 then i and j can be consecutive iff in−1 . . . i1 and jn−1 . . . j1 can be consequtive.
+
+   2. If in = jn = 1 then i and j can be consecutive iff in−1 jn−1 = 0 and in−2 . . . i1 and jn−2 . . . j1 can be
+      consecutive.
+
+Hence i and j can be consecutive iff (i + 1, j + 1)-th entry of An is 1. Denoting this entry by ai,j , the sum
+          P2n −1         P2n −1
+S(Ak−1
+   n ) =     i1 =0 · · ·
+                                                                                                              k−1
+                          ik =0 ai1 i2 ai2 i3 · · · aik−1 ik counts the possible fillings. Therefore Fnk = S(An ).
+   The the obvious statement Fnk = Fkn completes the proof.
+

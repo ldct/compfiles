@@ -1,0 +1,203 @@
+                  6th INTERNATIONAL COMPETITION FOR UNIVERSITY
+                             STUDENTS IN MATHEMATICS
+                                    Keszthely, 1999.
+
+                                  Problems and solutions on the second day
+
+
+1. Suppose that in a not necessarily commutative ring R the square of any element is 0. Prove that
+abc + abc = 0 for any three elements a, b, c. (20 points)
+Solution. From 0 = (a + b)2 = a2 + b2 + ab + ba = ab + ba, we have ab = −(ba) for arbitrary a, b, which
+implies                                                                 
+               abc = a(bc) = − (bc) a = − b(ca) = (ca)b = c(ab) = − (ab)c = −abc.
+
+
+2. We throw a dice (which selects one of the numbers 1, 2, . . . , 6 with equal probability) n times. What is
+the probability that the sum of the values is divisible by 5? (20 points)
+                                                                                                   (r)
+Solution 1. For all nonnegative integers n and modulo 5 residue class r, denote by pn the probability
+                                                                                         (0)
+that after n throwing the sum of values is congruent to r modulo n. It is obvious that p 0 = 1 and
+ (1)    (2)   (3)    (4)
+p0 = p0 = p0 = p0 = 0.
+     Moreover, for any n > 0 we have
+                                                 6
+                                           (r)
+                                                X   1 (r−i)
+                                          pn =        pn−1 .                                      (1)
+                                                i=1
+                                                    6
+                                                                                                            (r)
+From this recursion we can compute the probabilities for small values of n and can conjecture that p n =
+1     4                          (r)    1    1
+5 + 5·6n if n ≡ r (mod )5 and pn = 5 − 5·6n otherwise. From (1), this conjecture can be proved by
+induction.
+Solution 2. Let S be the set of all sequences consisting of digits 1, . . . , 6 of length n. We create collections
+of these sequences.
+     Let a collection contain sequences of the form
+
+                                                    . . . 6} XY1 . . . Yn−k−1 ,
+                                                |66 {z
+                                                    k
+
+where X ∈ {1, 2, 3, 4, 5} and k and the digits Y1 , . . . , Yn−k−1 are fixed. Then each collection consists of 5
+sequences, and the sums of the digits of sequences give a whole residue system mod 5.
+    Except for the sequence 66 . . . 6, each sequence is the element of one collection. This means that the
+number of the sequences, which have a sum of digits divisible by 5, is 51 (6n − 1) + 1 if n is divisible by 5,
+otherwise 15 (6n − 1).
+    Thus, the probability is 51 + 5·64 n if n is divisible by 5, otherwise it is 51 − 5·61 n .
+Solution 3. For arbitrary positive integer k denote by pk the probability that the sum of values is k. Define
+the generating function
+                                       ∞                                                 n
+                                       X                    x + x2 + x3 + x4 + x5 + x6
+                             f (x) =         p k xk =                                          .
+                                                                        6
+                                       k=1
+
+(The last equality can be easily proved by induction.)
+                                      ∞
+                                      P
+    Our goal is to compute the sum       p5k . Let ε = cos 2π         2π
+                                                            5 + i sin 5 be the first 5th root of unity. Then
+                                        k=1
+
+                                ∞
+                                X              f (1) + f (ε) + f (ε2 ) + f (ε3 ) + f (ε4 )
+                                      p5k =                                                .
+                                                                   5
+                                k=1
+
+                                                                1
+                                                     jn
+      Obviously f (1) = 1, and f (εj ) = ε6n for j = 1, 2, 3, 4. This implies that f (ε) + f (ε2 ) + f (ε3 ) + f (ε4 )
+                                                          ∞
+                                                          P
+is 64n if n is divisible by 5, otherwise it is −1
+                                               6n . Thus,   p5k is 51 + 5·64 n if n is divisible by 5, otherwise it is
+                                                                          k=1
+1     1
+5 − 5·6n .
+
+                                                 n
+                                                 P                                  n
+                                                                                    P
+3. Assume that x1 , . . . , xn ≥ −1 and                x3i = 0. Prove that                xi ≤ n3 . (20 points)
+                                                 i=1                                i=1
+
+Solution. The inequality
+                                                                         2
+                                                     3   1              1
+                                             0 ≤ x3 − x + = (x + 1) x −
+                                                     4   4              2
+holds for x ≥ −1.
+    Substituting x1 , . . . , xn , we obtain
+                            n                                   n                n                n
+                            X              3     1                X             3X        n      3X        n
+                       0≤             x3i − xi +              =         x3i −         xi + = 0 −       xi + ,
+                            i=1
+                                           4     4                i=1
+                                                                                4 i=1     4      4 i=1     4
+
+     n
+     P
+so         xi ≤ n3 .
+     i=1
+
+Remark. Equailty holds only in the case when n = 9k, k of the x1 , ..., xn are −1, and 8k of them are 21 .
+                                                                                                    
+4. Prove that there exists no function f : (0, +∞) → (0, +∞) such that f 2 (x) ≥ f (x + y) f (x) + y for any
+x, y > 0. (20 points)
+Solution. Assume that such a function exists. The initial inequality can be written in the form f (x) −
+                       2
+                         (x)      (x)y
+f (x + y) ≥ f (x) − ff(x)+y  = ff(x)+y . Obviously, f is a decreasing function. Fix x > 0 and choose n ∈ N such
+that nf (x + 1) ≥ 1. For k = 0, 1, . . . , n − 1 we have
+                                                                                         
+                                             k                   k+1                f x + nk       1
+                                  f       x+         −f       x+                ≥              ≥    .
+                                             n                    n               nf x + nk + 1   2n
+
+The additon of these inequalities gives f (x + 1) ≤ f (x) − 21 . From this it follows that f (x + 2m) ≤ f (x) − m
+for all m ∈ N. Taking m ≥ f (x), we get a contradiction with the conditon f (x) > 0.
+
+5. Let S be the set of all words consisting of the letters x, y, z, and consider an equivalence relation ∼ on S
+satisfying the following conditions: for arbitrary words u, v, w ∈ S
+        (i) uu ∼ u;
+       (ii) if v ∼ w, then uv ∼ uw and vu ∼ wu.
+Show that every word in S is equivalent to a word of length at most 8. (20 points)
+Solution. First we prove the following lemma: If a word u ∈ S contains at least one of each letter, and
+v ∈ S is an arbitrary word, then there exists a word w ∈ S such that uvw ∼ u.
+       If v contains a single letter, say x, write u in the form u = u1 xu2 , and choose w = u2 . Then uvw =
+(u1 xu2 )xu2 = u1 ((xu2 )(xu2 )) ∼ u1 (xu2 ) = u.
+       In the general case, let the letters of v be a1 , . . . , ak . Then one can choose some words w1 , . . . , wk such
+that (ua1 )w1 ∼ u, (ua1 a2 )w2 ∼ ua1 , . . . , (ua1 . . . ak )wk ∼ ua1 . . . ak−1 . Then u ∼ ua1 w1 ∼ ua1 a2 w2 w1 ∼
+. . . ∼ ua1 . . . ak wk . . . w1 = uv(wk . . . w1 ), so w = wk . . . w1 is a good choice.
+       Consider now an arbitrary word a, which contains more than 8 digits. We shall prove that there is a
+shorter word which is equivalent to a. If a can be written in the form uvvw, its length can be reduced by
+uvvw ∼ uvw. So we can assume that a does not have this form.
+       Write a in the form a = bcd, where b and d are the first and last four letter of a, respectively. We prove
+that a ∼ bd.
+
+                                                                          2
+    It is easy to check that b and d contains all the three letters x, y and z, otherwise their length could be
+reduced. By the lemma there is a word e such that b(cd)e ∼ b, and there is a word f such that def ∼ d.
+Then we can write
+                             a = bcd ∼ bc(def ) ∼ bc(dedef ) = (bcde)(def ) ∼ bd.
+
+Remark. Of course, it is enough to give for every word of length 9 an shortest shorter word. Assuming that
+the first letter is x and the second is y, it is easy (but a little long) to check that there are 18 words of length
+9 which cannot be written in the form uvvw.
+     For five of these words there is a 2-step solution, for example
+
+                               xyxzyzx zy ∼ xy xzyz xzyzy ∼ xyx zy zy ∼ xyxzy.
+
+     In the remaining 13 cases we need more steps. The general algorithm given by the Solution works
+for these cases as well, but needs also very long words. For example, to reduce the length of the word
+a = xyzyxzxyz, we have set b = xyzy, c = x, d = zxyz, e = xyxzxzyxyzy, f = zyxyxzyxzxzxzxyxyzxyz.
+The longest word in the algorithm was
+
+                bcdedef = xyzyxzxyzxyxzxzyxyzyzxyzxyxzxzyxyzyzyxyxzyxzxzxzxyxyzxyz,
+
+which is of length 46. This is not the shortest way: reducing the length of word a can be done for example
+by the following steps:
+
+xyzyxzx yz ∼ xyzyxz xyzy z ∼ xyzyxzxy zyx yzyz ∼ xyzyxz xyzyxz yx yz yz ∼ xy zyx zyx yz ∼ xyzyxyz.
+
+(The last example is due to Nayden Kambouchev from Sofia University.)
+
+                                                      1
+6. Let A be a subset of Zn = Z/nZ containing at most 100 ln n elements. Define the rth Fourier coefficient
+of A for r ∈ Zn by                                          
+                                              X        2πi
+                                      f (r) =    exp       sr .
+                                                        n
+                                                           s∈A
+
+Prove that there exists an r 6= 0, such that f (r) ≥ |A|
+                                                      2 . (20 points)
+
+Solution. Let A = {a1 , . . . , ak }. Consider the k-tuples
+                                                                  
+                                   2πia1 t               2πiak t
+                             exp           , . . . , exp               ∈ Ck ,         t = 0, 1, . . . , n − 1.
+                                     n                     n
+
+Each component is in the unit circle |z| = 1. Split the circle into 6 equal arcs. This induces a decomposition
+                                                         1
+of the k-tuples into 6k classes. By the condition k ≤ 100   ln n we have n > 6k , so there are two k-tuples in
+the same class say for t1 < t2 . Set r = t2 − t1 . Then
+                                                                                     
+                                    2πiaj r                  2πaj t2   2πaj t1                    π   1
+                             Re exp         = cos                    −                    ≥ cos     =
+                                      n                        n         n                        3   2
+
+for all j, so
+                                                                                k
+                                                    |f (r)| ≥ Re f (r) ≥          .
+                                                                                2
+
+
+
+
+                                                                   3
+

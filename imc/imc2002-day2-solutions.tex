@@ -1,0 +1,214 @@
+              Solutions for problems in the
+      9th International Mathematics Competition
+                for University Students
+                    Warsaw, July 19 - July 25, 2002
+
+                                 Second Day
+
+
+Problem 1. Compute the determinant of the n × n matrix A = [a ij ],
+                        (
+                          (−1)|i−j| , if i 6= j,
+                  aij =
+                          2,          if i = j.
+
+Solution. Adding the second row to the first one, then adding the third row
+to the second one, ..., adding the nth row to the (n − 1)th, the determinant
+does not change and we have
+
+
+         2 −1 +1 . . .          ±1 ∓1    1  1   0  0               ...    0    0
+         −1 2 −1 . . .          ∓1 ±1    0  1   1  0               ...    0    0
+         +1 −1 2 . . .          ±1 ∓1    0  0   1  1               ...    0    0
+det(A) = .   .. .. ..            .. .. = ..  .. .. ..              ..     ..   .. .
+          ..  .  .    .           .  .    .   .  .  .                 .    .    .
+         ∓1 ±1 ∓1 . . .          2 −1    0  0   0  0               ...     1 1
+         ±1 ∓1 ±1 . . .         −1 2     ±1 ∓1 ±1 ∓1               ...    −1 2
+    Now subtract the first column from the second, then subtract the result-
+ing second column from the third, ..., and at last, subtract the (n − 1)th
+column from the nth column. This way we have
+
+                         1 0 0         ...    0    0
+                         0 1 0         ...    0    0
+                det(A) = ... ... ...   ..
+                                          .
+                                              ..
+                                               .
+                                                   ..
+                                                    .   = n + 1.
+                         0 0 0         ...    1  0
+                         0 0 0         ...    0 n+1
+
+Problem 2. Two hundred students participated in a mathematical con-
+test. They had 6 problems to solve. It is known that each problem was
+correctly solved by at least 120 participants. Prove that there must be two
+participants such that every problem was solved by at least one of these two
+students.
+Solution. For each pair of students, consider
+                                             the set of those problems which
+was not solved by them. There exist 200   2   = 19900 sets; we have to prove
+that at least one set is empty.
+
+                                        1
+   For each problem, there are at most 80 students who did not solve it.
+From these students at most 80  2   = 3160 pairs can be selected, so the
+problem can belong to at most 3160 sets. The 6 problems together can
+belong to at most 6 · 3160 = 18960 sets.
+   Hence, at least 19900 − 18960 = 940 sets must be empty.
+Problem 3. For each n ≥ 1 let
+                                   ∞                        ∞
+                                   X kn                     X             kn
+                            an =              ,     bn =          (−1)k      .
+                                         k!                               k!
+                                   k=0                      k=0
+    Show that an · bn is an integer.
+Solution. We prove by induction on n that a n /e and bn e are integers, we
+prove this for n = 0 as well. (For n = 0, the term 0 0 in the definition of the
+sequences must be replaced by 1.)
+    From the power series of ex , an = e1 = e and bn = e−1 = 1/e.
+    Suppose that for some n ≥ 0, a0 , a1 , . . . , an and b0 , b1 , ...bn are all multi-
+pliers of e and 1/e, respectively. Then, by the binomial theorem,
+
+                    n                         ∞                         ∞ X
+                                                                          n   m
+                    X (k + 1)n+1              X (k + 1)n                X    n k
+        an+1 =                           =                         =                       =
+                          (k + 1)!                      k!                        m   k!
+                    k=0                       k=0                       k=0 m=0
+
+                                  ∞
+                             n  X       n  
+                            X   n   km   X   n
+                          =            =        am
+                            m=0
+                                m   k!   m=0
+                                             m
+                                              k=0
+    and similarly
+                     n                                            ∞
+                     X                (k + 1)n+1    X       (k + 1)n
+            bn+1 =          (−1)k+1              =−   (−1)k          =
+                                       (k + 1)!                k!
+                      k=0                                         k=0
+
+      ∞             n   m                            ∞
+                                                  n  X                           n  
+      X             X  n k                        X  n                      km    X   n
+ =−         (−1)k                     =−                           (−1)k       =−        bm .
+                    m=0
+                            m   k!            m=0
+                                                        m                   k!    m=0
+                                                                                      m
+      k=0                                                    k=0
+
+   The numbers an+1 and bn+1 are expressed as linear combinations of the
+previous elements with integer coefficients which finishes the proof.
+Problem 4. In the tetrahedron OABC, let ∠BOC = α, ∠COA = β and
+∠AOB = γ. Let σ be the angle between the faces OAB and OAC, and let
+τ be the angle between the faces OBA and OBC. Prove that
+
+                                   γ > β · cos σ + α · cos τ.
+
+Solution. We can assume OA = OB = OC = 1. Intersect the unit sphere
+with center O with the angle domains AOB, BOC and COA; the intersec-
+tions are “slices” and their areas are 12 γ, 21 α and 12 β, respectively.
+
+                                                    2
+     Now project the slices AOC and COB to the plane OAB. Denote by
+C 0 the projection of vertex C, and denote by A 0 and B 0 the reflections of
+vertices A and B with center O, respectively. By the projection, OC 0 < 1.
+     The projections of arcs AC and BC are segments of ellipses with long
+axes AA0 and BB 0 , respectively. (The ellipses can be degenerate if σ or τ
+is right angle.) The two ellipses intersect each other in 4 points; both half
+ellipses connecting A and A0 intersect both half ellipses connecting B and
+B 0 . There exist no more intersection, because two different conics cannot
+have more than 4 common points.
+     The signed areas of the projections of slices AOC and COB are 12 α·cos τ
+and 21 β · cos σ, respectively. The statement says thet the sum of these signed
+areas is less than the area of slice BOA.
+
+
+
+
+    There are three significantly different cases with respect to the signs
+of cos σ and cos τ (see Figure). If both signs are positive (case (a)), then
+the projections of slices OAC and OBC are subsets of slice OBC without
+common interior point, and they do not cover the whole slice OBC; this
+implies the statement. In cases (b) and (c) where at least one of the signs
+is negative, projections with positive sign are subsets of the slice OBC, so
+the statement is obvious again.
+Problem 5. Let A be an n × n matrix with complex entries and suppose
+that n > 1. Prove that
+                                                                 −1
+           AA = In ⇐⇒ ∃ S ∈ GLn (C)         such that   A = SS        .
+
+(If A = [aij ] then A = [aij ], where aij is the complex conjugate of aij ;
+GLn (C) denotes the set of all n×n invertible matrices with complex entries,
+and In is the identity matrix.)
+                                                                          −1
+Solution.    The direction ⇐ is trivial, since if A = SS , then
+          −1
+AA = SS · SS −1 = In .
+    For the direction ⇒, we must prove that there exists an invertible matrix
+S such that AS = S.
+    Let w be an arbitrary complex number which is not 0. Choosing
+S = wA + wIn , we have AS = A(wA + wIn ) = wIn + wA = S. If S is
+singular, then w1 S = A − (w/w)In is singular as well, so w/w is an eigen-
+value of A. Since A has finitely many eigenvalues and w/w can be any
+complex number on the unit circle, there exist such w that S is invertible.
+
+                                      3
+Problem 6. Let f : Rn → R be a convex function whose gradient ∇f =
+
+  ∂f            ∂f                            n
+  ∂x1 , . . . , ∂xn exists at every point of R and satisfies the condition
+
+        ∃L > 0    ∀x1 , x2 ∈ Rn      k∇f (x1 ) − ∇f (x2 )k ≤ Lkx1 − x2 k.
+   Prove that
+
+ ∀x1 , x2 ∈ Rn   k∇f (x1 ) − ∇f (x2 )k2 ≤ Lh∇f (x1 ) − ∇f (x2 ), x1 − x2 i. (1)
+
+   In this formula ha, bi denotes the scalar product of the vectors a and b.
+Solution. Let g(x) = f (x)−f (x1 )−h∇f (x1 ), x−x1 i. It is obvious that g has
+the same properties. Moreover, g(x 1 ) = ∇g(x1 ) = 0 and, due to convexity,
+g has 0 as the absolute minimum at x1 . Next we prove that
+                                           1
+                            g(x2 ) ≥         k∇g(x2 )k2 .                              (2)
+                                          2L
+Let y0 = x2 − L1 k∇g(x2 )k and y(t) = y0 + t(x2 − y0 ). Then
+                                     Z 1
+                 g(x2 ) = g(y0 ) +         h∇g(y(t)), x2 − y0 i dt =
+                                      0
+                                       Z 1
+    = g(y0 ) + h∇g(x2 ), x2 − y0 i −           h∇g(x2 ) − ∇g(y(t)), x2 − y0 i dt ≥
+                                           0
+                               Z 1
+              1
+      ≥0+       k∇g(x2 )k2 −         k∇g(x2 ) − ∇g(y(t))k · kx2 − y0 k dt ≥
+              L                 0
+                                                   Z 1
+               1
+              ≥ k∇g(x2 )k2 − kx2 − y0 k                  Lkx2 − g(y)k dt =
+               L                                    0
+                                                   Z 1
+              1                                                    1
+          =     k∇g(x2 )k2 − Lkx2 − y0 k2                t dt =      k∇g(x2 )k2 .
+              L                                     0             2L
+   Substituting the definition of g into (2), we obtain
+                                                          1
+      f (x2 ) − f (x1 ) − h∇f (x1 ), x2 − x1 i ≥            k∇f (x2 ) − ∇f (x1 )k2 ,
+                                                         2L
+
+   k∇f (x2 ) − ∇f (x1 )k2 ≤ 2Lh∇f (x1 ), x1 − x2 i + 2L(f (x2 ) − f (x1 )).            (3)
+
+Exchanging variables x1 and x2 , we have
+
+   k∇f (x2 ) − ∇f (x1 )k2 ≤ 2Lh∇f (x2 ), x2 − x1 i + 2L(f (x1 ) − f (x2 )).            (4)
+
+The statement (1) is the average of (3) and (4).
+
+
+
+
+                                               4
+

@@ -1,0 +1,253 @@
+                       IMC2007, Blagoevgrad, Bulgaria
+                                   Day 2, August 6, 2007
+
+Problem 1. Let f : R → R be a continuous function. Suppose that for any c > 0, the graph
+of f can be moved to the graph of cf using only a translation or a rotation. Does this imply that
+f (x) = ax + b for some real numbers a and b ?
+Solution. No. The function f (x) = ex also has this property since cex = ex+log c .
+Problem 2. Let x, y, and z be integers such that S = x4 + y 4 + z 4 is divisible by 29. Show that S
+is divisible by 294 .
+Solution. We claim that 29 | x, y, z. Then, x4 + y 4 + z 4 is clearly divisible by 294 .
+    Assume, to the contrary, that 29 does not divide all of the numbers x, y, z. Without loss of
+generality, we can suppose that 29 ∤ x. Since the residue classes modulo 29 form a field, there is some
+w ∈ Z such that xw ≡ 1 (mod 29). Then, (xw)4 + (yw)4 + (zw)4 is also divisible by 29. So we can
+assume that x ≡ 1 (mod 29).
+    Thus, we need to show that y 4 + z 4 ≡ −1 (mod 29), i.e. y 4 ≡ −1 − z 4 (mod 29), is impossible.
+There are only eight fourth powers modulo 29,
+
+                              0   ≡   04 ,
+                              1   ≡   14 ≡ 124 ≡ 174 ≡ 284 (mod 29),
+                              7   ≡   84 ≡ 94 ≡ 204 ≡ 214 (mod 29),
+                             16   ≡   24 ≡ 54 ≡ 244 ≡ 274 (mod 29),
+                             20   ≡   64 ≡ 144 ≡ 154 ≡ 234 (mod 29),
+                             23   ≡   34 ≡ 74 ≡ 224 ≡ 264 (mod 29),
+                             24   ≡   44 ≡ 104 ≡ 194 ≡ 254 (mod 29),
+                             25   ≡   114 ≡ 134 ≡ 164 ≡ 184 (mod 29).
+
+The differences −1 − z 4 are congruent to 28, 27, 21, 12, 8, 5, 4, and 3. None of these residue classes
+is listed among the fourth powers.
+Problem 3. Let C be a nonempty closed bounded subset of the real line and f : C → C be a
+nondecreasing continuous function. Show that there exists a point p ∈ C such that f (p) = p.
+   (A set is closed if its complement is a union of open intervals. A function g is nondecreasing if
+g(x) ≤ g(y) for all x ≤ y.)
+Solution. Suppose f (x) 6= x for all x ∈ C. Let [a, b] be the smallest closed interval that contains C.
+Since C is closed, a, b ∈ C. By our hypothesis f (a) > a and f (b) < b. Let p = sup{x ∈ C : f (x) > x}.
+Since C is closed and f is continuous, f (p) ≥ p, so f (p) > p. For all x > p, x ∈ C we have f (x) < x.
+Therefore f f (p) < f (p) contrary to the fact that f is non-decreasing.
+Problem 4. Let n > 1 be an odd positive integer and A = (aij )i,j=1...n be the n × n matrix with
+                                 
+                                 2 if i = j
+                                 
+                            aij = 1 if i − j ≡ ±2 (mod n)
+                                 
+                                 
+                                   0 otherwise.
+
+Find det A.
+
+
+
+                                                  1
+                                                  
+                                  2                   1 if i − j ≡ ±1 (mod n)
+Solution. Notice that A = B , with bij =                                      . So it is sufficient to find
+                                                      0         otherwise
+det B.
+    To find det B, expand the determinant with respect to the first row, and then expad both terms
+with respect to the first column.
+
+              0 1                     1
+                                                1 1              1                0 1
+              1 0 1
+                                                  01                              1 0  1
+                1 0   1                           .    .                              .    .
+                    .. ..                     1 .. ..                               1 .. ..
+ det B =       1        .     .       =−                       +
+                                                  ..                                  ..
+                    ..                               . 0 1                               . 0 1
+                        . 0 1
+                                                        1 0 1                               1 0
+                             1 0 1
+                                          1                1 0   1                            1
+         1                       1 0
+                                                                                                        
+             0 1                      1                        1 0                 1          0 1
+                .. ..                0   1                                     .. ..       1 0 1        
+           1       .      .                                   1                   .  .                  
+                ..                      .. ..                                  ..              .. ..    
+       = −         . 0 1           − 1     .   .          +
+                                                                                   . 0 1  −   1    .  .  
+                                        ..                                                     ..       
+                         1 0 1             . 0 1                                    1 0           . 0 1
+                                1 0            1 0 1                                      1            1 0
+       = −(0 − 1) + (1 − 0) = 2,
+
+since the second and the third matrices are lower/upper triangular, while in the first and the fourth
+matrices we have row1 − row3 + row5 − · · · ± rown−2 = 0̄.
+    So det B = 2 and thus det A = 4.
+Problem 5. For each positive integer k, find the smallest number nk for which there exist real
+nk × nk matrices A1 , A2 , . . . , Ak such that all of the following conditions hold:
+
+ (1) A21 = A22 = . . . = A2k = 0,
+
+ (2) Ai Aj = Aj Ai for all 1 ≤ i, j ≤ k, and
+
+ (3) A1 A2 . . . Ak 6= 0.
+
+Solution. The anwser is nk = 2k . In that case, the matrices can be constructed as follows: Let V be
+the n-dimensional real vector space with basis elements [S], where S runs through all n = 2k subsets
+of {1, 2, . . . , k}. Define Ai as an endomorphism of V by
+                                                  (
+                                                   0         if i ∈ S
+                                         Ai [S] =
+                                                   [S ∪ {i}] if i 6∈ S
+
+for all i = 1, 2, . . . , k and S ⊂ {1, 2, . . . , k}. Then A2i = 0 and Ai Aj = Aj Ai . Furthermore,
+
+                                      A1 A2 . . . Ak [∅] = [{1, 2, . . . , k}],
+
+and hence A1 A2 . . . Ak 6= 0.
+    Now let A1 , A2 , . . . , Ak be n × n matrices satisfying the conditions of the problem; we prove that
+n ≥ 2k . Let v be a real vector satisfying A1 A2 . . . Ak v 6= 0. Denote by P the set of all subsets of
+{1, 2, . . . , k}. Choose a complete ordering ≺ on P with the property
+
+                               X≺Y        ⇒      |X| ≤ |Y | for all X, Y ∈ P.
+
+                                                         2
+For every element X = {x1 , x2 , . . . , xr } ∈ P, define AX = Ax1 Ax2 . . . Axr and vX = AX v. Finally,
+write X̄ = {1, 2, . . . , k} \ X for the complement of X.
+    Now take X, Y ∈ P with X  Y . Then AX̄ annihilates vY , because X  Y implies the existence
+of some y ∈ Y \ X = Y ∩ X̄, and
+
+                                     AX̄ vY = AX̄\{y} Ay Ay vY \{y} = 0,
+
+since A2y = 0. So, AX̄ annihilates the span of all the vY with X  Y . This implies that vX does not
+lie in this span, because AX̄ vX = v{1,2,...,k} 6= 0. Therefore, the vectors vX (with X ∈ P) are linearly
+independent; hence n ≥ |P| = 2k .
+Problem 6. Let f 6= 0 be a polynomial with real coefficients. Define the sequence f0 , f1 , f2 , . . . of
+polynomials by f0 = f and fn+1 = fn + fn′ for every n ≥ 0. Prove that there exists a number N such
+that for every n ≥ N, all roots of fn are real.
+Solution. For the proof, we need the following
+    Lemma 1. For any polynomial g, denote by d(g) the minimum distance of any two of its real
+zeros (d(g) = ∞ if g has at most one real zero). Assume that g and g + g ′ both are of degree k ≥ 2
+and have k distinct real zeros. Then d(g + g ′) ≥ d(g).
+    Proof of Lemma 1: Let x1 < x2 < · · · < xk be the roots of g. Suppose a, b are roots of g + g ′
+satisfying 0 < b − a < d(g). Then, a, b cannot be roots of g, and
+
+                                              g ′ (a)   g ′ (b)
+                                                      =         = −1.                                    (1)
+                                              g(a)      g(b)
+       ′
+Since gg is strictly decreasing between consecutive zeros of g, we must have a < xj < b for some j.
+    For all i = 1, 2, . . . , k − 1 we have xi+1 − xi > b − a, hence a − xi > b − xi+1 . If i < j, both sides
+                                                                                    1
+of this inequality are negative; if i ≥ j, both sides are positive. In any case, a−x  i
+                                                                                        < b−x1i+1 , and hence
+
+                              k−1                 k−1
+                     g ′ (a) X 1            1     X      1        1      g ′ (b)
+                            =           +       <             +        =
+                     g(a)     i=1
+                                  a − xi a − xk       b − xi+1 b − x1    g(b)
+                                          | {z } i=1            | {z }
+                                                 <0                         >0
+
+This contradicts (1).
+     Now we turn to the proof of the stated problem. Denote by m the degree of f . We will prove
+by induction on m that fn has m distinct real zeros for sufficiently large n. The cases m = 0, 1 are
+trivial; so we assume m ≥ 2. Without loss of generality we can assume that f is monic. By induction,
+the result holds for f ′ , and by ignoring the first few terms we can assume that fn′ has m − 1 distinct
+                                                           (n)   (n)           (n)
+real zeros for all n. Let us denote these zeros by x1 > x2 > · · · > xm−1 . Then fn has minima
+       (n)  (n)  (n)                         (n)  (n)  (n)                                  (n)   (n)
+in x1 , x3 , x5 , . . . , and maxima in x2 , x4 , x6 , . . . . Note that in the interval (xi+1 , xi ), the
+              ′
+function fn+1     = fn′ + fn′′ must have a zero (this follows by applying Rolle’s theorem to the function
+                                                       (n)
+ex fn′ (x)); the same is true for the interval (−∞, xm−1 ). Hence, in each of these m − 1 intervals, fn+1
+                                                                                                       ′
+
+has exactly one zero. This shows that
+                            (n)     (n+1)       (n)     (n+1)     (n)   (n+1)
+                           x1 > x1          > x2 > x2           > x3 > x3       > ...                    (2)
+
+                                        (n)                                        (n)
+   Lemma 2. We have limn→∞ fn (xj ) = −∞ if j is odd, and lim fn (xj ) = +∞ if j is even.
+                                                                        n→∞
+    Lemma 2 immediately implies the result: For sufficiently large n, the values of all maxima of fn
+are positive, and the values of all minima of fn are negative; this implies that fn has m distinct zeros.
+
+
+                                                        3
+  Proof of Lemma 2: Let d = min{d(f ′), 1}; then by Lemma 1, d(fn′ ) ≥ d for all n. Define
+   (m − 1)dm−1
+ε=             ; we will show that
+      mm−1
+                                          (n+1)                (n)
+                                  fn+1 (xj        ) ≥ fn (xj ) + ε for j even.                                      (3)
+                                                                                                              (n)
+(The corresponding result for odd j can be shown similarly.) Do to so, write f = fn , b = xj , and
+choose a satisfying d ≤ b − a ≤ 1 such that f ′ has no zero inside (a, b). Define ξ by the relation
+        1
+b − ξ = (b − a); then ξ ∈ (a, b). We show that f (ξ) + f ′ (ξ) ≥ f (b) + ε.
+        m
+   Notice, that
+                                          m−1
+                                f ′′ (ξ) X       1
+                                   ′
+                                        =          (n)
+                                f (ξ)     i=1 ξ − xi
+                                          X      1         1    X     1
+                                        =          (n)
+                                                       +      +
+                                          i<j ξ − xi
+                                                         ξ − b i>j ξ − x(n)
+                                              | {z }               | {z i }
+                                                      1
+                                                   < ξ−a                          <0
+
+                                                         1   1
+                                       < (m − 1)           +    = 0.
+                                                        ξ−a ξ−b
+                                                                                  f ′′
+The last equality holds by definition of ξ. Since f ′ is positive and                  is decreasing in (a, b), we have
+                                                                                  f′
+that f ′′ is negative on (ξ, b). Therefore,
+                                          Z b           Z b
+                                               ′
+                          f (b) − f (ξ) =     f (t)dt ≤     f ′ (ξ)dt = (b − ξ)f ′ (ξ)
+                                              ξ                      ξ
+
+Hence,
+
+                                 f (ξ) + f ′ (ξ) ≥ f (b) − (b − ξ)f ′ (ξ) + f ′ (ξ)
+                                                 = f (b) + (1 − (ξ − b))f ′ (ξ)
+                                                 = f (b) + (1 − m1 (b − a))f ′ (ξ)
+                                                 ≥ f (b) + (1 − m1 )f ′ (ξ).
+
+Together with
+                                                  m−1
+                         ′         ′
+                                                  Y           (n)                       dm−1
+                        f (ξ) = |f (ξ)| = m             |ξ − xi | ≥ m|ξ − b|m−1 ≥
+                                                  i=1
+                                                        |    {z      }                  mm−2
+                                                            ≥|ξ−b|
+
+we get
+                                             f (ξ) + f ′ (ξ) ≥ f (b) + ε.
+Together with (2) this shows (3). This finishes the proof of Lemma 2.
+                                                  f + f′
+
+
+
+
+                                              f
+
+
+                                                                             f′
+                                         a                     ξ         b
+
+
+                                                              4
+

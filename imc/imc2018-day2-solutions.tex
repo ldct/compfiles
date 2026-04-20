@@ -1,0 +1,273 @@
+                      IMC 2018, Blagoevgrad, Bulgaria
+
+
+                                      Day 2, July 25, 2018
+
+
+
+
+Problem 6. Let k be a positive integer. Find the smallest positive integer n for which there
+exist k nonzero vectors v1 , . . . , vk in Rn such that for every pair i, j of indices with |i − j| > 1
+the vectors vi and vj are orthogonal.
+      (Proposed by Alexey Balitskiy, Moscow Institute of Physics and Technology and M.I.T.)
+
+Solution.  First we prove that if 2n + 1 ≤ k then no sequence v1 , . . . , vk of vectors can satisfy
+the condition. Suppose to the contrary that v1 , . . . , vk are vectors with the required property
+and consider the vectors
+                                          v1 , v3 , v5 , . . . , v2n+1 .
+By the condition these n + 1 vectors should be pairwise orthogonal, but this is not possible
+in Rn .
+   Next we show a possible construction for every pair k, n of positive integers with 2n ≥ k .
+Take an orthogonal basis (e1 , . . . , en ) of Rn and consider the vectors
+
+                     v1 = v2 = e1 ,     v3 = v4 = e2 ,        ...,         v2n−1 = v2n = en .
+
+For every pair (i, j) of indices with 1 ≤ i, j ≤ 2n and |i−j| > 1 the vectors vi and vj are distinct
+basis vectors, so they are orthogonal. Evidently the subsequence v1 , v2 , . . . , vk also satises the
+same property.
+   Hence, such a sequence
+                      of vectors exists if and only if 2n ≥ k ; that is, for a xed k , the
+                         k
+smallest suitable n is     .
+                         2
+
+Problem 7.    Let (an )∞
+                       n=0 be a sequence of real numbers such that a0 = 0 and
+
+                                a3n+1 = a2n − 8 for n = 0, 1, 2, . . .
+
+Prove that the following series is convergent:
+                                            ∞
+                                            X
+                                                   |an+1 − an |.                                    (1)
+                                             n=0
+
+                               (Proposed by Orif Ibrogimov, National University of Uzbekistan)
+
+Solution.   We will estimate the ratio between the terms |an+2 − an+1 | and |an+1 − an |.
+   Before doing that, we localize the numbers an ; we prove that
+                                                 √
+                                      −2 ≤ an ≤ − 4 for n ≥ 1.
+                                                 3
+                                                                                                    (2)
+                                                                                                √
+The lower bound simply follows from the recurrence: an = 3 a2n−1 − 8 ≥ √3 −8 = −2. The
+                                                                               p
+
+proof of the upper bound can be done   by induction:
+                                                √     we have√a1 = −2 < − 3 4, and whenever
+−2 ≤ an < 0, it follows that an+1 = 3 a2n − 8 ≤ 3 22 − 8 = − 3 4.
+                                    p
+
+
+
+
+                                                        1
+  Now compare |an+2 − an+1 | with |an+1 − an |. By applying x3 − y 3 = (x − y)(x2 + xy + y 2 ),
+x − y 2 = (x − y)(x + y) and the recurrence,
+ 2
+
+
+             (a2n+2 + an+2 an+1 + a2n+1 ) · |an+2 − an+1 | =
+                                         = |a3n+2 − a3n+1 | = (a2n+1 − 8) − (a2n − 8) =
+                                                            = |an+1 + an | · |an+1 − an |.
+
+On the left-hand side we have
+                                a2n+2 + an+2 an+1 + a2n+1 ≥ 3 · 42/3 ;
+
+on the right-hand side
+                                          |an+1 + an | ≤ 4.
+Hence,                                                          √
+                                                                3
+                                         4                        4
+                      |an+2 − an+1 | ≤     2/3
+                                               |a n+1 − a n | =     |an+1 − an |.
+                                       3·4                      3
+By a trivial induction it follows that
+                                                    √
+                                                    3
+                                                        !n−1
+                                                      4
+                                |an+1 − an | <               |a2 − a1 |.
+                                                    3
+                                                                                             √
+                                                                                             3
+                                                                                                 4
+Hence the series n=0 |an+1 −an | can be majorized by a geometric series with quotient   < 1;
+                 P∞
+                                                                                      3
+that proves that the series converges.
+Problem 8.    Let Ω = {(x, y, z) ∈ Z3 : y + 1 ≥ x ≥ y ≥ z ≥ 0}. A frog moves along the points
+of Ω by jumps of length 1. For every positive integer n, determine the number of paths the frog
+can take to reach (n, n, n) starting from (0, 0, 0) in exactly 3n jumps.
+            (Proposed by Fedor Petrov and Anatoly Vershik, St. Petersburg State University)
+Solution.    Let Ψ = {(u, v) ∈ Z3 : v ≥ 0, u ≥ 2v}. Notice that the map π : Ω → Ψ,
+π(x, y, z) = (x + y, z) is a bijection between the two sets; moreover π projects all allowed paths
+of the frogs to paths inside the set Ψ, using only unit jump vectors. Hence, we are interested
+in the number of paths from π(0, 0, 0) = (0, 0) to π(n, n, n) = (2n, n) in the set Ψ, using only
+jumps (1, 0) and (0, 1).
+    For every lattice point (u, v) ∈ Ψ, let f (u, v) be the number of paths from (0, 0) to (u, v)
+in Ψ with u + v jumps. Evidently we have f (0, 0) = 1. Extend this denition to the points
+with v = −1 and 2v = u + 1 by setting
+                                 f (u, −1) = 0,     f (2v − 1, v) = 0.                               (3)
+
+To any point (u, v) of Ψ other than the origin, the path can come either from (u − 1, v) or from
+(u, v − 1), so
+
+                 f (u, v) = f (u − 1, v) + f (u, v − 1) for (u, v) ∈ Ψ \ {(0, 0)}.                   (4)
+
+If we ignore the boundary condition (3), there is a wide family of functions that satisfy (4);
+namely, for every integer c, (u, v) 7→ v+c is such a function, with dening this binomial
+                                          u+v
+
+coecient to be 0 if v + c is negative or greater than u + v . 
+    Along the line 2v = u + 1 we have u+v         3v−1
+                                                        = 2 3v−1  = 2 u+v   . Hence, the function
+                                                                         
+                                          v
+                                              =     v        v−1      v−1
+                                                             
+                                  ∗               u+v      u+v
+                                 f (u, v) =             −2
+                                                   v        v−1
+
+                                                    2
+satises (3), (4) and f (0, 0) = 1. These properties uniquely dene the function f , so f = f ∗ .
+    In particular, the number of paths of the frog from (0, 0, 0) to (n, n, n) is
+                                                                 
+                                                                  3n
+                                                         
+                                                  3n     3n        n
+                    f (π(n, n, n)) = f (2n, n) =     −2       =        .
+                                                   n    n−1     2n + 1
+
+               There exist direct proofs for the formula 3n   /(2n + 1). For instance, we can
+                                                                
+    Remark.
+                                                           n
+replicate the well-known proof of the formula for the Catalan numbers using the Cycle Lemma
+of Dvoretzky and Motzkin (related to the petrol station replenishment problem). See https:
+//en.wikipedia.org/wiki/Catalan_number#Sixth_proof
+
+Problem 9.     Determine all pairs P (x), Q(x) of complex polynomials with leading coecient 1
+ such that P (x) divides Q(x)2 + 1 and Q(x) divides P (x)2 + 1.
+(Proposed by Rodrigo Angelo, Princeton University and Matheus Secco, PUC, Rio de Janeiro)
+
+Solution. The answer is all pairs (1, 1) and (P, P + i), (P, P − i), where P is a non-constant
+monic polynomial in C[x] and i is the imaginary unit.
+   Notice that if P |Q2 + 1 and Q|P 2 + 1 then P and Q are coprime and the condition is
+equivalent with P Q|P 2 + Q2 + 1.
+    Lemma.   If P, Q ∈ C[x] are monic polynomials such that P 2 + Q2 + 1 is divisible by P Q,
+then deg P = deg Q.
+    Proof.Assume for the sake of contradiction that there is a pair (P, Q) with deg P 6= deg Q.
+Among all these pairs, take the one with smallest sum deg P + deg Q and let (P, Q) be such
+pair. Without loss of generality, suppose that deg P > deg Q. Let S be the polynomial such
+that                                    2    2
+                                         P +Q +1
+                                                 = S.
+                                           PQ
+Notice that P a solution of the polynomial equation X 2 − QSX + Q2 + 1 = 0, in variable X .
+                                                          Q2 + 1
+By Vieta's formulas, the other solution is R = QS − P =           . By R = QS − P , the R is
+                                                            P
+                                                     Q2 + 1
+indeed a polynomial, and because P, Q are monic, R =         is also monic. Therefore the pair
+                                                        P
+(R, Q) satises the conditions of the Lemma. Notice that deg R = 2 deg Q − deg P < deg P ,
+which contradicts the minimality of deg P + deg Q. This contradiction establishes the Lemma.
+                                                                             P 2 + Q2 + 1
+    By the Lemma, we have that deg(P Q) = deg(P 2 + Q2 + 1) and therefore                 is
+                                                                                  PQ
+a constant polynomial. If P and Q are constant polynomials, we have P = Q = 1. Assuming
+that deg P = deg Q ≥ 1, as P and Q are monic, the leading coecient of P 2 + Q2 + 1 is 2
+                                                     P 2 + Q2 + 1
+and the leading coecient of P Q is 1, which give us              = 2. Finally we have that
+                                                          PQ
+P 2 + Q2 + 1 = 2P Q and therefore (P − Q)2 = −1, i.e Q = P + i or Q = P − i. It's easy to
+check that these pairs are indeed solutions of the problem.
+
+
+
+
+                                                 3
+Problem 10.        For R > 1 let DR = {(a, b) ∈ Z2 : 0 < a2 + b2 < R}. Compute
+                                                          X         (−1)a+b
+                                                  lim                       .
+                                                 R→∞                a2 + b2
+                                                        (a,b)∈DR
+
+
+(Proposed by Rodrigo Angelo, Princeton University and Matheus Secco, PUC, Rio de Janeiro)
+
+Solution.    Dene ER = {(a, b) ∈ Z2 \ {(0, 0)} : a2 + b2 < R and a + b is even}. Then
+                              X        (−1)a+b      X    1      X                                 1
+                                                = 2           −                                       .                 (5)
+                                       a2 + b 2       a2 + b2                              a2 + b 2
+                            (a,b)∈DR                    (a,b)∈ER                (a,b)∈DR
+
+
+But a + b is even if and only if one can write (a, b) = (m − n, m + n), and such m, n are unique.
+Notice also that a2 + b2 = (m − n)2 + (m + n)2 = 2m2 + 2n2 , hence a2 + b2 < R if and only if
+m2 + n2 < R/2. With that we get:
+                 X            1               X                  1                                X          1
+            2                     =2                                       =                                        .   (6)
+                           a + b2
+                            2                           (m − n) + (m + n)2
+                                                               2                                          m2 + n2
+                (a,b)∈ER                  (m,n)∈DR/2                                      (m,n)∈DR/2
+
+
+   Replacing (6) in (5), we obtain
+                                       X      (−1)a+b                  X              1
+                                                       =−                                     ,
+                                              a2 + b 2                             a2 + b 2
+                                   (a,b)∈DR                        R/2≤a2 +b2 <R
+
+
+where the second sum is evaluated for a and b integers.
+   Denote by N (r)pthe number of √ lattice points in the open disk x + y < r . Along the circle
+                                                                    2   2     2
+
+with radius r with R/2 ≤ r < R, there are N (r + 0) − N (r − 0) lattice points; each of them
+contribute r12 in the sum (7). So we can re-write the sum as a Stieltjes integral:
+                                                                  Z √R
+                                           X              1              1
+                                                                =  √         dN (r).
+                                                       a2 + b 2      R/2 r
+                                                                           2
+                                       R/2≤a2 +b2 <R
+
+
+It is well-known that N (r) = πr2 + O(r). (Putting a unit square around each lattice point,
+these squares cover the disk with radius r − 1 and lie inside the disk with radius r + 1, so there
+their total area is between π(r − 1)2 and π(r + 1)2 ). By integrating by parts,
+                 Z √R                         √ R      Z √R
+                        1              1                         2
+                  √       2
+                            dN (r) = 2 N (r) √         + √        3
+                                                                    N (r) dr
+                    R/2 r              r          R/2       R/2 r
+                                      2            √ R       Z √R
+                                       πr + O(r)                       πr2 + O(r)
+                                   =                 √     + 2  √                 dr
+                                           r2          R/2         R/2       r3
+                                         Z √R             √                    √ 
+                                                dr
+                                   = 2π √           + O 1/ R = π log 2 + O 1/ R .
+                                            R/2 r
+
+
+   Therefore,
+                                                                            Z √R
+            X        (−1)a+b                      X              1                 1
+    lim                       = − lim                                = − lim √         dN (r) = −π log 2.
+   R→∞               a2 + b 2    R→∞                           2
+                                                              a +b 2    R→∞    R/2 r
+                                                                                     2
+          (a,b)∈DR                            R/2≤a2 +b2 <R
+
+
+
+
+                                                              4
+

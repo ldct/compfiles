@@ -1,0 +1,236 @@
+                                              IMC 2024
+                                    First Day, August 7, 2024
+                                                 Solutions
+
+
+Problem 1. Determine all pairs (a, b) ∈ C × C satisfying
+
+                                     |a| = |b| = 1 and a + b + ab ∈ R.
+
+                                                            (proposed by Mike Daas, Universiteit Leiden)
+
+Hint: Write a = eix and b = eiy , and transform the RHS to a product.
+
+Solution 1. Write a = eix and b = eiy for some x, y ∈ [0, 2π). Using Euler’s formula, and the
+well-known identities
+                                           x+y     x−y                              x    x
+                   sin x + sin y = 2 sin       cos           and    sin x = 2 sin     cos ,
+                                            2       2                               2    2
+we get a product form of the left-hand side as
+                                             
+                  Im a + b + ab = sin x + sin y + sin(x − y)
+                                                x+y       x−y          x−y       x−y
+                                        = 2 sin       cos      + 2 sin       cos
+                                                 2         2           2        2
+                                                  x+y         x−y        x−y
+                                        = 2 sin         + sin        cos
+                                                    2          2           2
+                                                x      y      x−y
+                                        = 4 sin · cos · cos       .
+                                                2      2       2
+Hence, a + b + ab is real if and only if either sin x2 = 0, cos y2 = 0 or cos x−y
+                                                                               2
+                                                                                  = 0, which respectivelly
+correspond to x = 2kπ, y = (2k + 1)π and x = y + (2k + 1)π.
+   Therefore, the solutions are
+
+                         (1, b),    (a, −1) and (a, −a) with |a| = 1, |b| = 1.
+
+
+Solution 2. Notice that
+
+                                   a + b + ab ∈ R ⇐⇒ 1 + a + b + ab ∈ R.
+
+Let c ∈ C be such that a = c2 . Now observe that
+
+                                   c(1 + a + b + ab) = c + cc2 + cb + cc2 b
+                                                     = c + c + cb + cb ∈ R,
+
+where we used that cc = 1 and z + z ∈ R for any z ∈ C. W e conclude that either c ∈ R, or
+1 + a + b + ab = 0. In the first case, c = ±1 and so a = 1. In the second case, we factor the equation
+as
+             (a + b)(1 + b) = 1 + a + 1b + ab = 0, and as such, a = −b or b = −1.
+We find precisely three families of pairs (a, b): the pairs (1, b) for b on the unit circle; the pairs (a, −1)
+for a on the unit circle; and the pairs (a, −a) for a on the unit circle.
+
+
+                                                       1
+Problem 2. For n = 1, 2, . . . let
+                                             √
+                                              2
+                                                                            √
+                                             n
+                              Sn = log            11 · 22 · . . . · nn − log( n),
+
+where log denotes the natural logarithm. Find lim Sn .
+                                                      n→∞
+
+                                     (proposed by Sergey Chernov, Belarusian State University, Minsk)
+
+Hint: Sn is (close to) a Riemann sum of a certain integral.
+
+Solution. Transform Sn as
+                                         n
+                                  1 X              1
+                             Sn =        k log k −   log n
+                                  n2 k=1           2
+                                     n                    !
+                                  1 X      k      k            1
+                                =              log + log n    − log n
+                                  n k=1 n         n            2
+                                        n               n
+                                     1Xk        k log n X    1
+                                =            log + 2      k − log n
+                                     n k=1 n    n   n k=1    2
+                                        n
+                                  1Xk        k log n
+                                =         log +      .
+                                  n k=1 n    n  2n
+
+
+                    log n                              n k
+                                                     1 P       k
+Here the last term        converges to 0. The sum           log is a Riemann sum for the integrable
+                     2n                             n k=1 n    n                      
+                                                                       1 2      n−1
+function f (x) = x log x on the segment [0, 1] with the uniform grid    , ,...,     , 1 . Therefore
+                                                                       n n       n
+                 n                 n      Z 1              2            1
+              1Xk        k      1X       k                   x          x2      1
+          lim         log = lim       f    =    x log xdx =     log x −       =− .
+              n k=1 n    n      n k=1    n   0                2         4 0     4
+
+                                    1
+Hence, lim Sn exists, and lim Sn = − .
+                                    4
+
+
+
+
+                                                         2
+Problem 3. For which positive integers n does there exist an n × n matrix A whose entries are all in
+{0, 1}, such that A2 is the matrix of all ones?
+                                (proposed by Alex Avdiushenko, Neapolis University Paphos, Cyprus)
+
+Hint: Let J be the n × n matrix with all ones. Consider A3 = AJ = JA.
+
+Solution. Answer: Such a matrix A exists if and only if n is a complete square.
+   Let Jn be the n × n matrix with all ones, so A2 = Jn . Consider the equality
+
+                                               A3 = AJn = Jn A.
+
+In the matrix AJn , all columns are equal to the sum of colums in A, that is, the (i, j)th entry in AJn
+is the number of ones in the ith row of A. Similarly, the (i, j)th entry in Jn A is the number of ones
+in the jth column of A. These numbers must be equal, so A contains the same number of ones in
+every row and every column. Let this common number be k; then AJn = Jn A = kJn .
+    Now from
+                       nJn = Jn2 = (A2 )2 = A(AJn ) = A(kJn ) = k(AJn ) = k 2 Jn
+we can read n = k 2 , so n must be a complete square.
+   It remains to show an example for a matrix A of order n = k 2 . For l = 0, 1, . . . , k − 1, let Bl
+be the k × k matrix whose (i, j)th entry is 1 if j − i ≡ l (mod k) and 0 otherwise, i.e., Bl can be
+obtained from the identity matrix by cyclically shifting the colums l times, and let
+                                                                
+                                       B0 B1 B2 . . . Bk−1
+                                     B0 B1 B2 . . . Bk−1 
+                                A =  ..                      ..  ;
+                                                                
+                                              ..   .. . .
+                                      .       .    .     .    . 
+                                       B0 B1 B2 . . . Bk−1
+
+The (i, j)th block in A2 is
+                                         
+                                     Bj−1
+                              Bk−1  ...  = (B0 + B1 + . . . + Bk−1 )Bj−1 = Jk Bj−1 = Jk ,
+                                  
+            B0 B1 . . .
+                                          
+                                        Bj−1
+
+so this matrix indeed satisfies A2 = Jk2 .
+
+
+
+
+                                                      3
+Problem 4. Let g and h be two distinct elements of a group G, and let n be a positive integer.
+Consider a sequence w = (w1 , w2 , . . .) which is not eventually periodic and where each wi is either g
+or h. Denote by H the subgroup of G generated by all elements of the form wk wk+1 . . . wk+n−1 with
+k ≥ 1. Prove that H does not depend on the choice of the sequence w (but may depend on n).
+                                                     (proposed by Ivan Mitrofanov, Saarland University)
+
+Solution. Let Xm denote the subset of G of products of the form g1 . . . gm , where each gi is either g
+or h.
+Lemma. For all j = 1, 2, . . . , n and for all a, b ∈ Xj the ratio a−1 b is contained in H.
+Proof. Induction in j.
+    We start with the base case j = 1. By the pigeonhole principle, there exist k < ℓ for which the
+sequences (wk+1 , . . . , wk+n−1 ) and (wℓ+1 , . . . , wℓ+n−1 ) coincide. If wk+m = wℓ+m for all positive integer
+m, then the sequence w is eventually periodic with period ℓ − k. Thus, there exists m > 0 for which
+wk+m ̸= wℓ+m . We have m ⩾ n, so wk+m−i = wℓ+m−i for i = 1, 2, . . . , n − 1. Therefore, since the
+products x = wk+m−n+1 . . . wk+m and y = wℓ+m−n+1 . . . wℓ+m both are elements of H, the subgroup
+H contains their ratios x−1 y and y −1 x. These ratios are equal to g −1 h and h−1 g (in some order), that
+finishes the proof for j = 1.
+    Induction step from j − 1 to j, 2 ⩽ j ⩽ n. We say that an element a ∈ Xj is a g-element,
+correspondingly an h-element, if it can be represented as a = ga1 , correspondingly a = ha1 , where
+a1 ∈ Xj−1 . The ratio of two g-elements, or of two h-elements, is a ratio of two elements of Xj−1 , thus,
+it is in H by the induction hypothesis. Since the property a−1 b ∈ H is an equivalence relation on
+pairs (a, b), it suffices to find a g-element and h-element whose ratio is in H.
+    Define k, ℓ, m, as in the base case. The subgroup H contains the products
+
+                               v = wk+m−n+j . . . wk+m wk+m+1 . . . wk+m+j−1 ,
+                               u = wℓ+m−n+j . . . wℓ+m wℓ+m+1 . . . wℓ+m+j−1 .
+
+Their ratio u−1 v is a ratio of g-element and an h-element in Xj , since {wk+m , wℓ+m } = {g, h} and
+wk+m−i = wℓ+m−i for all i = 1, 2, . . . , n − j.
+   The Lemma for j = n yields that H is the subgroup of G generated by Xn , and this description
+does not depend on w.
+
+
+
+
+                                                       4
+Problem 5. Let n > d be positive integers. Choose n independent, uniformly distributed random
+points x1 , . . . , xn in the unit ball B ⊂ Rd centered at the origin. For a point p ∈ B denote by f (p)
+the probability that the convex hull of x1 , . . . , xn contains p. Prove that if p, q ∈ B and the distance
+of p from the origin is smaller than the distance of q from the origin, then f (p) ≥ f (q).
+                                             (proposed by Fedor Petrov, St Petersburg State University)
+
+Solution. By radial symmetry of the distribution, f (p) depends only on |op| (the distance between
+o and p), so, we may assume that p lies on the segment between o and q. For points x1 , . . . , xn
+and x ∈ B denote by fx (x1 , . . . , xn ) the indicator function of the event “x is in the convex hull of
+x1 , . . . , xn ”. The claim follows from the following deterministic inequality
+                                  X                            X
+                                     fp (±x1 , . . . , ±xn ) ⩾   fq (±x1 , . . . , ±xn ),             (1)
+
+where x1 , . . . , xn ∈ B are arbitrary points in general position and the summations are over all 2n choices
+of signs (here o is identified with the origin, that is, x and −x are symmetric with respect to o). Indeed,
+taking the expectation in (1) over independent random uniform x1 , . . . , xn , we get 2n f (p) ⩾ 2n f (q).
+(To be specific, here “general position” means that for any point set A ⊂ {±x1 , . . . , ±xn , p, q}, which
+does not contain simultaneosuly xi and −xi , is not contained in an (affine) (|A| − 2)-dimensional
+plane. This holds with probability 1.)
+    To prove (1), we use the following formula for the characteristic function χP of the convex
+polyhedron
+       P        P ⊂ Rd : if P1 , . . . , Pk are all facets of P , and Qi is the convex hull of o and Pi , then
+χP =      ±χQi , where the sign is plus if o and P are on the same side of Pi , and minus otherwise.
+Indeed, for every point p in general position look how the ray op intersects the boundary of P and
+realize that for at most two summands the contribution of the RHS at point p is non-zero, and the
+total contribution equals 1 when p is inside P and 0 (possibly as 0 = 1 − 1) otherwise. Use this
+formula for every polyhedron P with n vertices y1 , . . . , yn , where each yi is ±xi . These polyhedrons
+are simplicial (all facets are simplices) P    because of the general position condition. Sum up over all 2n
+such P , we get the expression of P χP as a linear combination of χS , where S are simplices formed
+by o and some d points in {±x1 , . . . , ±xn } (not containing xi and −xi simultaneously).
+    For proving (1), it suffices to verify that all coefficients
+                                                           P        of χS in this linear combination are positive
+(since two sides of (1) are the values of the sum P χP at p and q). Let’s find a coefficient of χS ,
+where, say, S is a simplex with vertices o, x1 , . . . , xd . The plane α through x1 , . . . , xd partitions Rd
+onto two parts H + (containing o) and H − (not containing o). For every pair {xi , −xi } with i > d,
+either both points belong to H + , or one belongs to H − and another to H + . χS goes with the plus
+sign for P with vertices x1 , . . . , xd and other vertices from H + , and with the minus sign for P with
+vertices x1 , . . . , xd and other vertices from H − . It is immediate that there are at least as many pluses
+as minuses.
+
+
+
+
+                                                       5
+

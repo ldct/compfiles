@@ -1,0 +1,172 @@
+                                                             IMC 2022
+                                           First Day, August 3, 2022
+                                                               Solutions
+
+
+Problem 1. Let f : [0, 1] → (0, ∞) be an integrable function such that f (x) · f (1 − x) = 1 for
+all x ∈ [0, 1]. Prove that           Z                            1
+                                                                      f (x) dx ≥ 1.
+                                                              0
+
+                                                                                   (proposed by Mike Daas, Universiteit Leiden)
+
+Hint: Apply the AM–GM inequality.
+
+Solution 1. By the AM–GM inequlity we have
+                                                            p
+                                       f (x) + f (1 − x) ≥ 2 f (x)f (1 − x) = 2.
+
+By integrating in the interval [0, 12 ] we get
+       Z 1               Z 1                  Z 1                                 Z 1                               Z 1
+                              2                      2                                 2                                2
+             f (x)dx =            f (x)dx +              f (1 − x)dx =                     f (x) + f (1 − x) dx ≥            2dx = 1.
+        0                 0                      0                                 0                                 0
+
+
+
+Solution 2. From the condition, we have
+                         Z 1           Z 1               Z 1
+                                                                                                    1
+                             f (x)dx =     f (1 − x)dx =                                                dx
+                                       0                       0                              0   f (x)
+
+and hence, using the positivity of f , the claim follows since
+                     Z 1                   2       Z 1                  Z 1                     Z 1      2
+                                                                                     1
+                                  f (x)dx        =           f (x)dx ·                   dx ≥            1dx ≥ 1
+                              0                          0                    0    f (x)             0
+
+by the Cauchy-Schwarz inequality.
+
+
+
+
+                                                                          1
+Problem 2. Let n be a positive integer. Find all n × n real matrices A with only real eigenvalues
+satisfying
+                                         A + Ak = AT
+for some integer k ≥ n.
+(AT denotes the transpose of A.)
+                                       (proposed by Camille Mau, Nanyang Technological University)
+
+Hint: Consider the eigenvalues of A.
+
+Solution 1. Taking the transpose of the matrix equation and substituting we have
+
+           AT + (AT )k = A =⇒ A + Ak + (A + Ak )k = A =⇒ Ak (I + (I + Ak−1 )k ) = 0.
+
+Hence p(x) = xk (1 + (1 + xk−1 )k ) is an annihilating polynomial for A. It follows that all eigenvalues
+of A must occur as roots of p (possibly with different multiplicities). Note that for all x ∈ R (this
+can be seen by considering even/odd cases on k),
+
+                                             (1 + xk−1 )k ≥ 0,
+
+and we conclude that the only eigenvalue of A is 0 with multiplicity n.
+    Thus A is nilpotent, and since A is n × n, An = 0. It follows Ak = 0, and A = AT . Hence A
+can only be the zero matrix: A is real symmetric and so is orthogonally diagonalizable, and all its
+eigenvalues are 0.
+Remark. It’s fairly easy to prove that eigenvalues must occur as roots of any annihilating polynomial. If λ
+is an eigenvalue and v an associated eigenvector, then f (A)v = f (λ)v. If f annihilates A, then f (λ)v = 0,
+and since v ̸= 0, f (λ) = 0.
+
+Solution 2. If λ is an eigenvalue of A, then λ + λk is an eigenvalue of AT = A + Ak , thus of A
+too. Now, if k is odd, then taking λ with maximal absolute value we get a contradiction unless all
+eigenvalues are 0. If k is even, the same contradiction is obtained by comparing the traces of AT and
+A + Ak .
+    Hence all eigenvalues are zero and A is nilpotent. The hypothesis that k ≥ n ensures A = AT . A
+nilpotent self-adjoint operator is diagonalizable and is necessarily zero.
+
+
+
+
+                                                     2
+Problem 3. Let p be a prime number. A flea is staying at point 0 of the real line. At each minute,
+the flea has three possibilities: to stay at its position, or to move by 1 to the left or to the right.
+After p − 1 minutes, it wants to be at 0 again. Denote by f (p) the number of its strategies to do this
+(for example, f (3) = 3: it may either stay at 0 for the entire time, or go to the left and then to the
+right, or go to the right and then to the left). Find f (p) modulo p.
+                                                                 (proposed by Fedor Petrov, St. Petersburg)
+
+Hint: Find a recurrence for f (p) or use generating functions.
+
+Solution 1. The answer is f (p) ≡ 0 mod 3 for p = 3, f (p) ≡ 1 mod 3 for p = 3k + 1, and
+f (p) ≡ −1 mod 3 for p = 3k − 1.
+
+     The case p = 3 is already considered, let further p ̸= 3. For a residue i modulo p denote by
+ai (k) the number of Flea strategies for which she is at position i modulo p after k minutes. Then
+f (p) = a0 (p−1). The natural recurrence is ai (k +1) = ai−1 (k)+ai (k)+ai+1 (k), where the indices are
+taken modulo p. The idea is that modulo p we have a0 (p) ≡ 3 and ai (p) ≡ 0. Indeed, for all strategies
+for p minutes for which not all p actions are the same, we may cyclically shift the actions, and so
+we partition such strategies onto groups by p strategies which result with the same i. Remaining
+three strategies correspond to i = 0. Thus, if we denote xi = ai (p − 1), we get a system of equations
+x−1 +x0 +x1 = 3, xi−1 +xi +xi+1 = 0 for all i = 1, . . . , p−1. It is not hard to solve this system (using
+the 3-periodicity, for example). For p = 3k + 1 we get (x0 , x1 , . . . , xp−1 ) = (1, 1, −2, 1, 1, −2, . . . , 1),
+and (x0 , x1 , . . . , xp−1 ) = (−1, 2, −1, −1, 2, . . . , 2) for p = 3k + 2.
+
+Solution 2. Note that f (p) is the constant term of the Laurent polynomial (x + 1 + 1/x)p−1 (the
+moves to right, to left and staying are in natural correspondence with x, 1/x and 1.) Thus, working
+with power series over Fp we get (using the notation [xk ]P (x) for the coefficient of xk in P )
+
+  f (p) = [xp−1 ](1 + x + x2 )p−1 = [xp−1 ](1 − x3 )p−1 (1 − x)1−p = [xp−1 ](1 − x3 )p (1 − x)−p (1 − x3 )−1 (1 − x)
+                               = [xp−1 ](1 − x3p )(1 − xp )−1 (1 − x3 )−1 (1 − x) = [xp−1 ](1 − x3 )−1 (1 − x),
+
+and expanding (1 − x3 )−1 = x3k we get the answer.
+                                 P
+
+
+
+
+                                                         3
+Problem 4. Let n > 3 be an integer. Let Ω be the set of all triples of distinct elements of
+{1, 2, . . . , n}. Let m denote the minimal number of colours which suffice to colour Ω so that whenever
+1 ≤ a < b < c < d ≤ n, the triples {a, b, c} and {b, c, d} have different colours. Prove that
+                                    1
+                                       log log n ⩽ m ⩽ 100 log log n.
+                                   100
+                                                        (proposed by Danila Cherkashin, St. Petersburg)
+Hint: Define two graphs, one on Ω and another graph on pairs (2-element sets).
+Solution. For k = 1, 2, . . . , n denote by Ωk the set of all nk k-subsets of [n]. For each k =
+                                                                           
+
+1, 2, . . . , n − 1 define a directed graph Gk whose vertices are elements of Ωk , and edges correspond to
+elements of Ωk+1 as follows: if 1 ⩽ a1 < a2 < . . . < ak+1 ⩽ n, then the edge of Gk corresponding to
+(a1 , . . . , ak+1 ) goes from (a1 , . . . , ak ) to (a2 , . . . , ak+1 ).
+     For a directed graph G = (V, E) we call a subset E1 ⊂ E admissible, if E1 does not contain a
+directed path a − b − c of length 2. Define b-index b(G) of the G as the minimal number of admissible
+sets which cover E. As usual, a subset V1 ⊂ V is called independent, if there are no edges with both
+endpoints in V1 ; a chromatic number of G is defined as the minimal number of independent sets
+which cover V .
+     A straightforward but crucial observation is the following
+Lemma. For all k = 2, 3, . . . , n a subset Ak ⊂ Ωk is independent in Gk if and only if it is admissible
+as a set of edges of Gk−1 .
+     Corollary. χ(Gk ) = b(Gk−1 ) for all k = 2, 3, . . . , n.
+     Now the bounds for numbers χ(Gk ) follow by induction using the following general
+Lemma. For a directed graph G = (V, E) we have
+                                   log2 χ(G) ⩽ b(G) ⩽ 2⌈log2 χ(G)⌉.
+Proof. 1) Denote b(G) = m and prove that log2 χ(G) ⩽ m. For this we take a covering of E by m
+admissible subsets E1 , . . . , Em and define a color c(v) of a vertex v ∈ V as the following subset of
+[m]: c(v) := {i ∈ [m] : ∃vw ∈ Ei }. Note that for any edge vw ∈ E there exists i such that vw ∈ Ei
+which yields i ∈ c(v) and i ∈   / c(w), therefore c(v) ̸= c(w). So, each color class is an independent set
+and we get χ(G) ⩽ 2m as needed.
+   2) Denote χ(G) = k and prove that b(G) ⩽ 2⌈log2 k⌉. Take a proper coloring τ : V → {0, 1, . . . , k−
+1} (that means that τ (u) ̸=Pτ (v) for all edges vu ∈ E). For an integer x ∈ {0, 1, . . . , k − 1} take a
+binary representation x = r−1                i
+                                  i=0 εi (x)2 , εi (x) ∈ {0, 1}, where r = ⌈log2 k⌉. Consider the following
+2r subsets of E, two subsets Ei,+ and Ei,− for each i ∈ {0, 1, . . . , k − 1}:
+                             Ei,+ = {vu ∈ E : εi (τ (v)) = 0, εi (τ (u)) = 1},
+                             Ei,− = {vu ∈ E : εi (τ (v)) = 1, εi (τ (u)) = 0}.
+Each of them is admissible, and they cover E, thus b(G) ⩽ 2r.
+    Note that χ(G1 ) = n, thus b(G1 ) ⩾ log2 n. Actually we have b(G1 ) = ⌈log2 n⌉: indeed, if we
+define τ (v) = v − 1 for all v ∈ [n] = Ω1 , then the above sets Ei,+ cover all edges of G1 .
+    The Lemma above now yields for our number m = χ(G3 ) = b(G2 ) the following bounds, which
+are better than required:
+
+
+                       b(G2 ) ⩾ log2 χ(G2 ) = log2 b(G1 ) = log2 ⌈log2 n⌉
+                       b(G2 ) ⩽ 2⌈log2 χ(G2 )⌉ = 2⌈log2 b(G1 )⌉ = 2⌈log2 ⌈log2 n⌉⌉.
+Remark. Actually the upper bound in the Lemma may be improved to (1 + o(1)) log2 χ(G) that yields
+m = (1 + o(1)) log2 log2 n.
+
+
+                                                    4
+

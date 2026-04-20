@@ -1,0 +1,232 @@
+                      IMC 2017, Blagoevgrad, Bulgaria
+
+
+                                  Day 1, August 2, 2017
+
+
+
+
+Problem 1.    Determine all complex numbers λ for which there exist a positive integer n and
+a real n × n matrix A such that A2 = AT and λ is an eigenvalue of A.
+                                (Proposed by Alexandr Bolbot, Novosibirsk State University)
+Solution.   By taking squares,
+                            A4 = (A2 )2 = (AT )2 = (A2 )T = (AT )T = A,
+
+so
+                                            A4 − A = 0;
+it follows that all eigenvalues of A are roots of the polynomial
+                                                          √      X4 − X.
+    The roots of X 4 − X = X(X 3 − 1) are 0, 1 and −1±2 3i . In order to verify that these values
+are possible, consider the matrices
+                                                                       0   0  0    0
+                                                                                      
+                                                     √   !
+                                                    3
+                                           −√12  2
+                                                                      0   1  0    0 
+                                                                                  √ 
+          A0 = 0 ,      A1 = 1 ,     A2 =                    ,   A4 =         1    3.
+                                             − 23 − 12                0   0 −√2   2
+                                                                       0   0 − 23 − 12
+
+The numbers√0 and 1 are the eigenvalues of the 1 × 1 matrices A0 and A1 , respectively. The
+numbers −1±2 3i are the eigenvalues of A2 ; it is easy to check that
+                                                     √ !
+                                            −  1
+                                                 − 23
+                                    A22 =   √2
+                                              3
+                                                           = AT2 .
+                                             2
+                                                 − 12
+
+The matrix A4 establishes all the four possible eigenvalues in a single matrix.
+
+
+Remark. The matrix A2 represents a rotation by 2π/3.
+
+
+
+Problem 2.    Let f : R → (0, ∞) be a dierentiable function, and suppose that there exists
+a constant L > 0 such that
+                                     f 0 (x) − f 0 (y) ≤ L x − y
+for all x, y . Prove that                       2
+                                         f 0 (x) < 2Lf (x)
+holds for all x.
+                                                (Proposed by Jan ustek, University of Ostrava)
+
+
+
+
+                                                 1
+Solution.    Notice that f 0 satises the Lipschitz-property, so f 0 is continuous and therefore
+locally integrable.
+    Consider an arbitrary x ∈ R and let d = f 0 (x). We need to prove f (x) > 2L d2
+                                                                                    .
+    If d = 0 then the statement is trivial.
+    If d > 0 then the condition provides f 0 (x−t) ≥ d−Lt; this estimate is positive for 0 ≤ t < Ld .
+By integrating over that interval,
+                                                Z d                          Z d
+                                                        L                         L                   d2
+               f (x) > f (x) − f (x − Ld ) =                f 0 x − t dt ≥
+                                                                     
+                                                                                      (d − Lt)dt =       .
+                                                    0                         0                       2L
+     If d < 0 then apply f (x + t) ≤ d + Lt = −|d| + Lt and repeat the same argument as
+                            0
+
+
+                                           Z |d|                              Z |d|
+                                                L                                     L                          d2
+           f (x) > f (x) − f (x + |d|                         0
+                                                                   
+                                   L
+                                      )=                − f (x + t) dt ≥                  (|d| − Lt)dt =            .
+                                            0                                     0                              2L
+
+Problem 3.     For any positive integer m, denote by P (m) the product of positive divisors of m
+(e.g. P (6) = 36). For every positive integer n dene the sequence
+                     a1 (n) = n,     ak+1 (n) = P (ak (n)) (k = 1, 2, . . . , 2016).
+   Determine whether for every set S ⊆ {1, 2, . . . , 2017}, there exists a positive integer n such
+that the following condition is satised:
+       For every   k with 1 ≤ k ≤ 2017, the number ak (n) is a perfect square if and only if k ∈ S .
+                                                            (Proposed by Matko Ljulj , University of Zagreb)
+Solution.   We prove that the answer is yes; for every S ⊂ {1, 2, . . . , 2017} there exists a
+suitable n. Specially, n can be a power of 2: n = 2w1 with some nonnegative integer w1 . Write
+ak (n) = 2wk ; then
+                                                                                                wk (wk +1)
+               2wk+1 = ak+1 (n) = P (ak (n)) = P (2wk ) = 1 · 2 · 4 · · · 2wk = 2                    2       ,
+so
+                                                            wk (wk + 1)
+                                           wk+1 =                       .
+                                                                 2
+The proof will be completed if we prove that for each choice of S there exists an initial value
+w1 such that wk is even if and only if k ∈ S .
+Lemma. Suppose that the sequences (b1 , b2 , . . .) and (c1 , c2 , . . .) satisfy bk+1 =              and
+                                                                                           bk (bk +1)
+                                                                                                2
+ck+1 = ck (ck +1)
+            2
+                  for k ≥ 1, and c1 = b1 + 2 . Then for each k = 1, . . . m we have ck ≡ bk + 2
+                                            m                                                       m−k+1
+
+(mod 2m−k+2 ).
+   As an immediate corollary, we have bk ≡ ck (mod 2) for 1 ≤ k ≤ m and bm+1 ≡ cm+1 + 1
+(mod 2).
+Proof. We prove the by induction. For k = 1 we have c1 = b1 + 2                so the statement holds.
+                                                                            m
+
+Suppose the statement is true for some k < m, then for k + 1 we have
+                                                         
+            ck (ck + 1)      bk + 2m−k+1 bk + 2m−k+1 + 1
+     ck+1 =             ≡
+                  2                         2
+             2      m−k+2        2m−2k+2
+            bk + 2        bk + 2         + bk + 2m−k+1
+          =                                            =
+                                   2
+            bk (bk + 1)                                  bk (bk + 1)
+          =             + 2m−k + 2m−k+1 bk + 22m−2k+1 ≡              + 2m−k                         (mod 2m−k+1 ),
+                  2                                            2
+therefore ck+1 ≡ bk+1 + 2m−(k+1)+1 (mod 2m−(k+1)+2 ).
+
+                                                             2
+    Going back to the solution of the problem, for every 1 ≤ m ≤ 2017 we construct inductively
+a sequence (v1 , v2 , . . .) such that vk+1 = vk (v2k +1) , and for every 1 ≤ k ≤ m, vk is even if and
+only if k ∈ S .
+    For m = 1 we can choose v1 = 0 if 1 ∈ S or v1 = 1 if 1 ∈/ S . If we already have such a
+sequence (v1 , v2 , . . .) for a positive integer m, we can choose either the same sequence or choose
+                                                              v 0 (v 0 +1)
+v10 = v1 + 2m and apply the same recurrence vk+1       0
+                                                            = k 2k . By the Lemma, we have vk ≡ vk0
+(mod 2) for k ≤ m, but vm+1 and vm+1 have opposite parities; hence, either the sequence (vk )
+or the sequence (vk0 ) satises the condition for m + 1.
+    Repeating this process for m = 1, 2, . . . , 2017, we obtain a suitable sequence (wk ).
+
+Problem 4.   There are n people in a city, and each of them has exactly 1000 friends (friendship
+is always symmetric). Prove that it is possible to select a group S of people such that at least
+n/2017 persons in S have exactly two friends in S .
+        (Proposed by Rooholah Majdodin and Fedor Petrov, St. Petersburg State University)
+Solution.   Let d = 1000 and let 0 < p < 1. Choose the set S randomly such that each people
+is selected with probability p, independently from the others.
+    The probability that a certain person is selected for S and knows exactly two members of
+S is                                      
+                                             d 3
+                                       q=      p (1 − p)d−2 .
+                                             2
+   Choose p = 3/(d + 1) (this is the value of p for which q is maximal); then
+                                         3      d−2
+                                    d    3       d−2
+                                q=                        =
+                                    2   d+1      d+1
+                                          −(d−2)
+                 27d(d − 1)           3               27d(d − 1) −3         1
+               =           3
+                                1+                 >            3
+                                                                  ·e >        .
+                  2(d + 1)          d−2                2(d + 1)         2017
+   Hence, E |S| = nq > 2017
+                         n
+                             , so there is a choice for S when |S| > 2017
+                                                                      n
+                                                                          .
+               
+
+
+Problem 5.     Let k and n be positive integers with n ≥ k2 − 3k + 4, and let
+                                f (z) = z n−1 + cn−2 z n−2 + . . . + c0
+
+be a polynomial with complex coecients such that
+                               c0 cn−2 = c1 cn−3 = . . . = cn−2 c0 = 0.
+
+Prove that f (z) and z n − 1 have at most n − k common roots.
+               (Proposed by Vsevolod Lev and Fedor Petrov, St. Petersburg State University)
+Solution.  Let M = {z : z n = 1}, A = {z ∈ M : f (z) 6= 0} and A−1 = {z −1 : z ∈ A}. We have
+to prove |A| ≥ k.
+   Claim.
+
+                                            A · A−1 = M.
+That is, for any η ∈ M , there exist some elements a, b ∈ A such that ab−1 = η .
+  Proof. As is well-known, for every integer m,
+
+
+                                               n if n|m
+                                              (
+                                     X
+                                         zm =
+                                     z∈M
+                                               0 otherwise.
+
+                                                  3
+Dene cn−1 = 1 and consider
+           X                       X             n−1
+                                                 X                n−1
+                                                                  X                 n−1 X
+                                                                                    X   n−1               X
+                 2                           2                j              `
+                z f (z)f (ηz) =          z             cj z             c` (ηz) =             cj c` η `         z j+`+2 =
+          z∈M                      z∈M           j=0              `=0               j=0 `=0               z∈M
+
+          n−1 X
+          X   n−1            X n if n|j + ` + 2            n−2
+                                                             X
+                         `                           2
+      =              cj c` η                      = cn−1 n +     cj cn−2−j η n−2−j n = n 6= 0.
+          j=0 `=0
+                                0    otherwise                                      j=0
+                             z∈M
+
+Therefore there exists some b ∈ M such that f (b) 6= 0 and f (ηb) 6= 0, i.e. b ∈ A, and
+a = ηb ∈ A, satisfying ab−1 = η .
+   By double-counting the elements of M , from the Claim we conclude
+                |A| |A| − 1 ≥ M \ {1} = n − 1 ≥ k 2 − 3k + 3 > (k − 1)(k − 2)
+                           
+
+
+which shows |A| > k − 1.
+
+
+
+
+                                                                    4
+

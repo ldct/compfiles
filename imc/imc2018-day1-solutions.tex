@@ -1,0 +1,213 @@
+                         IMC 2018, Blagoevgrad, Bulgaria
+
+
+                                           Day 1, July 24, 2018
+
+
+
+
+Problem 1.     Let (an )∞
+                        n=1 and (bn )n=1 be two sequences of positive numbers. Show that the
+                                     ∞
+
+following statements are equivalent:
+                                                                             ∞                ∞
+                                                                               an               cn
+(1) There is a sequence                   of positive numbers such that                 and           both converge;
+                                                                             X                X
+                               (cn )∞
+                                    n=1
+                                                                                c
+                                                                             n=1 n
+                                                                                                 b
+                                                                                              n=1 n
+      ∞ r
+          an
+(2)               converges.
+      X
+
+      n=1
+             bn
+                                                 (Proposed by Tomá² Bárta, Charles University, Prague)
+Solution.   Note that the sum of a series with positive terms can be either nite or +∞, so for
+such a series, "converges" is equivalent to "is nite".
+   Proof for (1) =⇒ (2): By the AM-GM inequality,
+
+                                      r          r                            
+                                          an         an c n   1       an c n
+                                             =          ·   ≤            +         ,
+                                          bn         c n bn   2       c n bn
+so                                  ∞ r             ∞        ∞
+                                    X   an       1 X an 1 X c n
+                                               ≤         +         < +∞.
+                                    n=1
+                                            bn   2 n=1 cn 2 n=1 bn
+            ∞ r
+                 an
+Hence,              is nite and therefore convergent.
+            X
+
+          n=1
+                 bn
+                                            √
+      Proof for (2) =⇒ (1): Choose cn =       an bn . Then
+                                                       r
+                                          an     cn      an
+                                             =       =      .
+                                          cn     bn      bn
+                      ∞ r                                     ∞             ∞
+                          an                                    an            cn
+By the condition                    converges, therefore              and              converge, too.
+                      X                                       X             X
+
+                      n=1
+                               bn                                c
+                                                              n=1 n
+                                                                               b
+                                                                            n=1 n
+
+Problem 2.    Does there exist a eld such that its multiplicative group is isomorphic to its
+additive group?
+                     (Proposed by Alexandre Chapovalov, New York University, Abu Dhabi)
+Solution.   There exist no such eld.
+    Suppose that F is such a eld and g : F ∗ → F + is a group isomorphism. Then g(1) = 0.
+    Let a = g(−1). Then 2a = 2 · g(−1) = g((−1)2 ) = g(1) = 0; so either a = 0 or char F = 2.
+If a = 0 then −1 = g −1 (a) = g −1 (0) = 1; we have char F = 2 in any case.
+    For every x ∈ F , we have g(x2 ) = 2g(x) = 0 = g(1), so x2 = 1. But this equation has only
+one or two solutions. Hence F is the 2-element eld; but its additive and multiplicative groups
+have dierent numbers of elements and are not isomorphic.
+
+
+
+
+                                                          1
+Problem 3.    Determine all rational numbers a for which the matrix
+                                                   
+                                          a −a −1 0
+                                        a −a 0 −1
+                                                   
+                                        1 0   a −a
+                                          0 1  a −a
+
+is the square of a matrix with all rational entries.
+                              (Proposed by Daniël Kroes, University of California, San Diego)
+Solution.   We
+              will show that the
+                               only such number is a = 0.
+               a −a −1 0
+             a −a 0 −1
+    Let A =                    and suppose that A = B 2 . It is easy to compute the charac-
+             1 0       a −a
+               0 1      a −a
+teristic polynomial of A, which is
+                                  pA (x) = det(A − xI) = (x2 + 1)2 .
+
+By the Cayley-Hamilton theorem we have pA (B 2 ) = pA (A) = 0.
+   Let µB (x) be the minimal polynomial of B . The minimal polynomial divides all polynomials
+that vanish at B ; in particular µB (x) must be a divisor of the polynomial pA (x2 ) = (x4 + 1)2 .
+The polynomial µB (x) has rational coecients and degree at most 4. On the other hand, the
+polynomial x4 + 1, being the 8th cyclotomic polynomial, is irreducible in Q[x]. Hence the only
+possibility for µB is µB (x) = x4 + 1. Therefore,
+                                        A2 + I = µB (B) = 0.                                  (1)
+
+   Since we have                                         
+                                              0  0 −2a 2a
+                                           0    0 −2a 2a
+                                  A2 + I = 
+                                           2a −2a 0
+                                                          ,
+                                                        0
+                                             2a −2a 0   0
+the relation (1) forces a = 0.
+   In case a = 0 we have
+                                                                           2
+                              0       0 −1 0       0                0     0 −1
+                            0        0 0 −1 1
+                                                                  0     0 0
+                          A=
+                            1                 =                               ,
+                                      0 0  0  0                   1     0 0
+                              0       1 0  0       0                0     1 0
+
+hence a = 0 satises the condition.
+Problem 4.    Find all dierentiable functions f : (0, ∞) → R such that
+                                                √ 
+                       f (b) − f (a) = (b − a)f   ab0
+                                                                   for all a, b > 0.          (2)
+
+                                 (Proposed by Orif Ibrogimov, National University of Uzbekistan)
+Solution.  First we show that f is innitely many times dierentiable. By substituting a = 21 t
+and b = 2t in (2),
+                                                   f (2t) − f ( 12 t)
+                                       f 0 (t) =          3           .                       (3)
+                                                          2
+                                                            t
+
+                                                        2
+Inductively, if f is k times dierentiable then the right-hand side of (3) is k times dierentiable,
+so the f 0 (t) on the left-hand-side is k times dierentiable as well; hence f is k + 1 times
+dierentiable.
+   Now substitute b = eh t and a = e−h t in (2), dierentiate three times with respect to h then
+take limits with h → 0:
+                                 f (eh t) − f (e−h t) − (eh t − e−h t)f (t) = 0
+                              3 
+                              ∂           h          −h        h      −h
+                                                                               
+                                      f (e t) − f (e t) − (e t − e t)f (t) = 0
+                              ∂h
+e3h t3 f 000 (eh t)+3e2h t2 f 00 (eh t)+eh tf 0 (eh t)+e−3h t3 f 000 (e−h t)+3e−2h t2 f 00 (e−h t)+e−h tf 0 (e−h t)−
+                                                           −(eh t + e−h t)f 0 (t) = 0
+                                              2t3 f 000 (t) + 6t2 f 00 (t) = 0
+                                                 tf 000 (t) + 3f 00 (t) = 0
+                                                     (t f (t))000 = 0.
+Consequently, tf (t) is an at most quadratic polynomial of t, and therefore
+                                                                   C2
+                                               f (t) = C1 t +         + C3                                             (4)
+                                                                    t
+with some constants C1 , C2 and C3 .
+   It is easy to verify that all functions of the form (4) satisfy the equation (1).
+Problem 5.        Let p and q be prime numbers with p < q . Suppose that in a convex polygon
+P1 P2 . . . Ppq all angles are equal and the side lengths are distinct positive integers. Prove that
+                                                                                 k3 + k
+                                     P1 P2 + P2 P3 + · · · + Pk Pk+1 ≥
+                                                                                    2
+holds for every integer k with 1 ≤ k ≤ p.
+                  (Proposed by Ander Lamaison Vidarte, Berlin Mathematical School, Berlin)
+Solution.    Place the polygon in the complex plane counterclockwise, so that P2 − P1 is a
+positive real number. Let ai = |Pi+2 − Pi+1 |, which is an integer, and dene the polynomial
+f (x) = apq−1 xpq−1 + · · · + a1 x + a0 . Let ω = e pq ; then Pi+1 − Pi = ai−1 ω i−1 , so f (ω) = 0.
+                                                     2πi
+
+
+
+     The minimal polynomial of ω over Q[x] is the cyclotomic polynomial Φpq (x) = (x            p −1)(xq −1) ,
+                                                                                              (xpq −1)(x−1)
+
+so Φpq (x) divides f (x). At the same time, Φpq (x) is the greatest common divisor of s(x) =
+xpq −1
+       = Φq (xp ) and t(x) = xxq −1    = Φp (xq ), so by Bézout's identity (for real polynomials), we
+                                 pq −1
+ xp −1
+can write f (x) = s(x)u(x) + t(x)v(x), with some polynomials u(x), v(x). These polynomials
+can be replaced by u∗ (x) = u(x) + w(x) xx−1         and v ∗ (x) = v(x) − w(x) xx−1   , so without loss of
+                                               p −1                              q −1
+
+
+generality we may assume that deg u ≤ p − 1. Since deg a = pq − 1, this forces deg v ≤ q − 1.
+     Let u(x) = up−1 xp−1 + · · · + u1 x + u0 and v(x) = vq−1 xq−1 + · · · + v1 x + v0 . Denote by (i, j)
+the unique integer n ∈ {0, 1, . . . , pq − 1} with n ≡ i (mod p) and n ≡ j (mod q). By the choice
+of s and t, we have a(i,j) = ui + vj . Then
+                                              k−1            k−1                   k−1 k−1
+                                              X              X       1 XX
+                P1 P2 + · · · + Pk Pk+1 =     a(i,i) =     ui + vi =           (ui + vj )
+                                          i=0          i=0
+                                                                     k i=0 j=0
+                                                k−1 k−1
+                                             1 XX             (∗) 1                    k3 + k
+                                           =           a(i,j) ≥     1 + 2 + · · · + k2 =
+                                             k i=0 j=0            k                        2
+
+where (∗) uses the fact that the numbers (i, j) are pairwise dierent.
+
+                                                             3
+

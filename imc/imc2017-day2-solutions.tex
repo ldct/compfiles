@@ -1,0 +1,342 @@
+                           IMC 2017, Blagoevgrad, Bulgaria
+
+
+                                   Day 2, August 3, 2017
+
+
+
+
+Problem 6.    Let f : [0; +∞) → R be a continuous function such that lim f (x) = L exists
+                                                                    x→+∞
+(it may be nite or innite). Prove that
+                                              Z1
+                                        lim        f (nx) dx = L.
+                                       n→∞
+                                              0
+
+                                   (Proposed by Alexandr Bolbot, Novosibirsk State University)
+Solution 1.       Case 1: L is nite. Take an arbitrary ε > 0. We construct a number K ≥ 0 such
+       R1
+that        f (nx) dx − L < ε.
+       0
+   Since lim f (x) = L, there exists a K1 ≥ 0 such that f (x) − L < 2ε for every x ≥ K1 .
+         x→+∞
+Hence, for n ≥ K1 we have
+                     Z 1
+                                         1 n
+                                          Z                       Z n
+                                                               1            
+                     f (nx) dx − L =           f (x) dx − L =          f −L ≤
+                  0                      n 0                  n 0
+          Z n               Z K1             Z n               Z K1           Z n 
+        1                 1                                   1                      ε
+      ≤       |f − L| =            |f − L| +       |f − L| <           |f − L| +       =
+        n 0               n    0               K1             n    0              K1 2
+                        1 K1              n − K1 ε        1 K1
+                          Z                                Z
+                                                                          ε
+                     =         |f − L| +            · <         |f − L| + .
+                        n 0                  n       2    n 0             2
+
+If n ≥ K2 = 2ε 0K1 |f − L| then the rst term is at most 2ε . Then for x ≥ K := max(K1 , K2 )
+               R
+
+we have                          Z 1
+                                                        ε ε
+                                     f (nx) dx − L < + = ε.
+                                  0                     2 2
+                                                                               R1
+   Case 2: L = +∞. Take an arbitrary real M ; we need a K ≥ 0 such that             f (nx) dx > M
+                                                                               0
+for every x ≥ K .
+    Since lim f (x) = ∞, there exists a K1 ≥ 0 such that f (x) > M + 1 for every x ≥ K1 .
+          x→+∞
+Hence, for n ≥ 2K1 we have
+                  Z 1
+                                 1 n               1 n
+                                    Z                Z         Z K1    Z n 
+                                                             1
+                     f (nx) dx =       f (x) dx =        f=          f+      f =
+                   0             n 0               n 0       n    0       K1
+                     Z K1      Z n                Z K1               
+                   1                             1
+                 =          f+      (M + 1) =             f − K1 (M + 1) + M + 1.
+                   n    0        K1              n     0
+
+
+If n ≥ K2 := 0K1 f − K1 (M + 1) then the rst term is at least −1. For x ≥ K := max(K1 , K2 )
+                 R
+
+we have 01 f (nx) dx > M .
+         R
+
+    Case 3: L = −∞. We can repeat the steps in Case 2 for the function −f .
+
+
+
+                                                     1
+                 Let F (x) = 0x f . For t > 0 we have
+                                 R
+Solution 2.
+
+                                                Z 1
+                                                                      F (t)
+                                                      f (tx) dx =           .
+                                                  0                     t
+Since lim t = ∞ in the denominator and lim F 0 (t) = lim f (t) = L, L'Hospital's rule proves
+      t→∞                                                t→∞                t→∞
+               0
+ lim t = lim F 1(t) = lim f (t)
+    F (t)
+                                =L            . Then it follows that lim F (n) = L.
+t→∞       t→∞         t→∞ 1                                                n
+
+
+Problem 7.         Let p(x) be a nonconstant polynomial with real coecients. For every positive
+integer n, let
+                                       qn (x) = (x + 1)n p(x) + xn p(x + 1).
+     Prove that there are only nitely many numbers n such that all roots of qn (x) are real.
+                                  (Proposed by Alexandr Bolbot, Novosibirsk State University)
+Solution.
+    Lemma. If f (x) = am xm + . . . + a1 x + a0 is a polynomial with am 6= 0, and all roots of f
+are real, then
+                                                a2m−1 − 2am am−2 ≥ 0.
+     Proof. Let the roots of f be w1 , . . . , wn . By the Viéte-formulas,
+                                 m
+                                 X                  am−1            X               am−2
+                                           wi = −        ,                wi wj =        ,
+                                     i=1
+                                                     am             i<j
+                                                                                     am
+
+             m             m
+                                      !2                                   2
+                                                                                           a2 − 2am am−2
+                                                                
+             X             X                    X                   am−1             am−2
+        0≤         wi2 =         wi        −2         wi wj =                   −2        = m−1 2        .
+             i=1           i=1                  i<j
+                                                                     am               am        am
+    In view of the Lemma we focus on the asymptotic behavior of the three terms in qn (x) with
+the highest degrees. Let p(x) = axk + bxk−1 + cxk−2 + . . . and qn (x) = An xn+k + Bn xn+k−1 +
+Cn xn+k−2 + . . . ; then
+           qn (x) = (x + 1)n p(x) + xn p(x + 1) =
+                                                          
+                        n      n−1    n(n − 1) n−2
+                  = x + nx         +          x     + . . . (axk + bxk−1 + cxk−2 + . . .)
+                                         2
+                                                              
+                     n       k      k−1   k(k − 1) k−2
+                  + x a x + kx          +          x      + ...
+                                              2
+                                                                             
+                                  k−1            k−2               k−2
+                           +b x       + (k − 1)x     + ... + c x       ... + ...
+
+                  = 2a · xn+k + (n + k)a + 2b xn+k−1
+                                                
+                                                                           
+                                n(n − 1) + k(k − 1)
+                           +                         a + (n + k − 1)b + 2c xn+k−2 + . . . ,
+                                          2
+so
+                                                                n(n − 1) + k(k − 1)
+      An = 2a,      Bn = (n + k)a + 2b =               Cn =                         a + (n + k − 1)b + 2c.
+                                                                         2
+If n → ∞ then
+                                                 2       
+                                      2         na
+          Bn2 − 2An Cn =     na + O(1) − 2 · 2a     + O(n) = −an2 + O(n) → −∞,
+                                                  2
+so Bn2 − 2An Cn is eventually negative, indicating that qn cannot have only real roots.
+
+                                                              2
+Problem 8.     Dene the sequence A1 , A2 , . . . of matrices by the following recurrence:
+                                                             
+                            0 1                        An I2n
+                      A1 =        ,      An+1 =                     (n = 1, 2, . . .)
+                            1 0                        I2n An
+where Im is the m × m identity matrix.
+    Prove
+        thatnAn has n + 1 distinct integer eigenvalues λ0 < λ1 < . . . < λn with multiplicities
+ n
+ 0
+    , 1 , . . . , n , respectively.
+      n
+
+        (Proposed by Snjeºana Majstorovi¢, University of J. J. Strossmayer in Osijek, Croatia)
+Solution.   For each n ∈ N, matrix An is symmetric 2n × 2n matrix with elements from the set
+{0, 1}, so that all elements on the main diagonal are equal to zero. We can write
+                                   An = I2n−1 ⊗ A1 + An−1 ⊗ I2 ,                                   (1)
+where ⊗ is binary operation over the space of matrices, dened for arbitrary B ∈ Rn×p and
+C ∈ Rm×s as                                              
+                                       b11 C b12 C . . . b1p C
+                                      b21 C b22 C . . . b2p C 
+                            B ⊗ C :=  ..                            .
+                                                              
+                                      .
+                                                               
+                                                               
+                                       bn1 C b12 C . . . bnp C nm×ps
+
+Lemma 1. If B ∈ Rn×n has eigenvalues λi , i = 1, . . . , n and C ∈ Rm×m has eigenvalues µj ,
+j = 1, . . . , m, then B ⊗ C has eigenvalues λi µj , i = 1, . . . , n, j = 1, . . . , m. If B and C are
+diagonalizable, then A ⊗ B has eigenvectors yi ⊗ zj , with (λi , yi ) and (µj , zj ) being eigenpairs
+of B and C , respectively.
+Proof 1. Let (λ, y) be an eigenpair of B and (µ, z) an eigenpar of C . Then
+                       (B ⊗ C)(y ⊗ z) = By ⊗ Cz = λy ⊗ µz = λµ(y ⊗ z).
+
+If we take (λ, y) to be an eigenpair of A1 and (µ, z) to be an eigenpair of An−1 , then from (1)
+and Lemma 1 we get
+                     An (z ⊗ y) = (I2n−1 ⊗ A1 + An−1 ⊗ I2 )(z ⊗ y)
+                                = (I2n−1 ⊗ A1 )(z ⊗ y) + (An−1 ⊗ I2 )(z ⊗ y)
+                                = (λ + µ)(z ⊗ y).
+So the entire spectrum of An can be obtained from eigenvalues of An−1 and A1 : just sum up each
+eigenvalue of An−1 with each eigenvalue of A1 . Since the spectrum of A1 is σ(A1 ) = {−1, 1},
+we get
+σ(A2 ) = {−1 + (−1), −1 + 1, 1 + (−1), 1 + 1} = {−2, 0(2) , 2}
+σ(A3 ) = {−1 + (−2), −1 + 0, −1 + 0, −1 + 2, 1 + (−2), 1 + 0, 1 + 0, 1 + 2} = {−3, (−1)(3) , 1(3) , 3}
+σ(A4 ) = {−1 + (−3), −1 + (−1(3) ), −1 + 1(3) , −1 + 3, 1 + (−3), 1 + (−1(3) ), 1 + 1(3) , 1 + 3}
+       = {−4, (−2)(4) , 0(3) , 2(4) , 4}.
+Inductively, An has n+ 1distinct    integer
+                                          eigenvalues −n, −n + 2, −n + 4, . . . , n − 4, n − 2, n
+with multiplicities 0 , 1 , 2 , . . . , n , respectively.
+                    n   n   n           n
+                             
+
+
+Problem 9.    Dene the sequence f1 , f2 , . . . : [0, 1) → R of continuously dierentiable functions
+by the following recurrence:
+                  f1 = 1;          0
+                                  fn+1 = fn fn+1   on (0, 1),       and fn+1 (0) = 1.
+   Show that lim fn (x) exists for every x ∈ [0, 1) and determine the limit function.
+               n→∞
+
+
+                                                   3
+                                         (Proposed by Tomá² Bárta, Charles University, Prague)
+Solution.    First of all, the sequence fn is well dened and it holds that
+                                                           Rx
+                                        fn+1 (x) = e 0 fn (t)dt .                                 (2)
+The mapping Φ : C([0, 1)) → C([0, 1)) given by
+                                                           Rx
+                                         Φ(g)(x) = e 0 g(t)dt
+
+is monotone, i.e. if f < g on (0, 1) then
+                                          Rx                Rx
+                             Φ(f )(x) = e 0 f (t)dt < e 0 g(t)dt = Φ(g)(x)
+
+on (0, 1). Since f2 (x) = e 0 1mathrmdt = ex > 1 = f1 (x) on (0, 1), we have by induction
+                              Rx
+
+
+fn+1 (x) > fn (x) for all x ∈ (0, 1), n ∈ N. Moreover, function f (x) = 1−x
+                                                                         1
+                                                                            is the unique solution
+to f = f , f (0) = 1, i.e. it is the unique xed point of Φ in {ϕ ∈ C([0, 1)) : ϕ(0) = 1}. Since
+     0     2
+
+f1 < f on (0, 1), by induction we have fn+1 = Φ(fn ) < Φ(f ) = f for all n ∈ N. Hence, for
+every x ∈ (0, 1) the sequence fn (x) is increasing and bounded, so a nite limit exists.
+    Let us denote the limit g(x). We show that g(x) = f (x) = 1−x         1
+                                                                            . Obviously, g(0) =
+lim fn (0) = 1. By f1 ≡ 1 and (2), we have fn > 0 on [0, 1) for each n ∈ N, and therefore (by
+(2) again) the function fn+1 is increasing. Since fn , fn+1 are positive and increasing also fn+1
+                                                                                               0
+
+is increasing (due to fn+1 = fn fn+1 ), hence fn+1 is convex. A pointwise limit of a sequence of
+                         0
+
+convex functions is convex, since we pass to a limit n → ∞ in
+                            fn (λx + (1 − λ)y) ≤ λfn (x) + (1 − λ)fn (y)
+
+and obtain
+                             g(λx + (1 − λ)y) ≤ λg(x) + (1 − λ)g(y)
+for any xed x, y ∈ [0, 1) and λ ∈ (0, 1). Hence, g is convex, and therefore continuous on
+(0, 1). Moreover, g is continuous in 0, since 1 ≡ f1 ≤ g ≤ f and limx→0+ f (x) = 1. By Dini's
+Theorem, convergence fn → g is uniform on [0, 1 − ε] for each ε ∈ (0, 1) (a monotone sequence
+converging to a continuous function on a compact interval). We show that Φ is continuous and
+therefore fn have to converge to a xed point of Φ.
+    In fact, let us work on the space C([0, 1 − ε]) with any xed ε ∈ (0, 1), k · k being the
+supremum norm on [0, 1 − ε]. Then for a xed function h and kϕ − hk < δ we have
+                                                  Rx                Rx
+       sup |Φ(h)(x) − Φ(ϕ)(x)| =        sup e 0 h(t)dt 1 − e 0 ϕ(t)−h(t)dt ≤ C(eδ − 1) < 2Cδ
+     x∈[0,1−ε]                        x∈[0,1−ε]
+
+
+for δ > 0 small enough. Hence, Φ is continuous on C([0, 1 − ε]). Let us assume for contradiction
+that Φ(g) 6= g . Hence, there exists η > 0 and x0 ∈ [0, 1 − ε] such that |Φ(g)(x0 ) − g(x0 )| > η .
+There exists δ > 0 such that kΦ(ϕ) − Φ(g)k < 13 η whenever kϕ − gk < δ . Take n0 so large that
+kfn − gk < min{δ, 31 η} for all n ≥ n0 . Hence, kfn+1 − Φ(g)k = kΦ(fn ) − Φ(g)k < 13 η . On the
+other hand, we have |fn+1 (x0 )−Φ(g)(x0 )| > |Φ(g)(x0 )−g(x0 )|−|g(x0 )−fn+1 (x0 )| > η− 31 η = 23 η ,
+contradiction. So, Φ(g) = g .
+     Since f is the only xed point of Φ in {ϕ ∈ C([0, 1 − ε]) : ϕ(0) = 1}, we have g = f on
+[0, 1 − ε]. Since ε ∈ (0, 1) was arbitrary, we have limn→∞ fn (x) = 1−x
+                                                                     1
+                                                                        for all x ∈ [0, 1).
+
+
+
+
+                                                       4
+Problem 10.       Let K be an equilateral triangle in the plane. Prove that for every p > 0
+there exists an ε > 0 with the following property: If n is a positive integer, and T1 , . . . , Tn are
+non-overlapping triangles inside K such that each of them is homothetic to K with a negative
+ratio, and
+                                            n
+                                                  area(T` ) > area(K) − ε,
+                                            X
+
+                                            `=1
+
+then                                          n
+                                                       perimeter(T` ) > p.
+                                              X
+
+                                              `=1
+
+        (Proposed by Fedor Malyshev, Steklov Math. Inst. and Ilya Bogdanov, MIPT, Moscow)
+Solution. For an arbitrary ε > 0 we will establish a lower bound for the sum of perimeters
+that would tend to +∞ as ε → +0; this solves the problem.
+     Rotate and scale the picture so that one of the sides of K is the segment from (0, 0) to
+(0, 1), and stretch the picture horizontally in such a way that the projection of K to the x axis
+is [0, 1]. Evidently, we may work with the lengths of the projections to the x or y axis instead
+of the perimeters and consider their sum, that is why we may make any ane transformation.
+P Let fi (a) be the length of intersection of the straight line {x = a} with Ti and put f (a) =
+   i fi (a). Then f is piece-wise increasing with possible downward gaps, f (a) ≤ 1 − a, and
+                                                  Z 1
+                                                                       1
+                                                        f (x) dx ≥       − ε.
+                                                   0                   2
+Let d1 , . . . , dN be the values of the gaps of f . Every gap is a sum of side-lengths of some of Ti
+and every Ti contributes to one of dj , we therefore estimate the sum of the gaps of f .
+     In the points of dierentiability of f we have f 0 (a) ≥ f (a)/a; this follows from fi0 (a) ≥
+fi (a)/a after summation. Indeed, if fi is zero this inequality holds trivially, and if not then
+fi0 = 1 and the inequality reads fi (a) ≤ a, which is clear from the denition.
+     Choose an integer m = b1/(8ε)c (considering ε suciently small). Then for all k =
+0, 1, . . . , [(m − 1)/2] in the section of K by the strip k/m ≤ x ≤ (k + 1)/m the area, cov-
+ered by the small triangles Ti is no smaller than 1/(2m) − ε ≥ 1/(4m). Thus
+  Z (k+1)/m                Z (k+1)/m                                Z (k+1)/m
+                 0                         f (x) dx    m                                           m    1      1
+              f (x) dx ≥                            ≥                               f (x) dx ≥        ·   =          .
+   k/m                      k/m                x      k+1             k/m                        k + 1 4m   4(k + 1)
+
+Hence,                       Z 1/2                                                         
+                                       0        1             1              1
+                                     f (x) dx ≥                 + ··· +                          .
+                               0                4             1         [(m − 1)/2]
+The right hand side tends to innity as ε → +0. On the other hand, the left hand side equals
+                                                                    X
+                                                   f (1/2) +                 di ;
+                                                                   xi <1/2
+
+
+hence            also tends to innity.
+        P
+          i di
+
+
+
+
+                                                               5
+

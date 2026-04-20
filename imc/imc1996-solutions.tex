@@ -1,0 +1,770 @@
+International Competition in Mathematics for
+             Universtiy Students
+                      in
+              Plovdiv, Bulgaria
+                    1996
+                                                                             1
+
+PROBLEMS AND SOLUTIONS
+
+   First day — August 2, 1996
+
+
+   Problem 1. (10 points)
+   Let for j = 0, . . . , n, aj = a0 + jd, where a0 , d are fixed real numbers.
+Put                                                      
+                             a0 a1      a2     . . . an
+                            a
+                            1 a0       a1     . . . an−1 
+                                                          
+                   A =  a2 a1          a0     . . . an−2  .
+                                                         
+                            ........................... 
+                                                         
+
+                             an an−1 an−2 . . . a0
+
+Calculate det(A), where det(A) denotes the determinant of A.
+   Solution. Adding the first column of A to the last column we get that
+                                                               
+                                     a0 a1      a2    ... 1
+                                    a
+                                    1 a0       a1    ... 1 
+           det(A) = (a0 + an ) det  a2 a1      a0    ... 1 .
+                                                            
+                                    ....................... 
+                                                            
+
+                                     an an−1 an−2 . . . 1
+
+Subtracting the n-th row of the above matrix from the (n+1)-st one, (n−1)-
+st from n-th, . . . , first from second we obtain that
+                                                             
+                                       a0 a1 a2 . . . 1
+                                      d −d −d . . . 0 
+                                                           
+             det(A) = (a0 + an ) det  d     d −d . . . 0  .
+                                                           
+                                      .................... 
+                                                           
+
+                                        d    d    d ... 0
+
+Hence,
+                                                                 
+                                        d −d −d . . . −d
+                                       d   d −d . . . −d 
+                                                            
+                      n
+         det(A) = (−1) (a0 + an ) det  d   d    d . . . −d  .
+                                                            
+                                       .................... 
+                                                            
+
+                                        d   d    d ...     d
+2
+
+Adding the last row of the above matrix to the other rows we have
+                                                              
+                              2d 0 0 . . . 0
+                             2d 2d     0 ... 0 
+                                                 
+             n
+det(A) = (−1) (a0 +an ) det  2d 2d 2d . . . 0  = (−1)n (a0 +an )2n−1 dn .
+                                                 
+                             ................... 
+                                                 
+
+                               d d d ... d
+
+    Problem 2. (10 points)
+    Evaluate the definite integral
+                             Z π
+                                    sin nx
+                                       x
+                                               dx,
+                              −π (1 + 2 )sin x
+
+where n is a natural number.
+    Solution. We have
+                     Z π
+                           sin nx
+             In =             x
+                                     dx
+                    −π (1 + 2 )sin x
+                   Z π                    Z 0
+                          sin nx                 sin nx
+                 =            x
+                                    dx  +           x
+                                                            dx.
+                    0 (1 + 2 )sin x        −π (1 + 2 )sin x
+
+In the second integral we make the change of variable x = −x and obtain
+                     Z π                            Z π
+                           sin nx                             sin nx
+             In =             x
+                                      dx +                                dx
+                    0 (1 + 2 )sin x                   0   (1 + 2−x )sin x
+                       (1 + 2x )sin nx
+                   Z π
+                 =                     dx
+                    0   (1 + 2x )sin x
+                   Z π
+                       sin nx
+                 =            dx.
+                    0   sin x
+For n ≥ 2 we have
+                                   Z π
+                                              sin nx − sin (n − 2)x
+                 In − In−2 =                                        dx
+                                      0               sin x
+                                      Z π
+                             = 2               cos (n − 1)xdx = 0.
+                                          0
+
+The answer                        (
+                                      0        if n is even,
+                           In =
+                                      π        if n is odd
+                                                                            3
+
+follows from the above formula and I 0 = 0, I1 = π.
+   Problem 3. (15 points)
+   The linear operator A on the vector space V is called an involution if
+A2 = E where E is the identity operator on V . Let dim V = n < ∞.
+   (i) Prove that for every involution A on V there exists a basis of V
+consisting of eigenvectors of A.
+   (ii) Find the maximal number of distinct pairwise commuting involutions
+on V .
+      Solution.
+                 1
+      (i) Let B = (A + E). Then
+                 2
+                  1 2              1            1
+           B2 =     (A + 2AE + E) = (2AE + 2E) = (A + E) = B.
+                  4                4            2
+Hence B is a projection. Thus there exists a basis of eigenvectors for B, and
+the matrix of B in this basis is of the form diag(1, . . . , 1, 0, . . . , 0).
+    Since A = 2B − E the eigenvalues of A are ±1 only.
+    (ii) Let {Ai : i ∈ I} be a set of commuting diagonalizable operators
+on V , and let A1 be one of these operators. Choose an eigenvalue λ of A 1
+and denote Vλ = {v ∈ V : A1 v = λv}. Then Vλ is a subspace of V , and
+since A1 Ai = Ai A1 for each i ∈ I we obtain that Vλ is invariant under each
+Ai . If Vλ = V then A1 is either E or −E, and we can start with another
+operator Ai . If Vλ 6= V we proceed by induction on dim V in order to find
+a common eigenvector for all Ai . Therefore {Ai : i ∈ I} are simultaneously
+diagonalizable.
+    If they are involutions then |I| ≤ 2n since the diagonal entries may equal
+1 or -1 only.
+      Problem 4. (15 points)
+                       1 n−1
+                         X
+      Let a1 = 1, an =       ak an−k for n ≥ 2. Show that
+                       n k=1
+      (i) lim sup |an |1/n < 2−1/2 ;
+           n→∞
+      (ii) lim sup |an |1/n ≥ 2/3.
+           n→∞
+      Solution.
+      (i) We show by induction that
+
+(∗)                              an ≤ q n   for   n ≥ 3,
+4
+
+                                                               1         1
+where q = 0.7 and use that 0.7 < 2−1/2 . One has a1 = 1, a2 = , a3 = ,
+                                                               2         3
+     11
+a4 =    . Therefore (∗) is true for n = 3 and n = 4. Assume (∗) is true for
+     48
+n ≤ N − 1 for some N ≥ 5. Then
+
+       2        1        1 NX
+                            −3
+                                         2        1         N −5 N
+aN =     aN −1 + aN −2 +       ak aN −k ≤ q N −1 + q N −2 +     q ≤ qN
+       N        N        N k=3           N        N          N
+
+           2   1
+because      + 2 ≤ 5.
+           q q
+     (ii) We show by induction that
+                                  an ≥ q n       for       n ≥ 2,
+                                          2
+               2               1             2
+where q =        . One has a2 = >                      = q 2 . Going by induction we have
+               3               2             3
+for N ≥ 3
+
+              2        1 NX
+                          −2
+                                       2         N −3 N
+          aN = aN −1 +       ak aN −k ≥ q N −1 +     q = qN
+              N        N k=2           N          N
+
+         2
+because    = 3.
+         q
+   Problem 5. (25 points)
+   (i) Let a, b be real numbers such that b ≤ 0 and 1 + ax + bx 2 ≥ 0 for
+every x in [0, 1]. Prove that
+                                               1
+                                                             
+                            Z 1
+                                                 if a < 0,       −
+                                                             
+                                             2 n
+                lim n   (1 + ax + bx ) dx =    a
+               n→+∞   0                      +∞ if a ≥ 0.
+    (ii) Let f : [0, 1] → [0, ∞) be a function with a continuous second
+derivative and let f 00 (x) ≤ 0 for every x in [0, 1]. Suppose that L =
+        Z 1
+lim n         (f (x))n dx exists and 0 < L < +∞. Prove that f 0 has a con-
+n→∞       0
+stant sign and min |f 0 (x)| = L−1 .
+                  x∈[0,1]
+     Solution. (i) With a linear change of the variable (i) is equivalent to:
+     (i0 ) Let a, b, A be real numbers such that b ≤ 0, A > 0 and 1+ax+bx 2 > 0
+                                                   Z A
+for every x in [0, A]. Denote In = n                       (1 + ax + bx2 )n dx. Prove that
+                                                       0
+                 1
+    lim In = −     when a < 0 and lim In = +∞ when a ≥ 0.
+n→+∞             a               n→+∞
+                                                                                                              5
+
+   Let a < 0. Set f (x) = eax − (1 + ax + bx2 ). Using that f (0) = f 0 (0) = 0
+and f 00 (x) = a2 eax − 2b we get for x > 0 that
+
+                                     0 < eax − (1 + ax + bx2 ) < cx2
+
+             a2
+where c =       − b. Using the mean value theorem we get
+             2
+
+                            0 < eanx − (1 + ax + bx2 )n < cx2 nea(n−1)x .
+
+Therefore
+            Z A                              Z A                                      Z A
+                            anx                                 2 n               2
+      0<n               e         dx − n           (1 + ax + bx ) dx < cn                   x2 ea(n−1)x dx.
+                0                             0                                        0
+
+Using that
+                                                           eanA − 1
+                                        Z A
+                                                                         1
+                                    n         eanx dx =             −→ −
+                                         0                    a     n→∞ a
+
+and                         Z A
+                                                                 1
+                                                                            Z ∞
+                                   x2 ea(n−1)x dx <                               t2 e−t dt
+                             0                            |a|3 (n − 1)3      0
+
+we get (i0 ) in the case a < 0.
+   Let a ≥ 0. Then for n > max{A−2 , −b} − 1 we have
+
+                Z A                                            Z √1
+                                               2 n                    n+1
+            n           (1 + ax + bx ) dx > n                               (1 + bx2 )n dx
+                    0                                           0
+                                                                                                 n
+                                                                1          b
+                                                                                 
+                                                        > n· √       · 1+
+                                                               n+1        n+1
+                                                             n     b
+                                                        > √       e −→ ∞.
+                                                           n + 1 n→∞
+
+(i) is proved.
+                                     Z 1
+   (ii) Denote In = n                        (f (x))n dx and M = max f (x).
+                                        0                              x∈[0,1]
+   For M < 1 we have In ≤ nM n −→ 0, a contradiction.
+                                                       n→∞
+    If M > 1 since f is continuous there exists an interval I ⊂ [0, 1] with
+|I| > 0 such that f (x) > 1 for every x ∈ I. Then I n ≥ n|I| −→ +∞,
+                                                                                                      n→∞
+a contradiction. Hence M = 1. Now we prove that f 0 has a constant
+sign. Assume the opposite. Then f 0 (x0 ) = 0 for some x ∈ (0, 1). Then
+6
+
+                                                                                           h2 00
+f (x0 ) = M = 1 because f 00 ≤ 0. For x0 + h in [0, 1], f (x0 + h) = 1 +                     f (ξ),
+                                                                                    2
+                                                                                           2
+ξ ∈ (x0 , x0 + h). Let m = min f 00 (x). So, f (x0 + h) ≥ 1 + h2 m.
+                                    x∈[0,1]
+                                           δ2
+     Let δ > 0 be such that 1 +               m > 0 and x0 + δ < 1. Then
+                                           2
+                        Z x0 +δ                     Z δ                   n
+                                                                  m 2
+               In ≥ n             (f (x))n dx ≥ n          1+       h           dh −→ ∞
+                            x0                      0             2                n→∞
+
+
+in view of (i0 ) – a contradiction. Hence f is monotone and M = f (0) or
+M = f (1).
+    Let M = f (0) = 1. For h in [0, 1]
+                                                                           m 2
+                            1 + hf 0 (0) ≥ f (h) ≥ 1 + hf 0 (0) +            h ,
+                                                                           2
+
+where f 0 (0) 6= 0, because otherwise we get a contradiction as above. Since
+f (0) = M the function f is decreasing and hence f 0 (0) < 0. Let 0 < A < 1
+                             m
+be such that 1 + Af 0 (0) + A2 > 0. Then
+                             2
+     Z A                             Z A                     Z A                              n
+                                                                                         m 2
+ n         (1 + hf 0 (0))n dh ≥ n          (f (x))n dx ≥ n             1 + hf 0 (0) +      h        dh.
+      0                               0                       0                          2
+
+                                                                              1
+From (i0 ) the first and the third integral tend to −                              as n → ∞, hence
+                                                                           f 0 (0)
+so does theZ second.
+                 1                                                                                 1
+     Also n          (f (x))n dx ≤ n(f (A))n −→ 0 (f (A) < 1). We get L = −
+                A                                n→∞                                            f 0 (0)
+in this case.
+                                                                  1
+    If M = f (1) we get in a similar way L =                           .
+                                                             f 0 (1)
+     Problem 6. (25 points)
+     Upper content of a subset E of the plane R 2 is defined as
+                                                ( n                   )
+                                                 X
+                                  C(E) = inf            diam(Ei )
+                                                  i=1
+
+
+where inf is taken over all finite families of sets E 1 , . . . , En , n ∈ N, in R2
+                n
+such that E ⊂ ∪ Ei .
+                      i=1
+                                                                                    7
+
+     Lower content of E is defined as
+
+           K(E) = sup {lenght(L)       : L is a closed line segment
+                                          onto which E can be contracted} .
+
+Show that
+    (a) C(L) = lenght(L) if L is a closed line segment;
+    (b) C(E) ≥ K(E);
+    (c) the equality in (b) needs not hold even if E is compact.
+    Hint. If E = T ∪ T 0 where T is the triangle with vertices (−2, 2), (2, 2)
+and (0, 4), and T 0 is its reflexion about the x-axis, then C(E) = 8 > K(E).
+    Remarks: All distances used in this problem are Euclidian. Diameter
+of a set E is diam(E) = sup{dist(x, y) : x, y ∈ E}. Contraction of a set E
+to a set F is a mapping f : E 7→ F such that dist(f (x), f (y)) ≤ dist(x, y) for
+all x, y ∈ E. A set E can be contracted onto a set F if there is a contraction
+f of E to F which is onto, i.e., such that f (E) = F . Triangle is defined as
+the union of the three segments joining its vertices, i.e., it does not contain
+the interior.
+     Solution.
+     (a) The choice E1 = L gives C(L) ≤ lenght(L). If E ⊂ ∪ni=1 Ei then
+n
+X
+    diam(Ei ) ≥ lenght(L): By induction, n=1 obvious, and assuming that
+i=1
+En+1 contains the end point a of L, define the segment L ε = {x ∈ L :
+                                                             n+1
+                                                             X
+dist(x, a) ≥ diam(En+1 )+ε} and use induction assumption to get              diam(Ei ) ≥
+                                                                       i=1
+lenght(Lε ) + diam(En+1 ) ≥ lenght(L) − ε; but ε > 0 is arbitrary.
+    (b) If f is a contraction of E onto L and E ⊂ ∪ nn=1 Ei , then L ⊂ ∪ni=1 f (Ei )
+                      n
+                      X                       n
+                                              X
+and lenght(L) ≤             diam(f (Ei )) ≤         diam(Ei ).
+                      i=1                     i=1
+   (c1) Let E = T ∪ T 0 where T is the triangle with vertices (−2, 2), (2, 2)
+                                                                       n
+and (0, 4), and T 0 is its reflexion about the x-axis. Suppose E ⊂ ∪ Ei .
+                                                                              i=1
+If no set among Ei meets both T and T 0 , then Ei may be partitioned into
+covers of segments [(−2, 2), (2, 2)] and [(−2, −2), (2, −2)], both of length 4,
+     n
+     X
+so         diam(Ei ) ≥ 8. If at least one set among Ei , say Ek , meets both T and
+     i=1
+T 0 , choose a ∈ Ek ∩ T and b ∈ Ek ∩ T 0 and note that the sets Ei0 = Ei for
+i 6= k, Ek0 = Ek ∪ [a, b] cover T ∪ T 0 ∪ [a, b], which is a set of upper content
+8
+
+at least 8, since its orthogonal projection onto y-axis is a segment of length
+                                          n
+                                          X
+8. Since diam(Ej ) = diam(Ej0 ), we get         diam(Ei ) ≥ 8.
+                                          i=1
+    (c2) Let f be a contraction of E onto L = [a 0 , b0 ]. Choose a = (a1 , a2 ),
+b = (b1 , b2 ) ∈ E such that f (a) = a0 and f (b) = b0 . Since lenght(L) =
+dist(a0 , b0 ) ≤ dist(a, b) and since the triangles have diameter only 4, we may
+assume that a ∈ T and b ∈ T 0 . Observe that if a2 ≤ 3 then a lies on one of
+the segments joining some of the points (−2, 2), (2, 2), (−1, 3), (1, 3); since
+all these
+      √ points have distances from vertices, and       √ so from points, of T 2 at
+most 50, we get that lenght(L) ≤ dist(a, b) ≤ 50. Similarly if b2 ≥ −3.
+Finally, if a2 > 3 and b2 < −3, we√note that every vertex, and so every point
+of T is in the distance at most 10 for√a and every vertex, and so every
+point, of T 0 is in the distance at most 10 of b. Since f is a contraction,
+                                                                        √
+the image of T lies in a segment containing a 0 of length at most     √   10 and
+the image of T 0 lies in a segment containing b0 of length at√most √10. Since
+the union√of these two images is L, we get lenght(L) ≤ 2 10 ≤ 50. Thus
+K(E) ≤ 50 < 8.
+
+    Second day — August 3, 1996
+
+    Problem 1. (10 points)
+    Prove that if f : [0, 1] → [0, 1] is a continuous function, then the sequence
+of iterates xn+1 = f (xn ) converges if and only if
+
+                              lim (xn+1 − xn ) = 0.
+                             n→∞
+
+
+     Solution. The “only if” part is obvious. Now suppose that lim (xn+1
+                                                                      n→∞
+−xn ) = 0 and the sequence {xn } does not converge. Then there are two
+cluster points K < L. There must be points from the interval (K, L) in the
+                                                                   |f (x) − x|
+sequence. There is an x ∈ (K, L) such that f (x) 6= x. Put ε =                 >
+                                                                        2
+0. Then from the continuity of the function f we get that for some δ > 0 for
+all y ∈ (x−δ, x+δ) it is |f (y)−y| > ε. On the other hand for n large enough
+it is |xn+1 − xn | < 2δ and |f (xn ) − xn | = |xn+1 − xn | < ε. So the sequence
+cannot come into the interval (x − δ, x + δ), but also cannot jump over this
+interval. Then all cluster points have to be at most x − δ (a contradiction
+with L being a cluster point), or at least x + δ (a contradiction with K being
+a cluster point).
+                                                                           9
+
+      Problem 2. (10 points)
+                                                     et + e−t
+      Let θ be a positive real number and let cosh t =        denote the
+                                                         2
+hyperbolic cosine. Show that if k ∈ N and both cosh kθ and cosh (k + 1)θ
+are rational, then so is cosh θ.
+      Solution. First we show that
+
+(1)        If cosh t is rational and m ∈ N, then cosh mt is rational.
+
+Since cosh 0.t = cosh 0 = 1 ∈ Q and cosh 1.t = cosh t ∈ Q, (1) follows
+inductively from
+
+               cosh (m + 1)t = 2cosh t.cosh mt − cosh (m − 1)t.
+
+    The statement of the problem is obvious for k = 1, so we consider k ≥ 2.
+For any m we have
+(2)
+   cosh θ = cosh ((m + 1)θ − mθ) =
+          = cosh (m + 1)θ.cosh mθ − sinh
+                                     p
+                                         (m + 1)θ.sinh mθ √
+          = cosh (m + 1)θ.cosh mθ − cosh 2 (m + 1)θ − 1. cosh 2 mθ − 1
+
+Set cosh kθ = a, cosh (k + 1)θ = b, a, b ∈ Q. Then (2) with m = k gives
+                                        p        p
+                        cosh θ = ab −       a2 − 1 b2 − 1
+
+and then
+                 (a2 − 1)(b2 − 1) = (ab − cosh θ)2
+(3)
+                                  = a2 b2 − 2abcosh θ + cosh 2 θ.
+
+   Set cosh (k 2 − 1)θ = A, cosh k 2 θ = B. From (1) with m = k − 1 and
+t = (k + 1)θ we have A ∈ Q. From (1) with m = k and t = kθ we have
+B ∈ Q. Moreover k 2 − 1 > k implies A > a and B > b. Thus AB > ab.
+From (2) with m = k 2 − 1 we have
+
+               (A2 − 1)(B 2 − 1) = (AB − cosh θ)2
+(4)
+                                 = A2 B 2 − 2ABcosh θ + cosh 2 θ.
+
+    So after we cancel the cosh 2 θ from (3) and (4) we have a non-trivial
+linear equation in cosh θ with rational coefficients.
+10
+
+     Problem 3. (15 points)
+     Let G be the subgroup of GL2 (R), generated by A and B, where
+                         "               #               "               #
+                             2       0                       1       1
+                    A=                       ,   B=                          .
+                             0       1                       0       1
+                                                         !
+                                   a11 a12
+Let H consist of those matrices               in G for which a11 =a22 =1.
+                                   a21 a22
+   (a) Show that H is an abelian subgroup of G.
+   (b) Show that H is not finitely generated.
+    Remarks. GL2 (R) denotes, as usual, the group (under matrix multipli-
+cation) of all 2 × 2 invertible matrices with real entries (elements). Abelian
+means commutative. A group is finitely generated if there are a finite number
+of elements of the group such that every other element of the group can be
+obtained from these elements using the group operation.
+     Solution.
+     (a) All of the matrices in G are of the form
+                                     "               #
+                                         ∗       ∗
+                                                         .
+                                         0       ∗
+
+So all of the matrices in H are of the form
+                                             "               #
+                                                 1       x
+                             M (x) =                             ,
+                                                 0       1
+
+so they commute. Since M (x)−1 = M (−x), H is a subgroup of G.
+    (b) A generator of H can only be of the form M (x), where x is a binary
+                     p
+rational, i.e., x = n with integer p and non-negative integer n. In H it
+                    2
+holds
+
+                             M (x)M (y) = M (x + y)
+                          M (x)M (y)−1 = M (x − y).
+
+                                1
+                                        
+The matrices of the form M         are in H for all n ∈ N. With only finite
+                               2n
+number of generators all of them cannot be achieved.
+                                                                          11
+
+     Problem 4. (20 points)
+     Let B be a bounded closed convex symmetric (with respect to the origin)
+set in R2 with boundary the curve Γ. Let B have the property that the
+ellipse of maximal area contained in B is the disc D of radius 1 centered at
+the origin with boundary the circle C. Prove that A ∩ Γ 6= Ø for any arc A
+                      π
+of C of length l(A) ≥ .
+                       2
+     Solution. Assume the contrary – there is an arc A ⊂ C with length
+         π
+l(A) = such that A ⊂ B\Γ. Without loss of generality we may assume that
+         2                  √     √              √       √
+the ends of A are M = (1/ 2, 1/ 2), N = (1/ 2, −1/ 2). A is compact
+and Γ is closed. From A ∩ Γ = Ø we get δ > 0 such that dist(x, y) > δ for
+every x ∈ A, y ∈ Γ.
+                                                             x2      y2
+Given ε > 0 with Eε we denote the ellipse with boundary:          2
+                                                                    + 2 = 1,
+                                                          (1 + ε)    b
+such that M, N ∈ Eε . Since M ∈ Eε we get
+                                     (1 + ε)2
+                            b2 =                 .
+                                   2(1 + ε)2 − 1
+Then we have
+                                  (1 + ε)2
+                 area Eε = π p                 > π = area D.
+                                 2(1 + ε)2 − 1
+In view of the hypotheses, Eε \ B 6= Ø for every ε > 0. Let S = {(x, y) ∈
+R2 : |x| > |y|}. ¿From Eε \ S ⊂ D ⊂ B it follows that Eε \ B ⊂ S. Taking
+ε < δ we get that
+                   Ø 6= Eε \ B ⊂ Eε ∩ S ⊂ D1+ε ∩ S ⊂ B
+– a contradiction (we use the notation D t = {(x, y) ∈ R2 : x2 + y 2 ≤ t2 }).
+    Remark. The ellipse with maximal area is well known as John’s ellipse.
+Any coincidence with the President of the Jury is accidental.
+   Problem 5. (20 points)
+   (i) Prove that
+                                 ∞
+                                 X        nx           1
+                           lim                     =     .
+                         x→+∞
+                                 n=1
+                                       (n2 + x)2       2
+(ii) Prove that there is a positive constant c such that for every x ∈ [1, ∞)
+we have
+                            ∞
+                           X        nx      1     c
+                                  2     2
+                                          −    ≤ .
+                           n=1
+                               (n + x)      2     x
+12
+
+      Solution.
+                              t             1
+      (i) Set f (t) =           2  2
+                                     , h = √ . Then
+                          (1 + t )           x
+                   ∞                 ∞
+                          nx                         ∞          1
+                   X                X                            Z
+                        2     2
+                                = h     f (nh) −→      f (t)dt = .
+                  n=1
+                      (n + x)       n=1
+                                               h→0 0            2
+
+                                                ∞
+                                                X
+      The convergence holds since h                   f (nh) is a Riemann sum of the inte-
+       Z ∞                                      n=1
+
+gral         f (t)dt. There are no problems with the infinite domain because
+        0
+                                                                      ∞
+                                                                      X                   Z ∞
+f is integrable and f ↓ 0 for x → ∞ (thus h                                  f (nh) ≥                  f (t)dt ≥
+                                                                      n=N                     nN
+      ∞
+      X
+h            f (nh)).
+    n=N +1
+      (ii) We have
+          ∞                   ∞                               Z nh+ h            !        Z h
+          X      nx      1   X                                          2                         2
+                       −   =     hf (nh) −                                  f (t)dt −                 f (t)dt
+          n=1
+              (n2 + x)2 2    n=1                               nh− h2                         0
+(1)                                  ∞                      Z nh+ h                  Z h
+                                     X                            2                       2
+                                 ≤            hf (nh) −                 f (t)dt +             f (t)dt
+                                     n=1                      nh− h
+                                                                  2
+                                                                                      0
+
+      Using twice integration by parts one has
+                        Z a+b                  Z b
+                                  1
+(2)       2bg(a) −     g(t)dt = −                    (b − t)2 (g 00 (a + t) + g 00 (a − t))dt
+                   a−b            2             0
+
+for every g ∈ C 2 [a − b, a + b]. Using f (0) = 0, f ∈ C 2 [0, h/2] one gets
+                                   Z h/2
+(3)                                           f (t)dt = O(h2 ).
+                                     0
+
+      From (1), (2) and (3) we get
+        ∞                   ∞                 Z nh+ h
+                nx      1                              2
+                               h2                          |f 00 (t)|dt + O(h2 ) =
+        X                  X
+               2 + x)2
+                       − ≤
+        n=1
+            (n          2  n=1                 nh− h
+                                                   2
+                                         Z ∞
+                                = h2           |f 00 (t)|dt + O(h2 ) = O(h2 ) = O(x−1 ).
+                                          h
+                                          2
+                                                                                                   13
+
+      Problem 6. (Carleman’s inequality) (25 points)
+      (i) Prove that for every sequence {a n }∞
+                                              n=1 , such that an > 0, n = 1, 2, . . .
+       ∞
+       X
+and         an < ∞, we have
+      n=1
+
+                               ∞                                      ∞
+                                     (a1 a2 · · · an )1/n < e
+                               X                                      X
+                                                                            an ,
+                               n=1                                    n=1
+
+where e is the natural log base.
+   (ii) Prove that for every ε > 0 there exists a sequence {a n }∞
+                                                                 n=1 , such that
+                             ∞
+                             X
+an > 0, n = 1, 2, . . .,            an < ∞ and
+                             n=1
+
+                            ∞                                             ∞
+                                  (a1 a2 · · · an )1/n > (e − ε)
+                            X                                             X
+                                                                                an .
+                            n=1                                           n=1
+
+      Solution.
+      (i) Put for n ∈ N
+
+(1)                                       cn = (n + 1)n /nn−1 .
+
+Observe that c1 c2 · · · cn = (n + 1)n . Hence, for n ∈ N,
+
+                 (a1 a2 · · · an )1/n = (a1 c1 a2 c2 · · · an cn )1/n /(n + 1)
+                                            ≤ (a1 c1 + · · · + an cn )/n(n + 1).
+
+Consequently,
+               ∞                                ∞                ∞
+                                                                                               !
+                     (a1 a2 · · · an )1/n ≤
+               X                                X                X
+(2)                                                  an cn             (m(m + 1))−1 .
+               n=1                             n=1            m=n
+
+Since              ∞                               ∞ 
+                                                       1               1
+                   X                               X                               
+                         (m(m + 1))−1 =                           −                    = 1/n
+                 m=n                              m=n        m        m+1
+we have                                                           !
+                      ∞
+                      X               ∞
+                                      X                                   ∞
+                                                                          X
+                                                             −1
+                            an cn           (m(m + 1))                =            an cn /n
+                      n=1            m=n                                  n=1
+                                    ∞                                  ∞
+                                          an ((n + 1)/n)n < e
+                                    X                                  X
+                              =                                               an
+                                    n=1                                n=1
+14
+
+(by (1)). Combining the last inequality with (2) we get the result.
+   (ii) Set an = nn−1 (n + 1)−n for n = 1, 2, . . . , N and an = 2−n for n > N ,
+where N will be chosen later. Then
+                                                          1
+(3)                               (a1 · · · an )1/n =
+                                                         n+1
+for n ≤ N . Let K = K(ε) be such that
+                                     n
+                               n+1                   ε
+                           
+(4)                                        >e−         for n > K.
+                                n                    2
+Choose N from the condition
+                 K             ∞                                  N
+                 X             X                       ε         X    1
+(5)                    an +          2−n ≤                              ,
+                 n=1           n=1
+                                                (2e − ε)(e − ε) n=K+1 n
+
+which is always possible because the harmonic series diverges. Using (3), (4)
+and (5) we have
+         ∞           K             ∞                   N                  n
+                                                            1        n
+         X           X             X                   X        
+                                               −n
+              an =         an +            2        +                          <
+        n=1          n=1          n=N +1              n=K+1
+                                                            n       n+1
+                                    N                               −1    N
+                         ε              1      ε                                1
+                                   X                                      X
+                <                         + e−                                    =
+                  (2e − ε)(e − ε) n=K+1 n      2                          n=K+1
+                                                                                n
+                             N              ∞
+                       1         1     1 X
+                                               (a1 · · · an )1/n .
+                            X
+                =                  ≤
+                     e − ε n=K+1 n   e − ε n=1
+

@@ -1,0 +1,254 @@
+            International Mathematics Competition for University Students
+                          July 25–30 2009, Budapest, Hungary
+                                                         Day 2
+
+Problem 1.
+Let ℓ be a line and P a point in R3 . Let S be the set of points X such that the distance from X to ℓ is greater
+than or equal to two times the distance between X and P . If the distance from P to ℓ is d > 0, find the volume of
+S.
+Solution. We can choose a coordinate system of the space      p such that the line ℓ is the z-axis and the point P
+is
+p  (d, 0, 0). The  distance  from the point (x, y, z) to ℓ is  x2 + y 2 , while the distance from P to X is |P X| =
+   (x − d)2 + y 2 + z 2 . Square everything to get rid of the square roots. The condition can be reformulated as
+follows: the square of the distance from ℓ to X is at least 4|P X|2 .
+                                            x2 + y 2 ≥ 4((x − d)2 + y 2 + z 2 )
+                                            0 ≥ 3x2 − 8dx + 4d2 + 3y 2 + 4z 2
+                                                              4 2
+                                                              
+                                         16
+                                             − 4 d ≥ 3 x − d + 3y 2 + 4z 2
+                                                   2
+                                          3                   3
+A translation by 43 d in the x-direction does not change the volume, so we get
+                                                4 2
+                                                  d ≥ 3x21 + 3y 2 + 4z 2
+                                                3
+                                                                     √ !2
+                                               3x1 2
+                                                       2
+                                                           3y            3z
+                                          1≥         +           +          ,
+                                               2d          2d           d
+where x1 = x− 34 d. This equation defines a solid ellipsoid in canonical form. To compute its volume, perform a linear
+                                                                                                   2d 2 √d       3
+transformation: we divide x1 and y by 2d               √d                                                   = 94d
+                                                                                                     
+                                        3 and z by 3 . This changes the volume by the factor 3
+                                                                                                                √ and
+                                                                                                          3       3
+                                                                                                        3             3
+turns the ellipsoid into the unit ball of volume 43 π. So before the transformation the volume was 94d
+                                                                                                     √ · 4 π = 16πd
+                                                                                                       3 3
+                                                                                                                 √ .
+                                                                                                               27 3
+
+Problem 2.
+Suppose f : R → R is a two times differentiable function satisfying f (0) = 1, f ′ (0) = 0, and for all x ∈ [0, ∞),
+                                              f ′′ (x) − 5f ′ (x) + 6f (x) ≥ 0.
+Prove that for all x ∈ [0, ∞),
+                                                  f (x) ≥ 3e2x − 2e3x .
+
+Solution. We have f ′′ (x) − 2f ′ (x) − 3(f ′ (x) − 2f (x)) ≥ 0, x ∈ [0, ∞).
+   Let g(x) = f ′ (x) − 2f (x), x ∈ [0, ∞). It follows that
+                                             g′ (x) − 3g(x) ≥ 0, x ∈ [0, ∞),
+hence
+                                             (g(x)e−3x )′ ≥ 0, x ∈ [0, ∞),
+therefore
+                                  g(x)e−3x ≥ g(0) = −2, x ∈ [0, ∞) or equivalently
+                                          f ′ (x) − 2f (x) ≥ −2e3x , x ∈ [0, ∞).
+Analogously we get
+                                   (f (x)e−2x )′ ≥ −2ex , x ∈ [0, ∞) or equivalently
+                                          (f (x)e−2x + 2ex )′ ≥ 0, x ∈ [0, ∞).
+It follows that
+                             f (x)e−2x + 2ex ≥ f (0) + 2 = 3, x ∈ [0, ∞) or equivalently
+                                            f (x) ≥ 3e2x − 2e3x , x ∈ [0, ∞).
+
+
+                                                             1
+Problem 3.
+Let A, B ∈ Mn (C) be two n × n matrices such that
+
+                                                  A2 B + BA2 = 2ABA.
+
+Prove that there exists a positive integer k such that (AB − BA)k = 0.
+Solution 1. Let us fix the matrix A ∈ Mn (C). For every matrix X ∈ Mn (C), let ∆X := AX − XA. We need to
+prove that the matrix ∆B is nilpotent.
+   Observe that the condition A2 B + BA2 = 2ABA is equivalent to
+
+                                                   ∆2 B = ∆(∆B) = 0.                                                     (1)
+
+   ∆ is linear; moreover, it is a derivation, i.e. it satisfies the Leibniz rule:
+
+                                   ∆(XY ) = (∆X)Y + X(∆Y ),            ∀X, Y ∈ Mn (C).
+
+Using induction, one can easily generalize the above formula to k factors:
+
+            ∆(X1 · · · Xk ) = (∆X1 )X2 · · · Xk + · · · + X1 · · · Xj−1 (∆Xj )Xj+1 · · · Xk + X1 · · · Xn−1 ∆Xk ,        (2)
+
+for any matrices X1 , X2 , . . . , Xk ∈ Mn (C). Using the identities (1) and (2) we obtain the equation for ∆k (B k ):
+
+                                             ∆k (B k ) = k!(∆B)k ,    ∀k ∈ N.                                            (3)
+
+By the last equation it is enough to show that ∆n (B n ) = 0.
+    To prove this, first we observe that equation (3) together with the fact that ∆2 B = 0 implies that ∆k+1 B k = 0,
+for every k ∈ N. Hence, we have
+                                           ∆k (B j ) = 0, ∀k, j ∈ N, j < k.                                       (4)
+By the Cayley–Hamilton Theorem, there are scalars α0 , α1 , . . . , αn−1 ∈ C such that
+
+                                          B n = α0 I + α1 B + · · · + αn−1 B n−1 ,
+
+which together with (4) implies that ∆n B n = 0.
+Solution 2. Set X = AB − BA. The matrix X commutes with A because
+
+                    AX − XA = (A2 B − ABA) − (ABA − BA2 ) = A2 B + BA2 − 2ABA = 0.
+
+Hence for any m ≥ 0 we have
+
+                                    X m+1 = X m (AB − BA) = AX m B − X m BA.
+
+Take the trace of both sides:
+                                       tr X m+1 = tr A(X m B) − tr(X m B)A = 0
+(since for any matrices U and V , we have tr U V = tr V U ). As tr X m+1 is the sum of the m + 1-st powers of
+the eigenvalues of X, the values of tr X, . . . , tr X n determine the eigenvalues of X uniquely, therefore all of these
+eigenvalues have to be 0. This implies that X is nilpotent.
+
+Problem 4.
+Let p be a prime number and Fp be the field of residues modulo p. Let W be the smallest set of polynomials with
+coefficients in Fp such that
+
+   • the polynomials x + 1 and xp−2 + xp−3 + · · · + x2 + 2x + 1 are in W , and
+   • for any polynomials h1 (x) and h2 (x) in W the polynomial r(x), which is the remainder of h1 (h2 (x)) modulo
+     xp − x, is also in W .
+
+How many polynomials are there in W ?
+
+
+                                                             2
+Solution. Note that both of our polynomials are bijective functions on Fp : f1 (x) = x + 1 is the cycle 0 → 1 →
+2 → · · · → (p − 1) → 0 and f2 (x) = xp−2 + xp−3 + · · · + x2 + 2x + 1 is the transposition 0 ↔ 1 (this follows from the
+                   p−1
+formula f2 (x) = x x−1−1 + x and Fermat’s little theorem). So any composition formed from them is also a bijection,
+and reduction modulo xp − x does not change the evaluation in Fp . Also note that the transposition and the cycle
+generate the symmetric group (f1k ◦ f2 ◦ f1p−k is the transposition k ↔ (k + 1), and transpositions of consecutive
+elements clearly generate Sp ), so we get all p! permutations of the elements of Fp .
+   The set W only contains polynomials of degree at most p − 1. This means that two distinct elements of W
+cannot represent the same permutation. So W must contain those polynomials of degree at most p − 1 which
+permute the elements of Fp . By minimality, W has exactly these p! elements.
+
+Problem 5.
+Let M be the vector space of m × p real matrices. For a vector subspace S ⊆ M, denote by δ(S) the dimension of
+the vector space generated by all columns of all matrices in S.
+    Say that a vector subspace T ⊆ M is a covering matrix space if
+                                                  [
+                                                        ker A = Rp .
+                                                 A∈T, A6=0
+
+Such a T is minimal if it does not contain a proper vector subspace S ⊂ T which is also a covering matrix space.
+   (a) (8 points) Let T be a minimal covering matrix space and let n = dim T . Prove that
+                                                           
+                                                            n
+                                                  δ(T ) ≤     .
+                                                            2
+
+   (b) (2 points) Prove that for every positiveinteger
+                                                       n we can find m and p, and a minimal covering matrix space
+                                                n
+T as above such that dim T = n and δ(T ) =          .
+                                                2
+Solution 1. (a) We will prove the claim by constructing a suitable decomposition T = Z0 ⊕ Z1 ⊕ · · · and a
+corresponding decomposition of the space spanned by all columns of T as W0 ⊕ W1 ⊕ · · · , such that dim W0 ⩽ n − 1,
+dim W1 ⩽ n − 2, etc., from which the bound follows.
+
+     We first claim that, in every covering matrix space S, we can find an A ∈ S with rk A ⩽ dim S − 1. Indeed, let
+S0 ⊆ S be some minimal covering matrix space. Let s = dim S0 and fix some subspace S ′ ⊂ S0 of dimension s − 1.
+S ′ is not covering by minimality of S0 , so that we can find an u ∈ Rp with u 6∈ ∪B∈S ′ , B6=0 Ker B. Let V = S ′ (u);
+by the rank-nullity theorem, dim V = s − 1. On the other hand, as S0 is covering, we have that Au = 0 for some
+A ∈ S0 \ S ′ . We claim that Im A ⊂ V (and therefore rk(A) ⩽ s − 1).
+     For suppose that Av 6∈ V for some v ∈ Rp . For every α ∈ R, consider the map fα : S0 → Rm defined by
+fα : (τ + βA) 7→ τ (u + αv) + βAv, τ ∈ S ′ , β ∈ R. Note that f0 is of rank s = dim S0 by our assumption, so that
+some s × s minor of the matrix of f0 is non-zero. The corresponding minor of fα is thus a nonzero polynomial of
+α, so that it follows that rk fα = s for all but finitely many α. For such an α 6= 0, we have that Ker fα = {0} and
+thus
+                                     0 6= τ (u + αv) + βAv = (τ + α−1 βA)(u + αv)
+for all τ ∈ S ′ , β ∈ R not both zero, so that B(u + αv) 6= 0 for all nonzero B ∈ S0 , a contradiction.
+
+    Let now T be a minimal covering matrix space, and write dim T = n. We have shown that we can find an
+A ∈ T such that W0 = Im A satisfies w0 = dim W0 ⩽ n − 1. Denote Z0 = {B ∈ T : Im B ⊂ W0 }; we know that
+t0 = dim Z0 ⩾ 1. If T = Z0 , then δ(T ) ⩽ n − 1 and we are done. Else, write T = Z0 ⊕ T1 , also write Rm = W0 ⊕ V1
+and let π1 : Rm → Rm be the projection onto the V1 -component. We claim that
+
+                                                T1♯ = {π1 τ1 : τ1 ∈ T1 }
+
+is also a covering matrix space. Note here that π1♯ : T1 → T1♯ , τ1 7→ (π1 τ1 ) is an isomorphism. In particular we note
+that δ(T ) = w0 + δ(T1♯ ).
+    Suppose that T1♯ is not a covering matrix space, so we can find a v1 ∈ Rp with v1 6∈ ∪τ1 ∈T1 ,τ1 6=0 Ker(π1 τ1 ). On
+the other hand, by minimality of T we can find a u1 ∈ Rp with u1 6∈ ∪τ0 ∈Z0 , τ0 6=0 Ker τ0 . The maps gα : Z0 → V ,
+
+                                                             3
+τ0 7→ τ0 (u1 + αv1 ) and hβ : T1 → V1 , τ1 7→ π1 (τ1 (v1 + βu1 )) have rk g0 = t0 and rk h0 = n − t0 and thus both
+rk gα = t0 and rk hα−1 = n − t0 for all but finitely many α 6= 0 by the same argument as above. Pick such an α
+and suppose that
+                                              (τ0 + τ1 )(u1 + αv1 ) = 0
+for some τ0 ∈ Z0 , τ1 ∈ T1 . Applying π1 to both sides we see that we can only have τ1 = 0, and then τ0 = 0 as well,
+a contradiction given that T is a covering matrix space.
+
+    In fact, the exact same proof shows that, in general, if T is a minimal covering matrix space, Rm = V0 ⊕ V1 ,
+T0 = {τ ∈ T : Im τ ⊂ V0 }, T = T0 ⊕ T1 , π1 : Rm → Rm is the projection onto the V1 -component, and
+T1♯ = {π1 τ1 : τ1 ∈ T1 }, then T1♯ is a covering matrix space.
+    We can now repeat the process. We choose a π1 A1 ∈ T1♯ such that W1 = (π1 A1 )(Rp ) has w1 = dim W1 ⩽
+n − t0 − 1 ⩽ n − 2. We write Z1 = {τ1 ∈ T1 : Im(π1 τ1 ) ⊂ W1 }, T1 = Z1 ⊕ T2 (and so T = (Z0 ⊕ Z1 ) ⊕ T2 ),
+t1 = dim Z1 ⩾ 1, V1 = W1 ⊕ V2 (and so Rm = (W0 ⊕ W1 ) ⊕ V2 ), π2 : Rm → Rm is the projection onto the
+V2 -component, and T2♯ = {π2 τ2 : τ2 ∈ T2 }, so that T2♯ is also a covering matrix space, etc.
+    We conclude that
+                                           δ(T ) = w0 + δ(T1 ) = w0 + w1 + δ(T2 ) = · · ·
+                                                                                
+                                                                                n
+                                                 ⩽ (n − 1) + (n − 2) + · · · ⩽     .
+                                                                                2
+    (b) We consider n2 × n matrices whose rows are indexed by n2 pairs (i, j) of integers 1 ⩽ i < j ⩽ n. For every
+                                                                           
+
+u = (u1 , u2 , . . . , un ) ∈ Rn , consider the matrix A(u) whose entries A(u)(i,j),k with 1 ⩽ i < j ⩽ n and 1 ⩽ k ⩽ n
+are given by                                                   
+                                                                ui , k = j,
+                                                               
+                                            (A(u))(i,j),k =       −uj , k = i,
+                                                              
+                                                                    0, otherwise.
+                                                              
+
+It is immediate that Ker A(u) = R · u for every u 6= 0, so that S = {A(u) : u ∈ Rn } is a covering matrix space,
+and in fact a minimal one.
+    On the other hand, for any 1 ⩽ i < j ⩽ n, we have that A(ei )(i,j),j is the (i, j)th vector in the standard basis
+      n
+of R( 2 ) , where e denotes the ith vector in the standard basis of Rn . This means that δ(S) = n , as required.
+                                                                                                   
+                 i                                                                                      2
+Solution 2. (for part a)
+     Let us denote X = Rp , Y = Rm . For each x ∈ X, denote by µx : T → Y the evaluation map τ 7→ τ (x). As T
+is a covering matrix space, ker µx > 0 for every x ∈ X. Let U = {x ∈ X : dim ker µx = 1}.
+     Let T1 be the span of the family of subspaces {ker µx : x ∈ U }. We claim that T1 = T . For suppose the
+contrary, and let T ′ ⊂ T be a subspace of T of dimension n − 1 such that T1 ⊆ T ′ . This implies that T ′ is a
+covering matrix space. Indeed, for x ∈ U , (ker µx ) ∩ T ′ = ker µx 6= 0, while for x ∈     / U we have dim µx ≥ 2, so that
+(ker µx ) ∩ T ′ 6= 0 by computing dimensions. However, this is a contradiction as T is minimal.
+     Now we may choose x1 , x2 , . . . , xn ∈ U and τ1 , τ2 , . . . , τn ∈ T in such a way that ker µxi = Rτi and τi form a
+basis of T . Let us complete x1 , . . . , xn to a sequence x1 , . . . , xd which spans X. Put yij = τi (xj ). It is clear that
+yij span the vector space generated by the columns of all matrices            in T . We claim that the subset {yij : i > j} is
+                                                                          n
+enough to span this space, which clearly implies that δ(T ) ⩽ 2 .
+     We have yii = 0. So it is enough to show that every yij with i < j can be expressed as a linear combination of
+yki , k = 1, . . . , n. This follows from the following lemma:
+Lemma. For every x0 ∈ U , 0 6= τ0 ∈ ker µx0 and x ∈ X, there exists a τ ∈ T such that τ0 (x) = τ (x0 ).
+Proof. The operator µx0 has rank n − 1, which implies that for small ε the operator µx0 +εx also has rank n − 1.
+Therefore one can produce a rational function τ (ε) with values in T such that mx0 +εx (τ (ε)) = 0. Taking the
+derivative at ε = 0 gives µx0 (τ0 ) + µx (τ ′ (0)) = 0. Therefore τ = −τ ′ (0) satisfies the desired property.
+Remark. Lemma in solution 2 is the same as the claim Im A ⊂ V at the beginning   of solution 1, but the proof given here
+is different. It can be shown that all minimal covering spaces T with dim T = n2 are essentially the ones described in our
+example.
+
+
+
+
+                                                              4
+

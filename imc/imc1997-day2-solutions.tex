@@ -1,0 +1,265 @@
+        FOURTH INTERNATIONAL COMPETITION
+      FOR UNIVERSITY STUDENTS IN MATHEMATICS
+        July 30 – August 4, 1997, Plovdiv, BULGARIA
+
+
+                     Second day — August 2, 1997
+
+                            Problems and Solutions
+
+
+
+        Problem 1.
+        Let f be a C 3 (R) non-negative function, f (0)=f 0 (0)=0, 0 < f 00 (0).
+Let                                       p             !0
+                                                f (x)
+                                g(x) =
+                                              f 0 (x)
+for x 6= 0 and g(0) = 0. Show that g is bounded in some neighbourhood of 0.
+Does the theorem hold for f ∈ C 2 (R)?
+        Solution.
+                 1
+        Let c = f 00 (0). We have
+                 2
+                                     (f 0 )2 − 2f f 00
+                                g=             √ ,
+                                       2(f 0 )2 f
+
+where
+
+        f (x) = cx2 + O(x3 ), f 0 (x) = 2cx + O(x2 ), f 00 (x) = 2c + O(x).
+
+Therefore (f 0 (x))2 = 4c2 x2 + O(x3 ),
+
+                          2f (x)f 00 (x) = 4c2 x2 + O(x3 )
+
+and                     q                                    q
+               2(f 0 (x))2 f (x) = 2(4c2 x2 + O(x3 ))|x| c + O(x).
+g is bounded because
+                                   p
+                          2(f 0 (x))2 f (x)
+                                            −→ 8c5/2 6= 0
+                                  |x|3      x→0
+
+
+and f 0 (x)2 − 2f (x)f 00 (x) = O(x3 ).
+         The theorem does not hold for some C 2 -functions.
+
+                                          1
+                                                          p
+        Let f (x) = (x + |x|3/2 )2 = x2 + 2x2 |x| + |x|3 , so f is C 2 . For x > 0,
+                                    !0
+                1           1              1      1      3 1
+         g(x) =              √           =− ·       √ 2 · · √ −→ −∞.
+                2      1 + 32 x                   3
+                                           2 (1 + 2 x) 4     x x→0
+
+
+        Problem 2.
+        Let M be an invertible matrix of dimension 2n × 2n, represented in
+block form as
+                            "            #                         "           #
+                                A B                       −1           E F
+                    M=                        and M            =                   .
+                                C D                                    G H
+
+Show that det M. det H = det A.
+      Solution.
+      Let I denote the identity n × n matrix. Then
+                            "            #           "         #           "           #
+                                A B                      I F                   A 0
+    det M. det H = det                       · det                 = det                   = det A.
+                                C D                      0 H                   C I
+
+
+        Problem 3.
+                      ∞ (−1)n−1 sin (log n)
+                      P
+        Show that                                        converges if and only if α > 0.
+                      n=1            nα
+        Solution.
+                      sin (log t)
+        Set f (t) =               . We have
+                          tα
+                                     −α                 cos (log t)
+                        f 0 (t) =     α+1
+                                          sin (log t) +             .
+                                    t                     tα+1
+                1+α
+So |f 0 (t)| ≤         for α > 0. Then from Mean value theorem for some
+                tα+1
+                                                     1+α            P1+α
+θ ∈ (0, 1) we get |f (n+1)−f (n)| = |f 0 (n+θ)| ≤ α+1 . Since                < +∞
+                                         ∞
+                                                     n        ∞
+                                                                       nα+1
+                                         P                    P
+for α > 0 and f (n) −→ 0 we get that         (−1)n−1 f (n) =     (f (2n−1)−f (2n))
+                     n→∞                n=1                  n=1
+converges.
+                                      sin (log n)
+         Now we have to prove that                does not converge to 0 for α ≤ 0.
+                                          nα
+It suffices to consider α = 0.
+         We show that an = sin (log n) does not     tend to zero. Assume the
+                                                1 1                         log n
+contrary. There exist kn ∈ N and λn ∈ − ,            for n > e2 such that         =
+                                                2 2                           π
+kn + λn . Then |an | = sin π|λn |. Since an → 0 we get λn → 0.
+
+                                                 2
+        We have kn+1 − kn =
+                                                               
+        log(n + 1) − log n                 1        1
+      =                    − (λn+1 − λn ) = log 1 +                 − (λn+1 − λn ).
+                π                          π        n
+
+Then |kn+1 − kn | < 1 for all n big enough. Hence there exists n 0 so that
+                          log n
+kn = kn0 for n > n0 . So        = kn0 + λn for n > n0 . Since λn → 0 we get
+                            π
+contradiction with log n → ∞.
+
+      Problem 4.
+      a) Let the mapping f         : Mn → R from the                              space
+       n2
+Mn = R of n × n matrices with real entries to reals be linear, i.e.:
+
+(1)                      f (A + B) = f (A) + f (B), f (cA) = cf (A)
+
+for any A, B ∈ Mn , c ∈ R. Prove that there exists a unique matrix C ∈ M n
+such that f (A) = tr(AC) for any A ∈ Mn . (If A = {aij }ni,j=1 then
+          n
+          P
+tr(A) =         aii ).
+          i=1
+        b) Suppose in addition to (1) that
+
+(2)                                  f (A.B) = f (B.A)
+
+for any A, B ∈ Mn . Prove that there exists λ ∈ R such that f (A) = λ.tr(A).
+        Solution.
+        a) If we denote by Eij the standard basis of Mn consisting of elementary
+matrix (with entry 1 at the place (i, j) and zero elsewhere), then the entries
+cij of C can be defined by cij = f (Eji ). b) Denote by L the n2 −1-dimensional
+linear subspace of Mn consisting of all matrices with zero trace. The elements
+Eij with i 6= j and the elements Eii − Enn , i = 1, . . . , n − 1 form a linear basis
+for L. Since
+
+                        Eij = Eij .Ejj − Ejj .Eij , i 6= j
+                  Eii − Enn = Ein .Eni − Eni .Ein , i = 1, . . . , n − 1,
+
+then the property (2) shows that f is vanishing identically on L. Now, for
+                          1
+any A ∈ Mn we have A − tr(A).E ∈ L, where E is the identity matrix, and
+                          n
+                 1
+therefore f (A) = f (E).tr(A).
+                 n
+
+
+
+
+                                             3
+       Problem 5.
+       Let X be an arbitrary set, let f be an one-to-one function mapping
+X onto itself. Prove that there exist mappings g 1 , g2 : X → X such that
+f = g1 ◦ g2 and g1 ◦ g1 = id = g2 ◦ g2 , where id denotes the identity mapping
+on X.
+       Solution.
+       Let f n = f ◦ f ◦ · · · ◦ f , f 0 = id, f −n = (f −1 )n for every natural
+                   |     {z          }
+                      n times
+number n.   Let T (x) = {f n (x) : n ∈ Z} for every x ∈ X.     The sets T (x) for
+different x’s either coinside or do not intersect. Each of them is mapped by f
+onto itself. It is enough to prove the theorem for every such set. Let A = T (x).
+If A is finite, then we can think that A is the set of all vertices of a regular
+                                        2π
+n polygon and that f is rotation by        . Such rotation can be obtained as a
+                                         n
+composition of 2 symmetries mapping the n polygon onto itself (if n is even
+                                              π
+then there are axes of symmetry making           angle; if n = 2k + 1 then there
+                                              n
+                      2π
+are axes making k        angle). If A is infinite then we can think that A = Z
+                       n
+and f (m) = m + 1 for every m ∈ Z. In this case we define g 1 as a symmetry
+             1
+relative to , g2 as a symmetry relative to 0.
+             2
+
+         Problem 6.
+         Let f : [0, 1] → R be a continuous function. Say that f “crosses the
+axis” at x if f (x) = 0 but in any neighbourhood of x there are y, z with
+f (y) < 0 and f (z) > 0.
+         a) Give an example of a continuous function that “crosses the axis”
+infiniteley often.
+         b) Can a continuous function “cross the axis” uncountably often?
+         Justify your answer.
+         Solution.
+                         1
+         a) f (x) = x sin .
+                         x
+         b) Yes. The Cantor set is given by
+                                            ∞
+                                            X
+                 C = {x ∈ [0, 1) : x =            bj 3−j , bj ∈ {0, 2}}.
+                                            j=1
+
+                                                                           ∞
+                                                                           P
+There is an one-to-one mapping f : [0, 1) → C. Indeed, for x =                   aj 2−j ,
+                                                                           j=1
+                             ∞
+                             P
+aj ∈ {0, 1} we set f (x) =         (2aj )3−j . Hence C is uncountable.
+                             j=1
+
+
+
+                                            4
+        For k = 1, 2, . . . and i = 0, 1, 2, . . . , 2k−1 − 1 we set
+                                                                                     
+                           k−2
+                           X                                             k−2
+                                                                         X
+         ak,i = 3−k 6           aj 3j + 1  ,        bk,i = 3−k 6            aj 3j + 2  ,
+                           j=0                                           j=0
+
+            k−2
+             P
+where i =         aj 2j , aj ∈ {0, 1}. Then
+            j=0
+
+                                            ∞ 2 [−1   k−1
+                                            [
+                           [0, 1) \ C =                     (ak,i , bk,i ),
+                                            k=1       i=0
+
+i.e. the Cantor set consists of all points which have a trinary representation
+with 0 and 2 as digits and the points of its compliment have some 1’s in their
+                                    2k−1 −1
+trinary representation. Thus,          ∪ (ak,i , bk,i ) are all points (exept ak,i ) which
+                                      i=0
+have 1 on k-th place and 0 or 2 on the j-th (j < k) places.
+       Noticing that the points with at least one digit equals to 1 are every-
+where dence in [0,1] we set
+                                            ∞
+                                            X
+                                  f (x) =         (−1)k gk (x).
+                                            k=1
+
+where gk is a piece-wise     linear continuous functions with values at the knots
+                 ak,i + bk,i
+         gk                   = 2−k , gk (0) = gk (1) = gk (ak,i ) = gk (bk,i ) = 0,
+                      2
+i = 0, 1, . . . , 2k−1 − 1.
+         Then f is continuous and f “crosses the axis” at every point of the
+Cantor set.
+
+
+
+
+                                                  5
+

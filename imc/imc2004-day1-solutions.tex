@@ -1,0 +1,302 @@
+                   11th International Mathematical Competition for University Students
+                                         Skopje, 25–26 July 2004
+
+                                          Solutions for problems on Day 1
+
+
+Problem 1. Let S be an infinite set of real numbers such that |s1 + s2 + · · · + sk | < 1 for every finite subset
+{s1 , s2 , . . . , sk } ⊂ S. Show that S is countable. [20 points]
+Solution. Let Sn = S ∩ ( n1 , ∞) for any integer n > 0. It follows from the inequality that |Sn | < n. Similarly, if we
+define S−n = S ∩ (−∞, − n1 ), then |S−n | < n. Any nonzeroSx ∈ S is an element of some Sn or S−n , because there
+exists an n such that x > n1 , or x < − n1 . Then S ⊂ {0} ∪     (Sn ∪ S−n ), S is a countable union of finite sets, and
+                                                                     n∈N
+hence countable.
+
+Problem 2. Let P (x) = x2 − 1. How many distinct real solutions does the following equation have:
+
+                                       P (P (. . . (P (x)) . . . )) = 0 ?       [20 points]
+                                       |    {z       }
+                                            2004
+
+
+Solution. Put Pn (x) = P (P (...(P (x))...)). As P1 (x) ≥ −1, for each x ∈ R, it must be that Pn+1 (x) = P1 (Pn (x)) ≥
+                       | {z }
+                              n
+−1, for each n ∈ N and each x ∈ R. Therefore the equation Pn (x) = a, where a < −1 has no real solutions.
+Let us prove that the equation Pn (x) = a, where a > 0, has exactly two distinct real solutions. To this end we
+use mathematical induction by n. If n = 1 the assertion follows directly. Assuming that the assertion holds for a
+n ∈ N we prove √ that it must also hold
+                                    √ for n + 1. Since Pn+1 (x) =√a is equivalent√     to P1 (Pn (x)) = a, we conclude
+that Pn (x) = a + 1 or Pn (x) = − a + 1. The equation Pn (x) = a + 1, as       √ a + 1 > 1, has exactly two distinct
+real
+  √  solutions by  the inductive hypothesis, while  the  equation P n (x) =  −   a + 1 has no real solutions (because
+− a + 1 < −1). Hence the equation Pn+1 (x) = a, has exactly two distinct real solutions.
+    Let us prove now that the equation Pn (x) = 0 has exactly n + 1 distinct real solutions. Again we √            use
+mathematical induction. If n = 1 the solutions are x = ±1, and if n = 2 the solutions are x = 0 and x = ± 2,
+so in both cases the number of solutions is equal to n + 1. Suppose that the assertion holds for some n ∈ N .
+Note that Pn+2 (x) = P2 (Pn (x)) = Pn2 (x)(Pn2 (x) − 2), so the set of all real solutions of the
+                                                                                               √ equation Pn+2 = √ 0 is
+exactly the union of the sets of all real solutions of the equations Pn (x) = 0, Pn (x) = 2 and Pn (x) = − 2.
+By the inductive
+         √         hypothesis√the equation Pn (x) = 0 has exactly n + 1 distinct real solutions, while the equations
+Pn (x) = 2 and Pn (x) = − 2 have two and no distinct real solutions, respectively. Hence, the sets above being
+pairwise disjoint, the equation Pn+2 (x) = 0 has exactly n + 3 distinct real solutions. Thus we have proved that,
+for each n ∈ N , the equation Pn (x) = 0 has exactly n + 1 distinct real solutions, so the answer to the question
+posed in this problem is 2005.
+
+                                                   n
+                                                         xk , where n ≥ 2, 0 ≤ x1 , x2 , . . . , xn ≤ π2 and
+                                                   P
+Problem 3. Let Sn be the set of all sums
+                                                   k=1
+
+                                                           n
+                                                           X
+                                                                 sin xk = 1 .
+                                                           k=1
+
+   a) Show that Sn is an interval. [10 points]
+   b) Let ln be the length of Sn . Find lim ln . [10 points]
+                                            n→∞
+
+Solution. (a) Equivalently, we consider the set
+
+                     Y = {y = (y1 , y2 , ..., yn )| 0 ≤ y1 , y2 , ..., yn ≤ 1, y1 + y2 + ... + yn = 1} ⊂ Rn
+
+and the image f (Y ) of Y under
+
+                                      f (y) = arcsin y1 + arcsin y2 + ... + arcsin yn .
+
+Note that f (Y ) = Sn . Since Y is a connected subspace of Rn and f is a continuous function, the image f (Y ) is
+also connected, and we know that the only connected subspaces of R are intervals. Thus Sn is an interval.
+    (b) We prove that
+                                                1                            π
+                                                  ≤ x1 + x2 + ... + xn ≤ .
+                                              n arcsin
+                                                n                            2
+Since the graph of sin x is concave down for x ∈ [0, π2 ], the chord joining the points (0, 0) and ( π2 , 1) lies below the
+graph. Hence
+                                            2x                          π
+                                               ≤ sin x for all x ∈ [0, ]
+                                            π                            2
+and we can deduce the right-hand side of the claim:
+                                  2
+                                    (x1 + x2 + ... + xn ) ≤ sin x1 + sin x2 + ... + sin xn = 1.
+                                  π
+The value 1 can be reached choosing x1 = π2 and x2 = · · · = xn = 0.
+   The left-hand side follows immediately from Jensen’s inequality, since sin x is concave down for x ∈ [0, π2 ] and
+0 ≤ x1 +x2 +...+x
+           n
+                  n
+                    < π2
+                            1    sin x1 + sin x2 + ... + sin xn       x1 + x2 + ... + xn
+                               =                                ≤ sin                    .
+                            n                  n                              n
+Equality holds if x1 = · · · = xn = arcsin n1 .
+   Now we have computed the minimum and maximum of interval Sn ; we can conclude that Sn = [n arcsin n1 , π2 ].
+Thus ln = π2 − n arcsin n1 and
+                                                π     arcsin(1/n)  π
+                                       lim ln = − lim             = − 1.
+                                      n→∞       2 n→∞     1/n      2
+
+
+Problem 4. Suppose n ≥ 4 and let M be a finite set of n points in R3 , no four of which lie in a plane. Assume
+that the points can be coloured black or white so that any sphere which intersects M in at least four points has
+the property that exactly half of the points in the intersection of M and the sphere are white. Prove that all of
+the points in M lie on one sphere. [20 points]
+                                               
+                                                 −1, if X is white                                P
+Solution. Define f : M → {−1, 1}, f (X) =                           . The given condition becomes X∈S f (X) = 0
+                                                  1, if X is black
+for any sphere S which passes through at least 4 points of M . For any 3 given points A, B, C in M , denote by
+S (A, B, C) the set of all spheres which pass through
+                                                 P           Pand at least one other point of M and by |S (A, B, C)|
+                                                       A, B, C
+the number of these spheres. Also, denote by        the sum X∈M f (X).
+    We have                  X      X                                                         X
+                    0=                  f (X) = (|S (A, B, C)| − 1) (f (A) + f (B) + f (C)) +                    (1)
+                            S∈S(A,B,C) X∈S
+
+since the values of A, B, C appear |S (A, B, C)| times each and the other values appear only once.
+    If there are 3 points A, B, C such that |S (A, B, C)| = 1, the proof is finished.        P
+    If |S (A, B, C)|P> 1 for any distinct points A, B, C in M , we will prove at first that     = 0.
+                                                                                                           n
+                                                                                                             
+    Assume that        > 0. From (1) itfollows   that f (A) + f (B) + f (C)  <  0 and   summing    by all 3   possible
+choices of (A, B, C) we obtain that n3
+                                           P                     P
+                                             P< 0, which  means     < 0 (contradicts  the  starting assumption).   The
+same reasoningP   is applied when assuming      < 0.
+    Now, from        = 0 and (1), it follows that f (A) + f (B) + f (C) = 0 for any distinct points A, B, C in M .
+Taking another point D ∈ M , the following equalities take place
+
+                                                   f (A) + f (B) + f (C) = 0
+                                                   f (A) + f (B) + f (D) = 0
+                                                   f (A) + f (C) + f (D) = 0
+                                                   f (B) + f (C) + f (D) = 0
+
+which easily leads to f (A) = f (B) = f (C) = f (D) = 0, which contradicts the definition of f .
+
+Problem 5. Let X be a set of 2k−4
+                                      
+                                   k−2 + 1 real numbers, k ≥ 2. Prove that there exists a monotone sequence
+{xi }ki=1 ⊆ X such that
+                                             |xi+1 − x1 | ≥ 2|xi − x1 |
+for all i = 2, . . . , k − 1.   [20 points]
+    Solution. We prove a more general statement:
+    Lemma. Let k, l ≥ 2, let X be a set of k+l−4
+                                                  
+                                            k−2 + 1 real numbers. Then either X contains an increasing sequence
+{xi }ki=1 ⊆ X of length k and
+                                    |xi+1 − x1 | ≥ 2|xi − x1 | ∀i = 2, . . . , k − 1,
+or X contains a decreasing sequence {xi }li=1 ⊆ X of length l and
+
+                                              |xi+1 − x1 | ≥ 2|xi − x1 | ∀i = 2, . . . , l − 1.
+
+   Proof of the lemma. We use induction on k + l. In case k = 2 or l = 2 the lemma is obviously true.
+   Now let us make the induction step. Let m be the minimal element of X, M be its maximal element. Let
+                                                         m+M                                      m+M
+                                Xm = {x ∈ X : x ≤            },         XM = {x ∈ X : x >             }.
+                                                          2                                        2
+        k+l−4           k+(l−1)−4
+                                   + (k−1)+l−4
+                                              
+Since    k−2        =      k−2        (k−1)−2
+                                                 , we can see that either
+                                                                                                    
+                                           (k − 1) + l − 4                             k + (l − 1) − 4
+                             |Xm | ≥                        + 1,      or |XM | ≥                         + 1.
+                                             (k − 1) − 2                                    k−2
+
+   In the first case we apply the inductive assumption to Xm and either obtain a decreasing sequence of length l
+with the required properties (in this case the inductive step is made), or obtain an increasing sequence {xi }k−1
+                                                                                                                i=1 ⊆
+Xm of length k − 1. Then we note that the sequence {x1 , x2 , . . . , xk−1 , M } ⊆ X has length k and all the required
+properties.
+   In the case |XM | ≥ k+(l−1)−4
+                                  
+                            k−2     + 1 the inductive step is made in a similar way. Thus the lemma is proved.
+   The reader may check that the number k+l−4
+                                                   
+                                               k−2   + 1 cannot be smaller in the lemma.
+
+Problem 6. For every complex number z ∈
+                                      / {0, 1} define
+                                                  X
+                                         f (z) :=     (log z)−4 ,
+
+where the sum is over all branches of the complex logarithm.
+   a) Show that there are two polynomials P and Q such that f (z) = P (z)/Q(z) for all z ∈ C \ {0, 1}.             [10
+points]
+   b) Show that for all z ∈ C \ {0, 1}
+
+                                                             z 2 + 4z + 1
+                                                 f (z) = z                .    [10 points]
+                                                              6(z − 1)4
+
+
+    Solution 1. It is clear that
+                              P the   left hand side is well defined and independent of the order of summation, because
+                                  −4
+we have a sum of the type n , and the branches of the logarithms do not matter because all branches are taken.
+It is easy to check that the convergence is locally uniform on C \ {0, 1}; therefore, f is a holomorphic function on
+the complex plane, except possibly for isolated singularities at 0 and 1. (We omit the detailed estimates here.)
+    The function log has its only (simple) zero at z = 1, so f has a quadruple pole at z = 1.
+    Now we investigate the behavior near infinity. We have Re(log(z)) = log |z|, hence (with c := log |z|)
+                              X                   X                X
+                            |    (log z)−4 | ≤        | log z|−4 =    (log |z| + 2πin)−4 + O(1)
+                                                  Z ∞
+                                              =         (c + 2πix)−4 dx + O(1)
+                                                   −∞
+                                                      Z ∞
+                                                   −4
+                                              = c           (1 + 2πix/c)−4 dx + O(1)
+                                                         −∞
+                                                      Z ∞
+                                                   −3
+                                              = c           (1 + 2πit)−4 dt + O(1)
+                                                               −∞
+                                                    ≤ α(log |z|)−3
+
+for a universal constant α. Therefore, the infinite sum tends to 0 as |z| → ∞. In particular, the isolated singularity
+at ∞ is not essential, but rather has (at least a single) zero at ∞.
+     The remaining singularity is at z = 0. It is readily verified that f (1/z) = f (z) (because log(1/z) = − log(z));
+this implies that f has a zero at z = 0.
+     We conclude that the infinite sum is holomorphic on C with at most one pole and without an essential singularity
+at ∞, so it is a rational function, i.e. we can write f (z) = P (z)/Q(z) for some polynomials P and Q which we
+may as well assume coprime. This solves the first part.
+     Since f has a quadruple pole at z = 1 and no other poles, we have Q(z) = (z − 1)4 up to a constant factor
+which we can as well set equal to 1, and this determines P uniquely. Since f (z) → 0 as z → ∞, the degree of P
+is at most 3, and since P (0) = 0, it follows that P (z) = z(az 2 + bz + c) for yet undetermined complex constants
+a, b, c.
+     There are a number of ways to compute the coefficients a, b, c, which turn out to be a = c = 1/6, b = 2/3.
+Since f (z) = f (1/z), it follows easily that a = c. Moreover, the fact lim (z − 1)4 f (z) = 1 implies a + b + c = 1
+                                                                                       z→1
+(this fact follows from the observation that at z = 1, all summands cancel pairwise, except the principal branch
+which contributes a quadruple pole). Finally, we can calculate
+                                                                                      
+                                X               X                 X          X               1
+                  f (−1) = π −4   n−4 = 2π −4       n−4 = 2π −4     n−4 −         n−4  =     .
+                                                                                            48
+                                nodd                n≥1odd                      n≥1               n≥1even
+
+This implies a − b + c = −1/3. These three equations easily yield a, b, c.
+    Moreover, the function f satisfies f (z) + f (−z) = 16f (z 2 ): this follows because the branches of log(z 2 ) =
+log((−z)2 ) are the numbers 2 log(z) and 2 log(−z). This observation supplies the two equations b = 4a and a = c,
+which can be used instead of some of the
+                                       P considerations       above.
+                                              1                                      dz
+    Another way is to compute g(z) =       (log z)2
+                                                    first. In the same way, g(z) = (z−1) 2 . The unknown coefficient d
+                                  2
+can be computed from lim (z − 1) g(z) = 1; it is d = 1. Then the exponent 2 in the denominator can be increased
+                        z→1
+by taking derivatives (see Solution 2). Similarly, one can start with exponent 3 directly.
+   A more straightforward, though tedious way to find the constants is computing the first four terms of the
+Laurent series of f around z = 1. For that branch of the logarithm which vanishes at 1, for all |w| < 12 we have
+                                                               w2 w3 w4
+                                       log(1 + w) = w −          +   −   + O(|w|5 );
+                                                               2   3   4
+after some computation, one can obtain
+                                  1                    7     1
+                                         = w−4 + 2w−2 + w−2 + w−1 + O(1).
+                             log(1 + w)4               6     6
+The remaining branches of logarithm give a bounded function. So
+                                                            7   1
+                                  f (1 + w) = w−4 + 2w−2 + w−2 + w−1
+                                                            6   6
+(the remainder vanishes) and
+                                      1 + 2(z − 1) + 76 (z − 1)2 + 16 (z − 1)3   z(z 2 + 4z + 1)
+                            f (z) =                                            =                 .
+                                                    (z − 1)4                       6(z − 1)4
+   Solution 2. ¿From the well-known series for the cotangent function,
+                                                    N
+                                                    X          1        i    iw
+                                              lim                      = cot
+                                             N →∞          w + 2πi · k  2     2
+                                                    k=−N
+
+and
+                              N                                                         i log z
+                              X           1         i    i log z  i e2i· 2 + 1   1  1
+                      lim                          = cot         = ·i   i log z = +    .
+                     N →∞          log z + 2πi · k  2       2     2 e2i· 2 − 1   2 z−1
+                            k=−N
+Taking derivatives we obtain                                      0
+                                       X      1         1      1            z
+                                                    = −z ·+           =           ,
+                                           (log z)2     2 z−1            (z − 1)2
+                                                                  0
+                                       X    1       z       z           z(z + 1)
+                                                3
+                                                  =− ·           2
+                                                                      =
+                                         (log z)    2    (z − 1)        2(z − 1)3
+and                                                                        0
+                                                                                    z(z 2 + 4z + 1)
+                                                           
+                                   X      1       z            z(z + 1)
+                                              4
+                                                =− ·                            =                   .
+                                       (log z)    3            2(z − 1)3              2(z − 1)4
+

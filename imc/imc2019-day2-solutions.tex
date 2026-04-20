@@ -1,0 +1,205 @@
+                     IMC 2019, Blagoevgrad, Bulgaria
+
+
+                                  Day 2, July 31, 2019
+
+
+
+
+Problem 6.       Let f,
+                      g : R −→ R be continuous functions such that g is dierentiable. Assume
+that f (0) − g 0 (0) g 0 (1) − f (1) > 0. Show that there exists a point c ∈ (0, 1) such that
+f (c) = g 0 (c).
+                             Proposed by Fereshteh Malek, K. N. Toosi University of Technology
+            Dene F (x) = 0x f (t)dt and let h(x) = F (x) − g(x). By the continuouity of f we
+                           R
+Solution.
+have F 0 = f , so h0 = f − g 0 .
+    The assumption can be re-written as h0 (0) − h0 (1) > 0, so h0 (0) and h0 (1) have opposite
+                                                       
+
+signs. Then, by the Mean Value Theorem For Derivatives (Darboux property of derivatives) it
+follows that there is a point c between 0 and 1 where h0 (c) = 0, so f (c) = g 0 (c).
+Problem 7.
+    Let C = {4, 6, 8, 9, 10, . . .} be the set of composite positive integers. For each n ∈ C let
+an be the smallest positive integer k such that k! is divisible by n. Determine whether the
+following series converges:
+                                                an
+                                              X  n
+                                                     .                                       (1)
+                                          n∈C
+                                                n
+              Proposed by Orif Ibrogimov, ETH Zurich and National University of Uzbekistan
+
+             The series (1) converges. We will show that n ≤ 3 for n > 4; then the geometric
+                                                          an    2
+Solution.
+
+series        majorizes (1).
+            2 n
+      P
+          3
+    Case 1: n has at least two distinct prime divisors. Then n can be factored as n = qr with
+some co-prime positive integers q, r ≥ 2; without loss of generality we can assume q > r. Notice
+that q q! and r r! q!, so n = qr q!; this shows an ≤ q and therefore
+                                       an  q 1 1
+                                          ≤ = ≤ .
+                                       n   n r 2
+   Case 2: n is the square of a prime, n = p2 with some prime p ≥ 3. From p2 p · 2p (2p)! we
+obtain an = 2p, so
+                                       an  2p  2 2
+                                          = 2 = ≤ .
+                                       n   p   p 3
+   Case 3: n is a prime power, n = pk with some prime p and k ≥ 3. Notice that n =
+pk p · p2 · · · pk−1 , so an ≤ pk−1 and therefore
+
+                                      an  pk−1 1 1
+                                         ≤ k = ≤ .
+                                      n    p   p 2
+
+
+
+
+                                                1
+                     Let x1 , . . . , xn be real numbers. For any set I ⊂ {1, 2, . . . , n} let s(I) =                xi .
+                                                                                                                P
+    Problem 8.
+                                                                                                                i∈I
+    Assume that the function I 7→ s(I) takes on at least 1.8n values where I runs over all 2n subsets
+    of {1, 2, . . . , n}. Prove that the number of sets I ⊂ {1, 2, . . . , n} for which s(I) = 2019 does not
+    exceed 1.7n .
+                            Proposed by Fedor Part and Fedor Petrov, St. Petersburg State University
+    Solution.       Choose disctint sets I1 , . . . , IA ⊂ {1, 2, . . . , n} where A ≥ 1.8n , and let J1 , . . . , JB ⊂
+    {1, 2, . . . , n} be all sets so that S(Ji ) = 2019; for the sake of contradiction, assume that
+    B ≥ 1.7n .
+        Every set I ⊂ {1, 2, . . . , n} can be identied with a 0 − 1 vector of length n: the kth
+    coordinate in the vector is 1 if k ∈ I . Then s(I) = hI, Xi, where X = (x1 , . . . , xn ) and h·, ·i
+    stands for the usual scalar product.
+        For all ordered pairs (a, b) ∈ {1, . . . , A}×{1, . . . , B} consider the vector Ia −Jb ∈ {−1, 0, 1}n .
+    By the pigeonhole principle, since AB ≥ (1.8 · 1.7)n > 3n , there are two pairs (a, b) and (c, d)
+    such that Ia − Jb = Ic − Jd . Multiplying this by X we get s(Ia ) − 2019 = s(Ic ) − 2019; that
+    implies a = c. But then Jb = Jd , that is, b = d, and our pairs coincide. Contradiction.
+    Problem 9.      Determine all positive integers n for which there exist n×n real invertible matrices
+    A and B that satisfy AB − BA = B 2 A.
+Proposed by Karen Keryan, Yerevan State University & American University of Armenia, Yerevan
+    Solution.    We prove that there exist such matrices A and B inf and only if n is even.
+
+        I. Assume that n is odd and some invertible n × n matrices A, B satisfy AB − BA = B 2 A.
+    Hence B = A−1 (B 2 + B)A, so the matrices B and B 2 + B are similar and therefore have the
+    same eigenvalues. Since n is odd, the matrix B has a real eigenvalue, denote it by λ1 . Therefore
+    λ2 := λ21 + λ1 is an eigenvalue of B 2 + B , hence an eigenvalue of B . Similarly, λ3 := λ22 + λ2
+    is an eigenvalue of B 2 + B , hence an eigenvalue of B . Repeating this process and taking into
+    account that the number of eigenvalues of B is nite we will get there exist numbers k ≤ l so
+    that λl+1 = λk . Hence
+                                                 λk+1 = λ2k + λk
+                                                 λk+2 = λ2k+1 + λk+1
+                                                  .........
+                                                   λl = λ2l−1 + λl−1
+                                                   λk = λ2l + λl .
+
+    Adding this equations we get λ2k + λ2k+1 + . . . + λ2l = 0. Taking into account that all λi 's are real
+    (as λ1 is real), we have λk = . . . = λl = 0, which implies that B is not invertible, contradiction.
+                                                                                                 
+                                                                             0 1              −1 1
+        II. Now we construct such matrices A, B for even n. Let A2 =               and B2 =           .
+                                                                             1 0              −1 −1
+    It is easy to check that the matrices A2 , B2 are invertible and satisfy the condition. For n = 2k
+    the n × n block matrices
+                                                                               
+                                 A2 0 . . . 0                  B2 0 . . . 0
+                                0 A2 . . . 0                0 B2 . . . 0 
+                          A =  ..    .
+                                      .   . .   .
+                                                .  , B =  ..      .
+                                                                    .   . .    .
+                                                                               .
+                                                                               
+                                .    .       . .            .    .       . .
+                                                                                  
+                                 0 0 . . . A2                   0 0 . . . B2
+
+    are also invertible and satisfy the condition.
+
+                                                            2
+Problem 10.     2019 points are chosen at random, independently, and distributed uniformly in
+the unit disc {(x, y) ∈ R2 : x2 + y 2 ≤ 1}. Let C be the convex hull of the chosen points. Which
+probability is larger: that C is a polygon with three vertices, or a polygon with four vertices?
+                                      Proposed by Fedor Petrov, St. Petersburg State University
+Solution. We will show that the quadrilateral has larger probability.
+   Let D = {(x, y) ∈ R2 : x2 + y 2 ≤ 1}. Denote the random points by X1 , . . . , X2019 and let
+                p = P C is a triangle with vertices X1 , X2 , X3 ,
+                                                                
+
+               q = P C is a convex quadrilateral with vertices X1 , X2 , X3 , X4 .
+                                                                                    
+
+By symmetry we have P C is a triangle           2019
+                                                        ,      is  a quadrilateral    2019
+                                                                                           q and we
+                                                                                       
+                                              =    3
+                                                      p    P C                      =  4
+need to prove that 2019        2019
+                                      , or equivalently       2016
+                                                                            .
+                                   
+                       4
+                           q >  3
+                                    p                     p <  4
+                                                                   q = 504q
+   Note that p is the average over X1 , X2 , X3 of the following expression:
+                                                                                       
+          u(X1 , X2 , X3 ) = P X4 ∈ 4X1 X2 X3 · P X5 , X6 , . . . , X2019 ∈ 4X1 X2 X3 ,
+
+and q is not less than the average over X1 , X2 , X3 of
+v(X1 , X2 , X3 ) = P X1 , X2 , X3 , X4 form a convex quad. · P X5 , X6 , . . . , X2019 ∈ 4X1 X2 X3 ) .
+                                                                                                   
+
+Thus it suces to prove that u(X1 , X2 , X3 ) ≤ 500v(X1 , X2 , X3 ) for all X1 , X2 , X3 . It reads as
+area(4X1 X2 X3 ) ≤ 500area(Ω), where Ω = {Y : X1 , X2 , X3 , Y form a convex quadrilateral}.
+    Assume the contrary, i.e., area(4X1 X2 X3 ) > 500area(Ω).
+    Let the lines X1 X2 , X1 X3 , X2 X3 meet the boundary of D at A1 , A2 , A3 , B1 , B2 , B3 ; these
+lines divide D into 7 regions as shown in the picture; Ω = D4 ∪ D5 ∪ D6 .
+
+
+
+
+   By our indirect assumption,
+                                                           1               1             π
+       area(D4 ) + area(D5 ) + area(D6 ) = area(Ω) <          area(D0 ) <     area(D) =     .
+                                                          500             500           500
+   From 4X1 X3 B3 ⊂ Ω we get X3 B3 /X3 X2 = area(4X1 X3 B3 )/area(4X1 X2 X3 ) < 1/500, so
+         1
+X3 B3 < 500          1
+            X2 X3 < 250 . Similarly, the lengths segments A1 X1 , B1 X1 , A2 X2 , B2 X2 , A3 X2 are
+less than 250
+           1
+              .
+    The regions D1 , D2 , D3 can be covered by disks with radius 250
+                                                                  1
+                                                                     , so
+                                                                      π
+                           area(D1 ) + area(D2 ) + area(D3 ) < 3 ·        .
+                                                                     2502
+                                                                                                √
+   Finally, it is well-known that the area of any triangle inside the unit disk is at most 3 4 3 , so
+                                                      √
+                                                     3 3
+                                         area(D0 ) ≤     .
+                                                      4
+
+                                                  3
+   But then                       √
+                 6
+                 X               3 3      π      π
+                     area(Di ) <     +3·    2
+                                              +     < area(D),
+                 i=0
+                                  4      250    500
+contradiction.
+
+
+
+
+                                      4
+

@@ -1,0 +1,311 @@
+                                             IMC 2025
+                                    First Day, July 30, 2025
+                                               Solutions
+
+
+Problem 1. Let P ∈ R[x] be a polynomial with real coefficients, and suppose deg(P ) ≥ 2. For every
+x ∈ R, let ℓx ⊂ R2 denote the line tangent to the graph of P at the point (x, P (x)).
+                                                        [
+   (a) Suppose that the degree of P is odd. Show that      ℓx = R2 .
+                                                              x∈R
+   (b) Does there exist a polynomial of even degree for which the above equality still holds?
+                              (proposed by Mike Daas, Max Planck Institute for Mathematics, Bonn)
+
+Solution.
+    (a) Suppose that the degree of P is odd and let (a, b) ∈ R be arbitrary. Given r ∈ R, the equation
+for ℓr is given by
+                            ℓr = (x, y) ∈ R2 | y = P ′ (r)(x − r) + P (r) .
+                                 
+
+For this line to pass through the point (a, b) it is therefore necessary and sufficient that
+
+                                       b = aP ′ (r) + P (r) − rP ′ (r).
+
+This is a polynomial equation in r, which always has a real solution as soon as we can show that the
+degree is odd. Indeed, if P (r) = crn + . . . describes the leading term, then the right hand side of the
+above equation has leading term (c − nc)rn . Since c ̸= 0 and we assumed that n ≥ 2, we must have
+c − nc ̸= 0. The right hand side therefore has the same degree as P , completing the proof.
+    (b) If the degree of P is even, then this can never be true, because the degree of aP ′ (r)+P (r)−rP ′ (r)
+is now even by the same argument and therefore it has a global minimum (or maximum) over the
+reals, below (or above) which no value of b will yield a real solution for r.
+
+
+
+
+                                                      1
+Problem
+R1          2. Let f : R → R be a twice continuously differentiable function, and suppose that
+ −1
+    f (x) dx = 0 and f (1) = f (−1) = 1. Prove that
+                                        Z 1
+                                                      2
+                                            (f ′′ (x)) dx ≥ 15,
+                                                  −1
+
+and find all such functions for which equality holds.
+                              (proposed by Alberto Cagnetta, Università degli Studi di Udine, Italy)
+
+Solution. If g is an arbitrary twice continously differentable function on [−1, 1], then by applying
+the Caucy–Schwarz inequality for f ′′ and g and integrate by parts twice we get
+     sZ
+         1        Z 1      Z 1                                      Z 1
+                                ′′       ′          ′
+                                                                        f ′g′ =
+                                                                
+             ′′ 2
+           (f ) ·      2
+                      g ≥      f g = f (1)g(1) − f (−1)g(−1) −
+            −1      −1        −1                                                       −1
+                                                                                                         Z 1
+                          = f (1)g(1) − f (−1)g(−1) − f (1)g ′ (1) − f (−1)g ′ (−1) +
+                               ′                    ′
+                                                                                                               f g ′′
+                                                                                      
+                                                                                                          −1
+                                                                         Z 1
+                             ′           ′             ′        ′
+                                                                              f g ′′ .
+                                                                     
+                          = f (1)g(1) − f (−1)g(−1) − g (1) + g (−1) +                                                  (1)
+                                                                                             −1
+
+In order to get rid of the terms f ′ (1)g(1) and f ′ (−1)g(−1) we will chose g suchRthat g(1) = g(−1) = 0.
+               ′′                                                                    1    ′′   ′′ 1
+                                                                                                 R
+Moreover, if g is constant, so g is an at most quadratic polynomial, then −1 f g = g −1 = f 0.
+Hence, it is reasonable to apply (1) with g(x) = (1 + x)(1 − x) = 1 − x2 .
+    With this choice,
+                      g(1) = g(−1) = 0,             g ′ (1) = −2,   g ′ (−1) = 2,       g ′′ ≡ −2
+and                                 Z 1            Z 1
+                                            2                                   16
+                                           g =           (1 − 2x2 + x4 ) dx =      ,
+                                      −1            −1                          15
+so we get
+                          sZ
+                             1
+                                                16
+                                   (f ′′ )2 ·      ≥ 0 − 0 − g ′ (1) + g ′ (−1) + 0 = 4,
+                              −1                15
+                                                    Z 1
+                                                        (f ′′ )2 ≥ 15.
+                                                        −1
+
+   Equality in Cauchy–Schwarz in (1) holds only if there exists a real λ such that f ′′ (x) = λg(x)
+almost everywhere in [−1, 1]; by continuity of f ′′ and g we have f ′′ = λg everwhere on the interval
+[−1, 1]. Hence f (x) must have the form
+                                    2
+                                            x4
+                                               
+                                      x
+                         f (x) = λ      −        + ax + b, with λ, a, b ∈ R.
+                                      2    12
+      R1
+From −1 f (x)dx = 0, we get 0 = 3λ10
+                                                       3
+                                     + 2b, hence b = − 20 λ. Moreover, the condition f (1) = f (−1) = 1
+implies                                                                 
+                   1   1            3                              1     1          3
+               λ     −      + a − λ = f (1) = 1 = f (−1) = λ          −      −a− λ
+                   2 12            20                              2 12             20
+hence a = 0, and λ = 154
+                         .
+   In conclusion, the equality holds if and only if
+                              2
+                                   x4           −5x4 + 30x2 − 9
+                                            
+                       15     x           3
+               f (x) =     ·     −    −       =                                   for all x ∈ [−1, 1].
+                        4      2   12 20              16
+
+
+                                                              2
+Problem 3. Denote by S the set of all real symmetric 2025 × 2025 matrices of rank 1 whose entries
+take values −1 or +1. Let A, B ∈ S be matrices chosen independently uniformly at random. Find
+the probability that A and B commute, i.e. AB = BA.
+           (proposed by Marian Panţiruc, ”Gheorghe Asachi” Technical University of Iaşi, Romania)
+
+Solution. Let n = 2025. First, we give a charaterisation of matrices in S.
+   Suppose that A = (aij )ni,j=1 ∈ S. Since rk A = 1, for every 1 < i, j ≤ n, we have
+                                     
+                            a   a
+                        det 11 1j          = a11 aij − ai1 a1j = a11 aij − ai1 aj1 = 0.
+                            ai1 aij
+                                                                         
+                                                                           
+                                                                   a11       1
+                                                                  a21    a21 
+If a11 = 1 then this means aij = ai1 aj1 . In this case, let u =  ..  =  .. ; then we have
+                                                                         
+                                                                  .      . 
+                                                                              an1         an1
+                                                                                                   
+                                                                                            −a11
+                                                                                           −a21 
+                ⊤
+           
+A = ai1 aj1 = uu . Otherwise, if a11 = −1, we have aij = −ai1 aj1 . In that case, let u =  ..  =
+                                                                                                
+                                                                                           . 
+                                                                                                        −an1
+      
+   1
+ −a21 
+ .. ; then A = − ai1 aj1 = −uu⊤ .
+                        
+ . 
+  −an1
+                                                                                               
+                                                                                 1
+                                                                                u2 
+    Hence, all matrices in S can uniquely be written as ±uu⊤ with a vector u =  ..  such that
+                                                                                
+                                                                               .
+                                                                                           un
+                                       ⊤
+u2 , . . . , un ∈ {±1}. (Note that rk(uu ) = 1 is satisfied.) In particular, we have |S| = 2n , because the
+sign and the coordinates u2 , . . . , un can be chosen independently.
+    Now, if A = ±uuT and B = ±vv T are elements of S, then
+                                                                                     n
+              AB = ±(uu⊤ )(vv ⊤ ) = ±u(u⊤ v)v ⊤ = ±u · ⟨u, v⟩ · v ⊤ = ±⟨u, v⟩ · ui vj i,j=1
+
+and similarly                                              n
+                                       BA = ±⟨u, v⟩ · vi uj i,j=1 .
+                                                                                                  n
+Since n = 2025 is odd, it follows that ⟨u, v⟩ ̸= 0. The first columns of the matrices uv ⊤ = ui vj i,j=1
+                n
+and vu⊤ = vi uj i,j=1 are u and v, respectively. Hence, AB = BA if and only if u = v; in other words,
+if A = ±B.
+   For each A ∈ S, there are precisely two suitable matrices B ∈ S, so the probability that A, B
+            2      1
+commute is     = n−1 .
+           |S|   2
+
+
+
+
+                                                       3
+Problem 4. Let a be an even positive integer. Find all real numbers x such that
+                               j√               k
+                                   b + x · ba−1 = ba + ⌊x/a⌋
+                                  a a
+                                                                                                   (1)
+
+holds for every positive integer b.
+(Here ⌊x⌋ denotes the largest integer that is no greater than x.)
+                                    (proposed by Yagub Aliyev, ADA University, Baku, Azerbaijan)
+
+Solution. We will show that if a = 2 then we must have x ∈ [−1, 2) ∪ [3, 4), otherwise x ∈ [−1, a).
+   Suppose that ⌊x/a⌋ = m. Then m ≤ x/a < m + 1, and
+
+                                          am ≤ x < a(m + 1).                                       (2)
+
+Let b = 1. Then                          j√ k
+                                          a
+                                       1 + x = 1 + ⌊x/a⌋ .                                         (3)
+                        √                          √
+From (3) it follows that a 1 + x = 1 + m, or 1 + m ≤ a 1 + x < 2 + m, or
+
+                                 (1 + m)a − 1 ≤ x < (2 + m)a − 1,                                  (4)
+                                                                         √
+where we have used
+        √         the obvious fact that m ≥ −1. Indeed, the number a 1 + x and therefore the
+number a 1 + x = 1 + m is not negative. By Bernoulli’s inequality, the following two inequalities —
+which compare the inequalities (2) and (4) — hold:
+
+                                        am ≤ (1 + m)a − 1,                                         (5)
+                                   a(m + 1) ≤ (1 + (m + 1))a − 1,                                  (6)
+
+where in (5), equality holds if and only if m = 0, and in (6), equality holds if and only if m = −1.
+From (2), (4)–(6), it follows that
+
+                                   (m + 1)a − 1 ≤ x < a(m + 1).                                    (7)
+
+From (7), it follows that (m + 1)a − 1 < a(m + 1). Therefore
+
+                                         (m + 1)a ≤ a(m + 1).                                      (8)
+                                     1                               1
+From (8), it follows that m + 1 ≤ a a−1 . If a > 2 then m + 1 < a a−1 < 2, because 2a−1 > a for a > 2
+                                                              1
+(one can prove this by mathematical induction) and 1 < a a−1 < 2 is not an integer. Therefore, if
+a > 2 then m = 0 or m = −1. If a = 2 then m = −1, m = 0 or m = 1. From (7), it follows that the
+equality (3) holds true only for the values −1 ≤ x < 0 (m = −1), 0 ≤ x < a (m = 0) if a > 2, and
+−1 ≤ x < 0 (m = −1), 0 ≤ x < 2 (m = 0) and 3 ≤ x < 4 (m = 1) if a = 2.
+   We will now prove that for these values of x, the equality (1) is true for all positive integers b.
+From (7), it follows that ba + (m + 1)a − 1 ≤ ba + x < ba + a(m + 1) and
+                                 (m + 1)a − 1     x     a(m + 1)
+                            1+         a
+                                              ≤1+ a <1+          .                                 (9)
+                                     b           b         ba
+By Bernoulli’s inequality                                      a
+                                     a(m + 1)             m+1
+                                  1+          ≤        1+            ,                           (10)
+                                        ba                 ba
+where equality occurs if and only if m = −1. It is easy to check that for m = 1 (if a = 2), m = 0 and
+m = −1, the following inequality holds true:
+                                       m a         (m + 1)a − 1
+                                      1+ a ≤1+                    .                               (11)
+                                        b                  ba
+                                                  4
+From (9)–(11), it follows that
+                                                                 a
+                                      m a   x               m+1
+                                     1+ a ≤1+ a <          1+        .            (12)
+                                       b     b                 ba
+
+From (12), it follows that
+                                            √
+                                 ba + m ≤       ba + x · ba−1 < ba + m + 1,
+                                            a
+
+                                            √
+                             ba + ⌊x/a⌋ ≤       ba + x · ba−1 < ba + ⌊x/a⌋ + 1.
+                                            a
+
+
+
+
+Consequently, equality (1) holds.
+
+
+
+
+                                                      5
+Problem 5. For a positive integer n, let [n] = {1, 2, . . . , n}. Denote by Sn the set of all bijections
+from [n] to [n], and let Tn be the set of all maps from [n] to [n]. Define the order ord(τ ) of a map
+τ ∈ Tn as the number of distinct maps in the set {τ, τ ◦ τ, τ ◦ τ ◦ τ, . . .} where ◦ denotes composition.
+Finally, let
+                           f (n) = max ord(τ ) and g(n) = max ord(τ ).
+                                     τ ∈Sn                           τ ∈Tn
+
+Prove that g(n) < f (n) + n0.501 for sufficiently large n.
+                                             (proposed by Fedor Petrov, St Petersburg State University)
+
+Solution. For every τ ∈ Tn we need to prove that ord(τ ) ⩽ f (n) + n0.501 (if n is large enough).
+Denote by C(τ ) the set of elements x ∈ [n] for which τ k (x) = τ (. . . τ (x) . . .) = x for some k > 0. It is
+                                                                | {z }
+                                                                         k
+immediate that C(τ ) is a τ -invariant set; let τc = τ |C(τ ) , that is a permutation on C(τ ).
+   Let N be the order of this permutation τc , clearly N ⩽ g(n). Consider an arbitrary element
+x ∈ [n] \ C(τ ). The sequence x, τ (x), τ 2 (x), . . . is eventually periodic, but not from the beginning,
+because x ∈/ C(τ ).
+   Let h(x) > 0 be the minimal number for which τ h(x) (x) is in the period; equivalently, this is the
+minimal number for which τ h(x) (x) ∈ C(τ ). Let R = max h(x). Note that τ R (x) = τ R+N (x) for
+                                                           x∈[n]\C(τ )
+all x ∈ [n], since τ R (x) ∈ C(τ ) for all x ∈ [n]. Therefore, ord(τ ) ⩽ N + R. Thus, if R < n0.501 , we
+are done.
+    Now assume that R ⩾ n0.501 , that is, h(x) ⩾ n0.501 for some x ∈ / C(τ ). It yields |C(τ )| ⩽ n − n0.501 .
+Consider the cycle lengths of the permutation τc . We claim that there exists a prime number p < n0.501
+which does not divide any of these lengths. Indeed, otherwise the sum of cycle lengths of τc is not
+less than the sum of all prime numbers not exceeding n0.501 (because each positive integer is not less
+than the sum of its prime divisors, that in turn follows from ab ⩾ a + b for a, b ⩾ 2). But for large
+n, the number of prime numbers less than n0.501 is at least n0.5009 by some weak version of Prime
+Number Theorem (that also has many short proofs). Therefore, their sum exceeds n, contradiction.
+    Now we may consider the permutation τ0 ∈ Sn which acts as τc on C(τ ) and has a cycle of length
+p on [n] \ C(τ ). The order of τ0 is not less than p · N , therefore N ⩽ f (n)/p ⩽ f (n)/2, and by the
+above argument we get ord(τ ) ⩽ N + R ⩽ f (n)/2 + n < f (n) for large n.
+
+
+
+
+                                                      6
+

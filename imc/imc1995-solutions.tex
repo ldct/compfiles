@@ -1,0 +1,520 @@
+International Competition in Mathematics for
+             Universtiy Students
+                      in
+              Plovdiv, Bulgaria
+                    1995
+                                                                                                     1
+
+PROBLEMS AND SOLUTIONS
+
+   First day
+
+   Problem 1. (10 points)
+   Let X be a nonsingular matrix with columns X 1 , X2 , . . . , Xn . Let Y be a
+matrix with columns X2 , X3 , . . . , Xn , 0. Show that the matrices A = Y X −1
+and B = X −1 Y have rank n − 1 and have only 0’s for eigenvalues.
+     Solution. Let J = (aij ) be the n × n matrix where aij = 1 if i = j + 1
+and aij = 0 otherwise. The rank of J is n − 1 and its only eigenvalues are
+00 s. Moreover Y = XJ and A = Y X −1 = XJX −1 , B = X −1 Y = J. It
+follows that both A and B have rank n − 1 with only 0 0 s for eigenvalues.
+
+   Problem 2. (15 points)
+   Let f be a continuous function on [0, 1] such that for every x ∈ [0, 1] we
+     Z 1                              Z 1
+                   1 − x2                            1
+have     f (t)dt ≥        . Show that     f 2 (t)dt ≥ .
+      x               2                0             3
+   Solution. From the inequality
+              Z 1                       Z 1                     Z 1                Z 1
+       0≤           (f (x) − x)2 dx =          f 2 (x)dx − 2          xf (x)dx +         x2 dx
+               0                           0                     0                  0
+
+we get
+         Z 1                   Z 1                   Z 1               Z 1
+                                                                                    1
+               f 2 (x)dx ≥ 2         xf (x)dx −            x2 dx = 2      xf (x)dx − .
+          0                     0                     0                 0           3
+                                      Z 1Z 1                     Z 1                  Z 1
+                                                                       1 − x2
+From the hypotheses we have                        f (t)dtdx ≥                dx or          tf (t)dt ≥
+                                       0       x                  0       2              0
+1
+  . This completes the proof.
+3
+
+   Problem 3. (15 points)
+   Let f be twice continuously differentiable on (0, +∞) such that
+lim f 0 (x) = −∞ and lim f 00 (x) = +∞. Show that
+x→0+                         x→0+
+
+                                            f (x)
+                                        lim         = 0.
+                                       x→0+ f 0 (x)
+2
+
+    Solution. Since f 0 tends to −∞ and f 00 tends to +∞ as x tends to
+0+, there exists an interval (0, r) such that f 0 (x) < 0 and f 00 (x) > 0 for all
+x ∈ (0, r). Hence f is decreasing and f 0 is increasing on (0, r). By the mean
+value theorem for every 0 < x < x0 < r we obtain
+
+                         f (x) − f (x0 ) = f 0 (ξ)(x − x0 ) > 0,
+
+for some ξ ∈ (x, x0 ). Taking into account that f 0 is increasing, f 0 (x) <
+f 0 (ξ) < 0, we get
+
+                              f 0 (ξ)             f (x) − f (x0 )
+                x − x0 <        0
+                                      (x − x0 ) =                 < 0.
+                              f (x)                   f 0 (x)
+
+Taking limits as x tends to 0+ we obtain
+
+                                       f (x)            f (x)
+                    −x0 ≤ lim inf              ≤ lim sup 0     ≤ 0.
+                              x→0+     f 0 (x)     x→0+ f  (x)
+
+                                                                      f (x)
+Since this happens for all x0 ∈ (0, r) we deduce that lim                     exists and
+                                                                 x→0+ f 0 (x)
+     f (x)
+ lim         = 0.
+x→0+ f 0 (x)
+
+
+
+    Problem 4. (15 points)
+    Let F : (1, ∞) → R be the function defined by
+                                             Z x2
+                                                     dt
+                                  F (x) :=               .
+                                              x     ln t
+
+Show that F is one-to-one (i.e. injective) and find the range (i.e. set of
+values) of F .
+    Solution. From the definition we have
+                                          x−1
+                              F 0 (x) =        ,     x > 1.
+                                          ln x
+Therefore F 0 (x) > 0 for x ∈ (1, ∞). Thus F is strictly increasing and hence
+one-to-one. Since
+                                                            
+                     2        1                                      x2 − x
+         F (x) ≥ (x − x) min      : x ≤ t ≤ x2                   =          →∞
+                             ln t                                     ln x2
+                                                                                   3
+
+as x → ∞, it follows that the range of F is (F (1+), ∞). In order to determine
+F (1+) we substitute t = ev in the definition of F and we get
+                                          Z 2 ln x
+                                                     ev
+                               F (x) =                  dv.
+                                           ln x      v
+Hence                                    Z 2 ln x
+                                                    1
+                       F (x) < e2 ln x                dv = x2 ln 2
+                                          ln x      v
+and similarly F (x) > x ln 2. Thus F (1+) = ln 2.
+
+
+    Problem 5. (20 points)
+    Let A and B be real n × n matrices. Assume that there exist n + 1
+different real numbers t1 , t2 , . . . , tn+1 such that the matrices
+
+                      Ci = A + ti B,        i = 1, 2, . . . , n + 1,
+
+are nilpotent (i.e. Cin = 0).
+    Show that both A and B are nilpotent.
+    Solution. We have that
+
+           (A + tB)n = An + tP1 + t2 P2 + · · · + tn−1 Pn−1 + tn B n
+
+for some matrices P1 , P2 , . . . , Pn−1 not depending on t.
+    Assume that a, p1 , p2 , . . . , pn−1 , b are the (i, j)-th entries of the corre-
+sponding matrices An , P1 , P2 , . . . , Pn−1 , B n . Then the polynomial
+
+                     btn + pn−1 tn−1 + · · · + p2 t2 + p1 t + a
+
+has at least n + 1 roots t1 , t2 , . . . , tn+1 . Hence all its coefficients vanish.
+Therefore An = 0, B n = 0, Pi = 0; and A and B are nilpotent.
+
+
+    Problem 6. (25 points)
+    Let p > 1. Show that there exists a constant K p > 0 such that for every
+x, y ∈ R satisfying |x|p + |y|p = 2, we have
+                                                             
+                         (x − y)2 ≤ Kp 4 − (x + y)2 .
+4
+
+   Solution. Let 0 < δ < 1. First we show that there exists K p,δ > 0 such
+that
+                                  (x − y)2
+                     f (x, y) =              ≤ Kp,δ
+                                4 − (x + y)2
+for every (x, y) ∈ Dδ = {(x, y) : |x − y| ≥ δ, |x|p + |y|p = 2}.
+    Since Dδ is compact it is enough to show that f is continuous on D δ .
+For this we show that the denominator of f is different from zero. Assume
+                                         x+y p
+the contrary. Then |x + y| = 2, and             = 1. Since p > 1, the function
+                                           2
+                                                x + y p |x|p + |y|p
+g(t) = |t|p is strictly convex, in other words          <               whenever
+                                                  2              2
+                                                 x+y p        |x|p + |y|p
+x 6= y. So for some (x, y) ∈ Dδ we have                   <               = 1 =
+                                                   2               2
+        p
+ x+y
+          . We get a contradiction.
+   2
+    If x and y have different signs then (x, y) ∈ D δ for all 0 < δ < 1 because
+then |x − y| ≥ max{|x|, |y|} ≥ 1 > δ. So we may further assume without loss
+of generality that x > 0, y > 0 and xp + y p = 2. Set x = 1 + t. Then
+                                                                                
+                                                                               1/p
+               p 1/p                 p 1/p                   p(p−1) 2
+y = (2 − x )           = (2 − (1 + t) )      = 2 − (1 + pt +       t + o(t2 ))
+                                                                2
+                                         
+                                        1/p
+                   p(p − 1) 2
+      = 1 − pt −            t + o(t2 )
+                       2
+                                                      
+            1          p(p − 1) 2                1 1
+      = 1+      −pt −           t + o(t2 ) +          − 1 (−pt + o(t))2 + o(t2 )
+            p              2                    2p p
+                p−1 2               p − 1
+      = 1−t−          t + o(t2 ) −        t2 + o(t2 )
+                  2                   2
+      = 1 − t − (p − 1)t2 + o(t2 ).
+
+We have
+                          (x − y)2 = (2t + o(t))2 = 4t2 + o(t2 )
+and
+
+4−(x+y)2 =4−(2−(p−1)t2 +o(t2 ))2 =4−4+4(p−1)t2 +o(t2 )=4(p−1)t2 +o(t2 ).
+
+So there exists δp > 0 such that if |t| < δp we have (x−y)2 < 5t2 , 4−(x+y)2 >
+3(p − 1)t2 . Then
+                                  5                       5
+(∗)      (x − y)2 < 5t2 =              · 3(p − 1)t2 <          (4 − (x + y)2 )
+                              3(p − 1)                3(p − 1)
+                                                                               5
+
+if |x − 1| < δp . From the symmetry we have that (∗) also holds when
+|y − 1| < δp .
+    To finish the proof it is enough to show that |x − y| ≥ 2δ p whenever
+|x − 1| ≥ δp , |y − 1| ≥ δp and xp + y p = 2. Indeed,       p   p
+                                                   sincepx + yp = 2p we have
+                                                    x+y       x +y
+that max{x, y} ≥ 1. So let x − 1 ≥ δp . Since               ≤          = 1 we
+                                                      2           2
+get x + y ≤ 2. Then x − y ≥ 2(x − 1) ≥ 2δp .
+
+
+      Second day
+
+    Problem 1. (10 points)
+    Let A be 3 × 3 real matrix such that the vectors Au and u are orthogonal
+for each column vector u ∈ R3 . Prove that:
+    a) A> = −A, where A> denotes the transpose of the matrix A;
+    b) there exists a vector v ∈ R3 such that Au = v × u for every u ∈ R3 ,
+where v × u denotes the vector product in R 3 .
+    Solution. a) Set A = (aij ), u = (u1 , u2 , u3 )> . If we use the orthogonal-
+ity condition
+
+(1)                                  (Au, u) = 0
+
+with ui = δik we get akk = 0. If we use (1) with ui = δik + δim we get
+
+                           akk + akm + amk + amm = 0
+
+and hence akm = −amk .
+   b) Set v1 = −a23 , v2 = a13 , v3 = −a12 . Then
+
+            Au = (v2 u3 − v3 u2 , v3 u1 − v1 u3 , v1 u2 − v2 u1 )> = v × u.
+
+
+      Problem 2. (15 points)
+      Let {bn }∞
+               n=0 beq
+                     a sequence of positive real numbers such that b 0 = 1,
+          p                 p
+bn = 2 + bn−1 − 2 1 + bn−1 . Calculate
+                                      ∞
+                                      X
+                                            bn 2n .
+                                      n=1
+6
+
+                                    √
+    Solution. Put an = 1 +           bn for n ≥ 0. Then an > 1, a0 = 2 and
+                                  q             √        √
+                          an = 1 + 1 + an−1 − 2 an−1 = an−1 ,
+
+so an = 22
+                 −n
+                      . Then
+            N
+            X                  N
+                               X                          N
+                                                          X
+                     bn 2n =         (an − 1)2 2n =             [a2n 2n − an 2n+1 + 2n ]
+           n=1                 n=1                        n=1
+                               XN
+                           =         [(an−1 − 1)2n − (an − 1)2n+1 ]
+                               n=1
+                                                                               22
+                                                                                    −N
+                                            1                    N +1                 −1
+                           = (a0 − 1)2 − (aN − 1)2                      =2−2             .
+                                                                                    2−N
+    Put x = 2−N . Then x → 0 as N → ∞ and so
+    ∞
+                                                     !                         
+    X                                 22                             2x − 1
+                                           −N
+                 N                              −1
+          bn 2       = lim     2−2                       = lim 2 − 2                = 2 − 2 ln 2.
+    n=1
+                       N →∞                2−N             x→0         x
+
+
+    Problem 3. (15 points)
+    Let all roots of an n-th degree polynomial P (z) with complex coefficients
+lie on the unit circle in the complex plane. Prove that all roots of the
+polynomial
+                               2zP 0 (z) − nP (z)
+lie on the same circle.
+     Solution. It is enough to consider only polynomials with leading coef-
+ficient 1. Let P (z) = (z − α1 )(z − α2 ) . . . (z − αn ) with |αj | = 1, where the
+complex numbers α1 , α2 , . . . , αn may coincide.
+     We have
+Pe (z) ≡ 2zP 0 (z) − nP (z) = (z + α1 )(z − α2 ) . . . (z − αn ) +
+                 +(z − α1 )(z + α2 ) . . . (z − αn ) + · · · + (z − α1 )(z − α2 ) . . . (z + αn ).
+                     n
+           Pe (z)   X   z + αk             z+α     |z|2 − |α|2
+Hence,            =             . Since Re       =          2
+                                                               for all complex z,
+           P (z)    k=1
+                        z − α k            z − α    |z − α|
+                                                                  n
+                                                          Pe (z) X   |z|2 − 1
+α, z 6= α, we deduce that in our case Re                        =              . From |z| 6= 1
+                                                          P (z) k=1 |z − αk |2
+                          Pe (z)
+it follows that Re               6= 0. Hence Pe (z) = 0 implies |z| = 1.
+                          P (z)
+                                                                                   7
+
+   Problem 4. (15 points)
+   a) Prove that for every ε > 0 there is a positive integer n and real
+numbers λ1 , . . . , λn such that
+                                                 n
+                                                 X
+                                 max       x−          λk x2k+1 < ε.
+                                x∈[−1,1]
+                                                 k=1
+
+b) Prove that for every odd continuous function f on [−1, 1] and for every
+ε > 0 there is a positive integer n and real numbers µ 1 , . . . , µn such that
+                                                  n
+                                                  X
+                            max         f (x) −           µk x2k+1 < ε.
+                           x∈[−1,1]
+                                                  k=1
+
+Recall that f is odd means that f (x) = −f (−x) for all x ∈ [−1, 1].
+    Solution. a) Let n be such that (1 − ε2 )n ≤ ε. Then          2 n
+                                                        ! |x(1 − x ) | < ε
+                                                      n
+for every x ∈ [−1, 1]. Thus one can set λ k = (−1)k+1    because then
+                                                      k
+
+                   n                       n
+                                                           !
+                   X                       X              n 2k+1
+                                2k+1                  k
+              x−         λk x          =       (−1)         x    = x(1 − x2 )n .
+                   k=1                     k=0
+                                                          k
+
+   b) From the Weierstrass theorem there is a polynomial, say p ∈ Π m , such
+that
+                                                ε
+                         max |f (x) − p(x)| < .
+                        x∈[−1,1]                2
+              1
+Set q(x) =      {p(x) − p(−x)}. Then
+              2
+                            1                1
+              f (x) − q(x) = {f (x) − p(x)} − {f (−x) − p(−x)}
+                            2                2
+and
+                                 1                     1                      ε
+(1) max |f (x) − q(x)| ≤           max |f (x) − p(x)| + max |f (−x) − p(−x)| < .
+      |x|≤1                      2 |x|≤1               2 |x|≤1                2
+
+But q is an odd polynomial in Πm and it can be written as
+                                  m
+                                  X                            m
+                                                               X
+                     q(x) =             bk x2k+1 = b0 x +            bk x2k+1 .
+                                  k=0                          k=1
+8
+
+                                                                        ε
+If b0 = 0 then (1) proves b). If b0 6= 0 then one applies a) with            instead
+                                                                      2|b0 |
+of ε to get
+                                         n
+                                         X                        ε
+(2)                        max b0 x −          b0 λk x2k+1 <
+                           |x|≤1
+                                         k=1
+                                                                  2
+
+for appropriate n and λ1 , λ2 , . . . , λn . Now b) follows from (1) and (2) with
+max{n, m} instead of n.
+
+
+      Problem 5. (10+15 points)
+      a) Prove that every function of the form
+
+                                                XN
+                                   a0
+                      f (x) =         + cos x +     an cos (nx)
+                                   2            n=2
+
+with |a0 | < 1, has positive as well as negative values in the period [0, 2π).
+   b) Prove that the function
+                                             100
+                                             X            3
+                                   F (x) =         cos (n 2 x)
+                                             n=1
+
+has at least 40 zeros in the interval (0, 1000).
+      Solution. a) Let us consider the integral
+                      Z 2π
+                             f (x)(1 ± cos x)dx = π(a0 ± 1).
+                       0
+
+The assumption that f (x) ≥ 0 implies a 0 ≥ 1. Similarly, if f (x) ≤ 0 then
+a0 ≤ −1. In both cases we have a contradiction with the hypothesis of the
+problem.
+   b) We shall prove that for each integer N and for each real number h ≥ 24
+and each real number y the function
+                                             N
+                                             X                3
+                               FN (x) =            cos (xn 2 )
+                                             n=1
+
+changes sign in the interval (y, y + h). The assertion will follow immediately
+from here.
+                                                                                                               9
+
+      Consider the integrals
+                        Z y+h                                         Z y+h
+              I1 =                FN (x)dx,                   I2 =             FN (x)cos x dx.
+                         y                                             y
+
+If FN (x) does not change sign in (y, y + h) then we have
+                             Z y+h                             Z y+h
+                   |I2 | ≤              |FN (x)|dx =                   FN (x)dx = |I1 |.
+                              y                                   y
+
+
+Hence, it is enough to prove that
+
+                                                     |I2 | > |I1 |.
+
+Obviously, for each α 6= 0 we have
+                                        Z y+h
+                                                                            2
+                                                     cos (αx)dx ≤              .
+                                         y                                 |α|
+
+Hence
+                   N Z y+h
+                   X                                              N
+                                                                  X                     Z ∞        
+                                                 3                  1                          dt
+(1)      |I1 | =                      cos (xn 2 )dx ≤ 2                    3 < 2 1+             3       = 6.
+                   n=1 y                                          n=1 n 2                 1    t2
+
+On the other hand we have
+                    N Z y+h
+                    X                                     3
+         I2 =                         cos xcos (xn 2 )dx
+                    n=1 y
+                      Z
+                    1 y+h
+             =                    (1 + cos (2x))dx +
+                    2    y
+                         N        Z
+                              y+h                              
+                      1X                    3                3
+                    +               cos x(n 2 − 1) + cos x(n 2 + 1) dx
+                      2 n=2 y
+                    1
+             =        h + ∆,
+                    2
+where
+                                  N
+                                                                       !!                N
+               1                  X              1                1                1    X       1
+         |∆| ≤          1+2                  3          +     3               ≤      +2       3     .
+               2                  n=2     n −1
+                                             2                n +1
+                                                              2                    2    n=2 n 2 − 1
+10
+
+              3      2 3
+We use that n 2 − 1 ≥ n 2 for n ≥ 3 and we get
+                     3
+                             XN                     ∞ dt              Z
+                 1     2          1    1     2
+        |∆| ≤      + 3    +3       3 <   + √   +3      3 < 6.
+                 2 22 − 1    n=3 n 2
+                                       2 2 2−1    2   t2
+Hence
+                                     1
+(2)                         |I2 | > h − 6.
+                                     2
+We use that h ≥ 24 and inequalities (1), (2) and we obtain |I 2 | > |I1 |. The
+proof is completed.
+
+    Problem 6. (20 points)
+    Suppose that {fn }∞
+                      n=1 is a sequence of continuous functions on the inter-
+val [0, 1] such that
+                       Z 1                      (
+                                                    1 if     n=m
+                             fm (x)fn (x)dx =
+                        0                           0 if     n 6= m
+and
+                 sup{|fn (x)| : x ∈ [0, 1] and n = 1, 2, . . .} < +∞.
+Show that there exists no subsequence {f nk } of {fn } such that lim fnk (x)
+                                                                            k→∞
+exists for all x ∈ [0, 1].
+    Solution. It is clear that one can add some functions, say {g m }, which
+satisfy the hypothesis of the problem and the closure of the finite linear
+combinations of {fn } ∪ {gm } is L2 [0, 1]. Therefore without loss of generality
+we assume that {fn } generates L2 [0, 1].
+    Let us suppose that there is a subsequence {n k } and a function f such
+that
+                   fnk (x) −→ f (x) for every x ∈ [0, 1].
+                                k→∞
+Fix m ∈ N. From Lebesgue’s theorem we have
+                        Z 1                          Z 1
+                   0=         fm (x)fnk (x)dx −→           fm (x)f (x)dx.
+                         0                  k→∞ 0
+        Z 1
+Hence         fm (x)f (x)dx = 0 for every m ∈ N, which implies f (x) = 0 almost
+         0
+everywhere. Using once more Lebesgue’s theorem we get
+                              Z 1               Z 1
+                      1=         fn2k (x)dx −→        f 2 (x)dx = 0.
+                               0           k→∞ 0
+The contradiction proves the statement.
+

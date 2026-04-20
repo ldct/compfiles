@@ -1,0 +1,274 @@
+        12th International Mathematics Competition for University Students
+                                      Blagoevgrad, July 22 - July 28, 2005
+                                                           First Day
+
+
+Problem 1. Let A be the n × n matrix, whose (i, j)th entry is i + j for all i, j = 1, 2, . . . , n. What is the
+rank of A?
+Solution 1. For n = 1 the rank is 1. Now assume n ≥ 2. Since A = (i)ni,j=1 + (j)ni,j=1 , matrix A is the sum
+of two matrixes of rank 1. Therefore, the rank of A is at most 2. The determinant of the top-left 2 × 2
+minor is −1, so the rank is exactly 2.
+    Therefore, the rank of A is 1 for n = 1 and 2 for n ≥ 2.
+Solution 2. Consider the case n ≥ 2. For i = n, n − 1, . . . , 2, subtract the (i − 1)th row from the nth row.
+Then subtract the second row from all lower rows.
+                                                                                                   
+                                                                                 1 2 ... n
+                2     3    ... n + 1              2 3 ... n + 1                    1 1 . . . 1 
+             3       4    . . . n + 2         1 1 . . .          1 
+                                                                                                 
+                                                                                   0 0 . . . 0 
+      rank  ..                         =  rank                           =  rank                    = 2.
+                                                                       
+                            ..     .
+                                   ..             .        ..       .
+                                                 ..                 .. 
+                                                                                
+             .                .                               .                    ..    . .   .. 
+                                                                                   .          . .
+              n + 1 n + 2 ...     2n              1 1 ...           1
+                                                                                     0 0 ... 0
+
+
+Problem 2. For an integer n ≥ 3 consider the sets
+
+                                        Sn = {(x1 , x2 , . . . , xn ) : ∀i xi ∈ {0, 1, 2}}
+
+                           An = {(x1 , x2 , . . . , xn ) ∈ Sn : ∀i ≤ n − 2 |{xi , xi+1 , xi+2 }| =
+                                                                                                 6 1}
+and
+                          Bn = {(x1 , x2 , . . . , xn ) ∈ Sn : ∀i ≤ n − 1 (xi = xi+1 ⇒ xi 6= 0)} .
+Prove that |An+1 | = 3 · |Bn |.
+   (|A| denotes the number of elements of the set A.)
+Solution 1. Extend the definitions also for n = 1, 2. Consider the following sets
+
+                             A0n = {(x1 , x2 , . . . , xn ) ∈ An : xn−1 = xn } ,    A00n = An \ A0n ,
+
+                               Bn0 = {(x1 , x2 , . . . , xn ) ∈ Bn : xn = 0} ,     Bn00 = Bn \ Bn0
+and denote an = |An |, a0n = |A0n |, a00n = |A00n |, bn = |Bn |, b0n = |Bn0 |, b00n = |Bn00 | .
+   It is easy to observe the following relations between the a–sequences
+                                             
+                                              an = a0n + a00n
+                                                   a0     = a00n             ,
+                                              n+1   00           0      00
+                                                   an+1 = 2an + 2an
+
+which lead to an+1 = 2an + 2an−1 .
+   For the b–sequences we have the same relations
+                                      
+                                       bn = b0n + b00n
+                                         b0     = b00n      ,
+                                       n+100          0 00
+                                         bn+1 = 2bn + 2bn
+
+therefore bn+1 = 2bn + 2bn−1 .
+   By computing the first values of (an ) and (bn ) we obtain
+                                      
+                                         a1 = 3, a2 = 9, a3 = 24
+                                                   b1 = 3, b2 = 8
+which leads to                                                       
+                                                                         a2 = 3b1
+                                                                         a3 = 3b2
+Now, reasoning by induction, it is easy to prove that an+1 = 3bn for every n ≥ 1.
+Solution 2. Regarding xi to be elements of Z3 and working “modulo 3”, we have that
+
+       (x1 , x2 , . . . , xn ) ∈ An ⇒ (x1 + 1, x2 + 1, . . . , xn + 1) ∈ An , (x1 + 2, x2 + 2, . . . , xn + 2) ∈ An
+
+which means that 1/3 of the elements of An start with 0. We establish a bijection between the subset of
+all the vectors in An+1 which start with 0 and the set Bn by
+
+                                   (0, x1 , x2 , . . . , xn ) ∈ An+1 7−→ (y1 , y2 , . . . , yn ) ∈ Bn
+                                y1 = x1 , y2 = x2 − x1 , y3 = x3 − x2 , . . . , yn = xn − xn−1
+
+(if yk = yk+1 = 0 then xk − xk−1 = xk+1 − xk = 0 (where x0 = 0), which gives xk−1 = xk = xk+1 , which
+is not possible because of the definition of the sets Ap ; therefore, the definition of the above function is
+correct).
+    The inverse is defined by
+
+                                    (y1 , y2 , . . . , yn ) ∈ Bn 7−→ (0, x1 , x2 , . . . , xn ) ∈ An+1
+                                     x 1 = y 1 , x2 = y 1 + y 2 , . . . , x n = y 1 + y 2 + · · · + y n
+
+
+Problem 3. Let f : R → [0, ∞) be a continuously differentiable function. Prove that
+                      Z 1                               Z 1                                                    Z 1               2
+                                3              2                                                    0
+                            f (x) dx − f (0)                     f (x) dx ≤ max |f (x)|                                f (x) dx           .
+                        0                                   0                         0≤x≤1                        0
+
+
+Solution 1. Let M = max |f 0 (x)|. By the inequality −M ≤ f 0 (x) ≤ M, x ∈ [0, 1] it follows:
+                        0≤x≤1
+
+                                       −M f (x) ≤ f (x) f 0 (x) ≤ M f (x) , x ∈ [0, 1] .
+
+By integration                  Z x                         Z x
+                                         1 2     1 2
+                     −M        f (t) dt ≤ f (x) − f (0) ≤ M     f (t) dt, x ∈ [0, 1]
+                            0            2       2           0
+                       Z x                                          Z x
+                                       1 3     1 2
+              −M f (x)     f (t) dt ≤ f (x) − f (0) f (x) ≤ M f (x)     f (t) dt, x ∈ [0, 1] .
+                        0              2       2                     0
+Integrating the last inequality on [0, 1] it follows that
+                     R         2 R                                  R      2
+                        1                1                R1             1
+                −M 0 f (x)dx ≤ 0 f 3 (x) dx − f 2 (0) 0 f (x) dx ≤ M 0 f (x)dx ⇔
+                           R1 3                    R1         R         2
+                                              2                  1
+                             0
+                               f (x) dx − f (0) 0 f (x) dx ≤ M 0 f (x) dx .
+
+                                               R1                             R1
+Solution 2. Let M = max |f 0 (x)| and F (x) = − x f ; then F 0 = f , F (0) = − 0 f and F (1) = 0.
+                            0≤x≤1
+Integrating by parts,                   Z 1         Z 1                                         Z 1
+                                                                         0
+                                               3
+                                              f =                2
+                                                                f · F = [f        2
+                                                                                      F ]10 −           (f 2 )0 F =
+                                          0             0                                           0
+                                                                     Z 1                                 Z 1           Z 1
+                                                                                       0
+                            2                   2
+                      = f (1)F (1) − f (0)F (0) −                            2F f f = f (0)     2
+                                                                                                               f−            2F f f 0 .
+                                                                         0                                 0            0
+Then
+ Z 1                  Z 1            Z 1          Z 1               Z 1                      Z 1 2
+      3          2                             0             0                       2 1
+     f (x) dx − f (0)     f (x) dx =     2F f f ≤     2F f |f | ≤ M     2F f = M · [F ]0 = M     f .
+  0                         0                       0                         0                                0                              0
+Problem 4. Find all polynomials P (x) = an xn + an−1 xn−1 + ... + a1 x + a0 (an 6= 0) satisfying the following
+two conditions:
+   (i) (a0 , a1 , ..., an ) is a permutation of the numbers (0, 1, ..., n)
+and
+   (ii) all roots of P (x) are rational numbers.
+Solution 1. Note that P (x) does not have any positive root because P (x) > 0 for every x > 0. Thus, we can
+represent them in the form −αi , i = 1, 2, . . . , n, where αi ≥ 0. If a0 6= 0 then there is a k ∈ N, 1 ≤ k ≤ n−1,
+with ak = 0, so using Viete’s formulae we get
+                                                                                             ak
+              α1 α2 ...αn−k−1 αn−k + α1 α2 ...αn−k−1 αn−k+1 + ... + αk+1 αk+2 ...αn−1 αn =      = 0,
+                                                                                             an
+which is impossible because the left side of the equality is positive. Therefore a0 = 0 and one of the roots of
+the polynomial, say αn , must be equal to zero. Consider the polynomial Q(x) = an xn−1 +an−1 xn−2 +...+a1 .
+It has zeros −αi , i = 1, 2, . . . , n − 1. Again, Viete’s formulae, for n ≥ 3, yield:
+                                                                   a1
+                                                 α1 α2 ...αn−1 =                                              (1)
+                                                                   an
+                                                                                        a2
+                           α1 α2 ...αn−2 + α1 α2 ...αn−3 αn−1 + ... + α2 α3 ...αn−1 =                         (2)
+                                                                                        an
+                                                                        an−1
+                                            α1 + α2 + ... + αn−1 =           .                                (3)
+                                                                         an
+   Dividing (2) by (1) we get
+                                            1   1          1    a2
+                                              +   + ... +      = .                                            (4)
+                                            α1 α2         αn−1  a1
+   From (3) and (4), applying the AM-HM inequality we obtain
+                      an−1     α1 + α2 + ... + αn−1          n−1             (n − 1)a1
+                             =                      ≥ 1    1            1  =           ,
+                   (n − 1)an          n−1             α1
+                                                         + α2
+                                                              + ... + αn−1
+                                                                                a 2
+
+                                        2
+therefore a2aa1n−1
+               an
+                   ≥ (n − 1)2 . Hence n2 ≥ a2aa1n−1
+                                                an
+                                                    ≥ (n − 1)2 , implying n ≤ 3. So, the only polynomials
+possibly satisfying (i) and (ii) are those of degree at most three. These polynomials can easily be found
+and they are P (x) = x, P (x) = x2 + 2x, P (x) = 2x2 + x, P (x) = x3 + 3x2 + 2x and P (x) = 2x3 + 3x2 + x.
+2
+Solution 2. Consider the prime factorization of P in the ring Z[x]. Since all roots of P are rational, P can
+be written as a product of n linear polynomials with rational coefficients. Therefore, all prime factor of P
+are linear and P can be written as                  n
+                                                   Y
+                                           P (x) =    (bk x + ck )
+                                                       k=1
+
+where the coefficients bk , ck are integers. Since the leading coefficient of P is positive, we can assume bk > 0
+for all k. The coefficients of P are nonnegative, so P cannot have a positive root. This implies ck ≥ 0. It
+is not possible that ck = 0 for two different values of k, because it would imply a0 = a1 = 0. So ck > 0 in
+at least n − 1 cases.
+    Now substitute x = 1.
+                                                                          n
+                                                               n(n + 1) Y
+                 P (1) = an + · · · + a0 = 0 + 1 + · · · + n =         =     (bk + ck ) ≥ 2n−1 ;
+                                                                  2      k=1
+
+
+therefore it is necessary that 2n−1 ≤ n(n+1)
+                                          2
+                                             , therefore n ≤ 4. Moreover, the number n(n+1)
+                                                                                        2
+                                                                                            can be written
+as a product of n − 1 integers greater than 1.
+    If n = 1, the only solution is P (x) = 1x + 0.
+    If n = 2, we have P (1) = 3 = 1 · 3, so one factor must be x, the other one is x + 2 or 2x + 1. Both
+x(x + 2) = 1x2 + 2x + 0 and x(2x + 1) = 2x2 + 1x + 0 are solutions.
+    If n = 3, then P (1) = 6 = 1·2·3, so one factor must be x, another one is x+1, the third one is again x+2
+or 2x+1. The two polynomials are x(x+1)(x+2) = 1x3 +3x2 +2x+0 and x(x+1)(2x+1) = 2x3 +3x2 +1x+0,
+both have the proper set of coefficients.
+    In the case n = 4, there is no solution because n(n+1)
+                                                       2
+                                                           = 10 cannot be written as a product of 3 integers
+greater than 1.
+    Altogether we found 5 solutions: 1x+0, 1x2 +2x+0, 2x2 +1x+0, 1x3 +3x2 +2x+0 and 2x3 +3x2 +1x+0.
+
+Problem 5. Let f : (0, ∞) → R be a twice continuously differentiable function such that
+
+                                    |f 00 (x) + 2xf 0 (x) + (x2 + 1)f (x)| ≤ 1
+
+for all x. Prove that lim f (x) = 0.
+                      x→∞
+Solution 1. Let g(x) = f 0 (x) + xf (x); then f 00 (x) + 2xf 0 (x) + (x2 + 1)f (x) = g 0 (x) + xg(x).
+    We prove that if h is a continuously differentiable function such that h0 (x) + xh(x) is bounded then
+lim h = 0. Applying this lemma for h = g then for h = f , the statement follows.
+∞
+                                                                           2                     2
+    Let M be an upper bound for |h0 (x)+xh(x)| and let p(x) = h(x)ex /2 . (The function e−x /2 is a solution
+of the differential equation u0 (x) + xu(x) = 0.) Then
+                                                                  2         2
+                                   |p0 (x)| = |h0 (x) + xh(x)|ex /2 ≤ M ex /2
+
+and                                               Rx                   Rx 2
+                                  p(x)    p(0) + 0 p0    |p(0)| + M 0 ex /2 dx
+                       |h(x)| = x2 /2 =               ≤                          .
+                                  e          ex2 /2                ex2 /2
+                             R x x2 /2
+           x2 /2                e dx
+Since lim e      = ∞ and lim 0 x2 /2   = 0 (by L’Hospital’s rule), this implies limx→∞ h(x) = 0.
+      x→∞                       e
+                                                                      2
+                                                        f (x)ex /2
+Solution 2. Apply L’Hospital rule twice on the fraction            . (Note that L’Hospital rule is valid if
+                                                           ex2 /2
+the denominator converges to infinity, without any assumption on the numerator.)
+                          2                               2                                               2
+                  f (x)ex /2        (f 0 (x) + xf (x))ex /2        (f 00 (x) + 2xf 0 (x) + (x2 + 1)f (x))ex /2
+  lim f (x) = lim            =  lim                         =  lim                                             =
+ x→∞          x→∞    ex2 /2    x→∞           xex2 /2          x→∞                 (x2 + 1)ex2 /2
+
+                                       f 00 (x) + 2xf 0 (x) + (x2 + 1)f (x)
+                                = lim                                       = 0.
+                                   x→∞                 x2 + 1
+
+Problem 6. Given a group G, denote by G(m) the subgroup generated by the mth powers of elements of
+G. If G(m) and G(n) are commutative, prove that G(gcd(m, n)) is also commutative. (gcd(m, n) denotes
+the greatest common divisor of m and n.)
+   Solution. Write d = gcd(m, n). It is easy to see that hG(m), G(n)i = G(d); hence, it will suffice to
+check commutativity for any two elements in G(m) ∪ G(n), and so for any two generators am and bn .
+Consider their commutator z = a−m b−n am bn ; then the relations
+
+                                       z = (a−m bam )−n bn = a−m (b−n abn )m
+
+show that z ∈ G(m) ∩ G(n). But then z is in the center of G(d). Now, from the relation am bn = bn am z, it
+easily follows by induction that
+                                                               2
+                                          aml bnl = bnl aml z l .
+                                                  2           2
+Setting l = m/d and l = n/d we obtain z (m/d) = z (n/d) = e, but this implies that z = e as well.
+

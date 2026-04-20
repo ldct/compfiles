@@ -1,0 +1,370 @@
+                                            IMC 2025
+                               Second Day, July 31, 2025
+                                               Solutions
+
+
+Problem 6. Let f : (0, ∞) → R be a continuously differentiable function, and let b > a > 0 be real
+numbers such that f (a) = f (b) = k. Prove that there exists a point ξ ∈ (a, b) such that
+
+                                            f (ξ) − ξf ′ (ξ) = k.
+
+                                  (proposed by Alberto Cagnetta, Università degli Studi di Udine)
+
+Solution. Observe that if we consider g(x) = f (x)/x and take its derivative, we get
+
+                                                    xf ′ (x) − f (x)
+                                      g ′ (x) =                      ,
+                                                           x2
+where the numerator is almost the expression we have in the problem.
+   Now we apply Cauchy’s theorem to the functions g(x) = f (x)/x and h(x) = 1/x, well-defined
+over [a, b]. This gives us the existence of a value ξ ∈ [a, b] such that
+
+                                        g(a) − g(b)  g ′ (ξ)
+                                                    = ′ .
+                                        h(a) − h(b)  h (ξ)
+
+Here,
+                                            ξf ′ (ξ)−f (ξ)
+                                g ′ (ξ)            ξ2
+                                        =                    = f (ξ) − ξf ′ (ξ)
+                                h′ (ξ)           − ξ12
+and
+                                                         f (a)
+                                  g(a) − g(b)              a
+                                                               − f (b)
+                                                                   b
+                                              =              1   1       = k,
+                                  h(a) − h(b)                a
+                                                               −b
+which concludes the proof.
+
+
+
+
+                                                        1
+Problem 7. Let Z>0 be the set of positive integers. Find all nonempty subsets M ⊆ Z>0 satisfying
+both of the following properties:
+   (a) if x ∈ M , then 2x ∈ M ,
+                                           x+y
+   (b) if x, y ∈ M and x + y is even, then      ∈ M.
+                                            2
+                                         (proposed by Alexandr Bolbot, Novosibirsk State University)
+
+Solution. Note that M is closed under addition since x + y = 2x+2y   2
+                                                                        . Therefore it is closed under
+multiplication by an arbitrary natural number. Also, M contains some odd numbers since x ∈ M
+=⇒ x+2x2
+          = 3x
+             2
+               ∈ M , and we can repeat this until all factors of 2 are removed from a number.
+   Let d be the greatest common divisor of all members from M . Then M ⊆ d Z>0 and d is odd.
+Since d can be represented in the form
+
+                  d = v1 a1 + v2 a2 + . . . + vk ak − vk+1 ak+1 − vk+2 ak+2 − . . . − vn an
+
+for some ai ∈ M and vi ∈ Z>0 , there exist two members of M with difference d.
+    Let c be the minimal element of M , c < a, and a, a + d ∈ M . We choose the largest x ∈ M such
+that x < a. Then the only elements of M in the interval [x, a + d] are x, a, and a + d, since M ⊆ d Z.
+Meanwhile, x < x+a2
+                     < a, so x + a must be odd, hence x + a + d is even, and then x < x+a+d2
+                                                                                               < a+d
+means x = a − d. Thus, the following implication holds:
+
+                              (a, a + d ∈ M and c < a) =⇒ a − d ∈ M.
+
+    Similarly, by setting x ∈ M to be the smallest such that x > a (we know that such an element
+exists, since 2a ∈ M ), we obtain
+
+                                     a − d, a ∈ M =⇒ a + d ∈ M.
+
+    We thus get that M is obtained as the set of elements of the arithmetic progression c + kd
+(k ∈ Z≥0 ). Obviously, this set satisfies both of the properties (a) and (b). Hence, we have proved that
+M satisfies these properties if and only if M = {nd | m ⩽ n ∈ N} for some m ∈ N and odd d.
+
+
+
+
+                                                     2
+Problem 8. For an n × n real matrix A ∈ Mn (R), denote by AR its counter-clockwise 90◦ rotation.
+For example,
+                                        R            
+                                   1 2 3         3 6 9
+                                 4 5 6 = 2 5 8 .
+                                   7 8 9         1 4 7
+Prove that if A = AR then for any eigenvalue λ of A, we have Re λ = 0 or Im λ = 0.
+                                                           (proposed by Jan Kuś, University of Warwick)
+
+Solution. If λ = 0, the claim holds as 0 ∈ R. Assume λ ̸= 0 is an eigenvalue of A with a
+corresponding eigenvector x ∈ Cn \ {0}.
+   We will first express the operation A 7→ AR algebraically. The element at position (i, j) in A ends
+up at position (n + 1 − j, i) in AR . Thus, the rotation is defined by the relation (AR )i,j = Aj,n+1−i .
+   Let J be the matrix where Ji,j = δin+1−j . The operation of transposing A and then reversing the
+rows gives the matrix JA⊤ . The (i, j)-th element of this matrix is
+                                      n
+                                      X
+                             ⊤
+                         (JA )i,j =         Ji,k (A⊤ )k,j = (A⊤ )n+1−i,j = Aj,n+1−i .
+                                      k=1
+
+
+This matches the definition of AR , so we get the identity AR = JA⊤ . Note that the matrix J is
+symmetric (J = J ⊤ ) and it is its own inverse (J 2 = I).
+   The given condition A = AR thus means A = JA⊤ . Left-multiplying by J yields
+
+                                    JA = J(JA⊤ ) = (J 2 )A⊤ = A⊤ .                                    (∗)
+
+   Now, consider the standard Hermitian inner product (u, v) = v ∗ u on Cn . We evaluate (Ax, Ax) in
+two ways. First, using our choice of x as an eigenvector corresponding to λ:
+
+                                   (Ax, Ax) = (λx, λx) = |λ|2 ∥x∥2 .
+
+Second, using the adjoint property and (∗):
+
+            (Ax, Ax) = (A∗ Ax, x) = (A⊤ Ax, x) = (JA(λx), x) = λ(JAx, x) = λ2 (Jx, x).
+
+Together, these give us |λ|2 ∥x∥2 = λ2 (Jx, x).
+   The term (Jx, x) is real, since (Jx, x)∗ = (J ∗ x, x) = (Jx, x) because J is real and symmetric.
+Since λ ̸= 0 and x ̸= 0, the left side |λ|2 ∥x∥2 is a positive real number. This implies that λ2 (x, Jx)
+must also be a positive real number. And as (x, Jx) is real, so is λ2 .
+   Thus, either λ is real (if λ2 > 0) or its real part is 0 (if λ2 < 0). This completes the proof.
+
+
+
+
+                                                       3
+Problem 9. Let n be a positive integer. Consider the following random process which produces a
+sequence of n distinct positive integers X1 , X2 , . . . , Xn .
+First, X1 is chosen randomly with P(X1 = i) = 2−i for every positive integer i. For 1 ≤ j ≤ n − 1,
+having chosen X1 , . . . , Xj , arrange the remaining positive integers in increasing order as n1 < n2 < · · · ,
+and choose Xj+1 randomly with P(Xj+1 = ni ) = 2−i for every positive integer i.
+Let Yn = max{X1 , . . . , Xn }. Show that
+                                                                n
+                                                                X   2i
+                                                     E[Yn ] =
+                                                              i=1
+                                                                  2i − 1
+
+where E[Yn ] is the expected value of Yn .
+                                                   (proposed by Jan Kuś and Jun Yan, University of Warwick)
+
+Solution 1. For each j ∈ [n] = {1, 2, . . . , n}, let Yj = max{X1 , . . . , Xj }. We use induction on j to
+show that
+                                              j
+                                           X       2i
+                               E[Yj ] =                 for all j ∈ [n].
+                                            i=1
+                                                2i − 1
+The base case j = 1 follows easily from definition.
+                                                                        2j+1
+   For the inductive step, it suffices to show that E[Yj+1 − Yj ] = 2j+1   −1
+                                                                              for every j ∈ [n − 1]. Note
+that Yj+1 ̸= Yj if and only if Xj+1 > Yj = max{X1 , . . . , Xj }, in which case Yj+1 = Xj+1 . Thus,
+
+                            E[Yj+1 − Yj ] = P[Xj+1 > Yj ] · E[Xj+1 − Yj | Xj+1 > Yj ].
+
+   To compute P[Xj+1 > Yj ], note that for any fixed pairwise distinct positive integers a1 , . . . , aj and
+a > max{a1 , . . . , aj },
+
+           P[(X1 , . . . , Xj+1 ) = (a, a1 , . . . , aj )] = P[(X1 , . . . , Xj+1 ) = (a1 , a, . . . , aj )]/2
+                                                           = P[(X1 , . . . , Xj+1 ) = (a1 , a2 , a, . . . , aj )]/4
+                                                          = · · · = P[(X1 , . . . , Xj+1 ) = (a1 , . . . , aj , a)]/2j .
+
+Therefore, summing over all possible a1 , . . . , aj and a > max{a1 , . . . , aj }, we see that
+
+                                                          2j                        2j
+                                         P[Xj+1 > Yj ] = Pj                  =            .
+                                                                    i=0 2
+                                                                         i       2j+1 − 1
+
+   To finish, it is easy to see that
+                                                   ∞                                                   ∞
+                                                   X                                                   X t
+             E[Xj+1 − Yj | Xj+1 > Yj ] =                 t · P[Xj+1 = Yj + t | Xj+1 > Yj ] =                      = 2.
+                                                   t=1                                                 t=1
+                                                                                                             2t
+
+
+Solution 2. Since Yn takes values in Z>0 ,
+                                                              ∞
+                                                              X
+                                                  E[Yn ] =           P[Yn ≥ k].
+                                                              k=1
+
+For each k ∈ [n], P[Yn ≥ k] = 1, while for each k > n,
+                                                                            n        
+                                                                           Y        1
+              P[Yn ≥ k] = 1 − P[Yn < k] = 1 − P[X1 , . . . , Xn < k] = 1 −     1 − k−i .
+                                                                           i=1
+                                                                                  2
+
+                                                                 4
+Note that this formula also works for every k ∈ [n], as the i = k term in the product is 0. Thus, it
+suffices to show that
+                              n            ∞         n           !
+                             X     2i     X         Y           1
+                                  i−1
+                                       =       1−         1 − k−i     .
+                             i=1
+                                 2        k=1       i=1
+                                                              2
+The case of n = 1 is easy to verify. Using induction on n, it suffices to show that for every n ≥ 2,
+                   ∞    n−1
+                        Y             Y   n          ! X     ∞          n−1          !
+           1      X                 1                 1                  1 Y           1
+                =            1 − k−i −          1 − k−i      =                    1 − k−i    .
+        1 − 21n   k=1   i=1
+                                  2        i=1
+                                                    2           k=1
+                                                                       2k−n
+                                                                            i=1
+                                                                                     2
+
+   Indeed, for every N > n, after multiplying by 1 − 21n , the sum on the right telescopes as
+                  N         n−1          ! X    N               n−1          !
+               1 X         1 Y            1                  1     1 Y           1
+            1− n          k−n
+                                   1 − k−i       =          k−n
+                                                                − k         1 − k−i    =
+               2    k=1
+                         2    i=1
+                                        2          k=1
+                                                           2      2    i=1
+                                                                               2
+            N    n                 n           !     n              
+           X Y             1        Y          1        Y           1
+         =           1 − k+1−i −         1 − k−i      =       1 − N +1−i .
+           k=1  i=1
+                        2           i=1
+                                             2          i=1
+                                                                 2
+
+Taking N to infinity finishes the proof.
+
+Solution 3 (sketch). It can be shown by induction or another method that for any sequence of
+positive integers a1 < a2 < · · · < an ,
+                                                                                                 n
+                                                                                                 P        n
+                                                                                            −          ai Y
+                             P[{X1 , . . . , Xn } = {a1 , . . . , an }] = 2                      i=1          (2i − 1).
+                                                                                                        i=1
+
+For any a1 < a2 < · · · < an , let d1 = a1 and di+1 = ai+1 − ai for i ∈ [n − 1], so
+                                                                                                            n
+                                                                                                            P             n
+                                                                                                        −       (n+1−i)di Y
+            P[{X1 , . . . , Xn } = {d1 , d1 + d2 , . . . , d1 + · · · + dn }] = 2 i=1                                           (2i − 1).
+                                                                                                                          i=1
+
+Note that (a1 , . . . , an ) 7→ (d1 , . .P
+                                         . , dn ) is a bijection between
+                                                                   P i strictly increasing  sequences in Z>0 of
+length n and (Z>0 )n , so, using             xi = x/(1 − x) and      ix = x/(1 − x)2 , we get
+                                          i≥1                                        i≥1
+
+                                                                !        n
+                 n                                  n                    P
+                 Y                    X             X                −       (n+1−j)dj
+        E[Yn ] =   (2i − 1)                                di       2 j=1
+                  i=1              d1 ,...,dn ≥1     i=1
+                                                                         !                                      
+                  n                n                                                                                             n
+                  Y                X        X                                Y           X                                       X      2i
+              =         (2i − 1)                    di 2−(n+1−i)di                              2−(n+1−j)dj  = · · · =               i−1
+                                                                                                                                           .
+                  i=1              i=1      di ≥1                             j̸=i       dj ≥1                                    i=1
+                                                                                                                                      2
+
+
+
+
+                                                                         5
+Problem 10. For any positive integer N , let SN be the number of pairs of integers 1 ≤ a, b ≤ N
+such that the number (a2 + a)(b2 + b) is a perfect square. Prove that the limit
+
+                                                                  SN
+                                                              lim
+                                                             N →∞ N
+
+exists and find its value.
+                                                                    (proposed by Besfort Shala, University of Bristol)
+
+Solution. Throughout the solution, we use the Vinogradov notation A ≪ B to mean A = O(B),
+which in turn means that there exists a constant C > 0, independent of the quantities A and B, such
+that |A| ≤ C|B|, on the entirety of the domain where A and B are defined (for us, this will always be
+the interval [1, ∞).)
+    We will show that the limit equals 1, corresponding to the trivial solutions a = b. Note that
+(a + a)(b2 + b) is a perfect square if and only if a2 + a = dz12 and b2 + b = dz22 for some square-free
+  2
+
+d and z1 , z2 ∈ Z>0 . From this point on, all sums over d will be over square-free positive integers.
+Multiplying the equations by 4 and setting yi = 2zi , we get
+                                             X
+                                      SN =        cd (N )2 + O(1),
+                                                           d≪N 2
+
+
+where cd (N ) is the number of solutions to (2k + 1)2 − dy 2 = 1 with 1 ≤ k ≤ N and 1 ≤ y ≤ N/2
+with y even. Other than for the purpose of identifying the trivial solutions, we will work with Pell’s
+equation x2 − dy 2 = 1 with 1 ≤ x, y ≪ N . Split the sum as
+                                     X              X
+                                          cd (N ) +      cd (N )2 .
+                                                d≪N 2                   d≪N 2
+                                               cd (N )≤1               cd (N )>1
+
+                                                                    2      2
+                                                                                                    √
+Note that
+        √  if d  ≫ N , then the
+                             √  size of the second solution x 2 = x 1 + dy 1 (coming from x 2 + y 2   d=
+(x1 + y1 d)2 , where x1 + y1 d is the fundamental solution) is ≫ d ≫ N . Hence we may assume that
+d ≪ N if cd (N ) > 1 (with a suitable choice of hidden constants). Denote the second sum by E (for
+error, which we will bound momentarily). The first sum is easily manipulated into being asymptotic
+to N (up to the error E), using the fact that fixing x = 2a + 1 ≤ 2N + 1 fixes the square-free d and
+the square y 2 , namely
+
+    X                     X      X                                          N X
+                                                                            X
+              cd (N ) =                  χ(2a+1)2 −dy2 =1 + O (E) =                   χ(2a+1)2 −1=dy2 + O (E) = N + O(E).
+   d≪N 2                  d≪N 2 1≤a≤N                                       a=1 d,y
+  cd (N )≤1                     1≤y≤ N
+                                     2
+
+
+Here χ· denotes the characteristic function (taking the value 0 if · is not satisfied, and 1 otherwise).
+    Now we bound the error sum E. Note that solutions to Pell’s equation x2 − dy 2 = 1 grow
+exponentially, hence we have cd (N ) ≪ log N . This means we may assume that N ≫ d ≫ N 1−δ for
+some small enough fixed δ > 0, since the contribution of d ≪ N 1−δ is bounded by N 1−δ log N . By
+x2 − dy 2 = 1, we have that d ≫ N 1−δ implies y ≪ N 1/2+δ .
+    Fixing each y ≪ N δ/2 gives ≪ N 1−δ choices for x (hence also for d). So we may assume
+N 1/2+δ ≫ y ≫ N δ/2 , since the contribution of y ≪ N δ/2 is bounded by N 1−δ/2 .
+    By placing x in residue classes modulo y 2 and splitting the interval [1, 2N + 1] into intervals of
+length y 2 , we get that each choice of N δ/2 ≪ y ≪ N 1/2+δ gives ≪ N g(y)/y 2 choices for x (hence
+also for d) by y 2 | x2 + 1, where g(y) = |{1 ≤ x ≤ y 2 : x2 + 1 ≡ 0 (mod y 2 )}|. By elementary
+number theory, g is multiplicative and g(pk ) ≤ 2 for all prime powers pk . In particular we obtain
+
+
+
+                                                                   6
+g(n) ≤ τ (n) ≪ nε for any ε > 0 (this is not hard to prove directly for g, but may be used as a
+well-known fact for the divisor function τ ). Therefore the contribution of such y is
+                                           X             N g(y)
+                                  ≪                          2
+                                                                ≪ N 1−δ/2+ε ,
+                                                           y
+                                      N δ/2 ≪y≪N   1/2+δ
+
+
+
+which is acceptable by choosing ε > 0 small enough. We conclude that SN = N (1 + o(1)), as desired.
+                                                                      √
+Remark. There is a secondary infinite family of solutions of “size”       N , namely given by a = 4b(b + 1). This
+shows that
+                                                   SN − N
+                                          lim sup √          > 0.
+                                           N →∞        N
+
+
+
+
+                                                        7
+

@@ -1,0 +1,294 @@
+                         IMC 2016, Blagoevgrad, Bulgaria
+                                       Day 1, July 27, 2016
+
+
+
+Problem 1. Let f : [a, b] → R be continuous on [a, b] and differentiable on (a, b). Suppose that f
+has infinitely many zeros, but there is no x ∈ (a, b) with f (x) = f 0 (x) = 0.
+   (a) Prove that f (a)f (b) = 0.
+   (b) Give an example of such a function on [0, 1].
+                                       (Proposed by Alexandr Bolbot, Novosibirsk State University)
+
+Solution. (a) Choose a convergent sequence zn of zeros and let c = lim zn ∈ [a, b]. By the continuity
+of f we obtain f (c) = 0. We want to show that either c = a or c = b, so f (a) = 0 or f (b) = 0; then
+the statement follows.
+                                                                              f (zn ) − f (c)       0−0
+    If c was an interior point then we would have f (c) = 0 and f 0 (c) = lim                 = lim        =
+                                                                                  zn − c            zn − c
+0 simultaneously, contradicting the conditions. Hence, c = a or c = b.
+    (b) Let                                  
+                                             x sin 1 if 0 < x ≤ 1
+                                     f (x) =         x
+                                             0          if x = 0.
+                                          1
+This function has zeros at the points       for k = 1, 2, . . ., and it is continuous at 0 as well.
+                                         kπ
+   In (0, 1) we have
+                                                   1 1       1
+                                         f 0 (x) = sin
+                                                     − cos .
+                                                   x x       x
+Since sin x and cos x cannot vanish at the same point, we have either f (x) 6= 0 or f 0 (x) 6= 0 everywhere
+           1        1
+
+in (0, 1).
+
+Problem 2. Let k and n be positive integers. A sequence (A1 , . . . , Ak ) of n × n real matrices is
+preferred by Ivan the Confessor if A2i 6= 0 for 1 ≤ i ≤ k, but Ai Aj = 0 for 1 ≤ i, j ≤ k with i 6= j.
+Show that k ≤ n in all preferred sequences, and give an example of a preferred sequence with k = n
+for each n.
+                                        (Proposed by Fedor Petrov, St. Petersburg State University)
+
+Solution 1. For every i = 1, . . . , n, since Ai · Ai 6= 0, there is a column vi ∈ Rn in Ai such that
+Ai vi 6= 0. We will show that the vectors v1 , . . . , vk are linearly independent; this immediately proves
+k ≤ n.
+    Suppose that a linear combination of v1 , . . . , vk vanishes:
+
+                                 c1 v1 + . . . + ck vk = 0,    c1 , . . . , ck ∈ R.
+
+For i 6= j we have Ai Aj = 0; in particular, Ai vj = 0. Now, for each i = 1, . . . , n, from
+                                                              k
+                                                              X
+                          0 = Ai (c1 v1 + . . . + ck vk ) =         cj (Ai vj ) = ci (Ai vi )
+                                                              j=1
+
+
+we can see that ci = 0. Hence, c1 = . . . = ck = 0.
+   The case k = n is possible: if Ai has a single 1 in the main diagonal at the ith position and its
+other entries are zero then A2i = Ai and Ai Aj = 0 for i 6= j.
+Remark. The solution above can be re-formulated using block matrices in the following way. Consider
+                                               2                      
+                                              A1       A1 0 . . . 0
+                                                                2
+                                           A2   0 A2 . . . 0 
+                                                                       
+                         A1 A2 . . . A k  .  =  .         .. . .    . .
+                                             ..   ..       .     . .. 
+                                                             Ak               0        0     . . . A2k
+It is easy to see that the rank of the left-hand side is at most n; the rank of the right-hand side is at least k.
+Solution 2. Let Ui and Ki be the image and the kernel of the matrix Ai (considered as a linear
+operator on Rn ), respectively. For every pair i, j of indices, we have Uj ⊂ Ki if and only if i 6= j.
+   Let X0 = Rn and let Xi = K1 ∩ K2 ∩ · · · ∩ Ki for i = 1, . . . , k, so X0 ⊃ X1 ⊃ . . . ⊃ Xk . Notice also
+that Ui ⊂ Xi−1 because Ui ⊂ Kj for every j < i, and Ui 6⊂ Xi because Ui 6⊂ Ki . Hence, Xi 6= Xi−1 ;
+Xi is a proper subspace of Xi−1 .
+   Now, from
+                              n = dim X0 > dim X1 > . . . > dim Xk ≥ 0
+we get k ≥ n.
+
+Problem 3. Let n be a positive integer. Also let a1 , a2 , . . . , an and b1 , b2 , . . . , bn be real numbers
+such that ai + bi > 0 for i = 1, 2, . . . , n. Prove that
+                                                       n         n
+                                                                           n 2
+                                                      P         P          P
+                                 n
+                               X ai b i − b       2       a i ·     b i −      bi
+                                                  i   i=1       i=1        i=1
+                                                    ≤            n                .
+                                       a  i + b i
+                                                                P
+                                i=1                                (ai + bi )
+                                                                        i=1
+
+                  (Proposed by Daniel Strzelecki, Nicolaus Copernicus University in TorÃžn, Poland)
+
+Solution. By applying the identity
+                                                  XY − Y 2       2Y 2
+                                                           =Y −
+                                                   X +Y         X +Y
+                                                                                      n
+                                                                                      P                   n
+                                                                                                          P
+with X = ai and Y = bi to the terms in the LHS and X =                                      ai and Y =          bi to the RHS,
+                                                                                      i=1                 i=1
+
+                            n                       n                                      n            n
+                              ai b i − b 2                               2b2i                            b2i
+                            X                       X                                      X            X
+                                              i
+                   LHS =                          =    bi −                           =     bi − 2           ,
+                            i=1
+                                  ai + b i            i=1
+                                                                       ai + b i         i=1
+                                                                                                      a + bi
+                                                                                                   i=1 i
+
+                                     n            n
+                                                            n 2                                 n 2
+                                     P            P         P                                     P
+                                           ai ·       bi −    bi                 n
+                                                                                 X                  bi
+                                     i=1      i=1                i=1                           i=1
+                        RHS =                 n
+                                              P             n
+                                                            P                =        bi − 2 P
+                                                                                             n            .
+                                                    ai +         bi               i=1          (ai + bi )
+                                              i=1          i=1                                  i=1
+Therefore, the statement is equivalent with
+                                                                         n
+                                                                        P    2
+                                                  n                        bi
+                                                  X       b2i         i=1
+                                                                  ≥ P
+                                                                    n            ,
+                                                      a i +   b i
+                                                  i=1                 (ai + bi )
+                                                                       i=1
+
+which is the same as the well-known variant of the Cauchy-Schwarz inequality,
+                              n
+                              X X2       i        (X1 + . . . + Xn )2
+                                             ≥                                    (Y1 , . . . , Yn > 0)
+                               i=1
+                                      Yi            Y1 + . . . + Yn
+
+with Xi = bi and Yi = ai + bi .
+Problem 4. Let n ≥ k be positive integers, and let F be a family of finite sets with the following
+properties:
+   (i) F contains at least nk + 1 distinct sets containing exactly k elements;
+                             
+
+   (ii) for any two sets A, B ∈ F, their union A ∪ B also belongs to F.
+   Prove that F contains at least three sets with at least n elements.
+                                       (Proposed by Fedor Petrov, St. Petersburg State University)
+
+Solution 1. If n = k then we have at least two distinct sets in the family with exactly n elements
+and their union, so the statement is true. From now on we assume that n > k.
+    Fix nk + 1 sets of size  k in F, call them ’generators’. Let V ∈ F be the union of the generators.
+                           n
+Since V has at least k + 1 subsets of size k, we have |V | > n.
+    Call an element v ∈ V ‘appropriate’ if v belongs to at most n−1
+                                                                                   
+                                                                               k−1
+                                                                                     generators. Then there exist
+               n         n−1       n−1
+                                     
+at least k + 1 − k−1 = k + 1 generators not containing v. Their union contains at least n
+elements, and the union does not contain v.
+    Now we claim that among any n elements x1 , . . . , xn of V , there exists an appropriate element.
+Consider all pairs (G, xi ) such that G is a generator       and xi ∈ G. Every generator has exactly k
+elements, so the number of such pairs is at most nk + 1 · k. If some xi is not appropriate then xi
+is contained in at least n−1       + 1 generators; if none of x1 , . . . , xn was appropriate then we wold have
+                           k−1
+at least n · k−1 + 1 pairs. But n · n−1
+                   n−1
+                                                   + 1 > ( n−1
+                                                              
+                                             k−1             k−1
+                                                                   + 1) · k, so this is not possible; at least one
+of x1 , . . . , xn must be appropriate.
+    Since |V | > n, the set V contains some appropriate element v1 . Let U1 ∈ F be the union of all
+generators not containing v1 . Then |U1 | ≥ n and v1 6∈ U1 . Now take an appropriate element v2 from
+U1 and let U2 ∈ F be the union of all generators not containing v2 . Then |U2 | ≥ n, so we have three
+sets, V , U1 and U2 in ∈ F with at least n elements: V 6= U1 because v1 ∈ V and v1 6∈ U1 , and U2 is
+different from V and U1 because v2 ∈ V, U1 but v2 6∈ U2 .
+Solution 2. We proceed by induction on k, so we can assume that the statement of the problem is
+known for smaller values of k. By contradiction, assume that F has less than 3 sets with at least n
+elements, that is the number of such sets is 0, 1 or 2. We can assume without loss of generality that
+F consists of exactly N := nk + 1 distinct sets of size k and all their possible unions. Denote the
+sets of size k by S1 , S2 , . . ..                                  S
+    Consider a maximal set I ⊂ {1, . . . , N } such that A := i∈I Si has size less than n, |A| < n. This
+means that adding any Sj for j ∈      / I makes the size at least n, |Sj ∪A| ≥ n. First,     let’s prove that such
+                                                                                        |A|      n−1
+                                                                                                     
+j exist. Otherwise, all the sets Si are contained in A. But there are only k ≤ k < N distinct
+k-element subsets of A, this is a contradiction. So there is at least one j such that |Sj ∪ A| ≥ n.
+Consider all possible sets that can be obtained as Sj ∪ A for j ∈           / I. Their size is at least n, so their
+number can be 1 or 2. If there are two of them, say B and C then B ⊂ C or C ⊂ B, for otherwise
+the union of B and C would be different from both B and C, so we would have three sets B, C and
+B ∪ C of size at least n. We see that in any case there must exist x ∈               / A such that x ∈ Sj for all
+j∈ / I. Consider sets Sj0 = Sj \ {x} for j ∈  / I. Their sizes are equal to k − 1. Their number is at least
+                                                                  
+                                                n−1          n−1
+                                         N−             =                + 1.
+                                                   k         k−1
+By the induction hypothesis, we can form 3 sets of size at least n − 1 by taking unions of the sets Sj0
+for j ∈
+      / I. Adding x back we see that the corresponding unions of the sets Sj will have sizes at least
+n, so we are done proving the induction step.
+    The above argument allows us to decrease k all the way to k =     0, so it remains to check the
+statement for k = 0. The assumption says that we have at least n0 + 1 = 2 sets of size 0. This is
+impossible, because there is only one empty set. Thus the statement trivially holds for k = 0.
+
+Problem 5. Let Sn denote the set of permutations of the sequence (1, 2, . . . , n). For every permu-
+tation π = (π1 , . . . , πn ) ∈ Sn , let inv(π) be the number of pairs 1 ≤ i < j ≤ n with πi > πj ; i.e. the
+number of inversions in π. Denote by f (n) the number of permutations π ∈ Sn for which inv(π) is
+divisible by n + 1.
+                                                                          (p − 1)!
+    Prove that there exist infinitely many primes p such that f (p − 1) >          , and infinitely many
+                                                                             p
+                                 (p − 1)!
+primes p such that f (p − 1) <            .
+                                     p
+                                          (Proposed by Fedor Petrov, St. Petersburg State University)
+
+Solution. We will use the well-known formula
+                  X
+                       xinv(π) = 1 · (1 + x) · (1 + x + x2 ) . . . (1 + x + · · · + xn−1 ).
+                      π∈Sn
+
+(This formula can be proved by induction on n. The cases n = 1, 2 are obvious. From each permu-
+tation of (1, 2, . . . , n − 1), we can get a permutation of (1, 2, . . . , n) such that we insert the element
+n at one of the n possible positions before, between or after the numbers 1, 2, . . . , n − 1; the number
+of inversions increases by n − 1, n − 2, . . . , 1 or 0, respectively.)
+    Now let                                             X
+                                              Gn (x) =      xinv(π) .
+                                                                       π∈Sn
+                2πi
+and let ε = e n+1 . The sum of coefficients of the powers divisible by n + 1 may be expressed as a
+trigonometric sum as
+                                            n−1                        n−1
+                                        1 X                  n!    1 X
+                          f (n) =               Gn (εk ) =      +          Gn (εk ).
+                                      n + 1 k=0            n + 1 n + 1 k=1
+
+Hence, we are interested in the sign of
+                                                              n−1
+                                                         n!   X
+                                               f (n) −      =     Gn (εk )
+                                                       n + 1 k=1
+
+with n = p − 1 where p is a (large, odd) prime.
+   For every fixed 1 ≤ k ≤ p − 1 we have
+               p−1                                  p−1
+           k
+               Y
+                         k   2k           (j−1)k
+                                                    Y   1 − εjk   (1 − εk )(1 − ε2k ) · · · (1 − ε(p−1)k )
+   Gp−1 (ε ) =     (1 + ε + ε + . . . + ε        )=           k
+                                                                =                    k )p−1
+                                                                                                           .
+               j=1                                  j=1
+                                                        1 − ε                 (1 − ε
+
+Notice that the factors in the numerator are (1 − ε), (1 − ε2 ), . . . , (1 − εp−1 ); only their order is
+different. So, by the identity (z − ε)(z − ε2 ) . . . (z − εp−1 ) = 1 + z + · · · + z p−1 ,
+                                                    p                 p
+                               Gp−1 (εk ) =           k p−1
+                                                            =         2kπi p−1 .
+                                            (1 − ε )            1−e p
+
+Hence, f (p − 1) − (p−1)!
+                     p
+                          has the same sign as
+                             p−1                                 p−1                             1−p
+                             X              2kπi
+                                                       1−p
+                                                                 X         k(1−p)πi            πk
+                                   (1 − e    p     )         =         e      p        −2i sin         =
+                             k=1                                 k=1
+                                                                                                p
+                                                              p−1
+                                                              2                                       1−p
+                                      1−p               p−1   X       πk(p − 1)                   πk
+                             =2·2           (−1)         2        cos                         sin             .
+                                                              k=1
+                                                                          p                        p
+For large primes p the term with k = 1 increases exponentially faster than all other terms, so this
+term determines the sign of the whole sum. Notice that cos π(p−1)    p
+                                                                         converges to −1. So, the sum
+is positive if p − 1 is odd and negative if p − 1 is even. Therefore, for sufficiently large primes,
+f (p − 1) − (n−1)!
+               p
+                   is positive if p ≡ 3 (mod 4) and it is negative if p ≡ 1 (mod 4).
+

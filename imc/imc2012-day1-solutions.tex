@@ -1,0 +1,262 @@
+                           IMC 2012, Blagoevgrad, Bulgaria
+                                          Day 1, July 28, 2012
+
+
+
+Problem 1. For every positive integer n, let p(n) denote the number of ways to express n as a sum
+of positive integers. For instance, p(4) = 5 because
+
+                              4 = 3 + 1 = 2 + 2 = 2 + 1 + 1 = 1 + 1 + 1 + 1.
+
+Also define p(0) = 1.
+    Prove that p(n) − p(n − 1) is the number of ways to express n as a sum of integers each of which is
+strictly greater than 1.
+                                       (Proposed by Fedor Duzhin, Nanyang Technological University)
+
+Solution 1. The statement is true for n = 1, because p(0) = p(1) = 1 and the only partition of 1
+contains the term 1. In the rest of the solution we assume n ≥ 2.
+   Let Pn = {(a1 , . . . , ak ) : k ∈ N, a1 ≥ . . . ≥ ak , a1 + . . . + ak = n} be the set of partitions of n,
+and let Qn = {(a1 , . . . , ak ) ∈ Pn : ak = 1} the set of those partitions of n that contain the term 1.
+The set of those partitions of n that do not contain 1 as a term, is Pn \ Qn . We have to prove that
+|Pn \ Qn | = |Pn | − |Pn−1 |.
+   Define the map ϕ : Pn−1 → Qn as
+
+                                         ϕ(a1 , . . . , ak ) = (a1 , . . . , ak , 1).
+
+This is a partition of n containing 1 as a term (so indeed ϕ(a1 , . . . , ak ) ∈ Qn ). Moreover, each partition
+(a1 , . . . , ak , 1) ∈ Qn uniquely determines (a1 , . . . , ak ). Therefore the map ϕ is a bijection between the
+sets Pn−1 and Qn . Then |Pn−1 | = |Qn |. Since Qn ⊂ Pn ,
+
+                       |Pn \ Qn | = |Pn | − |Qn | = |Pn | − |Pn−1 | = p(n) − p(n − 1).
+
+Solution 2 (outline). Denote by q(n) the number of partitions of n not containing 1 as term (q(0) = 1
+as the only partition of 0 is the empty sum), and define the generating functions
+                                         ∞
+                                         X                                       ∞
+                                                                                 X
+                                                      n
+                               F (x) =         p(n)x        and G(x) =                  q(n)xn .
+                                         n=0                                     n=0
+
+Since q(n) ≤ p(n) < 2n , these series converge in some interval, say for |x| < 21 , and the values uniquely
+determine the coefficients.
+   According to Euler’s argument, we have
+                                  ∞                 ∞                                      ∞
+                                  X
+                                               n
+                                                    Y
+                                                                  k      2k
+                                                                                           Y        1
+                        F (x) =         p(n)x =           (1 + x + x + . . .) =
+                                  n=0
+                                                                                                 1 − xk
+                                                    k=1                                    k=1
+
+and                               ∞                ∞                                       ∞
+                                  X
+                                             n
+                                                   Y
+                                                                  k      2k
+                                                                                           Y      1
+                        G(x) =          q(n)x =           (1 + x + x          + . . .) =             k
+                                                                                                       .
+                                  n=0              k=2                                     k=2
+                                                                                               1 −  x
+Then G(x) = (1−x)F (x). Comparing the coefficient of xn in this identity we get q(n) = p(n)−p(n−1).
+
+
+Problem 2. Let n be a fixed positive integer. Determine the smallest possible rank of an n × n matrix
+that has zeros along the main diagonal and strictly positive real numbers off the main diagonal.
+
+                                                              1
+                                 (Proposed by Ilya Bogdanov and Grigoriy Chelnokov, MIPT, Moscow)
+
+Solution. For n = 1 the only matrix is (0) with rank 0. For n = 2 the determinant of such a matrix
+is negative, so the rank is 2. We show that for all n ≥ 3 the minimal rank is 3.
+    Notice that the first three rows are linearly independent. Suppose that some linear combination of
+them, with coefficients c1 , c2 , c3 , vanishes. Observe that from the first column one deduces that c2 and
+c3 either have opposite signs or both zero. The same applies to the pairs (c1 , c2 ) and (c1 , c3 ). Hence
+they all must be zero.
+    It remains to give an example of a matrix of rank (at most) 3. For example, the matrix
+                                                                              
+                      02               12           22        . . . (n − 1)2
+                 (−1)2                02           12        . . . (n − 2)2                        n
+                                                                                                    2
+                       ..               ..           ..       ..           .        =   (i  −   j)            =
+                                                                              
+                
+                       .                .            .           .        ..  
+                                                                                                       i,j=1
+                  (−n + 1)2 (−n + 2)2 (−n + 3)2 . . .                     02
+                                                                           
+                          12                          1                        1
+                       22                        2                        1
+                    =  ..  (1, 1, . . . , 1) − 2  ..  (1, 2, . . . , n) +  ..  (12 , 22 , . . . , n2 )
+                                                                           
+                      .                          .                        .
+                           2
+                          n                           n                        1
+
+is the sum of three matrices of rank 1, so its rank cannot exceed 3.
+
+
+Problem 3. Given an integer n > 1, let Sn be the group of permutations of the numbers 1, 2, . . . , n.
+Two players, A and B, play the following game. Taking turns, they select elements (one element at a
+time) from the group Sn . It is forbidden to select an element that has already been selected. The game
+ends when the selected elements generate the whole group Sn . The player who made the last move
+loses the game. The first move is made by A. Which player has a winning strategy?
+                                           (Proposed by Fedor Petrov, St. Petersburg State University)
+
+Solution. Player A can win for n = 2 (by selecting the identity) and for n = 3 (selecting a 3-cycle).
+    We prove that B has a winning strategy for n ≥ 4. Consider the moment when all permitted
+moves lose immediately, and let H be the subgroup generated by the elements selected by the players.
+Choosing another element from H would not lose immediately, so all elements of H must have been
+selected. Since H and any other element generate Sn , H must be a maximal subgroup in Sn .
+    If |H| is even, then the next player is A, so B wins. Denote by ni the order of the subgroup generated
+by the first i selected elements; then n1 |n2 |n3 | . . . . We show that B can achieve that n2 is even and
+n2 < n!; then |H| will be even and A will be forced to make the final – losing – move.
+    Denote by g the element chosen by A on his first move. If the order n1 of g is even, then B may
+choose the identical permutation id and he will have n2 = n1 even and n2 = n1 < n!.
+    If n1 is odd, then g is a product of disjoint odd cycles, so it is an even permutation. Then B can
+chose the permutation h = (1, 2)(3, 4) which is another even permutation. Since g and h are elements
+of the alternating group An , they cannot generate the whole Sn . Since the order of h is 2, B achieves
+2|n2 .
+
+
+Remark. If n ≥ 4, all subgrups of odd order are subgroups of An which has even order. Hence, all maximal
+subgroups have even order and B is never forced to lose.
+
+
+Problem 4. Let f : R → R be a continuously differentiable function that satisfies f ′ (t) > f (f (t)) for
+all t ∈ R. Prove that f (f (f (t))) ≤ 0 for all t ≥ 0.
+
+                                                      2
+                                                     (Proposed by Tomáš Bárta, Charles University, Prague)
+
+Solution.
+Lemma 1. Either lim f (t) does not exist or lim f (t) 6= +∞.
+                     t→+∞                            t→+∞
+Proof. Assume that the limit is +∞. Then there exists T1 > 0 such that for all t > T1 we have f (t) > 2.
+There exists T2 > 0 such that f (t) > T1 for all t > T2 . Hence, f ′ (t) > f (f (t)) > 2 for t > T2 . Hence,
+there exists T3 such that f (t) > t for t > T3 . Then f ′ (t) > f (f (t)) > f (t), f ′ (t)/f (t) > 1, after
+integration ln f (t) − ln T3 > t − T3 , i.e. f (t) > T3 et−T3 for all t > T3 . Then f ′ (t) > f (f (t)) > T3 ef (t)−T3
+and f ′ (t)e−f (t) > T3 e−T3 . Integrating from T3 to t yields e−f (T3 ) −e−f (t) > (t−T3 )T3 e−T3 . The right-hand
+side tends to infinity, but the left-hand side is bounded from above, a contradiction.                              2
+Lemma 2. For all t > 0 we have f (t) < t.
+Proof. By Lemma 1, there are some positive real numbers t with f (t) < t. Hence, if the statement is
+false then there is some t0 > 0 with f (t0 ) = t0 .
+    Case I: There exist some value t ≥ t0 with f (t) < t0 . Let T = inf{t ≥ t0 : f (t) < t0 }. By the
+continuity of f , f (T ) = t0 . Then f ′ (T ) > f (f (T )) = f (t0 ) = t0 > 0. This implies f > f (T ) = t0 in a
+right neighbourhood, contradicting the definition of T .
+    Case II: f (t) ≥ t0 for all t ≥ t0 . Now we have f ′ (t) > f (f (t)) ≥ t0 > 0. So, f ′ has a positive lower
+bound over (t0 , ∞), which contradicts Lemma 1.                                                               2
+Lemma 3. (a) If f (s1 ) > 0 and f (s2 ) ≥ s1 , then f (s) > s1 for all s > s2 .
+    (b) In particular, if s1 ≤ 0 and f (s1 ) > 0, then f (s) > s1 for all s > s1 .
+Proof. Suppose that there are values s > s2 with f (s) ≤ s1 and let S = inf{s > s2 : f (s) ≤ s1 }. By
+the continuity we have f (S) = s1 . Similarly to Lemma 2, we have f ′ (S) > f (f (S)) = f (s1 ) > 0. If
+S > s2 then in a left neighbourhood of S we have f < s1 , contradicting the definition of S. Otherwise,
+if S = s2 then we have f > s1 in a right neighbourhood of s2 , contradiction again.
+    Part (b) follows if we take s2 = s1 .                                                                      2
+    With the help of these lemmas the proof goes as follows. Assume for contradiction that there exists
+some t0 > 0 with f (f (f (t0))) > 0. Let t1 = f (t0 ), t2 = f (t1 ) and t3 = f (t2 ) > 0. We show that
+0 < t3 < t2 < t1 < t0 . By lemma 2 it is sufficient to prove that t1 and t2 are positive. If t1 < 0, then
+f (t1 ) ≤ 0 (if f (t1 ) > 0 then taking s1 = t1 in Lemma 3(b) yields f (t0 ) > t1 , contradiction). If t1 = 0
+then f (t1 ) ≤ 0 by lemma 2 and the continuity of f . Hence, if t1 ≤ 0, then also t2 ≤ 0. If t2 = 0 then
+f (t2 ) ≤ 0 by lemma 2 and the continuity of f (contradiction, f (t2 ) = t3 > 0). If t2 < 0, then by lemma
+3(b), f (t0 ) > t2 , so t1 > t2 . Applying lemma 3(a) we obtain f (t1 ) > t2 , contradiction. We have proved
+0 < t3 < t2 < t1 < t0 .
+    By lemma 3(a) (f (t1 ) > 0, f (t0 ) ≥ t1 ) we have f (t) > t1 for all t > t0 and similarly f (t) > t2 for all
+t > t1 . It follows that for t > t0 we have f ′ (t) > f (f (t)) > t2 > 0. Hence, limt→+∞ f (t) = +∞, which
+is a contradiction. This contradiction proves that f (f (f (t))) ≤ 0 for all t > 0. For t = 0 the inequality
+follows from the continuity of f .
+
+
+Problem 5. Let a be a rational number and let n be a positive integer. Prove that the polynomial
+   n        n
+X 2 (X + a)2 + 1 is irreducible in the ring Q[X] of polynomials with rational coefficients.
+                                              (Proposed by Vincent Jugé, École Polytechnique, Paris)
+                                                                          n+1
+Solution. First let us consider the case a = 0. The roots of X 2 + 1 are exactly all primitive roots
+                                       k
+of unity of order 2n+2 , namely e2πi 2n+2 for odd k = 1, 3, 5, . . . , 2n+2 − 1. It is a cyclotomic polynomial,
+hence irreducible in Q[X].
+    Let now a 6= 0 and suppose that the polynomial in the question is reducible. Substituting X = Y − a2
+                               n           n                2    n
+we get a polynomial (Y − a2 )2 (Y + a2 )2 + 1 = (Y 2 − a4 )2 + 1. It is again a cyclotomic polynomial
+                            2
+in the variable Z = Y 2 − a4 , and therefore it is not divisible by any polynomial in Y 2 with rational
+
+                                                          3
+coefficients. Let us write this polynomial as the product of irreducible monic polynomials in Y with
+appropriate multiplicities, i.e.
+                                       r
+                          a2 2n     Y
+                     Y2−          +1=     fi (Y )mi      fi monic, irreducible, all different.
+                           4          i=1
+
+Since the left-hand side is a polynomial in Y 2 we must have i fi (Y )mi = i fi (−Y )mi . By the above
+                                                                    Q            Q
+argument non of the fi is a polynomial in Y 2 , i.e. fi (−Y ) 6= fi (Y ). Therefore for every i there is i′ 6= i
+such that fi (−Y ) = ±fi′ (Y ). In particular r is even and irreducible factors fi split into pairs. Let us
+renumber them so that f1 , . . . , f 2r belong to different pairs and we have fi+ r2 (−Y ) = ±fi (Y ). Consider
+the polynomial f (Y ) = r/2              mi                                           n
+                              i=1 fi (Y ) . nThis polynomial is monic of degree 2 and (Y − 4 )
+                                                                                                2   a2 2n
+                            Q
+                                                                                                          +1 =
+f (Y )f (−Y ). Let us write f (Y ) = Y + · · · + b where b ∈ Q is the constant term, i.e. b = f (0).
+                                            2
+                                                  2n+1                               2n−1
+Comparing constant terms we then get a2                 + 1 = b2 . Denote c = a2            . This is a nonzero
+rational number and we have c + 1 = b .
+                                   4          2
+
+    It remains to show that there are no rational solutions c, b ∈ Q to the equation c4 +1 = b2 with c 6= 0
+which will contradict our assumption that the polynomial under consideration is reducible. Suppose
+there is a solution. Without loss of generality we can assume that c, b > 0. Write c = uv with u and
+v coprime positive integers. Then u4 + v 4 = (bv 2 )2 . Let us denote w = bv 2 , this must be a positive
+integer too since u, v are positive integers. Let us show that the set T = {(u, v, w) ∈ N3 | u4 + v 4 =
+w 2 and u, v, w ≥ 1} is empty. Suppose the contrary and consider some triple (u, v, w) ∈ T such that
+w is minimal. Without loss of generality, we may assume that u is odd. (u2, v 2 , w) is a primitive
+Pythagorean triple and thus there exist relatively prime integers d > e ≥ 1 such that u2 = d2 − e2 ,
+v 2 = 2de and w = d2 + e2 . In particular, considering the equation u2 = d2 − e2 in Z/4Z proves that
+d is odd and e is even. Therefore, we can write d = f 2 and e = 2g 2 . Moreover, since u2 + e2 = d2 ,
+(u, e, d) is also a primitive Pythagorean triple: there exist relatively prime integers h > i ≥ 1 such that
+u = h2 − i2 , e = 2hi = 2g 2 and d = h2 + i2 . Once again, we can write h = k 2 and i = l2 , so that we
+obtain the relation f 2 = d = h2 + i2 = k 4 + l4 and (k, l, f ) ∈ T . Then, the inequality w > d2 = f 4 ≥ f
+contradicts the minimality of w.
+
+
+Remark 1. One can also use Galois theory arguments in order to solve this question. Let us denote the
+                                            n         n
+polynomial in the question by P (X) = X 2 (X + a)2 + 1 and we will also need the cyclotomic polynomial
+             n
+T (X) = X 2 + 1. As we already said, when a = 0 then P (X) is itself cyclotomic and hence irreducible. Let
+now a 6= 0 and x be any complex root of P (x) = 0. Then ζ = x(x + a) satisfies T (ζ) = 0, hence it is a primitive
+root of unity of order 2n+1 . The
+                                 field Q[x] is then an extension of Q[ζ]. The latter field is cyclotomic and
+its degree over Q is dimQ Q[ζ] = 2n . Since the polynomial in the question has degree 2n+1 we see that it is
+reducible if and only if the above mentioned extension is trivial, i.e. Q[x] = Q[ζ]. For the sake of contradiction
+we will now assume that this is indeed the case. Let S(X) be the minimal polynomial of x over Q. The
+degree ofQS is then 2n and we can number its roots by odd numbers in the set I = {1, 3, . . . , 2n+1 − 1} so that
+S(X) = k∈I (X − xk ) and xk (xk + a) = ζ k because Galois automorphisms of Q[ζ] map ζ to ζ k , k ∈ I. Then
+one has
+                        Y                                    Y                   
+                           (X − xk )(−a − X − xk ) = (−1)|I|       X(X + a) − ζ k = T X(X + a) = P (X) .
+                                                                                                    
+   S(X)S(−a − X) =
+                       k∈I                                   k∈I
+
+                                              2n+1       n 2                                          n−1
+                                                           2                                           a 2
+In particular P (− a2 ) = S(− a2 )2 , i.e. a2       +1 = a2 +1 . Therefore the rational numbers c =    2       6= 0
+            2n
+and b = a2      + 1 satisfy c4 + 1 = b2 which is a contradiction as it was shown in the first proof.
+
+
+Remark 2. It is well-known that the Diophantine equation x4 + y 4 = z 2 has only trivial solutions (i.e. with
+x = 0 or y = 0). This implies immediately that c4 + 1 = b2 has no rational solution with nonzero c.
+
+
+                                                        4
+
