@@ -1,259 +1,53 @@
-                                          IMC 2022
-                               Second Day, August 4, 2022
-                                            Solutions
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
 
+\title{IMC 2022, Second Day Solutions}
+\date{August 4, 2022}
 
-Problem 5. We colour all the sides and diagonals of a regular polygon P with 43 vertices either
-red or blue in such a way that every vertex is an endpoint of 20 red segments and 22 blue segments.
-A triangle formed by vertices of P is called monochromatic if all of its sides have the same colour.
-Suppose that there are 2022 blue monochromatic triangles. How many red monochromatic triangles
-are there?
-                                                       (proposed by Mike Daas, Universiteit Leiden)
+\begin{document}
+\maketitle
 
-Hint: Call two connecting edges a cherry. Double-count cherries.
+\section*{Problem 5}
+\subsection*{Solution}
+Answer: $\mathbf{859}$.
 
-Solution. 1 Define a cherry to be a set of two distinct edges from K43 that have a vertex in common.
-We observe that a monochromatic triangle always contains three monochromatic cherries, and that
-a polychromatic triangle always contains one monochromatic cherry and two polychromatic cherries.
-Therefore we study the quantity 2M − P , where M is the number of monochromatic cherries and P
-is the number of polychromatic cherries. By observing that every cherry is part of a unique triangle,
-we can split this quantity up into all the distinct triangles in K43 . By construction the contribution
-of a polychromatic triangle will vanish, whereas a monochromatic triangle will contribute 6. We
-conclude that
-                        2M − P = 6 · {number of monochromatic triangles}.
-Consider any vertex v. Let Mv be the number of monochromatic cherries with central vertex v and
-Pv the number such polychromatic cherries. It then follows that
-                             20 · 19 22 · 21
-                      Mv =          +        = 421 and Pv = 20 · 22 = 440.
-                                2       2
-In other words, for any vertex v it holds that 2Mv − Pv = 402. Adding up all these contributions,
-we find that
-                                        2M − P = 43 · 402.
-We conclude that there are 43 · 402/6 = 43 · 67 = 2881 monochromatic triangles in total. Since 2022
-of these were blue, 859 must be red.
+A \emph{cherry} is a pair of edges sharing a vertex. A monochromatic triangle has 3 monochromatic cherries; a polychromatic triangle has 1 monochromatic and 2 polychromatic. Let $M$ = \# mono cherries, $P$ = \# poly cherries. Summing over triangles:
+\[ 2M - P = 6 \cdot \#(\text{mono triangles}). \]
+At vertex $v$: $M_v = \binom{20}{2} + \binom{22}{2} = 421$, $P_v = 20 \cdot 22 = 440$, so $2M_v - P_v = 402$. Sum over 43 vertices: $2M - P = 43 \cdot 402$. Total mono triangles $= 43 \cdot 67 = 2881$. Red: $2881 - 2022 = 859$.
 
+\section*{Problem 6}
+\subsection*{Solution 1}
+Take $x_i \equiv i^{-1} \pmod p$. Then
+\[ \sum_{i=1}^{p-2} \tfrac{1}{i(i+1)} = \sum_{i=1}^{p-2}\left(\tfrac{1}{i} - \tfrac{1}{i+1}\right) = 1 - \tfrac{1}{p-1} \equiv 1 - (-1) = 2 \pmod p. \]
 
+\subsection*{Solution 2}
+Identity permutation gives $\sum i(i+1) = 2\binom{p}{3} \equiv 0 \pmod p$. Swapping consecutive $(i+1, i+2) \to (i+2, i+1)$ in a block decreases sum by $3$. For $p \equiv 2 \pmod 3$, perform this $\tfrac{p-2}{3}$ times to reach $-(p-2) \equiv 2$. For $p \equiv 1 \pmod 3$, change $(1,2,3,4,5) \to (1,4,3,2,5)$ (decrement 8), then apply the trick. Small cases: $p=3 \colon (1,2)$; $p=7 \colon (1,4,5,2,3,6)$.
 
+\section*{Problem 7}
+\subsection*{Solution 1}
+For idempotent $B$, $\operatorname{tr}(B) = \operatorname{rank}(B)$ (minimal poly $\lambda(\lambda-1)$ so diagonalizable with eigenvalues $0,1$).
 
-                                                  1
-Problem 6. Let p > 2 be a prime number. Prove that there is a permutation (x1 , x2 , ..., xp−1 ) of
-the numbers (1, 2, ..., p − 1) such that
-                                x1 x2 + x2 x3 + ... + xp−2 xp−1 ≡ 2 (mod p).
-                                       (proposed by Giorgi Arabidze, Tbilisi Free University, Georgia)
+$\sum A_i$ is idempotent:
+\[ \left(\sum A_i\right)^2 = \sum A_i^2 + \sum_{i \neq j}(A_i A_j + A_j A_i) = \sum A_i. \]
+So
+\[ \sum_i \operatorname{rank}(A_i) = \sum \operatorname{tr}(A_i) = \operatorname{tr}\!\left(\sum A_i\right) = \operatorname{rank}\!\left(\sum A_i\right) \leq n. \]
+So some $\operatorname{rank}(A_i) \leq n/k$.
 
-Hint:
+\subsection*{Solution 2}
+Show $A_i A_j = 0$ for $i \neq j$: multiplying $AB = -BA$ by $A$:
+\[ -BA = AB = A^2 B = -ABA = BA^2 = BA, \]
+so $BA = 0$.
 
-Solution 1. We show such a permutation.
-   Let xi ≡ i−1 (mod p) for i = 1, 2, · · · , p − 1. Then
-          p−2           p−2         p−2          
-          X             X   1  1    X     1    1         1    p−2
-              xi xi+1 ≡      ·    ≡         −       ≡1−     ≡     ≡2                      (mod p)
-          i=1           i=1
-                            i i+1   i=1
-                                          i   i+1       p−1   p−1
+Then image spaces $V_i = \operatorname{im}(A_i)$ are linearly independent: if $\sum v_i = 0$ with $v_i = A_i w_i$, apply $A_1$: $v_1 + \sum_{j\geq 2} A_1 A_j w_j = v_1 = 0$. So $\sum \dim V_i \leq n$.
 
+\section*{Problem 8}
+\subsection*{Solution}
+Answer: $\displaystyle E(m) = \frac{2kn}{n+k-1} - \frac{2\, k!\, n!}{(k+n-1)!}$.
 
-Solution 2. We begin by noting that the identity permutation yields the value
-                                                               
-                                                               p
-                 1 · 2 + 2 · 3 + · · · + (p − 2)(p − 1) = 2 ·     ≡ 0 (mod p)
-                                                               3
+Let $C_1, \ldots, C_{n+k}$ be the colors in cyclic order. If the two color classes don't appear as contiguous arcs, then $m$ equals the number of color changes; if they do (exceptional case), $m = 0$ but there are 2 color changes.
 
-as soon as p > 3. The idea now is to perturb that permutation to obtain the desired value 2.
-    One thing we can do is to replace (i, i + 1, i + 2, i + 3) by (i, i + 2, i + 1, i + 3). Indeed, this will
-decrease the sum by 3. So if p ≡ 2 (mod 3), we can just take the permutation (1, 3, 2, 4, 6, 5, 7, . . . , p−
-4, p−2, p−3, p−1) i.e. exchanging 3k −1 and 3k whenever k = 1, 2, . . . , p−2  3
-                                                                                  . This means we decrease
-           p−2
-the sum 3 times by 3, leading to a remaining sum of −(p − 2) ≡ 2 (mod p).
-    If p ≡ 1 (mod 3), this strategy does not work immediately. Instead, we can change (1, 2, 3, 4, 5)
-to (1, 4, 3, 2, 5) resulting in a decrement of the sum by 8. If we then exchange 3k and 3k + 1 for
-k = 2, 3, . . . , p−7
-                    3
-                      as before, we get another p−10
-                                                 3
-                                                     times a decrement by 3, leading to a remaining sum
-of −8 − p−10 3
-                  · 3 ≡ 2 (mod  p).
-    Of course this only works if p ≥ 13. It thus remains to consider the cases p = 3 and p = 7 by
-hand. For p = 3, we just take (1, 2) and for p = 7 we can take (1, 4, 5, 2, 3, 6).
+Probability $C_i C_{i+1}$ is a color change: $\frac{2nk}{(n+k)(n+k-1)}$. Expected color changes: $\frac{2nk}{n+k-1}$.
 
+Exceptional case probability: among $\binom{n+k}{n}$ arrangements, $n+k$ are contiguous, giving probability $(n+k)/\binom{n+k}{n}$. Subtracting $2 \cdot (n+k) \binom{n+k}{n}^{-1} = \frac{2\, n!\, k!}{(n+k-1)!}$ gives the answer.
 
-
-
-                                                     2
-Problem 7. Let A1 , A2 , . . . , Ak be n × n idempotent complex matrices such that
-
-                                           Ai Aj = −Aj Ai                for all i ̸= j.
-
-Prove that at least one of the given matrices has rank ≤ nk .
-(A matrix A is called idempotent if A2 = A.)
-                                                                              (proposed by Danila Belousov, Novosibirsk)
-
-Hint: Consider the trace and the rank of A.
-
-Solution 1.
-Lemma. For any idempotent matrix B
-
-                                                         tr(B) = rank(B)
-
-Proof. Observe that an idempotent matrix satisfies the equation λ(1 − λ) = 0. Hence the minimal
-polynomial is a product of linear factors and the matrix is diagonalizable. Therefore, the rank of
-the matrix equals the number of non-zero eigenvalues. Since the matrix has eigenvalues 0 or 1, this
-provides that the trace is equal to the number of unity eigenvalues, or non-zero eigenvalues.
-                          Pk
-   It can be shown that      Ai is also an idempotent. Indeed,
-                             i=1
-
-                              k
-                             X           2       k
-                                                   X             X                              k
-                                                                                                X
-                                     Ai        =         A2i +          (Ai Aj + Aj Ai ) =            Ai
-                               i=1                 i=1           i̸=j                           i=1
-
-
-   Applying the lemma one can obtain
-                    k
-                    X                      k
-                                           X                        k
-                                                                   X                           k
-                                                                                                X         
-                           rank(Ai ) =             tr(Ai ) = tr               Ai       = rank         Ai       ⩽n
-                     i=1                   i=1                          i=1                     i=1
-
-   The required inequality follows.
-
-Solution 2. We first prove that for idempotents A, B with AB = −BA we already must have
-AB = BA = 0. Indeed, it is clear that ABx = BAx = 0 for x ∈ ker(A) so it suffices to prove
-the same for x ∈ im(A), i.e. when Ax = x. But then writing Bx = y we have Ay = −y i.e.
-y = −Ay = −A2 y = Ay = −y and hence y = 0 so that again ABx = BAx = 0.
-    Henceforth, we can assume the stronger condition Ai Aj = 0 for all i ̸= j. We next claim that
-all the image spaces Vi of Ai are linearly independent. This will imply the claim, since then the
-sum of their dimensions canPbe at most n, and so one of them has to be ≤ nk . Now, for the sake of
-contradiction, suppose that i vi = 0 with vi ∈ Vi and w.l.o.g. v1 ̸= 0. But then
-
-         0 = A1 (v1 + · · · + vk ) = v1 + A1 v2 + · · · + A1 vk = v1 + A1 A2 v2 + · · · + A1 Ak vk = v1
-
-since A1 Ai = 0 for all i.
-
-Remark. Here is a different argument for AB = BA = 0, without eigenvectors: multiplying by A and using
-its idempotence and the super-commutativity , we have
-
-                        −BA = AB = A2 B = AAB = −ABA = BAA = BA2 = BA
-
-thus BA = 0.
-
-
-                                                                  3
-Problem 8. Let n, k ≥ 3 be integers, and let S be a circle. Let n blue points and k red points be
-chosen uniformly and independently at random on the circle S. Denote by F the intersection of the
-convex hull of the red points and the convex hull of the blue points. Let m be the number of vertices
-of the convex polygon F (in particular, m = 0 when F is empty). Find the expected value of m.
-                                                                 (proposed by Fedor Petrov, St. Petersburg)
-
-Hint:
-
-Solution 1. We prove that
-                                                 2kn         k!n!
-                                     E(m) =           −2              .
-                                                n+k−1    (k + n − 1)!
-
-   Let A1 , . . . , An be blue points. Fix i ∈ {1, . . . , n}. Enumerate our n + k points starting from a
-blue point Ai counterclockwise as Ai , X1,i , X2,i , . . . , X(n+k−1),i . Denote the minimal index j for which
-the point Xj,i is blue as m(i). So, Ai Xm(i),i is a side of the convex hull of blue points. Denote by bi
-the following random variable:
-                                 (
-                                  1, if the chord Ai Xm(i),i contains a side of F
-                            bi =
-                                  0, otherwise.
-
-Define analogously k random variables r1 , . . . , rk for the red points. Clearly,
-
-                                  m = b1 + . . . + bn + r1 + . . . + rk .     (♡)
-
-    We proceed with computing the expectation of each bi and rj . Note that bi = 0 if and only if all
-red points lie on the side of the line Ai Xm(i),i . This happens either if m(i) = 1, i.e., the point Xi,1 is
-                                            n−1
-blue (which happens with probability k+n−1      ), or if i = k + 1, points X1,i , . . . , Xk,i are red, and points
-Xk+1,i , . . . , Xk+n−1,i are blue (which happens with probability 1/ k+n−1
-                                                                                 
-                                                                            k
-                                                                                   , since all subsets of size k
-of {1, 2, . . . , n + k − 1} have equal probabilities to correspond to the indices of red points between
-                                                                                                           k!(n−1)!
-                                                                     n−1
-X1,i , . . . , Xn+k−1,i ). Thus the expectation of bi equals 1 − k+n−1    − 1/ k+n−1  k
-                                                                                                   k
-                                                                                             = n+k−1    − (k+n−1)!  .
-                                            n      n!(k−1)!
-Analogously, the expectation of rj equals n+k−1 − (k+n−1)!  . It remains to use (♡) and linearity of
-expectation.
-
-Solution 2. Let C1 , . . . , Cn+k be the colours of the points, scanned counterclockwise from a fixed
-point on the circle. We consider the sequence as cyclic (so Cn+k is also adjacent to C1 ). There are
-two cases: Either (i) all red points appear contiguously, followed by all blue points contiguously, or
-(ii) the red and blue points alternate at least twice. It can be seen that in the second case, m is
-exactly equal to the number of colour changes in the Ci sequence: For example, if Ci is red and Ci+1
-is blue, then the intersection of the red chord from Ci to the next red point with the blue chord
-from Ci+1 to the previous blue point is a vertex of F , and every vertex is of this form. Case (i) is
-exceptional, as we have two colour changes, but m = 0, so it is 2 less than the number of changes in
-that case.
-    Now observe that the distribution of Ci is purely combinatorial: Each of the n+k
-                                                                                            
-                                                                                        n,k
-                                                                                              distributions
-of colours is equally likely (for example, because we can generate the distribution by first choosing all
-n + k points on the circle, and then assigning colours uniformly). In particular the probability that
-                                             2nk
-Ci Ci+1 is a colour change is exactly (n+k)(n+k−1)  , and by lineraity of expectation, the total expected
-                                                                             2nk
-number of color changes (including i = n + k) is n + k times this, i.e. n+k−1     .
-    To get the expected value of m, we must subtract from the above 2 times the probability of case
-                                                                                                      −1
-(i). Exactly n + k of the n+k     distributions belong to case (i), so we must subtract 2(n + k) n+k
-                                
-                            n,k                                                                   n,k
-                                                                                                          =
-    n!k!
-2 (n+k−1)! , as claimed.
-
-                                                         4
-Solution 3. Let A1 , . . . , An be the blue points and B1 , . . . , Bk be the red points. For every pair of
-blue points Ai , Aj , 1 ⩽ i < j ⩽ n, we evaluate the probability p that Ai Aj contains a side of F (it
-obviously does not depend on the choice of i and j). By q denote      the    analogous probability for the
-                                                                    n      k
-red points. Then by linearity of expectation we have Em = 2 p + 2 q.
-    We proceed with finding p. Without loss of generality i = 1, j = 2. Let the length of the circle be
-1, and the length of arc A1 A2 (counterclockwise from A1 to A2 ) be x. Then x is uniformly distributed
-on [0, 1]. Then A1 A2 contains a side of F if
-    (i) all blue points are on the same side of A1 A2 , but
-    (ii) the red points are not on the same side of A1 A2 .
-    The probability of (i) is xn−2 + (1 − x)n−2 . The probability of (ii) is 1 − (xk + (1 − x)n−k ).
-                                                 R1
-    Thus, using Beta function value B(a, b) = 0 xa−1 (1 − x)b−1 dx = B(a, b) = (a−1)!(b−1)!
-                                                                                       (a+b−1)!
-                                                                                                for positive
-integers a, b
-         Z 1
-                                                                    2           2
-    p=       (xn−2 + (1 − x)n−2 )(1 − (xk + (1 − x)n−k ))dx =           −             − 2B(n − 1, k + 1)
-          0                                                     n−1 n+k−1
-            2          2          (n − 2)!k!
-      =         −            −2               .
-         n−1 n+k−1               (n + k − 1)!
-
-Next,             
-                   n        n(n − 1)        n!k!            nk          n!k!
-                      p=n−           −                =           −             ,
-                   2        n + k − 1 (n + k − 1)!       n + k − 1 (n + k − 1)!
-and by symmetry k2 q takes the same value (that is in agreement with the observation that red and
-                     
-
-blue sides of F alternate).
-
-
-
-
-                                                     5
-
+\end{document}
