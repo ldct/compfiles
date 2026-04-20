@@ -1,232 +1,73 @@
-    Solutions for the second day problems at the IMC 2000
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{IMC 2000, Day 2 --- Solutions}
+\begin{document}
+\maketitle
 
-    Problem 1.
-    a) Show that the unit square can be partitioned into n smaller squares if n is large
-enough.
-    b) Let d ≥ 2. Show that there is a constant N (d) such that, whenever n ≥ N (d), a
-d-dimensional unit cube can be partitioned into n smaller cubes.
+\section*{Problem 1}
+(a) Show that the unit square can be partitioned into $n$ smaller squares for all large $n$.
 
-     Solution. We start with the following lemma: If a and b be coprime positive integers
-then every sufficiently large positive integer m can be expressed in the form ax + by with
-x, y non-negative integers.
-     Proof of the lemma. The numbers 0, a, 2a, . . . , (b−1)a give a complete residue system
-modulo b. Consequently, for any m there exists a 0 ≤ x ≤ b − 1 so that ax ≡ m (mod b).
-If m ≥ (b − 1)a, then y = (m − ax)/b, for which x + by = m, is a non-negative integer, too.
-     Now observe that any dissection of a cube into n smaller cubes may be refined to
-give a dissection into n + (ad − 1) cubes, for any a ≥ 1. This refinement is achieved by
-picking an arbitrary cube in the dissection, and cutting it into ad smaller cubes. To prove
-the required result, then, it suffices to exhibit two relatively prime integers of form a d − 1.
-In the 2-dimensional case, a1 = 2 and a2 = 3 give the coprime numbers 22 − 1 = 3 and
-32 − 1 = 8. In the general case, two such integers are 2d − 1 and (2d − 1)d − 1, as is easy
-to check.
+(b) For $d\ge 2$, show there is $N(d)$ such that for $n\ge N(d)$ the unit $d$-cube partitions into $n$ smaller cubes.
 
-     Problem 2. Let f be continuous and nowhere monotone on [0, 1]. Show that the set
-of points on which f attains local minima is dense in [0, 1].
-     (A function is nowhere monotone if there exists no interval where the function is
-monotone. A set is dense if each non-empty open interval contains at least one element of
-the set.)
+\subsection*{Solution}
+\textbf{Lemma.} If $\gcd(a,b)=1$, every sufficiently large $m$ is $ax+by$ with $x,y\ge 0$.
 
-     Solution. Let (x − α, x + α) ⊂ [0, 1] be an arbitrary non-empty open interval. The
-function f is not monoton in the intervals [x − α, x] and [x, x + α], thus there exist some
-real numbers x − α ≤ p < q ≤ x, x ≤ r < s ≤ x + α so that f (p) > f (q) and f (r) < f (s).
-     By Weierstrass’ theorem, f has a global minimum in the interval [p, s]. The values f (p)
-and f (s) are not the minimum, because they are greater than f (q) and f (s), respectively.
-Thus the minimum is in the interior of the interval, it is a local minimum. So each non-
-empty interval (x − α, x + α) ⊂ [0, 1] contains at least one local minimum.
+\textit{Proof.} $0,a,\dots,(b-1)a$ is a complete residue system mod $b$; choose $0\le x\le b-1$ with $ax\equiv m\pmod b$; then $y=(m-ax)/b\ge 0$ for $m\ge (b-1)a$.
 
-     Problem 3. Let p(z) be a polynomial of degree n with complex coefficients. Prove
-that there exist at least n + 1 complex numbers z for which p(z) is 0 or 1.
+Any dissection into $n$ cubes can be refined to $n+(a^d-1)$ by subdividing one cube into $a^d$. It suffices to show two coprime values of $a^d-1$. For $d=2$: $2^2-1=3$ and $3^2-1=8$ are coprime. In general, $2^d-1$ and $(2^d-1)^d-1$ are coprime.
 
-     Solution. The statement is not true if p is a constant polynomial. We prove it only
-in the case if n is positive.
-     For an arbitrary polynomial q(z) and complex number c, denote by µ(q, c) the largest
-exponent α for which q(z) is divisible by (z − c)α . (With other words, if c is a root of q,
-then µ(q, c) is the root’s multiplicity. Otherwise 0.)
+\section*{Problem 2}
+Let $f$ be continuous and nowhere monotone on $[0,1]$. Show local minima are dense.
 
-                                               1
-     Denote by S0 and S1 the sets of complex numbers z for which p(z) is 0 or 1, respec-
-tively. These sets contain all roots of the polynomials p(z) and p(z) − 1, thus
-                                      X                 X
-                                            µ(p, c) =          µ(p − 1, c) = n.                          (1)
-                                     c∈S0               c∈S1
+\subsection*{Solution}
+Let $(x-\alpha, x+\alpha)\subset[0,1]$. $f$ is not monotone on $[x-\alpha,x]$ nor on $[x,x+\alpha]$, so $\exists\, p<q\le x\le r<s$ in the respective intervals with $f(p)>f(q)$ and $f(r)<f(s)$. By Weierstrass, $f$ attains min on $[p,s]$; the endpoints are not the min. So the min lies in the interior, a local minimum.
 
+\section*{Problem 3}
+Let $p(z)$ be a polynomial of degree $n\ge 1$. Prove there are at least $n+1$ complex $z$ with $p(z)\in\{0,1\}$.
 
-The polynomial p0 has at most n − 1 roots (n > 0 is used here). This implies that
-                                              X
-                                                       µ(p0 , c) ≤ n − 1.                                (2)
-                                            c∈S0 ∪S1
+\subsection*{Solution}
+Let $\mu(q,c)$ be the multiplicity of $c$ as root of $q$. Let $S_0=p^{-1}(0)$, $S_1=p^{-1}(1)$. Then $\sum_{c\in S_0}\mu(p,c) = \sum_{c\in S_1}\mu(p-1,c) = n$, and $\sum_{c\in S_0\cup S_1}\mu(p',c) \le n-1$.
 
+If $c\in S_0$, $\mu(p,c)-\mu(p',c)=1$ (likewise for $S_1$ with $p-1$). So
+\[|S_0|+|S_1| = \sum_{S_0}(\mu(p,c)-\mu(p',c)) + \sum_{S_1}(\mu(p-1,c)-\mu(p',c)) \ge n+n-(n-1) = n+1.\]
 
-    If p(c) = 0 or p(c) − 1 = 0, then
+\section*{Problem 4}
+A degree-6 polynomial is tangent to a line at three points $A_1, A_2, A_3$, with $A_2$ between. Let $k=A_2A_3/A_1A_2$, $K=$ ratio of the two bounded areas.
 
-                        µ(p, c) − µ(p0 c) = 1 or µ(p − 1, c) − µ(p0 c) = 1,                              (3)
+(a) If $k=1$, the areas are equal.
 
-respectively. Putting (1), (2) and (3) together we obtain
-                               X                           X                        
-             S0 + S1 =                 µ(p, c) − µ(p0 , c) +  µ(p − 1, c) − µ(p0 , c) =
-                               c∈S0                                c∈S1
+(b) $\frac{2}{7}k^5 < K < \frac{7}{2}k^5$.
 
-           X                  X                          X
-       =          µ(p, c) +          µ(p − 1, c) −                µ(p0 , c) ≥ n + n − (n − 1) = n + 1.
-           c∈S0               c∈S1                     c∈S0 ∪S1
+\subsection*{Solution}
+Place $A_2$ at origin, line as $y=a_5 x$. Tangency at $\pm a$ (when $k=1$) forces the polynomial $y = a_0(x^2-a^2)^2 x^2 + a_5 x$. The areas integrate $a_0(x^2-a^2)^2 x^2$ over $[-a,0]$ and $[0,a]$; the integrand is even, giving equal areas.
 
+(b) $a_0=1$ WLOG: $y=(x+a)^2(x-b)^2 x^2 + a_5 x$ with $b=ka$. Compute
+\[\int_{-a}^0 (x+a)^2(x-b)^2 x^2\,dx = \frac{a^7}{210}(7k^2+7k+2),\]
+\[\int_0^b (x+a)^2(x-b)^2 x^2\,dx = \frac{a^7}{210}(2k^2+7k+7).\]
+So $K = k^5\cdot \frac{2k^2+7k+7}{7k^2+7k+2}$. The rational factor decreases from $7/2$ (at $k=0$) to $2/7$ (as $k\to\infty$), yielding the bounds.
 
+\section*{Problem 5}
+Find all $f:\mathbb{R}^+\to\mathbb{R}^+$ with $f(x)f(yf(x))=f(x+y)$.
 
-     Problem 4. Suppose the graph of a polynomial of degree 6 is tangent to a straight
-line at 3 points A1 , A2 , A3 , where A2 lies between A1 and A3 .
-     a) Prove that if the lengths of the segments A1 A2 and A2 A3 are equal, then the areas
-of the figures bounded by these segments and the graph of the polynomial are equal as well.
-                 A2 A3
-     b) Let k =        , and let K be the ratio of the areas of the appropriate figures. Prove
-                 A1 A2
-that
-                                       2 5          7
-                                         k < K < k5 .
-                                       7            2
+\subsection*{Solution}
+If $f(x_0)>1$ for some $x_0$: set $y=x_0/(f(x_0)-1)$, i.e., $x_0+y = yf(x_0)$, giving $f(x_0)\cdot f(yf(x_0))=f(yf(x_0))$, so $f(x_0)=1$, contradiction. Hence $f\le 1$, and substituting gives $f$ decreasing.
 
-     Solution. a) Without loss of generality, we can assume that the point A2 is the origin
-of system of coordinates. Then the polynomial can be presented in the form
+If $f(x_0)=1$, then $f(x_0+y)=f(y)$ for all $y$; by monotonicity $f\equiv 1$ (so $f(x)=1/(1+0\cdot x)$).
 
-                          y = a0 x4 + a1 x3 + a2 x2 + a3 x + a4 x2 + a5 x,
-                                                               
+If $f<1$ strictly, $f$ is strictly decreasing, injective. Writing the equation in two ways leads to $x = (x+y(1-f(x)))f(yf(x))$. Setting $x=1$, $z=yf(1)$, $a=(1-f(1))/f(1)$, we get $f(z)=1/(1+az)$.
 
+Answer: $f(x) = \frac{1}{1+ax}$ with $a\ge 0$. (Direct verification.)
 
-where the equation y = a5 x determines the straight line A1 A3 . The abscissas of the points
-A1 and A3 are −a and a, a > 0, respectively. Since −a and a are points of tangency, the
-numbers −a and a must be double roots of the polynomial a0 x4 + a1 x3 + a2 x2 + a3 x + a4 .
-It follows that the polynomial is of the form
+\textit{Alternative.} $\frac{f(x+y)-f(x)}{y} = f^2(x)\cdot \frac{f(yf(x))-1}{yf(x)}$ gives $f'(x)=-a f^2(x)$, so $(1/f)'=a$, i.e., $f=1/(ax+b)$ with $b=1$, $a\ge 0$.
 
-                                            y = a0 (x2 − a2 )2 + a5 x.
+\section*{Problem 6}
+For $m\times m$ real $A$, $e^A=\sum A^n/n!$. Prove or disprove: for all real polynomials $p$ and $m\times m$ real $A,B$, $p(e^{AB})$ is nilpotent iff $p(e^{BA})$ is.
 
-                                                           2
-      The equality follows from the equality of the integrals
+\subsection*{Solution}
+True. For any polynomial $q$ and matrix $X$, $q(e^X) = \sum c_n X^n$. Let
+\[C = \sum_{n\ge 1} c_n (BA)^{n-1} B = \sum c_n B(AB)^{n-1}.\]
+Then $q(e^{AB}) = c_0 I + AC$ and $q(e^{BA}) = c_0 I + CA$. Since $AC$ and $CA$ have the same characteristic polynomial $f$, both $q(e^{AB}), q(e^{BA})$ have characteristic polynomial $f(x-c_0)$.
 
-                            Z0                         Za
-                                 a0 x − a x2 dx =
-                                    2    2
-                                                            a0 x2 − a2 x2 dx
-                                                                     
+If $p(e^{AB})^k = 0$, take $q=p^k$: then $q(e^{AB})=0$, so $\chi_{q(e^{AB})}(x)=x^m$, hence $\chi_{q(e^{BA})}(x)=x^m$, and by Cayley--Hamilton $q(e^{BA})^m=p(e^{BA})^{km}=0$.
 
-                         −a                            0
-
-
-due to the fact that the function y = a0 (x2 − a2 ) is even.
-    b) Without loss of generality, we can assume that a0 = 1. Then the function is of the
-form
-                               y = (x + a)2 (x − b)2 x2 + a5 x,
-where a and b are positive numbers and b = ka, 0 < k < ∞. The areas of the figures at
-the segments A1 A2 and A2 A3 are equal respectively to
-
-                        Z0
-                                                             a7
-                             (x + a)2 (x − b)2 x2 dx =          (7k 2 + 7k + 2)
-                                                            210
-                       −a
-
-
-and
-                        Zb
-                                                             a7
-                             (x + a)2 (x − b)2 x2 dx =          (2k 2 + 7k + 7)
-                                                            210
-                        0
-
-Then
-                                                 2k 2 + 7k + 7
-                                        K = k5                 .
-                                                 7k 2 + 7k + 2
-                                             2
-The derivative of the function f (k) = 2k  +7k+7
-                                       7k2 +7k+2 is negative for 0 < k < ∞. Therefore f (k)
-                                                                                  2
-decreases from 27 to 27 when k increases from 0 to ∞. Inequalities 27 < 7k
-                                                                        2k +7k+7     7
-                                                                           2 +7k+2 < 2 imply
-
-the desired inequalities.
-
-    Problem 5. Let R+ be the set of positive real numbers. Find all functions f : R+ →
-R+ such that for all x, y ∈ R+
-
-                                     f (x)f (yf (x)) = f (x + y).
-
-     First solution. First, if we assume that f (x) > 1 for some x ∈ R+ , setting y =
-    x
-           gives the contradiction f (x) = 1. Hence f (x) ≤ 1 for each x ∈ R+ , which implies
-f (x) − 1
-that f is a decreasing function.
-     If f (x) = 1 for some x ∈ R+ , then f (x + y) = f (y) for each y ∈ R+ , and by the
-monotonicity of f it follows that f ≡ 1.
-     Let now f (x) < 1 for each x ∈ R+ . Then f is strictly decreasing function, in particular
-injective. By the equalities
-
-                                    f (x)f (yf (x)) = f (x + y) =
-
-                                                   3
-                                                                             
-        = f yf (x) + x + y(1 − f (x)) = f (yf (x))f x + y(1 − f (x)) f (yf (x))
-
-                                                                                             1 − f (1)
-we obtain that x = (x + y(1 − f (x)))f (yf (x)). Setting x = 1, z = xf (1) and a =                     ,
-                                                                                               f (1)
-                    1
-we get f (z) =          .
-                 1 + az
-                                                              1
-    Combining the two cases, we conclude that f (x) =              for each x ∈ R+ , where
-                                                           1 + ax
-a ≥ 0. Conversely, a direct verification shows that the functions of this form satisfy the
-initial equality.
-     Second solution. As in the first solution we get that f is a decreasing function, in
-particular differentiable almost everywhere. Write the initial equality in the form
-
-                            f (x + y) − f (x)           f (yf (x)) − 1
-                                              = f 2 (x)                .
-                                    y                       yf (x)
-
-It follows that if f is differentiable at the point x ∈ R+ , then there exists the limit
-       f (z) − 1                     0           2                     +
-                                                                                1 0
- lim             =: −a. Therefore f (x) = −af (x) for each x ∈ R , i.e.                 = a,
-z→0+       z                                                                    f (x)
-                               1
-which means that f (x) =           . Substituting in the initial relaton, we find that b = 1
-                            ax + b
-and a ≥ 0.
-                                                                           ∞
-                                                                             1
-    Problem 6. For an m × m real matrix A, eA is defined as                           An . (The sum is
-                                                                           P
-                                                                                 n!
-                                                                           n=0
-convergent for all matrices.) Prove or disprove, that for all real polynomials p and m × m
-real matrices A and B, p(eAB ) is nilpotent if and only if p(eBA ) is nilpotent. (A matrix
-A is nilpotent if Ak = 0 for some positive integer k.)
-     Solution. First we prove that for any polynomial q and m × m matrices A and B,
-the characteristic polinomials of q(eAB ) and q(eBA ) are the same. It is easy to check that
-                             ∞
-for any matrix X, q(eX ) =      cn X n with some real numbers cn which depend on q. Let
-                             P
-                              n=0
-
-                             ∞
-                             X                        ∞
-                                                      X
-                        C=         cn · (BA)n−1 B =         cn · B(AB)n−1 .
-                             n=1                      n=1
-
-
-Then q(eAB ) = c0 I + AC and q(eBA ) = c0 I + CA. It is well-known that the characteristic
-polynomials of AC and CA are the same; denote this polynomial by f (x). Then the
-characteristic polynomials of matrices q(eAB ) and q(eBA ) are both f (x − c0 ).
-                                                                  k
-     Now assume that the matrix p(eAB ) is nilpotent, i.e. p(eAB ) = 0 for some positive
-integer k. Chose q = pk . The characteristic polynomial of the matrix q(eAB ) = 0 is xm ,
-so the same holds for the matrix q(eBA ). By the theorem of Cayley and Hamilton, this
-                     m           km
-implies that q(eBA ) = p(eBA )         = 0. Thus the matrix q(eBA ) is nilpotent, too.
-
-
-
-                                                 4
-
+\end{document}

@@ -1,236 +1,66 @@
-      Solutions for the first day problems at the IMC 2000
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{IMC 2000, Day 1 --- Solutions}
+\begin{document}
+\maketitle
 
-     Problem 1.
-     Is it true that if f : [0, 1] → [0, 1] is
-     a) monotone increasing
-     b) monotone decreasing
-     then there exists an x ∈ [0, 1] for which f (x) = x?
-     Solution.
-     a) Yes.
-     Proof: Let A = {x ∈ [0, 1] : f (x) > x}. If f (0) = 0 we are done, if not then A is
-non-empty (0 is in A) bounded, so it has supremum, say a. Let b = f (a).
-     I. case: a < b. Then, using that f is monotone and a was the sup, we get b = f (a) ≤
-f ((a + b)/2) ≤ (a + b)/2, which contradicts a < b.
-     II. case: a > b. Then we get b = f (a) ≥ f ((a + b)/2) > (a + b)/2 contradiction.
-Therefore we must have a = b.
-     b) No. Let, for example,
+\section*{Problem 1}
+Is it true that if $f:[0,1]\to[0,1]$ is (a) monotone increasing, (b) monotone decreasing, then there exists $x\in[0,1]$ with $f(x)=x$?
 
-                                 f (x) = 1 − x/2 if     x ≤ 1/2
-and
-                                f (x) = 1/2 − x/2 if     x > 1/2
-      This is clearly a good counter-example.
+\subsection*{Solution}
+(a) Yes. Let $A=\{x: f(x)>x\}$. If $f(0)=0$ done. Otherwise $0\in A$, $A$ is bounded, let $a=\sup A$, $b=f(a)$. If $a<b$: monotonicity and $a=\sup A$ give $b=f(a)\le f((a+b)/2)\le (a+b)/2$, contradiction. If $a>b$: $b=f(a)\ge f((a+b)/2) > (a+b)/2$, contradiction. So $a=b$.
 
-     Problem 2.
-     Let p(x) = x5 + x and q(x) = x5 + x2 . Find all pairs (w, z) of complex numbers with
-w 6= z for which p(w) = p(z) and q(w) = q(z).
-     Short solution. Let
+(b) No. Counterexample: $f(x)=1-x/2$ for $x\le 1/2$, $f(x)=1/2-x/2$ for $x>1/2$.
 
-                              p(x) − p(y)
-                 P (x, y) =               = x4 + x3 y + x2 y 2 + xy 3 + y 4 + 1
-                                 x−y
+\section*{Problem 2}
+Let $p(x)=x^5+x$, $q(x)=x^5+x^2$. Find all complex pairs $(w,z)$ with $w\ne z$, $p(w)=p(z)$, $q(w)=q(z)$.
 
-and
-                           q(x) − q(y)
-               Q(x, y) =               = x4 + x3 y + x2 y 2 + xy 3 + y 4 + x + y.
-                              x−y
-We need those pairs (w, z) which satisfy P (w, z) = Q(w, z) = 0.
-    From P − Q = 0 we have w + z = 1. Let c = wz. After a short calculation we obtain
-c2 − 3c + 2 = 0, which has the solutions c = 1 and c = 2. From the system w + z = 1,
-wz = c we obtain the following pairs:
-                         √      √ !                        √      √ !
-                     1 ± 3i 1 ∓ 3i                     1 ± 7i 1 ∓ 7i
-                           ,                  and            ,        .
-                        2      2                          2      2
+\subsection*{Solution}
+$P(x,y) = \frac{p(x)-p(y)}{x-y} = x^4+x^3y+x^2y^2+xy^3+y^4+1$, similarly $Q(x,y)$ ends with $\dots+x+y$. We need $P(w,z)=Q(w,z)=0$; subtracting gives $w+z=1$. Let $c=wz$: substitute to get $c^2-3c+2=0$, so $c\in\{1,2\}$. Solving $w+z=1$, $wz=c$:
+\[\left(\tfrac{1\pm\sqrt{-3}}{2}, \tfrac{1\mp\sqrt{-3}}{2}\right),\quad \left(\tfrac{1\pm\sqrt{-7}}{2}, \tfrac{1\mp\sqrt{-7}}{2}\right).\]
 
+\section*{Problem 3}
+$A,B$ square complex matrices, $\mathrm{rank}(AB-BA)=1$. Show $(AB-BA)^2=0$.
 
+\subsection*{Solution}
+$C=AB-BA$ has rank 1, so at most one nonzero eigenvalue. But $\mathrm{tr}\,C=0$, so all eigenvalues vanish. Jordan form allows only one $2\times 2$ block, so $C^2=0$.
 
+\section*{Problem 4}
+(a) If $(x_i)$ is a decreasing positive sequence, then $\left(\sum_{i=1}^n x_i^2\right)^{1/2} \le \sum_{i=1}^n \frac{x_i}{\sqrt i}$.
 
-                                                1
-    Problem 3.
-    A and B are square complex matrices of the same size and
+(b) There is $C$ so that $\sum_{m=1}^\infty \frac{1}{\sqrt m}\left(\sum_{i=m}^\infty x_i^2\right)^{1/2} \le C\sum_{i=1}^\infty x_i$.
 
-                                         rank(AB − BA) = 1 .
+\subsection*{Solution}
+(a) Using monotonicity,
+\[\left(\sum \frac{x_i}{\sqrt i}\right)^2 = \sum_{i,j}\frac{x_ix_j}{\sqrt{ij}}\ge \sum_i \frac{x_i}{\sqrt i}\sum_{j\le i}\frac{x_i}{\sqrt j}\ge \sum_i \frac{x_i}{\sqrt i}\cdot i\cdot\frac{x_i}{\sqrt i}\cdot\frac{1}{\sqrt i\cdot\sqrt i}\cdot(\dots) = \sum x_i^2.\]
 
-Show that (AB − BA)2 = 0.
-    Let C = AB − BA. Since rank C = 1, at most one eigenvalue of C is different from 0.
-Also tr C = 0, so all the eigevalues are zero. In the Jordan canonical form there can only
-be one 2 × 2 cage and thus C 2 = 0.
+(b) By (a):
+\[\sum_m \frac{1}{\sqrt m}\left(\sum_{i\ge m} x_i^2\right)^{1/2} \le \sum_m \frac{1}{\sqrt m}\sum_{i\ge m}\frac{x_i}{\sqrt{i-m+1}} = \sum_i x_i \sum_{m=1}^i \frac{1}{\sqrt m \sqrt{i-m+1}}.\]
+The inner sum is bounded: $\sum_{m=1}^i \frac{1}{\sqrt m \sqrt{i+1-m}}\le \int_0^{i+1}\frac{dx}{\sqrt x\sqrt{i+1-x}}=\pi$. So $C=\pi$ works.
 
-    Problem 4.
-    a) Show that if (xi ) is a decreasing sequence of positive numbers then
+\section*{Problem 5}
+Let $R$ be a ring of characteristic zero, $e,f,g\in R$ idempotents with $e+f+g=0$. Show $e=f=g=0$.
 
-                                             n
-                                                         !1/2      n
-                                             X                    X   xi
-                                                   x2i          ≤     √ .
-                                             i=1                  i=1
-                                                                       i
+\subsection*{Solution}
+$g = g^2 = (-(e+f))^2 = e + (ef+fe) + f = (ef+fe) - g$, so $ef+fe=2g$. Thus
+\[[e,f] = [e, ef+fe] = 2[e,g] = 2[e,-e-f] = -2[e,f],\]
+so $3[e,f]=0$, i.e., $ef=fe$ (char 0). Then $ef=g$, so $e+f+ef=0$. Multiplying by $e$: $e+2ef=0$; similarly $f+2ef=0$, giving $e=f$. By symmetry $e=f=g$. Then $3e=0$, so $e=0$.
 
-   b) Show that there is a constant C so that if (xi ) is a decreasing sequence of positive
-numbers then                                 !1/2
-                            ∞         ∞                  ∞
-                           X    1    X
-                                           2
-                                                        X
-                               √         x        ≤C        xi .
-                           m=1
-                                 m i=m i                i=1
+\section*{Problem 6}
+Let $f:\mathbb{R}\to(0,\infty)$ be increasing, differentiable, $f(x)\to\infty$, $f'$ bounded. Let $F(x)=\int_0^x f$. Define $a_0=1$, $a_{n+1}=a_n+1/f(a_n)$, and $b_n=F^{-1}(n)$. Prove $a_n-b_n\to 0$.
 
-Solution.
-   a)
-                n         n        n       i       n          n
-               X   xi 2 X xi xj   X   xi X xi     X   xi xi  X
-             (     √ ) =     √√ ≥     √       √ ≥     √ i√ =     x2i
-               i=1
-                    i    i,j
-                              i j i=1
-                                        i j=1
-                                               j  i=1
-                                                       i  i  i=1
+\subsection*{Solution}
+By MVT, $F(a_{k+1})-F(a_k) = f(\xi)/f(a_k)$ with $\xi\in(a_k,a_{k+1})$. So
+\[1\le F(a_{k+1})-F(a_k)\le 1 + \frac{f(a_{k+1})-f(a_k)}{f(a_k)}.\]
+Summing with $F(b_n)=n$:
+\[F(b_n) < n + F(a_0) \le F(a_n) \le F(b_n) + F(a_0) + \sum_{k=0}^{n-1}\frac{f(a_{k+1})-f(a_k)}{f(a_k)}.\tag{4}\]
+Hence $a_n>b_n$, $a_n\to\infty$.
 
-    b)
-                     ∞       ∞          ∞       ∞
-                     X    1 X 2 1/2    X    1 X       xi
-                         √ (    xi ) ≤     √      √
-                     m=1
-                          m i=m        m=1
-                                             m i=m i − m + 1
+Given $\varepsilon>0$, pick $K_\varepsilon$ with $f(a_{K_\varepsilon})>2/\varepsilon$. Splitting the sum at $K_\varepsilon$ and bounding the tail by $\frac{\varepsilon}{2}(f(a_n)-f(a_{K_\varepsilon}))$, for large $n$,
+\[F(a_n) - F(b_n) < \varepsilon f(a_n).\]
 
-by a)
-                                     ∞             i
-                                     X             X       1
-                                 =            xi       √ √
-                                     i=1           m=1
-                                                        m i−m+1
+By MVT, $F(a_n)-F(b_n) = f(\zeta)(a_n-b_n) > f(b_n)(a_n-b_n)$. Let $B$ bound $f'$; then $f(a_n) < f(b_n) + B(a_n-b_n)$, so
+\[f(b_n)(a_n-b_n) < \varepsilon f(b_n) + \varepsilon B(a_n-b_n),\]
+i.e., $(f(b_n)-\varepsilon B)(a_n-b_n) < \varepsilon f(b_n)$. Since $f(b_n)\to\infty$, this gives $a_n-b_n<2\varepsilon$ for large $n$.
 
-You can get a sharp bound on
-
-                                              i
-                                              X       1
-                                     sup          √ √
-                                         i    m=1
-                                                   m i−m+1
-
-by checking that it is at most
-                                 Z i+1
-                                                   1
-                                               √ √      dx = π
-                                     0          x i+1−x
-
-                                                           2
-Alternatively you can observe that
-
-                     i                i/2
-                     X        1       X       1
-                         √  √      =2     √ √      ≤
-                     m=1
-                           m i+1−m    m=1
-                                           m i+1−m
-
-                                     i/2
-                             1 X 1         1   p
-                         ≤ 2p       √ ≤ 2 p .2 i/2 = 4
-                             i/2 m=1 m     i/2
-
-
-     Problem 5.
-     Let R be a ring of characteristic zero (not necessarily commutative). Let e, f and g
-be idempotent elements of R satisfying e + f + g = 0. Show that e = f = g = 0.
-     (R is of characteristic zero means that, if a ∈ R and n is a positive integer, then
-na 6= 0 unless a = 0. An idempotent x is an element satisfying x = x2 .)
-     Solution. Suppose that e + f + g = 0 for given idempotents e, f, g ∈ R. Then
-
-               g = g 2 = (−(e + f ))2 = e + (ef + f e) + f = (ef + f e) − g,
-
-i.e. ef+fe=2g, whence the additive commutator
-
-            [e, f ] = ef − f e = [e, ef + f e] = 2[e, g] = 2[e, −e − f ] = −2[e, f ],
-
-i.e. ef = f e (since R has zero characteristic). Thus ef + f e = 2g becomes ef = g, so that
-e + f + ef = 0. On multiplying by e, this yields e + 2ef = 0, and similarly f + 2ef = 0,
-so that f = −2ef = e, hence e = f = g by symmetry. Hence, finaly, 3e = e + f + g = 0,
-i.e. e = f = g = 0.
-      For part (i) just omit some of this.
-
-    Problem 6.
-    Let f : R → (0, ∞) be an increasing differentiable function for which lim f (x) = ∞
-                                                                                  x→∞
-and f 0 is bounded.
-                 Rx
-    Let F (x) = f . Define the sequence (an ) inductively by
-                0
-
-                                                            1
-                               a0 = 1,     an+1 = an +           ,
-                                                         f (an )
-
-and the sequence (bn ) simply by bn = F −1 (n). Prove that lim (an − bn ) = 0.
-                                                           n→∞
-    Solution. From the conditions it is obvious that F is increasing and lim bn = ∞.
-                                                                                  n→∞
-     By Lagrange’s theorem and the recursion in (1), for all k ≥ 0 integers there exists a
-real number ξ ∈ (ak , ak+1 ) such that
-
-                                                                      f (ξ)
-                      F (ak+1 ) − F (ak ) = f (ξ)(ak+1 − ak ) =              .          (2)
-                                                                     f (ak )
-
-                                               3
-By the monotonity, f (ak ) ≤ f (ξ) ≤ f (ak+1 ), thus
-                                                  f (ak+1 )     f (ak+1 ) − f (ak )
-                  1 ≤ F (ak+1 ) − F (ak ) ≤                 =1+                     .                     (3)
-                                                   f (ak )            f (ak )
-Summing (3) for k = 0, . . . , n − 1 and substituting F (bn ) = n, we have
-                                                                            n−1
-                                                                            X     f (ak+1 ) − f (ak )
-          F (bn ) < n + F (a0 ) ≤ F (an ) ≤ F (bn ) + F (a0 ) +                                       .   (4)
-                                                                                        f (ak )
-                                                                            k=0
-
-From the first two inequalities we already have an > bn and lim an = ∞.
-                                                                               n→∞
-     Let ε be an arbitrary positive number. Choose an integer Kε such that f (aKε ) > 2ε .
-If n is sufficiently large, then
-                                              n−1
-                                              X     f (ak+1 ) − f (ak )
-                                 F (a0 ) +                              =
-                                                          f (ak )
-                                              k=0
-
-                              K                                      n−1
-                                                             !
-                                ε −1
-                              X        f (ak+1 ) − f (ak )           X      f (ak+1 ) − f (ak )
-              =   F (a0 ) +                                      +                              <         (5)
-                                             f (ak )                              f (ak )
-                              k=0                                    k=Kε
-                                                    n−1
-                                      1     X                    
-                        < Oε (1) +            f (ak+1 ) − f (ak ) <
-                                   f (aKε )
-                                                    k=Kε
-                                     ε                 
-                          < Oε (1) + f (an ) − f (aKε ) < εf (an ).
-                                     2
-Inequalities (4) and (5) together say that for any positive ε, if n is sufficiently large,
-                                        F (an ) − F (bn ) < εf (an ).
-Again, by Lagrange’s theorem, there is a real number ζ ∈ (bn , an ) such that
-                     F (an ) − F (bn ) = f (ζ)(an − bn ) > f (bn )(an − bn ),                             (6)
-thus
-                                        f (bn )(an − bn ) < εf (an ).                                     (7)
-Let B be an upper bound for f 0 . Apply f (an ) < f (bn ) + B(an − bn ) in (7):
-                                                                 
-                      f (bn )(an − bn ) < ε f (bn ) + B(an − bn ) ,
-                                         
-                             f (bn ) − εB (an − bn ) < εf (bn ).                                          (8)
-Due to lim f (bn ) = ∞, the first factor is positive, and we have
-        n→∞
-
-                                                        f (bn )
-                                    an − b n < ε                 < 2ε                                     (9)
-                                                    f (bn ) − εB
-for sufficiently large n.
-     Thus, for arbitrary positive ε we proved that 0 < an − bn < 2ε if n is sufficiently large.
-
-                                                      4
-
+\end{document}
