@@ -1,451 +1,202 @@
-International Competition in Mathematics for
-             Universtiy Students
-                      in
-              Plovdiv, Bulgaria
-                    1994
-                                                                                1
-
-PROBLEMS AND SOLUTIONS
-
-   First day — July 29, 1994
-
-   Problem 1. (13 points)
-   a) Let A be a n × n, n ≥ 2, symmetric, invertible matrix with real
-positive elements. Show that zn ≤ n2 − 2n, where zn is the number of zero
-elements in A−1 .
-   b) How many zero elements are there in the inverse of the n × n matrix
-
-                           1 1 1 1 ... 1
-                                                      
-                          1 2 2 2 ... 2 
-                                               
-                          1 2 1 1 ... 1 
-                       A=                      ?
-                                               
-                          1 2 1 2 ... 2 
-                                               
-                          .................... 
-                           1 2 1 2 ... ...
-
-   Solution. Denote by aij and bij the elements of A and A−1 , respectively.
-                             n
-                             P
-Then for k 6= m we have            aki bim = 0 and from the positivity of aij we
-                             i=0
-conclude that at least one of {bim : i = 1, 2, . . . , n} is positive and at least
-one is negative. Hence we have at least two non-zero elements in every
-column of A−1 . This proves part a). For part b) all b ij are zero except
-b1,1 = 2, bn,n = (−1)n , bi,i+1 = bi+1,i = (−1)i for i = 1, 2, . . . , n − 1.
-
-   Problem 2. (13 points)
-   Let f ∈ C 1 (a, b), lim f (x) = +∞, lim f (x) = −∞ and
-                      x→a+                  x→b−
-f 0 (x) + f 2 (x) ≥ −1 for x ∈ (a, b). Prove that b − a ≥ π and give an example
-where b − a = π.
-   Solution. From the inequality we get
-
-                    d                       f 0 (x)
-                      (arctg f (x) + x) =             +1≥0
-                   dx                     1 + f 2 (x)
-
-for x ∈ (a, b). Thus arctg f (x)+x is non-decreasing in the interval and using
-                   π           π
-the limits we get + a ≤ − + b. Hence b − a ≥ π. One has equality for
-                   2           2
-f (x) = cotg x, a = 0, b = π.
-
-   Problem 3. (13 points)
-2
-
-   Given a set S of 2n − 1, n ∈ N, different irrational numbers. Prove
-that there are n different elements x 1 , x2 , . . . , xn ∈ S such that for all non-
-negative rational numbers a1 , a2 , . . . , an with a1 + a2 + · · · + an > 0 we have
-that a1 x1 + a2 x2 + · · · + an xn is an irrational number.
-    Solution. Let I be the set of irrational numbers, Q – the set of rational
-numbers, Q+ = Q ∩ [0, ∞). We work by induction. For n = 1 the statement
-is trivial. Let it be true for n − 1. We start to prove it for n. From the
-induction argument there are n − 1 different elements x 1 , x2 , . . . , xn−1 ∈ S
-such that
-
-         a1 x1 + a2 x2 + · · · + an−1 xn−1 ∈ I
-(1)
-         for all a1 , a2 , . . . , an ∈ Q+ with a1 + a2 + · · · + an−1 > 0.
-
-Denote the other elements of S by xn , xn+1 , . . . , x2n−1 . Assume the state-
-ment is not true for n. Then for k = 0, 1, . . . , n − 1 there are r k ∈ Q such
-that
-       n−1                                                            n−1
-              bik xi + ck xn+k = rk for some bik , ck ∈ Q+ ,
-       X                                                              X
-(2)                                                                         bik + ck > 0.
-        i=1                                                           i=1
-
-Also
-          n−1                                            n−1
-                dk xn+k = R for some dk ∈ Q+ ,
-          X                                              X
-(3)                                                            dk > 0, R ∈ Q.
-          k=0                                            k=0
-
-If in (2) ck = 0 then (2) contradicts (1). Thus ck 6= 0 and without loss of
-                                                       n−1
-generality one may take ck = 1. In (2) also                  bik > 0 in view of xn+k ∈ I.
-                                                        P
-                                                       i=1
-Replacing (2) in (3) we get
-
-         n−1          n−1                              n−1    n−1
-                                          !                             !
-         X            X                                X      X
-               dk −         bik xi + rk       = R or                dk bik xi ∈ Q,
-         k=0          i=1                              i=1    k=0
-
-which contradicts (1) because of the conditions on b 0 s and d0 s.
-
-
-   Problem 4. (18 points)
-   Let α ∈ R \ {0} and suppose that F and G are linear maps (operators)
-from Rn into Rn satisfying F ◦ G − G ◦ F = αF .
-   a) Show that for all k ∈ N one has F k ◦ G − G ◦ F k = αkF k .
-   b) Show that there exists k ≥ 1 such that F k = 0.
-                                                                                                  3
-
-   Solution. For a) using the assumptions we have
-                                         k                                                   
-       Fk ◦ G − G ◦ Fk =                        F k−i+1 ◦ G ◦ F i−1 − F k−i ◦ G ◦ F i =
-                                         X
-
-                                         i=1
-                                          k
-                                               F k−i ◦ (F ◦ G − G ◦ F ) ◦ F i−1 =
-                                         X
-                                    =
-                                         i=1
-                                          k
-                                               F k−i ◦ αF ◦ F i−1 = αkF k .
-                                         X
-                                    =
-                                         i=1
-
-    b) Consider the linear operator L(F ) = F ◦G−G◦F acting over all n×n
-matrices F . It may have at most n2 different eigenvalues. Assuming that
-F k 6= 0 for every k we get that L has infinitely many different eigenvalues
-αk in view of a) – a contradiction.
-
-   Problem 5. (18 points)
-   a) Let f ∈ C[0, b], g ∈ C(R) and let g be periodic with period b. Prove
-       Z b
-that           f (x)g(nx)dx has a limit as n → ∞ and
-           0
-                             Z b                            Z b               Z b
-                                                        1
-                     lim           f (x)g(nx)dx =                 f (x)dx ·         g(x)dx.
-                     n→∞ 0                              b    0                 0
-
-   b) Find                                     Z π
-                                                         sin x
-                                        lim                        dx.
-                                        n→∞ 0        1 + 3cos 2 nx
-                                        Z b
-   Solution. Set kgk1 =                       |g(x)|dx and
-                                         0
-
-                 ω(f, t) = sup {|f (x) − f (y)| : x, y ∈ [0, b], |x − y| ≤ t} .
-
-In view of the uniform continuity of f we have ω(f, t) → 0 as t → 0. Using
-the periodicity of g we get
-       Z b                          n Z bk/n
-                                    X
-               f (x)g(nx)dx =                         f (x)g(nx)dx
-        0                         k=1 b(k−1)/n
-            n
-            X                Z bk/n                      n Z bk/n
-                                                         X
-       =          f (bk/n)               g(nx)dx +                        {f (x) − f (bk/n)}g(nx)dx
-            k=1               b(k−1)/n                   k=1 b(k−1)/n
-               n             b
-            1X
-                               Z
-       =          f (bk/n)     g(x)dx + O(ω(f, b/n)kgk1 )
-            n k=1          0
-4
-
-         n   bk/n              b
-      1X
-                Z                      Z
-    =                f (x)dx     g(x)dx
-      b k=1 b(k−1)/n         0
-           n                           Z bk/n                  !Z
-        1X          b                                                   b
-      +               f (bk/n) −                     f (x)dx                g(x)dx + O(ω(f, b/n)kgk1 )
-        b k=1       n                   b(k−1)/n                    0
-          Z b             Z b
-      1
-    =           f (x)dx         g(x)dx + O(ω(f, b/n)kgk1 ).
-      b    0               0
-
-This proves a). For b) we set b = π, f (x) = sin x, g(x) = (1 + 3cos 2 x)−1 .
-From a) and
-                    Z π                         Z π
-                                                                                    π
-                          sin xdx = 2,                (1 + 3cos 2 x)−1 dx =
-                     0                           0                                  2
-we get                                 Z π
-                                                 sin x
-                                 lim                       dx = 1.
-                                n→∞ 0        1 + 3cos 2 nx
-
-
-    Problem 6. (25 points)
-    Let f ∈ C 2 [0, N ] and |f 0 (x)| < 1, f 00 (x) > 0 for every x ∈ [0, N ]. Let
-0 ≤ m0 < m1 < · · · < mk ≤ N be integers such that ni = f (mi ) are also
-integers for i = 0, 1, . . . , k. Denote b i = ni − ni−1 and ai = mi − mi−1 for
-i = 1, 2, . . . , k.
-    a) Prove that
-                                  b1   b2           bk
-                          −1 <       <      < ··· <    < 1.
-                                  a1   a2           ak
-    b) Prove that for every choice of A > 1 there are no more than N/A
-indices j such that aj > A.
-    c) Prove that k ≤ 3N 2/3 (i.e. there are no more than 3N 2/3 integer
-points on the curve y = f (x), x ∈ [0, N ]).
-    Solution. a) For i = 1, 2, . . . , k we have
-
-                     bi = f (mi ) − f (mi−1 ) = (mi − mi−1 )f 0 (xi )
-
-                                  bi                            bi
-for some xi ∈ (mi−1 , mi ). Hence    = f 0 (xi ) and so −1 <        < 1. From the
-                                  ai                            ai
-                                                      bi
-convexity of f we have that f 0 is increasing and        = f 0 (xi ) < f 0 (xi+1 ) =
-                                                      ai
-bi+1
-     because of xi < mi < xi+1 .
-ai+1
-                                                                                5
-
-    b) Set SA = {j ∈ {0, 1, . . . , k} : aj > A}. Then
-                                      k
-                                      X            X
-                   N ≥ m k − m0 =           ai ≥          aj > A|SA |
-                                      i=1          j∈SA
-
-and hence |SA | < N/A.
-    c) All different fractions in (−1, 1) with denominators less or equal A are
-no more 2A2 . Using b) we get k < N/A + 2A2 . Put A = N 1/3 in the above
-estimate and get k < 3N 2/3 .
-
-
-    Second day — July 30, 1994
-
-    Problem 1. (14 points)
-    Let f ∈ C 1 [a, b], f (a) = 0 and suppose that λ ∈ R, λ > 0, is such that
-
-                                 |f 0 (x)| ≤ λ|f (x)|
-
-for all x ∈ [a, b]. Is it true that f (x) = 0 for all x ∈ [a, b]?
-     Solution. Assume that there is y ∈ (a, b] such that f (y) 6= 0. Without
-loss of generality we have f (y) > 0. In view of the continuity of f there exists
-c ∈ [a, y) such that f (c) = 0 and f (x) > 0 for x ∈ (c, y]. For x ∈ (c, y] we
-have |f 0 (x)| ≤ λf (x). This implies that the function g(x) = ln f (x) − λx is
-                                              f 0 (x)
-not increasing in (c, y] because of g 0 (x) =         −λ ≤ 0. Thus ln f (x)−λx ≥
-                                              f (x)
-ln f (y) − λy and f (x) ≥ eλx−λy f (y) for x ∈ (c, y]. Thus
-
-                     0 = f (c) = f (c + 0) ≥ eλc−λy f (y) > 0
-
-— a contradiction. Hence one has f (x) = 0 for all x ∈ [a, b].
-
-   Problem 2. (14 points)
-   Let f : R2 → R be given by f (x, y) = (x2 − y 2 )e−x −y .
-                                                       2  2
-
-
-   a) Prove that f attains its minimum and its maximum.
-                                             ∂f           ∂f
-   b) Determine all points (x, y) such that     (x, y) =     (x, y) = 0 and
-                                             ∂x           ∂y
-determine for which of them f has global or local minimum or maximum.
-   Solution. We have f (1, 0) = e−1 , f (0, 1) = −e−1 and te−t ≤ 2e−2 for
-                                            2  2
-t ≥ 2. Therefore |f (x, y)| ≤ (x2 + y 2 )e−x −y ≤ 2e−2 < e−1 for (x, y) ∈
-                                                                        /
-M = {(u, v) : u2 + v 2 ≤ 2} and f cannot attain its minimum and its
-6
-
-maximum outside M . Part a) follows from the compactness of M and the
-                                                            ∂f
-continuity of f . Let (x, y) be a point from part b). From     (x, y) =
-                    2  2
-                                                            ∂x
-2x(1 − x2 + y 2 )e−x −y we get
-
-(1)                             x(1 − x2 + y 2 ) = 0.
-
-Similarly
-
-(2)                             y(1 + x2 − y 2 ) = 0.
-
-All solutions (x, y) of the system (1), (2) are (0, 0), (0, 1), (0, −1), (1, 0)
-and (−1, 0). One has f (1, 0) = f (−1, 0) = e −1 and f has global maximum
-at the points (1, 0) and (−1, 0). One has f (0, 1) = f (0, −1) = −e −1 and
-f has global minimum at the points (0, 1) and (0, −1). The point (0, 0)
-                                                        2
-is not an extrema point because of f (x, 0) = x 2 e−x > 0 if x 6= 0 and
-                   2
-f (y, 0) = −y 2 e−y < 0 if y 6= 0.
-
-   Problem 3. (14 points)
-   Let f be a real-valued function with n + 1 derivatives at each point of
-R. Show that for each pair of real numbers a, b, a < b, such that
-                                                            !
-                      f (b) + f 0 (b) + · · · + f (n) (b)
-                   ln                                           =b−a
-                      f (a) + f 0 (a) + · · · + f (n) (a)
-
-there is a number c in the open interval (a, b) for which
-
-                                 f (n+1) (c) = f (c).
-
-Note that ln denotes the natural logarithm.
-                                                                    
-    Solution. Set g(x) = f (x) + f 0 (x) + · · · + f (n) (x) e−x . From the
-assumption one get g(a) = g(b). Then there exists       c ∈ (a, b) such
-                                                                       that
-  0                                        0
-g (c) = 0. Replacing in the last equality g (x) = f (n+1)  (x) − f (x) e−x we
-finish the proof.
-
-      Problem 4. (18 points)
-      Let A be a n × n diagonal matrix with characteristic polynomial
-
-                       (x − c1 )d1 (x − c2 )d2 . . . (x − ck )dk ,
-
-where c1 , c2 , . . . , ck are distinct (which means that c1 appears d1 times on the
-diagonal, c2 appears d2 times on the diagonal, etc. and d1 +d2 +· · ·+dk = n).
-                                                                                                            7
-
-Let V be the space of all n × n matrices B such that AB = BA. Prove that
-the dimension of V is
-                             d21 + d22 + · · · + d2k .
-
-     Solution. Set A = (aij )ni,j=1 , B = (bij )ni,j=1 , AB = (xij )ni,j=1 and
-BA = (yij )ni,j=1 . Then xij = aii bij and yij = ajj bij . Thus AB = BA is
-equivalent to (aii − ajj )bij = 0 for i, j = 1, 2, . . . , n. Therefore bij = 0 if
-aii 6= ajj and bij may be arbitrary if aii = ajj . The number of indices (i, j)
-for which aii = ajj = cm for some m = 1, 2, . . . , k is d2m . This gives the
-desired result.
-
-    Problem 5. (18 points)
-    Let x1 , x2 , . . . , xk be vectors of m-dimensional Euclidian space, such that
-x1 +x2 +· · ·+xk = 0. Show that there exists a permutation π of the integers
-{1, 2, . . . , k} such that
-
-                n                  k
-                                                     !1/2
-                                                 2
-                X                  X
-                        xπ(i) ≤          kxi k                 for each n = 1, 2, . . . , k.
-                i=1                i=1
-
-Note that k · k denotes the Euclidian norm.
-    Solution. We define π inductively. Set π(1) = 1. Assume π is defined
-for i = 1, 2, . . . , n and also
-                                   n                 2       n
-                                                                   kxπ(i) k2 .
-                                   X                         X
-(1)                                      xπ(i)           ≤
-                                   i=1                       i=1
-
-Note (1) is true for n = 1. We choose π(n + 1) in a way that (1) is fulfilled
-                                             n
-                                             P
-with n + 1 instead of n. Set y =                         xπ(i) and A = {1, 2, . . . , k} \ {π(i) : i =
-                                             i=1                                                       !
-1, 2, . . . , n}. Assume that (y, xr ) > 0 for all r ∈ A. Then                         y,
-                                                                                            P
-                                                                                                  xr       >0
-                                                                                            r∈A
-and in view of y +
-                             P
-                                  xr = 0 one gets −(y, y) > 0, which is impossible.
-                            r∈A
-Therefore there is r ∈ A such that
-
-(2)                                         (y, xr ) ≤ 0.
-
-Put π(n + 1) = r. Then using (2) and (1) we have
-
-      n+1           2
-                        = ky + xr k2 = kyk2 + 2(y, xr ) + kxr k2 ≤ kyk2 + kxr k2 ≤
-      X
-            xπ(i)
-      i=1
-8
-
-                        n                                  n+1
-                              kxπ(i) k2 + kxr k2 =               kxπ(i) k2 ,
-                        X                                  X
-                    ≤
-                        i=1                                i=1
-which verifies (1) for n + 1. Thus we define π for every n = 1, 2, . . . , k.
-Finally from (1) we get
-                      n             2       n                    k
-                                                  kxπ(i) k2 ≤          kxi k2 .
-                      X                     X                    X
-                            xπ(i)       ≤
-                      i=1                   i=1                  i=1
-
-
-
-    Problem 6. (22 points)
-              ln2 N NX−2
-                                  1
-    Find lim                              . Note that ln denotes the natural
-         N →∞ N          ln k · ln(N − k)
-                     k=2
-logarithm.
-    Solution. Obviously
-
-              ln2 N NX
-                     −2
-                               1         ln2 N N − 3    3
-(1)    AN =                            ≥      · 2    =1− .
-                N k=2 ln k · ln(N − k)     N   ln N     N
-
-                                                   1
-Take M , 2 ≤ M < N/2. Then using that                      is decreasing in
-                                          ln k · ln(N − k)
-[2, N/2] and the symmetry with respect to N/2 one get
-                                                            
-                      M   N −M    N
-              ln2 N  X     X−1   X −2 
-                                                1
-         AN =           +       +                       ≤
-                N k=2 k=M +1 k=N −M  ln k · ln(N − k)
-
-              ln2 N              M −1           N − 2M − 1
-                                                                                 
-            ≤             2                 +                                         ≤
-                N           ln 2 · ln(N − 2) ln M · ln(N − M )
-               2 M ln N           2M                       ln N      1
-                                                                               
-              ≤    ·         + 1−                               +O                    .
-              ln 2     N           N                       ln M    ln N
-               N
-                   
-Choose M =            + 1 to get
-             ln2 N
-                     2                ln N             1                                      ln ln N
-                                                                                                   
-(2) AN ≤ 1 −                                      +O                          ≤ 1+O                         .
-                  N ln2 N        ln N − 2 ln ln N    ln N                                      ln N
-Estimates (1) and (2) give
-
-                        ln2 N NX−2
-                                            1
-                      lim                           = 1.
-                    N →∞ N         ln k · ln(N − k)
-                               k=2
-
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+
+\title{International Competition in Mathematics for University Students\\
+Plovdiv, Bulgaria, 1994}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{center}\textbf{First day --- July 29, 1994}\end{center}
+
+\section*{Problem 1 (Day 1)}
+(a) Let $A$ be an $n\times n$ ($n\geq 2$) symmetric, invertible matrix with positive real entries. Show $z_n \leq n^2 - 2n$, where $z_n$ is the number of zero entries in $A^{-1}$.
+
+(b) How many zero entries are in the inverse of the $n\times n$ matrix
+\[
+A = \begin{pmatrix}
+1 & 1 & 1 & 1 & \cdots & 1\\
+1 & 2 & 2 & 2 & \cdots & 2\\
+1 & 2 & 1 & 1 & \cdots & 1\\
+1 & 2 & 1 & 2 & \cdots & 2\\
+\vdots & & & & & \vdots\\
+1 & 2 & 1 & 2 & \cdots & \cdots
+\end{pmatrix}?
+\]
+
+\subsection*{Solution}
+Let $a_{ij}, b_{ij}$ be entries of $A, A^{-1}$. For $k \neq m$, $\sum_{i=0}^n a_{ki} b_{im} = 0$. Since $a_{ki} > 0$, $\{b_{im}\}_i$ must have at least one positive and at least one negative entry, so at least two nonzero entries per column of $A^{-1}$. Hence at most $n^2 - 2n$ zeros.
+
+(b) All $b_{ij}$ are zero except $b_{1,1} = 2$, $b_{n,n} = (-1)^n$, $b_{i,i+1} = b_{i+1,i} = (-1)^i$ for $i = 1,\ldots,n-1$. So $n^2 - 2n$ zeros.
+
+\section*{Problem 2 (Day 1)}
+Let $f \in C^1(a,b)$ with $\lim_{x\to a+} f(x) = +\infty$, $\lim_{x\to b-}f(x) = -\infty$ and $f'(x) + f^2(x) \geq -1$ on $(a,b)$. Prove $b - a \geq \pi$ and give an example where $b - a = \pi$.
+
+\subsection*{Solution}
+From the inequality,
+\[
+\frac{d}{dx}(\arctan f(x) + x) = \frac{f'(x)}{1 + f^2(x)} + 1 \geq 0,
+\]
+so $\arctan f(x) + x$ is nondecreasing. Taking limits: $\pi/2 + a \leq -\pi/2 + b$, giving $b - a \geq \pi$. Equality: $f(x) = \cot x$ on $(0, \pi)$.
+
+\section*{Problem 3 (Day 1)}
+Given a set $S$ of $2n - 1$ distinct irrational numbers, prove there exist $n$ distinct elements $x_1, \ldots, x_n \in S$ such that for all nonnegative rationals $a_1, \ldots, a_n$ with $a_1 + \cdots + a_n > 0$, the sum $a_1 x_1 + \cdots + a_n x_n$ is irrational.
+
+\subsection*{Solution}
+Let $\mathbb{I}$ denote irrationals, $\mathbb{Q}^+ = \mathbb{Q} \cap [0, \infty)$. Induct on $n$. For $n=1$ trivial. Assume true for $n-1$: there exist $x_1, \ldots, x_{n-1} \in S$ with
+\[
+a_1 x_1 + \cdots + a_{n-1}x_{n-1} \in \mathbb{I} \quad \forall a_i \in \mathbb{Q}^+, \sum a_i > 0. \quad (1)
+\]
+Denote the remaining elements of $S$ by $x_n, x_{n+1}, \ldots, x_{2n-1}$. Suppose the claim fails for $n$. Then for each $k = 0, 1, \ldots, n-1$, there are $b_{ik}, c_k \in \mathbb{Q}^+$ not all zero with
+\[
+\sum_{i=1}^{n-1} b_{ik} x_i + c_k x_{n+k} = r_k \in \mathbb{Q}, \quad \sum_i b_{ik} + c_k > 0. \quad (2)
+\]
+Also (applying (1) in reverse) there exist $d_k \in \mathbb{Q}^+$, $\sum d_k > 0$, with $\sum_{k=0}^{n-1} d_k x_{n+k} = R \in \mathbb{Q}$. (3)
+
+If $c_k = 0$, (2) contradicts (1). So $c_k \neq 0$; WLOG $c_k = 1$, and $\sum_i b_{ik} > 0$ (since $x_{n+k}$ irrational). Substitute (2) into (3):
+\[
+\sum_{k=0}^{n-1} d_k\Big(-\sum_i b_{ik} x_i + r_k\Big) = R \implies \sum_{i=1}^{n-1}\Big(\sum_k d_k b_{ik}\Big) x_i \in \mathbb{Q},
+\]
+contradicting (1) since $\sum_k d_k b_{ik} \geq 0$ with some strictly positive.
+
+\section*{Problem 4 (Day 1)}
+Let $\alpha \in \mathbb{R}\setminus\{0\}$ and $F, G: \mathbb{R}^n \to \mathbb{R}^n$ linear with $F\circ G - G\circ F = \alpha F$.
+(a) Show $F^k \circ G - G \circ F^k = \alpha k F^k$ for all $k$.
+(b) Show there exists $k \geq 1$ with $F^k = 0$.
+
+\subsection*{Solution}
+(a) Telescoping:
+\[
+F^k \circ G - G \circ F^k = \sum_{i=1}^k (F^{k-i+1} \circ G \circ F^{i-1} - F^{k-i} \circ G \circ F^i) = \sum_{i=1}^k F^{k-i} \circ (F\circ G - G\circ F) \circ F^{i-1} = \alpha k F^k.
+\]
+
+(b) The operator $L(F) = F\circ G - G\circ F$ on $n\times n$ matrices has at most $n^2$ distinct eigenvalues. If $F^k \neq 0$ for all $k$, then by (a) each $\alpha k$ is an eigenvalue — infinitely many, contradiction.
+
+\section*{Problem 5 (Day 1)}
+(a) Let $f \in C[0,b]$, $g \in C(\mathbb{R})$ periodic with period $b$. Prove
+\[
+\lim_{n\to\infty}\int_0^b f(x)g(nx)\,dx = \frac{1}{b}\int_0^b f(x)dx \cdot \int_0^b g(x)dx.
+\]
+(b) Find $\lim_{n\to\infty}\int_0^\pi \frac{\sin x}{1 + 3\cos^2 nx}\,dx$.
+
+\subsection*{Solution}
+Let $\|g\|_1 = \int_0^b |g|$ and $\omega(f,t) = \sup\{|f(x)-f(y)| : |x-y|\leq t\}$; $\omega(f,t)\to 0$ by uniform continuity. Split into intervals $[b(k-1)/n, bk/n]$ and use periodicity:
+\[
+\int_0^b f(x)g(nx)dx = \sum_{k=1}^n f(bk/n)\int_{b(k-1)/n}^{bk/n} g(nx)dx + O(\omega(f,b/n)\|g\|_1).
+\]
+Each $\int_{b(k-1)/n}^{bk/n}g(nx)dx = \frac{1}{n}\int_0^b g$. Hence the sum is $\frac{1}{n}\sum f(bk/n) \int_0^b g$, a Riemann sum equal to $\frac{1}{b}\int_0^b f \cdot \int_0^b g + O(\omega(f,b/n)\|g\|_1)$.
+
+(b) $b = \pi$, $f = \sin x$, $g(x) = 1/(1 + 3\cos^2 x)$. Then $\int_0^\pi \sin x\,dx = 2$ and $\int_0^\pi dx/(1+3\cos^2 x) = \pi/2$, so
+\[
+\lim_{n\to\infty}\int_0^\pi \frac{\sin x}{1+3\cos^2 nx}\,dx = \frac{1}{\pi} \cdot 2 \cdot \frac{\pi}{2} = 1.
+\]
+
+\section*{Problem 6 (Day 1)}
+Let $f \in C^2[0, N]$ with $|f'(x)| < 1$ and $f''(x) > 0$ on $[0, N]$. Let $0 \leq m_0 < m_1 < \cdots < m_k \leq N$ be integers with $n_i = f(m_i)$ also integers. Let $b_i = n_i - n_{i-1}$, $a_i = m_i - m_{i-1}$.
+(a) Prove $-1 < b_1/a_1 < b_2/a_2 < \cdots < b_k/a_k < 1$.
+(b) For $A > 1$, show there are at most $N/A$ indices $j$ with $a_j > A$.
+(c) Show $k \leq 3 N^{2/3}$.
+
+\subsection*{Solution}
+(a) By MVT: $b_i = f(m_i) - f(m_{i-1}) = a_i f'(x_i)$ for some $x_i \in (m_{i-1}, m_i)$. So $b_i/a_i = f'(x_i)$, giving $|b_i/a_i| < 1$. Convexity $\Rightarrow f'$ increasing, and $x_i < m_i < x_{i+1}$ gives $b_i/a_i < b_{i+1}/a_{i+1}$.
+
+(b) Let $S_A = \{j : a_j > A\}$. Then
+\[
+N \geq m_k - m_0 = \sum_{i=1}^k a_i \geq \sum_{j \in S_A} a_j > A|S_A|,
+\]
+so $|S_A| < N/A$.
+
+(c) The values $b_i/a_i$ are distinct rationals in $(-1,1)$. The number of such rationals with denominator $\leq A$ is at most $2A^2$. Using (b), $k \leq N/A + 2A^2$. Setting $A = N^{1/3}$ gives $k \leq 3N^{2/3}$.
+
+\begin{center}\textbf{Second day --- July 30, 1994}\end{center}
+
+\section*{Problem 1 (Day 2)}
+Let $f \in C^1[a,b]$, $f(a) = 0$, and $\lambda > 0$ such that $|f'(x)| \leq \lambda |f(x)|$ on $[a,b]$. Is $f(x) = 0$ on $[a,b]$?
+
+\subsection*{Solution}
+Yes. Suppose $f(y) \neq 0$ for some $y \in (a,b]$; WLOG $f(y) > 0$. By continuity, $\exists\, c \in [a, y)$ with $f(c) = 0$ and $f > 0$ on $(c, y]$. On $(c, y]$, $|f'(x)| \leq \lambda f(x)$, so $g(x) = \ln f(x) - \lambda x$ satisfies $g'(x) = f'(x)/f(x) - \lambda \leq 0$, i.e., $g$ is non-increasing. Hence $\ln f(x) - \lambda x \geq \ln f(y) - \lambda y$, so $f(x) \geq e^{\lambda x - \lambda y} f(y)$ on $(c, y]$. Then
+\[
+0 = f(c) = \lim_{x\to c+} f(x) \geq e^{\lambda c - \lambda y} f(y) > 0,
+\]
+contradiction.
+
+\section*{Problem 2 (Day 2)}
+Let $f(x,y) = (x^2 - y^2)e^{-x^2 - y^2}$.
+(a) Prove $f$ attains its minimum and maximum.
+(b) Determine all critical points and classify.
+
+\subsection*{Solution}
+$f(1,0) = e^{-1}$, $f(0,1) = -e^{-1}$, and $te^{-t} \leq 2e^{-2}$ for $t \geq 2$; so $|f(x,y)| \leq (x^2+y^2)e^{-x^2-y^2} \leq 2e^{-2} < e^{-1}$ for $(x,y) \notin M = \{(u,v):u^2+v^2\leq 2\}$. Thus extrema are inside $M$; compactness gives (a).
+
+Critical points from $\partial f/\partial x = 2x(1 - x^2 + y^2)e^{-x^2-y^2} = 0$ and $\partial f/\partial y = -2y(1 + x^2 - y^2)e^{-x^2-y^2} = 0$:
+\[
+x(1 - x^2 + y^2) = 0, \quad y(1 + x^2 - y^2) = 0.
+\]
+Solutions: $(0,0), (0,1), (0,-1), (1,0), (-1,0)$. $f(\pm 1, 0) = e^{-1}$ (global max), $f(0, \pm 1) = -e^{-1}$ (global min). At $(0,0)$: $f(x,0) = x^2 e^{-x^2} > 0$ for $x \neq 0$, $f(0,y) = -y^2 e^{-y^2} < 0$ for $y \neq 0$ — saddle.
+
+\section*{Problem 3 (Day 2)}
+Let $f$ have $n+1$ derivatives on $\mathbb{R}$. Show: for each $a < b$ with
+\[
+\ln\left(\frac{f(b) + f'(b) + \cdots + f^{(n)}(b)}{f(a) + f'(a) + \cdots + f^{(n)}(a)}\right) = b - a,
+\]
+there is $c \in (a,b)$ with $f^{(n+1)}(c) = f(c)$.
+
+\subsection*{Solution}
+Set $g(x) = (f(x) + f'(x) + \cdots + f^{(n)}(x))e^{-x}$. The hypothesis gives $g(a) = g(b)$, so by Rolle there is $c \in (a,b)$ with $g'(c) = 0$. But
+\[
+g'(x) = (f^{(n+1)}(x) - f(x))e^{-x},
+\]
+so $f^{(n+1)}(c) = f(c)$.
+
+\section*{Problem 4 (Day 2)}
+Let $A$ be an $n\times n$ diagonal matrix with characteristic polynomial $(x-c_1)^{d_1}\cdots(x-c_k)^{d_k}$ ($c_i$ distinct, $\sum d_i = n$). Let $V = \{B : AB = BA\}$. Prove $\dim V = d_1^2 + \cdots + d_k^2$.
+
+\subsection*{Solution}
+With $A = (a_{ij})$ diagonal and $B = (b_{ij})$, $(AB)_{ij} = a_{ii} b_{ij}$ and $(BA)_{ij} = a_{jj} b_{ij}$. So $AB = BA$ iff $(a_{ii} - a_{jj})b_{ij} = 0$ for all $i,j$. Thus $b_{ij} = 0$ unless $a_{ii} = a_{jj}$, and $b_{ij}$ is free otherwise. The number of $(i,j)$ with $a_{ii} = a_{jj} = c_m$ is $d_m^2$. Hence $\dim V = \sum d_m^2$.
+
+\section*{Problem 5 (Day 2)}
+Let $x_1, \ldots, x_k \in \mathbb{R}^m$ with $x_1 + \cdots + x_k = 0$. Show there is a permutation $\pi$ with
+\[
+\Big\|\sum_{i=1}^n x_{\pi(i)}\Big\| \leq \Big(\sum_{i=1}^k \|x_i\|^2\Big)^{1/2} \quad \forall n = 1, \ldots, k.
+\]
+
+\subsection*{Solution}
+Define $\pi$ inductively: $\pi(1) = 1$. Suppose $\pi(1), \ldots, \pi(n)$ defined with
+\[
+\Big\|\sum_{i=1}^n x_{\pi(i)}\Big\|^2 \leq \sum_{i=1}^n \|x_{\pi(i)}\|^2. \quad (1)
+\]
+Let $y = \sum_{i=1}^n x_{\pi(i)}$ and $A = \{1,\ldots,k\}\setminus\{\pi(i)\}$. Then $\sum_{r\in A} x_r = -y$. If $(y, x_r) > 0$ for all $r \in A$, summing gives $(y, -y) > 0$, i.e. $-\|y\|^2 > 0$, impossible. Pick $r \in A$ with $(y, x_r) \leq 0$; set $\pi(n+1) = r$:
+\[
+\Big\|\sum_{i=1}^{n+1} x_{\pi(i)}\Big\|^2 = \|y\|^2 + 2(y, x_r) + \|x_r\|^2 \leq \|y\|^2 + \|x_r\|^2 \leq \sum_{i=1}^{n+1} \|x_{\pi(i)}\|^2.
+\]
+By induction $(1)$ holds for all $n$, and $\sum \|x_{\pi(i)}\|^2 \leq \sum_{i=1}^k \|x_i\|^2$.
+
+\section*{Problem 6 (Day 2)}
+Find
+\[
+\lim_{N\to\infty}\frac{\ln^2 N}{N}\sum_{k=2}^{N-2}\frac{1}{\ln k \cdot \ln(N-k)}.
+\]
+
+\subsection*{Solution}
+Let $A_N$ be the sum. Lower bound: $\ln k \cdot \ln(N-k) \leq \ln^2 N$, so
+\[
+A_N \geq \frac{\ln^2 N}{N} \cdot \frac{N-3}{\ln^2 N} = 1 - 3/N. \quad (1)
+\]
+
+Upper bound: $1/(\ln k \cdot \ln(N-k))$ is decreasing on $[2, N/2]$ and symmetric about $N/2$. For $2 \leq M < N/2$, split $\sum_{k=2}^{N-2} = \sum_{k=2}^M + \sum_{k=M+1}^{N-M-1} + \sum_{k=N-M}^{N-2}$:
+\[
+A_N \leq \frac{\ln^2 N}{N}\Big\{2\frac{M-1}{\ln 2 \cdot \ln(N-2)} + \frac{N-2M-1}{\ln M \cdot \ln(N-M)}\Big\}
+\leq \frac{2M\ln N}{N\ln 2} + \Big(1 - \frac{2M}{N}\Big)\frac{\ln N}{\ln M} + O(1/\ln N).
+\]
+Choose $M = \lfloor N/\ln^2 N\rfloor + 1$:
+\[
+A_N \leq \Big(1 - \frac{2}{N\ln^2 N}\Big)\frac{\ln N}{\ln N - 2\ln\ln N} + O(1/\ln N) \leq 1 + O(\ln\ln N / \ln N). \quad (2)
+\]
+
+From (1), (2):
+\[
+\lim_{N\to\infty}\frac{\ln^2 N}{N}\sum_{k=2}^{N-2}\frac{1}{\ln k \cdot \ln(N-k)} = 1.
+\]
+
+\end{document}
