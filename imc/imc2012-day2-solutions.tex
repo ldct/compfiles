@@ -1,271 +1,48 @@
-                              IMC 2012, Blagoevgrad, Bulgaria
-                                           Day 2, July 29, 2012
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{IMC 2012, Blagoevgrad, Bulgaria --- Day 2 Solutions}
+\date{July 29, 2012}
+\begin{document}
+\maketitle
 
-Problem 1. Consider a polynomial
+\section*{Problem 6}
+\subsection*{Solution}
+Homer wins both.
 
-                                   f (x) = x2012 + a2011 x2011 + . . . + a1 x + a0 .
+(a) Homer makes the last move. Homer wants $f(2012) = 0$, which is a linear equation in the remaining coefficient; solvable.
 
-Albert Einstein and Homer Simpson are playing the following game. In turn, they choose one of the
-coefficients a0 , . . . , a2011 and assign a real value to it. Albert has the first move. Once a value is assigned
-to a coefficient, it cannot be changed any more. The game ends after all the coefficients have been
-assigned values.
-    Homer’s goal is to make f (x) divisible by a fixed polynomial m(x) and Albert’s goal is to prevent
-this.
+(b) $f(x) = g(x^2) + x h(x^2)$ where $g, h$ have even and odd coefficients. $(x^2+1) \mid f(x) \iff g(-1) = h(-1) = 0$. Both $g, h$ have even number of undetermined coefficients. Homer's strategy: whenever Albert assigns a coefficient in $g$ (resp.\ $h$), Homer responds in the same polynomial. Homer assigns the last coefficient in each; uses it to set $g(-1) = 0$, $h(-1) = 0$.
 
- (a) Which of the players has a winning strategy if m(x) = x − 2012?
+\section*{Problem 7}
+\subsection*{Solution}
+The recurrence gives $k a_k = \frac{(1 + (k+1) a_k) a_{k+1}}{a_k} = \frac{a_{k+1}}{a_k} + (k+1) a_{k+1}$ for $k \ge 1$. So
+\[ \sum_{k=0}^n \frac{a_{k+1}}{a_k} = \tfrac{a_1}{a_0} + \sum_{k=1}^n (k a_k - (k+1) a_{k+1}) = \tfrac{1}{2} + 1 \cdot a_1 - (n+1) a_{n+1} = 1 - (n+1) a_{n+1}. \]
+All terms positive and partial sums $< 1$, so series converges; $a_{k+1}/a_k \to 0$, so $a_n < C/2^n$ eventually, so $(n+1) a_{n+1} \to 0$. Therefore $\sum = 1$.
 
- (b) Which of the players has a winning strategy if m(x) = x2 + 1?
+\section*{Problem 8}
+\subsection*{Solution}
+Finite. If $n! + 1 \mid (2012n)!$: since $(n!)^{2012} \mid (2012n)!$ (multinomial) and $\gcd(n!+1, (n!)^{2012}) = 1$, we have $(n!+1)(n!)^{2012} \le (2012 n)!$. Using $(n!)^{2013} < (n!+1)(n!)^{2012} \le (2012n)!$ and $((n+1)/e)^n < n! \le n^n$:
+\[ (n/e)^{2013 n} < (2012 n)^{2012 n} \implies n < 2012^{2012} \cdot e^{2013}. \]
+Only finitely many such $n$.
 
-                                            (Proposed by Fedor Duzhin, Nanyang Technological University)
-Solution. We show that Homer has a winning strategy in both part (a) and part (b).
-(a) Notice that the last move is Homer’s, and only the last move matters. Homer wins if and only if
-f (2012) = 0, i.e.
+\section*{Problem 9}
+\subsection*{Solution}
+Answer: $(-\infty, 1/4] \cup \{1/(4\cos^2(k\pi/n)) : k \in \mathbb{N}, 1 \le k < n/2\}$.
 
-                    20122012 + a2011 20122011 + . . . + ak 2012k + . . . + a1 2012 + a0 = 0.                           (1)
+For $a \le 1/4$: choose $x_1(1-x_1) = a$, set all equal. For $a > 1/4$, the recurrence $x_{i+1} = \varphi(x_i) = 1 - a/x_i$ is a Mobius transform with matrix $M = \begin{pmatrix} 1 & -a \\ 1 & 0 \end{pmatrix}$. Characteristic polynomial $\lambda^2 - \lambda + a$, roots $\lambda_{1,2} = \frac{1 \pm i\sqrt{4a-1}}{2}$, complex. The composition $\varphi^n$ is the identity on $\mathbb{RP}^1$ iff $\lambda_1^n = \lambda_2^n$ iff $\arg\lambda_1 = k\pi/n$, giving $\pm\sqrt{4a-1} = \tan(k\pi/n)$, i.e.\ $a = 1/(4\cos^2(k\pi/n))$. Then all but finitely many starting points give valid cycles.
 
-Suppose that all of the coefficients except for ak have been assigned values. Then Homer’s goal is to
-establish (1) which is a linear equation on ak . Clearly, it has a solution and hence Homer can win.
-(b) Define the polynomials
+\section*{Problem 10}
+\subsection*{Solution (Petridis)}
+Let $B \subseteq A$ nonempty minimizing $c_1 := |A+B|/|B|$; so $c_1 \le c$.
 
-  g(y) = a0 + a2 y + a4 y 2 + . . . + a2010 y 1005 + y 1006       and h(y) = a1 + a3 y + a5 y 2 + . . . + a2011 y 1005 ,
+\emph{Lemma 1.} $|A + B + D| \le c_1 |B + D|$ for any finite $D$.
 
-so f (x) = g(x2 ) + h(x2 ) · x. Homer wins if he can achieve that g(y) and h(y) are divisible by y + 1, i.e.
-g(−1) = h(−1) = 0.
-    Notice that both g(y) and h(y) have an even number of undetermined coefficients in the beginning
-of the game. A possible strategy for Homer is to follow Albert: whenever Albert assigns a value to a
-coefficient in g or h, in the next move Homer chooses the value for a coefficient in the same polynomial.
-This way Homer defines the last coefficient in g and he also chooses the last coefficient in h. Similarly
-to part (a), Homer can choose these two last coefficients in such a way that both g(−1) = 0 and
-h(−1) = 0 hold.
+Induction on $|D|$. Base $|D|=1$: definition of $c_1$. Step: add $x \notin D$, let $B_1 = \{y \in B : x+y \in B+D\}$. Then $|B + (D \cup \{x\})| = |B+D| + |B| - |B_1|$ and
+\[ |A + B + (D \cup \{x\})| \le |A+B+D| + |A+B| - |A+B_1|. \]
+Use inductive hypothesis on $D$ and definition $|A+B_1|/|B_1| \ge c_1$.
 
-Problem 2. Define the sequence a0 , a1 , . . . inductively by a0 = 1, a1 = 21 and
+\emph{Lemma 2.} $|\underbrace{A + \dots + A}_k + B| \le c_1^k |B|$. Induction on $k$ with $D = \underbrace{A+\dots+A}_{k-1}$.
 
-                                                      na2n
-                                        an+1 =                          for n ≥ 1.
-                                                 1 + (n + 1)an
-                        ∞
-                        X ak+1
-Show that the series               converges and determine its value.
-                        k=0
-                              ak
-                                                       (Proposed by Christophe Debry, KU Leuven, Belgium)
+Then $|\underbrace{A+\dots+A}_k| \le |\underbrace{A+\dots+A}_k + B| \le c_1^k |B| \le c^k |A|$.
 
-
-
-
-                                                              1
-Solution. Observe that
-                                  (1 + (k + 1)ak )ak+1   ak+1
-                          kak =                        =      + (k + 1)ak+1                              for all k ≥ 1,
-                                           ak             ak
-and hence
-         n                    n
-         X ak+1           a1 X                         1
-                      =     +    (kak − (k + 1)ak+1 ) = + 1 · a1 − (n + 1)an+1 = 1 − (n + 1)an+1                                     (1)
-         k=0
-                 ak       a0 k=1                       2
-
-for all n ≥ 0.
-                          n
-                          P                                                                                               ∞
-                                                                                                                          P
-                            ak+1                                                                                            ak+1
-    By (1) we have               ak
-                                        < 1. Since all terms are positive, this implies that the series                         ak
-                                                                                                                                      is
-                          k=0                                                                                             k=0
-                                                 a
-convergent. The sequence of terms, k+1
-                                   ak
-                                       must converge to zero. In particular, there is an index n0 such
-     ak+1   1
-that ak < 2 for n ≥ n0 . Then, by induction on n, we have an < 2Cn with some positive constant C.
-From nan < Cn2n
-                → 0 we get nan → 0, and therefore
-                              ∞                       n                                  
-                              X ak+1                  X ak+1
-                                             = lim                   = lim 1 − (n + 1)an+1 = 1.
-                                        ak      n→∞           ak          n→∞
-                                k=0                   k=0
-
-
-Remark. The inequality an ≤ 21n can be proved by a direct induction as well.
-
-Problem 3. Is the set of positive integers n such that n! + 1 divides (2012n)! finite or infinite?
-                                        (Proposed by Fedor Petrov, St. Petersburg State University)
-Solution 1. Consider a positive integer n with n! + 1 (2012n)!. It is well-known that for arbitrary
-nonnegative integers a1 , . . . , ak , the number (a1 + . . . + ak )! is divisible by a1 ! · . . . · ak !. (The number
-of sequences consisting of a1 digits 1, . . . , ak digits k, is (aa11+...+a      k )!
-                                                                         !·...·ak !
-                                                                                      .) In particular, (n!)2012 divides
-(2012n)!.
-    Since n! + 1 is co-prime with (n!)2012 , their product (n! + 1)(n!)2012 also divides (2012n)!, and
-therefore
-                                           (n! + 1) · (n!)2012 ≤ (2012n)! .
-                                          n
-    By the known inequalities n+1       e
-                                             < n! ≤ nn , we get
-                       n 2013n
-                                       < (n!)2013 < (n! + 1) · (n!)2012 ≤ (2012n)! < (2012n)2012n
-                          e
-                                                         n < 20122012 e2013 .
-
-Therefore, there are only finitely many such integers n.
-                                                 
-                                              n+1 n
-Remark. Instead of the estimate                e    < n!, we may apply the Multinomial theorem:
-                                                                    X                N!
-                                      (x1 + · · · + xℓ )N =                                       xk11 . . . xkℓ ℓ .
-                                                                              k1 ! · . . . · kℓ !
-                                                              k1 +...+kℓ =N
-
-Applying this to N = 2012n, ℓ = 2012 and x1 = . . . = xℓ = 1,
-
-                                          (2012n)!
-                                                    < (1| + 1 +{z. . . + 1})2012n = 20122012n ,
-                                           (n!)2012
-                                                                   2012
-                                                                    (2012n)!
-                                               n! < n! + 1 ≤                  < 20122012n .
-                                                                     (n!)2012
-
-
-
-                                                                          2
-    On the right-hand side we have a geometric progression which increases slower than the factorial
-on the left-hand side, so this is true only for finitely many n.
-Solution 2. Assume that n > 2012 is an integer with n! + 1 (2012n)!. Notice that all prime divisors
-of n! + 1 are greater than n, and all prime divisors of (2012n)! are smaller than
-                                                                                h 2012n.
-                                                                                     i
-    Consider a prime p with n < p < 2012n. Among 1, 2, . . . , 2012n there are 2012n
-                                                                                   p
-                                                                                       < 2012 numbers
-divisible by p; by p2 > n2 > 2012n, none of them is divisible by p2 . Therefore, the exponent of p in the
-prime factorization of (2012n)! is at most 2011. Hence,
-                                                                Y
-                            n! + 1 = gcd n! + 1, (2012n)! <            p2011 .
-                                                                              n<p<2012p
-                           Q
-Applying the inequality         p < 4X ,
-                          p≤X
-                                                                  !2011
-                           Y                         Y                               2011                  n
-                                         2011
-                  n! <               p          <             p           < 42012n           = 42012·2011        .   (2)
-                         n<p<2012p                  p<2012n
-
-Again, we have a factorial on the left-and side and a geometric progression on the right-hand side.
-
-Problem 4. Let n ≥ 2 be an integer. Find all real numbers a such that there exist real numbers x1 ,
-. . . , xn satisfying
-                    x1 (1 − x2 ) = x2 (1 − x3 ) = . . . = xn−1 (1 − xn ) = xn (1 − x1 ) = a.                         (1)
-                                                (Proposed by Walther Janous and Gerhard Kirchner, Innsbruck)
-Solution. Throughout the solution we will use the notation xn+1 = x1 .
-   We prove that the set of possible values of a is
-                                    (                                 )
-                                  1 [          1                      n
-                             −∞,                     ; k ∈ N, 1 ≤ k <     .
-                                  4        4 cos2 kπ
-                                                  n
-                                                                      2
-
-    In the case a ≤ 14 we can choose x1 such that x1 (1 − x1 ) = a and set x1 = x2 = . . . = xn . Hence we
-will now suppose that a > 14 .
-    The system (1) gives the recurrence formula
-                                                          a    xi − a
-                               xi+1 = ϕ(xi ) = 1 −           =        ,         i = 1, . . . , n.
-                                                          xi     xi
-The fractional linear transform ϕ can be interpreted as a projective transform of the real projective
-line R∪ {∞}; the map ϕ is an element of the group PGL2 (R), represented by the linear transform
-        1 −a
-M =              . (Note that det M 6= 0 since a 6= 0.) The transform ϕn can be represented by M n . A
-        1 0
-point [u, v] (written in homogenous coordinates) is a fixed point of this transform if and only if (u, v)T
-is an eigenvector of M n . Since the entries of M n and the coordinates u, v are real, the corresponding
-eigenvalue is real, too.
-    The characteristic polynomial of M is x2 − x + a, which has no real root for a > 41 . So M has two
-                                              √
-conjugate complex eigenvalues λ1.2 = 12 1 ± 4a − 1i . The eigenvalues of M n are λn1,2 , they are real
-if and only if arg λ1,2 = ± kπ
-                             n
-                               with some integer k; this is equivalent with
-                                                √               kπ
-                                               ± 4a − 1 = tan ,
-                                                                 n
-                                              1                    1
-                                           a=   1 + tan2 kπ
-                                                         n
-                                                              =           .
-                                              4                 4 cos2 kπ
-                                                                       n
-
-
-                                                                   3
-   If arg λ1 = kπ  n
-                        then λn1 = λn2 , so the eigenvalues of M n are equal. The eigenvalues of M are distinct,
-so M and M have two linearly independent eigenvectors. Hence, M n is a multiple of the identity. This
-               n
-
-means that the projective transform ϕn is the identity; starting from an arbitrary point x1 ∈ R ∪ {∞},
-the cycle x1 , x2 , . . . , xn closes at xn+1 = x1 . There are only finitely many cycles x1 , x2 , . . . , xn containing
-the point ∞; all other cycles are solutions for (1).
-Remark. If we write xj = P + Q tan tj where P, Q and t1 , . . . , tn are real numbers, the recurrence relation
-re-writes as
-                                      (P + Q tan tj )(1 − P − Q tan tj+1 ) = a
-              (1 − P )Q tan tj − P Q tan tj+1 = a + P (P − 1) + Q2 tan tj tan tj+1   (j = 1, 2, . . . , n).
-                                       tan α − tan β                                                     q
-In view of the identity tan(α − β) =                  , it is reasonable to choose P = 21 , and Q = a − 41 . Then
-                                      1 + tan α tan β
-the recurrence leads to                                   √
-                                     tj − tj+1 ≡ arctan 4a − 1 (mod π).
-
-Problem 5. Let c ≥ 1 be a real number. Let G be an abelian group and let A ⊂ G be a finite set
-satisfying |A + A| ≤ c|A|, where X + Y := {x + y | x ∈ X, y ∈ Y } and |Z| denotes the cardinality of
-Z. Prove that
-                                                              k
-                                     |A
-                                      | +A+ {z. . . + A} | ≤ c |A|
-                                                    k times
-for every positive integer k. (Plünnecke’s inequality)
-                                             (Proposed by Przemyslaw Mazur, Jagiellonian University)
-Solution. Let B be a nonempty subset of A for which the value of the expression c1 = |A+B||B|
-                                                                                               is the
-least possible. Note that c1 ≤ c since A is one of the possible choices of B.
-Lemma 1. For any finite set D ⊂ G we have |A + B + D| ≤ c1 |B + D|.
-Proof. Apply induction on the cardinality of D. For |D| = 1 the Lemma is true by the definition of c1 .
-Suppose it is true for some D and let x 6∈ D. Let B1 = {y ∈ B | x + y ∈ B + D}. Then B + (D ∪ {x})
-decomposes into the union of two disjoint sets:
-                                                                           
-                             B + (D ∪ {x}) = (B + D) ∪ (B \ B1 ) + {x}
-and therefore |B + (D ∪ {x})| = |B + D| + |B| − |B1 |. Now we need to deal with the cardinality of the
-set A + B + (D ∪ {x}). Writing A + B + (D ∪ {x}) = (A + B + D) ∪ (A + B + {x}) we count some
-of the elements twice: for example if y ∈ B1 , then A + {y} + {x} ⊂ (A + B + D) ∩ (A + B + {x}).
-Therefore all the elements of the set A + B1 + {x} are counted twice and thus
-  |A + B + (D ∪ {x})| ≤ |A + B + D| + |A + B + {x}| − |A + B1 + {x}| =
-             = |A + B + D| + |A + B| − |A + B1 | ≤ c1 (|B + D| − |B| − |B1 |) = c1 |B + (D ∪ {x})|,
-where the last inequality follows from the inductive hypothesis and the observation that |A+B|
-                                                                                           |B|
-                                                                                               = c1 ≤
-|A+B1 |
-  |B1 |
-        (or B1 is the empty set).                                                                                    2
-Lemma 2. For every k ≥ 1 we have | A     . . + A} +B| ≤ ck1 |B|.
-                                   | + .{z
-                                                k times
-Proof. Induction on k. For k = 1 the statement is true by definition of c1 . For greater k set D =
-A     . . + A} in the previous lemma: | |A + .{z
-| + .{z                                        . . + A} +B| ≤ c1 | A     . . + A} +B| ≤ ck1 |B|.
-                                                                   | + .{z                       2
-  k−1 times                                    k times                   k−1 times
-    Now notice that
-                             |A     . . + A} | ≤ | A
-                              | + .{z                    . . + A} +B| ≤ ck1 |B| ≤ ck |A|.
-                                                   | + .{z
-                                  k times                 k times
-
-Remark. The proof above due to Giorgios Petridis and can be found at http://gowers.wordpress.com/
-2011/02/10/a-new-way-of-proving-sumset-estimates/
-
-                                                               4
-
+\end{document}
