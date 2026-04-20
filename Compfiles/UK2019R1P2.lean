@@ -29,8 +29,15 @@ def HasNRing (n : ℕ) : Prop :=
     (∀ i, a (i + n) = a i) ∧
     (∀ i, ((a i : ℕ) * a (i + 1) * a (i + 2) : ℕ) = n)
 
-/-- The answer is the number of such n in [3, 2018]. -/
-determine solution_value : ℕ := 0 -- placeholder for the true count
+/-- The answer is the number of such n in [3, 2018]. An n-ring exists iff
+    either 3 | n or n is a perfect cube: in the first case, the constant
+    period-3 pattern (1, 1, n) (and cyclic rotations) works; in the second,
+    the constant pattern (∛n, ∛n, ∛n) works. Counting in [3, 2018]:
+      · multiples of 3: ⌊2018/3⌋ = 672 (namely 3, 6, …, 2016)
+      · cubes 2³,…,12³ = 8, 27, …, 1728: 11 values
+      · cubes divisible by 3: 3³, 6³, 9³, 12³: 4 values
+    Total: 672 + 11 − 4 = 679. -/
+determine solution_value : ℕ := 679
 
 open scoped Classical in
 problem uk2019_r1_p2 :

@@ -19,13 +19,9 @@ progression of seven distinct primes.
 namespace UK2005R1P4
 
 /-- The least possible value of the largest term in an arithmetic progression
-    of seven distinct primes is 881. The AP is 7, 157, 307, 457, 607, 757, 907
-    — wait, the classical answer is the AP 7 + 150k for k = 0,…,6 giving
-    maximum 907, but this fails (e.g. 457 is prime but we need all seven
-    prime; 7 + 150k: 7, 157, 307, 457, 607, 757, 907 — all prime → max 907).
-    The correct minimal value is 881, achieved by an AP with common
-    difference 210. -/
-determine solution_value : ℕ := 881
+    of seven distinct primes is 907, achieved by the AP
+    `7, 157, 307, 457, 607, 757, 907` (common difference 150). -/
+determine solution_value : ℕ := 907
 
 /-- The least largest term in an AP of 7 distinct primes. -/
 problem uk2005_r1_p4 :
@@ -36,6 +32,15 @@ problem uk2005_r1_p4 :
                    a + i * d ≠ a + j * d) ∧
                 M = a + 6 * d }
       solution_value := by
-  sorry
+  constructor
+  · -- Witness AP: 7 + 150*i for i = 0..6
+    refine ⟨7, 150, by decide, ?_, ?_, by decide⟩
+    · intro i hi
+      fin_cases hi <;> native_decide
+    · intro i j hi hj hij
+      fin_cases hi <;> fin_cases hj <;> first | (exact absurd rfl hij) | decide
+  · -- Lower bound: any such M must be ≥ 907. (Classical result.)
+    rintro M ⟨a, d, hd, hprime, _hdist, hM⟩
+    sorry
 
 end UK2005R1P4

@@ -27,9 +27,9 @@ def piles : Finset (Fin 12 → Fin 4) :=
   (Finset.univ : Finset (Fin 12 → Fin 4)).filter
     (fun c => (∑ n : Fin 12, (c n).val * 2 ^ n.val) = 2021)
 
-determine solution_value : ℕ := 21
+determine solution_value : ℕ := 1011
 
 problem uk2022_r1_p3 : piles.card = solution_value := by
-  sorry
+  native_decide
 
 end UK2022R1P3

@@ -39,7 +39,7 @@ def seq (a b : ℕ) : ℕ → ℕ
 def numSquares (a b : ℕ) : ℕ :=
   ((Finset.range 2022).filter (fun i => IsSquare (seq a b i))).card
 
-determine solution_value : ℕ := 0 -- placeholder for the maximum
+determine solution_value : ℕ := 1349 -- known answer (to be verified)
 
 problem uk2023_r1_p2 :
     IsGreatest

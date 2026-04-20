@@ -18,7 +18,10 @@ x + y − 1 divides x² + y² − 1.
 
 namespace UK2011R2P2
 
-determine solution_set : Set (ℕ × ℕ) := sorry
+/-- The set of solutions is `{(k, k+1), (k+1, k) : k ≥ 1}` — all pairs of
+    consecutive positive integers. -/
+determine solution_set : Set (ℕ × ℕ) :=
+  { xy : ℕ × ℕ | 0 < xy.1 ∧ 0 < xy.2 ∧ (xy.1 = xy.2 + 1 ∨ xy.2 = xy.1 + 1) }
 
 problem uk2011_r2_p2 :
     { xy : ℕ × ℕ | 0 < xy.1 ∧ 0 < xy.2 ∧
