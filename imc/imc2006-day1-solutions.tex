@@ -1,177 +1,75 @@
-              13th International Mathematics Competition for University Students
-                                   Odessa, July 20-26, 2006
-                                          First Day
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
 
-Problem 1. Let f : R → R be a real function. Prove or disprove each of the following statements.
-    (a) If f is continuous and range(f ) = R then f is monotonic.
-    (b) If f is monotonic and range(f ) = R then f is continuous.
-    (c) If f is monotonic and f is continuous then range(f ) = R.
-(20 points)
-Solution. (a) False. Consider function f (x) = x3 − x. It is continuous, range(f ) = R but, for example,
-f (0) = 0, f ( 12 ) = − 83 and f (1) = 0, therefore f (0) > f ( 21 ), f ( 12 ) < f (1) and f is not monotonic.
-    (b) True. Assume first that f is non-decreasing. For an arbitrary number a, the limits lim f and
-                                                                                                               a−
-lim f exist and lim f ≤ lim f . If the two limits are equal, the function is continuous at a. Otherwise,
-a+                     a−    a+
-if lim f = b < lim f = c, we have f (x) ≤ b for all x < a and f (x) ≥ c for all x > a; therefore
-     a−                a+
-range(f ) ⊂ (−∞, b) ∪ (c, ∞) ∪ {f (a)} cannot be the complete R.
-   For non-increasing f the same can be applied writing reverse relations or g(x) = −f (x).
-   (c) False. The function g(x) = arctan x is monotonic and continuous, but range(g) = (−π/2, π/2) 6= R.
+\title{IMC 2006, Odessa \\ First Day}
+\date{}
 
-Problem 2. Find the number of positive integers x satisfying the following two conditions:
-     1. x < 102006 ;
-     2. x2 − x is divisible by 102006 .
-(20 points)
-Solution 1. Let Sk = 0 < x < 10k x2 − x is divisible by 10k and s (k) = |Sk | , k ≥ 1. Let x =
-                               
+\begin{document}
+\maketitle
 
-ak+1 ak . . . a1 be the decimal writing of an integer x ∈ Sk+1 , k ≥ 1. Then obviously y = ak . . . a1 ∈ Sk . Now,
-                                                                                                               2
-let y = ak . . .a1 ∈ Sk be fixed. Considering ak+1 as a variable digit, we have x2 − x = ak+1 10k + y −
- ak+1 10k + y = (y 2 − y) + ak+1 10k (2y − 1) + a2k+1 102k . Since y 2 − y = 10k z for an iteger z, it follows that
-x2 − x is divisible by 10k+1 if and only if z + ak+1 (2y − 1) ≡ 0 (mod 10). Since y ≡ 3 (mod 10) is obviously
-impossible, the congruence has exactly one solution. Hence we obtain a one-to-one correspondence between
-the sets Sk+1 and Sk for every k ≥ 1. Therefore s (2006) = s (1) = 3, because S1 = {1, 5, 6} .
-Solution 2. Since x2 − x = x(x − 1) and the numbers x and x − 1 are relatively prime, one of them must
-be divisible by 22006 and one of them (may be the same) must be divisible by 52006 . Therefore, x must
-satisfy the following two conditions:
+\section*{Problem 1}
+Prove or disprove, for $f : \mathbb{R} \to \mathbb{R}$:
+(a) continuous with range $\mathbb{R}$ $\Rightarrow$ monotonic;
+(b) monotonic with range $\mathbb{R}$ $\Rightarrow$ continuous;
+(c) monotonic and continuous $\Rightarrow$ range $\mathbb{R}$.
 
-                                              x ≡ 0 or 1     (mod 22006 );
+\subsection*{Solution}
+(a) \textbf{False.} $f(x) = x^3 - x$: continuous, surjective, not monotonic.
 
-                                              x ≡ 0 or 1     (mod 52006 ).
-Altogether we have 4 cases. The Chinese remainder theorem yields that in each case there is a unique
-solution among the numbers 0, 1, . . . , 102006 − 1. These four numbers are different because each two gives
-different residues modulo 22006 or 52006 . Moreover, one of the numbers is 0 which is not allowed.
-    Therefore there exist 3 solutions.
+(b) \textbf{True.} If $f$ non-decreasing and not continuous at $a$, then $\lim_{a^-} f = b < c = \lim_{a^+} f$, so $f$ skips $(b, c) \setminus \{f(a)\}$, contradicting surjectivity.
 
-Problem 3. Let A be an n × n-matrix with integer entries and b1 , . . . , bk be integers satisfying det A =
-b1 · . . . · bk . Prove that there exist n × n-matrices B1 , . . . , Bk with integer entries such that A = B1 · . . . · Bk
-and det Bi = bi for all i = 1, . . . , k.
-(20 points)
-Solution. By induction, it is enough to consider the case m = 2. Furthermore, we can multiply A with
-any integral matrix with determinant 1 from the right or from the left, without changing the problem.
-Hence we can assume A to be upper triangular.
+(c) \textbf{False.} $\arctan$ is monotonic and continuous but range is $(-\pi/2, \pi/2)$.
 
-                                                            1
-Lemma. Let A be an integral upper triangular matrix, and let b, c be integers satisfying det A = bc. Then
-there exist integral upper triangular matrices B, C such that det B = b, det C = c, A = BC.
-Proof. The proof is done by induction on n, the case n = 1 being obvious. Assume the statement is true
-for n − 1. Let A, b, c as in the statement of the lemma. Define Bnn to be the greatest common divisor of b
-                             Ann
-and Ann , and put Cnn = B     nn
-                                 . Since Ann divides bc, Cnn divides Bbnn c, which divides c. Hence Cnn divides
-c. Therefore, b0 = Bbnn and c0 = Cnn c
-                                        are integers. Define A0 to be the upper-left (n − 1) × (n − 1)-submatrix
-of A; then det A0 = b0 c0 . By induction we can find the upper-left (n − 1) × (n − 1)-part of B and C in such
-a way that det B = b, det C = c and A = BC holds on the upper-left (n − 1) × (n − 1)-submatrix of A. It
-remains to define Bi,n and Ci,n such that A = BC also holds for the (i, n)-th entry for all i < n.
-    First we check that Bii and Cnn are relatively prime for all i < n. Since Bii divides b0 , it is certainly
-enough to prove that b0 and Cnn are relatively prime, i.e.
-                                                                      
-                                                  b          Ann
-                                       gcd               ,               = 1,
-                                             gcd(b, Ann ) gcd(b, Ann )
+\section*{Problem 2}
+Count positive integers $x < 10^{2006}$ with $10^{2006} \mid x^2 - x$.
 
-which is obvious. Now we define Bj,n and Cj,n inductively: Suppose we have defined Bi,n and Ci,n for all
-i = j + 1, j + 2, . . . , n − 1. Then Bj,n and Cj,n have to satisfy
+\subsection*{Solution}
+$x^2 - x = x(x-1)$ with $\gcd(x, x-1) = 1$. Need $2^{2006} \mid x$ or $2^{2006} \mid x - 1$, and similarly for $5^{2006}$. Four cases; CRT gives a unique solution in $[0, 10^{2006})$. All four solutions distinct; one is $0$. So $3$ solutions.
 
-                                 Aj,n = Bj,j Cj,n + Bj,j+1 Cj+1,n + · · · + Bj,n Cn,n
+\section*{Problem 3}
+$A$ integer $n \times n$, $\det A = b_1 \cdots b_k$ ($b_i \in \mathbb{Z}$). Prove there exist integer matrices $B_i$ with $A = B_1 \cdots B_k$, $\det B_i = b_i$.
 
-Since Bj,j and Cn,n are relatively prime, we can choose integers Cj,n and Bj,n such that this equation is
-satisfied. Doing this step by step for all j = n − 1, n − 2, . . . , 1, we finally get B and C such that A = BC.
-2
+\subsection*{Solution}
+Induct on $k$; reduce to $k = 2$. Multiplying by unimodular integer matrices, WLOG $A$ is upper-triangular.
 
-Problem 4. Let f be a rational function (i.e. the quotient of two real polynomials) and suppose that
-f (n) is an integer for infinitely many integers n. Prove that f is a polynomial.
-(20 points)
-Solution. Let S be an infinite set of integers such that rational function f (x) is integral for all x ∈ S.
-    Suppose that f (x) = p(x)/q(x) where p is a polynomial of degree k and q is a polynomial of degree n.
-Then p, q are solutions to the simultaneous equations p(x) = q(x)f (x) for all x ∈ S that are not roots of
-q. These are linear simultaneous equations in the coefficients of p, q with rational coefficients. Since they
-have a solution, they have a rational solution.
-    Thus there are polynomials p0 , q 0 with rational coefficients such that p0 (x) = q 0 (x)f (x) for all x ∈ S that
-are not roots of q. Multiplying this with the previous equation, we see that p0 (x)q(x)f (x) = p(x)q 0 (x)f (x)
-for all x ∈ S that are not roots of q. If x is not a root of p or q, then f (x) 6= 0, and hence p0 (x)q(x) =
-p(x)q 0 (x) for all x ∈ S except for finitely many roots of p and q. Thus the two polynomials p0 q and pq 0
-are equal for infinitely many choices of value. Thus p0 (x)q(x) = p(x)q 0 (x). Dividing by q(x)q 0 (x), we see
-that p0 (x)/q 0 (x) = p(x)/q(x) = f (x). Thus f (x) can be written as the quotient of two polynomials with
-rational coefficients. Multiplying up by some integer, it can be written as the quotient of two polynomials
-with integer coefficients.
-    Suppose f (x) = p00 (x)/q 00 (x) where p00 and q 00 both have integer coefficients. Then by Euler’s division
-algorithm for polynomials, there exist polynomials s and r, both of which have rational coefficients such
-that p00 (x) = q 00 (x)s(x) + r(x) and the degree of r is less than the degree of q 00 . Dividing by q 00 (x), we get
-that f (x) = s(x) + r(x)/q 00 (x). Now there exists an integer N such that N s(x) has integral coefficients.
-Then N f (x) − N s(x) is an integer for all x ∈ S. However, this is equal to the rational function N r/q 00 ,
-which has a higher degree denominator than numerator, so tends to 0 as x tends to ∞. Thus for all
-sufficiently large x ∈ S, N f (x) − N s(x) = 0 and hence r(x) = 0. Thus r has infinitely many roots, and is
-0. Thus f (x) = s(x), so f is a polynomial.
+\textbf{Lemma.} For upper-triangular integer $A$, $\det A = bc$, $\exists$ upper-triangular integer $B, C$ with $A = BC$, $\det B = b$, $\det C = c$.
 
-Problem 5. Let a, b, c, d, e > 0 be real numbers such that a2 + b2 + c2 = d2 + e2 and a4 + b4 + c4 = d4 + e4 .
-Compare the numbers a3 + b3 + c3 and d3 + e3 .
-(20 points)
+Induct on $n$. Set $B_{nn} = \gcd(b, A_{nn})$, $C_{nn} = A_{nn}/B_{nn}$. Both are integers (as $C_{nn} \mid c$). Apply induction to the $(n-1) \times (n-1)$ principal submatrix with $b' = b/B_{nn}$, $c' = c/C_{nn}$.
 
+Since $\gcd(B_{ii}, C_{nn}) = 1$ for $i < n$, the equations
+\[
+A_{j, n} = B_{j,j} C_{j,n} + B_{j, j+1} C_{j+1, n} + \cdots + B_{j, n} C_{n, n}
+\]
+can be solved inductively in $j$ (from $j = n - 1$ downwards) for integer $B_{j,n}, C_{j,n}$.
 
-                                                          2
-Solution. Without loss of generality a ≥ b ≥ c, d ≥ e. Let c2 = e2 + ∆, ∆ ∈ R. Then d2 = a2 + b2 + ∆
-and the second equation implies
-                                                                                               a2 b 2
-                                a4 + b4 + (e2 + ∆)2 = (a2 + b2 + ∆)2 + e4 , ∆ = − a2 +b          2 −e2 .
-         2      2    2        2 2      2       2       1 2     2    1 2     2
-(Here a + b − e ≥ 3 (a + b + c ) − 2 (d + e ) = 6 (d + e ) > 0.)
-                       a2 b 2       (a2 −e2 )(e2 −b2 )
-Since c2 = e2 − a2 +b    2 −e2 =       a2 +b2 −e2
-                                                        > 0 then a > e > b.
-              2      2        2      a2 b 2         2
-Therefore d = a + b − a2 +b2 −e2 < a and a > d ≥ e > b ≥ c.
-     Consider a function f (x) = ax + bx + cx − dx − ex , x ∈ R. We shall prove that f (x) has only two
-zeroes x = 2 and x = 4 and changes the sign at these points. Suppose the contrary. Then Rolle’s
-theorem implies that f 0 (x) has at least two distinct zeroes. Without loss of generality a = 1. Then
-f 0 (x) = ln b · bx + ln c · cx − ln d · dx − ln e · ex , x ∈ R. If f 0 (x1 ) = f 0 (x2 ) = 0, x1 < x2 , then
-                                    ln b · bxi + ln c · cxi = ln d · dxi + ln e · exi , i = 1, 2,
-but since 1 > d ≥ e > b ≥ c we have
-                 (− ln b) · bx2 + (− ln c) · cx2     x2 −x1     x2 −x1   (− ln d) · dx2 + (− ln e) · ex2
-                                                 ≤ b        < e        ≤                                 ,
-                 (− ln b) · bx1 + (− ln c) · cx1                         (− ln d) · dx1 + (− ln e) · ex1
-a contradiction. Therefore f (x) has a constantS sign at each of the intervals (−∞, 2), (2, 4) and (4, ∞).
-Since f (0) = 1 then f (x) > 0, x ∈ (−∞, 2) (4, ∞) and f (x) < 0, x ∈ (2, 4). In particular, f (3) =
-a3 + b3 + c3 − d3 − e3 < 0.
-Problem 6. Find all sequences a0 , a1 , . . . , an of real numbers where n ≥ 1 and an 6= 0, for which the
-following statement is true:
-    If f : R → R is an n times differentiable function and x0 < x1 < . . . < xn are real numbers such that
-f (x0 ) = f (x1 ) = . . . = f (xn ) = 0 then there exists an h ∈ (x0 , xn ) for which
-                                      a0 f (h) + a1 f 0 (h) + . . . + an f (n) (h) = 0.
-(20 points)
-Solution. Let A(x) = a0 + a1 x + . . . + an xn . We prove that sequence a0 , . . . , an satisfies the required
-property if and only if all zeros of polynomial A(x) are real.
-   (a) Assume that all roots of A(x) are real. Let us use the following notations. Let I be the identity
-operator on R → R functions and D be differentiation operator. For an arbitrary polynomial P (x) =
-p0 + p1 x + . . . + pn xn , write P (D) = p0 I + p1 D + p2 D 2 + . . . + pn D n . Then the statement can written as
-(A(D)f )(ξ) = 0.
-   First prove the statement for n = 1. Consider the function
-                                                              a0
-                                                                   x
-                                                    g(x) = e a1 f (x).
-Since g(x0 ) = g(x1 ) = 0, by Rolle’s theorem there exists a ξ ∈ (x0 , x1 ) for which
-                                                                       a0
-                                                                            ξ
-                                 a 0 a0 ξ        a0
-                                                    ξ        e a1
-                           0
-                          g (ξ) = e a1 f (ξ) + e a1 f 0 ξ) =      (a0 f (ξ) + a1 f 0 (ξ)) = 0.
-                                 a1                           a1
-      Now assume that n > 1 and the statement holds for n−1. Let A(x) = (x−c)B(x) where c is a real root
-of polynomial A. By the n = 1 case, there exist y0 ∈ (x0 , x1 ), y1 ∈ (x1 , x2 ), . . . , yn−1 ∈ (xn−1 , xn ) such that
-f 0 (yj ) − cf (yj ) = 0 for all j = 0, 1, . . . , n − 1. Now apply the induction hypothesis for polynomial B(x),
-function g = f 0 −cf and points y0 , . . . , yn−1 . The hypothesis says that there exists a ξ ∈ (y0 , yn−1 ) ⊂ (x0 , xn )
-such that
-                               (B(D)g)(ξ) = (B(D)(D − cI)f )(ξ) = (A(D)f )(ξ) = 0.
-    (b) Assume that u + vi is a complex root of polynomial A(x) such that v 6= 0. Consider the linear
-differential equation an g (n) + . . . + a1 g 0 + g = 0. A solution of this equation is g1 (x) = eux sin vx which has
-infinitely many zeros.
-    Let k be the smallest index for which ak 6= 0. Choose a small ε > 0 and set f (x) = g1 (x) + εxk . If
-ε is sufficiently small then g has the required number of roots but a0 f + a1 f 0 + . . . + an f (n) = ak ε 6= 0
-everywhere.
+\section*{Problem 4}
+$f$ rational function with $f(n) \in \mathbb{Z}$ for infinitely many $n \in \mathbb{Z}$. Prove $f$ is a polynomial.
 
-                                                             3
-
+\subsection*{Solution}
+Write $f = p/q$ (real coefficients). The relation $p(x) = q(x) f(x)$ for $x \in S$ (infinite) determines $p, q$ as linear functions of the coefficients with rational data, so we may assume $p, q$ have rational coefficients, and then integer.
+
+Polynomial division: $p = qs + r$, $\deg r < \deg q$, $s, r \in \mathbb{Q}[x]$. Then $f = s + r/q$, and $r/q \to 0$ as $|x| \to \infty$. If $r \ne 0$: pick $N$ with $N s \in \mathbb{Z}[x]$; then $Nf - Ns = Nr/q$ is an integer for infinitely many $x \in S$ tending to $\infty$ while $\to 0$, forcing $Nr/q = 0$ for large $x$, so $r = 0$. Hence $f = s$ is a polynomial.
+
+\section*{Problem 5}
+$a, b, c, d, e > 0$ with $a^2 + b^2 + c^2 = d^2 + e^2$ and $a^4 + b^4 + c^4 = d^4 + e^4$. Compare $a^3 + b^3 + c^3$ with $d^3 + e^3$.
+
+\subsection*{Solution}
+WLOG $a \ge b \ge c$, $d \ge e$. Compute: setting $c^2 = e^2 + \Delta$, from the second equation $\Delta = -\tfrac{a^2 b^2}{a^2 + b^2 - e^2}$. From $c^2 > 0$, get $a > e > b$; then $d^2 < a^2$, giving $a > d \ge e > b \ge c$.
+
+Let $f(x) = a^x + b^x + c^x - d^x - e^x$. $f(2) = f(4) = 0$. If $f$ has $\ge 3$ zeros, Rolle gives $f'$ with $\ge 2$ zeros; WLOG $a = 1$. Then $f'(x) = 0$ becomes $\ln b \cdot b^x + \ln c \cdot c^x = \ln d \cdot d^x + \ln e \cdot e^x$, i.e., the ratio of the negatives is bounded on one side by $b^{x_2 - x_1}$ and on the other by at least $e^{x_2 - x_1}$; since $b < e$ this contradicts two coincident $x_1 < x_2$. So $f$ has sign constant on $(2, 4)$; $f(0) = 1 > 0$, so $f < 0$ on $(2, 4)$.
+
+Therefore $f(3) = a^3 + b^3 + c^3 - d^3 - e^3 < 0$: $a^3 + b^3 + c^3 < d^3 + e^3$.
+
+\section*{Problem 6}
+Find all $(a_0, \ldots, a_n)$, $a_n \ne 0$, such that: if $f$ is $n$-times differentiable with $f(x_0) = \cdots = f(x_n) = 0$, then $\sum a_i f^{(i)}(\xi) = 0$ for some $\xi \in (x_0, x_n)$.
+
+\subsection*{Solution}
+Answer: iff all roots of $A(x) = \sum a_i x^i$ are real.
+
+\emph{Sufficient.} Induct on $n$. For $n = 1$, consider $g(x) = e^{a_0 x/a_1} f(x)$; Rolle gives $\xi$ with $g'(\xi) = 0$, yielding $a_0 f(\xi) + a_1 f'(\xi) = 0$.
+
+For $n > 1$: factor $A(x) = (x - c) B(x)$ with $c \in \mathbb{R}$. Between consecutive $x_i$, find $y_i$ with $(f' - cf)(y_i) = 0$. Apply induction to $B$ and $g = f' - cf$.
+
+\emph{Necessary.} Suppose $u + iv$ is a non-real root. Let $g_1(x) = e^{ux} \sin(vx)$, solving $\sum a_i g_1^{(i)} = 0$ (for the polynomial $A$), with infinitely many zeros. Let $k = $ min index with $a_k \ne 0$. Set $f(x) = g_1(x) + \varepsilon x^k$. For small $\varepsilon$, $f$ still has $n + 1$ zeros but $\sum a_i f^{(i)} = a_k \cdot \varepsilon \cdot k! \ne 0$ everywhere.
+
+\end{document}

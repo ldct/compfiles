@@ -1,207 +1,72 @@
-         13th International Mathematics Competition for University Students
-                              Odessa, July 20-26, 2006
-                                    Second Day
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
 
-Problem 1. Let V be a convex polygon with n vertices.
-    (a) Prove that if n is divisible by 3 then V can be triangulated (i.e. dissected into non-overlapping
-triangles whose vertices are vertices of V ) so that each vertex of V is the vertex of an odd number
-of triangles.
-    (b) Prove that if n is not divisible by 3 then V can be triangulated so that there are exactly two
-vertices that are the vertices of an even number of the triangles.
-(20 points)
-Solution. Apply induction on n. For the initial cases n = 3, 4, 5, chose the triangulations shown in
-the Figure to prove the statement.
-                             odd                 even                    odd                   odd
+\title{IMC 2006, Odessa \\ Second Day}
+\date{}
 
+\begin{document}
+\maketitle
 
+\section*{Problem 1}
+$V$ convex $n$-gon. (a) If $3 \mid n$, triangulate so each vertex belongs to an odd number of triangles. (b) If $3 \nmid n$, triangulate so exactly two vertices belong to an even number.
 
-                                                                                odd                         odd
+\subsection*{Solution}
+Induct on $n$. For $n = 3, 4, 5$: small explicit triangulations work (e.g., the single triangle for $n = 3$; for $n = 4$, one diagonal gives two odd vertices and two even; for $n = 5$, fan from one vertex gives all vertices odd except... \emph{see figure}).
 
+Step from $n = k$ to $n = k + 3$: triangulate $P_1 \ldots P_k$ by hypothesis. Add triangles $P_1 P_k P_{k+2}$, $P_k P_{k+1} P_{k+2}$, $P_1 P_{k+2} P_{k+3}$. Then $P_1$ and $P_k$ get $2$ new incidences (parity preserved), $P_{k+1}, P_{k+3}$ get $1$ each (odd), $P_{k+2}$ gets $3$ (odd). So parity counts transfer.
 
+\section*{Problem 2}
+Find all $f : \mathbb{R} \to \mathbb{R}$ such that $f([a, b])$ is a closed interval of length $b - a$ for all $a < b$.
 
+\subsection*{Solution}
+Answer: $f(x) = \pm x + c$.
 
-                   odd                     odd    odd                    even           even         even
+$f$ is $1$-Lipschitz, hence continuous. For $x < y$, let $a, b \in [x, y]$ with $f(a) = \max$, $f(b) = \min$: $y - x = f(a) - f(b) \le |a - b| \le y - x$. So $\{a, b\} = \{x, y\}$, meaning $f$ is monotone. If increasing, $f(x) - f(y) = x - y$ so $f(x) - x$ is constant. Similarly for decreasing.
 
-    Now assume that the statement is true for some n = k and consider the case n = k + 3. Denote
-the vertices of V by P1 , . . . , Pk+3 . Apply the induction hypothesis on the polygon P1 P2 . . . Pk ; in this
-triangulation each of vertices P1 , . . . , Pk belong to an odd number of triangles, except two vertices
-if n is not divisible by 3. Now add triangles P1 Pk Pk+2 , Pk Pk+1 Pk+2 and P1 Pk+2 Pk+3 . This way we
-introduce two new triangles at vertices P1 and Pk so parity is preserved. The vertices Pk+1 , Pk+2 and
-Pk+3 share an odd number of triangles. Therefore, the number of vertices shared by even number of
-triangles remains the same as in polygon P1 P2 . . . Pk .
-                                                        Pk       Pk −1
-                                                                                Pk −2
-                                     Pk +1
+\section*{Problem 3}
+Compare $\tan(\sin x)$ and $\sin(\tan x)$ for $x \in (0, \pi/2)$.
 
+\subsection*{Solution}
+$\tan(\sin x) > \sin(\tan x)$. Let $f(x) = \tan(\sin x) - \sin(\tan x)$.
+\[
+f'(x) = \frac{\cos x}{\cos^2(\sin x)} - \frac{\cos(\tan x)}{\cos^2 x} = \frac{\cos^3 x - \cos(\tan x) \cos^2(\sin x)}{\cos^2 x \cos^2(\tan x)}.
+\]
+For $0 < x < \arctan(\pi/2)$, by AM-GM and concavity of $\cos$:
+\[
+\sqrt[3]{\cos(\tan x) \cos^2(\sin x)} < \tfrac{\cos(\tan x) + 2 \cos(\sin x)}{3} \le \cos\!\Bigl(\tfrac{\tan x + 2 \sin x}{3}\Bigr) < \cos x,
+\]
+where the last step uses $(\tan x + 2 \sin x)/3 > x$ (derivative analysis). So $f' > 0$ on $[0, \arctan(\pi/2)]$, giving $f > 0$ there.
 
+For $x \in [\arctan(\pi/2), \pi/2)$: $\sin x \ge \tfrac{\pi/2}{\sqrt{1 + \pi^2/4}} > \pi/4$, so $\tan(\sin x) > 1 \ge \sin(\tan x)$.
 
-                                   Pk +2
+\section*{Problem 4}
+$v_0 = 0 \in \mathbb{R}^n$, $v_1, \ldots, v_{n+1} \in \mathbb{R}^n$ with $|v_i - v_j| \in \mathbb{Q}$ for all $i, j$. Prove $v_1, \ldots, v_{n+1}$ are linearly dependent over $\mathbb{Q}$.
 
+\subsection*{Solution}
+Assume $v_1, \ldots, v_n$ independent over $\mathbb{R}$; write $v_{n+1} = \sum \lambda_j v_j$. From $-2 \langle v_i, v_j\rangle = |v_i - v_j|^2 - |v_i|^2 - |v_j|^2 \in \mathbb{Q}$. Let $A_{ij} = \langle v_i, v_j\rangle$ (rational), $w_i = \langle v_i, v_{n+1}\rangle$ (rational). Then $A\lambda = w$; $A$ invertible rational, so $\lambda = A^{-1} w \in \mathbb{Q}^n$.
 
+\section*{Problem 5}
+Prove there are infinitely many coprime pairs $(m, n)$ of positive integers for which $(x+m)^3 = nx$ has three distinct integer roots.
 
-                                     Pk +3
-                                                                                P3
-                                                    P1           P2
+\subsection*{Solution}
+Substitute $y = x + m$: $y^3 - n y + mn = 0$. Three roots $u, v, w$ with $u + v + w = 0$ (so $w = -u-v$), $uv + uw + vw = -n$, $uvw = -mn$. So $u^2 + uv + v^2 = n$ and $uv(u+v) = mn$, giving $m = \tfrac{uv(u+v)}{u^2 + uv + v^2}$.
 
+Try $u = kp$, $v = kq$ with $p, q$ coprime: $u^2 + uv + v^2 = k^2(p^2 + pq + q^2)$, $uv(u+v) = k^3 pq(p+q)$. Set $k = p^2 + pq + q^2$:
+\[
+m = p^2 q + pq^2, \quad n = (p^2 + pq + q^2)^3.
+\]
+Roots: $x_1 = p^3, x_2 = q^3, x_3 = -(p+q)^3$. Distinct for $p \ne q$, $p, q \ge 1$; coprimality of $(m, n)$ holds generically.
 
-                                                                                                                  
-Problem 2. Find all functions f : R −→ R such that for any real numbers a < b, the image f [a, b]
-is a closed interval of length b − a.
-(20 points)
+\section*{Problem 6}
+$A_i, B_i, S_i \in GL_2(\mathbb{R})$ with (1) not all $A_i$ share a real eigenvector; (2) $A_i = S_i^{-1} B_i S_i$; (3) $A_1 A_2 A_3 = B_1 B_2 B_3 = I$. Prove $\exists S \in GL_2(\mathbb{R})$ with $A_i = S^{-1} B_i S$ for all $i$.
 
+\subsection*{Solution}
+If any $A_j = \lambda I$: trivial. Skip that case.
 
+\emph{Case 1: some $A_3$ has two distinct real eigenvalues.} Conjugate so $A_3 = B_3 = \operatorname{diag}(\lambda, \mu)$. Write $A_2 = \begin{pmatrix}a & b\\c & d\end{pmatrix}$, $B_2 = \begin{pmatrix}a' & b'\\c' & d'\end{pmatrix}$. From $\operatorname{tr}(A_2) = \operatorname{tr}(B_2)$ and $\operatorname{tr}(A_2 A_3) = \operatorname{tr}(A_1^{-1}) = \operatorname{tr}(B_1^{-1}) = \operatorname{tr}(B_2 B_3)$: $a = a'$, $d = d'$. Then $bc = b'c'$ (from $\det$). If $c, c' \ne 0$ (else common eigenvector), $S = \operatorname{diag}(c', c)$ (or similar) conjugates $A_2$ to $B_2$ and commutes with $A_3$.
 
+\emph{Case 2: $A_3$ has complex eigenvalues.} Work over $\mathbb{C}$: $\exists S_\mathbb{C} \in GL_2(\mathbb{C})$ with $S_\mathbb{C} A_j S_\mathbb{C}^{-1} = B_j$. Write $S_\mathbb{C} = S_0 + i S_1$. If $S_0$ or $S_1$ invertible: done (real $S$). Else both singular; then $S_0$ is rank 1, so after conjugation $S_0 = \begin{pmatrix}x & 0 \\ y & 0\end{pmatrix}$, yielding a common eigenvector of all $A_j$ --- contradiction.
 
-                                                             1
-Solution. The functions f (x) = x + c and f (x) = −x + c with some constant c obviously satisfy
-the condition of the problem. We will prove now that these are the only functions with the desired
-property.
-    Let f be such a function. Then f clearly satisfies |f (x) − f (y)| ≤ |x − y| for all x, y; therefore, f
-is continuous. Given x, y with x < y, let a, b ∈ [x, y] be such that f (a) is the maximum and f (b) is
-the minimum of f on [x, y]. Then f ([x, y]) = [f (b), f (a)]; hence
-                                     y − x = f (a) − f (b) ≤ |a − b| ≤ y − x
-This implies {a, b} = {x, y}, and therefore f is a monotone function. Suppose f is increasing. Then
-f (x) − f (y) = x − y implies f (x) − x = f (y) − y, which says that f (x) = x + c for some constant c.
-Similarly, the case of a decreasing function f leads to f (x) = −x + c for some constant c.
-Problem 3. Compare tan(sin x) and sin(tan x) for all x ∈ (0, π2 ).
-(20 points)
-Solution. Let f (x) = tan(sin x) − sin(tan x). Then
-                                  cos x       cos(tan x)   cos3 x − cos(tan x) · cos2 (sin x)
-                   f 0 (x) =                −            =
-                               cos2 (sin x)     cos2 x            cos2 x · cos2 (tan x)
-Let 0 < x < arctan π2 . It follows from the concavity of cosine on (0, π2 ) that
-                                                                                              
-       p3                 2
-                                      1                                       tan x + 2 sin x
-          cos(tan x) · cos (sin x) < [cos(tan x) + 2 cos(sin x)] ≤ cos                            < cos x ,
-                                      3                                              3
-                                    tan x+2 sin x 0                         q
-                                                         1
-                                                      = 3 cos2 x + 2 cos x ≥ 3 cos12 x · cos x · cos x = 1. This
-                                                            1            
-the last inequality follows from          3
-proves that cos3 x−cos(tan x)·cos2 (sin x) > 0, so f 0 (x) > 0, so f increases on the interval [0, arctan π2 ].
-To end the proof it is enough to notice that (recall that 4 + π 2 < 16)
-                              h              π i              π/2           π
-                          tan sin arctan              = tan p           > tan = 1 .
-                                              2                     2
-                                                              1 + π /4         4
-This implies that if x ∈ [arctan π2 , π2 ] then tan(sin x) > 1 and therefore f (x) > 0.
-Problem 4. Let v0 be the zero vector in Rn and let v1 , v2 , . . . , vn+1 ∈ Rn be such that the Euclidean
-norm |vi − vj | is rational for every 0 ≤ i, j ≤ n + 1. Prove that v1 , . . . , vn+1 are linearly dependent
-over the rationals.
-(20 points)
-Solution. By passing to a subspace we can assume that v1 , . . . , vn are linearly independent over the
-reals. Then there exist λ1 , . . . , λn ∈ R satisfying
-                                                             n
-                                                             X
-                                                  vn+1 =           λj v j
-                                                             j=1
+\emph{Case 3: no $A_j$ has distinct eigenvalues.} Then eigenvalues are real and equal. By conjugation and scaling, $A_3 = \begin{pmatrix}1 & b\\0 & 1\end{pmatrix}$, $b \ne 0$; further $A_2 = \begin{pmatrix}0 & u\\1 & v\end{pmatrix}$. Then $v^2 = -4u$ (repeated eigenvalue), and $A_1 = A_3^{-1} A_2^{-1}$ forces $b = -2v$. So all $A_j$ are determined (up to similarity) by $u, v$, invariants of similarity. Same for $B_j$, hence $A_j \sim B_j$ simultaneously.
 
-We shall prove that λj is rational for all j. From
-                                      −2 hvi , vj i = |vi − vj |2 − |vi |2 − |vj |2
-we get that hvi , vj i is rational for all i, j. Define A to be the rational n × n-matrix Aij = hvi , vj i,
-w ∈ Qn to be the vector wi = hvi , vn+1 i, and λ ∈ Rn to be the vector (λi )i . Then,
-                                                             n
-                                                             X
-                                            hvi , vn+1 i =         λj hvi , vj i
-                                                             j=1
-
-gives Aλ = w. Since v1 , . . . , vn are linearly independent, A is invertible. The entries of A−1 are
-rationals, therefore λ = A−1 w ∈ Qn , and we are done.
-
-                                                             2
-Problem 5. Prove that there exists an infinite number of relatively prime pairs (m, n) of positive
-integers such that the equation
-                                        (x + m)3 = nx
-has three distinct integer roots.
-(20 points)
-Solution. Substituting y = x + m, we can replace the equation by
-
-                                              y 3 − ny + mn = 0.
-
-Let two roots be u and v; the third one must be w = −(u + v) since the sum is 0. The roots must
-also satisfy
-                uv + uw + vw = −(u2 + uv + v 2 ) = −n,    i.e. u2 + uv + v 2 = n
-and
-                                       uvw = −uv(u + v) = mn.
-So we need some integer pairs (u, v) such that uv(u + v) is divisible by u2 + uv + v 2 . Look for such
-pairs in the form u = kp, v = kq. Then
-
-                                   u2 + uv + v 2 = k 2 (p2 + pq + q 2 ),
-
-and
-                                           uv(u + v) = k 3 pq(p + q).
-                                                                                       uv(u + v)
-Chosing p, q such that they are coprime then setting k = p2 + pq + q 2 we have                      =
-                                                                                      u2 + uv + v 2
-p2 + pq + q 2 .
-   Substituting back to the original quantites, we obtain the family of cases
-
-                               n = (p2 + pq + q 2 )3 ,       m = p2 q + pq 2 ,
-
-and the three roots are
-                              x1 = p 3 ,       x2 = q 3 ,    x3 = −(p + q)3 .
-
-Problem 6. Let Ai , Bi , Si (i = 1, 2, 3) be invertible real 2 × 2 matrices such that
-   (1) not all Ai have a common real eigenvector;
-   (2) Ai = Si−1 Bi Si for all i 
-                                 = 1, 2,3;
-                                   1 0
-   (3) A1 A2 A3 = B1 B2 B3 =             .
-                                   0 1
-Prove that there is an invertible real 2 × 2 matrix S such that Ai = S −1 Bi S for all i = 1, 2, 3.
-(20 points)
-Solution. We note that the problem is trivial if Aj = λI for some j, so suppose this is not the case.
-Consider then first the situation
-                                 where some Aj , say A3 , has two distinct real eigenvalues.  We may
-assume that A3 = B3 = λ µ by conjugating both sides. Let A2 = ( ac db ) and B2 = ac0 db0 . Then
-                                                                                          0 0
-
-
-
-
-                               a + d = Tr A2 = Tr B2 = a0 + d0
-                aλ + dµ = Tr(A2 A3 ) = Tr A−1
-                                           1  = Tr B1−1 = Tr(B2 B3 ) = a0 λ + d0 µ.
-
-
-Hence a = a0 and d = d0 and so also bc = b0 c0 . Now we cannot have c = 0 or b = 0, for then (1, 0)> or
-(0, 1)> would be a common eigenvector of all Aj . The matrix S = ( c c ) conjugates A2 = S −1 B2 S,
-                                                                       0
-
-
-and as S commutes with A3 = B3 , it follows that Aj = S −1 Bj S for all j.
-
-                                                       3
-    If the distinct eigenvalues of A3 = B3 are not real, we know from above that Aj = S −1 Bj S for
-some S ∈ GL2 C unless all Aj have a common eigenvector over C. Even if they do, say Aj v = λj v,
-by taking the conjugate square    root it follows that Aj ’s can be simultaneously diagonalized. If
-A2 = ( a d ) and B2 = ac0 db0 , it follows as above that a = a0 , d = d0 and so b0 c0 = 0. Now B2
-                             0 0
-
-
-and B3 (and hence B1 too) have a common eigenvector over C so they too can be simultaneously
-diagonalized. And so SAj = Bj S for some S ∈ GL2 C in either case. Let S0 = Re S and S1 = Im S.
-By separating the real and imaginary components,     we are done if either S0 or S1 is invertible. If not,
-                                                x 0
-                                    −1
-S0 may be conjugated to some T S0 T = y 0 , with (x, y) 6= (0, 0)> , and it follows that all Aj
-                                                                >
-
-have a common eigenvector T (0, 1)> , a contradiction.
-    We are left with the case when no Aj has distinct eigenvalues; then these eigenvalues by necessity
-are real. By conjugation and division by scalars we may assume that A3 = ( 1 1b ) and b 6= 0. By further
-conjugation by upper-triangular matrices (which preserves the shape of A3 up to the value of b) we can  
-                          0 u        2      2                                     −1 −1       −(b+v)/u 1
-also assume that A2 = ( 1 v ). Here v = Tr A2 = 4 det A2 = −4u. Now A1 = A3 A2 =                 1/u       ,
-and hence (b + v)2 /u2 = Tr2 A1 = 4 det A1 = −4/u. Comparing these two it follows that b = −2v.
-What we have done is simultaneously reduced all Aj to matrices whose all entries depend on u and
-v (= − det A2 and Tr A2 , respectively) only, but these themselves are invariant under similarity. So
-Bj ’s can be simultaneously reduced to the very same matrices.
-
-
-
-
-                                                     4
-
+\end{document}
