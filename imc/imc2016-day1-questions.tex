@@ -1,59 +1,35 @@
-                       IMC 2016, Blagoevgrad, Bulgaria
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{IMC 2016, Blagoevgrad, Bulgaria --- Day 1}
+\date{July 27, 2016}
+\begin{document}
+\maketitle
 
+\section*{Problem 1}
+Let $f : [a, b] \to \mathbb{R}$ be continuous on $[a,b]$ and differentiable on $(a,b)$. Suppose that $f$ has infinitely many zeros, but there is no $x \in (a,b)$ with $f(x) = f'(x) = 0$.
+\begin{enumerate}
+\item[(a)] Prove that $f(a) f(b) = 0$.
+\item[(b)] Give an example of such a function on $[0,1]$.
+\end{enumerate}
 
-                                     Day 1, July 27, 2016
+\section*{Problem 2}
+Let $k$ and $n$ be positive integers. A sequence $(A_1, \dots, A_k)$ of $n \times n$ real matrices is \emph{preferred} by Ivan the Confessor if $A_i^2 \ne 0$ for $1 \le i \le k$, but $A_i A_j = 0$ for $1 \le i, j \le k$ with $i \ne j$. Show that $k \le n$ in all preferred sequences, and give an example of a preferred sequence with $k = n$ for each $n$.
 
+\section*{Problem 3}
+Let $n$ be a positive integer. Also let $a_1, \dots, a_n$ and $b_1, \dots, b_n$ be real numbers with $a_i + b_i > 0$ for $i = 1, \dots, n$. Prove that
+\[ \sum_{i=1}^n \frac{a_i b_i - b_i^2}{a_i + b_i} \le \frac{\sum_{i=1}^n a_i \cdot \sum_{i=1}^n b_i - \left(\sum_{i=1}^n b_i\right)^2}{\sum_{i=1}^n (a_i + b_i)}. \]
 
+\section*{Problem 4}
+Let $n \ge k$ be positive integers, and let $\mathcal{F}$ be a family of finite sets with the following properties:
+\begin{enumerate}
+\item[(i)] $\mathcal{F}$ contains at least $\binom{n}{k}+1$ distinct sets containing exactly $k$ elements;
+\item[(ii)] for any two sets $A, B \in \mathcal{F}$, their union $A \cup B$ also belongs to $\mathcal{F}$.
+\end{enumerate}
+Prove that $\mathcal{F}$ contains at least three sets with at least $n$ elements.
 
+\section*{Problem 5}
+Let $S_n$ denote the set of permutations of the sequence $(1, 2, \dots, n)$. For every permutation $\pi = (\pi_1, \dots, \pi_n) \in S_n$, let $\mathrm{inv}(\pi)$ be the number of pairs $1 \le i < j \le n$ with $\pi_i > \pi_j$. Denote by $f(n)$ the number of permutations $\pi \in S_n$ for which $\mathrm{inv}(\pi)$ is divisible by $n+1$.
 
-Problem 1.     Let f : [a, b] → R be continuous on [a, b] and dierentiable on (a, b). Suppose
-that f has innitely many zeros, but there is no x ∈ (a, b) with f (x) = f 0 (x) = 0.
-   (a) Prove that f (a)f (b) = 0.
-   (b) Give an example of such a function on [0, 1].
-                                                                                      (10 points)
+Prove that there exist infinitely many primes $p$ such that $f(p-1) > \frac{(p-1)!}{p}$, and infinitely many primes $p$ such that $f(p-1) < \frac{(p-1)!}{p}$.
 
-
-Problem 2.      Let k and n be positive integers. A sequence (A1 , . . . , Ak ) of n × n real matrices
-is preferred by Ivan the Confessor if A2i 6= 0 for 1 ≤ i ≤ k, but Ai Aj = 0 for 1 ≤ i, j ≤ k with
-i 6= j . Show that k ≤ n in all preferred sequences, and give an example of a preferred sequence
-with k = n for each n.
-                                                                                           (10 points)
-
-
-Problem 3.     Let n be a positive integer. Also let a1 , a2 , . . . , an and b1 , b2 , . . . , bn be real
-numbers such that ai + bi > 0 for i = 1, 2, . . . , n. Prove that
-                                                       n            n
-                                                                                n 2
-                                                       P            P           P
-                              n                              ai ·         bi −    bi
-                              X ai b i − b 2   i       i=1          i=1         i=1
-                                                   ≤                n                   .
-                                    ai + b i                        P
-                              i=1                                       (ai + bi )
-                                                                    i=1
-
-                                                                                                        (10 points)
-
-
-Problem 4.        Let n ≥ k be positive integers, and let F be a family of nite sets with the
-following properties:
-    (i) F contains at least nk + 1 distinct sets containing exactly k elements;
-                              
-
-    (ii) for any two sets A, B ∈ F , their union A ∪ B also belongs to F .
-    Prove that F contains at least three sets with at least n elements.
-                                                                                   (10 points)
-
-
-Problem 5.       Let Sn denote the set of permutations of the sequence (1, 2, . . . , n). For every
-permutation π = (π1 , . . . , πn ) ∈ Sn , let inv(π) be the number of pairs 1 ≤ i < j ≤ n with
-πi > πj ; i.e. the number of inversions in π . Denote by f (n) the number of permutations π ∈ Sn
-for which inv(π) is divisible by n + 1.
-                                                                                            (p − 1)!
-   Prove that there exist innitely many primes p such that f (p − 1) >                              , and innitely
-                                                                                               p
-                                          (p − 1)!
-many primes p such that f (p − 1) <                .
-                                             p
-                                                                                                        (10 points)
-
+\end{document}

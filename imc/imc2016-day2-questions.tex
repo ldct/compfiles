@@ -1,62 +1,32 @@
-                         IMC 2016, Blagoevgrad, Bulgaria
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{IMC 2016, Blagoevgrad, Bulgaria --- Day 2}
+\date{July 28, 2016}
+\begin{document}
+\maketitle
 
+\section*{Problem 6}
+Let $(x_1, x_2, \dots)$ be a sequence of positive real numbers satisfying $\sum_{n=1}^\infty \frac{x_n}{2n-1} = 1$. Prove that
+\[ \sum_{k=1}^\infty \sum_{n=1}^k \frac{x_n}{k^2} \le 2. \]
 
-                                     Day 2, July 28, 2016
+\section*{Problem 7}
+Today, Ivan the Confessor prefers continuous functions $f : [0,1] \to \mathbb{R}$ satisfying $f(x) + f(y) \ge |x - y|$ for all $x, y \in [0,1]$. Find the minimum of $\int_0^1 f$ over all preferred functions.
 
+\section*{Problem 8}
+Let $n$ be a positive integer, and denote by $\mathbb{Z}_n$ the ring of integers modulo $n$. Suppose that there exists a function $f : \mathbb{Z}_n \to \mathbb{Z}_n$ satisfying:
+\begin{enumerate}
+\item[(i)] $f(x) \ne x$,
+\item[(ii)] $f(f(x)) = x$,
+\item[(iii)] $f(f(f(x+1)+1)+1) = x$ for all $x \in \mathbb{Z}_n$.
+\end{enumerate}
+Prove that $n \equiv 2 \pmod 4$.
 
+\section*{Problem 9}
+Let $k$ be a positive integer. For each nonnegative integer $n$, let $f(n)$ be the number of solutions $(x_1, \dots, x_k) \in \mathbb{Z}^k$ of $|x_1| + \dots + |x_k| \le n$. Prove that for every $n \ge 1$, $f(n-1)f(n+1) \le f(n)^2$.
 
+\section*{Problem 10}
+Let $A$ be an $n \times n$ complex matrix whose eigenvalues have absolute value at most $1$. Prove that
+\[ \|A^n\| \le \frac{n}{\ln 2} \|A\|^{n-1}. \]
+(Here $\|B\| = \sup_{\|x\| \le 1} \|Bx\|$ and $\|x\| = \sqrt{\sum |x_i|^2}$.)
 
-                                                                                             ∞
-                                                                                             X     xn
-Problem 6.      Let (x1 , x2 , . . .) be a sequence of positive real numbers satisfying                 = 1.
-                                                                                             n=1
-                                                                                                 2n − 1
-Prove that
-                                            ∞ X
-                                              k
-                                            X   xn
-                                                          ≤ 2.
-                                             k=1 n=1
-                                                     k2
-                                                                                                 (10 points)
-
-
-
-Problem 7.      Today, Ivan the Confessor prefers continuous functions f : [0, 1] → R satisfying
-                                                                                   R1
-f (x) + f (y) ⩾ |x − y| for all pairs x, y ∈ [0, 1]. Find the minimum of             0
-                                                                                         f over all preferred
-functions.
-                                                                                                 (10 points)
-
-
-
-Problem 8.         Let n be a positive integer, and denote by Zn the ring of integers modulo n.
-Suppose that there exists a function f : Zn → Zn satisfying the following three properties:
-   (i) f (x) 6= x,
-   (ii) f (f (x)) = x,
-   (iii) f (f (f (x + 1) + 1) + 1) = x for all x ∈ Zn .
-Prove that n ≡ 2 (mod 4).
-                                                                                                 (10 points)
-
-
-
-Problem 9.         Let k be a positive integer. For each nonnegative integer n, let f (n) be the
-number of solutions (x1 , . . . , xk ) ∈ Zk of the inequality |x1 | + ... + |xk | ≤ n. Prove that for every
-n ≥ 1, we have f (n − 1)f (n + 1) ≤ f (n)2 .
-                                                                                                 (10 points)
-
-
-
-Problem 10.          Let A be a n × n complex matrix whose eigenvalues have absolute value at
-most 1. Prove that
-                                                     n
-                                          kAn k ≤        kAkn−1 .
-                                                    ln 2
-                                                                          rn
-                                                                           P
-(Here kBk =      sup kBxk for every n × n matrix B and kxk =                       |xi |2 for every complex
-                kxk≤1                                                        i=1
-vector x ∈ Cn .)
-                                                                                                 (10 points)
-
+\end{document}

@@ -1,321 +1,49 @@
-                              IMC 2016, Blagoevgrad, Bulgaria
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{IMC 2016, Blagoevgrad, Bulgaria --- Day 2 Solutions}
+\date{July 28, 2016}
+\begin{document}
+\maketitle
 
+\section*{Problem 6}
+\subsection*{Solution}
+Interchange sums:
+\[ \sum_{k=1}^\infty \sum_{n=1}^k \frac{x_n}{k^2} = \sum_{n=1}^\infty x_n \sum_{k=n}^\infty \frac{1}{k^2}. \]
+Bound
+\[ \sum_{k=n}^\infty \frac{1}{k^2} \le \sum_{k=n}^\infty \frac{1}{k^2 - 1/4} = \sum_{k=n}^\infty\Big(\frac{1}{k-1/2} - \frac{1}{k+1/2}\Big) = \frac{1}{n - 1/2}. \]
+Thus the sum is $< \sum_n \frac{x_n}{n - 1/2} = 2\sum_n \frac{x_n}{2n-1} = 2$.
 
-                                               Day 2, July 28, 2016
+\section*{Problem 7}
+\subsection*{Solution}
+Minimum is $1/4$. With $y = x + 1/2$, $f(x) + f(x + 1/2) \ge 1/2$, so
+\[ \int_0^1 f = \int_0^{1/2} (f(x) + f(x+1/2))\,dx \ge 1/4. \]
+Attained by $f(x) = |x - 1/2|$: $|x - y| = |(x - 1/2) - (y - 1/2)| \le |x-1/2| + |y-1/2|$, and $\int_0^1 |x-1/2| = 1/4$.
 
+\section*{Problem 8}
+\subsection*{Solution}
+By (ii), $f$ is an involution; by (i), fixed-point-free. So $n$ is even and $f$ is a product of $n/2$ transpositions.
 
+Let $g(x) = f(x+1)$. Condition (iii) says $g \circ g \circ g = \mathrm{id}$, which is even; so $g$ is even. But $h(x) = x - 1$ is a single $n$-cycle, odd (since $n$ even). Then $f = g \circ h$ is odd. Since $f$ is a product of $n/2$ transpositions, $n/2$ must be odd, i.e.\ $n \equiv 2 \pmod 4$.
 
+% Remark with figure: construction exists for every such n via triangulation of regular polygon.
 
-                                                                                                               ∞
-                                                                                                               X     xn
-Problem 1.    Let (x1 , x2 , . . .) be a sequence of positive real numbers satisfying                                     = 1. Prove
-                                                                                                               n=1
-                                                                                                                   2n − 1
-that
-                                                        ∞ X
-                                                          k
-                                                        X   xn
-                                                                             ≤ 2.
-                                                        k=1 n=1
-                                                                       k2
-                                                          (Proposed by Gerhard J. Woeginger, The Netherlands)
+\section*{Problem 9}
+\subsection*{Solution (generating function)}
+\[ \sum_{n \ge 0} f(n) q^n = \Big(\sum_{x \in \mathbb{Z}} q^{|x|}\Big)^k \cdot \frac{1}{1-q} = \frac{(1+q)^k}{(1-q)^{k+1}}. \]
+Define $g_a(n)$ by $\frac{(1+q)^a}{(1-q)^{k+1}} = \sum g_a(n) q^n$. Then $g_{a+1}(n) = g_a(n) + g_a(n-1)$, $g_a(0) = 1$. Call $(g(n))$ \emph{good} if $g(n-1)/g(n)$ is increasing. $g_0(n) = \binom{k+n}{k}$ is good: $g_0(n-1)/g_0(n) = n/(k+n)$.
 
-Solution. By interchanging the sums,
+If $g$ is good and $g'(n) = g(n) + g(n-1)$, then
+\[ \frac{g'(n-1)}{g'(n)} = \frac{1 + g(n-2)/g(n-1)}{1 + g(n)/g(n-1)} \]
+is increasing in $n$, so $g'$ is good. Thus $g_k = f$ is good, giving $f(n-1) f(n+1) \le f(n)^2$.
 
-                                    ∞ X                                      ∞              ∞
-                                      k
-                                                                                                     !
-                                    X   xn                X xn               X              X 1
-                                                   =                     =             xn                .
-                                    k=1 n=1
-                                            k2         1≤n≤k
-                                                             k2              n=1            k=n
-                                                                                                k2
+\section*{Problem 10}
+\subsection*{Solution 1 (Cayley--Hamilton)}
+Let $r = \|A\|$. Characteristic polynomial $\chi(t) = t^n + c_1 t^{n-1} + \dots + c_n$; by Vieta, $|c_k| \le \binom{n}{k}$. Cayley-Hamilton gives $A^n = -\sum c_k A^{n-k}$, so
+\[ \|A^n\| \le \sum_{k=1}^n \binom{n}{k} r^{n-k} = (1+r)^n - r^n. \]
+Combined with $\|A^n\| \le r^n$: let $r_0 = (2^{1/n} - 1)^{-1}$, where the two bounds agree; $r_0 < n/\ln 2$. For $r \le r_0$, $\|A^n\| \le r^n \le r_0 r^{n-1} < \frac{n}{\ln 2} r^{n-1}$. For $r > r_0$, $\frac{(1+r)^n - r^n}{r^{n-1}}$ is decreasing in $r$, so it is $\le r_0((1+1/r_0)^n - 1) = r_0 < n/\ln 2$.
 
-Then we use the upper bound
-                          ∞               ∞       ∞              
-                          X 1             X1     X     1      1         1
-                                  ≤          1 =         1 −    1   =
-                          k=n
-                              k 2
-                                    k=n
-                                         2
-                                        k −4     k=n
-                                                      k−2    k+2      n − 12
+\subsection*{Solution 2 (stronger: $\|A^n\| \le n \|A\|^{n-1}$ by induction)}
+WLOG $A$ upper-triangular. Split $A = X + Y + Z$ with $X = a_{11} E_{11}$, $Y$ = first row minus $(1,1)$ entry, $Z$ = lower-right $(n-1) \times (n-1)$ block. Then $Y^2 = YX = ZY = ZX = 0$, so $A^n = X A^{n-1} + (Y+Z) Z^{n-1}$. By induction $\|Z^{n-1}\| \le (n-1)\|Z\|^{n-2} \le (n-1)\|A\|^{n-2}$, and $\|X\| \le 1$:
+\[ \|A^n\| \le \|A\|^{n-1} + (n-1)\|A\|\|A\|^{n-2} = n \|A\|^{n-1}. \]
 
-and get
-               ∞ X                  ∞          ∞
-                 k
-                                                          !        ∞                                ∞
-               X   xn               X          X 1                 X                1                 X     xn
-                                =         xn                  <              xn ·                =2              = 2.
-               k=1 n=1
-                          k2        n=1        k=n
-                                                     k2            n=1
-                                                                                  n − 12              n=1
-                                                                                                          2n − 1
-
-
-Problem 2.        Today, Ivan the Confessor prefers continuous functions f : [0, 1] → R satisfying
-                                                                         R1
-f (x) + f (y) ≥ |x − y| for all pairs x, y ∈ [0, 1]. Find the minimum of 0 f over all preferred functions.
-                                              (Proposed by Fedor Petrov, St. Petersburg State University)
-                                 R1
-Solution. The minimum of            f is 41 .
-                                  0
-    Applying the condition with 0 ≤ x ≤ 21 , y = x + 21 we get
-
-                                                   f (x) + f (x + 21 ) ≥ 12 .
-
-By integrating,
-                      Z 1                   Z 1/2                                             Z 1/2
-                                                       f (x) + f (x + 21 )                            1
-                                                                                                        dx = 14 .
-                                                                                   
-                               f (x) dx =                                              dx ≥           2
-                          0                    0                                                 0
-
-   On the other hand, the function f (x) =                    x − 21     satises the conditions because
-
-                                     x − 21 +        1
-                                                                   ≤ x − 12 + 21 − y = f (x) + f (y),
-                                                             
-                  |x − y| =                          2
-                                                       −y
-
-and establishes
-                    Z 1                   Z 1/2                          Z 1
-                                                   1                                        1 1 1
-                                                                                 x − 12 dx = + = .
-                                                                                      
-                          f (x) dx =               2
-                                                     −x           dx +
-                     0                     0                                 1/2            8 8 4
-Problem 3.        Let n be a positive integer, and denote by Zn the ring of integers modulo n. Suppose
-that there exists a function f : Zn → Zn satisfying the following three properties:
-   (i) f (x) 6= x,
-   (ii) f (f (x)) = x,
-   (iii) f (f (f (x + 1) + 1) + 1) = x for all x ∈ Zn .
-Prove that n ≡ 2 (mod 4).
-                       (Proposed by Ander Lamaison Vidarte, Berlin Mathematical School, Germany)
-
-Solution. From property (ii) we can see that    f is surjective, so f is a permutation of the elements in
-Zn , and its order is at
-                       most 2. Therefore, the permutation f is the product of disjoint transpositions
-of the form x, f (x) . Property (i) yields that this permutation has no xed point, so n is be even,
-and the number of transpositions is precisely n/2.
-    Consider the permutation g(x) = f (x + 1). If g was odd then g ◦ g ◦ g also would be odd. But
-property (iii) constraints that g ◦ g ◦ g is the identity which is even. So g cannot be odd; g must
-be even. The cyclic permutation h(x) = x − 1 has order n, an even number, so h is odd. Then
-f (x) = g ◦ h is odd. Since f is the product of n/2 transpositions, this shows that n/2 must be odd,
-so n ≡ 2 (mod 4).
-
-
-Remark. There exists a function with properties (iiii) for every n ≡ 2 (mod 4).       For n = 2 take f (1) = 2,
-f (2) = 1. Here we outline a possible construction for n ≥ 6.
-    Let n = 4k + 2, take a regular polygon with k + 2 sides, and divide it into k triangles with k − 1 diagonals.
-Draw a circle that intersects each side and each diagonal twice; altogether we have 4k +2 intersections. Label
-the intersection points clockwise around the circle. On every side and diagonal we have two intersections;
-let f send them to each other.
-    This function f obviously satises properties (i) and (ii). For every x we either have f (x + 1) = x or
-the eect of adding 1 and taking f three times is going around the three sides of a triangle, so this function
-satises property (iii).
-
-
-
-
-Problem 4.     Let k be a positive integer. For each nonnegative integer n, let f (n) be the number
-of solutions (x1 , . . . , xk ) ∈ Zk of the inequality |x1 | + ... + |xk | ≤ n. Prove that for every n ≥ 1, we
-have f (n − 1)f (n + 1) ≤ f (n)2 .
-             (Proposed by Esteban Arreaga, Renan Finder and José Madrid, IMPA, Rio de Janeiro)
-
-Solution 1.    We prove by induction on k . If k = 1 then we have f (n) = 2n + 1 and the statement
-immediately follows from the AM-GM inequality.
-    Assume that k ≥ 2 and the statement is true for k − 1. Let g(m) be the number of integer
-solutions of |x1 | + ... + |xk−1 | ≤ m; by the induction hypothesis g(m − 1)g(m + 1) ≤ g(m)2 holds;
-this can be transformed to
-                                        g(0)    g(1)   g(2)
-                                             ≤       ≤      ≤ ....
-                                        g(1)    g(2)   g(3)
-   For any integer constant c, the inequality |x1 |+...+|xk−1 |+|c| ≤ n has g n−|c| integer solutions.
-                                                                                   
-
-Therefore, we have the recurrence relation
-                                           n
-                                           X               
-                                f (n) =           g n − |c| = g(n) + 2g(n − 1) + ... + 2g(0).
-                                           c=−n
-
-It follows that
-                                  f (n − 1)     g(n − 1) + 2g(n − 2) + ... + 2g(0)
-                                            =                                        ≤
-                                     f (n)    g(n) + 2g(n − 1) + ... + 2g(1) + 2g(0)
-                               g(n) + g(n − 1) + (g(n − 1) + ... + 2g(0) + 2 · 0)      f (n)
-                       ≤                                                          =
-                                g(n + 1) + g(n) + (g(n) + ... + 2g(1) + 2g(0))      f (n + 1)
-as required.
-Solution 2.        We rst compute the generating function for f (n):
-            ∞                                       ∞
-                                                                                                        !k
-            X                          X            X                                     X                   1     (1 + q)k
-                  f (n)q n =                                q |x1 |+|x2 |+···+|xk |+c =         q |x|            =            .
-            n=0
-                                                                                                             1−q   (1 − q)k+1
-                                 (x1 ,x2 ,...,xk )∈Zk c=0                                 x∈Z
-
-
-For each a = 0, 1, . . . denote by ga (n) (n = 0, 1, 2, . . .) the coecients in the following expansion:
-                                                                    ∞
-                                                       (1 + q)a    X
-                                                                 =     ga (n)q n .
-                                                      (1 − q)k+1   n=0
-
-So it is clear that ga+1 (n) = ga (n) + ga (n − 1) (n ≥ 1), ga (0) = 1. Call a sequence of positive numbers
-g(0), g(1), g(2), . . . good if g(n−1)
-                                 g(n)
-                                        (n = 1, 2, . . .) is an increasing sequence. It is straightforward to
-check that g0 is good:                              
-                                              k+n           g0 (n − 1)     n
-                                   g0 (n) =             ,              =      .
-                                               k               g0 (n)    k+n
-If g is a good sequence then a new sequence g 0 dened by g 0 (0) = g(0), g 0 (n) = g(n) + g(n − 1)
-(n ≥ 1) is also good:
-                          g 0 (n − 1)   g(n − 1) + g(n − 2)   1 + g(n−2)
-                                                                  g(n−1)
-                               0
-                                      =                     =      g(n)
-                                                                         ,
-                              g (n)       g(n) + g(n − 1)     1 + g(n−1)
-where dene g(−1) = 0. Thus we see that each of the sequences g1 , g2 , . . . , gk = f are good. So the
-desired inequality holds.
-
-Problem 5.          Let A be a n × n complex matrix whose eigenvalues have absolute value at most 1.
-Prove that
-                                                                         n
-                                                            kAn k ≤          kAkn−1 .
-                                                                        ln 2
-                                                                                            rn
-(Here kBk = sup kBxk for every n × n matrix B and kxk =                                                  |xi |2 for every complex vector
-                                                                                             P
-                   kxk≤1                                                                          i=1
-x ∈ Cn .)
-                                 (Proposed by Ian Morris and Fedor Petrov, St. Petersburg State University)
-
-Solution 1.    Let r = kAk. We have to prove kAn k ≤ lnn2 rn−1 .
-   As is well-known, the matrix norm satises kXY k ≤ kXk · kY k for any matrices X, Y , and as a
-simple consequence, kAk k ≤ kAkk = rk for every positive integer k .
-   Let χ(t) = (t − λ1 )(t − λ2 ) . . . (t − λn ) = tn + c1 tn−1 + · · · + cn be the characteristic polynomial
-of A. From Vieta's formulas we get
-                                                                               
-                     X                              X                          n
-         |ck | =               λi1 · · · λik ≤                λi1 · · · λik ≤      (k = 1, 2, . . . , n)
-                 1≤i <...<i ≤n                  1≤i <...<i ≤n
-                                                                               k
-                           1       k                              1       k
-By the CayleyHamilton theorem we have χ(A) = 0, so
-                                            n          n  
-              n        n−1
-                                            X  n    k
-                                                         X  n k
-           kA k = kc1 A    + · · · + cn k ≤       kA k ≤      r = (1 + r)n − rn .
-                                               k k=1
-                                                            k             k=1
-
-Combining this with the trivial estimate kAn k ≤ rn , we have
-
-                                   kAn k ≤ min rn , (1 + r)n − rn ) .
-                                                                   
-
-Let r0 = √
-         n
-           1
-           2−1
-               ; it is easy to check that the two bounds are equal if r = r0 , moreover
-
-                                                        1              n
-                                          r0 =                    <        .
-                                                    eln 2/n − 1       ln 2
-For r ≤ r0 apply the trivial bound:
-                                                                        n n−1
-                                   kAn k ≤ rn ≤ r0 · rn−1 <                 r .
-                                                                       ln 2
-For r > r0 we have
-                               n                n       n     n−1       (1 + r)n − rn
-                            kA k ≤ (1 + r) − r = r                    ·               .
-                                                                            rn−1
-                                      n−r  n
-Notice that the function f (r) = (1+r)
-                                    rn−1
-                                          is decreasing because the numerator has degree n − 1 and
-all coecients are positive, so
-                 (1 + r)n − rn   (1 + r0 )n − r0n                                n
-                       n−1
-                               <       n−1        = r0 (1 + 1/r0 )n − 1) = r0 <      ,
-                     r                r0                                        ln 2
-
-so kAn k < lnn2 rn−1 .
-Solution 2. We will use the following facts which are easy to prove:
-
-
-   • For any square matrix A there exists a unitary matrix U such that U AU −1 is upper-triangular.
-
-   • For any matrices A, B we have kAk ≤ k(A|B)k and kBk ≤ k(A|B)k where (A|B) is the matrix
-     whose columns are the columns of A and the columns of B .
-
-   • For any matrices A, B we have kAk ≤ k B   A
-                                                   k and kBk ≤ k B
-                                                                 A
-                                                                     k where B
-                                                                             A
-                                                                                 is the matrix
-                                                                             
-
-     whose rows are the rows of A and the rows of B .
-
-   • Adding a zero row or a zero column to a matrix does not change its norm.
-We will prove a stronger inequality
-                                               kAn k ≤ nkAkn−1
-for any n × n matrix A whose eigenvalues have absolute value at most 1. We proceed by induction
-on n. The case n = 1 is trivial. Without loss of generality we can assume that the matrix A is
-upper-triangular. So we have                                
-                                         a11 a12 · · · a1n
-                                       0 a22 · · · a2n 
-                                  A= · · · · · ·
-                                                             .
-                                                        · · ·
-                                          0    0 · · · ann
-Note that the eigenvalues of A are precisely the diagonal entries. We split A as the sum of 3 matrices,
-A = X + Y + Z as follows:
-                                                                                            
-            a11 0 · · · 0                    0 a12 · · · a1n                 0     0 ··· 0
-          0      0 ··· 0      , Y =  0
-                                                  0 ··· 0       , Z =  0 a22 · · · a2n  .
-                                                                                                
-    X=  · · · · · ·      · · ·         · · · · · ·      · · ·        · · · · · ·      · · ·
-             0    0 ··· 0                    0     0 ··· 0                   0     0 · · · ann
-Denote by A0 the matrix obtained from A by removing the rst row and the rst column:
-                                                         
-                                           a22 · · · a2n
-                                    A0 = · · ·      · · · .
-                                            0 · · · ann
-
-We have kXk ≤ 1 because |a11 | ≤ 1. We also have
-
-                                  kA0 k = kZk ≤ kY + Zk ≤ kAk.
-
-Now we decompose An as follows:
-
-                                  An = XAn−1 + (Y + Z)An−1 .
-
-We substitute A = X + Y + Z in the second term and expand the parentheses. Because of the
-following identities:
-                         Y 2 = 0, Y X = 0, ZY = 0, ZX = 0
-only the terms Y Z n−1 and Z n survive. So we have
-
-                                  An = XAn−1 + (Y + Z)Z n−1 .
-
-By the induction hypothesis we have kA0n−1 k ≤ (n − 1)kA0 kn−2 , hence kZ n−1 k ≤ (n − 1)kZkn−2 ≤
-(n − 1)kAkn−2 . Therefore
-
-       kAn k ≤ kXAn−1 k + k(Y + Z)Z n−1 k ≤ kAkn−1 + (n − 1)kY + ZkkAkn−2 ≤ nkAkn−1 .
-
+\end{document}
