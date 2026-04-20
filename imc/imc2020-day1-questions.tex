@@ -1,46 +1,28 @@
-                                  IMC 2020 Online
-                                  Day 1, July 26, 2020
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
 
+\title{IMC 2020, Day 1}
+\date{July 26, 2020}
 
+\begin{document}
+\maketitle
 
+\section*{Problem 1}
+Let $n$ be a positive integer. Compute the number of words $w$ (finite sequences of letters) that satisfy:
+\begin{itemize}
+\item[(1)] $w$ consists of $n$ letters from $\{a, b, c, d\}$;
+\item[(2)] $w$ contains an even number of letters $a$;
+\item[(3)] $w$ contains an even number of letters $b$.
+\end{itemize}
 
-Problem 1.     Let n be a positive integer. Compute the number of words w (nite sequences of
-letters) that satisfy all the following three properties:
- (1) w consists of n letters, all of them are from the alphabet {a, b, c, d};
- (2) w contains an even number of letters a;
- (3) w contains an even number of letters b.
-(For example, for n = 2 there are 6 such words: aa, bb, cc, dd, cd and dc.)
-                                                Armend Sh. Shabani, University of Prishtina
+\section*{Problem 2}
+Let $A$ and $B$ be $n \times n$ real matrices such that $\operatorname{rk}(AB - BA + I) = 1$. Prove that
+\[ \operatorname{trace}(ABAB) - \operatorname{trace}(A^2 B^2) = \tfrac{1}{2} n(n-1). \]
 
-Problem 2.    Let A and B be n × n real matrices such that
+\section*{Problem 3}
+Let $d \geq 2$ be an integer. Prove that there exists a constant $C(d)$ such that for any centrally symmetric convex polytope $K \subset \mathbb{R}^d$ and any $\varepsilon \in (0, 1)$, there exists a convex polytope $L \subset \mathbb{R}^d$ with at most $C(d) \varepsilon^{1-d}$ vertices such that $(1 - \varepsilon) K \subseteq L \subseteq K$.
 
-                                     rk(AB − BA + I) = 1
+\section*{Problem 4}
+A polynomial $p$ with real coefficients satisfies $p(x+1) - p(x) = x^{100}$ for all $x \in \mathbb{R}$. Prove that $p(1-t) \geq p(t)$ for $0 \leq t \leq 1/2$.
 
-where I is the n × n identity matrix.
-   Prove that
-                                                          1
-                         trace(ABAB) − trace(A2 B2 ) = n(n − 1).
-                                                          2
-(rk(M ) denotes the rank of matrix M , i.e., the maximum number of linearly independent
-columns in M . trace(M) denotes the trace of M , that is the sum of diagonal elements in M .)
-                              Rustam Turdibaev, V. I. Romanovskiy Institute of Mathematics
-
-Problem 3.     Let d ≥ 2 be an integer. Prove that there exists a constant C(d) such that the
-following holds: For any convex polytope K ⊂ Rd , which is symmetric about the origin, and
-any ε ∈ (0, 1), there exists a convex polytope L ⊂ Rd with at most C(d)ε1−d vertices such that
-
-                                        (1 − ε)K ⊆ L ⊆ K.
-
-(For a real α, a set T ⊂ Rd with nonempty interior is a convex polytope
-                                                                   P with at most αP vertices, if
-T is a convex hull of a set X ⊂ R of at most α points, i.e., T = { x∈X tx x | tx ≥ 0, x∈X tx =
-                                  d
-
-1}. For a real λ, put λK = {λx | x ∈ K}. A set T ⊂ Rd is symmetric about the origin if
-(−1)T = T .)
-                                                 Fedor Petrov, St. Petersburg State University
-
-Problem 4.    A polynomial p with real coecients satises the equation p(x + 1) − p(x) = x100
-for all x ∈ R. Prove that p(1 − t) ⩾ p(t) for 0 ⩽ t ⩽ 1/2.
-                                                 Daniil Klyuev, St. Petersburg State University
-
+\end{document}

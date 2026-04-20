@@ -1,354 +1,49 @@
-                                        IMC 2020 Online
-                                       Day 2, July 27, 2020
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
 
+\title{IMC 2020, Day 2 Solutions}
+\date{July 27, 2020}
 
+\begin{document}
+\maketitle
 
+\section*{Problem 5}
+\subsection*{Solution}
+Answer: only positive constants.
 
-Problem 5. Find all twice continuously dierentiable functions f : R → (0, +∞) satisfying
+Let $g = 1/f$. Then
+\[ g'' = \left(-\frac{f'}{f^2}\right)' = \frac{2(f')^2 - f'' f}{f^3} \leq 0, \]
+so $g > 0$ is concave. For any $a < b$, concavity gives $\frac{g(a) - g(u)}{a-u} \geq \frac{g(b) - g(a)}{b-a} \geq \frac{g(v) - g(b)}{v - b}$. Using $g(u), g(v) > 0$: $\frac{g(a)}{a-u} > \frac{g(b)-g(a)}{b-a} > \frac{-g(b)}{v-b}$. As $u \to -\infty, v \to \infty$, both outer terms go to $0$, so $g(a) = g(b)$. Thus $g$ is constant, so $f$ is constant.
 
-                                           f 00 (x)f (x) ≥ 2(f 0 (x))2
+\section*{Problem 6}
+\subsection*{Solution}
+Answer: $p = 3$.
 
-for all x ∈ R.
-          Karen Keryan, Yerevan State University & American University of Armenia, Yerevan
-Solution. We shall show that only positive constant functions satisfy the condition.
-                  1
-   Let g(x) =         . Notice that
-                f (x)
-                                00  0 0                    0
-                          00     1    −f      2(f 0 )2 − f 00 f
-                         g =        =      =                       ≤ 0,
-                                 f    f2             f3
+Let $f(x) = x^3 - 3x + 1$. The map $\varphi(x) = x^2 - 2$ cyclically permutes the three roots (from $2\cos 2t = (2\cos t)^2 - 2$). If $a$ is a root in $\mathbb{F}_p$, then $g(x) = f(x)/(x-a) = x^2 + ax + (a^2 - 3)$ has $b = a^2 - 2$ as a root:
+\[ g(a^2 - 2) = (a^2-2)^2 + a(a^2-2) + (a^2 - 3) = (a+1) f(a) = 0. \]
+Other root: $c = -a - b = -a^2 - a + 2$. If unique root, $a = a^2 - 2 = -a^2 - a + 2$, giving $a \in \{-1, 2\}$, both with $f(a) = 3$. So $p \mid 3$, i.e., $p = 3$.
 
-so the positive function g(x) is concave. We show that g must be constant.
-    Take two arbitrary real numbers a < b. By the concavity of g , for all u < a and v > b we
-have
-                          g(a) − g(u)   g(b) − g(a)   g(v) − g(b)
-                                      ≥             ≥             .
-                             a−u           b−a           v−b
-Combining this with g(u), g(v) > 0 we get
-                                      g(a)   g(b) − g(a)   −g(b)
-                                           >             >
-                                      a−u       b−a        v−b
-Now by taking limits u → −∞ and v → ∞ we obtain
-                                                 g(b) − g(a)
-                                            0≥               ≥ 0,
-                                                    b−a
-so g(a) = g(b). This holds for any pair (a, b), so g(x) is constant and f (x) = 1/g(x) also is
-constant.
-   If f is constant then f 0 = f 00 = 0, so the condition is satised.
-   Remark. Instead of the function 1/f (x), the same idea works with arctan f (x):
+Check $p = 3$: $f(1) = -1, f(2) = 3, f(3) = 19$; only $a = 2$ works.
 
-                        f 00 (1 + f 2 ) − 2(f 0 )2   f 00 (1 + f 2 ) − 2(f 0 )2 (1 + f 2 )   f 00 − 2(f 0 )2
-   (arctan f (x))00 =                              =                                       =                 ≥ 0.
-                                (1 + f 2 )2                       (1 + f 2 )2                    1 + f2
+\section*{Problem 7}
+\subsection*{Solution}
+Let $K = H_1 \cap H_2$. From $n(n-1) = [G:K] = [G:H_1][H_1:K]$, $[H_1 : K] = n-1$. Write $H_1 = \bigsqcup_{i=1}^{n-1} h_i K$. Then
+\[ H_1 H_2 = \bigsqcup_{i=1}^{n-1} h_i K H_2 = \bigsqcup_{i=1}^{n-1} h_i H_2 \]
+(since $K \subseteq H_2$). The union is disjoint: $h_i H_2 \cap h_j H_2 \neq \emptyset \iff h_i^{-1} h_j \in H_2 \cap H_1 = K \iff h_i = h_j$.
 
-As can be seen, arctan f (x) is a bounded convex function, therefore it must be constant.
+So $H_1 H_2$ is a union of $n - 1$ left cosets of $H_2$; let $L = G \setminus H_1 H_2$ be the remaining coset. Similarly $L$ is a right coset of $H_1$. For any $g \in L$: $L = g H_2 = H_1 g$, so $H_2 = g^{-1} H_1 g$.
 
-Problem 6. Find all prime numbers p for which there exists a unique a ∈ {1, 2, . . . , p} such
-that a3 − 3a + 1 is divisible by p.
-                                                         Géza Kós, Loránd Eötvös University, Budapest
-Solution 1. We show that p = 3 the only prime that satses the condition.
+\section*{Problem 8}
+\subsection*{Solution}
+Answer: $1$.
 
+Using the Frullani integral $\log k = \int_0^\infty \frac{e^{-x} - e^{-kx}}{x}\, dx$:
+\[ A := \sum_{k=1}^n (-1)^k \binom{n}{k} \log k = \int_0^\infty \frac{-e^{-x} + 1 - (1 - e^{-x})^n}{x}\, dx. \]
 
+Bound on $[M, \infty)$: by Bernoulli, $(1 - e^{-x})^n \geq 1 - n e^{-x}$, so integrand $\leq n e^{-x}/x$, giving $\int_M^\infty \leq n M^{-1} e^{-M}$. Choose $M$ with $M e^M = n$; then $M = \log n - \log\log n + o(1)$ and the tail is $O(1)$.
 
+On $[0, M]$: $(1 - e^{-x})^{n-1} \leq e^{-(n-1) e^{-x}} \leq e^{-(n-1) M / n} \to 0$ uniformly, so
+\[ \int_0^M \frac{(1 - e^{-x})(1 - (1 - e^{-x})^{n-1})}{x}\, dx = (1 + o(1)) \int_0^M \frac{1 - e^{-x}}{x}\, dx. \]
+The latter equals $\log M + O(1) = \log \log n + O(1)$. So $A = (1 + o(1)) \log \log n$.
 
-                                                        1
-   Let f (x) = x3 − 3x + 1. As preparation, let's compute the roots of f (x). By Cardano's
-formula, it can be seen that the roots are
-     v      s 
-     u
-                 2    3      r                                            
-     u
-     3 −1     −1      −3       3    2π         2π        2π      4π       8π
- 2Re      +        −      = 2Re cos    + i sin    = 2 cos , 2 cos , 2 cos
-     t
-        2      2      3              3          3         9       9        9
-
-where all three values of the complex cubic root were taken.
-   Notice that, by the trigonometric identity 2 cos 2t = (2 cos t)2 − 2, the map ϕ(x) = x2 − 2
-cyclically permutes the three roots. We will use this map to nd another root of f , when it is
-considered over Fp .
-   Suppose that f (a) = 0 for some a ∈ Fp and consider
-                                f (x)   f (x) − f (a)
-                       g(x) =         =               = x2 + ax + (a2 − 3).
-                                x−a         x−a
-We claim that b = a2 − 2 is a root of g(x). Indeed,
-                  g(b) = (a2 − 2)2 + a(a2 − 2) + (a2 − 3) = (a + 1) · f (a) = 0.
-
-By Vieta's formulas, the other root of g(x) is c = −a − b = −a2 − a + 2.
-   If f has a single root then the three roots must coincide, so
-                                    a = a2 − 2 = −a2 − a + 2.
-
-Here the quadratic equation a = a2 − 2, or equivalently (a + 1)(a − 2) = 0, has two solutions,
-a = −1 and a = 2. By f (−1) = f (2) = 3, in both cases we have 0 = f (a) = 3, so the only
-choice is p = 3.
-    Finally, for p = 3 we have f (1) = −1, f (2) = 3 and f (3) = 19, from these values only f (2)
-is divisible by 3, so p = 3 satises the condition.
-Solution 2 (outline) Dene f (x) and g(x) like in Solution 1. The discriminant of g(x) is
-
-                                 ∆g = a2 − 4(a2 − 3) = 12 − 3a2 .
-
-We show that ∆g has a square root in Fp .
-  Take two integers k, m (to be determinated later) and consider
-         ∆g = ∆g + (ka + m)f (a) = ka4 + ma3 − (3k + 1)a2 + (k − 3m)a + (m + 12).
-
-Our goal is to choose k, m in such a way that the last expression is a complete square. Either
-by direct calculations or guessing, we can nd that k = m = 4 works:
-           ∆g = ∆g + (4a + 4)f (a) = 4a4 + 4a3 − 15a2 − 8a + 16 = (2a2 + a − 4)2 .
-
-    If p 6= 2 then we can conclude that f (x) has either no or three roots, therefore p is suitable
-if and only is f (x) is a complete cube: x3 − 3x + 1 = (x − a)3 . From Vieta's formulas a3 = 1,
-so a 6= 0 and 3a = 0, which is possible if p = 3.
-    For p = 3 we have f (x) = (x + 1)3 , so p = 3 is suitable.
-    The case p = 2 must be checked separately because the quadratic formula contains a division
-by 2. f (1) = −1 and f (2) = 3, so p = 2 is not suitable.
-Solution 3 (outline) Assume p > 3; the cases p = 2 and p = 3 will be checked separately.
-
-                                                 2
-   Let f (x) = x3 − 3x + 1 and suppose that a ∈ Fp is a root of f (x), and let b, c ∈ Fp2 be the
-other two roots. The discriminant ∆f of f (x) can be expressed by the elementary symmetric
-polynomials of a, b, c; it can be calculated that
-                            ∆f = (b − c)2 (a − b)2 (a − c)2 = 81 = 92 ,
-
-so
-                                  (b − c)(a − b)(a − c) = ±9 ∈ Fp .
-    Notice that ∆f 6= 0, so the three roots are distinct.
-    Either b, c ∈ Fp or b, c are conjugate elements in Fp2 \ Fp , we have (a − b)(a − c) ∈ Fp , so
-b − c = (b−c)(a−b)(a−c)
-            (a−b)(a−c)
-                         ∈ Fp . From Vieta's formulas we have b + c ∈ Fp as well; since p 6= 2, it
-follows that b, c ∈ Fp . Now f (x) has three distinct roots in Fp , so p cannot be suitable.
-    p = 2 does not satises the condition because both f (1) = −1 and f (2) = 3 are odd. p = 3
-is suitable, because f (2) = 3 is divisible by 3 while f (1) = −1 and f (3) = 19 are not.
-Problem 7. Let G be a group and n ≥ 2 be an integer. Let H1 and H2 be two subgroups of
-G that satisfy
-
-                  [G : H1 ] = [G : H2 ] = n and [G : (H1 ∩ H2 )] = n(n − 1).
-
-Prove that H1 and H2 are conjugate in G.
-   (Here [G : H] denotes the index of the subgroup H , i.e. the number of distinct left cosets
-xH of H in G. The subgroups H1 and H2 are conjugate if there exists an element g ∈ G such
-that g −1 H1 g = H2 .)
-        Ilya Bogdanov and Alexander Matushkin, Moscow Institute of Physics and Technology
-Solution 1. Denote K = H1 ∩ H2 . Since
-
-                      n(n − 1) = [G : K] = [G : H1 ][H1 : K] = n[H1 : K],
-
-we obtain thatF[H1 : K] = n − 1. Thus, the subgroup H1 is partitioned into n − 1 left cosets of
-               i=1 hi K . Therefore, the set H1 H2 = {ab : a ∈ H1 , b ∈ H2 } is partitioned as
-K , say H1 = n−1
-                                    n−1
-                                                 !          n−1              n−1
-                                    G                       G                G
-                        H1 H2 =           hi K       H2 =         hi KH2 =         hi H2 .
-                                    i=1                     i=1              i=1
-
-   The last equality holds because K ⊆ H2 , so KH2 = H2 . The last expression is a disjoint
-union since
-             hi H2 ∩ hj H2 6= ∅ ⇐⇒ hi−1 hj ∈ H2 ⇐⇒ h−1
-                                                    i hj ∈ K ⇐⇒ hi = hj .
-
-    Thus, H1 H2 is a disjoint union of n − 1 left cosets with respect to H2 ; hence L = G \ (H1 H2 )
-is the remaining such left coset. Similarly, L is a right coset with respect to H1 . Therefore, for
-each g ∈ L we have L = gH2 = H1 g , which yields H2 = g −1 H1 g .
-Solution 2. Put G/H1 = X and G/H2 = Y , those are n-element sets acted on by G from the
-left. Let G act on X × Y from the left coordinate-wise, consider this product as a table, with
-rows being copies of X and columns being copies of Y .
-    The stabilizer of a point (x, y) in X × Y is H1 ∩ H2 . By the orbit-stabilizer theorem, we
-obtain that the orbit Z of (x, y) has size [G : H1 ∩ H2 ] = n(n − 1).
-    If Z contains a whole column then there is a subgroup G1 of G that stabilizes x and acts
-transitively on Y . If we conjugate G1 to a group G01 , then its action remains transitive on Y ,
-
-                                                       3
-so by conjugation we obtain columns of the table. Since G acts transitively on X , we cover all
-the columns. It follows that Z = X × Y , so
-                                n(n − 1) = |Z| = |X × Y | = n2 ,
-
-which is a contradiction.
-    Hence every column of X × Y has an element not from Z . The same holds for the rows of
-X × Y . There are n elements not from Z in total and they induce a bijection between X and
-Y which allows us to identify X = Y .
-    After this identication, every element (x, x) from the diagonal of X × X (i.e. from (X ×
-X) \ Z ) is moved to a diagonal element by any g ∈ G, because gx = gx. In this formula the
-action of g in the left hand side and the action of g in the right hand side are the actions of g
-on X and Y respectively.
-    Therefore our bijection between X and Y is an isomorphism of sets with a left action of G.
-Since H1 and H2 are stabilizers of the points in the same transitive action of G, we conclude
-that they are conjugate.
-    Remark. The situation in the problem is possible for every n ≥ 2: let G = Sn and let H1
-an H2 be the stabilizer subgroups of two elements.
-
-
-
-
-                                               4
-Problem 8. Compute
-                                                    n        
-                                             1     X
-                                                           k n
-                                      lim              (−1)     log k.
-                                     n→∞ log log n           k
-                                                   k=1
-
-(Here log denotes the natural logarithm.)
-                                                              Fedor Petrov, St. Petersburg State University
-Solution 1. Answer: 1.
-   The idea is that if f (k) = g k , then
-                                    R
-
-                                                         Z
-                                     X            n
-                                                  k
-                                            (−1)    f (k) = (1 − g)n .
-                                                  k
-
-To relate this to logarithm, we may use the Frullani integrals
-
-    Z ∞                        Z ∞ −x        Z ∞ −kx           Z ∞ −x       Z ∞ −x
-          e−x − e−kx               e              e                e            e
-                     dx = lim         dx −            dx = lim         dx −        dx =
-     0        x           c→+0 c    x         c     x      c→+0 c   x        kc  x
-                          Z kc −x                    Z kc −x
-                              e                          e −1
-                      lim         dx = log k + lim             dx = log k.
-                     c→+0 c     x               c→+0 c      x
-   This gives the integral representation of our sum:
-                             n                  Z ∞
-                                                    −e−x + 1 − (1 − e−x )n
-                                     
-                             X       n  k
-                      A :=     (−1)     log k =                            dx.
-                           k=1
-                                     k           0           x
-   Now the problem is reduced to a rather standard integral asymptotics.
-   We have (1−e−x )n ⩾ 1−ne−x by Bernoulli inequality, thus 0 ⩽ −e−x +1−(1−e−x )n ⩽ ne−x ,
-and we get
-          Z ∞                                           Z ∞                    Z ∞
-                −e−x + 1 − (1 − e−x )n                        e−x
-     0⩽                                dx ⩽ n                     dx ⩽ nM −1           e−x dx = nM −1 e−M .
-            M            x                               M     x                   M
-
-So choosing M such that M eM = n (such M exists and goes to ∞ with n) we get
-                                                 Z M
-                                                       −e−x + 1 − (1 − e−x )n
-                                A = O(1) +                                    dx.
-                                                  0             x
-
-Note that for 0 ⩽ x ⩽ M we have e−x ⩾ e−M = M/n, and (1 − e−x )n−1 ⩽ e−e
-                                                                                                      −x (n−1)
-                                                                                                                 ⩽
-e−M (n−1)/n tends to 0 uniformly in x. Therefore
-                Z M                                                          Z M
-                          (1 − e−x )(1 − (1 − e−x )n−1 )                               1 − e−x
-                                                         dx = (1 + o(1))                       dx.
-                  0                     x                                      0          x
-Finally
-                  Z M                       Z 1                  Z M               Z M
-                           1 − e−x                1 − e−x              −e−x                dx
-                                   dx =                   dx +              dx +              =
-                      0       x              0       x            1     x              1    x
-                      log M + O(1) = log(M + log M ) + O(1) = log log n + O(1),
-   and we get A = (1 + o(1)) log log n.
-Solution 2. We start with a known identity (a nite dierence of 1/x).
-
-
-                                                          5
-     Expand the rational function
-                                                   m!
-                                                   f (x) =
-                                          x(x + 1) . . . (x + m)
-as the linear combination of simple fractions f (x) = m    j=0 cj /(x + j). To nd cj we use
-                                                         P
-
-                                                                  
-                                                                j m
-                            cj = ((x + j)f (x)) |x=−j = (−1)           .
-                                                                    j
-So we get
-                                       m            
-                                       X
-                                                   km  1            m!
-                                              (−1)        =                        .                                         (1)
-                                          k=0
-                                                    k x+k   x(x + 1) . . . (x + m)
-     Another known identity we use is
-             n               n                                   
-             X          n     X
-                                k     k    n−1   n−1             j+1 n − 1
-                  (−1)     =      (−1)         +           = (−1)          .                                                 (2)
-             k=j+1
-                        j    k=j+1
-                                            k     k − 1                j
-
-     Finally we write log k = 1k dx                          j=1 Ij , where Ij =              .
-                                            R              Pk−1                      R 1 dx
-                                 x
-                                    =                                                 0 x+j
-     Now we have
-
-      n                  n           k−1
-                                     X        n−1      n          X  n−1                
-               n                   k n                           k n                j+1 n − 1
-      X                   X                     X       X
-                   k
-S :=     (−1)     log k =     (−1)         Ij =     Ij      (−1)     =       Ij (−1)           =
-     k=1
-               k          k=1
-                                     k j=1      j=1    k=j+1
-                                                                   k (2) j=1              j
-
-                n−1
-             Z 1X                          Z 1        n−1                      !
-                              n − 1 dx
-                                    j+1             1 X         j n−1      dx
-                   (−1)                    =         −      (−1)                     dx =
-             0 j=1              j    x+j       0    x j=0            j    x+j           (1)
-
-Z 1                                         Z 1                                                
-      1              (n − 1)!                     dx                        1
-        −                               dx =           1−                                           .
- 0    x x(x + 1) . . . (x + (n − 1))           0   x       (1 + x)(1 + x/2) . . . (1 + x/(n − 1))
-    So S is again expressed as an integral, for which it is not hard to get an asymptotics.
-    Since et ⩾ 1+t for all real t (by convexity or any other reason), we have ey −y ⩾ 1+y 2 −y =
-                                                                                   2
-
-1+y 3
-1+y
-         1
-      ⩾ 1+y  and 1+y
-                   1
-                      ⩾ e1y = e−y for y > 0. Therefore
-                                                       2         1
-                                                      ey −y ⩾       ⩾ e−y , y > 0.
-                                                                1+y
-     Using this double inequality we get
-                                                                             1
-                           
-  x2 1+ 12 +...+     1
-                                −x(1+ 12 +...+ n−1
-                                                1
-                                                   )                                                        1        1
- e       2         (n−1)2                              ⩾                                           ⩾ e−x(1+ 2 +...+ n−1 ) .
-                                                            (1 + x)(1 + x/2) . . . (1 + x/(n − 1))
-Since x2 (1 + 1/22 + . . .) ⩽ 2x2 ⩽ 2x, we conclude that
-                                                                       n−1          n−1
-                          1                                                1            1
-                                                         , where − 2 +
-                                                                       X            X
-                                                   −Cn x
-                                                =e                           ⩽ Cn ⩽       ,
-         (1 + x)(1 + x/2) . . . (1 + x/(n − 1))                        j=1
-                                                                           j        j=1
-                                                                                        j
-
-i.e., Cn = log n + O(1). Thus
-             Z 1                                 Z Cn                        Z Cn          Z 1             Z Cn
-                   dx                                      dt                       dt                dt                dt
-       S=             (1 − e−Cn x ) =                         (1 − e−t ) =             +          −t
-                                                                                              (1 − e ) +          e−t
-              0    x                              0         t                 1      t      0         t     1            t
-                                                = log Cn + O(1) = log log n + O(1).
-
-
-                                                                      6
-
+\end{document}

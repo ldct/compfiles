@@ -1,262 +1,46 @@
-                                  IMC 2020 Online
-                                  Day 1, July 26, 2020
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
 
+\title{IMC 2020, Day 1 Solutions}
+\date{July 26, 2020}
 
+\begin{document}
+\maketitle
 
+\section*{Problem 1}
+\subsection*{Solution}
+Answer: $4^{n-1} + 2^{n-1}$.
 
-Problem 1. Let      n be a positive integer. Compute the number of words w (nite sequences of
-letters) that satisfy all the following three properties:
+Using generating functions: consider
+\[ \frac{(a+b+c+d)^n + (-a-b+c+d)^n + (-a+b+c+d)^n + (a-b+c+d)^n}{4}. \]
+The coefficient of $a^A b^B c^C d^D$ equals $\frac{(1 + (-1)^{A+B} + (-1)^A + (-1)^B)}{4} = \frac{(1+(-1)^A)(1+(-1)^B)}{4}$, which is $1$ if $A, B$ are both even, else $0$.
 
- (1) w consists of n letters, all of them are from the alphabet {a, b, c, d};
+Substituting $a = b = c = d = 1$: $(4^n + 0 + 2^n + 2^n)/4 = 4^{n-1} + 2^{n-1}$.
 
- (2) w contains an even number of letters a;
+\section*{Problem 2}
+\subsection*{Solution}
+Let $X = AB - BA$. The trace is cyclic, so
+\[ \operatorname{tr}(X^2) = \operatorname{tr}(ABAB - ABBA - BAAB + BABA) = 2(\operatorname{tr}(ABAB) - \operatorname{tr}(A^2 B^2)). \]
+We need $\operatorname{tr}(X^2) = n(n-1)$. Since $X + I$ has rank 1, its eigenvalues are $(n, 0, \ldots, 0)$ or we write $X + I = vw^T$. Then $\operatorname{tr}(X) = 0$ gives $\operatorname{tr}(vw^T) = w^T v = n$. So
+\[ X^2 = (vw^T - I)^2 = I - 2vw^T + vw^T v w^T = I + (w^T v - 2) vw^T, \]
+$\operatorname{tr}(X^2) = n + (n-2) n = n(n-1)$.
 
- (3) w contains an even number of letters b.
+\section*{Problem 3}
+\subsection*{Solution}
+Take an inclusion-maximal set $\{p_1, \ldots, p_m\} \subseteq \partial K$ such that the sets $K_i = p_i + \tfrac{\varepsilon}{2} K$ have pairwise disjoint interiors. Let $L = \operatorname{conv}\{p_1, \ldots, p_m\}$.
 
-(For example, for n = 2 there are 6 such words: aa, bb, cc, dd, cd and dc.)
-                                                Armend Sh. Shabani, University of Prishtina
+\textbf{Counting.} Each $K_i$ lies in $(1 + \varepsilon/2) K \setminus (1 - \varepsilon/2) K$ (using symmetry and $p_i \in \partial K$). Volume: $m (\varepsilon/2)^d \operatorname{vol}(K) \leq ((1+\varepsilon/2)^d - (1-\varepsilon/2)^d) \operatorname{vol}(K) \leq (3/2)^d \varepsilon \operatorname{vol}(K)$, so $m \leq 3^d \varepsilon^{1-d}$.
 
-Solution 1.    Let N = {1, 2, . . . , n}. Consider a word w that satises the conditions and let
-A, B, C, D ⊂ N be the sets of positions of letters a, b, c and d in w, respectively. By the
-denition of the words we have A t B t C t D = N . The sets A and B are constrained to have
-even sizes.
-    In order to construct all suitable words w, choose the set S = A ∪ B rst; by the conditions,
-|S| = |A| + |B| must be even. It is well-known that an n-element set (with n ≥ 1) has 2n−1
-even subsets, so there are 2n−1 possibilities for S .
-    If S = ∅ then we can choose C ⊂ N arbitrarily, and then the set D = S \ C is determined
-D uniquely. Since N has 2n subsets, we have 2n options for set C and therefore 2n suitable
-words w with S = ∅.
-    Otherwise, if k = |S| > 0, we have to choose an arbitrary subset C of N \ S and an even
-subset A of S ; then D = (N \ S) \ C and B = S \ A are determined and |B| = |S| − |A| will
-automatically be even. We have 2n−k choices for C and 2k−1 independent choices for A; so for
-each nonempty even S we have 2n−k · 2k−1 = 2n−1 suitable words.
-    The number of nonempty even sets S is 2n−1 − 1, so in total, the number of words satisfying
-the conditions is
-                             1 · 2n + (2n−1 − 1) · 2n−1 = 4n−1 + 2n−1 .
-   Solution 2.   Let an denote the number of words of length n over A = {a, b, c, d} such
-that a and b appear even number of times. Further, we dene the following sequences for the
-number of words of length n, all over A.
+\textbf{Inclusion $(1-\varepsilon)K \subseteq L$.} Suppose $p \in (1-\varepsilon)K \setminus L$. Separate by functional $\ell$ with $\ell(p) > \max_i \ell(p_i)$. Choose $x \in K$ maximizing $\ell(x) = a$. By maximality of $\{p_i\}$, $x + \tfrac{\varepsilon}{2} K$ meets some $K_i$. Then $\ell(p_i) + \tfrac{\varepsilon}{2} a \geq \ell(x) - \tfrac{\varepsilon}{2} a$, so $\ell(p_i) \geq a(1-\varepsilon) \geq \ell(p)$, contradiction.
 
-   • bn - the number of words with an odd number of a's and even number of b's
+\section*{Problem 4}
+\subsection*{Solution}
+Let $h(z) = p(1 - \bar z) - p(z)$. For $t \in \mathbb{R}$: $h(it) = p(1 + it) - p(it) = t^{100}$ (since $p(x+1) - p(x) = x^{100}$ for real $x$, extended by polynomial identity), and $h(1/2 + it)$ has real part $0$ by symmetry.
 
-   • cn - the number of words with even number of a's and an odd number of b's
+If $p = \sum c_j z^j$, deg $p = n$:
+\[ h(a + it) = (1 - 2a)(n c_n i^{n-1} t^{n-1} + Q(t, a)) \]
+with $Q$ of degree $\leq n-2$ in $t$. Setting $a = 0$ and matching $t^{100}$: $n = 101$, $c_{101} = 1/101$.
 
-   • dn - the number of words with an odd number of a's and an odd number of b's
+For large $|t|$ and $a \in [0, 1/2)$, $\operatorname{Re}(h(a + it))$ is dominated by positive terms. By maximum principle for harmonic $\operatorname{Re} h$ on the rectangle $[0, 1/2] \times [-N, N]$ (with $\operatorname{Re} h \geq 0$ on the boundary for large $N$), $\operatorname{Re} h \geq 0$ throughout, in particular on $[0, 1/2]$: $p(1-t) - p(t) \geq 0$.
 
-We will call them A-words, B-words, C-words and D-words, respectively.
-It is clear that a1 = 2 and that
-
-                                    an + bn + cn + dn = 4n .
-
-First, we nd a recurrence relation for an . If an A-word of length n begins with c or d, it can
-be followed by any A-word of length n − 1, contributing with 2an−1 . If an A-word of length
-n begins with a, it can be followed by any word of length n − 1 that contains an odd number
-
-                                                1
-of a's and even number of b's, thus contributing with bn−1 . If an A-word of length n begins
-with b, it can be followed by any word of length n − 1 that contains even number of a's and
-an odd number of b's, thus contributing with cn−1 . Therefore we have the following recurrence
-relation:
-                                  an = 2an−1 + bn−1 + cn−1 .                               (1)
-Next, we nd a recurrence relation for bn .
-If a B-word of length n begins with c or d, it can be followed by any B-word of length n − 1,
-contributing with 2bn−1 . If a B-word of length n begins with a, it can be followed by any word of
-length n−1 that contains even number of a's and even number of b's, contributing with an−1 . If a
-B-word of length n begins with b, it can be followed by any word of length n−1 that contains an
-odd number of a's and an odd number of b's, contributing with dn−1 = 4n−1 −an−1 −bn−1 −cn−1 .
-Therefore we have the following recurrence relation:
-
-                                    bn = bn−1 + 4n−1 − cn−1 .                                 (2)
-
-   Now observe that bk = ck for all k , since simultaneously replacing a's to b's and vice versa
-we get a C -word from a B -word. Therefore (2) yields bn = 4n−1 . Now (1) yields
-
-                                     an = 2 · an−1 + 2 · 4n−2 .
-
-Solving the last recurrence relation (for example, diving by 2n we get xn := an 2−n satises
-xn − xn−1 = 2n−3 , and it remains to sum up consecutive powers of 2) we get
-
-                                        an = 2n−1 + 4n−1 .
-   Solution 3. Consider the sum
-
-         (a + b + c + d)n + (−a − b + c + d)n + (−a + b + c + d)n + (a − b + c + d)n
-                                                                                     .        (∗)
-                                              4
-Expanding the parentheses as
-
-              (a + b + c + d)n = (a + b + c + d)(a + b + c + d) . . . (a + b + c + d),
-
-we get a sum of products x1 . . . xn , xi ∈ {a, b, c, d}, naturally corresponding to the words of
-length n over the alphabet {a, b, c, d}. Consider the other terms in the numerator similarly.
-   If a word x1 . . . xn contains A, B, C, D letters a,b,c and d respectively, we get aA bB cC dD
-with the coecient
-                                                                      (
-    1 + (−1)A+B + (−1)A + (−1)B         (1 + (−1)A )(1 + (−1)B )        1, if A and B are even
-                                      =                            =
-                    4                                 4                 0, otherwise.
-
-Hence, by substituting a = b = c = d = 1 in (∗) we get the answer (4n + 2n+1 )/4 = 4n−1 + 2n−1 .
-
-
-
-
-                                                 2
-Problem 2. Let    A and B be n × n real matrices such that
-
-                                      rk(AB − BA + I) = 1
-
-where I is the n × n identity matrix.
-    Prove that
-                                                          1
-                          trace(ABAB) − trace(A2 B2 ) = n(n − 1).
-                                                          2
-(rk(M ) denotes the rank of matrix M , i.e., the maximum number of linearly independent
-columns in M . trace(M) denotes the trace of M , that is the sum of diagonal elements in M .)
-                              Rustam Turdibaev, V. I. Romanovskiy Institute of Mathematics
-
-Solution. Let   X = AB − BA. The rst important observation is that
-
-   trace(X2 ) = trace(ABAB − ABBA − BAAB + BABA) = 2trace(ABAB) − 2trace(A2 B2 )
-
-using that the trace is cyclic. So we need to prove that trace(X2 ) = n(n − 1).
-   By assumption, X + I has rank one, so we can write X + I = v t w for two vectors v, w. So
-
-                  X 2 = (v t w − I)2 = I − 2v t w + v t wv t w = I + (wv t − 2)v t w.
-
-Now by denition of X we have trace(X) = 0 and hence wv t = trace(wvt ) = trace(vt w) = n so
-that indeed
-                          trace(X2 ) = n + (n − 2)n = n(n − 1).
-   An alternative way to use the rank one condition is via eigenvalues: Since X + I has rank
-one, it has eigenvalue 0 with multiplicity n − 1. So X has eigenvalue −1 with multiplicity n − 1.
-Since trace(X) = 0 the remaining eigenvalue of X must be n − 1. Hence
-
-                         trace(X2 ) = (n − 1)2 + (n − 1) · 12 = n(n − 1).
-
-
-
-
-                                                  3
-Problem 3.     Let d ≥ 2 be an integer. Prove that there exists a constant C(d) such that the
-following holds: For any convex polytope K ⊂ Rd , which is symmetric about the origin, and
-any ε ∈ (0, 1), there exists a convex polytope L ⊂ Rd with at most C(d)ε1−d vertices such that
-
-                                        (1 − ε)K ⊆ L ⊆ K.
-
-(For a real α, a set T ⊂ Rd with nonempty interior is a convex polytope
-                                                                   P with at most αP vertices, if
-T is a convex hull of a set X ⊂ R of at most α points, i.e., T = { x∈X tx x | tx ≥ 0, x∈X tx =
-                                  d
-
-1}. For a real λ, put λK = {λx | x ∈ K}. A set T ⊂ Rd is symmetric about the origin if
-(−1)T = T .)
-                                                 Fedor Petrov, St. Petersburg State University
-
-Solution [in elementary terms] Let      {p1 , . . . , pm } be an inclusion-maximal collection of points
-on the boundary ∂K of K such that the homothetic copies Ki := pi + 2ε K have disjoint interiors.
-We claim that the convex hull L := conv{p1 , . . . , pm } satises all the conditions.
-   First, note that by convexity of K we have aK + bK = (a + b)K for a, b > 0. It follows that
-Ki ⊂ (1 + 2ε )K . On the other hand, if k ∈ K , a > 0 and and ak ∈ Ki , then
-                                       ε        ε        ε
-                              pi ∈ ak − K = ak + K ⊂ (a + )K,
-                                       2        2        2
-and since pi is a boundary point of K , we get a + 2ε ⩾ 1, a ⩾ 1 − 2ε . It means that all Ki lie
-between (1 − 2ε )K and (1 + 2ε )K . Since their interiors are disjoint, by the volume counting we
-obtain                           ε d          ε d       ε d
-                             m          ⩽ 1+         − 1−         ⩽ (3/2)d ε
-                                  2              2           2
-(since F (ε) = (1 + 2ε )d − (1 − 2ε )d is a polynomial in ε without constant term with non-negative
-coecients which sum up to (3/2)d − (1/2)d ), therefore m ⩽ 3d ε1−d .
-    It is clear that L ⊆ K , so it remains to prove that (1 − ε)K ⊆ L. Assume the contrary:
-there exists a point p ∈ (1 − ε)K \ L. Separate p from L by a hyperplane: Choose a linear
-functional ` such that `(p) > maxx∈L `(x) = maxi `(pi ). Choose x ∈ K such that `(x) =: a is
-maximal possible. Note that by our construction x + 2ε K has a common point with some Ki :
-there exists a point z ∈ (x + 2ε K) ∩ (pi + 2ε K). We have
-                                          ε                 ε
-                                  `(pi ) + a ⩾ `(z) ⩾ `(x) − a,
-                                          2                 2
-and therefore `(pi ) ⩾ a(1 − ε). Since p ∈ (1 − ε)K , we obtain `(p) ⩽ a(1 − ε). A contradiction.
-    Solution [in the language of Banach spaces] Equip R with the norm k · k, whose unit
-                                                                  d
-
-ball is K , call this Banach space V . Choose an inclusion maximal set X ⊂ ∂K whose pairwise
-distances are ≥ ε. Put L = convX .
-    The inclusion L ⊆ K follows from the convexity of K . If the inclusion (1−ε)K ⊆ L fails then
-the HahnBanach theorem provides a unit linear functional λ ∈ V ∗ such that max{λ(L)} =
-max{λX} ≤ 1 − ε. Then the point x ∈ K , where the maximum max{λ(K)} = 1 is attained
-(thanks to the nite dimension and compactness) is in ∂K and, as λ witnesses, at distance ≥ ε
-from all other points of L and X , contradicting the inclusion-maximality of X .
-    The upper bound for the cardinality |X| is obtained by noting that the ε/2 balls centered
-at the points of X are pairwise disjoint and lie in the dierence of balls (1 + ε/2)K \ (1 − ε/2)K ,
-whose volume is (1 + ε/2)d − (1 − ε/2)d volK , the volume of each of the small balls being
-εd /2d volK . Hence
-                                      (2 + ε)d − (2 − ε)d
-                               |X| ≤                       = O(ε1−d ).
-                                               εd
-
-
-                                                  4
-Problem 4. A polynomial     p with real coecients satises the equation p(x + 1) − p(x) = x100
-for all x ∈ R. Prove that p(1 − t) ⩾ p(t) for 0 ⩽ t ⩽ 1/2.
-                                                 Daniil Klyuev, St. Petersburg State University
-
-Solution 1.     Denote h(z) = p(1 − z̄) − p(z) for complex z . For t ∈ R we have h(it) =
-p(1 + it) − p(it) = t100 , h(1/2 + it) = 0.
-   If p(z) = cn z n + . . . + c0 , cn 6= 0, we have
-
-           h(a + it) = p((1 − a) + it) − p(a + it) = (1 − 2a) ncn in−1 tn−1 + Q(t, a)
-                                                                                     
-
-
-for some polynomial Q having degree at most n − 2 with respect to the variable t. Substituting
-a = 0 we get n = 101, cn = 1/101.
-    Next, for large |t| we see that <(h(a + it)) > 0 for 0 ⩽ a < 1/2.
-    Therefore by Maximum Principle for the harmonic function <h and the rectangle [0, 1/2] ×
-[−N, N ] for large enough N we conclude that <h is non-negative in this rectangle, in particular
-on [0, 1/2], as we need.      Pm
-    Solution 2. Let p(x) =       j=0 aj x . Then
-                                         j
-
-
-                  m                                                                             
-                  X
-                                   j      j
-                                                                            m−1    m m−2
-p(x+1)−p(x) =            aj (x + 1) − x           = a1 +a2 (2x+1)+· · ·+am mx    +     x  + ··· + 1 .
-                   j=0
-                                                                                    2
-
-This implies that m = 101, mam = 1 so a101 = 101       1
-                                                           , (m − 1)am−1 + am m            = 0 so a100 = − 12
-                                                                                        
-                                                                                     2
-etc. For j ⩾ 1 aj is uniquely dened, a0 may be chosen arbitrarily.
-     The equality p2n ( 21 ) = 0 holds because 0 = p2n ( 21 ) + p2n (1 − 12 ) = 2p2n ( 12 ). Let n ⩾ 1 be an
-integer and let pn be a polynomial such that pn (x + 1) − pn (x) = xn for all x and pn (0) = 0 =
-pn (1). The above considerations prove the uniqueness of pn . We have p1 (x) = 21 x2 − 12 x. Also
-p0n (x + 1) − p0n (x) = nxn−1 = n (pn−1 (x + 1) − pn−1 (x)). Therefore p0n (x) = npn−1 (x) + cn−1 for
-a properly chosen constant cn−1 . We shall prove that
-
-(1) p2n−1 (x) − p2n−1 (1 − x) = 0, p2n (x) + p2n (1 − x) = 0, c2n = 0, p002n (x) = 2n(2n − 1)p2n−2 (x)
-
-for n = 1, 2, . . . and for all x. Simple computation shows that p1 (x) − p1 (1 − x) = 0. We have
-(p2 (x) + p2 (1 − x))0 = 2p1 (x) + c1 − (2p1 (1 − x) + c1 ) = 0 so the map x 7→ p2 (x) + p2 (1 − x) is
-constant thus p2 (x) + p2 (1 − x) = p2 (0) + p2 (1 − 0) = 0. If the rst two equalities hold for some
-n then (p2n+1 (x) − p2n+1 (1 − x))0 = (2n + 1)p2n (x) + c2n + (p2n (1 − x) + c2n ) = 2c2n so there
-exists b ∈ R such that p2n+1 (x) − p2n+1 (1 − x) = 2c2n x + b for all x. p2n+1 (0) − p2n+1 (1 − 0) = 0
-and p2n+1 (1)−p2n+1 (1−1) = 0 so 2c2n = 0 = b. This proves that p2n+1 (x)−p2n+1 (1−x) = 0 for
-all x. In a similar way we shall prove the second equality: (p2n+2 (x) + p2n+2 (1 − x))0 = (2n +
-2)p02n+1 (x) + c2n+1 − (2n + 2) (p2n+1 (1 − x) + c2n+1 ) = 0 so the map x 7→ p2n+2 (x) + p2n+2 (1 − x)
-is constant hence p2n+2 (x) + p2n+2 (1 − x) = p2n+2 (0) + p2n+2 (1 − 0) = 0 for all x. Now
-p002n+2 (x) = ((2n + 2)p2n+1 (x) + c2n+1 )0 = (2n + 2)p02n+1 (x) = (2n + 2)((2n + 1)p2n (x) + c2n ) =
-(2n + 2)(2n + 1)p2n (x). Since p02 (x) = 2p1 (x) + c1 = x2 − x + c1 we obtain p002 (x) = 2x − 1 < 0 for
-x < 21 .The function p2 is strictly concave on [0, 21 ] and p2 (0) = 0 = p2 ( 21 ). Therefore p2 (x) > 0
-for x ∈ (0, 21 ). This together with the equality p4 (x) = 12p2 (x) implies that p4 is strictly convex
-on [0, 21 ] so in view of p4 (0) = 0 = p4 ( 12 ) we conclude that p4 (x) < 0 for x ∈ (0, 12 ). Easy
-induction shows that for x ∈ (0, 21 ) one has p2n (x) > 0 for an odd n and p2n (x) < 0 for an even
-n. If t ∈ (0, 21 ) then by (1) we get p100 (1 − t) − p100 (t) = −2p100 (t) > 0 as required.
-
-
-
-
-                                                         5
-
+\end{document}
