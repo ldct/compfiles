@@ -1,47 +1,33 @@
-                     IMC 2019, Blagoevgrad, Bulgaria
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
 
+\title{IMC 2019, Day 1}
+\date{July 30, 2019}
 
-                                  Day 1, July 30, 2019
+\begin{document}
+\maketitle
 
+\section*{Problem 1}
+Evaluate the product
+\[ \prod_{n=3}^\infty \frac{(n^3 + 3n)^2}{n^6 - 64}. \]
 
+\section*{Problem 2}
+A four-digit number $YEAR$ is called very good if the system
+\begin{align*}
+Yx + Ey + Az + Rw &= Y \\
+Rx + Yy + Ez + Aw &= E \\
+Ax + Ry + Yz + Ew &= A \\
+Ex + Ay + Rz + Yw &= R
+\end{align*}
+has at least two solutions. Find all very good years in the 21st century.
 
+\section*{Problem 3}
+Let $f : (-1, 1) \to \mathbb{R}$ be twice differentiable with $2f'(x) + x f''(x) \geq 1$ for $x \in (-1, 1)$. Prove that $\int_{-1}^1 x f(x)\, dx \geq \tfrac{1}{3}$.
 
-Problem 1.    Evaluate the product
-                                         ∞
-                                         Y (n3 + 3n)2
-                                                         .
-                                         n=3
-                                               n6 − 64
-                                                                                      (10 points)
+\section*{Problem 4}
+Define $a_0 = 1$, $a_1 = 2$, $(n+3) a_{n+2} = (6n+9) a_{n+1} - n a_n$. Prove that all terms are integers.
 
-Problem 2.    A four-digit number Y EAR is called very good if the system
-                                   Y x + Ey + Az + Rw = Y
-                                   Rx + Y y + Ez + Aw = E
-                                   Ax + Ry + Y z + Ew = A
-                                   Ex + Ay + Rz + Y w = R
-of linear equations in the variables x, y, z and w has at least two solutions. Find all very good
-YEARs in the 21st century.
-    (The 21st century starts in 2001 and ends in 2100.)
-                                                                                      (10 points)
+\section*{Problem 5}
+Determine whether there exist odd $n$ and integer $n \times n$ matrices $A, B$ with $\det(B) = 1$, $AB = BA$, and $A^4 + 4A^2 B^2 + 16 B^4 = 2019 I$.
 
-Problem 3.    Let f : (−1, 1) → R be a twice dierentiable function such that
-                             2f 0 (x) + xf 00 (x) ≥ 1 for x ∈ (−1, 1).
-Prove that                             Z 1
-                                                       1
-                                            xf (x) dx ≥ .
-                                         −1            3
-                                                                                      (10 points)
-
-Problem 4.    Dene the sequence a0 , a1 , . . . of numbers by the following recurrence:
-              a0 = 1,   a1 = 2,   (n + 3)an+2 = (6n + 9)an+1 − nan       for n ≥ 0.
-Prove that all terms of this sequence are integers.
-                                                                                      (10 points)
-
-Problem 5. Determine whether there exist an odd positive integer n and n × n matrices A
-and B with integer entries, that satisfy the following conditions:
-  1. det(B) = 1;
-  2. AB = BA;
-  3. A4 + 4A2 B 2 + 16B 4 = 2019I .
-   (Here I denotes the n × n identity matrix.)
-                                                                                      (10 points)
-
+\end{document}

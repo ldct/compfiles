@@ -1,42 +1,25 @@
-                      IMC 2019, Blagoevgrad, Bulgaria
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
 
+\title{IMC 2019, Day 2}
+\date{July 31, 2019}
 
-                                    Day 2, July 31, 2019
+\begin{document}
+\maketitle
 
+\section*{Problem 6}
+Let $f, g: \mathbb{R} \to \mathbb{R}$ be continuous with $g$ differentiable. Assume $(f(0) - g'(0))(g'(1) - f(1)) > 0$. Show there exists $c \in (0, 1)$ with $f(c) = g'(c)$.
 
+\section*{Problem 7}
+Let $C = \{4, 6, 8, 9, 10, \ldots\}$ be the composite positive integers. For $n \in C$ let $a_n$ be the smallest $k$ such that $n \mid k!$. Determine if $\sum_{n \in C} (a_n/n)^n$ converges.
 
+\section*{Problem 8}
+Let $x_1, \ldots, x_n \in \mathbb{R}$. For $I \subseteq \{1, \ldots, n\}$, let $s(I) = \sum_{i \in I} x_i$. If $I \mapsto s(I)$ takes at least $1.8^n$ values, prove that at most $1.7^n$ sets $I$ satisfy $s(I) = 2019$.
 
-Problem 6.       Let f, g : R −→ R be continuous functions such that g is dierentiable. Assume
-that f (0) − g 0 (0) g 0 (1) − f (1) > 0. Show that there exists a point c ∈ (0, 1) such that
-f (c) = g 0 (c).
-                                                                                       (10 points)
+\section*{Problem 9}
+Determine all positive integers $n$ for which there exist invertible real $n \times n$ matrices $A, B$ satisfying $AB - BA = B^2 A$.
 
-Problem 7.      Let C = {4, 6, 8, 9, 10, . . .} be the set of composite positive integers. For each
-n ∈ C let an be the smallest positive integer k such that k! is divisible by n. Determine whether
-the following series converges:
-                                                    an
-                                               X  n
-                                                         .
-                                              n∈C
-                                                    n
+\section*{Problem 10}
+$2019$ points are chosen uniformly and independently in the unit disc. Let $C$ be their convex hull. Which is larger: $\mathbb{P}(C \text{ is a triangle})$ or $\mathbb{P}(C \text{ is a quadrilateral})$?
 
-                                                                                           (10 points)
-
-                Let x1 , . . . , xn be real numbers. For any set I ⊂ {1, 2, . . . , n} let s(I) =         xi .
-                                                                                                    P
-Problem 8.
-                                                                                                    i∈I
-Assume that the function I 7→ s(I) takes on at least 1.8n values where I runs over all 2n subsets
-of {1, 2, . . . , n}. Prove that the number of sets I ⊂ {1, 2, . . . , n} for which s(I) = 2019 does not
-exceed 1.7n .
-                                                                                             (10 points)
-
-Problem 9.     Determine all positive integers n for which there exist n × n real invertible
-matrices A and B that satisfy AB − BA = B 2 A.
-                                                                                (10 points)
-
-Problem 10.      2019 points are chosen at random, independently, and distributed uniformly in
-the unit disc {(x, y) ∈ R2 : x2 + y 2 ≤ 1}. Let C be the convex hull of the chosen points. Which
-probability is larger: that C is a polygon with three vertices, or a polygon with four vertices?
-                                                                                           (10 points)
-
+\end{document}
