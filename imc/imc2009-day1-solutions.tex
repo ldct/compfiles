@@ -1,266 +1,77 @@
-            International Mathematics Competition for University Students
-                          July 25–30 2009, Budapest, Hungary
-                                                               Day 1
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
 
-Problem 1.
-Suppose that f and g are real-valued functions on the real line and f (r) ≤ g(r) for every rational r. Does this
-imply that f (x) ≤ g(x) for every real x if
-    a) f and g are non-decreasing?
-    b) f and g are continuous?
-                                                                                            √            √
-Solution. a) No. Counter-example: f and g can be chosen as the characteristic functions of [ 3, ∞) and ( 3, ∞),
-respectively.
-    b) Yes. By the assumptions g − f is continuous on the whole real line and nonnegative on the rationals. Since
-any real number can be obtained as a limit of rational numbers we get that g − f is nonnegative on the whole real
-line.
+\title{IMC 2009, Budapest, Hungary \\ Day 1}
+\date{}
 
-Problem 2.
-Let A, B and C be real square matrices of the same size, and suppose that A is invertible. Prove that if (A−B)C =
-BA−1 , then C(A − B) = A−1 B.
-Solution. A straightforward calculation shows that (A−B)C = BA−1 is equivalent to AC −BC −BA−1 +AA−1 =
-I, where I denotes the identity matrix. This is equivalent to (A − B)(C + A−1 ) = I. Hence, (A − B)−1 = C + A−1 ,
-meaning that (C + A−1 )(A − B) = I also holds. Expansion yields the desired result.
+\begin{document}
+\maketitle
 
-Problem 3.
-In a town every two residents who are not friends have a friend in common, and no one is a friend of everyone else.
-Let
-Pn us 2number   the residents from 1 to n and let ai be the number of friends of the i-th resident. Suppose that
-      a  = n 2 − n. Let k be the smallest number of residents (at least three) who can be seated at a round table
-   i=1 i
-in such a way that any two neighbors are friends. Determine all possible values of k.
-Solution. Let us define the simple, undirected graph G so that the vertices of G are the town’s residents and the
-edges of G are the friendships between the residents. Let V (G) = {v1 , v2 , . . . , vn } denote the vertices of G; ai is
-degree of vi for every i. Let E(G) denote the edges of G. In this terminology, the problem asks us to describe the
-length k of the shortest cycle in G.
-    Let us count the walks of length 2 in G, that is, the ordered triples (vi , vj , vl ) of vertices with         P vi vj , vj vl ∈ E(G)
-(i = l being allowed). For a given j the number is obviously a2j , therefore the total number is ni=1 a2i = n2 − n.
-    Now we show that there is an injection f from the set of ordered pairs of distinct vertices to the set of these
-walks. For vi vj ∈    / E(G), let f (vi , vj ) = (vi , vl , vj ) with arbitrary l such that vi vl , vl vj ∈ E(G). For vi vj ∈ E(G), let
-f (vi , vj ) = (vi , vj , vi ). f is an injection since for i 6= l, (vi , vj , vl ) can only be the image of (vi , vl ), and for i = l, it
-can only be the image of (vi , vj ).                                                     P
-    Since the number of ordered pairs of distinct vertices is n2 − n, ni=1 a2i ≥ n2 − n. Equality holds iff f is
-surjective, that is, iff there is exactly one l with vi vl , vl vj ∈ E(G) for every i, j with vi vj ∈          / E(G) and there is no
-such l for any i, j with vi vj ∈ E(G). In other words, iff G contains neither C3 nor C4 (cycles of length 3 or 4), that
-is, G is either a forest (a cycle-free graph) or the length of its shortest cycle is at least 5.
-    It is easy to check that if every two vertices of a forest are connected by a path of length at most 2, then the
-forest is a star (one vertex is connected to all others by an edge). But G has n vertices, and none of them has
-degree n − 1. Hence G is not forest, so it has cycles. On the other hand, if the length of a cycle C of G is at
-least 6 then it has two vertices such that both arcs of C connecting them are longer than 2. Hence there is a path
-connecting them that is shorter than both arcs. Replacing one of the arcs by this path, we have a closed walk
-shorter than C. Therefore length of the shortest cycle is 5.
-    Finally, we must note that there is at least one G with the prescribed properties – e.g. the cycle C5 itself
-satisfies the conditions. Thus 5 is the sole possible value of k.
+\section*{Problem 1}
+Suppose $f, g : \mathbb{R} \to \mathbb{R}$ satisfy $f(r) \le g(r)$ for every rational $r$. Does $f(x) \le g(x)$ for every real $x$ if
+\begin{enumerate}
+  \item[a)] $f, g$ are non-decreasing?
+  \item[b)] $f, g$ are continuous?
+\end{enumerate}
 
+\subsection*{Solution}
+(a) \textbf{No.} Take $f = \chi_{[\sqrt 3, \infty)}$ and $g = \chi_{(\sqrt 3, \infty)}$. Then $f(r) \le g(r)$ for rational $r$ (both equal) but $f(\sqrt 3) = 1 > 0 = g(\sqrt 3)$.
 
+(b) \textbf{Yes.} $g - f$ is continuous and $\ge 0$ on $\mathbb{Q}$. By density, $g - f \ge 0$ everywhere.
 
+\section*{Problem 2}
+Let $A, B, C$ be real square matrices of the same size, with $A$ invertible. Prove that if $(A - B)C = BA^{-1}$, then $C(A - B) = A^{-1} B$.
 
-                                                                    1
-Problem 4.
-Let p(z) = a0 + a1 z + a2 z 2 + · · · + an z n be a complex polynomial. Suppose that 1 = c0 ≥ c1 ≥ · · · ≥ cn ≥ 0 is a
-sequence of real numbers which is convex (i.e. 2ck ≤ ck−1 + ck+1 for every k = 1, 2, . . . , n − 1), and consider the
-polynomial
-                                       q(z) = c0 a0 + c1 a1 z + c2 a2 z 2 + · · · + cn an z n .
-   Prove that
-                                                          max q(z) ≤ max p(z) .
-                                                          |z|≤1                   |z|≤1
+\subsection*{Solution}
+$(A - B) C = BA^{-1}$ gives $AC - BC = BA^{-1}$, i.e., $AC - BC + AA^{-1} - BA^{-1} = I$, which factors as $(A - B)(C + A^{-1}) = I$. Hence $(C + A^{-1})(A - B) = I$ too, yielding $C(A - B) = I - A^{-1}(A - B) = A^{-1} B$.
 
-Solution. The polynomials p and q are regular on the complex plane, so by the Maximum Principle, max|z|≤1 |q(z)| =
-max|z|=1 |q(z)|, and similarly for p. Let us denote Mf = max|z|=1 |f (z)| for any regular function f . Thus it suffices
-to prove that Mq ≤ Mp .
-    First, note that we can assume cn = 0. Indeed,
-                                               P       for cn = 1, we get p = q and the statement is trivial; otherwise,
-                                                     cj −cn                             cj −cn
-q(z) = cn p(z) + (1 − cn )r(z), where r(z) = nj=0 1−c     n
-                                                            aj z j . The sequence c′j = 1−c  n
-                                                                                               also satisfies the prescribed
-conditions (it is a positive linear transform of the sequence cn with c0 = 1), but c′n = 0 too, so we get Mr ≤ Mp .
-                                                                             ′
+\section*{Problem 3}
+In a town, every two non-friends have a common friend; no one is friends with everyone. Residents numbered $1, \ldots, n$; $a_i$ = number of friends of $i$. Suppose $\sum a_i^2 = n^2 - n$. Let $k$ be the shortest cycle (length $\ge 3$) with consecutive residents friends. Find all possible $k$.
 
-This is enough: Mq = |q(z0 )| ≤ cn |p(z0 )| + (1 − cn )|r(z0 )| ≤ cn Mp + (1 − cn )Mr ≤ Mp .
-    Using the Cauchy formulas, we can express the coefficients aj of p from its values taken over the positively
-oriented circle S = {|z| = 1}:                    Z                     Z
-                                                1      p(z)           1    p(z)
-                                         aj =               dz   =              |dz|
-                                               2πi S z j+1           2π S z j
-for 0 ≤ j ≤ n, otherwise                                      Z
-                                                                   p(z)
-                                                                      j
-                                                                        |dz| = 0.
-                                                                  S z
-   Let us use these identities to get a new formula for q, using only the values of p over S:
-                                                  n
-                                                  X     Z              
-                                                                  −j
-                                      2π · q(w) =    cj      p(z)z |dz| wj .
-                                                                  j=0             S
+\subsection*{Solution}
+Model as a graph $G$. The number of walks of length 2 (ordered triples $(v_i, v_j, v_l)$ with $v_i v_j, v_j v_l \in E$) is $\sum a_j^2 = n^2 - n$.
 
+Define $f$ from ordered pairs of distinct vertices to these walks: if $v_i v_j \notin E$, pick $v_l$ with $v_i v_l, v_l v_j \in E$ (exists by assumption); if $v_i v_j \in E$, let $f(v_i, v_j) = (v_i, v_j, v_i)$. This is an injection.
 
-We can exchange the order of the summation and the integration (sufficient conditions to do this obviously apply):
-                                                                
-                                                Z   n
-                                                    X
-                                    2π · q(w) =       cj (w/z)j  p(z)|dz|.
-                                                                  S      j=0
+Since $n^2 - n$ ordered pairs map injectively into $n^2 - n$ walks, $f$ is a bijection. Thus no other walk-of-length-2 exists: no triangles ($C_3$) and no $C_4$.
 
-It would be nice if the integration kernel (the sum between the brackets) was real. But this is easily arranged – for
-−n ≤ j ≤ −1, we can add the conjugate expressions, because by the above remarks, they are zero anyway:
-                                   Xn     Z                   Xn        Z            
-                                                   −j       j                      −j
-                      2π · q(w) =      cj     p(z)z |dz| w =         c|j|    p(z)z |dz| wj ,
-                                    j=0               S                                   j=−n           S
+So $G$ has no $C_3, C_4$. Not a forest (no vertex has degree $n - 1$, but any forest with every two vertices at distance $\le 2$ is a star). So $G$ has cycles; the shortest has length $\ge 5$. Any cycle of length $\ge 6$ can be shortened (using some common-friend path). Hence shortest cycle has length exactly $5$. $C_5$ itself is a realization.
 
-                                                                             
-                                          Z           n
-                                                      X                                            Z
-                                                                           j
-                           2π · q(w) =                     c|j| (w/z)            p(z)|dz| =            K(w/z)p(z)|dz|,
-                                              S   j=−n                                              S
+Answer: $k = 5$.
 
-where
-                                                           n
-                                                           X                                n
-                                                                                            X
-                                                                          j
-                                          K(u) =                      c|j| u = c0 + 2             cj R(uj )
-                                                          j=−n                              j=1
+\section*{Problem 4}
+Let $p(z) = \sum_{k=0}^n a_k z^k$. Suppose $1 = c_0 \ge c_1 \ge \cdots \ge c_n \ge 0$ is convex: $2c_k \le c_{k-1} + c_{k+1}$. Set $q(z) = \sum c_k a_k z^k$. Prove $\max_{|z| \le 1} |q(z)| \le \max_{|z| \le 1} |p(z)|$.
 
-for u ∈ S.                                                                                 R
-  R Let us examine K(u).   It is a real-valued function. Again from  the  Cauchy formulas,   S K(u)|du| = 2πc0 = 2π.
-If S |K(u)||du| = 2π still holds (taking the absolute value does not increase the integral), then for every w:
-                          Z                        Z                             Z
-              2π|q(w)| =      K(w/z)p(z)|dz| ≤        |K(w/z)| · |p(z)||dz| ≤ Mp    |K(u)||du| = 2πMp ;
-                             S                                    S                                           S
-                                                                                      R                       R
-this would conclude the proof. So it suffices to prove that                               S |K(u)||du| =          S K(u)|du|, which is to say, K is
-non-negative.
+\subsection*{Solution}
+Let $M_f = \max_{|z| = 1} |f(z)|$. By reducing to $c_n = 0$ (taking positive combinations), it suffices to show $M_q \le M_p$ in that case.
 
-                                                                              2
-                               c_{|j|}
+Using Cauchy's formula, $a_j = \frac{1}{2\pi} \int_S p(z) z^{-j} |dz|$ and $\int_S p(z) z^{-j} |dz| = 0$ for $j \notin [0, n]$. So
+\[
+2\pi q(w) = \int_S K(w/z) p(z) |dz|, \quad K(u) = \sum_{j=-n}^n c_{|j|} u^j.
+\]
+Show $K \ge 0$ on $|u| = 1$. Set $d_k = c_{k-1} - 2 c_k + c_{k+1} \ge 0$ (with $c_{n+1} = 0$) and $F_k(u) = \sum_{j=-k+1}^{k-1}(k - |j|) u^j$. Then $K = \sum d_k F_k$. Finally
+\[
+F_k(u) = \biggl|\sum_{j=0}^{k-1} u^j\biggr|^2 \ge 0 \quad \text{(Fejér kernel)}.
+\]
+Then $\int_S |K| |du| = \int_S K |du| = 2\pi c_0 = 2\pi$. So $2\pi |q(w)| \le M_p \int_S |K| |du| = 2\pi M_p$.
 
+\section*{Problem 5}
+$n$-simplex $S = P_0 \ldots P_n$, $P$ inside. $S_i$ = $S$ with $P_i$ replaced by $P$. Let $v(\cdot)$ be volume, $C(\cdot)$ the circumcenter. Prove $\sum v(S_i) C(S_i) = v(S) C(S)$.
 
-                                d_1 F_1
+\subsection*{Solution}
+Set $q_j = C(S_j) - C(S)$ and $p_j = P_j - P$. For $j \ne k$ (both $\ne i$), $C(S_j)$ lies on hyperplane through midpoint of $P_k P$ perpendicular to $p_k$; etc. So $\langle p_i, q_j - q_k \rangle = 0$ and $\langle q_i, p_j - p_k \rangle = 0$ for distinct $i, j, k$. For $n \ge 2$ this forces $\langle p_i, q_j \rangle = \langle p_j, q_i \rangle$ for all $i, j$.
 
+For such $\{p_i\}, \{q_i\}$, the volumes $V_j = |\det(p_0, \ldots, \hat p_j, \ldots, p_n)|$ and $W_j = |\det(q_0, \ldots, \hat q_j, \ldots, q_n)|$ are proportional:
+\[
+V_j = \left|\frac{\det(p_0, \ldots, p_{n-1})}{\det(q_0, \ldots, q_{n-1})}\right| W_j
+\]
+(from the shared inner-product matrix $(\langle p_k, q_l \rangle)$).
 
+Since $\sum (-1)^j q_j W_j = 0$ (standard volume identity), and weights proportional, $\sum (-1)^j q_j V_j = 0$, i.e.,
+\[
+\sum_j (C(S_j) - C(S)) v(S_j) = 0 \implies \sum v(S_j) C(S_j) = C(S) \sum v(S_j) = v(S) C(S).
+\]
 
-                                     d_2 F_2
+Base case $n = 1$: direct check $(b-p)\tfrac{b+p}{2} + (p-a)\tfrac{p+a}{2} = (b-a)\tfrac{b+a}{2}$.
 
-
-
-                                                           j
-
-   Now let us decompose K into a sum using the given conditions for the numbers cj (including cn = 0). Let
-                                                                                                   Pk−1
-dk = ck−1 − 2ckP+ ck+1 for k = 1, . . . , n (setting cn+1 = 0); we know that dk ≥ 0. Let Fk (u) = j=−k+1    (k − |j|)uj .
-                   n
-Then K(u) = k=1 dk Fk (u) by easy induction (or see Figure for a graphical illustration). So it suffices to prove
-that Fk (u) is real and Fk (u) ≥ 0 for u ∈ S. This is reasonably well-known (as Fkk is the Fejér kernel), and also very
-easy:
-                         Fk (u) = (1 + u + u2 + · · · + uk−1 )(1 + u−1 + u−2 + · · · + u−(k−1) ) =
-               = (1 + u + u2 + · · · + uk−1 )(1 + u + u2 + · · · + uk−1 ) = |1 + u + u2 + · · · + uk−1 |2 ≥ 0
-   This completes the proof.
-
-Problem 5.
-Let n be a positive integer. An n-simplex in Rn is given by n + 1 points P0 , P1 , . . . , Pn , called its vertices, which
-do not all belong to the same hyperplane. For every n-simplex S we denote by v(S) the volume of S, and we write
-C(S) for the center of the unique sphere containing all the vertices of S.
-    Suppose that P is a point inside an n-simplex S. Let Si be the n-simplex obtained from S by replacing its i-th
-vertex by P . Prove that
-
-                             v(S0 )C(S0 ) + v(S1 )C(S1 ) + · · · + v(Sn )C(Sn ) = v(S)C(S).
-
-Solution 1. We will prove this by induction on n, starting with n = 1. In that case we are given an interval [a, b]
-with a point p ∈ (a, b), and we have to verify
-
-                                                    b+p           p+a           b+a
-                                          (b − p)       + (p − a)     = (b − a)     ,
-                                                     2             2             2
-which is true.
-   Now let assume the result is true for n − 1 and prove it for n. We have to show that the point
-                                                               n
-                                                               X v(Sj )
-                                                        X=                  O(Sj )
-                                                                     v(S)
-                                                               j=0
-
-has the same distance to all the points P0 , P1 , . . . , Pn .              Let i ∈ {0, 1, 2, . . . , n} and define the sets
-Mi = {P0 , P1 , . . . , Pi−1 , Pi+1 , . . . , Pn }. The set of all points having the same distance to all points in Mi is a
-line hi orthogonal to the hyperplane Ei determined by the points in Mi . We are going to show that X lies on every
-hi . To do so, fix some index i and notice that
-
-                                         v(Si )          v(S) − v(Si ) X        v(Sj )
-                               X=               O(Si ) +              ·                    O(Sj )
-                                         v(S)               v(S)             v(S) − v(Si )
-                                                                        j6=i
-                                                                        |          {z          }
-                                                                                     Y
-
-and O(Si ) lies on hi , so that it is enough to show that Y lies on hi .
-    A map f : R>0 → Rn will be called affine if there are points A, B ∈ Rn such that f (λ) = λA + (1 − λ)B.
-Consider the ray g starting in Pi and passing through P . For λ > 0 let Pλ = (1 − λ)P + λPi , so that Pλ is an
-affine function describing the points of g. For every such λ let Sjλ be the n-simplex obtained from S by replacing
-the j-th vertex by Pλ . The point O(Sjλ ) is the intersection of the fixed line hj with the hyperplane orthogonal to
-
-                                                                     3
-g and passing through the midpoint of the segment Pi Pλ which is given by an affine function. This implies that
-                                                     v(Sj )
-also O(Sjλ ) is an affine function. We write ϕj = v(S)−s(S  i)
-                                                               , and then
-                                                        X
-                                                 Yλ =         ϕj O(Sjλ )
-                                                              j6=i
-
-is an affine function. We want to show that Yλ ∈ hi for all λ (then specializing to λ = 1 gives the desired result).
-It is enough to do this for two different values of λ.
-     Let g intersect the sphere containing the vertices of S in a point Z; then Z = Pλ for a suitable λ > 0, and we
-have O(Sjλ ) = O(S) for all j, so that Yλ = O(S) ∈ hi . Now let g intersect the hyperplane Ei in a point Q; then
-Q = Pλ for some λ > 0, and Q is different from Z. Define T to be the (n − 1)-simplex with vertex set Mi , and
-let Tj be the (n − 1)-simplex obtained from T by replacing the vertex Pj by Q. If we write v ′ for the volume of
-(n − 1)-simplices in the hyperplane Ei , then
-
-                                      v ′ (Tj )   v(Sjλ )     v(Sjλ )
-                                                =         = P
-                                      v ′ (T )    v(S)                λ
-                                                             k6=i v(Sk )
-                                                      λv(Sj )           v(Sj )
-                                              =P                   =               = ϕj .
-                                                     k6=i λv(S k )   v(S) − v(Si )
-                                                                                                     P
-If p denotes the orthogonal projection onto Ei then p(O(Sjλ )) = O(Tj ), so that p(Yλ ) =              j6=i ϕj O(Tj ) equals O(T )
-by induction hypothesis, which implies Yλ ∈ p−1 (O(T )) = hi , and we are done.
-Solution 2. For n = 1, the statement is checked easily.
-   Assume n ≥ 2. Denote O(Sj ) − O(S) by qj and Pj − P by pj . For all distinct j and k in the range 0, ..., n the
-point O(Sj ) lies on a hyperplane orthogonal to pk and Pj lies on a hyperplane orthogonal to qk . So we have
-                                               (
-                                                 hpi , qj − qk i = 0
-                                                 hqi , pj − pk i = 0
-
-for all j 6= i 6= k. This means that the value hpi , qj i is independent of j as long as j 6= i, denote this value by λi .
-Similarly, hqi , pj i = µi for some µi . Since n ≥ 2, these equalities imply that all the λi and µi values are equal, in
-particular, hpi , qj i = hpj , qi i for any i and j.
-    We claim that for such pi and qi , the volumes
-                                            Vj = | det(p0 , ..., pj−1 , pj+1 , ..., pn )|
-and
-                                            Wj = | det(q0 , ..., qj−1 , qj+1 , ..., qn )|
-are proportional. Indeed, first assume that p0 , ..., pn−1 and q0 , ..., qn−1 are bases of Rn , then we have
-                                          1                            
-                         Vj =                          det hpk , ql i k6=j =
-                               | det(q0 , ..., qn−1 )|                     l<n
-                                          1                                     det(p0 , ..., pn−1 )
-                             =                         det((hpk , ql i)) l6=j =                      Wj .
-                               | det(q0 , ..., qn−1 )|                  k<n     det(q0 , ..., qn−1 )
-If our assumption did not hold after any reindexing of the vectors pi and qi , then both pi and qi span a subspace
-of dimension at most n − 1 P  and all the volumes are 0.
-    Finally, it is clear that   qj Wj / det(q0 , ..., qn ) = 0: the weight of pj is the height of 0 over the hyperplane
-spanned by the rest of the vectors qk relative to the height of pj over the same hyperplane, so the sum is parallel
-to all the faces of the simplex spanned by q0 , ..., qn . By the argument above, we can change the weights to the
-proportional set of weights Vj / det(p0 , ..., pn ) and the sum will still be 0. That is,
-                    X        Vj              X                v(Sj )
-               0=       qj                 =  (O(Sj ) − O(S))        =
-                        det(p0 , ..., pn )                    v(S)
-                     1 X                        X               1 X                        
-                 =          O(Sj )v(Sj ) − O(S)       v(Sj ) =         O(Sj )v(Sj ) − O(S)v(S) ,
-                   v(S)                                         v(S)
-q.e.d.
-
-                                                                 4
-
+\end{document}
