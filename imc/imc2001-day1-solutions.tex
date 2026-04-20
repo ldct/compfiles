@@ -1,261 +1,70 @@
-                                         8th IMC 2001
-                                        July 19 - July 25
-                                     Prague, Czech Republic
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{IMC 2001, Day 1 --- Solutions}
+\begin{document}
+\maketitle
 
-   First day
+\section*{Problem 1}
+Fill an $n\times n$ matrix with entries $1,2,\dots,n^2$ row by row. Choose $n$ entries with one per row and one per column. What are the possible sums?
 
-    Problem 1.
-    Let n be a positive integer. Consider an n×n matrix with entries 1, 2, . . . , n2
-written in order starting top left and moving along each row in turn left–to–
-right. We choose n entries of the matrix such that exactly one entry is chosen
-in each row and each column. What are the possible values of the sum of the
-selected entries?
+\subsection*{Solution}
+The selection is $\{(j,\sigma(j)) : j=1,\dots,n\}$ for $\sigma\in S_n$, giving sum
+\[\sum_{j=1}^n (n(j-1)+\sigma(j)) = n\cdot\tfrac{n(n+1)}{2} - n^2 + \tfrac{n(n+1)}{2} = \tfrac{n(n^2+1)}{2},\]
+independent of $\sigma$.
 
-   Solution. Since there are exactly n rows and n columns, the choice is of
-the form
-                         {(j, σ(j)) : j = 1, . . . , n}
-where σ ∈ Sn is a permutation. Thus the corresponding sum is equal to
-                   n
-                   X                             n
-                                                 X              n
-                                                                X          n
-                                                                           X
-                         n(j − 1) + σ(j) =               nj −         n+         σ(j)
-                   j=1                           j=1            j=1        j=1
+\section*{Problem 2}
+Let $r,s,t$ be pairwise coprime positive integers. If $a,b$ are in a commutative group with $a^r=b^s=(ab)^t=e$, prove $a=b=e$. Does this hold in non-commutative groups?
 
-             n           n           n
-             X           X           X                    n(n + 1)        n(n2 + 1)
-        =n         j−          n+          j = (n + 1)             − n2 =           ,
-             j=1         j=1         j=1
-                                                             2                2
+\subsection*{Solution}
+Pick $u,v$ with $us+vt=1$. Then $ab=(ab)^{us+vt}=(ab)^{us}=a^{us}(b^s)^u=a^{us}$. Hence $b^r = a^r b^r = (ab)^r = a^{usr} = e$. With $xr+ys=1$, $b=(b^r)^x(b^s)^y = e$. Similarly $a=e$.
 
-   which shows that the sum is independent of σ.
+Non-commutative counterexample: in $S_7$, $a=(1\,2\,3)$, $b=(3\,4\,5\,6\,7)$, $ab=(1\,2\,3\,4\,5\,6\,7)$, so $a^3=b^5=(ab)^7=e$.
 
-   Problem 2.
-   Let r, s, t be positive integers which are pairwise relatively prime. If a and b
-are elements of a commutative multiplicative group with unity element e, and
-                t
-ar = bs = (ab) = e, prove that a = b = e.
-   Does the same conclusion hold if a and b are elements of an arbitrary non-
-commutative group?
+\section*{Problem 3}
+Find $\displaystyle\lim_{t\to 1^-}(1-t)\sum_{n=1}^\infty \frac{t^n}{1+t^n}$.
 
-   Solution. 1. There exist integers u and v such that us + vt = 1. Since
-ab = ba, we obtain
-                                 v
-          us+vt       us        t          us       us          u
-ab = (ab)       = (ab)     (ab)      = (ab) e = (ab) = aus (bs ) = aus e = aus .
-                                             r                    us
-Therefore, br = ebr = ar br = (ab) = ausr = (ar )                      = e. Since xr + ys = 1 for
-suitable integers x and y,
+\subsection*{Solution}
+\begin{align*}
+\lim_{t\to 1^-}(1-t)\sum_{n=1}^\infty \frac{t^n}{1+t^n} &= \lim_{t\to 1^-}\frac{1-t}{-\ln t}\cdot(-\ln t)\sum_{n=1}^\infty\frac{1}{1+e^{-n\ln t}}\\
+&= \lim_{h\to 0^+} h\sum_{n=1}^\infty \frac{1}{1+e^{nh}} = \int_0^\infty \frac{dx}{1+e^x} = \ln 2.
+\end{align*}
 
-                                b = bxr+ys = (br )x (bs )y = e.
+\section*{Problem 4}
+Let $p(x)$ be a degree-$n$ polynomial with coefficients in $\{-1,0,1\}$, divisible by $(x-1)^k$. Let $q$ be a prime with $\frac{q}{\ln q}<\frac{k}{\ln(n+1)}$. Prove the non-trivial $q$-th roots of unity are roots of $p$.
 
-It follows similarly that a = e as well.
-    2. This is not true. Let a = (123) and b = (34567) be cycles of the permu-
-                                                                     7
-tation group S7 of order 7. Then ab = (1234567) and a3 = b5 = (ab) = e.
-                                                 ∞
-                                                 X  tn
-   Problem 3. Find lim (1 − t)                           , where t % 1 means that t ap-
-                               t%1
-                                              n=1
-                                                  1 + tn
-proaches 1 from below.
+\subsection*{Solution}
+Let $p(x)=(x-1)^k r(x)$, $\varepsilon_j=e^{2\pi i j/q}$. Since $\Phi_q(x)=\prod(x-\varepsilon_j)$ is irreducible over $\mathbb{Q}$, either all $\varepsilon_j$ are roots of $r$ or none.
 
-                                                     1
-     Solution.
-                              ∞                                    ∞
-                              X    tn           1−t               X     tn
-               lim (1 − t)            n
-                                        =  lim         · (− ln t)            =
-           t→1−0
-                              n=1
-                                  1+t     t→1−0 − ln t
-                                                                  n=1
-                                                                      1 + tn
+If none, $N:=\prod_{j=1}^{q-1} r(\varepsilon_j)\in\mathbb{Z}\setminus\{0\}$, so $|N|\ge 1$. Since $|p(\varepsilon_j)|\le n+1$ and $\prod(1-\varepsilon_j)=q$,
+\[(n+1)^{q-1}\ge \prod|p(\varepsilon_j)| = q^k \cdot |N| \ge q^k,\]
+so $(q-1)\ln(n+1)\ge k\ln q$, contradicting the hypothesis.
 
+\section*{Problem 5}
+Let $A$ be $n\times n$ complex with $A\ne \lambda I$ for any $\lambda$. Prove $A$ is similar to a matrix with at most one nonzero diagonal entry.
 
-                       ∞                           ∞             Z ∞
-                       X        1                 X      1             dx
-     = lim (− ln t)              −n ln t
-                                         =  lim h           nh
-                                                               =            = ln 2.
-       t→1−0
-                       n=1
-                           1 + e           h→+0
-                                                  n=1
-                                                      1 + e       0  1 + ex
+\subsection*{Solution}
+Induct on $n$. For $n=2$, $A=\begin{pmatrix}a&b\\c&d\end{pmatrix}$. If $b\ne 0$, conjugate by $\begin{pmatrix}1&0\\a/b&1\end{pmatrix}$:
+\[\begin{pmatrix}1&0\\a/b&1\end{pmatrix}\begin{pmatrix}a&b\\c&d\end{pmatrix}\begin{pmatrix}1&0\\-a/b&1\end{pmatrix} = \begin{pmatrix}0&b\\c-ad/b&a+d\end{pmatrix}.\]
+Symmetric if $c\ne 0$. If $b=c=0$ and $a\ne d$, conjugate by $\begin{pmatrix}1&1\\0&1\end{pmatrix}$ to break symmetry, then proceed.
 
+For $n>2$: write $A=\begin{pmatrix}A'&*\\ *&\beta\end{pmatrix}$ with $A'$ of size $n-1$, $A'\ne\lambda' I$ (WLOG). Induction gives $P$ with $P^{-1}A'P$ having diagonal $(0,\dots,0,\alpha)$. Block-conjugate $A$ by $\mathrm{diag}(P,1)$ to get $B$ with diagonal $(0,\dots,0,\alpha,\beta)$. Now view $B$ as $\begin{pmatrix}0&*\\ *&C\end{pmatrix}$ where $C$ is $(n-1)\times(n-1)$ with diagonal $(0,\dots,0,\alpha,\beta)$. Apply induction to $C$ (assuming $C\ne\lambda I$) to reduce its diagonal to $(0,\dots,0,\gamma)$.
 
-   Problem 4.
-   Let k be a positive integer. Let p(x) be a polynomial of degree n each of
-whose coefficients is −1, 1 or 0, and which is divisible by (x − 1)k . Let q be a
-prime such that lnq q < ln(n+1)
-                           k
-                                . Prove that the complex qth roots of unity are
-roots of the polynomial p(x).
+The step can fail only when $n-1=2$ and the reduction forces
+\[P^{-1}AP = \begin{pmatrix}0&a&b\\c&d&0\\e&0&d\end{pmatrix},\; d\ne 0.\]
+Not all of $a,b,c,e$ are zero. If $b\ne 0$, conjugate by $\begin{pmatrix}1&0&0\\0&1&0\\1&0&1\end{pmatrix}$ yielding
+\[\begin{pmatrix}-b&a&b\\ c&d&0\\ e-b-d&a&b+d\end{pmatrix}.\]
+Its trace is $d$; applying the 2-case reduction again gives diagonal $(0,d-b,d+b)$, finishing. Cases $a,c,e\ne 0$ are similar.
 
-     Solution. Let p(x) = (x−1)k ·r(x) and εj = e2πi·j/q (j = 1, 2, . . . , q −1). As
-is well-known, the polynomial xq−1 + xq−2 + . . . + x + 1 = (x − ε1 ) . . . (x − εq−1 )
-is irreducible, thus all ε1 , . . . , εq−1 are roots of r(x), or none of them.
-                                                                         Qq−1
-     Suppose that none of ε1 , . . . , εq−1 is a root of r(x). Then j=1 r(εj ) is a
-rational integer, which is not 0 and
-                                   q−1
-                                   Y                   q−1
-                                                       Y                     q−1
-                                                                             Y
-                (n + 1)q−1 ≥                p(εj ) =         (1 − εj )k ·          r(εj ) ≥
-                                   j=1                 j=1                   j=1
+\section*{Problem 6}
+Differentiable $a,b,f,g:\mathbb{R}\to\mathbb{R}$ with $f\ge 0$, $f'\ge 0$, $g>0$, $g'>0$, $a(x)\to A>0$, $b(x)\to B>0$, $f,g\to\infty$, and $\frac{f'}{g'}+a\cdot\frac{f}{g}=b$. Prove $\lim f/g = B/(A+1)$.
 
-                                       k
-                     q−1
-                     Y
-                ≥          (1 − εj )       = (1q−1 + 1q−2 + . . . + 11 + 1)k = q k .
-                     j=1
+\subsection*{Solution}
+Fix $0<\varepsilon<A$. For $x$ large, $|a-A|<\varepsilon$, $|b-B|<\varepsilon$, so
+\[B-\varepsilon < \frac{f'}{g'}+(A+\varepsilon)\frac{f}{g}.\]
+Using $(fg^A)' = f'g^A + Afg^{A-1}g'$ and $(g^{A+1})' = (A+1)g^A g'$, some algebra gives
+\[\frac{(fg^A)'}{(g^{A+1})'} > \frac{A(B-\varepsilon)}{(A+\varepsilon)(A+1)},\]
+and similarly $< \frac{A(B+\varepsilon)}{(A-\varepsilon)(A+1)}$ for an upper bound. Letting $\varepsilon\to 0$,
+\[\lim \frac{(fg^A)'}{(g^{A+1})'} = \frac{B}{A+1}.\]
+By l'Hôpital, $\lim \frac{fg^A}{g^{A+1}} = \lim \frac{f}{g} = \frac{B}{A+1}$.
 
-This contradicts the condition lnq q < ln(n+1)
-                                          k
-                                               .
-
-   Problem 5.
-   Let A be an n × n complex matrix such that A 6= λI for all λ ∈ C. Prove
-that A is similar to a matrix having at most one non-zero entry on the main
-diagonal.
-
-    Solution. The statement will be proved by induction
-                                                          onn. For n = 1,
-                                                        a b
-there is nothing to do. In the case n = 2, write A =          . If b 6= 0, and
-                                                        c d
-c 6= 0 or b = c = 0 then A is similar to
-                                                           
-               1 0       a b          1  0            0      b
-                                             =
-              a/b 1      c d        −a/b 1        c − ad/b a + d
-or                                                                                
-                    1 −a/c             a     b        1 a/c                0 b − ad/c
-                                                                   =                         ,
-                    0  1               c     d        0 1                  c   a+d
-respectively. If b = c = 0 and a 6= d, then A is similar to
-                                                       
-                   1 1       a 0        1 −1          a d−a
-                                                 =              ,
-                   0 1       0 d        0 1           0     d
-
-                                                       2
-and we can perform the step seen in the case b 6= 0 again.
-                                                                          0
-   Assume
-      0 now      that n > 3 and the problem has been solved for all n < n. Let
-       A ∗
-A=                 , where A0 is (n − 1) × (n − 1) matrix. Clearly we may assume
-        ∗ β n
-                                                                           
-                                                                        0 ∗
-that A0 6= λ0 I, so the induction provides a P with, say, P −1 A0 P =           .
-                                                                        ∗ α n−1
-But then the matrix
-                   −1        0                  −1 0             
-                    P      0     A ∗         P 0          P AP ∗
-           B=                                        =
-                      0    1      ∗ β        0 1               ∗      β
-is similar to A and   its diagonal
-                                     is (0, 0, . . . , 0, α, β). On the other hand, we may
-                       0 ∗
-also view B as                   , where C is an (n − 1) × (n − 1) matrix with diagonal
-                       ∗ C n
-(0, . . . , 0, α, β). If the inductive
-                                       hypothesis is applicable to C, we would have
-  −1                              0 ∗
-Q CQ = D, with D =                             so that finally the matrix
-                                  ∗ γ n−1
-                                                                                            
-          1  0                  1 0                1  0             0 ∗        1 0               0 ∗
-E=                    ·B·                 =                                              =
-          0 Q−1                 0 Q                0 Q−1            ∗ C        0 Q               ∗ D
-
-  is similar to A and its diagonal is (0, 0, . . . , 0, γ), as required.
-  The inductive argument can fail only when n − 1 = 2 and the resulting
-matrix applying P has the form
-                                                        
-                                          0 a b
-                           P −1 AP =  c d 0 
-                                          e 0 d
-
-where d 6= 0. The numbers a, b, c, e cannot be 0 at the same time. If, say,
-b 6= 0, A is similar to
-                                                             
-        1 0 0         0 a b     1 0 0               −b     a    b
-     0 1 0  c d 0  0 1 0  =                   c     d    0 .
-        1 0 1         e 0 d    −1 0 1            e−b−d a b+d
-
-Performing half of the induction step again, the diagonal of the resulting matrix
-will be (0, d − b, d + b) (the trace is the same) and the induction step can be
-finished. The cases a 6= 0, c 6= 0 and e 6= 0 are similar.
-
-   Problem 6.
-   Suppose that the differentiable functions a, b, f, g : R → R satisfy
-
-               f (x) ≥ 0, f 0 (x) ≥ 0, g(x) > 0, g 0 (x) > 0 for all x ∈ R,
-
-      lim a(x) = A > 0,           lim b(x) = B > 0,                 lim f (x) = lim g(x) = ∞,
-      x→∞                        x→∞                             x→∞           x→∞
-
-and
-                                  f 0 (x)        f (x)
-                                          + a(x)       = b(x).
-                                  g 0 (x)        g(x)
-Prove that
-                                                  f (x)        B
-                                      lim                 =       .
-                                      x→∞ g(x)                A+1
-
-                                                      3
-    Solution. Let 0 < ε < A be an arbitrary real number. If x is sufficiently
-large then f (x) > 0, g(x) > 0, |a(x) − A| < ε, |b(x) − B| < ε and
-
-
-                             f 0 (x)        f (x)   f 0 (x)           f (x)
-(1)        B − ε < b(x) =            + a(x)       <         + (A + ε)       <
-                             g 0 (x)        g(x)    g 0 (x)           g(x)
-                                      A                   A−1 0
-           (A + ε)(A + 1) f 0 (x) g(x) + A · f (x) · g(x)      · g (x)
-         <               ·                         A                  =
-                 A                   (A + 1) · g(x) · g 0 (x)
-                                                     A 0
-                       (A + ε)(A + 1)   f (x) · g(x)
-                     =                ·         A+1 0 ,
-                             A              g(x)
-
-thus
-                                       A 0
-                          f (x) · g(x)         A(B − ε)
-(2)                               A+1 0 > (A + ε)(A + 1) .
-                              g(x)
-
-    It can be similarly obtained that, for sufficiently large x,
-                                      A 0
-                         f (x) · g(x)           A(B + ε)
-(3)                              A+1 0 < (A − ε)(A + 1) .
-                             g(x)
-
-      From ε → 0, we have
-                                                  A 0
-                                     f (x) · g(x)        B
-                           lim               A+1 0 = A + 1 .
-                          x→∞
-                                         g(x)
-
-By l’Hospital’s rule this implies
-                                                 A
-                        f (x)       f (x) · g(x)      B
-                    lim       = lim          A+1 =      .
-                   x→∞ g(x)    x→∞                  A +1
-                                        g(x)
-
-
-
-
-                                              4
-
+\end{document}

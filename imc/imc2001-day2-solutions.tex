@@ -1,290 +1,87 @@
-                                    8th IMC 2001
-                                   July 19 - July 25
-                                Prague, Czech Republic
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{IMC 2001, Day 2 --- Solutions}
+\begin{document}
+\maketitle
 
-    Second day
+\section*{Problem 1}
+Let $r,s\ge 1$ be integers, $a_0,\dots,a_{r-1}, b_0,\dots,b_{s-1}\ge 0$ reals satisfying
+\[(a_0 + a_1 x + \cdots + a_{r-1}x^{r-1} + x^r)(b_0 + \cdots + b_{s-1}x^{s-1} + x^s) = 1 + x + \cdots + x^{r+s}.\]
+Prove each $a_i, b_j \in \{0,1\}$.
 
-   Problem 1.
-   Let r, s ≥ 1 be integers and a0 , a1 , . . . , ar−1 , b0 , b1 , . . . , bs−1 be real non-
-negative numbers such that
+\subsection*{Solution}
+Comparing coefficients: $a_0 b_0 = 1$, and the coefficients of $x^{s}$ and $x^r$ give
+\[a_0 + a_1 b_{s-1} + \cdots = 1,\quad b_0 + b_1 a_{r-1} + \cdots = 1.\]
+So $a_0, b_0 \le 1$; with $a_0 b_0 = 1$ this gives $a_0 = b_0 = 1$. Then all $a_i \le 1$ and $b_j \le 1$. From $a_0 b_1 + a_1 b_0 = 1$, one of $a_1, b_1$ is $0$ and the other $1$. Induct.
 
-(a0 + a1 x + a2 x2 + . . . + ar−1 xr−1 + xr )(b0 + b1 x + b2 x2 + . . . + bs−1 xs−1 + xs ) =
+\section*{Problem 2}
+Let $a_0=\sqrt{2}$, $b_0=2$, $a_{n+1}=\sqrt{2-\sqrt{4-a_n^2}}$, $b_{n+1}=\frac{2b_n}{2+\sqrt{4+b_n^2}}$.
 
-                          1 + x + x2 + . . . + xr+s−1 + xr+s .
-Prove that each ai and each bj equals either 0 or 1.
+\textbf{(a)} Show $(a_n), (b_n)$ decrease to $0$.
 
-   Solution. Multiply the left hand side polynomials. We obtain the following
-equalities:
-                     a0 b0 = 1, a0 b1 + a1 b0 = 1, . . .
-Among them one can find equations
+\textbf{(b)} Show $(2^n a_n)$ increases, $(2^n b_n)$ decreases, both to the same limit.
 
-                            a0 + a1 bs−1 + a2 bs−2 + . . . = 1
-and
+\textbf{(c)} Show $0 < b_n - a_n < C/8^n$ for some $C>0$.
 
-                           b0 + b1 ar−1 + b2 ar−2 + . . . = 1.
-    From these equations it follows that a0 , b0 ≤ 1. Taking into account that
-a0 b0 = 1 we can see that a0 = b0 = 1.
-    Now looking at the following equations we notice that all a’s must be less
-than or equal to 1. The same statement holds for the b’s. It follows from
-a0 b1 + a1 b0 = 1 that one of the numbers a1 , b1 equals 0 while the other one must
-be 1. Follow by induction.
+\subsection*{Solution}
+$f(x)=\sqrt{2-\sqrt{4-x^2}}$ is increasing on $[0,2]$, so $a_1<a_0$ implies $a_n$ decreasing. Similarly for $b_n$ using $g(x)=\frac{2x}{2+\sqrt{4+x^2}}$. One checks $2f(x)>x$ and $2g(x)<x$ on $(0,2)$, giving monotonicity of $2^n a_n$ and $2^n b_n$.
 
-    Problem 2.
-            √                 q   p                             2bn
-    Let a0 = 2, b0 = 2, an+1 = 2 − 4 − a2n , bn+1 =             p         .
-                                                            2 + 4 + b2n
-    a) Prove that the sequences (an ), (bn ) are decreasing and converge to 0.
-    b) Prove that the sequence (2n an ) is increasing, the sequence (2n bn ) is de-
-creasing and that these two sequences converge to the same limit.
-    c) Prove that there is a positive constant C such that for all n the following
-                                    C
-inequality holds: 0 < bn − an < n .
-                                   8
-                                   p     √       √
-p Solution.     Obviously a2 = 2 − 2 < 2. Since the function f (x) =
-       √
-  2 − 4 − x2 is increasing on the interval [0, 2] the inequality a1 > a2 implies
-that a2 > a3 . Simple induction ends the  proof of monotonicity of (an ). In the
-                                                                        2x
-same way we prove that (bn ) decreases just notice that g(x) =         √         =
-                                                                  2 +   4 + x2
-          p          
-2/ 2/x + 1 + 4/x2 . It is a matter of simple manipulation to prove that
-2f (x) > x for all x ∈ (0, 2), this implies that the sequence (2n an ) is strictly
+By induction $a_n^2 = \frac{4b_n^2}{4+b_n^2}$, so
+\[\lim 4^n a_n^2 = \lim \frac{4\cdot 4^n b_n^2}{4+b_n^2} = \lim 4^n b_n^2,\]
+(since $b_n\to 0$), so the two limits agree, positive since $(2^n a_n)$ increases.
 
-                                             1
-increasing. The inequality 2g(x) < x for x ∈ (0, 2) implies that the sequence
-                                                                           4b2
-(2n bn ) strictly decreases. By an easy induction one can show that a2n = 4+bn2
-                                                                              n
-for positive integers n. Since the limit of the decreasing sequence (2n bn ) of
-positive numbers is finite we have
+For (c):
+\[2^n b_n - 2^n a_n = \frac{4^n b_n^2 - 4^n a_n^2}{2^n b_n + 2^n a_n} = \frac{(2^n b_n)^4}{4+b_n^2}\cdot\frac{1}{4^n}\cdot\frac{1}{2^n(b_n+a_n)},\]
+which gives $b_n - a_n = O(1/8^n)$.
 
-                                            4 · 4n b2n
-                         lim 4n a2n = lim              = lim 4n b2n .
-                                             4 + b2n
+\textit{Remark.} $a_n = 2\sin(\pi/2^{n+1})$, $b_n = 2\tan(\pi/2^{n+1})$.
 
-We know already that the limits lim 2n an and lim 2n bn are equal. The first
-of the two is positive because the sequence (2n an ) is strictly increasing. The
-existence of a number C follows easily from the equalities
+\section*{Problem 3}
+Find the maximum number of points on the unit sphere in $\mathbb{R}^n$ with pairwise distances strictly greater than $\sqrt{2}$.
 
-                            4n+1 b2n  n               (2n bn )4 1       1
-2n bn − 2n an = 4n b2n −          2
-                                      / 2 bn + 2 n a n =         ·  ·
-                            4 + bn                       4 + b2n 4n 2n (bn + an )
+\subsection*{Solution}
+$d(X,Y)>\sqrt 2 \iff \langle X,Y\rangle < 0$. WLOG $A_1=(-1,0,\dots,0)$; then for any other $Y=(y_1,\bar Y)$ we need $y_1>0$. For $X,Y\in M_n\setminus\{A_1\}$ with $X=(x_1,\bar X), Y=(y_1,\bar Y)$:
+\[\langle X,Y\rangle < 0 \Rightarrow \langle \bar X, \bar Y\rangle < 0,\]
+and normalizing $\bar X, \bar Y$ to unit vectors in $\mathbb{R}^{n-1}$ gives the same setup. So $a_n \le 1 + a_{n-1}$, $a_1 = 2$, hence $a_n \le n+1$.
 
-and from the existence of positive limits lim 2n bn and lim 2n an .
-   Remark.       The last problem may be solved in a much simpler way by
-someone who is able to make use of sine and cosine. It is enough to notice that
-            π                     π
-an = 2 sin n+1 and bn = 2 tan n+1 .
-          2                     2
-   Problem 3.
-   Find the maximum number of points on a sphere of radius 1 in Rn√such that
-the distance between any two of these points is strictly greater than 2.
+Construction: the $n+1$ vertices of a regular simplex inscribed in the unit sphere realize pairwise distance $\sqrt{2(1+1/n)} > \sqrt 2$. Explicitly,
+\[A_1=(-1,0,\dots,0),\quad A_k=\big(\tfrac 1n, \tfrac{c_1}{n-1}, \dots, \tfrac{c_{k-2}}{n-k+2}, -c_{k-1}, 0, \dots\big)\]
+for $k\ge 2$, with $c_k = \sqrt{(1+1/n)(1-1/(n-k+1))}$, and $A_{n+1}$ differs from $A_n$ in the sign of the last coordinate. Answer: $\boxed{n+1}$.
 
-   Solution. The unit sphere in Rn is defined by
-                                                n
-                        (                               )
-                                                X
-                                             n     2
-                Sn−1 = (x1 , . . . , xn ) ∈ R |   xk = 1 .
-                                                           k=1
+\section*{Problem 4}
+Let $A=(a_{k\ell})$ be $n\times n$ complex such that for every $m$ and every $1\le j_1<\cdots<j_m\le n$, $\det(a_{j_k,j_\ell})_{k,\ell=1}^m = 0$. Prove $A^n = 0$ and there is a permutation $\sigma$ such that $(a_{\sigma(k),\sigma(\ell)})$ is strictly upper triangular.
 
-   The distance between the points X = (x1 , . . . , xn ) and Y = (y1 , . . . , yn ) is:
-                                              n
-                                              X
-                               d2 (X, Y ) =         (xk − yk )2 .
-                                              k=1
+\subsection*{Solution}
+Consider the digraph $G$ with edge $V_k\to V_\ell$ iff $a_{k\ell}\ne 0$. If $G$ has a cycle, take a minimum-length cycle of length $m$ through vertices $j_1<\cdots<j_m$ with permutation $\sigma_0$ realizing it ($a_{j_k,j_{\sigma_0(k)}}\ne 0$). For any $\sigma\ne\sigma_0$, some term $a_{j_k,j_{\sigma(k)}}=0$ (else another cycle of $\le m$ through same set exists, contradicting minimality). So
+\[0 = \det(a_{j_k,j_\ell})_{k,\ell=1}^m = \pm\prod_k a_{j_k,j_{\sigma_0(k)}} \ne 0,\]
+contradiction.
 
-We have
+$G$ is acyclic, so has a topological ordering $\sigma$: $a_{\sigma(k),\sigma(\ell)}\ne 0 \Rightarrow k<\ell$. Then $(a_{\sigma(k),\sigma(\ell)})$ is strictly upper triangular, so $A^n=0$.
 
-                           √
-              d(X, Y ) >       2 ⇔ d2 (X, Y ) > 2
-                                   Xn        Xn          n
-                                                         X
-                                 ⇔     x2k +     yk2 + 2   xk y k > 2
-                                       k=1           k=1            k=1
-                                       Xn
-                                  ⇔           xk y k < 0
-                                       k=1
+\section*{Problem 5}
+Show there is no $f:\mathbb{R}\to\mathbb{R}$ with $f(0)>0$ and $f(x+y)\ge f(x)+yf(f(x))$ for all $x,y$.
 
-   Taking account of the symmetry of the sphere, we can suppose that
+\subsection*{Solution}
+Suppose such $f$ exists. If $f(f(x))\le 0$ for all $x$, then for $y\le 0$, $f(x+y)\ge f(x)$, so $f$ is decreasing, giving $f(x)\ge f(0)>0$, contradicting $f(f(x))\le 0$. So $f(f(z))>0$ for some $z$. Then $f(z+x)\ge f(z)+xf(f(z))\to\infty$, so $f\to\infty$ and $f(f(x))\to\infty$.
 
-                                  A1 = (−1, 0, . . . , 0).
-                   n
-                   P
-   For X = A1 ,          xk yk < 0 implies y1 > 0, ∀ Y ∈ Mn .
-                   k=1
-   Let X = (x1 , X), Y = (y1 , Y ) ∈ Mn \{A1 }, X, Y ∈ Rn−1 .
+Pick $x,y>0$ with $f(x)\ge 0$, $f(f(x))>1$, $y\ge (x+1)/(f(f(x))-1)$, $f(f(x+y+1))\ge 0$. Then $f(x+y)\ge f(x)+yf(f(x))\ge x+y+1$. Applying the inequality with $(x+y+1, f(x+y)-(x+y+1))$:
+\begin{align*}
+f(f(x+y)) &\ge f(x+y+1) + (f(x+y)-(x+y+1))f(f(x+y+1))\\
+&\ge f(x+y+1) \ge f(x+y) + f(f(x+y))\\
+&\ge f(x) + yf(f(x)) + f(f(x+y)) > f(f(x+y)),
+\end{align*}
+contradiction.
 
+\section*{Problem 6}
+For $f_n(\vartheta) = \prod_{k=0}^n \sin(2^k \vartheta)$, prove $|f_n(\vartheta)| \le \frac{2}{\sqrt 3}|f_n(\pi/3)|$.
 
-                                               2
-   We have
-                n
-                X                               n−1
-                                                X                      n−1
-                                                                       X
-                      xk y k < 0 ⇒ x 1 y 1 +            xk y k < 0 ⇔          x0k yk0 < 0,
-                k=1                             k=1                     k=1
-   where
-                                      xk           y
-                               x0k = pP 2 , yk0 = pPk 2 .
-                                         xk          yk
-   therefore
+\subsection*{Solution}
+Let $g(\vartheta) = |\sin\vartheta|\cdot|\sin(2\vartheta)|^{1/2}$. By AM-GM,
+\[g(\vartheta)^2 = |\sin\vartheta|^2\cdot 2|\sin\vartheta||\cos\vartheta| = \frac{2}{\sqrt 3}\big(\sqrt[4]{|\sin\vartheta|^3\cdot\sqrt 3|\cos\vartheta|}\big)^4 \le \frac{2}{\sqrt 3}\cdot\frac{(3\sin^2+3\cos^2)^2}{16} = (\sqrt 3 / 2)^3,\]
+so $g(\vartheta)\le (\sqrt 3/2)^{3/2}$, attained at $\vartheta=2^k\pi/3$.
 
-                           (x01 , . . . , x0n−1 ), (y10 , . . . , yn−1
-                                                                   0
-                                                                       ) ∈ Sn−2
-                   n
-                   P
-   and verifies          xk yk < 0.
-                  k=1
-   If an is the search number of points in Rn we obtain an ≤ 1 + an−1 and
-a1 = 2 implies that an ≤ n + 1.
-   We show that an = n + 1, giving an example of a set Mn with (n + 1)
-elements satisfying the conditions of the problem.
-                        A1 = (−1, 0, 0, 0, . . . , 0, 0) 
-                        A2 = n1 , −c1 , 0, 0, . . . , 0, 0            
-                                  1
-                        A3 =        , 1 · c1 , −c2 , 0, . . . , 0, 0
-                                 n n−1                                           
-                                  1    1          1
-                        A4 =      n , n−1 · c1 , n−1 · c2 , −c3 , . . . , 0, 0
-                                                                               
-                         1
-           An−1 = n1 , n−1           1
-                             · c1 , n−2          1
-                                         · c2 , n−3  · c3 , . . . , −cn−2 , 0
-                                                                                   
-           An = n1 , n−1
-                      1           1
-                          · c1 , n−2          1
-                                      · c1 , n−3  · c3 , . . . , 12 · cn−2 , −cn−1
-                                                                                    
-           An+1 = n1 , n−1
-                         1           1
-                             · c1 , n−2          1
-                                         · c2 , n−3  · c3 , . . . , 12 · cn−2 , cn−1
-   where                 s                           
-                                    1               1
-                 ck =         1+             1−           , k = 1, n − 1.
-                                    n             n−k+1
-           n                                  n
-                xk yk = − n1 < 0 and                x2k = 1, ∀X, Y ∈ {A1 , . . . , An+1 } .
-           P                                  P
-We have
-          k=1                                k−=1
-    These points are on the unit sphere in Rn and the distance between any two
-points is equal to
-                                    √             √
-                                      r
-                                             1
-                               d = 2 1 + > 2.
-                                            n
-    Remark. For n = 2 the points form an equilateral triangle in the unit
-circle; for n = 3 the four points from a regular tetrahedron and in Rn the points
-from an n dimensional regular simplex.
+Writing
+\[\left|\frac{f_n(\vartheta)}{f_n(\pi/3)}\right| = \prod_{k=0}^{n-1}\left|\frac{g(2^k\vartheta)}{g(2^k\pi/3)}\right|^{2^{-k}E_k}\cdot \left|\frac{\sin(2^n\vartheta)}{\sin(2^n\pi/3)}\right|^{1-E/2}\]
+with appropriate exponents, where $E = \frac{2}{3}(1-(-1/2)^n)$. Each $g$-factor is $\le 1$, and $|\sin(2^n\pi/3)|=\sqrt 3/2$ gives the final factor $\le (2/\sqrt 3)^{1-E/2}\le 2/\sqrt 3$.
 
-    Problem 4.
-    Let A = (ak,` )k,`=1,...,n be an n × n complex matrix such that for each
-m ∈ {1, . . . , n} and 1 ≤ j1 < . . . < jm ≤ n the determinant of the matrix
-(ajk ,j` )k,`=1,...,m is zero. Prove that An = 0 and that there exists a permutation
-σ ∈ Sn such that the matrix
-                                        (aσ(k),σ(`) )k,`=1,...,n
-
-                                                    3
-has all of its nonzero elements above the diagonal.
-
-    Solution. We will only prove (2), since it implies (1). Consider a directed
-graph G with n vertices V1 , . . . , Vn and a directed edge from Vk to V` when
-ak,` 6= 0. We shall prove that it is acyclic.
-    Assume that there exists a cycle and take one of minimum length m. Let
-j1 < . . . < jm be the vertices the cycle goes through and let σ0 ∈ Sn be a
-permutation such that ajk ,jσ0 (k) 6= 0 for k = 1, . . . , m. Observe that for any
-other σ ∈ Sn we have ajk ,jσ(k) = 0 for some k ∈ {1, . . . , m}, otherwise we would
-obtain a different cycle through the same set of vertices and, consequently, a
-shorter cycle. Finally
-
-                               0 = det(ajk ,j` )k,`=1,...,m
-
-
-                         m                                           m
-         = (−1)sign σ0                                  (−1)sign σ
-                         Y                      X                    Y
-                               ajk ,jσ0 (k) +                              ajk ,jσ(k) 6= 0,
-                         k=1                    σ6=σ0                k=1
-
-which is a contradiction.
-    Since G is acyclic there exists a topological ordering i.e. a permutation
-σ ∈ Sn such that k < ` whenever there is an edge from Vσ(k) to Vσ(`) . It is easy
-to see that this permutation solves the problem.
-
-   Problem 5. Let R be the set of real numbers. Prove that there is no
-function f : R → R with f (0) > 0, and such that
-
-                  f (x + y) ≥ f (x) + yf (f (x)) for all x, y ∈ R.
-
-    Solution. Suppose that there exists a function satisfying the inequality. If
-f (f (x)) ≤ 0 for all x, then f is a decreasing function in view of the inequalities
-f (x + y) ≥ f (x) + yf (f (x)) ≥ f (x) for any y ≤ 0. Since f (0) > 0 ≥ f (f (x)),
-it implies f (x) > 0 for all x, which is a contradiction. Hence there is a z such
-that f (f (z)) > 0. Then the inequality f (z + x) ≥ f (z) + xf (f (z)) shows that
- lim f (x) = +∞ and therefore lim f (f (x)) = +∞. In particular, there exist
-x→∞                                  x→∞
-x, y > 0 such that f (x) ≥ 0, f (f (x)) > 1, y ≥ f (fx+1
-                                                     (x))−1 and f (f (x + y + 1)) ≥ 0.
-Then f (x + y) ≥ f (x) + yf (f (x)) ≥ x + y + 1 and hence
-                                                              
- f (f (x + y)) ≥ f (x + y + 1) + f (x + y) − (x + y + 1) f (f (x + y + 1)) ≥
-                ≥ f (x + y + 1) ≥ f (x + y) + f (f (x + y)) ≥
-                ≥ f (x) + yf (f (x)) + f (f (x + y)) > f (f (x + y)).
-
-This contradiction completes the solution of the problem.
-
-
-
-
-                                                4
-   Problem 6.
-   For each positive integer n, let fn (ϑ) = sin ϑ · sin(2ϑ) · sin(4ϑ) · · · sin(2n ϑ).
-   For all real ϑ and all n, prove that
-                                          2
-                               |fn (ϑ)| ≤ √ |fn (π/3)|.
-                                           3
-
-   Solution.
-       √       We prove that g(ϑ) = | sin ϑ|| sin(2ϑ)|1/2 attains its maximum
-value ( 3/2)3/2 at points 2k π/3 (where k is a positive integer). This can be
-seen by using derivatives or a classical bound like
-
-                                   √ q                                                2
-                                     2 4                                    √
-  |g(ϑ)| = | sin ϑ|| sin(2ϑ)|1/2 = √
-                                   4
-                                         | sin ϑ| · | sin ϑ| · | sin ϑ| · |   3 cos ϑ|
-                                     3
-                        √                                       √ !3/2
-                          2 3 sin2 ϑ + 3 cos2 ϑ                   3
-                      ≤ √   ·                   =                      .
-                        4
-                          3          4                           2
-   Hence
-
-                                                                                        1−E/2
-  fn (ϑ)        g(ϑ) · g(2ϑ)1/2 · g(4ϑ)3/4 · · · g(2n−1 ϑ)E      sin(2n ϑ)
-          =                                                    ·
- fn (π/3)   g(π/3) · g(2π/3)1/2 · g(4π/3)3/4 · · · g(2n−1 π/3)E sin(2n π/3)
-                                    1−E/2                     1−E/2
-                       sin(2n ϑ)
-                                                
-                                                        1               2
-                  ≤                         ≤       √                  ≤√ .
-                      sin(2n π/3)                       3/2              3
-   where E = 32 (1 − (−1/2)n ). This is exactly the bound we had to prove.
-
-
-
-
-                                            5
-
+\end{document}
