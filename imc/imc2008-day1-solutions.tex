@@ -1,135 +1,74 @@
-                                                                                              n
-Problem 6. For a permutation σ = (i1 , i2 , ..., in ) of (1, 2, ..., n) define D(σ) =
-                                                                                              P
-                                                                                                    |ik − k|. Let Q(n, d) be                             IMC2008, Blagoevgrad, Bulgaria
-                                                                                              k=1
-the number of permutations σ of (1, 2, ..., n) with d = D(σ). Prove that Q(n, d) is even for d ≥ 2n.                                                                   Day 1, July 27, 2008
-Solution. Consider the n × n determinant
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
 
-                                                       1           x    . . . xn−1
-                                                       x           1    . . . xn−2                                             Problem 1. Find all continuous functions f : R → R such that f (x) − f (y) is rational for all reals x and
-                                         ∆(x) =        ..          ..   ..      ..
-                                                        .           .       .    .                                             y such that x − y is rational.
-                                                     xn−1 xn−2          ...    1                                               Solution. We prove that f (x) = ax + b where a ∈ Q and b ∈ R. These functions obviously satify the
-                                                                                                                               conditions.
-where the ij-th entry is x|i−j| . From the definition of the determinant we get                                                    Suppose that a function f (x) fulfills the required properties. For an arbitrary rational q, consider the
-                                              X                                                                                function gq (x) = f (x+ q) −f (x). This is a continuous function which attains only rational values, therefore
-                                   ∆(x) =            (−1)inv(i1 ,...,in) xD(i1 ,...,in)                                        gq is constant.
-                                             (i1 ,...,in)∈Sn
-                                                                                                                                   Set a = f (1) − f (0) and b = f (0). Let n be an arbitrary positive integer and let r = f (1/n) − f (0).
-                                                                                                                               Since f (x + 1/n) − f (x) = f (1/n) − f (0) = r for all x, we have
-where Sn is the set of all permutations of (1, 2, ..., n) and inv(i1 , ..., in ) denotes the number of inversions in
-the sequence (i1 , ..., in ). So Q(n, d) has the same parity as the coefficient of xd in ∆(x).                                        f (k/n) − f (0) = (f (1/n) − f (0)) + (f (2/n) − f (1/n)) + . . . + (f (k/n) − f ((k − 1)/n) = kr
-   It remains to evaluate ∆(x). In order to eliminate the entries below the diagonal, subtract the (n−1)-th
-row, multiplied by x, from the n-th row. Then subtract the (n − 2)-th row, multiplied by x, from the                           and
-(n − 1)-th and so on. Finally, subtract the first row, multiplied by x, from the second row.
-                                                                                                                               f (−k/n) − f (0) = −(f (0) − f (−1/n)) − (f (−1/n) − f (−2/n)) − . . . − (f (−(k − 1)/n) − f (−k/n) = −kr
-             1      x     . . . xn−2 xn−1           1   x                ...      xn−2       xn−1
-             x      1     . . . xn−3 xn−2           0 1 − x2             . . . xn−3 − xn−1 xn−2 − xn                           for k ≥ 1. In the case k = n we get a = f (1) − f (0) = nr, so r = a/n. Hence, f (k/n) − f (0) = kr = ak/n
- ∆(x) =      ..     ..    ..      ..   .. = . . . = ..   ..              ..         ..         ..    = (1 − x2 )n−1 .          and then f (k/n) = a · k/n + b for all integers k and n > 0.
-              .      .        .    .    .            .    .                  .       .          .
-           xn−2 xn−3      ...    1    x             0   0                ...         1 − x2    x − x3                              So, we have f (x) = ax + b for all rational x. Since the function f is continous and the rational numbers
-           xn−1 xn−2      ...    x    1             0   0                ...           0       1 − x2                          form a dense subset of R, the same holds for all real x.
+\title{IMC 2008, Blagoevgrad, Bulgaria \\ Day 1, July 27, 2008}
+\date{}
 
-   For d ≥ 2n, the coefficient of xd is 0 so Q(n, d) is even.                                                                  Problem 2. Denote by V the real vector space of all real polynomials in one variable, and let P : V → R
-                                                                                                                               be a linear map. Suppose that for all f, g ∈ V with P (f g) = 0 we have P (f ) = 0 or P (g) = 0. Prove that
-                                                                                                                               there exist real numbers x0 , c such that P (f ) = c f (x0 ) for all f ∈ V .
-                                                                                                                               Solution. We can assume that P 6= 0.
-                                                                                                                                   Let f ∈ V be such that P (f ) 6= 0. Then P (f 2 ) 6= 0, and therefore P (f 2) = aP (f ) for some non-zero
-                                                                                                                               real a. Then 0 = P (f 2 − af ) = P (f (f − a)) implies P (f − a) = 0, so we get P (a) 6= 0. By rescaling, we
-                                                                                                                               can assume that P (1) = 1. Now P (X + b) = 0 for b = −P (X). Replacing P by P̂ given as
+\begin{document}
+\maketitle
 
-                                                                                                                                                                         P̂ (f (X)) = P (f (X + b))
+\section*{Problem 1}
+Find all continuous functions $f : \mathbb{R} \to \mathbb{R}$ such that $f(x) - f(y)$ is rational whenever $x - y$ is rational.
 
-                                                                                                                               we can assume that P (X) = 0.
-                                                                                                                                  Now we are going to prove that P (X k ) = 0 for all k ≥ 1. Suppose this is true for all k < n. We know
-                                                                                                                               that P (X n + e) = 0 for e = −P (X n ). From the induction hypothesis we get
+\subsection*{Solution}
+Answer: $f(x) = ax + b$ where $a \in \mathbb{Q}$, $b \in \mathbb{R}$.
 
-                                                                                                                                                               P (X + e)(X + 1)n−1 = P (X n + e) = 0,
-                                                                                                                                                                                     
+For each rational $q$, $g_q(x) = f(x + q) - f(x)$ is continuous and rational-valued, hence constant. Let $a = f(1) - f(0)$, $b = f(0)$. For $r = f(1/n) - f(0)$: telescoping gives $f(k/n) - f(0) = kr$. For $k = n$: $a = nr$, so $r = a/n$, hence $f(k/n) = a \cdot k/n + b$ for all integers $k, n > 0$. By density and continuity, $f(x) = ax + b$.
 
+\section*{Problem 2}
+Let $V$ be the real vector space of all real polynomials in one variable, $P : V \to \mathbb{R}$ linear. Suppose $P(fg) = 0$ implies $P(f) = 0$ or $P(g) = 0$. Prove there exist $x_0, c \in \mathbb{R}$ such that $P(f) = c f(x_0)$ for all $f$.
 
-                                                                                                                               and therefore P (X + e) = 0 (since P (X + 1) = 1 6= 0). Hence e = 0 and P (X n ) = 0, which completes the
-                                                                                                                               inductive step. From P (1) = 1 and P (X k ) = 0 for k ≥ 1 we immediately get P (f ) = f (0) for all f ∈ V .
+\subsection*{Solution}
+WLOG $P \ne 0$. If $P(f) \ne 0$, then $P(f^2) \ne 0$, so $P(f^2) = a P(f)$ for some $a \ne 0$. From $P(f^2 - af) = P(f(f-a)) = 0$ we get $P(a) \ne 0$. Rescale so $P(1) = 1$. Replace $P$ by $\tilde P(g(X)) = P(g(X+b))$ where $b = -P(X)$, so $P(X) = 0$.
 
+Inductively show $P(X^k) = 0$ for $k \ge 1$. Assume true for $k < n$, and set $e = -P(X^n)$. From $P((X+e)(X+1)^{n-1}) = P(X^n + e) = 0$ and $P(X + 1) = 1 \ne 0$, we get $P(X + e) = 0$, hence $e = 0$. So $P(X^n) = 0$.
 
+Combined with $P(1) = 1$: $P(f) = f(0)$, the evaluation map.
 
+\section*{Problem 3}
+Let $p \in \mathbb{Z}[x]$, $a_1 < \cdots < a_k$ integers. (a) Prove $\exists a \in \mathbb{Z}$ with $p(a_i) \mid p(a)$ for all $i$. (b) Does there exist $a$ with $\prod_i p(a_i) \mid p(a)$?
 
-                                                               4                                                                                                                     1
-Problem 3. Let p be a polynomial with integer coefficients and let a1 < a2 < . . . < ak be integers.                     is a set of three special triples also (we may suppose that a + b + c < 1, because otherwise all three triples
-                                                                                                                         are equal and our statement is trivial).
-  a) Prove that there exists a ∈ Z such that p(ai ) divides p(a) for all i = 1, 2, . . . , k.
-                                                                                                                             If there is a special triple (x, y, z) which is not worse than any triple from S1 , then the triple
-  b) Does there exist an a ∈ Z such that the product p(a1 ) · p(a2 ) · . . . · p(ak ) divides p(a)?
-                                                                                                                                               ((1 − a − b − c)x + a, (1 − a − b − c)y + b, (1 − a − b − c)z + c)
-Solution. The theorem is obvious if p(ai ) = 0 for some i, so assume that all p(ai ) are nonzero and pairwise
-different.                                                                                                               is special and not worse than any triple from S. We also have a(S1 ) = b(S1 ) = c(S1 ) = 0, so we may
-    There exist numbers s, t such that s|p(a1 ), t|p(a2 ), st = lcm(p(a1 ), p(a2 )) and gcd(s, t) = 1.                   suppose that the same holds for our starting set S.
-    As s, t are relatively prime numbers, there exist m, n ∈ Z such that a1 + sn = a2 + tm =: b2 . Obviously                  Suppose that one element of S has two entries equal to 0.
-s|p(a1 + sn) − p(a1 ) and t|p(a2 + tm) − p(a2 ), so st|p(b2 ).                                                                Note that one of the two remaining triples from S is not worse than the other. This triple is also not
-    Similarly one obtains b3 such that p(a3 )|p(b3 ) and p(b2 )|p(b3 ) thus also p(a1 )|p(b3 ) and p(a2 )|p(b3 ).        worse than all triples from S because any special triple is not worse than itself and the triple with two
-    Reasoning inductively we obtain the existence of a = bk as required.                                                 zeroes.
-    The polynomial p(x) = 2x2 + 2 shows that the second part of the problem is not true, as p(0) = 2,                         So we have a = b = c = 0 but we may suppose that all triples from S contain at most one zero. By
-p(1) = 4 but no value of p(a) is divisible by 8 for integer a.                                                           transposing triples and elements in triples (elements in all triples must be transposed simultaneously) we
-Remark. One can assume that the p(ai ) are nonzero and ask for a such that p(a) is a nonzero mul-                        may achieve the following situation x1 = y2 = z3 = 0 and x2 ⩾ x3 . If z2 ⩾ z1 , then the second triple
-tiple of all p(ai ). In the solution above, it can happen that p(a) = 0. But every number p(a +                          (x2 , 0, z2 ) is not worse than the other two triples from S. So we may assume that z1 ⩾ z2 . If y1 ⩾ y3 ,
-np(a1 )p(a2 ) . . . p(ak )) is also divisible by every p(ai ), since the polynomial is nonzero, there exists n such      then the first triple is not worse than the second and the third and we assume y3 ⩾ y1 . Consider the
-that p(a + np(a1 )p(a2 ) . . . p(ak )) satisfies the modified thesis.                                                    three pairs of numbers x2 , y1; z1 , x3 ; y3 , z2 . The sum of all these numbers is three and consequently the
-                                                                                                                         sum of the numbers in one of the pairs is less than or equal to one. If it is the first pair then the triple
-Problem 4. We say a triple (a1 , a2 , a3 ) of nonnegative reals is better than another triple (b1 , b2 , b3 ) if two     (x2 , 1 − x2 , 0) is not worse than all triples from S, for the second we may take (1 − z1 , 0, z1 ) and for the
-out of the three following inequalities a1 > b1 , a2 > b2 , a3 > b3 are satisfied. We call a triple (x, y, z)            third — (0, y3, 1 − y3 ). So we found a desirable special triple for any given S.
-special if x, y, z are nonnegative and x + y + z = 1. Find all natural numbers n for which there is a set S
-of n special triples such that for any given special triple we can find at least one better triple in S.                 Problem 5. Does there exist a finite group G with a normal subgroup H such that |Aut H| > |Aut G|?
-Solution. The answer is n ⩾ 4.                                                                                           Solution. Yes. Let H be the commutative group H = F32 , where F2 ∼
-                                                                                                                                                                                          = Z/2Z is the field with two elements.
-    Consider the following set of special triples:                                                                       The group of automorphisms of H is the general linear group GL3 F2 ; it has
-                                                                                
-                            8 7            2      3         3 2               2 11 2
-                          0, ,      ,        , 0,     ,      , ,0 ,            , ,       .                                                                 (8 − 1) · (8 − 2) · (8 − 4) = 7 · 6 · 4 = 168
-                            15 15          5      5         5 5              15 15 15
-We will prove that any special triple (x, y, z) is worse than one of these (triple a is worse than triple b if           elements. One of them is the shift operator φ : (x1 , x2 , x3 ) 7→ (x2 , x3 , x1 ).
-triple b is better than triple a). We suppose that some special triple (x, y, z) is actually not worse than the             Now let T = {a0 , a1 , a2 } be a group of order 3 (written multiplicatively); it acts on H by τ (a) = φ. Let
-first three of the triples from the given set, derive some conditions on x, y, z and prove that, under these             G be the semidirect product G = H ⋊τ T . In other words, G is the group of 24 elements
-conditions, (x, y, z) is worse than the fourth triple    from the set.
-                                           8 7                         8          7                                                                     G = {bai : b ∈ H, i ∈ (Z/3Z)},        ab = φ(b)a.
-                                                  
-    Triple (x,y, z) is not worse than 0, 15 , 15 means that y ⩾ 15      or z ⩾ 15  . Triple (x, y, z) is not worse
-than 52 , 0, 35 — x ⩾ 25 or z ⩾ 53 . Triple (x, y, z) is not worse than 35 , 52 , 0 — x ⩾ 35 or y ⩾ 52 . Since
-                                                                                                                         G has one element e of order 1 and seven elements b, b ∈ H, b 6= e of order 2.
-x + y + z = 1, then it is impossible that all inequalities x ⩾ 25 , y ⩾ 25 and z ⩾ 15    7
-                                                                                           are true. Suppose that
-                                                                                                                            If g = ba, we find that g 2 = baba = bφ(b)a2 6= e, and that
-      2
-x < 5 , then y ⩾ 5 and z ⩾ 5 . Using x + y + z = 1 and x ⩾ 0 we get x = 0, y = 52 , z = 35 . We obtain
-                      2         3
+\subsection*{Solution}
+WLOG all $p(a_i)$ nonzero and distinct. Choose coprime $s, t$ with $s \mid p(a_1)$, $t \mid p(a_2)$, $st = \operatorname{lcm}(p(a_1), p(a_2))$. Find $m, n$ with $a_1 + sn = a_2 + tm = b_2$. Then $s \mid p(b_2) - p(a_1)$ and $t \mid p(b_2) - p(a_2)$, so $st \mid p(b_2)$. Induct to get $a = b_k$ with all $p(a_i) \mid p(b_k)$.
 
-the triple 0, 52 , 53 which is worse than 152 11 2
-                                              , 15 , 15 . Suppose that y < 25 , then x ⩾ 53 and z ⩾ 15     7
-                                                                                                              and this                              g 3 = bφ(b)a2 ba = bφ(b)aφ(b)a2 = bφ(b)φ2 (b)a3 = ψ(b),
-                                                                            7               2              8
-is a contradiction to the admissibility of (x, y, z). Suppose that z < 15 , then x ⩾ 5 and y ⩾ 15           . We get
-                                     1
-(by admissibility, again) that z ⩽ 15  and y ⩽ 35 . The last inequalities imply that 15    2 11 2
-                                                                                             , 15 , 15 is better than    where the homomorphism ψ : H → H is defined as ψ : (x1 , x2 , x3 ) 7→ (x1 + x2 + x3 )(1, 1, 1). It is clear that
-(x, y, z).                                                                                                               g 3 = ψ(b) = e for 4 elements b ∈ H, while g 6 = ψ 2 (b) = e for all b ∈ H.
-    We will prove that for any given set of three special triples one can find a special triple which is not                 We see that G has 8 elements of order 3, namely ba and ba2 with b ∈ Ker ψ, and 8 elements of order 6,
-worse than any triple from the set. Suppose we have a set S of three special triples                                     namely ba and ba2 with b 6∈ Ker ψ. That accounts for orders of all elements of G.
-                                   (x1 , y1 , z1 ),   (x2 , y2 , z2 ),   (x3 , y3, z3 ).                                     Let b0 ∈ H \Kerψ be arbitrary; it is easy to see that G is generated by b0 and a. As every automorphism
-                                                                                                                         of G is fully determined by its action on b0 and a, it follows that G has no more than
-Denote a(S) = min(x1 , x2 , x3 ), b(S) = min(y1 , y2 , y3), c(S) = min(z1 , z2 , z3 ). It is easy to check that S1 :
-                                                                                                                                                                            7 · 8 = 56
-                                                                                  
-                                      x1 − a           y1 − b        z1 − c
-                                               ,                  ,
-                                   1−a−b−c 1−a−b−c 1−a−b−c
-                                                                                                                       automorphisms.
-                                      x2 − a           y2 − b        z2 − c
-                                               ,                  ,                                                      Remark. G and H can be equivalently presented as subgroups of S6 , namely as H = h(12), (34), (56)i and
-                                   1−a−b−c 1−a−b−c 1−a−b−c
-                                                                                                                       G = h(135)(246), (12)i.
-                                      x3 − a           y3 − b        z3 − c
-                                               ,                  ,
-                                   1−a−b−c 1−a−b−c 1−a−b−c
+(b) No: $p(x) = 2x^2 + 2$ has $p(0) = 2$, $p(1) = 4$; no $p(a)$ divisible by $8$.
 
-                                                             2                                                                                                                  3
-
+\section*{Problem 4}
+A triple $(a_1, a_2, a_3)$ of nonnegative reals is \emph{better} than $(b_1, b_2, b_3)$ if at least two of $a_i > b_i$ hold. A triple $(x,y,z)$ is \emph{special} if nonnegative and $x + y + z = 1$. Find all $n$ for which there is a set $S$ of $n$ special triples such that every special triple has a better triple in $S$.
+
+\subsection*{Solution}
+Answer: $n \ge 4$.
+
+Example with $n = 4$: $\{(0, \tfrac{8}{15}, \tfrac{7}{15}), (\tfrac{2}{5}, 0, \tfrac{3}{5}), (\tfrac{3}{5}, \tfrac{2}{5}, 0), (\tfrac{2}{15}, \tfrac{11}{15}, \tfrac{2}{15})\}$ works by case analysis.
+
+Any 3 triples fail: given $S = \{T_1, T_2, T_3\}$, set $a = \min_i x_i$, etc. If $a + b + c \ge 1$ then all three triples are equal. Else by rescaling and transposition, WLOG $a = b = c = 0$ with $x_1 = y_2 = z_3 = 0$; one of $(x_2, 1 - x_2, 0)$, $(z_1, 0, 1 - z_1)$, $(0, y_3, 1 - y_3)$ works as an uncovered special triple. (Pair sums: $x_2 + y_1$, $z_1 + x_3$, $y_3 + z_2$ total $\le 3$ after normalization; some pair sums to $\le 1$.)
+
+\section*{Problem 5}
+Does there exist a finite group $G$ with a normal subgroup $H$ such that $|\operatorname{Aut} H| > |\operatorname{Aut} G|$?
+
+\subsection*{Solution}
+\textbf{Yes.} Let $H = \mathbb{F}_2^3$; then $|\operatorname{Aut} H| = |GL_3(\mathbb{F}_2)| = 168$.
+
+Let $\phi : H \to H$ be the cyclic shift $(x_1, x_2, x_3) \mapsto (x_2, x_3, x_1)$, order 3. Let $T = \langle a : a^3 = e\rangle$ act on $H$ via $\phi$, and $G = H \rtimes T$, $|G| = 24$. So $G = \{ba^i : b \in H, i \in \mathbb{Z}/3\}$, $ab = \phi(b)a$.
+
+Count orders: 1 identity; 7 nontrivial elements of $H$ have order 2. For $g = ba$: $g^3 = \psi(b)$ where $\psi(b) = b + \phi(b) + \phi^2(b) = (x_1+x_2+x_3)(1,1,1)$. So $\psi(b) = 0$ iff $x_1 + x_2 + x_3 = 0$ (4 such $b$). Similarly for $ba^2$. So $G$ has $8$ elements of order 3 ($b \in \ker \psi$) and $8$ elements of order 6 ($b \notin \ker \psi$).
+
+$G$ is generated by any $b_0 \notin \ker\psi$ and $a$. An automorphism sends $b_0$ to an element of order 6 (8 choices) and $a$ to an element of order 3 (8 choices, but not all work). So $|\operatorname{Aut} G| \le 56 < 168$.
+
+\section*{Problem 6}
+Let $\sigma = (i_1, \ldots, i_n)$ be a permutation of $(1, \ldots, n)$. Let $D(\sigma) = \sum |i_k - k|$ and $Q(n, d) = \#\{\sigma : D(\sigma) = d\}$. Prove $Q(n, d)$ is even for $d \ge 2n$.
+
+\subsection*{Solution}
+Consider the determinant of the matrix $[x^{|i - j|}]_{ij}$:
+\[
+\Delta(x) = \sum_{\sigma \in S_n} (-1)^{\operatorname{inv}(\sigma)} x^{D(\sigma)}.
+\]
+So $Q(n, d)$ equals the coefficient of $x^d$ in $\Delta(x) \pmod 2$.
+
+Evaluate $\Delta$: subtract $x \cdot$(row $k-1$) from row $k$ successively. This zeros out below the diagonal, leaving upper-triangular with diagonal entries $1, 1 - x^2, 1 - x^2, \ldots, 1 - x^2$:
+\[
+\Delta(x) = (1 - x^2)^{n-1}.
+\]
+This has degree $2(n-1) = 2n - 2$; coefficient of $x^d = 0$ for $d \ge 2n$. So $Q(n, d)$ is even.
+
+\end{document}
