@@ -1,255 +1,78 @@
-                            IMC2010, Blagoevgrad, Bulgaria
-                                            Day 1, July 26, 2010
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
 
+\title{IMC 2010, Blagoevgrad, Bulgaria \\ Day 1, July 26, 2010 --- Solutions}
+\date{}
 
-Problem 1. Let 0 < a < b. Prove that
-                                Z b
-                                               2        2     2
-                                    (x2 + 1)e−x dx ≥ e−a − e−b .
-                                            a
+\begin{document}
+\maketitle
 
-                          Rx            2                      2
-Solution 1. Let f (x) = 0 (t2 + 1)e−t dt and let g(x) = −e−x ; both functions are increasing.
-   By Cauchy’s Mean Value Theorem, there exists a real number x ∈ (a, b) such that
-                                                        2            r
-                                            (x2 + 1)e−x
-                                                              
-                   f (b) − f (a)  f 0 (x)                   1     1          1
-                                 = 0      =          2    =    x+    ≥ x · = 1.
-                   g(b) − g(a)    g (x)        2xe−x        2     x          x
+\section*{Problem 1}
+Let $0 < a < b$. Prove $\int_a^b (x^2 + 1) e^{-x^2} dx \ge e^{-a^2} - e^{-b^2}$.
 
-Then                  Z b
-                                        2                                        2     2
-                            (x2 + 1)e−x dx = f (b) − f (a) ≥ g(b) − g(a) = e−a − e−b .
-                        a
+\subsection*{Solution}
+Since $x^2 + 1 \ge 2x$ for $x > 0$,
+\[
+\int_a^b (x^2 + 1) e^{-x^2} dx \ge \int_a^b 2x e^{-x^2} dx = \bigl[-e^{-x^2}\bigr]_a^b = e^{-a^2} - e^{-b^2}.
+\]
 
-Solution 2.           Z b                          Z b
-                              2       −x2                     2         2 b    2     2
-                            (x + 1)e        dx ≥         2xe−x dx = − e−x a = e−a − e−b .
-                       a                            a
+\section*{Problem 2}
+Compute $\sum_{k=0}^\infty \tfrac{1}{(4k+1)(4k+2)(4k+3)(4k+4)}$.
 
+\subsection*{Solution}
+Partial fractions:
+\[
+\frac{1}{(4k+1)(4k+2)(4k+3)(4k+4)} = \frac{1}{6}\cdot\frac{1}{4k+1} - \frac{1}{2}\cdot\frac{1}{4k+2} + \frac{1}{2}\cdot\frac{1}{4k+3} - \frac{1}{6}\cdot\frac{1}{4k+4}.
+\]
+Write $A_m = \tfrac{1}{3} C_m - \tfrac{1}{6} B_m - \tfrac{1}{6} D_m$ where
+\[
+B_m = \sum \Bigl(\tfrac{1}{4k+1} - \tfrac{1}{4k+3}\Bigr) \to \tfrac{\pi}{4}, \quad C_m \to \ln 2, \quad D_m = \sum\Bigl(\tfrac{1}{4k+2} - \tfrac{1}{4k+4}\Bigr) \to \tfrac{\ln 2}{2}.
+\]
+Therefore
+\[
+\lim A_m = \tfrac{1}{3}\ln 2 - \tfrac{1}{6}\cdot \tfrac{\pi}{4} - \tfrac{1}{6}\cdot\tfrac{\ln 2}{2} = \boxed{\tfrac{\ln 2}{4} - \tfrac{\pi}{24}}.
+\]
 
-Problem 2. Compute the sum of the series
-                  ∞
-                  X                  1                         1               1
-                                                       =               +               +··· .
-                  k=0
-                      (4k + 1)(4k + 2)(4k + 3)(4k + 4)   1 · 2 · 3 · 4   5 · 6 · 7 · 8
+\emph{Alt.} Setting $F(x) = \sum \tfrac{x^{4k+4}}{(4k+1)(4k+2)(4k+3)(4k+4)}$, $F^{(IV)}(x) = \tfrac{1}{1-x^4}$. Integrate four times with $F^{(j)}(0) = 0$.
 
-Solution 1. Let                             ∞
-                                            X                x4k+4
-                                  F (x) =                                        .
-                                            k=0
-                                                (4k + 1)(4k + 2)(4k + 3)(4k + 4)
-This power series converges for |x| ≤ 1 and our goal is to compute F (1).
-   Differentiating 4 times, we get
-                                                      ∞
-                                         (IV )
-                                                     X           1
-                                       F       (x) =     x4k =        .
-                                                     k=0
-                                                               1 − x4
-Since F (0) = F 0 (0) = F 00 (0) = F 000 (0) = 0 and F is continuous at 1 − 0 by Abel’s continuity theorem,
+\section*{Problem 3}
+Compute $\lim \tfrac{x_1 \cdots x_n}{x_{n+1}}$, $x_1 = \sqrt 5$, $x_{n+1} = x_n^2 - 2$.
 
+\subsection*{Solution}
+Let $y_n = x_n^2$. Then $y_{n+1} = (y_n - 2)^2$ and
+\[
+y_{n+1} - 4 = y_n^2 - 4 y_n = y_n(y_n - 4).
+\]
+From $y_1 = 5 > 4$ induction gives $y_n > 5$ for $n \ge 2$, hence $y_n \to \infty$. Then
+\[
+\left(\frac{x_1 \cdots x_n}{x_{n+1}}\right)^2 = \frac{y_1 \cdots y_n}{y_{n+1}} = \frac{y_{n+1} - 4}{y_{n+1}} \cdot \frac{1}{y_1 - 4} = \frac{y_{n+1} - 4}{y_{n+1}} \to 1,
+\]
+using the telescoping $\tfrac{y_1 \cdots y_n}{y_{n+1} - 4} = \tfrac{y_1 \cdots y_{n-1}}{y_n - 4} = \cdots = \tfrac{1}{y_1 - 4}$. So the limit is $1$.
 
+\section*{Problem 4}
+If $\mathbb{Z} \setminus \{ax^n + by^n\}$ is finite, then $n = 1$.
 
+\subsection*{Solution}
+Assume $n > 1$; replace $n$ by any prime $p \mid n$. WLOG $\gcd(a,b) = 1$.
 
-                                                             1
-integrating 4 times we get
-                                    Z y                       Z y
-          000           000                  (IV )                    dx         1               1                 1
-        F (y) = F (0) +                    F       (x) dx =                4
-                                                                              =    arctan  y +     log(1   + y) −    log(1 − y) ,
-                                      0                         0 1−x            2               4                 4
-                                      Z z                   Z z                                                      
-              00            00                 000                  1                 1                  1
-           F (z) = F (0) +                  F (y) dx =                 arctan y + log(1 + y) − log(1 − y) dy =
-                                         0                    0     2                 4                  4
-                       Z z                                                       Z z                                     Z z    
-   1                               y                 1                                            1
-=     z arctan z −                     2
-                                           dy +          (1 + z) log(1 + z) −            dy +          (1 − z) log(1 − z) +        dy =
-   2                       0 1+y                     4                               0            4                            0
-                        1                      1                   1                            1
-                     = z arctan z − log(1 + z 2 ) + (1 + z) log(1 + z) + (1 − z) log(1 − z) ,
-                    Z t 2                     4                   4                            4                        
-          0                  1                     1            2      1                           1
-        F (t) =                 z arctan z − log(1 + z ) + (1 + z) log(1 + z) + (1 − z) log(1 − z) dt =
-                     0       2                     4                   4                           4
-                                                                                                      
-                       1              2                        1                 2
-                   =          (1 + t ) arctan t − t −             t log(1 + t ) − 2t + 2 arctan t +
-                       4                                       4
-                                                                                                                     
-                                  1              2                      1 2        1          2                     1 2
-                               +      (1 + t) log(1 + t) − t − t −                     (1 − t) log(1 − t) + t − t =
-                                  8                                     2          8                                2
-                  1                                  1                   1                           1
-               = (−1 + t2 ) arctan t − t log(1 + t2 ) + (1 + t)2 log(1 + t) − (1 − t)2 log(1 − t) ,
-              Z 1 4                                 4                   8                           8                        
-                     1              2                  1             2       1         2                 1       2
-   F (1) =             (−1 + t ) arctan t − t log(1 + t ) + (1 + t) log(1 + t) − (1 − t) log(1 − t) dt =
-                0    4                                 4                     8                           8
-                  3                            2                            3                         3
-                                                                                                                     1
-        −3t + t                       1 − 3t                2      (1 + t)                    (1 − t)                     ln 2    π
-    =                arctan t +                    log(1 + t ) +               log(1 + t) +               log(1 − t) =         − .
-             12                            24                          24                         24                  0    4      24
-Remark. The computation can be shorter if we change the order of integrations.
-             Z 1 Z t Z z Z y                          Z 1          Z 1 Z 1 Z 1
-                                  1                           1
-     F (1) =                        4
-                                      dx dy dz dt =              4
-                                                                                    dt dz dy dz =
-              t=0 z=0 y=0 x=0 1 − x                     x=0 1 − x   y=x z=y t=z
-              Z 1            Z 1 Z 1 Z 1                      Z 1
-                                                                             (1 − x)3
-                                                      
-                       1     1                                        1
-            =            4
-                                            dt dz  dy    dx =           4
-                                                                           ·          dx =
-                x=0 1 − x    6 y=x z=x t=x                      0 1−x           6
-                                                                  1
-                          1          1           2     1                  ln 2    π
-                  = − arctan x −        log(1 + x ) + log(1 + x) =             − .
-                          6          12                3             0      4     24
-Solution 2. Let
-        m                                      m                                     
-      X                   1                    X    1     1      1     1    1 1  1  1
- Am =                                       =         ·        − ·        + ·   − ·     ,
-       k=0
-           (4k + 1)(4k + 2)(4k + 3)(4k + 4) k=0 6 4k + 1 2 4k + 2 2 4k + 3 6 4k + 4
-                                            m                   
-                                           X       1         1
-                                    Bm =                −          ,
-                                           k=0
-                                                4k +  1   4k + 3
-                                m                                      
-                               X       1        1         1          1
-                        Cm =               −         +         −          and
-                               k=0
-                                    4k + 1 4k + 2 4k + 3 4k + 4
-                                            m                   
-                                           X       1         1
-                                    Dm =                −          .
-                                           k=0
-                                                4k + 2 4k + 4
-It is easy check that
-                                                     1    1    1
-                                                 Am = Cm − Bm − Dm .
-                                                     3    6    6
-Therefore,
-                                                             π 1
-                                     2Cm − Bm − Dm   2 ln 2 − − ln 2  1      π
-                        lim Am = lim               =         4 2     = ln 2 − .
-                                           6                 6        4      24
+\emph{$p = 2$:} If $b$ is even, $ax^2$ takes $\le 3$ residues mod 8 and $by^2$ takes $\le 2$, so $ax^2 + by^2$ takes $\le 6 < 8$. If both odd, $ax^2 + by^2 \equiv x^2 \pm y^2 \pmod 4$, missing residue 3 (for $+$) or 2 (for $-$). Infinitely many non-representable.
 
-                                                                  2
-                                                                                    √
-Problem 3. Define the sequence x1 , x2 , . . . inductively by x1 =                      5 and xn+1 = x2n − 2 for each n ≥ 1.
-Compute
-                                                x1 · x2 · x3 · · · xn
-                                         lim                          .
-                                        n→∞            xn+1
-Solution. Let yn = x2n . Then yn+1 = (yn − 2)2 and yn+1 − 4 = yn (yn − 4). Since y2 = 9 > 5, we have
-y3 = (y2 − 2)2 > 5 and inductively yn > 5, n ≥ 2. Hence, yn+1 − yn = yn2 − 5yn + 4 > 4 for all n ≥ 2, so
-yn → ∞.
-   By yn+1 − 4 = yn (yn − 4),
-                                   2
-            x1 · x2 · x3 · · · xn          y1 · y2 · y3 · · · yn
-                                         =
-                   xn+1                           yn+1
-                                           yn+1 − 4 y1 · y2 · y3 · · · yn     yn+1 − 4 y1 · y2 · y3 · · · yn−1
-                                         =             ·                    =         ·                        = ···
-                                             yn+1              yn+1 − 4         yn+1          yn − 4
-                                           yn+1 − 4           1      yn+1 − 4
-                                         =             ·          =           → 1.
-                                             yn+1        y1 − 4        yn+1
-   Therefore,
-                                                       x1 · x2 · x3 · · · xn
-                                                    lim                      = 1.
-                                                   n→∞        xn+1
+\emph{$p \ge 3$:} $p$th powers take exactly $p$ residues mod $p^2$ (since $(x+kp)^p \equiv x^p$ mod $p^2$, and $0^p, \ldots, (p-1)^p$ are distinct mod $p$). So $ax^p + by^p$ takes $\le p^2$ residues mod $p^2$. If strictly less, done. If exactly $p^2$, then $p^2 \mid ax^p + by^p$ forces $p \mid x, y$, hence $p^p \mid ax^p + by^p$; numbers $\equiv p^2 \pmod{p^3}$ are non-representable.
 
-Problem 4. Let a, b be two integers and suppose that n is a positive integer for which the set
+\section*{Problem 5}
+Given $a, b, c \in [-1, 1]$ with $1 + 2abc \ge a^2 + b^2 + c^2$. Show $1 + 2(abc)^n \ge a^{2n} + b^{2n} + c^{2n}$.
 
-                                     Z \ axn + by n | x, y ∈ Z
-                                        
+\subsection*{Solution}
+Consider the symmetric matrix
+\[
+A = \begin{pmatrix} 1 & a & b \\ a & 1 & c \\ b & c & 1 \end{pmatrix}.
+\]
+The hypothesis is $\det A \ge 0$; the $2 \times 2$ principal minors $1 - a^2, 1 - b^2, 1 - c^2 \ge 0$. So $A$ is positive semidefinite; write $A = B^2$ with $B$ symmetric. Let rows be $x, y, z$: $|x| = |y| = |z| = 1$, $x \cdot y = a$, $y \cdot z = c$, $z \cdot x = b$.
 
+Form tensor powers $X = x^{\otimes n}$, etc. Then $|X|=|Y|=|Z|=1$, $X \cdot Y = a^n$, $Y \cdot Z = c^n$, $Z \cdot X = b^n$. The Gram matrix
+\[
+\begin{pmatrix} 1 & a^n & b^n \\ a^n & 1 & c^n \\ b^n & c^n & 1 \end{pmatrix}
+\]
+is positive semidefinite, so its determinant $1 + 2(abc)^n - a^{2n} - b^{2n} - c^{2n} \ge 0$.
 
-is finite. Prove that n = 1.
-Solution. Assume that n > 1. Notice that n may be replaced by any prime divisor p of n. Moreover,
-a and b should be coprime, otherwise the numbers not divisible by the greatest common divisor of a, b
-cannot be represented as axn + by n .
-     If p = 2, then the number of the form ax2 + by 2 takes not all possible remainders modulo 8. If, say, b is
-even, then ax2 takes at most three different remainders modulo 8, by 2 takes at most two, hence ax2 + by 2
-takes at most 3 × 2 = 6 different remainders. If both a and b are odd, then ax2 + by 2 ≡ x2 ± y 2 (mod 4);
-the expression x2 + y 2 does not take the remainder 3 modulo 4 and x2 − y 2 does not take the remainder 2
-modulo 4.
-     Consider the case when p ≥ 3. The pth powers take exactly p different remainders modulo p2 . Indeed,
-(x + kp)p and xp have the same remainder modulo p2 , and all numbers 0p , 1p , . . . , (p − 1)p are different
-even modulo p. So, axp + by p take at most p2 different remainders modulo p2 . If it takes strictly less then
-p2 different remainders modulo p2 , we get infinitely many non-representable numbers. If it takes exactly
-p2 remainders, then axp + by p is divisible by p2 only if both x and y are divisible by p. Hence if axp + by p
-is divisible by p2 , it is also divisible by pp . Again we get infinitely many non-representable numbers, for
-example the numbers congruent to p2 modulo p3 are non-representable.
-
-Problem 5. Suppose that a, b, c are real numbers in the interval [−1, 1] such that
-
-                                                    1 + 2abc ≥ a2 + b2 + c2 .
-
-Prove that
-                                                 1 + 2(abc)n ≥ a2n + b2n + c2n
-for all positive integers n.
-
-
-
-
-                                                                 3
-Solution 1. Consider the symmetric matrix
-                                                           
-                                                    1 a b
-                                             A = a 1 c  .
-                                                    b c 1
-                                                                            
-                                                 1 a           1 b          1 c
-By the constraint we have det A ≥ 0 and det            , det         , det         ≥ 0. Hence A is positive
-                                                 a 1           b 1           c 1
-semidefinite, and A = B 2 for some symmetric real matrix B.
-    Let the rows of B be x, y, z. Then |x| = |y| = |z| = 1, a = x · y, b = y · z and c = z · x, where |x| and
-x · y denote the Euclidean norm and scalar product. Denote by X = ⊗n x, Y = ⊗n y, Z = ⊗n z the nth
-                which belongto R3 . Then |X| = |Y | = |Z| = 1, X · Y = an , Y · Z = bn and Z · X = cn .
-                                   n
-tensor powers, 
-                  1 an bn
-So, the matrix an 1 cn , being the Gram matrix of three vectors in R3 , is positive semidefinite, and
-                                                                               n
-
-
-                 bn cn 1
-its determinant, 1 + 2(abc)n − a2n − b2n − c2n is non-negative.
-Solution 2. The constraint can be written as
-
-                                          (a − bc)2 ≤ (1 − b2 )(1 − c2 ).                                         (1)
-
-   By the Cauchy-Schwarz inequality,
-                                                 2                                         2
-               an−1 + an−2 bc + . . . + bn−1 cn−1 ≤ |a|n−1 + |a|n−2 |bc| + . . . + |bc|n−1 ≤
-                                        2
-            ≤ 1 + |bc| + . . . + |bc|n−1 ≤ 1 + |b|2 + . . . + |b|2(n−1) 1 + |c|2 + . . . + |c|2(n−1)
-                                                                                                    
-
-
-   Multiplying by (1), we get
-
-                 (a − bc)2 (an−1 + an−2 bc + . . . + bn−1 cn−1 )2 ≤
-                                                                                                         
-                             (1 − b2 ) 1 + |b|2 + . . . + |b|2(n−1)    (1 − c2 ) 1 + |c|2 + . . . + |c|2(n−1) ,
-                                        (an − bn cn )2 ≤ (1 − bn )(1 − cn ),
-                                         1 + 2(abc)n ≥ a2n + b2n + b2n .
-
-
-
-
-                                                          4
-
+\end{document}

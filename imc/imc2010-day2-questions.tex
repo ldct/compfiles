@@ -1,42 +1,34 @@
-                  IMC2010, Blagoevgrad, Bulgaria
-                                 Day 2, July 27, 2010
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
 
+\title{IMC 2010, Blagoevgrad, Bulgaria \\ Day 2, July 27, 2010}
+\date{}
 
-Problem 1. (a) A sequence x1 , x2 , . . . of real numbers satisfies
-                              xn+1 = xn cos xn     for all n ≥ 1 .
-Does it follow that this sequence converges for all initial values x1 ?
-                                                                                  (5 points)
-   (b) A sequence y1 , y2 , . . . of real numbers satisfies
-                               yn+1 = yn sin yn    for all n ≥ 1 .
-Does it follow that this sequence converges for all initial values y1 ?
-                                                                                  (5 points)
+\begin{document}
+\maketitle
 
-Problem 2. Let a0 , a1 , . . . , an be positive real numbers such that ak+1 − ak ≥ 1 for all
-k = 0, 1, . . . , n − 1. Prove that
-                                                                           
-              1            1               1              1         1            1
-      1+            1+           ··· 1+           ≤ 1+         1+        ··· 1+      .
-             a0         a1 − a0         an − a0           a0        a1           an
-                                                                                 (10 points)
+\section*{Problem 1}
+(a) A sequence $x_1, x_2, \ldots$ of reals satisfies $x_{n+1} = x_n \cos x_n$ for all $n \ge 1$. Does it follow that this sequence converges for all initial values $x_1$?
 
-Problem 3. Denote by Sn the group of permutations of the sequence (1, 2, . . . , n).
-Suppose that G is a subgroup of Sn , such that for every π ∈ G \ {e} there exists a unique
-k ∈ {1, 2, . . . , n} for which π(k) = k. (Here e is the unit element in the group Sn .) Show
-that this k is the same for all π ∈ G \ {e}.
-                                                                                  (10 points)
+(b) A sequence $y_1, y_2, \ldots$ of reals satisfies $y_{n+1} = y_n \sin y_n$ for all $n \ge 1$. Does it follow that this sequence converges for all initial values $y_1$?
 
-Problem 4. Let A be a symmetric m × m matrix over the two-element field all of whose
-diagonal entries are zero. Prove that for every positive integer n each column of the matrix
-An has a zero entry.
-                                                                                 (10 points)
+\section*{Problem 2}
+Let $a_0, a_1, \ldots, a_n$ be positive reals with $a_{k+1} - a_k \ge 1$ for all $k = 0, \ldots, n-1$. Prove that
+\[
+1 + \frac{1}{a_0}\left(1 + \frac{1}{a_1 - a_0}\right)\cdots\left(1 + \frac{1}{a_n - a_0}\right) \le \left(1 + \frac{1}{a_0}\right)\left(1 + \frac{1}{a_1}\right)\cdots\left(1 + \frac{1}{a_n}\right).
+\]
 
-Problem 5. Suppose that for a function f : R → R and real numbers a < b one has
-f (x) = 0 for all x ∈ (a, b). Prove that f (x) = 0 for all x ∈ R if
-                                      p−1          
-                                      X           k
-                                          f y+        =0
-                                      k=0
-                                                  p
-for every prime number p and every real number y.
-                                                                                 (10 points)
-
+\section*{Problem 3}
+Denote by $S_n$ the group of permutations of $(1, 2, \ldots, n)$. Suppose $G \le S_n$ is such that for every $\pi \in G \setminus \{e\}$ there exists a unique $k \in \{1, \ldots, n\}$ with $\pi(k) = k$. Show that this $k$ is the same for all $\pi \in G \setminus \{e\}$.
+
+\section*{Problem 4}
+Let $A$ be a symmetric $m \times m$ matrix over $\mathbb{F}_2$ with all diagonal entries zero. Prove that for every positive integer $n$, each column of $A^n$ has a zero entry.
+
+\section*{Problem 5}
+Suppose that for $f : \mathbb{R} \to \mathbb{R}$ and reals $a < b$, $f(x) = 0$ for all $x \in (a, b)$. Prove that $f \equiv 0$ if
+\[
+\sum_{k=0}^{p-1} f\!\left(y + \frac{k}{p}\right) = 0
+\]
+for every prime $p$ and every $y \in \mathbb{R}$.
+
+\end{document}

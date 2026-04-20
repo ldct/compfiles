@@ -1,235 +1,84 @@
-                         IMC2010, Blagoevgrad, Bulgaria
-                                        Day 2, July 27, 2010
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
 
-Problem 1. (a) A sequence x1 , x2 , . . . of real numbers satisfies
+\title{IMC 2010, Blagoevgrad, Bulgaria \\ Day 2, July 27, 2010 --- Solutions}
+\date{}
 
-                                     xn+1 = xn cos xn        for all n ≥ 1 .
+\begin{document}
+\maketitle
 
-Does it follow that this sequence converges for all initial values x1 ?
-   (b) A sequence y1 , y2, . . . of real numbers satisfies
+\section*{Problem 1}
+(a) $x_{n+1} = x_n \cos x_n$: does this converge?
+(b) $y_{n+1} = y_n \sin y_n$: same question.
 
-                                      yn+1 = yn sin yn       for all n ≥ 1 .
+\subsection*{Solution}
+(a) \textbf{No.} Take $x_1 = \pi$; then $x_n = (-1)^{n-1}\pi$, divergent.
 
-Does it follow that this sequence converges for all initial values y1 ?
-Solution 1. (a) NO. For example, for x1 = π we have xn = (−1)n−1 π, and the sequence is divergent.
-    (b) YES. Notice that |yn | is nonincreasing and hence converges to some number a ≥ 0.
-    If a = 0, then lim yn = 0 and we are done. If a > 0, then a = lim |yn+1| = lim |yn sin yn | = a·| sin a|,
-so sin a = ±1 and a = (k + 12 )π for some nonnegative integer k.
-    Since the sequence |yn | is nonincreasing, there exists an index n0 such that (k + 21 )π ≤ |yn | <
-(k
- + 1)π    for all n > n0 . Then all the numbers yn0 +1 , yn0 +2 , . . . lie in the union of the intervals
-        1
- (k + 2 )π, (k + 1)π and − (k + 1)π, −(k + 12 )π .
-    Depending on the parity of k, in one of the intervals (k+ 21 )π, (k+1)π and −(k+1)π, −(k+ 21 )π
-                                                                                                               
+(b) \textbf{Yes.} $|y_{n+1}| = |y_n| \cdot |\sin y_n| \le |y_n|$, so $|y_n| \downarrow a \ge 0$. If $a = 0$ done. Else $a = a \cdot |\sin a|$, so $|\sin a| = 1$ and $a = (k + \tfrac{1}{2})\pi$. For large $n$, $|y_n| \in [(k + \tfrac12)\pi, (k+1)\pi)$, so $y_n$ lies in one of two intervals $I_\pm$ (where $\sin$ has definite sign). In both cases $y_{n+1}$ lands in $I_+$, so eventually $y_n$ has constant sign; combined with $|y_n| \to a$, $y_n$ converges.
 
-the values of the sine function is positive; denote this interval by I+ . In the other interval the sine
-function is negative; denote this interval by I− . If yn ∈ I− for some n > n0 then yn and yn+1 = yn sin yn
-have opposite signs, so yn+1 ∈ I+ . On the other hand, if If yn ∈ I+ for some n > n0 then yn and yn+1
-have the same sign, so yn+1 ∈ I+ . In both cases, yn+1 ∈ I+ .
-    We obtained that the numbers yn0 +2 , yn0 +3 , . . . lie in I+ , so they have the same sign. Since |yn | is
-convergent, this implies that the sequence (yn ) is convergent as well.
-Solution 2 for part (b). Similarly to the first solution, |yn | → a for some real number a.
-    Notice that t · sin t = (−t) sin(−t) = |t| sin |t| for all real t, hence yn+1 = |yn | sin |yn | for all n ≥ 2.
-Since the function t 7→ t sin t is continuous, yn+1 = |yn | sin |yn | → |a| sin |a| = a.
-Problem 2. Let a0 , a1 , . . . , an be positive real numbers such that ak+1 − ak ≥ 1 for all k =
-0, 1, . . . , n − 1. Prove that
-                                                                           
-                     1          1                1           1        1           1
-                1+       1+            ··· 1+          ≤ 1+       1+      ··· 1+     .
-                     a0      a1 − a0          an − a0       a0       a1          an
+\emph{Alt for (b):} $t \sin t = |t| \sin |t|$, so $y_{n+1} = |y_n| \sin|y_n| \to a \sin a = a$ by continuity.
 
-Solution. Apply induction on n. Considering the empty product as 1, we have equality for n = 0.
-   Now assume that the statement is true for some n and prove it for n + 1. For n + 1, the statement
-can be written as the sum of the inequalities
-                                                                           
-                     1         1                  1              1              1
-                1+       1+           ··· 1+            ≤ 1+         ··· 1+
-                    a0      a1 − a0            an − a0          a0             an
-(which is the induction hypothesis) and
-                                                                       
-          1          1                 1            1          1           1       1
-              1+            ··· 1+            ·           ≤ 1+      ··· 1+      ·      .                      (1)
-         a0       a1 − a0           an − a0     an+1 − a0      a0          an     an+1
-Hence, to complete the solution it is sufficient to prove (1).
+\section*{Problem 2}
+Prove the product inequality.
 
-                                                         1
-   To prove (1), apply a second induction. For n = 0, we have to verify
-                                                         
-                                   1      1             1 1
-                                      ·        ≤ 1+           .
-                                   a0 a1 − a0          a0 a1
+\subsection*{Solution}
+Induct on $n$. Base $n = 0$ is equality. The step reduces to showing
+\[
+\frac{1}{a_0}\prod_{k=1}^n\!\Bigl(1 + \tfrac{1}{a_k - a_0}\Bigr) \cdot \frac{1}{a_{n+1} - a_0} \le \prod_{k=0}^n\!\Bigl(1 + \tfrac{1}{a_k}\Bigr) \cdot \frac{1}{a_{n+1}}.
+\]
+Induct further: the base $n = 0$ case, $\tfrac{1}{a_0(a_1 - a_0)} \le \tfrac{a_0 + 1}{a_0 a_1}$, reduces to $a_1 - a_0 \ge 1$. For the step,
+\[
+\Bigl(1 + \tfrac{1}{a_{n+1} - a_0}\Bigr) \tfrac{a_{n+1} - a_0}{a_{n+2} - a_0} \le \Bigl(1 + \tfrac{1}{a_{n+1}}\Bigr) \tfrac{a_{n+1}}{a_{n+2}}
+\]
+simplifies to $a_{n+2} - a_{n+1} \ge 1$.
 
-Multiplying by a0 a1 (a1 − a0 ), this is equivalent with
+\section*{Problem 3}
+Subgroup $G \le S_n$ where every non-identity element has a unique fixed point. Show this fixed point is the same.
 
-                                         a1 ≤ (a0 + 1)(a1 − a0 )
-                                             a0 ≤ a0 a1 − a20
-                                              1 ≤ a1 − a0 .
+\subsection*{Solution}
+Let $G_x, Gx$ be the stabilizer and orbit. Conditions: $G = \bigcup_x G_x$; $G_x \cap G_y = \{e\}$ for $x \ne y$. Let $Gx_1, \ldots, Gx_k$ be distinct orbits. Note $|G_y| = |G|/|Gy| = |G|/|Gx_i| = |G_{x_i}|$ for $y \in Gx_i$. Counting:
+\[
+|G| - 1 = \sum_{i=1}^k |Gx_i|(|G_{x_i}| - 1) = \sum_{i=1}^k \frac{|G|}{|G_{x_i}|}(|G_{x_i}| - 1),
+\]
+so
+\[
+1 - \frac{1}{|G|} = \sum_{i=1}^k\!\Bigl(1 - \frac{1}{|G_{x_i}|}\Bigr).
+\]
+If two terms had $|G_{x_i}| \ge 2$, RHS $\ge 1 > 1 - 1/|G|$. So at most one term has $|G_{x_i}| > 1$, and that one has $|G_{x_k}| = |G|$, i.e. $G_{x_k} = G$.
 
-   For the induction step it is sufficient that
-                                                               
-                                    1         an+1 − a0       1       an+1
-                          1+                ·           ≤ 1+        ·      .
-                               an+1 − a0      an+2 − a0      an+1     an+2
+\section*{Problem 4}
+$A$ symmetric over $\mathbb{F}_2$ with zero diagonal. Show each column of $A^n$ has a zero.
 
-Multiplying by (an+2 − a0 )an+2 ,
+\subsection*{Solution}
+Let $e_k$ be the $k$th standard basis vector, $u$ the all-ones vector. Bilinear form $(x,y) = x^T y$. Facts: $(x,x) = (x,u)$, and $(w, Aw) = w^T A w = 0$ (symmetric, zero diagonal, over $\mathbb{F}_2$).
 
-                             (an+1 − a0 + 1)an+2 ≤ (an+1 + 1)(an+2 − a0 )
-                                        a0 ≤ a0 an+2 − a0 an+1
-                                           1 ≤ an+2 − an+1 .
+\textbf{Lemma.} If $A^n v = u$ then $(v, v) = 0$.
 
-Remark 1. It is easy to check from the solution that equality holds if and only if ak+1 − ak = 1 for
-all k.
-Remark 2. The statement of the problem is a direct corollary of the identity
-                            n                        ! Y  n          
-                           X     1 Y             1                   1
-                       1+                  1+           =       1+       .
-                           i=0
-                                 xi j6=i      xj − xi      i=0
-                                                                     xi
+Induct on $n$. \emph{$n = 2k+1$:} set $w = A^k v$;
+\[
+(v,v) = (v, u) = v^T A^n v = (A^k v, A^{k+1} v) = (w, Aw) = 0.
+\]
+\emph{$n = 2k$:} set $w = A^k v$; then $A^k w = u$ so $(w,w) = 0$ by induction. Thus
+\[
+(v,v) = v^T A^{2k} v = (A^k v)^T (A^k v) = (w,w) = 0.
+\]
 
-Problem 3. Denote by Sn the group of permutations of the sequence (1, 2, . . . , n). Suppose that
-G is a subgroup of Sn , such that for every π ∈ G \ {e} there exists a unique k ∈ {1, 2, . . . , n} for
-which π(k) = k. (Here e is the unit element in the group Sn .) Show that this k is the same for all
-π ∈ G \ {e}.
-Solution. Let us consider the action of G on the set X = {1, . . . , n}. Let
+If $A^n e_k = u$, then $(e_k, e_k) = 0$. But $(e_k, e_k) = 1$, contradiction.
 
-                        Gx = { g ∈ G : g(x) = x} and Gx = { g(x) : g ∈ G}
-be the stabilizer and the orbit of x ∈ X under this action, respectively. The condition of the problem
-states that                                        [
-                                             G=       Gx                                            (1)
-                                                    x∈X
+\section*{Problem 5}
+If $f$ vanishes on $(a,b)$ and $\sum_{k=0}^{p-1} f(y + k/p) = 0$ for all primes $p$ and all $y$, then $f \equiv 0$.
 
-and
-                                    Gx ∩ Gy = {e} for all x 6= y.                                  (2)
-We need to prove that Gx = G for some x ∈ X.
-   Let Gx1 , . . . , Gxk be the distinct orbits of the action of G. Then one can write (1) as
-                                                 k
-                                                 [ [
-                                            G=               Gy .                                  (3)
-                                                 i=1 y∈Gxi
+\subsection*{Solution}
+Fix integer $N > 1$. Define
+\[
+\mathcal J_N = \Bigl\{ \sum c_k x^k \in \mathbb{R}[x] : \forall x \in \mathbb{R}, \sum_k c_k f(x + k/N) = 0 \Bigr\}.
+\]
+$\mathcal J_N$ is an ideal (closed under multiplication by $x$). For each prime $p \mid N$, the hypothesis gives $\tfrac{x^N - 1}{x^{N/p} - 1} \in \mathcal J_N$. The gcd of these (as $p$ ranges over prime divisors of $N$) equals the cyclotomic polynomial $\Phi_N(x)$ (roots are primitive $N$th roots of unity). Hence $\Phi_N \in \mathcal J_N$, with degree $\varphi(N)$.
 
+Choose $N$ with $\varphi(N)/N < b - a$ (possible since $\liminf \varphi(N)/N = 0$). Write $\Phi_N = \sum a_k x^k$ with $a_{\varphi(N)} = 1$, $|a_0| = 1$. For $x \in [b, b + 1/N)$,
+\[
+f(x) = -\sum_{k=0}^{\varphi(N)-1} a_k f\!\bigl(x - \tfrac{\varphi(N) - k}{N}\bigr).
+\]
+All arguments on the RHS lie in $(a, b)$ (since the span $\varphi(N)/N < b - a$), so $f(x) = 0$. Similarly $f = 0$ on $(a - 1/N, a]$. Iterating, $f \equiv 0$.
 
-                                                    2
-   It is well known that
-                                                                      |G|
-                                                          |Gx| =           .                                  (4)
-                                                                     |Gx |
-   Also note that if y ∈ Gx then Gy = Gx and thus |Gy| = |Gx|. Therefore,
-                                          |G|    |G|
-                               |Gx | =        =      = |Gy | for all y ∈ Gx.                                  (5)
-                                         |Gx|   |Gy|
-   Combining (3), (2), (4) and (5) we get
-                                                  k                            k
-                                                  [ [                          X |G|
-                    |G| − 1 = |G \ {e}| =                        Gy \ {e} =                 (|Gxi | − 1),
-                                                  i=1 y∈Gxi                    i=1
-                                                                                   |Gxi |
-
-hence
-                                                    k            
-                                              1    X         1
-                                          1−     =      1−          .                                         (6)
-                                             |G|   i=1
-                                                           |Gxi |
-   If for some i, j ∈ {1, . . . , k} |Gxi |, |Gxi | ≥ 2 then
-                         k                                                
-                         X             1                     1            1                      1
-                            1−                    ≥       1−         + 1−          =1>1−
-                         i=1
-                                     |Gxi |                  2            2                     |G|
-
-which contradicts with (6), thus we can assume that
-
-                                              |Gx1 | = . . . = |Gxk−1 | = 1.
-
-Then from (6) we get |Gxk | = |G|, hence Gxk = G.
-Problem 4. Let A be a symmetric m × m matrix over the two-element field all of whose diagonal
-entries are zero. Prove that for every positive integer n each column of the matrix An has a zero
-entry.
-Solution. Denote by ek (1 ≤ k ≤ m) the m-dimensional vector over F2 , whose k-th entry is 1 and all
-the other elements are 0. Furthermore, let u be the vector whose all entries are 1. The k-th column
-of An is An ek . So the statement can be written as An ek 6= u for all 1 ≤ k ≤ m and all n ≥ 1.
-    For every pair of vectors x = (x1 , . . . , xm ) and y = (y1 , . . . , ym ), define the bilinear form (x, y) =
-xT y = x1 y1 + ... + xm ym . The product (x, y) has all basic properties of scalar products (except the
-property that (x, x) = 0 implies x = 0). Moreover, we have (x, x) = (x, u) for every vector x ∈ F2m .
-    It is also easy to check that (w, Aw) = w T Aw = 0 for all vectors w, since A is symmetric and its
-diagonal elements are 0.
-Lemma. Suppose that v ∈ F2m a vector such that An v = u for some n ≥ 1. Then (v, v) = 0.
-Proof. Apply induction on n. For odd values of n we prove the lemma directly. Let n = 2k + 1 and
-w = Ak v. Then
-
-            (v, v) = (v, u) = (v, An v) = v T An v = v T A2k+1 v = (Ak v, Ak+1 v) = (w, Aw) = 0.
-
-   Now suppose that n is even, n = 2k, and the lemma is true for all smaller values of n. Let
-w = Ak v; then Ak w = An v = u and thus we have (w, w) = 0 by the induction hypothesis. Hence,
-
-             (v, v) = (v, u) = v T An v = v T A2k v = (Ak v)T (Ak v) = (Ak v, Ak v) = (w, w) = 0.
-
-The lemma is proved.
-
-                                                                 3
-   Now suppose that An ek = u for some 1 ≤ k ≤ m and positive integer n. By the Lemma, we
-should have (ek , ek ) = 0. But this is impossible because (ek , ek ) = 1 6= 0.
-Problem 5. Suppose that for a function f : R → R and real numbers a < b one has f (x) = 0 for
-all x ∈ (a, b). Prove that f (x) = 0 for all x ∈ R if
-                                             p−1       
-                                             X        k
-                                                 f y+     =0
-                                             k=0
-                                                      p
-
-for every prime number p and every real number y.
-Solution. Let N > 1 be some integer to be defined later, and consider set of real polynomials
-                                                                         n              
-                                              n
-                                                                          X        k
-              JN =       c0 + c1 x + . . . + cn x ∈ R[x]        ∀x ∈ R     ck f x +    =0 .
-                                                                       k=0
-                                                                                    N
-
-Notice that 0 ∈ JN , any linear combinations of any elements in JN is in JN , and for every P (x) ∈ JN
-we have xP (x) ∈ JN . Hence, JN is an ideal of the ring R[x].
-                                                                            xN − 1
-    By the problem’s conditions, for every prime divisors of N we have N/p           ∈ JN . Since R[x]
-                                                                           x    −1
-is a principal ideal domain (due to the Euclidean algorithm), the greatest common divisor of these
-                                                                               xN − 1
-polynomials is an element of JN . The complex roots of the polynomial N/p               are those Nth
-                                                                              x    −1
-roots of unity whose order does not divide N/p. The roots of the greatest common divisor is the
-intersection of such sets; it can be seen that the intersection consist of the primitive Nth roots of
-unity. Therefore,                      N                 
-                                         x −1
-                                  gcd                p N = ΦN (x)
-                                        xN/p − 1
-is the Nth cyclotomic polynomial. So ΦN ∈ JN , which polynomial has degree ϕ(N).
-                                      ϕ(N)                                            ϕ(N)
-   Now choose N in such a way that            < b − a. It is well-known that lim inf       = 0, so there
-                                        N                                     N →∞     N
-                                                                    ϕ(N )
-exists such a value for N. Let ΦN (x) = a0 + a1 x + . . . + aϕ(N ) x      where aϕ(N ) = 1 and |a0 | = 1.
-                                        ϕ(N )
-                                              ak f x + Nk = 0 for all x ∈ R.
-                                         P               
-Then, by the definition of JN , we have
-                                             k=0
-
-   If x ∈ [b, b + N1 ), then
-                                                  ϕ(N )−1
-                                                   X
-                                                            ak f x − ϕ(NN)−k .
-                                                                            
-                                     f (x) = −
-                                                   k=0
-
-On the right-hand side, all numbers x − ϕ(NN)−k lie in (a, b). Therefore the right-hand side is zero,
-and f (x) = 0 for all x ∈ [b, b + N1 ). It can be obtained similarly that f (x) = 0 for all x ∈ (a − N1 , a]
-as well. Hence, f = 0 in the interval (a − N1 , b + N1 ). Continuing in this fashion we see that f must
-vanish everywhere.
-
-
-
-
-                                                            4
-
+\end{document}
