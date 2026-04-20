@@ -1,311 +1,197 @@
-                                             IMC 2025
-                                    First Day, July 30, 2025
-                                               Solutions
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
 
+\title{IMC 2025 \\ First Day, July 30, 2025 \\ Solutions}
+\date{}
 
-Problem 1. Let P ∈ R[x] be a polynomial with real coefficients, and suppose deg(P ) ≥ 2. For every
-x ∈ R, let ℓx ⊂ R2 denote the line tangent to the graph of P at the point (x, P (x)).
-                                                        [
-   (a) Suppose that the degree of P is odd. Show that      ℓx = R2 .
-                                                              x∈R
-   (b) Does there exist a polynomial of even degree for which the above equality still holds?
-                              (proposed by Mike Daas, Max Planck Institute for Mathematics, Bonn)
+\begin{document}
+\maketitle
 
-Solution.
-    (a) Suppose that the degree of P is odd and let (a, b) ∈ R be arbitrary. Given r ∈ R, the equation
-for ℓr is given by
-                            ℓr = (x, y) ∈ R2 | y = P ′ (r)(x − r) + P (r) .
-                                 
+\section*{Problem 1}
+Let $P \in \mathbb{R}[x]$ be a polynomial with real coefficients, and suppose $\deg(P) \geq 2$. For every $x \in \mathbb{R}$, let $\ell_x \subset \mathbb{R}^2$ denote the line tangent to the graph of $P$ at the point $(x, P(x))$.
+\begin{itemize}
+\item[(a)] Suppose that the degree of $P$ is odd. Show that $\bigcup_{x \in \mathbb{R}} \ell_x = \mathbb{R}^2$.
+\item[(b)] Does there exist a polynomial of even degree for which the above equality still holds?
+\end{itemize}
+(proposed by Mike Daas, Max Planck Institute for Mathematics, Bonn)
 
-For this line to pass through the point (a, b) it is therefore necessary and sufficient that
+\paragraph{Solution.}
 
-                                       b = aP ′ (r) + P (r) − rP ′ (r).
+(a) Suppose that the degree of $P$ is odd and let $(a,b) \in \mathbb{R}^2$ be arbitrary. Given $r \in \mathbb{R}$, the equation for $\ell_r$ is given by
+\[
+\ell_r = \{(x,y) \in \mathbb{R}^2 \mid y = P'(r)(x-r) + P(r)\}.
+\]
+For this line to pass through the point $(a,b)$ it is therefore necessary and sufficient that
+\[
+b = a P'(r) + P(r) - r P'(r).
+\]
+This is a polynomial equation in $r$, which always has a real solution as soon as we can show that the degree is odd. Indeed, if $P(r) = c r^n + \ldots$ describes the leading term, then the right hand side of the above equation has leading term $(c - nc) r^n$. Since $c \neq 0$ and we assumed that $n \geq 2$, we must have $c - nc \neq 0$. The right hand side therefore has the same degree as $P$, completing the proof.
 
-This is a polynomial equation in r, which always has a real solution as soon as we can show that the
-degree is odd. Indeed, if P (r) = crn + . . . describes the leading term, then the right hand side of the
-above equation has leading term (c − nc)rn . Since c ̸= 0 and we assumed that n ≥ 2, we must have
-c − nc ̸= 0. The right hand side therefore has the same degree as P , completing the proof.
-    (b) If the degree of P is even, then this can never be true, because the degree of aP ′ (r)+P (r)−rP ′ (r)
-is now even by the same argument and therefore it has a global minimum (or maximum) over the
-reals, below (or above) which no value of b will yield a real solution for r.
+(b) If the degree of $P$ is even, then this can never be true, because the degree of $a P'(r) + P(r) - r P'(r)$ is now even by the same argument and therefore it has a global minimum (or maximum) over the reals, below (or above) which no value of $b$ will yield a real solution for $r$.
 
-
-
-
-                                                      1
-Problem
-R1          2. Let f : R → R be a twice continuously differentiable function, and suppose that
- −1
-    f (x) dx = 0 and f (1) = f (−1) = 1. Prove that
-                                        Z 1
-                                                      2
-                                            (f ′′ (x)) dx ≥ 15,
-                                                  −1
-
+\section*{Problem 2}
+Let $f : \mathbb{R} \to \mathbb{R}$ be a twice continuously differentiable function, and suppose that $\int_{-1}^{1} f(x)\,dx = 0$ and $f(1) = f(-1) = 1$. Prove that
+\[
+\int_{-1}^{1} (f''(x))^2 \, dx \geq 15,
+\]
 and find all such functions for which equality holds.
-                              (proposed by Alberto Cagnetta, Università degli Studi di Udine, Italy)
 
-Solution. If g is an arbitrary twice continously differentable function on [−1, 1], then by applying
-the Caucy–Schwarz inequality for f ′′ and g and integrate by parts twice we get
-     sZ
-         1        Z 1      Z 1                                      Z 1
-                                ′′       ′          ′
-                                                                        f ′g′ =
-                                                                
-             ′′ 2
-           (f ) ·      2
-                      g ≥      f g = f (1)g(1) − f (−1)g(−1) −
-            −1      −1        −1                                                       −1
-                                                                                                         Z 1
-                          = f (1)g(1) − f (−1)g(−1) − f (1)g ′ (1) − f (−1)g ′ (−1) +
-                               ′                    ′
-                                                                                                               f g ′′
-                                                                                      
-                                                                                                          −1
-                                                                         Z 1
-                             ′           ′             ′        ′
-                                                                              f g ′′ .
-                                                                     
-                          = f (1)g(1) − f (−1)g(−1) − g (1) + g (−1) +                                                  (1)
-                                                                                             −1
+(proposed by Alberto Cagnetta, Universit\`a degli Studi di Udine, Italy)
 
-In order to get rid of the terms f ′ (1)g(1) and f ′ (−1)g(−1) we will chose g suchRthat g(1) = g(−1) = 0.
-               ′′                                                                    1    ′′   ′′ 1
-                                                                                                 R
-Moreover, if g is constant, so g is an at most quadratic polynomial, then −1 f g = g −1 = f 0.
-Hence, it is reasonable to apply (1) with g(x) = (1 + x)(1 − x) = 1 − x2 .
-    With this choice,
-                      g(1) = g(−1) = 0,             g ′ (1) = −2,   g ′ (−1) = 2,       g ′′ ≡ −2
-and                                 Z 1            Z 1
-                                            2                                   16
-                                           g =           (1 − 2x2 + x4 ) dx =      ,
-                                      −1            −1                          15
+\paragraph{Solution.}
+If $g$ is an arbitrary twice continuously differentiable function on $[-1,1]$, then by applying the Cauchy--Schwarz inequality for $f''$ and $g$ and integrating by parts twice we get
+\begin{align*}
+\sqrt{\int_{-1}^{1} (f'')^2 \cdot \int_{-1}^{1} g^2} &\geq \int_{-1}^{1} f'' g = \bigl(f'(1)g(1) - f'(-1)g(-1)\bigr) - \int_{-1}^{1} f' g' \\
+&= \bigl(f'(1)g(1) - f'(-1)g(-1)\bigr) - \bigl(f(1)g'(1) - f(-1)g'(-1)\bigr) + \int_{-1}^{1} f g'' \\
+&= \bigl(f'(1)g(1) - f'(-1)g(-1) - g'(1) + g'(-1)\bigr) + \int_{-1}^{1} f g''. \tag{1}
+\end{align*}
+In order to get rid of the terms $f'(1)g(1)$ and $f'(-1)g(-1)$ we choose $g$ such that $g(1) = g(-1) = 0$. Moreover, if $g''$ is constant, so $g$ is an at most quadratic polynomial, then $\int_{-1}^{1} f g'' = g'' \int_{-1}^{1} f = 0$.
+Hence, it is reasonable to apply (1) with $g(x) = (1+x)(1-x) = 1 - x^2$.
+
+With this choice,
+\[
+g(1) = g(-1) = 0, \quad g'(1) = -2, \quad g'(-1) = 2, \quad g'' \equiv -2,
+\]
+and
+\[
+\int_{-1}^{1} g^2 = \int_{-1}^{1} (1 - 2x^2 + x^4)\, dx = \frac{16}{15},
+\]
 so we get
-                          sZ
-                             1
-                                                16
-                                   (f ′′ )2 ·      ≥ 0 − 0 − g ′ (1) + g ′ (−1) + 0 = 4,
-                              −1                15
-                                                    Z 1
-                                                        (f ′′ )2 ≥ 15.
-                                                        −1
+\[
+\sqrt{\int_{-1}^{1} (f'')^2 \cdot \frac{16}{15}} \geq 0 - 0 - g'(1) + g'(-1) + 0 = 4,
+\]
+\[
+\int_{-1}^{1} (f'')^2 \geq 15.
+\]
 
-   Equality in Cauchy–Schwarz in (1) holds only if there exists a real λ such that f ′′ (x) = λg(x)
-almost everywhere in [−1, 1]; by continuity of f ′′ and g we have f ′′ = λg everwhere on the interval
-[−1, 1]. Hence f (x) must have the form
-                                    2
-                                            x4
-                                               
-                                      x
-                         f (x) = λ      −        + ax + b, with λ, a, b ∈ R.
-                                      2    12
-      R1
-From −1 f (x)dx = 0, we get 0 = 3λ10
-                                                       3
-                                     + 2b, hence b = − 20 λ. Moreover, the condition f (1) = f (−1) = 1
-implies                                                                 
-                   1   1            3                              1     1          3
-               λ     −      + a − λ = f (1) = 1 = f (−1) = λ          −      −a− λ
-                   2 12            20                              2 12             20
-hence a = 0, and λ = 154
-                         .
-   In conclusion, the equality holds if and only if
-                              2
-                                   x4           −5x4 + 30x2 − 9
-                                            
-                       15     x           3
-               f (x) =     ·     −    −       =                                   for all x ∈ [−1, 1].
-                        4      2   12 20              16
+Equality in Cauchy--Schwarz in (1) holds only if there exists a real $\lambda$ such that $f''(x) = \lambda g(x)$ almost everywhere in $[-1,1]$; by continuity of $f''$ and $g$ we have $f'' = \lambda g$ everywhere on the interval $[-1,1]$. Hence $f(x)$ must have the form
+\[
+f(x) = \lambda\left(\frac{x^2}{2} - \frac{x^4}{12}\right) + ax + b, \quad \text{with } \lambda, a, b \in \mathbb{R}.
+\]
+From $\int_{-1}^{1} f(x)\,dx = 0$, we get $0 = \frac{3\lambda}{10} + 2b$, hence $b = -\frac{3}{20}\lambda$. Moreover, the condition $f(1) = f(-1) = 1$ implies
+\[
+\lambda\left(\frac{1}{2} - \frac{1}{12}\right) + a - \frac{3}{20}\lambda = f(1) = 1 = f(-1) = \lambda\left(\frac{1}{2} - \frac{1}{12}\right) - a - \frac{3}{20}\lambda
+\]
+hence $a = 0$, and $\lambda = \frac{15}{4}$.
 
+In conclusion, equality holds if and only if
+\[
+f(x) = \frac{15}{4}\cdot\left(\frac{x^2}{2} - \frac{x^4}{12} - \frac{3}{20}\right) = \frac{-5x^4 + 30x^2 - 9}{16} \quad \text{for all } x \in [-1,1].
+\]
 
-                                                              2
-Problem 3. Denote by S the set of all real symmetric 2025 × 2025 matrices of rank 1 whose entries
-take values −1 or +1. Let A, B ∈ S be matrices chosen independently uniformly at random. Find
-the probability that A and B commute, i.e. AB = BA.
-           (proposed by Marian Panţiruc, ”Gheorghe Asachi” Technical University of Iaşi, Romania)
+\section*{Problem 3}
+Denote by $\mathcal{S}$ the set of all real symmetric $2025 \times 2025$ matrices of rank 1 whose entries take values $-1$ or $+1$. Let $A, B \in \mathcal{S}$ be matrices chosen independently uniformly at random. Find the probability that $A$ and $B$ commute, i.e.\ $AB = BA$.
 
-Solution. Let n = 2025. First, we give a charaterisation of matrices in S.
-   Suppose that A = (aij )ni,j=1 ∈ S. Since rk A = 1, for every 1 < i, j ≤ n, we have
-                                     
-                            a   a
-                        det 11 1j          = a11 aij − ai1 a1j = a11 aij − ai1 aj1 = 0.
-                            ai1 aij
-                                                                         
-                                                                           
-                                                                   a11       1
-                                                                  a21    a21 
-If a11 = 1 then this means aij = ai1 aj1 . In this case, let u =  ..  =  .. ; then we have
-                                                                         
-                                                                  .      . 
-                                                                              an1         an1
-                                                                                                   
-                                                                                            −a11
-                                                                                           −a21 
-                ⊤
-           
-A = ai1 aj1 = uu . Otherwise, if a11 = −1, we have aij = −ai1 aj1 . In that case, let u =  ..  =
-                                                                                                
-                                                                                           . 
-                                                                                                        −an1
-      
-   1
- −a21 
- .. ; then A = − ai1 aj1 = −uu⊤ .
-                        
- . 
-  −an1
-                                                                                               
-                                                                                 1
-                                                                                u2 
-    Hence, all matrices in S can uniquely be written as ±uu⊤ with a vector u =  ..  such that
-                                                                                
-                                                                               .
-                                                                                           un
-                                       ⊤
-u2 , . . . , un ∈ {±1}. (Note that rk(uu ) = 1 is satisfied.) In particular, we have |S| = 2n , because the
-sign and the coordinates u2 , . . . , un can be chosen independently.
-    Now, if A = ±uuT and B = ±vv T are elements of S, then
-                                                                                     n
-              AB = ±(uu⊤ )(vv ⊤ ) = ±u(u⊤ v)v ⊤ = ±u · ⟨u, v⟩ · v ⊤ = ±⟨u, v⟩ · ui vj i,j=1
+(proposed by Marian Panţiruc, ``Gheorghe Asachi'' Technical University of Iaşi, Romania)
 
-and similarly                                              n
-                                       BA = ±⟨u, v⟩ · vi uj i,j=1 .
-                                                                                                  n
-Since n = 2025 is odd, it follows that ⟨u, v⟩ ̸= 0. The first columns of the matrices uv ⊤ = ui vj i,j=1
-                n
-and vu⊤ = vi uj i,j=1 are u and v, respectively. Hence, AB = BA if and only if u = v; in other words,
-if A = ±B.
-   For each A ∈ S, there are precisely two suitable matrices B ∈ S, so the probability that A, B
-            2      1
-commute is     = n−1 .
-           |S|   2
+\paragraph{Solution.}
+Let $n = 2025$. First, we give a characterisation of matrices in $\mathcal{S}$.
 
+Suppose that $A = (a_{ij})_{i,j=1}^n \in \mathcal{S}$. Since $\mathrm{rk}\, A = 1$, for every $1 < i,j \leq n$, we have
+\[
+\det\begin{pmatrix} a_{11} & a_{1j} \\ a_{i1} & a_{ij} \end{pmatrix} = a_{11}a_{ij} - a_{i1}a_{1j} = a_{11}a_{ij} - a_{i1}a_{j1} = 0.
+\]
+If $a_{11} = 1$ then this means $a_{ij} = a_{i1} a_{j1}$. In this case, let $u = (1, a_{21}, \ldots, a_{n1})^{\top}$; then we have $A = (a_{i1}a_{j1}) = u u^{\top}$. Otherwise, if $a_{11} = -1$, we have $a_{ij} = -a_{i1}a_{j1}$. In that case, let $u = (1, -a_{21}, \ldots, -a_{n1})^{\top}$; then $A = -(a_{i1} a_{j1}) = -u u^{\top}$.
 
+Hence, all matrices in $\mathcal{S}$ can uniquely be written as $\pm u u^{\top}$ with a vector $u = (1, u_2, \ldots, u_n)^{\top}$ such that $u_2, \ldots, u_n \in \{\pm 1\}$. (Note that $\mathrm{rk}(u u^{\top}) = 1$ is satisfied.) In particular, we have $|\mathcal{S}| = 2^n$, because the sign and the coordinates $u_2, \ldots, u_n$ can be chosen independently.
 
+Now, if $A = \pm u u^{\top}$ and $B = \pm v v^{\top}$ are elements of $\mathcal{S}$, then
+\[
+AB = \pm (u u^{\top})(v v^{\top}) = \pm u(u^{\top} v) v^{\top} = \pm \langle u, v \rangle \cdot (u_i v_j)_{i,j=1}^n
+\]
+and similarly
+\[
+BA = \pm \langle u, v \rangle \cdot (v_i u_j)_{i,j=1}^n.
+\]
+Since $n = 2025$ is odd, it follows that $\langle u, v \rangle \neq 0$. The first columns of the matrices $u v^{\top}$ and $v u^{\top}$ are $u$ and $v$, respectively. Hence, $AB = BA$ if and only if $u = v$; in other words, if $A = \pm B$.
 
-                                                       3
-Problem 4. Let a be an even positive integer. Find all real numbers x such that
-                               j√               k
-                                   b + x · ba−1 = ba + ⌊x/a⌋
-                                  a a
-                                                                                                   (1)
+For each $A \in \mathcal{S}$, there are precisely two suitable matrices $B \in \mathcal{S}$, so the probability that $A, B$ commute is
+\[
+\frac{2}{|\mathcal{S}|} = \frac{1}{2^{n-1}}.
+\]
 
-holds for every positive integer b.
-(Here ⌊x⌋ denotes the largest integer that is no greater than x.)
-                                    (proposed by Yagub Aliyev, ADA University, Baku, Azerbaijan)
+\section*{Problem 4}
+Let $a$ be an even positive integer. Find all real numbers $x$ such that
+\begin{equation}
+\left\lfloor \sqrt[a]{b^a + x} \cdot b^{a-1} \right\rfloor = b^a + \lfloor x/a \rfloor
+\end{equation}
+holds for every positive integer $b$.
 
-Solution. We will show that if a = 2 then we must have x ∈ [−1, 2) ∪ [3, 4), otherwise x ∈ [−1, a).
-   Suppose that ⌊x/a⌋ = m. Then m ≤ x/a < m + 1, and
+(proposed by Yagub Aliyev, ADA University, Baku, Azerbaijan)
 
-                                          am ≤ x < a(m + 1).                                       (2)
+\paragraph{Solution.}
+We will show that if $a = 2$ then we must have $x \in [-1, 2) \cup [3, 4)$, otherwise $x \in [-1, a)$.
 
-Let b = 1. Then                          j√ k
-                                          a
-                                       1 + x = 1 + ⌊x/a⌋ .                                         (3)
-                        √                          √
-From (3) it follows that a 1 + x = 1 + m, or 1 + m ≤ a 1 + x < 2 + m, or
+Suppose that $\lfloor x/a \rfloor = m$. Then $m \leq x/a < m+1$, and
+\begin{equation}
+am \leq x < a(m+1). \tag{2}
+\end{equation}
+Let $b = 1$. Then
+\begin{equation}
+\left\lfloor \sqrt[a]{1 + x} \right\rfloor = 1 + \lfloor x/a \rfloor. \tag{3}
+\end{equation}
+From (3) it follows that $\left\lfloor \sqrt[a]{1+x} \right\rfloor = 1 + m$, or $1 + m \leq \sqrt[a]{1+x} < 2 + m$, or
+\begin{equation}
+(1+m)^a - 1 \leq x < (2+m)^a - 1, \tag{4}
+\end{equation}
+where we have used the obvious fact that $m \geq -1$. Indeed, the number $\sqrt[a]{1+x}$ and therefore the number $\lfloor \sqrt[a]{1+x} \rfloor = 1 + m$ is not negative. By Bernoulli's inequality, the following two inequalities --- which compare the inequalities (2) and (4) --- hold:
+\begin{align}
+am &\leq (1+m)^a - 1, \tag{5}\\
+a(m+1) &\leq (1 + (m+1))^a - 1, \tag{6}
+\end{align}
+where in (5), equality holds if and only if $m = 0$, and in (6), equality holds if and only if $m = -1$.
+From (2), (4)--(6), it follows that
+\begin{equation}
+(m+1)^a - 1 \leq x < a(m+1). \tag{7}
+\end{equation}
+From (7), it follows that $(m+1)^a - 1 < a(m+1)$. Therefore
+\begin{equation}
+(m+1)^a \leq a(m+1). \tag{8}
+\end{equation}
+From (8), it follows that $m+1 \leq a^{\frac{1}{a-1}}$. If $a > 2$ then $m + 1 < a^{\frac{1}{a-1}} < 2$, because $2^{a-1} > a$ for $a > 2$ (one can prove this by mathematical induction) and $1 < a^{\frac{1}{a-1}} < 2$ is not an integer. Therefore, if $a > 2$ then $m = 0$ or $m = -1$. If $a = 2$ then $m = -1$, $m = 0$ or $m = 1$. From (7), it follows that equality (3) holds true only for the values $-1 \leq x < 0$ ($m = -1$), $0 \leq x < a$ ($m = 0$) if $a > 2$, and $-1 \leq x < 0$ ($m = -1$), $0 \leq x < 2$ ($m = 0$) and $3 \leq x < 4$ ($m = 1$) if $a = 2$.
 
-                                 (1 + m)a − 1 ≤ x < (2 + m)a − 1,                                  (4)
-                                                                         √
-where we have used
-        √         the obvious fact that m ≥ −1. Indeed, the number a 1 + x and therefore the
-number a 1 + x = 1 + m is not negative. By Bernoulli’s inequality, the following two inequalities —
-which compare the inequalities (2) and (4) — hold:
-
-                                        am ≤ (1 + m)a − 1,                                         (5)
-                                   a(m + 1) ≤ (1 + (m + 1))a − 1,                                  (6)
-
-where in (5), equality holds if and only if m = 0, and in (6), equality holds if and only if m = −1.
-From (2), (4)–(6), it follows that
-
-                                   (m + 1)a − 1 ≤ x < a(m + 1).                                    (7)
-
-From (7), it follows that (m + 1)a − 1 < a(m + 1). Therefore
-
-                                         (m + 1)a ≤ a(m + 1).                                      (8)
-                                     1                               1
-From (8), it follows that m + 1 ≤ a a−1 . If a > 2 then m + 1 < a a−1 < 2, because 2a−1 > a for a > 2
-                                                              1
-(one can prove this by mathematical induction) and 1 < a a−1 < 2 is not an integer. Therefore, if
-a > 2 then m = 0 or m = −1. If a = 2 then m = −1, m = 0 or m = 1. From (7), it follows that the
-equality (3) holds true only for the values −1 ≤ x < 0 (m = −1), 0 ≤ x < a (m = 0) if a > 2, and
-−1 ≤ x < 0 (m = −1), 0 ≤ x < 2 (m = 0) and 3 ≤ x < 4 (m = 1) if a = 2.
-   We will now prove that for these values of x, the equality (1) is true for all positive integers b.
-From (7), it follows that ba + (m + 1)a − 1 ≤ ba + x < ba + a(m + 1) and
-                                 (m + 1)a − 1     x     a(m + 1)
-                            1+         a
-                                              ≤1+ a <1+          .                                 (9)
-                                     b           b         ba
-By Bernoulli’s inequality                                      a
-                                     a(m + 1)             m+1
-                                  1+          ≤        1+            ,                           (10)
-                                        ba                 ba
-where equality occurs if and only if m = −1. It is easy to check that for m = 1 (if a = 2), m = 0 and
-m = −1, the following inequality holds true:
-                                       m a         (m + 1)a − 1
-                                      1+ a ≤1+                    .                               (11)
-                                        b                  ba
-                                                  4
-From (9)–(11), it follows that
-                                                                 a
-                                      m a   x               m+1
-                                     1+ a ≤1+ a <          1+        .            (12)
-                                       b     b                 ba
-
+We will now prove that for these values of $x$, equality (1) is true for all positive integers $b$.
+From (7), it follows that $b^a + (m+1)^a - 1 \leq b^a + x < b^a + a(m+1)$ and
+\begin{equation}
+1 + \frac{(m+1)^a - 1}{b^a} \leq 1 + \frac{x}{b^a} < 1 + \frac{a(m+1)}{b^a}. \tag{9}
+\end{equation}
+By Bernoulli's inequality
+\begin{equation}
+1 + \frac{a(m+1)}{b^a} \leq \left(1 + \frac{m+1}{b^a}\right)^a, \tag{10}
+\end{equation}
+where equality occurs if and only if $m = -1$. It is easy to check that for $m = 1$ (if $a = 2$), $m = 0$ and $m = -1$, the following inequality holds true:
+\begin{equation}
+\left(1 + \frac{m}{b^a}\right)^a \leq 1 + \frac{(m+1)^a - 1}{b^a}. \tag{11}
+\end{equation}
+From (9)--(11), it follows that
+\begin{equation}
+\left(1 + \frac{m}{b^a}\right)^a \leq 1 + \frac{x}{b^a} < \left(1 + \frac{m+1}{b^a}\right)^a. \tag{12}
+\end{equation}
 From (12), it follows that
-                                            √
-                                 ba + m ≤       ba + x · ba−1 < ba + m + 1,
-                                            a
-
-                                            √
-                             ba + ⌊x/a⌋ ≤       ba + x · ba−1 < ba + ⌊x/a⌋ + 1.
-                                            a
-
-
-
-
+\begin{align*}
+b^a + m &\leq \sqrt[a]{b^a + x} \cdot b^{a-1} < b^a + m + 1,\\
+b^a + \lfloor x/a \rfloor &\leq \sqrt[a]{b^a + x} \cdot b^{a-1} < b^a + \lfloor x/a \rfloor + 1.
+\end{align*}
 Consequently, equality (1) holds.
 
+\section*{Problem 5}
+For a positive integer $n$, let $[n] = \{1, 2, \ldots, n\}$. Denote by $S_n$ the set of all bijections from $[n]$ to $[n]$, and let $T_n$ be the set of all maps from $[n]$ to $[n]$. Define the \emph{order} $\mathrm{ord}(\tau)$ of a map $\tau \in T_n$ as the number of distinct maps in the set $\{\tau, \tau \circ \tau, \tau \circ \tau \circ \tau, \ldots\}$ where $\circ$ denotes composition. Finally, let
+\[
+f(n) = \max_{\tau \in S_n} \mathrm{ord}(\tau) \quad \text{and} \quad g(n) = \max_{\tau \in T_n} \mathrm{ord}(\tau).
+\]
+Prove that $g(n) < f(n) + n^{0.501}$ for sufficiently large $n$.
 
+(proposed by Fedor Petrov, St Petersburg State University)
 
+\paragraph{Solution.}
+For every $\tau \in T_n$ we need to prove that $\mathrm{ord}(\tau) \leq f(n) + n^{0.501}$ (if $n$ is large enough). Denote by $C(\tau)$ the set of elements $x \in [n]$ for which $\tau^k(x) = x$ for some $k > 0$. It is immediate that $C(\tau)$ is a $\tau$-invariant set; let $\tau_c = \tau|_{C(\tau)}$, that is a permutation on $C(\tau)$.
 
-                                                      5
-Problem 5. For a positive integer n, let [n] = {1, 2, . . . , n}. Denote by Sn the set of all bijections
-from [n] to [n], and let Tn be the set of all maps from [n] to [n]. Define the order ord(τ ) of a map
-τ ∈ Tn as the number of distinct maps in the set {τ, τ ◦ τ, τ ◦ τ ◦ τ, . . .} where ◦ denotes composition.
-Finally, let
-                           f (n) = max ord(τ ) and g(n) = max ord(τ ).
-                                     τ ∈Sn                           τ ∈Tn
+Let $N$ be the order of this permutation $\tau_c$, clearly $N \leq g(n)$. Consider an arbitrary element $x \in [n] \setminus C(\tau)$. The sequence $x, \tau(x), \tau^2(x), \ldots$ is eventually periodic, but not from the beginning, because $x \notin C(\tau)$.
 
-Prove that g(n) < f (n) + n0.501 for sufficiently large n.
-                                             (proposed by Fedor Petrov, St Petersburg State University)
+Let $h(x) > 0$ be the minimal number for which $\tau^{h(x)}(x)$ is in the period; equivalently, this is the minimal number for which $\tau^{h(x)}(x) \in C(\tau)$. Let $R = \max_{x \in [n] \setminus C(\tau)} h(x)$. Note that $\tau^R(x) = \tau^{R+N}(x)$ for all $x \in [n]$, since $\tau^R(x) \in C(\tau)$ for all $x \in [n]$. Therefore, $\mathrm{ord}(\tau) \leq N + R$. Thus, if $R < n^{0.501}$, we are done.
 
-Solution. For every τ ∈ Tn we need to prove that ord(τ ) ⩽ f (n) + n0.501 (if n is large enough).
-Denote by C(τ ) the set of elements x ∈ [n] for which τ k (x) = τ (. . . τ (x) . . .) = x for some k > 0. It is
-                                                                | {z }
-                                                                         k
-immediate that C(τ ) is a τ -invariant set; let τc = τ |C(τ ) , that is a permutation on C(τ ).
-   Let N be the order of this permutation τc , clearly N ⩽ g(n). Consider an arbitrary element
-x ∈ [n] \ C(τ ). The sequence x, τ (x), τ 2 (x), . . . is eventually periodic, but not from the beginning,
-because x ∈/ C(τ ).
-   Let h(x) > 0 be the minimal number for which τ h(x) (x) is in the period; equivalently, this is the
-minimal number for which τ h(x) (x) ∈ C(τ ). Let R = max h(x). Note that τ R (x) = τ R+N (x) for
-                                                           x∈[n]\C(τ )
-all x ∈ [n], since τ R (x) ∈ C(τ ) for all x ∈ [n]. Therefore, ord(τ ) ⩽ N + R. Thus, if R < n0.501 , we
-are done.
-    Now assume that R ⩾ n0.501 , that is, h(x) ⩾ n0.501 for some x ∈ / C(τ ). It yields |C(τ )| ⩽ n − n0.501 .
-Consider the cycle lengths of the permutation τc . We claim that there exists a prime number p < n0.501
-which does not divide any of these lengths. Indeed, otherwise the sum of cycle lengths of τc is not
-less than the sum of all prime numbers not exceeding n0.501 (because each positive integer is not less
-than the sum of its prime divisors, that in turn follows from ab ⩾ a + b for a, b ⩾ 2). But for large
-n, the number of prime numbers less than n0.501 is at least n0.5009 by some weak version of Prime
-Number Theorem (that also has many short proofs). Therefore, their sum exceeds n, contradiction.
-    Now we may consider the permutation τ0 ∈ Sn which acts as τc on C(τ ) and has a cycle of length
-p on [n] \ C(τ ). The order of τ0 is not less than p · N , therefore N ⩽ f (n)/p ⩽ f (n)/2, and by the
-above argument we get ord(τ ) ⩽ N + R ⩽ f (n)/2 + n < f (n) for large n.
+Now assume that $R \geq n^{0.501}$, that is, $h(x) \geq n^{0.501}$ for some $x \notin C(\tau)$. It yields $|C(\tau)| \leq n - n^{0.501}$. Consider the cycle lengths of the permutation $\tau_c$. We claim that there exists a prime number $p < n^{0.501}$ which does not divide any of these lengths. Indeed, otherwise the sum of cycle lengths of $\tau_c$ is not less than the sum of all prime numbers not exceeding $n^{0.501}$ (because each positive integer is not less than the sum of its prime divisors, that in turn follows from $ab \geq a + b$ for $a, b \geq 2$). But for large $n$, the number of prime numbers less than $n^{0.501}$ is at least $n^{0.5009}$ by some weak version of the Prime Number Theorem (that also has many short proofs). Therefore, their sum exceeds $n$, contradiction.
 
+Now we may consider the permutation $\tau_0 \in S_n$ which acts as $\tau_c$ on $C(\tau)$ and has a cycle of length $p$ on $[n] \setminus C(\tau)$. The order of $\tau_0$ is not less than $p \cdot N$, therefore $N \leq f(n)/p \leq f(n)/2$, and by the above argument we get $\mathrm{ord}(\tau) \leq N + R \leq f(n)/2 + n < f(n)$ for large $n$.
 
-
-
-                                                      6
-
+\end{document}

@@ -1,59 +1,52 @@
-                                          IMC 2025
-                                First Day, July 30, 2025
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
 
+\title{IMC 2025 \\ First Day, July 30, 2025}
+\date{}
 
+\begin{document}
+\maketitle
 
-Problem 1. Let P ∈ R[x] be a polynomial with real coefficients, and suppose deg(P ) ≥ 2. For
-every x ∈ R, let ℓx ⊂ R2 denote the line tangent to the graph of P at the point (x, P (x)).
-                                                        [
-   (a) Suppose that the degree of P is odd. Show that      ℓx = R2 .
-                                                             x∈R
-   (b) Does there exist a polynomial of even degree for which the above equality still holds?
+\section*{Problem 1}
+Let $P \in \mathbb{R}[x]$ be a polynomial with real coefficients, and suppose $\deg(P) \geq 2$. For every $x \in \mathbb{R}$, let $\ell_x \subset \mathbb{R}^2$ denote the line tangent to the graph of $P$ at the point $(x, P(x))$.
+\begin{itemize}
+\item[(a)] Suppose that the degree of $P$ is odd. Show that $\bigcup_{x \in \mathbb{R}} \ell_x = \mathbb{R}^2$.
+\item[(b)] Does there exist a polynomial of even degree for which the above equality still holds?
+\end{itemize}
+(10 points)
 
-                                                                                        (10 points)
-
-
-Problem
-R1          2. Let f : R → R be a twice continuously differentiable function, and suppose that
- −1
-    f (x) dx = 0 and f (1) = f (−1) = 1. Prove that
-                                     Z 1
-                                                   2
-                                         (f ′′ (x)) dx ≥ 15,
-                                         −1
-
+\section*{Problem 2}
+Let $f : \mathbb{R} \to \mathbb{R}$ be a twice continuously differentiable function, and suppose that $\int_{-1}^{1} f(x)\,dx = 0$ and $f(1) = f(-1) = 1$. Prove that
+\[
+\int_{-1}^{1} (f''(x))^2 \, dx \geq 15,
+\]
 and find all such functions for which equality holds.
 
-                                                                                        (10 points)
+(10 points)
 
+\section*{Problem 3}
+Denote by $\mathcal{S}$ the set of all real symmetric $2025 \times 2025$ matrices of rank 1 whose entries take values $-1$ or $+1$. Let $A, B \in \mathcal{S}$ be matrices chosen independently uniformly at random. Find the probability that $A$ and $B$ commute, i.e.\ $AB = BA$.
 
-Problem 3. Denote by S the set of all real symmetric 2025 × 2025 matrices of rank 1 whose
-entries take values −1 or +1. Let A, B ∈ S be matrices chosen independently uniformly at
-random. Find the probability that A and B commute, i.e. AB = BA.
+(10 points)
 
-                                                                                        (10 points)
+\section*{Problem 4}
+Let $a$ be an even positive integer. Find all real numbers $x$ such that
+\begin{equation}
+\left\lfloor \sqrt[a]{b^a + x} \cdot b^{a-1} \right\rfloor = b^a + \lfloor x/a \rfloor
+\end{equation}
+holds for every positive integer $b$.
 
+(Here $\lfloor x \rfloor$ denotes the largest integer that is no greater than $x$.)
 
-Problem 4. Let a be an even positive integer. Find all real numbers x such that
-                             j√              k
-                                b + x · ba−1 = ba + ⌊x/a⌋
-                              a a
-                                                                                                 (1)
+(10 points)
 
-holds for every positive integer b.
-(Here ⌊x⌋ denotes the largest integer that is no greater than x.)
+\section*{Problem 5}
+For a positive integer $n$, let $[n] = \{1, 2, \ldots, n\}$. Denote by $S_n$ the set of all bijections from $[n]$ to $[n]$, and let $T_n$ be the set of all maps from $[n]$ to $[n]$. Define the \emph{order} $\mathrm{ord}(\tau)$ of a map $\tau \in T_n$ as the number of distinct maps in the set $\{\tau, \tau \circ \tau, \tau \circ \tau \circ \tau, \ldots\}$ where $\circ$ denotes composition. Finally, let
+\[
+f(n) = \max_{\tau \in S_n} \mathrm{ord}(\tau) \quad \text{and} \quad g(n) = \max_{\tau \in T_n} \mathrm{ord}(\tau).
+\]
+Prove that $g(n) < f(n) + n^{0.501}$ for sufficiently large $n$.
 
-                                                                                        (10 points)
+(10 points)
 
-
-Problem 5. For a positive integer n, let [n] = {1, 2, . . . , n}. Denote by Sn the set of all
-bijections from [n] to [n], and let Tn be the set of all maps from [n] to [n]. Define the order
-ord(τ ) of a map τ ∈ Tn as the number of distinct maps in the set {τ, τ ◦ τ, τ ◦ τ ◦ τ, . . .} where
-◦ denotes composition. Finally, let
-                         f (n) = max ord(τ ) and g(n) = max ord(τ ).
-                                 τ ∈Sn                         τ ∈Tn
-
-Prove that g(n) < f (n) + n0.501 for sufficiently large n.
-
-                                                                                        (10 points)
-
+\end{document}

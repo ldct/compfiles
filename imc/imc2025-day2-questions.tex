@@ -1,51 +1,56 @@
-                                             IMC 2025
-                                Second Day, July 31, 2025
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
 
-Problem 6. Let f : (0, ∞) → R be a continuously differentiable function, and let b > a > 0 be
-real numbers such that f (a) = f (b) = k. Prove that there exists a point ξ ∈ (a, b) such that
-                                          f (ξ) − ξf ′ (ξ) = k.
-                                                                                           (10 points)
+\title{IMC 2025 \\ Second Day, July 31, 2025}
+\date{}
 
-Problem 7. Let Z>0 be the set of positive integers. Find all nonempty subsets M ⊆ Z>0 satisfying
-both of the following properties:
-   (a) if x ∈ M , then 2x ∈ M ,
-                                           x+y
-   (b) if x, y ∈ M and x + y is even, then       ∈ M.
-                                             2
-                                                                                    (10 points)
+\begin{document}
+\maketitle
 
-Problem 8. For an n × n real matrix A ∈ Mn (R), denote by AR its counter-clockwise 90◦ rotation.
-For example,
-                                        R            
-                                   1 2 3         3 6 9
-                                 4 5 6 = 2 5 8 .
-                                   7 8 9         1 4 7
-Prove that if A = AR then for any eigenvalue λ of A, we have Re λ = 0 or Im λ = 0.
-                                                                                           (10 points)
+\section*{Problem 6}
+Let $f : (0, \infty) \to \mathbb{R}$ be a continuously differentiable function, and let $b > a > 0$ be real numbers such that $f(a) = f(b) = k$. Prove that there exists a point $\xi \in (a,b)$ such that
+\[
+f(\xi) - \xi f'(\xi) = k.
+\]
+(10 points)
 
-Problem 9. Let n be a positive integer. Consider the following random process which produces a
-sequence of n distinct positive integers X1 , X2 , . . . , Xn .
-First, X1 is chosen randomly with P(X1 = i) = 2−i for every positive integer i. For 1 ≤ j ≤ n − 1,
-having chosen X1 , . . . , Xj , arrange the remaining positive integers in increasing order as n1 < n2 <
-· · · , and choose Xj+1 randomly with P(Xj+1 = ni ) = 2−i for every positive integer i.
-Let Yn = max{X1 , . . . , Xn }. Show that
-                                                   n
-                                                   X     2i
-                                          E[Yn ] =
-                                                   i=1
-                                                       2i − 1
+\section*{Problem 7}
+Let $\mathbb{Z}_{>0}$ be the set of positive integers. Find all nonempty subsets $M \subseteq \mathbb{Z}_{>0}$ satisfying both of the following properties:
+\begin{itemize}
+\item[(a)] if $x \in M$, then $2x \in M$,
+\item[(b)] if $x, y \in M$ and $x + y$ is even, then $\dfrac{x+y}{2} \in M$.
+\end{itemize}
+(10 points)
 
-where E[Yn ] is the expected value of Yn .
-                                                                                           (10 points)
+\section*{Problem 8}
+For an $n \times n$ real matrix $A \in M_n(\mathbb{R})$, denote by $A^{\mathsf{R}}$ its counter-clockwise $90^\circ$ rotation. For example,
+\[
+\begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{bmatrix}^{\mathsf{R}} = \begin{bmatrix} 3 & 6 & 9 \\ 2 & 5 & 8 \\ 1 & 4 & 7 \end{bmatrix}.
+\]
+Prove that if $A = A^{\mathsf{R}}$ then for any eigenvalue $\lambda$ of $A$, we have $\operatorname{Re}\lambda = 0$ or $\operatorname{Im}\lambda = 0$.
 
+(10 points)
 
+\section*{Problem 9}
+Let $n$ be a positive integer. Consider the following random process which produces a sequence of $n$ distinct positive integers $X_1, X_2, \ldots, X_n$.
 
-Problem 10. For any positive integer N , let SN be the number of pairs of integers 1 ≤ a, b ≤ N
-such that the number (a2 + a)(b2 + b) is a perfect square. Prove that the limit
-                                                    SN
-                                                lim
-                                               N →∞ N
+First, $X_1$ is chosen randomly with $\mathbb{P}(X_1 = i) = 2^{-i}$ for every positive integer $i$. For $1 \leq j \leq n-1$, having chosen $X_1, \ldots, X_j$, arrange the remaining positive integers in increasing order as $n_1 < n_2 < \cdots$, and choose $X_{j+1}$ randomly with $\mathbb{P}(X_{j+1} = n_i) = 2^{-i}$ for every positive integer $i$.
 
+Let $Y_n = \max\{X_1, \ldots, X_n\}$. Show that
+\[
+\mathbb{E}[Y_n] = \sum_{i=1}^n \frac{2^i}{2^i - 1}
+\]
+where $\mathbb{E}[Y_n]$ is the expected value of $Y_n$.
+
+(10 points)
+
+\section*{Problem 10}
+For any positive integer $N$, let $S_N$ be the number of pairs of integers $1 \leq a, b \leq N$ such that the number $(a^2 + a)(b^2 + b)$ is a perfect square. Prove that the limit
+\[
+\lim_{N \to \infty} \frac{S_N}{N}
+\]
 exists and find its value.
-                                                                                           (10 points)
-
+
+(10 points)
+
+\end{document}
