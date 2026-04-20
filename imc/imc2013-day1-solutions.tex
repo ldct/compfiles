@@ -1,208 +1,44 @@
-                           IMC 2012, Blagoevgrad, Bulgaria
-                                          Day 1, July 28, 2012
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{IMC 2013, Blagoevgrad, Bulgaria --- Day 1 Solutions}
+\date{August 8, 2013}
+\begin{document}
+\maketitle
 
+\section*{Problem 1}
+\subsection*{Solution}
+In an eigenbasis, $A$ and $B$ diagonal with entries $> 1$ strictly increase length of any nonzero vector. So does their product. Hence real eigenvalues of $AB$ satisfy $|\lambda| > 1$.
 
+\section*{Problem 2}
+\subsection*{Solution}
+Let $g(x) = f(x) \cos x$. Then $g(-\pi/2) = g(0) = g(\pi/2) = 0$, so by Rolle there exist $\xi_1 \in (-\pi/2, 0)$, $\xi_2 \in (0, \pi/2)$ with $g'(\xi_1) = g'(\xi_2) = 0$. Let $h(x) = g'(x)/\cos^2 x$; then $h(\xi_1) = h(\xi_2) = 0$, so Rolle gives $\xi \in (\xi_1, \xi_2)$ with $h'(\xi) = 0$. Expanding:
+\[ h'(\xi) = \frac{1}{\cos\xi}\big(f''(\xi) - f(\xi)(1 + 2\tan^2\xi)\big) = 0, \]
+giving the result.
 
-Problem 1. Let A and B be real symmetric matrices with all eigenvalues strictly greater than 1. Let
-λ be a real eigenvalue of matrix AB. Prove that |λ| > 1.
-                                                  (Proposed by Pavel Kozhevnikov, MIPT, Moscow)
+\section*{Problem 3}
+\subsection*{Solution}
+Answer: $6$.
 
-Solution. The transforms given by A and B strictly increase the length of every nonzero vector, this
-can be seen easily in a basis where the matrix is diagonal with entries greater than 1 in the diagonal.
-Hence their product AB also strictly increases the length of any nonzero vector, and therefore its real
-eigenvalues are all greater than 1 or less than −1.
+Lower: each student appears in $\ge 3$ trips (to meet $2n-1$ others, $n-1$ per trip). Total attendance $\ge 6n$; each trip has $n$ attendees, so $\ge 6$ trips.
 
+Upper (construction): if $n$ even, split into 4 equal groups $A,B,C,D$ and use pairs $(A,B), (C,D), (A,C), (B,D), (A,D), (B,C)$. If $n$ divisible by 3, split into 6 equal groups and use 6 triples covering all pairs. For $n = 2x + 3y$, combine.
 
-Problem 2. Let f : R → R be a twice differentiable function. Suppose f (0) = 0. Prove that there
-exists ξ ∈ (−π/2, π/2) such that
-                                 f 00 (ξ) = f (ξ)(1 + 2 tan2 ξ).
-                             (Proposed by Karen Keryan, Yerevan State University, Yerevan, Armenia )
+\section*{Problem 4}
+\subsection*{Solution}
+Let $p(X) = \prod(X - x_i)$. Then $\frac{6}{n!} p^{(n-3)}(X) = X^3 - \frac{3A}{n} X^2 + \frac{3(A^2-B)}{n(n-1)} X - \frac{A^3 - 3AB + 2C}{n(n-1)(n-2)}$. Since $p^{(n-3)}$ has three nonnegative real roots $u \le v \le w$,
+\[ u+v+w = \tfrac{3A}{n},\quad uv+vw+wu = \tfrac{3(A^2-B)}{n(n-1)},\quad uvw = \tfrac{A^3-3AB+2C}{n(n-1)(n-2)}. \]
+Direct computation gives
+\[ \tfrac{n^2(n-1)^2(n-2)}{9}\big((n+1)A^2 B + (n-2) B^2 - A^4 - (2n-2) AC\big) = u^2 v^2 + v^2 w^2 + w^2 u^2 - uvw(u+v+w), \]
+which equals $uv(u-w)(v-w) + vw(v-u)(w-u) + wu(w-v)(u-v) \ge 0$ (Schur-like).
 
-Solution. Let g(x) = f (x) cos x. Since g(−π/2) = g(0) = g(π/2) = 0, by Rolle’s theorem there exist
-some ξ1 ∈ (−π/2, 0) and ξ2 ∈ (0, π/2) such that
+\section*{Problem 5}
+\subsection*{Solution}
+Yes. More generally, for any partition $\mathbb{N} = C \cup D$ there exists $(a_n)$ with $\sum a_n^p$ convergent for $p \in C$, divergent for $p \in D$.
 
-                                               g 0 (ξ1 ) = g 0 (ξ2 ) = 0.
+\emph{Lemma.} For each $k \in \mathbb{N}$, there exist $N_k$ and $(x_{k,j})_{j=1}^{N_k}$ such that for $p \le k$: $|\sum_j x_{k,j}^p| \ge 1$ if $p \in D_k$; $\sum_j x_{k,j}^p = 0$ and $|\sum_{j=1}^m x_{k,j}^p| \le 1/k$ for all $m \le N_k$ if $p \in C_k$.
 
-Now consider the function
-                                        g 0 (x)   f 0 (x) cos x − f (x) sin x
-                                  h(x) =        =                             .
-                                        cos2 x               cos2 x
-We have h(ξ1 ) = h(ξ2 ) = 0, so by Rolle’s theorem there exist ξ ∈ (ξ1 , ξ2 ) for which
+\emph{Proof.} By Newton's identities, find $z_1, \dots, z_k$ with $\sum z_j^p = 0$ for $p \in C_k$, $= 1$ for $p \in D_k$. Set $M = \max_{m, p \in C_k} |\sum_{j=1}^m z_j^p|$, $N_k = k(kM)^k$, and define $x_{k,\ell} = z_j/(kM)$ where $\ell \equiv j \pmod k$. Then $\sum_{j=1}^{N_k} x_{k,j}^p = (kM)^{k-p} \sum z_j^p$.
 
-                         g 00 (ξ) cos2 ξ + 2 cos ξ sin ξg 0 (ξ)
-          0 = h0 (ξ) =                                          =
-                                         cos4 ξ
-              (f 00 (ξ) cos ξ − 2f 0 (ξ) sin ξ − f (ξ) cos ξ) cos ξ + 2 sin ξ(f 0 (ξ) cos ξ − f (ξ) sin ξ)
-            =                                                                                              =
-                                                            cos3 ξ
-              f 00 (ξ) cos2 ξ − f (ξ)(cos2 ξ + 2 sin2 ξ)           1
-            =                          3
-                                                              =       (f 00 (ξ) − f (ξ)(1 + 2 tan2 ξ)).
-                                   cos ξ                        cos ξ
-The last yields the desired equality.
+Concatenate blocks $X_1, X_2, \dots$ to form $(a_n)$. For $p \in D$ and $k \ge p$, block sum $|\sum_{j \in \text{block } k}| \ge 1$, so divergent. For $p \in C$ and large $n$, partial sums stabilize to $0$, so $\sum a_n^p = 0$ converges.
 
-
-Problem 3. There are 2n students in a school (n ∈ N, n ≥ 2). Each week n students go on a trip.
-After several trips the following condition was fulfilled: every two students were together on at least
-one trip. What is the minimum number of trips needed for this to happen?
-                                                        (Proposed by Oleksandr Rybak, Kiev, Ukraine)
-
-Solution. We prove that for any n ≥ 2 the answer is 6.
-    First we show that less than 6 trips is not sufficient. In that case the total quantity of students in
-all trips would not exceed 5n. A student meets n − 1 other students in each trip, so he or she takes
-part on at least 3 excursions to meet all of his or her 2n − 1 schoolmates. Hence the total quantity of
-students during the trips is not less then 6n which is impossible.
-    Now let’s build an example for 6 trips.
-
-
-                                                           1
-    If n is even, we may divide 2n students into equal groups A, B, C, D. Then we may organize the
-trips with groups (A, B), (C, D), (A, C), (B, D), (A, D) and (B, C), respectively.
-    If n is odd and divisible by 3, we may divide all students into equal groups E, F , G, H, I, J.
-Then the members of trips may be the following: (E, F, G), (E, F, H), (G, H, I), (G, H, J), (E, I, J),
-(F, I, J).
-    In the remaining cases let n = 2x+3y be, where x and y are natural numbers. Let’s form the groups
-A, B, C, D of x students each, and E, F , G, H, I, J of y students each. Then we apply the previous
-cases and organize the following trips: (A, B, E, F, G), (C, D, E, F, H), (A, C, G, H, I), (B, D, G, H, J),
-(A, D, E, I, J), (B, C, F, I, J).
-
-
-                                                                                            n                n
-                                                                                                                   x2i
-                                                                                            P                P
-Problem 4. Let n ≥ 3 and let x1 , . . . , xn be nonnegative real numbers. Define A =              xi , B =
-                                                                                            i=1              i=1
-          n
-                x3i . Prove that
-          P
-and C =
-          i=1
-
-
-                                   (n + 1)A2 B + (n − 2)B 2 ≥ A4 + (2n − 2)AC.
-
-                                                      (Proposed by Géza Kós, Eötvös University, Budapest)
-
-Solution. Let
-                  n
-                 Y                              A2 − B n−2 A3 − 3AB + 2C n−3
-          p(X) =     (X − xi ) = X n − AX n−1 +       X   −             X    + ....
-                 i=1
-                                                   2             6
-
-The (n − 3)th derivative of p has three nonnegative real roots 0 ≤ u ≤ v ≤ w. Hence,
-
-      6 (n−3)             3A 2 3(A2 − B)     A3 − 3AB + 2C
-         p    (X) = X 3 −    X +          X−                 = (X − u)(X − v)(X − w),
-      n!                   n     n(n − 1)    n(n − 1)(n − 2)
-so
-                            3A                        3(A2 − B)                  A3 − 3AB + 2C
-           u+v+w =             ,     uv + vw + wu =               and uvw =                      .
-                             n                         n(n − 1)                  n(n − 1)(n − 2)
-From these we can see that
-                  n2 (n − 1)2 (n − 2)
-                                      (n + 1)A2 B + (n − 2)B 2 − A4 − (2n − 2)AC = . . . =
-                                                                                
-                           9
-= u2 v 2 + v 2 w2 + w2 u2 − uvw(u + v + w) = uv(u − w)(v − w) + vw(v − u)(w − u) + wu(w − v)(u − v) ≥
-                               ≥ 0 + uw(v − u)(w − v) + wu(w − v)(u − v) = 0.
-
-
-
-Problem 5. Does
-              P∞ there exist a sequence (an ) of complex numbers such that for every positive integer
-                    p
-p we have that n=1 an converges if and only if p is not a prime?
-                                             (Proposed by Tomáš Bárta, Charles University, Prague)
-
-Solution. The answer is YES. We prove a more general statement; suppose that N = C ∪ D is an
-                                                                                  ∞
-P∞ p decomposition of N into two disjoint sets. Then there exists a sequence (an )n=1 such that
-arbitrary
-  n=1 an is convergent for p ∈ C and divergent for p ∈ D.
-   Define Ck = C ∩ [1, k] and Dk ∩ [1, k].
-
-
-
-
-                                                        2
-Lemma. For every positive integer k there exists a positive integer Nk and a sequence Xk = (xk,1 , . . . , xk,Nk )
-of complex numbers with the following properties:
-                                   Nk
-                                   X
- (a) For p ∈ Dk , we have                 xpk,j ≥ 1.
-                                   j=1
-
-                                 Nk                                      m
-                                 X                                       X                1
- (b) For p ∈ Ck , we have                xpk,j = 0; moreover,                  xpk,j ≤      holds for 1 ≤ m ≤ Nk .
-                                 j=1                                     j=1
-                                                                                          k
-
-Proof. First we find some complex numbers z1 . . . , zk with
-                                       k
-                                                  (
-                                      X              0 p ∈ Ck
-                                          zjp =                                                                                 (1)
-                                      j=1
-                                                     1 p ∈ Dk
-
-As is well-known, this system of equations is equivalent to another system σν (z1 , . . . , zk ) = wν (ν =
-1, 2, . . . , k) where σν is the νth elementary symmetric polynomial, and the constants wν are uniquely
-determined by the Newton-Waring-Girard formulas. Then the numbers z1 , . . . , zk are the roots of the
-polynomial z k − w1 z k−1 + − . . . + (−1)k wk in some order.
-    Now let                                    &                   '
-                                                            Xm
-                                          M=        max        zjp
-                                                             1≤m≤k, p∈Ck
-                                                                                  j=1
-                       k                                                                     z1    z2            zk
-and let Nk = k·(kM ) . We define the numbers xk,1 . . . , xk,Nk by repeating the sequence ( kM  , kM  , . . . , kM  )
-                           z
-(kM )k times, i.e. xk,` = kMj if ` ≡ j (mod k). Then we have
-                                   Nk                          k                                 k
-                                                                         zj p
-                                   X                           X                                 X
-                                          xpk,j = (kM )k                kM
-                                                                               = (kM )k−p          zjp ;
-                                    j=1                          j=1                              j=1
-
-then from (1) the properties (a) and the first part of (b) follows immediately. For the second part of
-(b), suppose that p ∈ Ck and 1 ≤ m ≤ Nk ; then m = kr + s with some integers r and 1 ≤ s ≤ k and
-hence
-                        m           kr    kr+s       s 
-                       X    p
-                                   X      X         X      zj p       M      1
-                           xk,j =      +         =                ≤       p
-                                                                            ≤ .
-                       j=1         j=1   j=kr+1     j=1
-                                                          kM         (kM )    k
-The lemma is proved.
-   Now let Sk = N1 . . . , Nk (we also define S0 = 0). Define the sequence (a) by simply concatenating
-the sequences X1 , X2 , . . . :
-                   (a1 , a2 , . . . ) = (x1,1 , . . . , x1,N1 , x2,1 , . . . , x2,N2 , . . . , xk,1 , . . . , xk,Nk , . . .);   (1)
-                                            aSk +j = xk+1,j (1 ≤ j ≤ Nk+1 ).                                                    (2)
-   If p ∈ D and k ≥ p then
-                                                   Sk+1                 Nk+1
-                                                   X                    X
-                                                           apj    =            xpk+1,j ≥ 1;
-                                                 j=Sk +1                 j=1
-                                                  P p
-By Cauchy’s convergence criterion it follows that  an is divergent.
-   If p ∈ C and Su < n ≤ Su+1 with some u ≥ p then
-                           n                       Nk
-                                               u−1 X                    n−Su−1                n−Su−1
-                           X                   X                            X                   X                   1
-                                   apn    =                 xpk,j +               xpu,j   =             xpu,j ≤       .
-                         j=Sp +1              k=p+1 j=1                     j=1                 j=1
-                                                                                                                    u
-                           ∞
-                           X                                  ∞
-                                                              X
-Then it follows that               apn = 0, and thus                   apn = 0 is convergent.
-                        n=Sp +1                               n=1
-
-
-
-                                                                        3
-
+\end{document}
