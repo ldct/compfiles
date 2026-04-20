@@ -1,214 +1,71 @@
-              Solutions for problems in the
-      9th International Mathematics Competition
-                for University Students
-                    Warsaw, July 19 - July 25, 2002
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{IMC 2002, Day 2 --- Solutions}
+\begin{document}
+\maketitle
 
-                                 Second Day
+\section*{Problem 1}
+Compute $\det A$ where $A=[a_{ij}]$, $a_{ij}=(-1)^{|i-j|}$ if $i\ne j$, $a_{ii}=2$.
 
+\subsection*{Solution}
+Add row $i+1$ to row $i$ for $i=1,\dots,n-1$: rows $1,\dots,n-1$ become $(1,1,0,\dots,0)$ shifted, and row $n$ is unchanged. Then subtract column $j$ from column $j+1$ successively to diagonalize; the last diagonal entry becomes $n+1$. Thus $\det A = n+1$.
 
-Problem 1. Compute the determinant of the n × n matrix A = [a ij ],
-                        (
-                          (−1)|i−j| , if i 6= j,
-                  aij =
-                          2,          if i = j.
+\section*{Problem 2}
+Two hundred students, 6 problems. Each problem was solved by at least 120. Prove there exist two students whose combined solutions cover all problems.
 
-Solution. Adding the second row to the first one, then adding the third row
-to the second one, ..., adding the nth row to the (n − 1)th, the determinant
-does not change and we have
+\subsection*{Solution}
+For each pair of students let $S(\text{pair})$ be the set of problems neither solved. There are $\binom{200}{2}=19900$ pairs. Each problem was missed by at most $80$ students, contributing to at most $\binom{80}{2}=3160$ pairs. So the total (problem, pair) incidences is at most $6\cdot 3160 = 18960$. Thus at least $19900-18960 = 940$ pairs have $S=\emptyset$.
 
+\section*{Problem 3}
+For $n\ge 1$ let
+\[a_n = \sum_{k=0}^\infty \frac{k^n}{k!},\quad b_n = \sum_{k=0}^\infty (-1)^k\frac{k^n}{k!}.\]
+Show $a_n b_n\in\mathbb{Z}$.
 
-         2 −1 +1 . . .          ±1 ∓1    1  1   0  0               ...    0    0
-         −1 2 −1 . . .          ∓1 ±1    0  1   1  0               ...    0    0
-         +1 −1 2 . . .          ±1 ∓1    0  0   1  1               ...    0    0
-det(A) = .   .. .. ..            .. .. = ..  .. .. ..              ..     ..   .. .
-          ..  .  .    .           .  .    .   .  .  .                 .    .    .
-         ∓1 ±1 ∓1 . . .          2 −1    0  0   0  0               ...     1 1
-         ±1 ∓1 ±1 . . .         −1 2     ±1 ∓1 ±1 ∓1               ...    −1 2
-    Now subtract the first column from the second, then subtract the result-
-ing second column from the third, ..., and at last, subtract the (n − 1)th
-column from the nth column. This way we have
+\subsection*{Solution}
+We prove by induction that $a_n/e\in\mathbb{Z}$ and $b_n\cdot e\in\mathbb{Z}$. Base $n=0$: $a_0=e$, $b_0=1/e$ (with $0^0=1$).
 
-                         1 0 0         ...    0    0
-                         0 1 0         ...    0    0
-                det(A) = ... ... ...   ..
-                                          .
-                                              ..
-                                               .
-                                                   ..
-                                                    .   = n + 1.
-                         0 0 0         ...    1  0
-                         0 0 0         ...    0 n+1
+Inductive step:
+\[a_{n+1}=\sum_{k\ge 0}\frac{(k+1)^n}{k!}=\sum_m\binom{n}{m}a_m,\]
+and similarly $b_{n+1}=-\sum_m \binom{n}{m}b_m$. Integer linear combinations preserve the divisibility property.
 
-Problem 2. Two hundred students participated in a mathematical con-
-test. They had 6 problems to solve. It is known that each problem was
-correctly solved by at least 120 participants. Prove that there must be two
-participants such that every problem was solved by at least one of these two
-students.
-Solution. For each pair of students, consider
-                                             the set of those problems which
-was not solved by them. There exist 200   2   = 19900 sets; we have to prove
-that at least one set is empty.
+\section*{Problem 4}
+In tetrahedron $OABC$, $\angle BOC=\alpha$, $\angle COA=\beta$, $\angle AOB=\gamma$. Let $\sigma$ be the dihedral angle along $OA$ (between faces $OAB$, $OAC$) and $\tau$ the dihedral angle along $OB$. Prove
+\[\gamma > \beta\cos\sigma + \alpha\cos\tau.\]
 
-                                        1
-   For each problem, there are at most 80 students who did not solve it.
-From these students at most 80  2   = 3160 pairs can be selected, so the
-problem can belong to at most 3160 sets. The 6 problems together can
-belong to at most 6 · 3160 = 18960 sets.
-   Hence, at least 19900 − 18960 = 940 sets must be empty.
-Problem 3. For each n ≥ 1 let
-                                   ∞                        ∞
-                                   X kn                     X             kn
-                            an =              ,     bn =          (−1)k      .
-                                         k!                               k!
-                                   k=0                      k=0
-    Show that an · bn is an integer.
-Solution. We prove by induction on n that a n /e and bn e are integers, we
-prove this for n = 0 as well. (For n = 0, the term 0 0 in the definition of the
-sequences must be replaced by 1.)
-    From the power series of ex , an = e1 = e and bn = e−1 = 1/e.
-    Suppose that for some n ≥ 0, a0 , a1 , . . . , an and b0 , b1 , ...bn are all multi-
-pliers of e and 1/e, respectively. Then, by the binomial theorem,
+\subsection*{Solution}
+Take $OA=OB=OC=1$. Intersect the unit sphere with the three angular regions; the slice areas are $\frac12\alpha$, $\frac12\beta$, $\frac12\gamma$.
 
-                    n                         ∞                         ∞ X
-                                                                          n   m
-                    X (k + 1)n+1              X (k + 1)n                X    n k
-        an+1 =                           =                         =                       =
-                          (k + 1)!                      k!                        m   k!
-                    k=0                       k=0                       k=0 m=0
+Project slices $AOC$, $COB$ onto the plane $OAB$. The signed projected areas are $\frac12\beta\cos\sigma$ and $\frac12\alpha\cos\tau$. These projections are bounded by ellipse arcs, meeting the opposite slice's boundary in at most 4 points (two distinct conics). Case analysis on the signs of $\cos\sigma,\cos\tau$ shows their sum is strictly less than the area of slice $BOA$.
+% Figure omitted.
 
-                                  ∞
-                             n  X       n  
-                            X   n   km   X   n
-                          =            =        am
-                            m=0
-                                m   k!   m=0
-                                             m
-                                              k=0
-    and similarly
-                     n                                            ∞
-                     X                (k + 1)n+1    X       (k + 1)n
-            bn+1 =          (−1)k+1              =−   (−1)k          =
-                                       (k + 1)!                k!
-                      k=0                                         k=0
+\section*{Problem 5}
+Let $A$ be $n\times n$ complex, $n>1$. Prove
+\[A\overline A = I_n \iff \exists\, S\in GL_n(\mathbb{C})\text{ with }A=S\overline S^{-1}.\]
 
-      ∞             n   m                            ∞
-                                                  n  X                           n  
-      X             X  n k                        X  n                      km    X   n
- =−         (−1)k                     =−                           (−1)k       =−        bm .
-                    m=0
-                            m   k!            m=0
-                                                        m                   k!    m=0
-                                                                                      m
-      k=0                                                    k=0
+\subsection*{Solution}
+($\Leftarrow$) $A\overline A = S\overline S^{-1}\overline S S^{-1}=I_n$.
 
-   The numbers an+1 and bn+1 are expressed as linear combinations of the
-previous elements with integer coefficients which finishes the proof.
-Problem 4. In the tetrahedron OABC, let ∠BOC = α, ∠COA = β and
-∠AOB = γ. Let σ be the angle between the faces OAB and OAC, and let
-τ be the angle between the faces OBA and OBC. Prove that
+($\Rightarrow$) We need $S$ with $A\overline S = S$. Try $S = wA + \overline w I_n$ for $w\ne 0$. Then $A\overline S = A(\overline w\overline A + wI_n) = \overline w I_n + wA = S$. If $S$ is singular then $A - (\overline w/w)I_n$ is singular, i.e., $\overline w/w$ is an eigenvalue. Since $\overline w/w$ ranges over the unit circle and $A$ has finitely many eigenvalues, some $w$ gives $S$ invertible.
 
-                                   γ > β · cos σ + α · cos τ.
+\section*{Problem 6}
+Let $f:\mathbb{R}^n\to\mathbb{R}$ be convex, differentiable, with $\|\nabla f(x_1)-\nabla f(x_2)\|\le L\|x_1-x_2\|$. Prove
+\[\|\nabla f(x_1)-\nabla f(x_2)\|^2 \le L\langle \nabla f(x_1)-\nabla f(x_2), x_1-x_2\rangle.\]
 
-Solution. We can assume OA = OB = OC = 1. Intersect the unit sphere
-with center O with the angle domains AOB, BOC and COA; the intersec-
-tions are “slices” and their areas are 12 γ, 21 α and 12 β, respectively.
+\subsection*{Solution}
+Let $g(x)=f(x)-f(x_1)-\langle \nabla f(x_1),x-x_1\rangle$; then $g(x_1)=\nabla g(x_1)=0$, $g$ has the same Lipschitz gradient, and $x_1$ is the minimum. We claim
+\[g(x_2)\ge \frac{1}{2L}\|\nabla g(x_2)\|^2. \tag{2}\]
 
-                                                    2
-     Now project the slices AOC and COB to the plane OAB. Denote by
-C 0 the projection of vertex C, and denote by A 0 and B 0 the reflections of
-vertices A and B with center O, respectively. By the projection, OC 0 < 1.
-     The projections of arcs AC and BC are segments of ellipses with long
-axes AA0 and BB 0 , respectively. (The ellipses can be degenerate if σ or τ
-is right angle.) The two ellipses intersect each other in 4 points; both half
-ellipses connecting A and A0 intersect both half ellipses connecting B and
-B 0 . There exist no more intersection, because two different conics cannot
-have more than 4 common points.
-     The signed areas of the projections of slices AOC and COB are 12 α·cos τ
-and 21 β · cos σ, respectively. The statement says thet the sum of these signed
-areas is less than the area of slice BOA.
+Let $y_0 = x_2 - \frac1L\nabla g(x_2)$, $y(t)=y_0+t(x_2-y_0)$. Then
+\begin{align*}
+g(x_2) &= g(y_0) + \int_0^1 \langle \nabla g(y(t)), x_2-y_0\rangle\,dt\\
+&\ge \langle \nabla g(x_2), x_2-y_0\rangle - \int_0^1 \|\nabla g(x_2)-\nabla g(y(t))\|\cdot\|x_2-y_0\|\,dt\\
+&\ge \frac1L\|\nabla g(x_2)\|^2 - L\|x_2-y_0\|^2\int_0^1 t\,dt = \frac{1}{2L}\|\nabla g(x_2)\|^2.
+\end{align*}
 
+Substituting the definition of $g$:
+\[\|\nabla f(x_2)-\nabla f(x_1)\|^2 \le 2L\langle \nabla f(x_1), x_1-x_2\rangle + 2L(f(x_2)-f(x_1)). \tag{3}\]
+Swapping $x_1\leftrightarrow x_2$:
+\[\|\nabla f(x_2)-\nabla f(x_1)\|^2 \le 2L\langle \nabla f(x_2), x_2-x_1\rangle + 2L(f(x_1)-f(x_2)). \tag{4}\]
+The statement is the average of (3), (4).
 
-
-
-    There are three significantly different cases with respect to the signs
-of cos σ and cos τ (see Figure). If both signs are positive (case (a)), then
-the projections of slices OAC and OBC are subsets of slice OBC without
-common interior point, and they do not cover the whole slice OBC; this
-implies the statement. In cases (b) and (c) where at least one of the signs
-is negative, projections with positive sign are subsets of the slice OBC, so
-the statement is obvious again.
-Problem 5. Let A be an n × n matrix with complex entries and suppose
-that n > 1. Prove that
-                                                                 −1
-           AA = In ⇐⇒ ∃ S ∈ GLn (C)         such that   A = SS        .
-
-(If A = [aij ] then A = [aij ], where aij is the complex conjugate of aij ;
-GLn (C) denotes the set of all n×n invertible matrices with complex entries,
-and In is the identity matrix.)
-                                                                          −1
-Solution.    The direction ⇐ is trivial, since if A = SS , then
-          −1
-AA = SS · SS −1 = In .
-    For the direction ⇒, we must prove that there exists an invertible matrix
-S such that AS = S.
-    Let w be an arbitrary complex number which is not 0. Choosing
-S = wA + wIn , we have AS = A(wA + wIn ) = wIn + wA = S. If S is
-singular, then w1 S = A − (w/w)In is singular as well, so w/w is an eigen-
-value of A. Since A has finitely many eigenvalues and w/w can be any
-complex number on the unit circle, there exist such w that S is invertible.
-
-                                      3
-Problem 6. Let f : Rn → R be a convex function whose gradient ∇f =
-
-  ∂f            ∂f                            n
-  ∂x1 , . . . , ∂xn exists at every point of R and satisfies the condition
-
-        ∃L > 0    ∀x1 , x2 ∈ Rn      k∇f (x1 ) − ∇f (x2 )k ≤ Lkx1 − x2 k.
-   Prove that
-
- ∀x1 , x2 ∈ Rn   k∇f (x1 ) − ∇f (x2 )k2 ≤ Lh∇f (x1 ) − ∇f (x2 ), x1 − x2 i. (1)
-
-   In this formula ha, bi denotes the scalar product of the vectors a and b.
-Solution. Let g(x) = f (x)−f (x1 )−h∇f (x1 ), x−x1 i. It is obvious that g has
-the same properties. Moreover, g(x 1 ) = ∇g(x1 ) = 0 and, due to convexity,
-g has 0 as the absolute minimum at x1 . Next we prove that
-                                           1
-                            g(x2 ) ≥         k∇g(x2 )k2 .                              (2)
-                                          2L
-Let y0 = x2 − L1 k∇g(x2 )k and y(t) = y0 + t(x2 − y0 ). Then
-                                     Z 1
-                 g(x2 ) = g(y0 ) +         h∇g(y(t)), x2 − y0 i dt =
-                                      0
-                                       Z 1
-    = g(y0 ) + h∇g(x2 ), x2 − y0 i −           h∇g(x2 ) − ∇g(y(t)), x2 − y0 i dt ≥
-                                           0
-                               Z 1
-              1
-      ≥0+       k∇g(x2 )k2 −         k∇g(x2 ) − ∇g(y(t))k · kx2 − y0 k dt ≥
-              L                 0
-                                                   Z 1
-               1
-              ≥ k∇g(x2 )k2 − kx2 − y0 k                  Lkx2 − g(y)k dt =
-               L                                    0
-                                                   Z 1
-              1                                                    1
-          =     k∇g(x2 )k2 − Lkx2 − y0 k2                t dt =      k∇g(x2 )k2 .
-              L                                     0             2L
-   Substituting the definition of g into (2), we obtain
-                                                          1
-      f (x2 ) − f (x1 ) − h∇f (x1 ), x2 − x1 i ≥            k∇f (x2 ) − ∇f (x1 )k2 ,
-                                                         2L
-
-   k∇f (x2 ) − ∇f (x1 )k2 ≤ 2Lh∇f (x1 ), x1 − x2 i + 2L(f (x2 ) − f (x1 )).            (3)
-
-Exchanging variables x1 and x2 , we have
-
-   k∇f (x2 ) − ∇f (x1 )k2 ≤ 2Lh∇f (x2 ), x2 − x1 i + 2L(f (x1 ) − f (x2 )).            (4)
-
-The statement (1) is the average of (3) and (4).
-
-
-
-
-                                               4
-
+\end{document}
