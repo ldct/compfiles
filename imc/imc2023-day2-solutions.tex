@@ -1,294 +1,69 @@
-                                            IMC 2023
-                                Second Day, August 3, 2023
-                                              Solutions
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
 
-                                      
-                                   2 3
-Problem 6. Ivan writes the matrix        on the board. Then he performs the following operation
-                                   2 4
-on the matrix several times:
+\title{IMC 2023, Second Day Solutions}
+\date{August 3, 2023}
 
-   • he chooses a row or a column of the matrix, and
+\begin{document}
+\maketitle
 
-   • he multiplies or divides the chosen row or column entry-wise by the other row or column,
-     respectively.
-                                         
-                                      2 4
-   Can Ivan end up with the matrix          after finitely many steps?
-                                      2 3
+\section*{Problem 6}
+\subsection*{Solution}
+No. All reachable matrices have positive entries. Let $L(X)$ be the entrywise $\log_2$ of $X$. The operations correspond to adding/subtracting a row or column to another, which preserve $\det L$.
+\[ \det L(A) = \log_2 2 \cdot \log_2 4 - \log_2 4 \cdot \log_2 3 = \log_2(4/3) > 0, \]
+while $\det L(B) < 0$. So Ivan cannot reach $B$.
 
-                               (proposed by Alex Avdiushenko, Neapolis University Paphos, Cyprus)
+\section*{Problem 7}
+\subsection*{Solution}
+Answer: $\alpha = 1/(e-1)$.
 
-Hint: Construct an invariant quantity that does not change during Ivan’s prcedure.
-                                                                                                     
-                                                   2 3                                             2 4
-Solution. We show that starting from A =                 , Ivan cannot reach the matrix B =               .
-                                                   2 4                                             2 3
-    Notice first that the allowed operations preserve the positivity of entries; all matrices Ivan can
-reach have only positive entries.
-                                                                                                    
-                                 x11 x12                                             log2 x11 log2 x12
-    For every matrix X =                     with positive entries, let L(X) =                          . By
-                                 x21 x22                                             log2 x21 log2 x22
-taking logarithms of the entries, the steps in Ivan game will be replaced by adding or subtracting a
-row or column to the other row. Such standard row and column operations preserve the determinant.
-    Hence, if the matrices in the game are A = X0 , X1 , X2 , . . ., then we have det L(A) = det L(X1 ) =
-det L(X2 ) = . . ., and it suffices to verify that det L(A) ̸= det L(B).
-    Indeed,
-                         det L(A) = log2 2 · log2 4 − log2 4 · log2 3 = log2 (4/3) > 0
-and similarly det L(B) < 0, so det L(A) ̸= det L(B).
+\textbf{Existence.} Let $h(x) = (e^x - 1)/(e-1) \in V$ so that $h'(x) - h(x) = 1/(e-1)$. For $f \in V$, set $g(x) = f(x) e^{-x} + h(-x)$. Then $g(0) = 0$ and $g(1) = e^{-1} + (e^{-1}-1)/(e-1) = 0$. By Rolle, $g'(\xi) = 0$, giving
+\[ f'(\xi) e^{-\xi} - f(\xi) e^{-\xi} - \frac{e^{-\xi}}{e-1} = 0, \]
+so $f'(\xi) = f(\xi) + 1/(e-1)$.
 
+\textbf{Uniqueness.} For $f(x) = (e^x - 1)/(e-1) \in V$, $f'(x) - f(x) \equiv 1/(e-1)$ for all $x$, so no other $\alpha$ works.
 
+\subsection*{Solution 2}
+The expression $f'(x) - f(x)$ appears in the derivative of $F(x) = f(x) e^{-x}$: $F'(x) = (f'(x) - f(x)) e^{-x}$. Apply Cauchy's MVT to $F$ and $G(x) = -e^{-x}$: there is $\xi \in (0,1)$ with
+\[ \frac{F'(\xi)}{G'(\xi)} = \frac{F(1) - F(0)}{G(1) - G(0)} = \frac{e^{-1}}{1 - e^{-1}} = \frac{1}{e-1}. \]
 
+\section*{Problem 8}
+\subsection*{Solution}
+Let $k = \binom{n}{2}$ and $x_1 \leq x_2 \leq \cdots \leq x_k$ the pairwise distances. Since $T$ has $n-1$ edges, $x_1 = \cdots = x_{n-1} = 1$, and $x_i \geq 2$ for $i \geq n$. Then
+\[ W \cdot H = (n-1)^2 + (n-1) \sum_{i=n}^{k}\left(x_i + \tfrac{1}{x_i}\right) + \left(\sum_{i=n}^{k} x_i\right)\left(\sum_{i=n}^{k} \tfrac{1}{x_i}\right). \]
+By Cauchy-Schwarz, $\left(\sum x_i\right)\left(\sum 1/x_i\right) \geq (k-n+1)^2 = (n-1)^2(n-2)^2/4$. And $x_i + 1/x_i \geq 2 + 1/2 = 5/2$ for $x_i \geq 2$. So
+\[ W H \geq (n-1)^2 + (n-1) \cdot \tfrac{5}{2}(k-n+1) + \tfrac{(n-1)^2(n-2)^2}{4} = \frac{(n-1)^3(n+2)}{4}. \]
+Equality holds for the star $S_n$.
 
-                                                     1
-Problem 7. Let V be the set of all continuous functions f : [0, 1] → R, differentiable on (0, 1), with
-the property that f (0) = 0 and f (1) = 1. Determine all α ∈ R such that for every f ∈ V , there exists
-some ξ ∈ (0, 1) such that
-                                           f (ξ) + α = f ′ (ξ).
+\section*{Problem 9}
+\subsection*{Solution}
+Answer: $\sup V = 1/4$.
 
-                                                               (proposed by Mike Daas, Leiden University)
+Use $U = [-1/2, 1/2]^3$. Lower bound: $X = [-1/2, -\varepsilon]^2 \times [-1/2, 1/2]$, $Y = [\varepsilon, 1/2]^2 \times [-1/2, 1/2]$ gives volumes $\to 1/4$.
 
-Hint: Find a function h ∈ V such that h′ − h is constant, then apply Rolle’s theorem to f − h.
-  Alternatively, you can apply Cauchys’s mean value theorem with some auxiliary functions.
+Upper bound: For $P = (x,y,z) \in U$ with $xyz \neq 0$, let $\overline{P}$ be the 8 sign-reflections. Suffices to show $|\overline{P} \cap (X \cup Y)| \leq 4$ for all such $P$, then integrate.
 
-Solution 1. First consider the function
-                         ex − 1                                ′       ex
-                 h(x) =         , which has the property that h (x) =     .
-                         e−1                                          e−1
-Note that h ∈ V and that h′ (x) − h(x) = 1/(e − 1) is constant. As such, α = 1/(e − 1) is the only
-possible value that could possibly satisfy the condition from the problem. For f ∈ V arbitrary, let
+\textbf{Claim 1.} One body is \emph{thick} (all 3 projections contain origin). Label $\overline{P} = ABCDA'B'C'D'$. If $|\overline{P} \cap (X \cup Y)| \geq 5$, by pigeonhole some antipodal pair lies in $X \cup Y$. Case analysis (using disjoint projections) forces one body (say $X$) to contain 4 mutually-symmetric points and thus be thick.
 
-                         −x                                                     −1     e−1 − 1
-         g(x) = f (x)e        + h(−x),   with g(0) = 0 and also g(1) = e             +         = 0.
-                                                                                        e−1
-We compute that
-                                   g ′ (x) = f ′ (x)e−x − f (x)e−x − h′ (−x).
-Now apply Rolle’s Theorem to g on the interval [0, 1]; it yields some ξ ∈ (0, 1) with the property that
-                                                           e−ξ                           1
-             g ′ (ξ) = 0 =⇒ f ′ (ξ)e−ξ − f (ξ)e−ξ −            = 0 =⇒ f ′ (ξ) = f (ξ) +     ,
-                                                          e−1                           e−1
-showing that α = 1/(e − 1) indeed satisfies the condition from the problem.
+\textbf{Claim 2.} If $X$ is thick, replace $X$ by $Y' = -Y$: same volume, admissible (projections of $Y$ miss origin, so disjoint from those of $Y'$). For such symmetric $(Y, Y')$, if $|\overline{P} \cap Y'| \geq 3$, then wlog $A, B, D \in Y'$ forces $B', D' \in Y$, contradicting disjoint projections.
 
-Solution 2. Notice that the expression       f ′ (x) − f (x) appears in the derivative of the function
-                 −x   ′        ′
-                                          −x
-F (x) = f (x) · e : F (x) = f (x) − f (x) e .
-    Apply Cauchy’s mean value theorem to F (x) and the function G(x) = −e−x . By the theorem,
-there is some ξ ∈ (0, 1) such that
-                                       F ′ (ξ)     F (1) − F (0)
-                                         ′
-                                               =
-                                       G (ξ)       G(1) − G(0)
-                                                         e−1 − 0    1
-                                     f ′ (ξ) − f (ξ) =     −1
-                                                                 =     .
-                                                         −e + 1    e−1
-                                                 1
-This proves the required property for a =           .
-                                                e−1
-                                                                                      F ′ (x)
-   Now we show that no other α is possible. Choose f and F in such a way that                 = f ′ (x)−f (x) =
-                                                                                      G′ (x)
- 1
-    is constant. That means
-e−1
-                                                    G′ (x)     e−x
-                                          F ′ (x) =        =       ,
-                                                     e−1      e−1
-                                                        1 − e−x
-                                               F (x) =          ,
-                                                         e−1
-                                                              ex − 1
-                                         f (x) = F (x) · ex =        .
-                                                               e−1
-                                                                                      1
-With this choice we have f (0) = 0 and f (1) = 1, so f ′ ∈ V , and f ′ (x) − f (x) ≡     for all x, so for
-                                                                                     e−1
-                                                1
-this function the only possible value for α is      .
-                                               e−1
+\section*{Problem 10}
+\subsection*{Solution}
+Yes. Let $\varepsilon = 10^{-10}$. Call prime $p$ \emph{special} if for some $k \in \{1,\ldots,p-1\}$, $p \mid f(j)$ for at least $\varepsilon k$ values $j \leq k$.
 
-                                                         2
-Problem 8. Let T be a tree with n vertices; that is, a connected simple graph on n vertices that
-contains no cycle. For every pair u, v of vertices, let d(u, v) denote the distance between u and v, that
-is, the number of edges in the shortest path in T that connects u with v.
-     Consider the sums
-                                 X                                    X         1
-                     W (T ) =            d(u, v) and H(T ) =                          .
-                                                                              d(u, v)
-                               {u,v}⊆V (T )                        {u,v}⊆V (T )
-                                   u̸=v                                u̸=v
+\textbf{Lemma.} Only finitely many special primes exist.
 
+\emph{Proof.} If $p \mid f(j)$ and $p \mid f(j+r)$, then $p$ divides
+\[ (j+r)! \left(\tfrac{f(j+r)}{g(j+r)} - \tfrac{f(j)}{g(j)}\right) = 1 + (j+r) + (j+r)(j+r-1) + \cdots + (j+r)\cdots(j+2), \]
+a degree $r-1$ polynomial in $j$, vanishing for $\leq r-1$ values mod $p$. Among $\varepsilon k$ values, at most $\varepsilon k/2$ gaps exceed $2/\varepsilon$, so $\geq \varepsilon k/2 - 1$ gaps are small; the small-gap count is bounded by a constant, bounding $k$ and hence $p$.
 
-Prove that
-                                                     (n − 1)3 (n + 2)
-                                    W (T ) · H(T ) ≥                  .
-                                                            4
-                                   (proposed by Slobodan Filipovski, University of Primorska, Koper)
+For non-special $p \leq n$: partition $\{p, \ldots, n\}$ into length-$p$ intervals $\Delta = [ap, ap+k']$. All $x!$ in $\Delta$ have same $\nu_p = T = \nu_p((ap)!)$. For non-special $p$, at least $(1-\varepsilon)(k'+1)$ of $g(ap+j)$ satisfy $\nu_p(g(ap+j)) = T$. So
+\[ \nu_p(g(1) \cdots g(n)) \geq (1-\varepsilon) \nu_p(1! \cdot 2! \cdots n!). \tag{1} \]
 
-Hint: There are n − 1 pairs u, v with d(u, v) = 1; in all other cases d(u, v) ≥ 2.
+Summing over non-special primes:
+\[ A \cdot g(1) \cdots g(n) \geq (1! \cdots n!)^{1-\varepsilon}, \]
+where $A = \prod_{p \text{ special}, k} p^{\nu_p(g(k))} \leq C^{n^2}$. If $g(n) \leq n^{0.999 n}$ for all $n$, then
+\[ \log(A \cdot g(1) \cdots g(n)) \leq O(n^2) + 0.999 \log(1!\cdots n!) < (1-\varepsilon) \log(1!\cdots n!) \]
+for large $n$, contradiction.
 
-Solution. Let k = n2 and let x1 ≤ x2 ≤ . . . ≤ xk be the distances between the pairs of vertices in
-                    
-
-the tree T. Thus
-                                                                               
-                                                              1   1          1
-                 W (T ) · H(T ) = (x1 + x2 + . . . + xk ) ·     +   + ... +       .
-                                                              x1 x2          xk
-
-Since the tree has exactly n − 1 edges, there are exactly n − 1 pairs of vertices at distance one, that
-is, x1 = x2 = . . . = xn−1 = 1. Thus
-                                                                                               
-                                                                            1     1          1
-        W (T ) · H(T ) = (n − 1 + xn + xn+1 + . . . + xk ) · n − 1 +          +      + ... +      =
-                                                                           xn xn+1           xk
-                                                                              
-                                 2                       1                     1
-                       = (n − 1) + (n − 1)        xn +        + . . . + xk +         +
-                                                        xn                     xk
-                                                                         
-                                                         1             1
-                                   +(xn + . . . + xk )      + ... +         .
-                                                         xn            xk
-From Cauchy inequality we have
-
-                                                                                 (n − 1)2 (n − 2)2
-                                      
-                         1          1
-    (xn + . . . + xk )      + ... +      ≥ (1 + 1 + . . . + 1)2 = (k − n + 1)2 =                   .
-                         xn         xk                                                  4
-
-The equality holds if and only if xn = xn+1= . . . = xk .    
-                                          1                   1
-Now we minimize the expression xn + xn + . . . + xk + xk , where xi ∈ [2, n − 1].
-It is clear that the minimal value is achieved for xn = xn+1 = . . . = xk = 2. Therefore we get
-
-                                                                  (n − 1)2 (n − 2)2   (n − 1)3 (n + 2)
-                                                          
-                         2                   1
- W (T ) · H(T ) ≥ (n − 1) + (n − 1)      2+      (k − n + 1) +                      =                  .
-                                             2                            4                  4
-
-The equality holds for x1 = . . . = xn−1 = 1 and xn = xn+1 = . . . = xk = 2, that is, the smallest value
-is achieved for the tree where n − 1 pairs are at distance one, and the remaining k − (n − 1) = (n−1)(n−2)
-                                                                                                    2
-pairs are at distance two. The unique tree which satisfies these conditions is the star graph Sn . In
-this case it holds
-                                                    (n − 1)(n + 2)   (n − 1)3 (n + 2)
-                    W (Sn ) · H(Sn ) = (n − 1)2 ·                  =                  .
-                                                          4                 4
-
-
-
-                                                      3
-Problem 9. We say that a real number V is good if there exist two closed convex subsets X, Y of
-the unit cube in R3 , with volume V each, such that for each of the three coordinate planes (that is,
-the planes spanned by any two of the three coordinate axes), the projections of X and Y onto that
-plane are disjoint.
-   Find sup{V | V is good}.
-                                                    (proposed by Josef Tkadlec and Arseniy Akopyan)
-
-Hint: The two bodies can be replaced by a pair symmetric to the midpoint of the cube.
-
-Solution. We prove that sup{V | V is good} = 1/4.
-     We will use the unit cube U = [−1/2, 1/2]3 .
-     For ε → 0, the axis-parallel boxes X = [−1/2, −ε] × [−1/2, −ε] × [−1/2, 1/2] and Y = [ε, 1/2] ×
-[ε, 1/2] × [−1/2, 1/2] show that sup{V } ≥ 1/4.
-     To prove the other bound, consider two admissible convex bodies X, Y . For any point P =
-[x, y, z] ∈ U with xyz ≠ 0, let P = {[±x, ±y, ±z]} be the set consisting of 8 points (the original P
-and its 7 “symmetric” points). If for each such P we have |P ∩ (X ∪ Y )| ≤ 4, then the conclusion
-follows by integrating. Suppose otherwise and let P be a point with |P ∩ (X ∪ Y )| ≥ 5. Below we
-will complete the proof by arguing that:
-
-  (1) we can replace one of the two bodies (the “thick” one) with the reflection of the other body
-      about the origin, and
-
-  (2) for such symmetric pairs of bodies we in fact have |P ∩ (X ∪ Y )| ≤ 4, for all P .
-
-      To prove Claim (1), we say that a convex body is thick if each of its three projections contains
-the origin. We claim that one of the two bodies X, Y is thick. This is a short casework on the 8
-points of P . Since |P ∩ (X ∪ Y )| ≥ 5, by pigeonhole principle, we find a pair of points in P ∩ (X ∪ Y )
-symmetric about the origin. If both points belong to one body (say to X), then by convexity of X the
-origin belongs to X, thus X is thick. Otherwise, label P as ABCDA′ B ′ C ′ D′ . Wlog A ∈ X, C ′ ∈ Y
-is the pair of points in P symmetric about the origin. Wlog at least 3 points of P belong to X. Since
-X, Y have disjoint projections, we have C, B ′ , D′ ̸∈ X, so wlog B, D ∈ X. Then Y can contain no
-other point of P (apart from C ′ ), so X must contain at least 4 points of P and thus A′ ∈ X. But
-then each projection of X contains the origin, so X is indeed thick.
-      Note that if X is thick then none of the three projections of Y contains the origin. Consider the
-reflection Y ′ = −Y of Y about the origin. Then (Y, Y ′ ) is an admissible pair with the same volume
-as (X, Y ): the two bodies Y and Y ′ clearly have equal volumes V and they have disjoint projections
-(by convexity, since the projections of Y miss the origin). This proves Claim (1).
-      Claim (2) follows from a similar small casework on the 8-tuple P : For contradiction, suppose
-|P ∩ Y ′ | = |P ∩ Y | ≥ 3. Wlog A ∈ Y ′ . Then C ′ ∈ Y , so C, B ′ , D′ ̸∈ Y ′ , so wlog B, D ∈ Y ′ . Then
-B ′ , D′ ∈ Y , a contradiction with (Y, Y ′ ) being admissible.
-Remark. There are more examples with V → 1/4, e.g. X a union of two triangular pyramids with base
-ACD′ – one with apex D, one with apex at the origin (and Y symmetric with X about the origin).
-Remark. The word “convex” matters. E.g., in a 3 × 3 × 3 cube, one can set X to be a 2 × 2 × 2 sub-cube,
-and Y to be the (non-convex) 3D L-shape consisting of 7 unit cubes. This shows that without convexity we
-have V ≥ 7/27 > 1/4.
-
-
-
-
-                                                    4
-Problem 10. For every positive integer n, let f (n), g(n) be the minimal positive integers such that
-                                              1  1        1    f (n)
-                                         1+     + + ... +    =       .
-                                              1! 2!       n!   g(n)
-    Determine whether there exists a positive integer n for which g(n) > n0.999 n .
-                                              (proposed by Fedor Petrov, St. Petersburg State University)
-
-Solution. We show that there does exist such a number n.
-   Let ε = 10−10 . Call a prime p special, if for certain k ∈ {1, 2, . . . , p − 1} there exist at least ε · k
-positive integers j ≤ k for which p divides f (j).
-Lemma. There exist only finitely many special primes.
-Proof. Let p be a special prime number, and p divides f (j) for at least ε · k values of j ∈ {1, 2, . . . , k}.
-Note that if p divides f (j) and f (j + r), then p divides
-                                 
-                  f (j + r) f (j)
-       (j + r)!            −         = 1 + (j + r) + (j + r)(j + r − 1) + . . . + (j + r) . . . (j + 2)
-                  g(j + r)   g(j)
-that is a polynomial of degree r − 1 with respect to j. Thus, for fixed j it equals to 0 modulo p for at
-most r − 1 values of j. Look at our ≥ ε · k values of j ∈ {1, 2, . . . , k} and consider the gaps between
-consecutive j’s. The number of such gaps which are greater than 2/ε does not exceed ε · k/2 (since
-the total sum of gaps is less than k). Therefore, at least ε · k/2 − 1 gaps are at most 2/ε. But the
-number of such small gaps is bounded from above by a constant (not depending on k) by the above
-observation. Therefore, k is bounded, and, since p divides f (1)f (2) . . . f (k), p is bounded too.
-   Now we want to bound the product g(1)g(2) . . . g(n) (for a large integer n) from below. Let p ≤ n
-be a non-special prime. Our nearest goal is to prove that
-                                                 
-                           νp g(1)g(2) . . . g(n) ≥ (1 − ε)νp (1! · 2! · . . . · n!)                  (1)
- Partition the numbers p, p + 1, . . . , n onto the intervals of length p (except possibly the last interval
-which may be shorter): {p, p + 1, . . . , 2p − 1}, . . . , {p⌊n/p⌋, . . . , n}. Note that in every interval
-∆ = [a · p, a · p + k], all factorials x! with x ∈ ∆ have the same p-adic valuation, denote it T = νp (ap)! .
-We claim that at least (1 − ε)(k + 1) valuations of g(x), x ∈ ∆, are equal to the same number T .
-Indeed, if j = 0 or 1 ≤ j ≤ k and f (j) is not divisible by p, then
-                                 1       1                 1         1    A
-                                    +          + ... +           =      ·
-                               (ap)! (ap + 1)!         (ap + j)!   (ap)! B
-where A ≡ f (j) (mod p), B ≡ g(j) (mod p),  P so, this sum has the same p-adic valuation as1/(ap)!,
-which is strictly less than that of the sum ap−1
-                                               i=0 1/i!, that yields νp g(ap + j) = νp (ap)! . Using
-this for every segment ∆, we get (1).
-    Now, using (1) for all non-special primes, we get
-                                  A · g(1)g(2) . . . g(n) ≥ (1! · 2! · . . . · n!)1−ε ,
-where A = p,k pνp (g(k)) , p runs over non-special primes, k from 1 to n. Since νp (g(k)) ≤ νp (k!) =
-            Q
-P∞        i
-  i=1 ⌊k/p ⌋ ≤ k, we get
-                                                               2
-                                            Y
-                                      A ≤ ( p)1+2+...+n ≤ C n
-                                                    p
-
-for some constant C. But if we had g(n) ≤ n0.999n ≤ en n!0.999 for all n, then
-      log A · g(1)g(2) . . . g(n) ≤ O(n2 ) + 0.999 log(1! · 2! · . . . · n!) < (1 − ε) log(1! · 2! · . . . · n!)
-                                 
-
-for large n, a contradiction.
-
-
-                                                           5
-
+\end{document}

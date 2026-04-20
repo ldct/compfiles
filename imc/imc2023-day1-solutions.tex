@@ -1,220 +1,57 @@
-                                              IMC 2023
-                                     First Day, August 2, 2023
-                                                   Solutions
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
 
+\title{IMC 2023, First Day Solutions}
+\date{August 2, 2023}
 
-Problem 1. Find all functions f : R → R that have a continuous second derivative and for which
-the equality f (7x + 1) = 49f (x) holds for all x ∈ R.
-                                   (proposed by Alex Avdiushenko, Neapolis University Paphos, Cyprus)
+\begin{document}
+\maketitle
 
-Hint:
+\section*{Problem 1}
+Find all $f: \mathbb{R} \to \mathbb{R}$ with continuous $f''$ satisfying $f(7x+1) = 49 f(x)$.
 
-   • The fixed point of 7x + 1 is −1/6.
+\subsection*{Solution}
+Differentiating twice,
+\[ f''(7x+1) = f''(x), \quad \text{i.e., } f''(x) = f''\left(\tfrac{x-1}{7}\right). \]
+For any $x$, set $x_0 = x$, $x_{k+1} = (x_k-1)/7$. Then $|x_{k+1} + 1/6| = \tfrac{1}{7}|x_k + 1/6|$, so $x_k \to -1/6$. By continuity, $f''(x) = f''(-1/6)$ is constant, so $f(x) = ax^2 + bx + c$. Substituting and equating coefficients gives $a = 36c$, $b = 12c$, so
+\[ f(x) = c(6x+1)^2. \]
 
-   • Differentiating twice cancels out the coefficient 49.
+\section*{Problem 2}
+Prove $A^6 = I$ given $A^2 = B^2 = C^2$ and $B^3 = ABC + 2I$.
 
+\subsection*{Solution}
+From $B^3 = A^2 B$: $A^2 B - ABC = 2I$, so $A(AB - BC) = 2I$. From $B^3 = BC^2$: $BC^2 - ABC = 2I$, so $(BC - AB)C = 2I$. Thus $A$ is a left inverse of $(AB - BC)/2$ and $-C$ is a right inverse, giving $A = -C$, and $ABA = 2I - B^3$, which commutes with $B$, so $(AB)^2 = (BA)^2$. Then
+\[ (AB - BA)(AB + BA) = (AB)^2 + AB^2A - BA^2B - (BA)^2 = A^4 - B^4 = 0. \]
+Since $AB - BC = AB + BA$ is invertible, $AB = BA$. Hence $ABA = A^2 B = B^3$, so $B^3 = I$. Thus $A^6 = B^6 = I$.
 
-Solution. Differentiating the equation twice, we get
-                                                                                     
-                              ′′              ′′           ′′          ′′       x−1
-                            f (7x + 1) = f (x) or f (x) = f                               .               (1)
-                                                                                 7
+\section*{Problem 3}
+Find all real polynomials $P$ with $P(x,y)P(z,t) = P(xz-yt, xt+yz)$.
 
-   Take an arbitrary x ∈ R, and construct a sequence by the recurrence
-                                                                xk − 1
-                                          x0 = x,    xk+1 =            .
-                                                                   7
-By (1), the values of f ′′ at all points of this sequence are equal. The limit of this sequence is − 16 ,
-since xk+1 + 61 = 71 xk + 16 .
-    Due to the continuity of f ′′ , the values of f ′′ at all points of this sequence are equal to f ′′ − 61 ,
-                                                                                                            
+\subsection*{Solution}
+Work over $\mathbb{C}$. Write $P(x,y) = (x+iy)^n (x-iy)^m Q(x,y)$ with $Q$ not divisible by $x \pm iy$. Then $Q$ satisfies the same identity. Setting $z = t = 0$: $Q(x,y) Q(0,0) = Q(0,0)$. If $Q(0,0) \neq 0$, then $Q \equiv 1$. If $Q(0,0) = 0$, set $x = iy$, $z = -it$: $Q(iy,y) Q(-it,t) = 0$. But $Q(iy,y)$ and $Q(-it,t)$ are not identically zero (since $Q$ is not divisible by $x \mp iy$), contradiction.
 
-which means that f ′′ (x) is a constant.
-    Then f is an at most quadratic polynomial, f (x) = ax2 + bx + c. Substituting this expression
-into the original equation, we get a system of equations, from which we find a = 36c, b = 12c, and
-hence
-                                            f (x) = c(6x + 1)2 .
+So $P = 0$ or $P = (x+iy)^n(x-iy)^m$. For real coefficients we need $n = m$, giving
+\[ P(x,y) = 0 \quad \text{or} \quad P(x,y) = (x^2 + y^2)^n. \]
 
+\section*{Problem 4}
+\subsection*{Solution}
+$p = 2$ fails so $p$ is odd.
 
+\textbf{Lemma.} For odd prime $p$ and $1 \leq n < p$:
+\[ \prod_{\alpha \in \mathbb{F}_p^*} (1 + \alpha^n) = \begin{cases} 0 & \text{if } (p-1)/\gcd(p-1,n) \text{ is even} \\ 2^n & \text{otherwise} \end{cases} \]
+Assume $n \mid p-1$. Let $t_1, \ldots, t_n$ be roots of $t^n + 1$. Then
+\[ \prod_\alpha (1 + \alpha^n) = \prod_i \prod_\alpha (t_i - \alpha) = \prod_i (t_i^{p-1} - 1) = \prod_i ((-1)^{(p-1)/n} - 1). \]
 
+Now $\prod_{\alpha \in \mathbb{F}_p^*}(\alpha^k + \alpha) = \prod \alpha$ gives $\prod(\alpha^{k-1} + 1) = 1$, so by the lemma $2^{k-1} = 1$ in $\mathbb{F}_p$. Hence $a_2 = 2^k + 2 \equiv 4 \pmod{p}$. Answer: $\{4\}$ for $p > 3$, $\{1\}$ for $p = 3$.
 
-                                                       1
-Problem 2. Let A, B and C be n × n matrices with complex entries satisfying
+\section*{Problem 5}
+\subsection*{Solution}
+Let $S$ be all $n!$ permutations, $P$ preferred. For $x \in S, m \in M$, $x^{-1}(m)$ denotes position of $m$. For $x \in P$, define
+\[ A(x) = \left\{ z \in S : \forall y \in P,\ \sum_m x^{-1}(m) z^{-1}(m) \geq \sum_m y^{-1}(m) z^{-1}(m) \right\}. \]
+Every $z \in S$ lies in some $A(x)$ (pick maximizer). It suffices to show $|A(x)| \leq n!/k!$.
 
-                               A2 = B 2 = C 2     and B 3 = ABC + 2I.
+Fix $x \in P$ and $z \in A(x)$; let $i_1 < \cdots < i_k$ and $m_j = x_{i_j}$. Swapping $m_s, m_{s+1}$ gives $y \in P$, and the defining inequality yields
+\[ i_s z^{-1}(m_s) + i_{s+1} z^{-1}(m_{s+1}) \geq i_{s+1} z^{-1}(m_s) + i_s z^{-1}(m_{s+1}), \]
+so $z^{-1}(m_{s+1}) \geq z^{-1}(m_s)$. Thus $m_1, \ldots, m_k$ appear in $z$ in this order — exactly $n!/k!$ such $z$.
 
-Prove that A6 = I.
-                                                        (proposed by Mike Daas, Universiteit Leiden)
-
-Hint: Factorize B 3 − ABC.
-
-Solution. Note that B 3 = A2 B, from which it follows that
-
-                            A2 B − ABC = 2I =⇒ A(AB − BC) = 2I.
-
-Similarly, using that B 3 = BC 2 , we find that
-
-                            BC 2 − ABC = 2I =⇒ (BC − AB)C = 2I.
-
-It follows that A is a left-inverse of (AB − BC)/2, whereas −C is a right inverse. Hence A = −C
-and as such, it must hold that ABA = 2I − B 3 . It follows that ABA must commute with B, and so
-it follows that (AB)2 = (BA)2 . Now we compute that
-
-  (AB − BA)(AB + BA) = (AB)2 + AB 2 A − BA2 B − (BA)2 = (AB)2 + A4 − B 4 − (AB)2 = 0.
-
-However, we noted before that the matrix AB − BC = AB + BA must be invertible. As such, it
-must follow that AB = BA. We conclude that ABA = A2 B = B 3 and so it readily follows that
-B 3 = I. Finally, A6 = B 6 = (B 3 )2 = I 2 = I, completing the proof.
-
-
-
-
-                                                    2
-Problem 3. Find all polynomials P in two variables with real coefficients satisfying the identity
-
-                                 P (x, y)P (z, t) = P (xz − yt, xt + yz).
-
-                                   (proposed by Giorgi Arabidze, Free University of Tbilisi, Georgia)
-
-Hint: The polynomials (x+iy)n and (x−iy)m are trivial complex solutions. Suppose that P (x, y) =
-(x + iy)n (x − iy)m Q(x, y), where Q(x, y) is divisible neither by x + iy nor x = iy and consider Q(x, y).
-
-Solution. First we find all polynomials P (x, y) with complex coefficients which satisfies the condition
-of the problem statement. The identically zero polynomial clearly satisfies the condition. Let consider
-other polynomials.
-    Let i2 = −1 and P (x, y) = (x + iy)n (x − iy)m Q(x, y), where n and m are non-negative integers
-and Q(x, y) is a polynomial with complex coefficients such that it is not divisible neither by x + iy
-nor by x − iy. By the problem statement we have Q(x, y)Q(z, t) = Q(xz − yt, xt + yz). Note that
-z = t = 0 gives Q(x, y)Q(0, 0) = Q(0, 0). If Q(0, 0) ̸= 0, then Q(x, y) = 1 for all x and y. Thus
-P (x, y) = (x + iy)n (x − iy)m . Now consider the case when Q(0, 0) = 0.
-    Let x = iy and z = −it. We have Q(iy, y)Q(−it, t) = Q(0, 0) = 0 for all y and t. Since Q(x, y)
-is not divisible by x − iy, Q(iy, y) is not identically zero and since Q(x, y) is not divisible by x + iy,
-Q(−it, t) is not identically zero. Thus there exist y and t such that Q(iy, y) ̸= 0 and Q(−it, t) ̸= 0
-which is impossible because Q(iy, y)Q(−it, t) = 0 for all y and t.
-    Finally, P (x, y) polynomials with complex coefficients which satisfies the condition of the problem
-statement are P (x, y) = 0 and P (x, y) = (x + iy)n (x − iy)m . It is clear that if n ̸= m, then
-P (x, y) = (x + iy)n (x − iy)m cannot be polynomial with real coefficients. So we need to require
-n = m, and for this case P (x, y) = (x + iy)n (x − iy)n = (x2 + y 2 )n .
-    So, the answer of the problem is P (x, y) = 0 and P (x, y) = (x2 + y 2 )n where n is any non-negative
-integer.
-
-
-
-
-                                                    3
-Problem 4. Let p be a prime number and let k be a positive integer. Suppose that the numbers
-ai = ik + i for i = 0, 1, . . . , p − 1 form a complete residue system modulo p. What is the set of possible
-remainders of a2 upon division by p?
-                                             (proposed by Tigran Hakobyan, Yerevan State University, Armenia)
-               p−1
-               Y
-Hint: Consider     (ik + i).
-                        i=0
-
-Solution. First observe that p = 2 does not satisfy the condtion, so p must be an odd prime.
-Lemma. If p > 2 is a prime and Fp is the field containing p elements, then for any integer 1 ≤ n < p
-one has the following equality in the field Fp
-
-                                                         p−1
-                                            
-                            Y               0, if                 is even
-                                       n             gcd(p − 1, n)
-                                 (1 + α ) =
-                                             n
-                           α∈F∗p               2 , otherwise
-
-Proof. We may safely assume that n|p − 1 since it can be easily proved that the set of n-th powers
-of the elements of F∗p coincides with the set of gcd(p − 1, n)-th powers of the same elements. Assume
-that t1 , t2 , ..., tn are the roots of the polynomial tn + 1 ∈ Fp [x] in some extension of the field Fp . It
-follows that
-               Y                         n
-                                        YY             n Y
-                                                       Y               n Y
-                                                                       Y              n
-                                                                                      Y
-                      (1 + αn ) =          (α − ti ) =     (α − ti ) =     (ti − α) =   Φ(ti ),
-              α∈F∗p                 α∈F∗p i=1                   i=1 α∈F∗p           i=1 α∈F∗p        i=1
-
-                                                         p−1
-                                    Q
-where we define Φ(t) =                  α∈F∗p (t − α) = t    − 1. Therefore
-
-                        n            n                 n
-                                                                                                (
-     Y
-                   n
-                        Y   p−1
-                                     Y
-                                          n p−1
-                                                       Y      p−1                                0, if p−1
-                                                                                                        n
-                                                                                                           is even
-             (1 + α ) =   (ti − 1) =   ((ti ) n − 1) =   ((−1) n − 1) =                           n
-     α∈F∗p                    i=1                 i=1                       i=1
-                                                                                                 2 , otherwise
-
-    Let us now get back to our problem. Suppose the numbers ik + i, 0 ≤ i ≤ p − 1 form a complete
-residue system modulo p. It follows that
-                                       Y             Y
-                                          (αk + α) =    α
-                                                        α∈F∗p               α∈F∗p
-
-
-so that α∈F∗p (αk−1 + 1) = 1 in Fp . According to the Lemma, this means that 2k−1 = 1 in Fp , or
-        Q
-
-equivalently, that 2k−1 ≡ 1(mod p). Therefore a2 = 2k + 2 ≡ 4(mod p) so that the remainder of a2
-upon division by p is either 4 when p > 3 or is 1, when p = 3.
-
-
-
-
-                                                                      4
-Problem 5. Fix positive integers n and k such that 2 ≤ k ≤ n and a set M consisting of n fruits.
-A permutation is a sequence x = (x1 , x2 , . . . , xn ) such that {x1 , . . . , xn } = M . Ivan prefers some (at
-least one) of these permutations. He realized that for every preferred permutation x, there exist k
-indices i1 < i2 < . . . < ik with the following property: for every 1 ≤ j < k, if he swaps xij and xij+1 ,
-he obtains another preferred permutation.
-    Prove that he prefers at least k! permutations.
-                                   (proposed by Ivan Mitrofanov, École Normale Superieur Paris)
-                                                                                P −1
-Hint: For every permutation z of M , choose a preferred permutation x such that   x (m)z −1 (m)
-                                                                                                  m∈M
-is maximal.
-
-Solution. Let S be the set of all n! permutations of M , and let P be the set of preferred permutations.
-For every permutation x ∈ S and m ∈ M , let x−1 (m) denote the unique number i ∈ {1, 2, . . . , n}
-with xi = m.
-   For every x ∈ P , define
-                                          X                       X                    
-                                                 −1       −1             −1       −1
-             A(x) = z ∈ S : ∀y ∈ P              x (m)z (m) ≥            y (m)z (m) .
-                                                 m∈M                        m∈M
-
-
-                                                                                                       x−1 (m)z −1 (m) is
-                                                                                                 P
-For every permutation z ∈ S, we can choose a permutation x ∈ P for which
-                                                                                                 m∈M
-maximal, and then we have z ∈ A(x); hence, all z ∈ S is contained in at least one set A(x).
-                                               n!
-   So, it suffices to prove that A(x) ≤           for every preferred permutation x. Fix x ∈ P , and
-                                               k!
-consider an arbitrary z ∈ A(x). Let the indices i1 < . . . < ik be as in the statement of the problem,
-and let mj = xij for j = 1, 2, . . . , k.
-   For s = 1, 2, . . . , k − 1 consider the permutation y obtained from x by swapping ms and ms+1 .
-Since y ∈ P , the definition of A(x) provides
-
-                        is z −1 (ms ) + is+1 z −1 (ms+1 ) ≥ is+1 z −1 (ms ) + is z −1 (ms+1 ),
-
-                                             z −1 (ms+1 ) ≥ z −1 (ms ).
-Therefore, the elements m1 , m2 , . . . , mk appear in z in this order. There are exactly n!/k! permuta-
-                                           n!
-tions with this property, so A(x) ≤ .
-                                           k!
-
-
-
-
-                                                          5
-
+\end{document}
