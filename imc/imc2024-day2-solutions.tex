@@ -1,268 +1,100 @@
-                                             IMC 2024
-                                Second Day, August 8, 2024
-                                               Solutions
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
 
+\title{IMC 2024 \\ Second Day, August 8, 2024 \\ Solutions}
+\date{}
 
-Problem 6. Prove that for any function f : Q → Z, there exist a, b, c ∈ Q such that a < b < c,
-f (b) ≥ f (a), and f (b) ≥ f (c).
-                 (proposed by Mehdi Golafshan & Markus A. Whiteland, University of Liège, Liège)
+\begin{document}
+\maketitle
 
-Solution 1. We can replace f (x) by the function g(x) = f (1 − x), so without loss of generality we
-can assume f (0) ≤ f (1).
-   If f (1) ≥ f (2) then we can choose (a, b, c) = (0, 1, 2). Otherwise we have f (0) ≤ f (1) < f (2).
-   If there is some x ∈ (1, 2) such that f (x) ≥ f (2) then we can chose (a, b, c) = (1, x, 2); similarly, if
-there is some x ∈ (1, 2) with f (x) ≤ f (1) then choose (a, b, c) = (0, 1, x). Hence, in the remaining
-cases we have f (1) ≤ f (x) ≤ f (2) for all x ∈ (1, 2).
-   Now f is bonded on the interval [1, 2], so it has only finitely many values on this interval. Since
-there are infintely many rational numbers in [0, 1], there is a value y that is attained infinitely many
-times. The we can choose 1 ≤ a < b < c ≤ 2 such that f (a) = f (b) = f (c) = y.
+\section*{Problem 6}
+(proposed by Mehdi Golafshan \& Markus A. Whiteland, Li\`ege)
 
-Solution 2. Assume towards a contradiction that there is a function f which does not satisfy the
-claim: for all rationals a, b, c with a < b < c we have f (b) < f (a) or f (b) < f (c).
-    Let x and y be arbitrary rationals with x < y. Let I(x, y) = [x, y] ∩ Q. We first observe that
-inf f (I(x, y)) = −∞. Indeed, if the infimum was finite, then, as the set f (I(x, y)) is bounded
-(sup f (I(x, y)) = max{f (x), f (y)}) and thus finite, there are three points having the same value under
-f , which leads to a contradiction regarding our assumption on f .
-    So, going back to the question at hand, let x, b, y be arbitrary rationals with x < b < y. Applying
-the above observation to the set I(x, b), there exists a point a ∈ I(x, b) such that f (a) < f (b).
-Similarly, there exists a point c ∈ I(b, y) such that f (c) < f (b). Hence we have the points a, b, c with
-a < b < c and f (b) > max{f (a), f (c)}, which contradicts our assumption on f .
+\paragraph{Solution 1.}
+WLOG (by replacing $f(x)$ with $f(1-x)$) assume $f(0) \leq f(1)$.
 
+If $f(1) \geq f(2)$ take $(a,b,c) = (0,1,2)$. Otherwise $f(0) \leq f(1) < f(2)$.
 
+If some $x \in (1,2)$ has $f(x) \geq f(2)$, take $(1, x, 2)$. If some $x \in (1,2)$ has $f(x) \leq f(1)$, take $(0, 1, x)$. Otherwise $f(1) \leq f(x) \leq f(2)$ for all $x \in (1,2)$. Then $f$ takes only finitely many values on $[1,2]$ but $[1,2] \cap \mathbb{Q}$ is infinite, so some value $y$ is attained $\geq 3$ times; pick $a < b < c$ with $f(a) = f(b) = f(c) = y$.
 
+\paragraph{Solution 2.}
+Suppose not: for all $a < b < c$, $f(b) < \max(f(a), f(c))$. For any $x < y$, let $I(x,y) = [x,y] \cap \mathbb{Q}$. If $\inf f(I(x,y))$ were finite, then $f(I(x,y))$ being bounded and integer-valued is finite, so some value repeats $\geq 3$ times, contradiction. So $\inf f(I(x,y)) = -\infty$.
 
-                                                     1
-Problem 7. Let n be a positive integer. Suppose that A and B are invertible n × n matrices with
-complex entries such that A + B = I (where I is the identity matrix) and
+Now for any $x < b < y$: pick $a \in I(x,b)$ with $f(a) < f(b)$ and $c \in I(b,y)$ with $f(c) < f(b)$. Contradiction.
 
-                                              (A2 + B 2 )(A4 + B 4 ) = A5 + B 5 .
+\section*{Problem 7}
+Find all $\det(AB)$.
 
-Find all possible values of det(AB) for the given n.
-                   (proposed by Sergey Bondarev, Sergey Chernov, Belarusian State University, Minsk)
+(proposed by Sergey Bondarev, Sergey Chernov, Belarusian State University)
 
-Hint: Find a polynomial p(x) such that p(AB) = 0.
+\paragraph{Solution.}
+Since $AB = A(I-A) = (I-A)A = BA$, $A$ and $B$ commute. Let $C = AB$. Using $A + B = I$:
+\begin{align*}
+A^2+B^2 &= I - 2C, \\
+A^4+B^4 &= I - 4C + 2C^2, \\
+A^5+B^5 &= I - 5C + 5C^2.
+\end{align*}
+So $0 = (A^5+B^5) - (A^2+B^2)(A^4+B^4) = 4C^3 - 5C^2 + C = 4C(C-I)(C - \tfrac14 I)$.
 
-Solution 1. Notice first that AB = A(I − A) = A − A2 = (I − A)A = BA, so A and B commute.
-   Let C = AB = BA; then
+Since $C$ is invertible, $(C-I)(C - \tfrac14 I) = 0$. So eigenvalues of $C$ are in $\{1, \tfrac14\}$, and
+\[
+\det(AB) \in \{1, \tfrac{1}{4}, \tfrac{1}{4^2}, \ldots, \tfrac{1}{4^n}\}.
+\]
+All values achieved by $A = \mathrm{diag}(\tfrac12, \ldots, \tfrac12, e^{i\pi/3}, \ldots, e^{i\pi/3})$ (with $k$ copies of $\tfrac12$) and corresponding $B$.
 
-                  A2 + B 2 = (A + B)2 − 2AB = I − 2C,
-                  A4 + B 4 = (A + B)4 − 4AB(A + B)2 + 2A2 B 2 = I − 4C + 2C 2 ,
-                  A5 + B 5 = (A + B)5 − 5AB(A + B)3 + 5A2 B 2 (A + B) = I − 5C + 5C 2 ,
+\section*{Problem 8}
+(proposed by Karen Keryan, Yerevan State University \& AUA)
 
-so
+\paragraph{Solution.}
+\emph{Claim:} $2 x_n \leq x_{n+1} \leq 2x_n + n$.
 
-           0 = (A5 + B 5 ) − (A2 + B 2 )(A4 + B 4 ) = (I − 5C + 5C 2 ) − (I − 2C)(I − 4C + 2C 2 )
-             = 4C 3 − 5C 2 + C = 4C(C − I)(C − 41 I);
+\emph{Lower bound (induction):} base $n=1$: $4 \geq 4$. Step: $x_{n+2} = 2 x_{n+1} + (x_{n+1} - 2x_n) + \frac{2^n}{x_n} > 2 x_{n+1}$.
 
-since C is invertible, we have
-                                                        (C − I)(C − 41 I) = 0.
-Hence, the polynomial p(x) = (x − 1)(x − 14 ) annihilates the matrix C = AB and therefore all
-eigenvalues of C are roots of p(x), so the possible eigenvalues are 1 and 14 . The determinant is the
-product of the n eigenvalues, so
-                                                    n                   o
-                                                        1 1           1
-                               det(AB) = det C ∈ 1, 4 , 42 , . . . , 4n .
+\emph{Upper bound:} $x_n \geq 2^n$ so $\frac{2^n}{x_n} \leq 1$. Then $x_{n+2} \leq 3x_{n+1} - 2 x_n + 1 \leq 2 x_{n+1} + (2x_n + n) - 2x_n + 1 = 2 x_{n+1} + n + 1$.
 
-     Now show that these values are indeed possible.
-     If
-                                                                                                                
-         A = diag 21 , . . . , 12 , eiπ/3 , . . . , eiπ/3   and B = diag 12 , . . . , 12 , e−iπ/3 , . . . , e−iπ/3 ,
-                   | {z } |                  {z         }                 | {z } |                   {z          }
-                             k                n−k                                             k     n−k
+Let $y_n = x_n/2^n$. Then $y_{n+1} \leq y_n + n/2^n$, so $(y_n)$ is increasing and bounded; let $c = \lim y_n$. Also $y_1 = 1$, so $c \geq 1$.
 
-                                                                       
-                                        1
-then A + B = I, AB = diag               4
-                                          , . . . , 14 , 1, . . . , 1       and det(AB) = 41k .
-                                        | {z }           | {z }
-                                             k             n−k
+The recurrence becomes $4 y_{n+2} - 2 y_{n+1} = 4 y_{n+1} - 2 y_n + \frac{1}{2^n y_n}$. Summing:
+\begin{equation}
+4 y_{m+2} - 2 y_{m+1} = 2 + \sum_{n=1}^m \frac{1}{2^n y_n}. \tag{1}
+\end{equation}
+Since $1 \leq y_n \leq c$, $\frac{1}{c} \leq \sum_n \frac{1}{2^n y_n} \leq 1$. Taking $m \to \infty$ in (1): $2c \in [2 + \tfrac{1}{c}, 3]$. So $2c \leq 3$ and $2c^2 - 2c - 1 \geq 0$, giving $2c \geq 1 + \sqrt{3}$.
 
+\section*{Problem 9}
+(proposed by Fedor Petrov, St Petersburg)
 
+\paragraph{Solution.}
+Define a \emph{standard Young tableau} of shape $m \times n$ as an $m \times n$ matrix with entries $\{1, \ldots, mn\}$ strictly increasing in rows and columns.
 
+Two tableaux $Y_1, Y_2$ are \emph{friends} if they differ by swapping consecutive integers $x, x+1$ (located non-adjacently, so monotonicity preserves).
 
-                                                                            2
- Problem 8. Define the sequence x1 , x2 , . . . by the initial terms x1 = 2, x2 = 4, and the recurrence
- relation
-                                                         2n
-                              xn+2 = 3xn+1 − 2xn +             for n ≥ 1.
-                                                         xn
-                xn
- Prove that lim n exists and satisfies
-            n→∞ 2
-                                            √
-                                       1+ 3              xn     3
-                                                 ≤ lim n ≤ .
-                                          2         n→∞  2      2
+For nice matrix $A$ with $n_i$ entries equal to $i$, replace them (preserving monotonicity) by $n_1 + \cdots + n_{i-1}+1, \ldots, n_1+\cdots+n_i$, getting a standard Young tableau $Y_A$.
 
-(proposed by Karen Keryan, Yerevan State University & American University of Armenia, Armenia)
+Then $Y_A$ has exactly $2t-1$ (odd) friends, where $2t$ is the number of distinct values in $A$. Conversely every tableau with odd number of friends comes from a unique nice matrix.
 
- Hint: Prove that 2xn ≤ xn+1 ≤ 2xn + n.
+By handshaking lemma in the friendship graph (sum of degrees even), the number of tableaux with odd degree is even; so the number of nice $m \times n$ matrices is even.
 
- Solution. Let’s prove by induction that xn+1 ≥ 2xn . It holds for n = 1. Assume it holds for n.
- Then by the induction hypothesis we have that xn ≥ 2xn−1 ≥ . . . ≥ 2n−1 x1 > 0 and
-                                                               2n
-                             xn+2 = 2xn+1 + (xn+1 − 2xn ) +       > 2xn+1 .
-                                                               xn
- Similarly we prove that xn+1 ≤ 2xn + n. Again it holds for n = 1. Assume that the inequality holds
- for n. Then using that xn ≥ 2n and the induction hypothesis we obtain
+\section*{Problem 10}
+(proposed by Tigran Hakobyan, Yerevan State University, Vanadzor)
 
-              xn+2 ≤ 3xn+1 − 2xn + 1 ≤ 2xn+1 + (2xn + n) − 2xn + 1 = 2xn+1 + n + 1.
-                                                                    xn
-    Using the previous inequalities we obtain that the sequence yn = n is increasing and yn+1 ≤
-                                                                    2
-                                                    xn
- yn + 2nn ≤ . . . ≤ y1 + nk=1 2kk < ∞, thus lim yn = n = c exists.
-                        P
-                                            n→∞     2
-    The recurrence relation has the following form for yn :
-                                                                   1
-                                4yn+2 − 2yn+1 = 4yn+1 − 2yn +              .
-                                                                 2n · yn
- By summing up the above equality for n = 1, . . . , m we obtain
-                                                       m          m
-                                                       X 1       X      1
-                      4ym+2 − 2ym+1 = 4y2 − 2y1 +      n
-                                                             =2+      n
-                                                                            .                             (1)
-                                                  n=1
-                                                      2 · yn     n=1
-                                                                     2 · yn
+\paragraph{Solution.}
 
- Now using the facts that y1 = 1, yn increases and limn→∞ yn = c we obtain 1 ≤ yn ≤ c. Hence
-                                               ∞
-                                          1 X 1
-                                            ≤      n·y
-                                                        ≤ 1.
-                                          c   n=1
-                                                  2   n
+\textbf{Lemma 1.} If $n$ is almost prime then $\gcd(n, \varphi(n)) = 1$.
 
+\emph{Proof.} Suppose primes $p, q \mid n$ with $p \equiv 1 \pmod q$. For $0 \leq i \leq p-2$ let $h_i$ be the number of divisors of $n$ congruent to $i$ mod $p-1$; let $\nu_j$ similarly mod $q$. The polynomial $F_n(x) = \sum x^{d_i} - kx$ vanishes on $\mathbb{F}_p$, giving $F_n \equiv (h_1 - k)x + \sum_{i \neq 1} h_i x^i$ in $\mathbb{F}_p[x]$, so $p \mid h_i$ for $i \neq 1$. Then $2^{\omega(n)-1} = \nu_0 = h_0 + h_q + h_{2q} + \ldots \equiv 0 \pmod p$, contradiction. $\square$
 
- Thus we get from (1)
-                                                           ∞             
-                                                           X 1         1
-                      2c = lim (4ym+2 − 2ym+1 ) = 2 +             ∈ 2 + ,3 .
-                          m→∞
-                                                      n=1
-                                                          2n · yn      c
-                                                                               √
- So we have 2c2 ≥ 2c + 1 and 2c ≤ 3. Recall that c ≥ 1. Therefore 1 +              3 ≤ 2c ≤ 3, which finishes
- the proof.
+\textbf{Lemma 2.} Let $q$ prime, $h$ coprime to $q-1$ with order $\ell$ mod $q-1$. Then $\exists a \in \mathbb{F}_q$ with $a^{h^\ell} = a$ and $a - a^h + a^{h^2} - \ldots + (-1)^{\ell-1} a^{h^{\ell-1}} \neq 0$.
 
+\emph{Proof.} $a^{h^\ell} = a$ always. The exponents $h^0, \ldots, h^{\ell-1}$ are distinct mod $q-1$, so $f(x) = x - x^h + \ldots + (-1)^{\ell-1} x^{h^{\ell-1}}$ is nonzero as function on $\mathbb{F}_q$. $\square$
 
+\textbf{Lemma 3.} If $n$ almost prime and $p, q \mid n$ primes, then $\mathrm{ord}_{q-1}(p)$ is odd.
 
+\emph{Proof.} Suppose $\ell$ even. By Lemma 2, $\exists a$ with $a^{p^\ell} = a$ and $f(a) \neq 0$. Define $a_0 = a$, $a_{i+1} = -a_i^p$; since $\ell$ even, $a_\ell = a_0$. Then
+\[
+\sum_{i=0}^{\ell-1} \sum_{d \mid n} a_i^d = \sum_i \sum_{d \mid n/p} (a_i^d + a_i^{pd}) = \sum_i \sum_{d \mid n/p} (a_{i+1}^d + a_i^{pd}) = 0,
+\]
+(using $d$ odd). But $\sum_{d \mid n} a_i^d = k a_i$, so $k f(a) = k \sum a_i = 0$, contradiction since $\gcd(k, q) = 1$ and $f(a) \neq 0$. $\square$
 
-                                                   3
-Problem 9. A matrix A = (aij ) is called nice, if it has the following properties:
- (i) the set of all entries of A is {1, 2, . . . , 2t} for some integer t;
- (ii) the entries are non-decreasing in every row and in every column: ai,j ≤ ai,j+1 and ai,j ≤ ai+1,j ;
-(iii) equal entries can appear only in the same row or the same column: if ai,j = ak,ℓ , then either
-      i = k or j = ℓ;
- (iv) for each s = 1, 2, . . . , 2t − 1, there exist i ̸= k and j ̸= ℓ such that ai,j = s and ak,ℓ = s + 1.
-Prove that for any positive integers m and n, the number          ofnice m× n matrices
-                                                                                           is even.
-                                                             1 1 1           1 1 3
-For example, the only two nice 2 × 3 matrices are                      and             .
-                                                             2 2 2           2 4 4
-                                            (proposed by Fedor Petrov, St Petersburg State University)
+\emph{Main argument.} Suppose $p \mid n$, $r$ Fermat prime, $p \equiv 1 \pmod r$. For any prime $q \mid n$, by Lemma 3, $q^\ell \equiv 1 \pmod{p-1}$ for some odd $\ell$, hence $q^\ell \equiv 1 \pmod r$, hence $q = q^{\gcd(\ell, r-1)} \equiv 1 \pmod r$. So every divisor $d$ of $n$ satisfies $d \equiv 1 \pmod r$. $\square$
 
-Solution. Define a standard Young tableaux of shape m × n as an m × n matrix with the set of
-entries {1, 2, . . . , mn}, increasing in every row and in every column as in (ii).
-    Call two standard Young tableaux Y1 , Y2 friends, if they differ by a switch of two consecutive
-numbers x, x + 1 (the places of x and x + 1 must be not neighbouring, for such a switch preserving
-the monotonicity in rows and columns).
-    For a nice m × n matrix A we construct a standard Young tableaux YA of shape m × n as follows:
-if A has ni entries equal to i (i = 1, 2, . . . , 2t), we replace them by the numbers from n1 + . . . + ni−1 + 1
-to n1 + . . . + ni preserving monotonicity.
-    Note that our YA has exactly 2t − 1 friends, where 2t is the number of distinct entries in A, and
-moreover, every standard Young tableaux with odd number of friends corresponds to a unique nice
-matrix. It remains to apply the handshaking lemma (i.e., the sum of the degrees equals twice the
-number of edges in this graph).
-
-
-
-
-                                                       4
-Problem 10. We say that a square-free positive integer n is almost prime if
-                                       n | xd1 + xd2 + ... + xdk − kx
-for all integers x, where 1 = d1 < d2 < ... < dk = n are all the positive divisors of n. Suppose that r
-                                                    m
-is a Fermat prime (i.e. it is a prime of the form 22 + 1 for an integer m ≥ 0), p is a prime divisor of
-an almost prime integer n, and p ≡ 1 (mod r). Show that, with the above notation, di ≡ 1 (mod r)
-for all 1 ≤ i ≤ k.
-(An integer n is called square-free if it is not divisible by d2 for any integer d > 1.)
-                      (proposed by Tigran Hakobyan, Yerevan State University, Vanadzor, Armenia)
-
-Solution. We first prove the following claims.
-Lemma 1. If n is almost prime then gcd(n, φ(n)) = 1.
-Proof. Assume to the contrary that gcd(n, φ(n)) > 1 so that there are primes p and q dividing n such
-that p ≡ 1(mod q). For 0 ≤ i ≤ p − 2 let hi be the number of positive divisors of n congruent to i
-modulo p−1 and similarly for 0 ≤ j ≤ q −1 let νj denote the number of positive divisors of n congruent
-to j modulo q. Observe that the polynomial Fn (x) = xd1 + xd2 + ... + xdk − kx definesPthe zero function
-on Fp due to the condition of the problem. On the other hand, Fn (x) = (h1 − k)x + i̸=1 hi xi in Fp [x],
-so that p|hi for all 0 ≤ i ≤ p − 2, i ̸= 1. It follows that 2ω(n)−1 = ν0 = h0 + hq + h2q + ... ≡ 0(mod p)
-which is a contradiction (here ω(n) means the number of distinct prime divisors of n). Therefore our
-assumption was wrong and the lemma is proved. 2
-Lemma 2. Let q be a prime number and let h be a positive integer coprime to q − 1. If l is the order
-                                                        l
-of h modulo q − 1, then there exists a ∈ Fq such that ah = a and
-                                                 2                          l−1
-                                  a − ah + ah − ... + (−1)l−1 ah                   ̸= 0
-                         l
-Proof. Observe that ah = a for any a ∈ Fq since q − 1|hl − 1. On the other hand, the numbers
-h0 , h1 , ..., hl−1 leave different remainders upon division by q − 1 and therefore the polynomial
-                                                            2                         l−1
-                                f (x) = x − xh + xh − ... + (−1)l−1 xh
-defines a function on Fq , which is not identically zero. Hence the existence of an element with the
-required properties is proved. 2
-Lemma 3. If n is almost prime then for any primes p and q dividing n, the order of p modulo q − 1
-is an odd number.
-Proof. Observe that due to Lemma 1 the order l of p modulo q − 1 is well defined and assume to the
-                                                                                             l
-contrary that l is an even number. According to Lemma 2 there exists a ∈ Fq such that ap = a and
-                                       2                l−1
-f (a) ̸= 0, where f (x) = x − xp + xp − ... + (−1)l−1 xp . Let us consider the sequence (ai )li=0 ⊂ Fq
-defined by a0 = a and ai+1 = −api for 0 ≤ i ≤ l − 1. Notice that since l is even by the assumption, we
-             l
-have al = ap0 = a0 . It follows that
-                                                     
-                   Xl−1 X         l−1
-                                  X     X       X pd        l−1 X 
-                                                            X                   
-                            adi =        adi +   ai  =            adi+1 + apd
-                                                                             i    = 0,
-                   i=0 d|n       i=0    d| n
-                                           p
-                                                     d| n
-                                                        p
-                                                                        i=0 d| n
-                                                                               p
-
-
-since d is always odd being a divisor of n (Recall that gcd(n, φ(n)) = 1 due to Lemma 1, so that
-                                                        p
-                                           P ai+1d = −ai for all 0 ≤ i ≤ l − 1. On the other hand,
-n is odd, except the trivial case n = 2), and
-according to the condition of the problem, d|n ai = kai in Fq for all i, which shows that
-                                           l−1
-                                           X            l−1
-                                                        X               l−1 X
-                                                                        X
-                              kf (a) = k         ai =           kai =              adi = 0
-                                           i=0          i=0             i=0 d|n
-
-
-                                                            5
-in Fq which is impossible, since f (a) ̸= 0 by construction and k = 2ω(n)−1 is coprime to q. The
-attained contradiction shows that our assumption was wrong and concludes the proof of the lemma.
-2
-                                                                       m
-    Let us get back to the problem. Suppose that p|n is prime and r = 22 + 1 is a Fermat’s prime such
-that p ≡ 1(mod r). If q is any prime divisor of n, then by Lemma 3 we have that q l ≡ 1(mod p − 1)
-for some odd l, so that q l ≡ 1(mod r) and therefore q = q gcd(l,r−1) ≡ 1(mod r). Hence d ≡ 1(mod r)
-for any divisor d of n. 2
-
-
-
-
-                                                 6
-
+\end{document}
