@@ -17,6 +17,7 @@ import Compfiles.Imc2025P5
 import Compfiles.Imc2025P6
 import Compfiles.Imc2025P7
 import Compfiles.Imc2025P8
+import Compfiles.Imc2025P9
 import Compfiles.Imo1959P1
 import Compfiles.Imo1959P2
 import Compfiles.Imo1960P1
