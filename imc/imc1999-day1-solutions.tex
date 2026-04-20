@@ -1,207 +1,62 @@
-                  6th INTERNATIONAL COMPETITION FOR UNIVERSITY
-                             STUDENTS IN MATHEMATICS
-                                    Keszthely, 1999.
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{IMC 1999, Day 1 --- Solutions}
+\begin{document}
+\maketitle
 
-                                       Problems and solutions on the first day
+\section*{Problem 1}
+(a) Show for any $m\in\mathbb{N}$ there is a real $m\times m$ matrix $A$ with $A^3 = A+I$.
 
-1. a) Show that for any m ∈ N there exists a real m × m matrix A such that A3 = A + I, where I is the
-m × m identity matrix. (6 points)
-b) Show that det A > 0 for every real m × m matrix satisfying A3 = A + I. (14 points)
-Solution. a) The diagonal matrix                                                  
-                                                                 λ             0
-                                                                      ..
-                                               A = λI =                   .       
-                                                                 0             λ
-is a solution for equation A3 = A + I if and only if λ3 = λ + 1, because A3 − A − I = (λ3 − λ − 1)I. This
-equation, being cubic, has real solution.
-      b) It is easy to check that the polynomial p(x) = x3 − x − 1 has a positive real root λ1 (because p(0) < 0)
-and two conjugated complex roots λ2 and λ3 (one can check the discriminant of the polynomial, which is
-     
-  −1 3
-                2    23
-   3    + −1  2    = 108 > 0, or the local minimum and maximum of the polynomial).
-      If a matrix A satisfies equation A3 = A + I, then its eigenvalues can be only λ1 , λ2 and λ3 . The
-multiplicity of λ2 and λ3 must be the same, because A is a real matrix and its characteristic polynomial has
-only real coefficients. Denoting the multiplicity of λ1 by α and the common multiplicity of λ2 and λ3 by β,
-                                                        β β
-                                            det A = λα          α           β
-                                                     1 λ2 λ3 = λ1 · (λ2 λ3 ) .
+(b) Show $\det A > 0$ for any such matrix.
 
-Because λ1 and λ2 λ3 = |λ2 |2 are positive, the product on the right side has only positive factors.
+\subsection*{Solution}
+(a) Take $A = \lambda I$ where $\lambda$ is a real root of $x^3-x-1=0$; such $\lambda$ exists since $p(0)=-1<0$.
 
-2. Does there exist a bijective map π : N → N such that
-                                                     ∞
-                                                     X π(n)
-                                                                     < ∞?
-                                                     n=1
-                                                           n2
+(b) $p(x)=x^3-x-1$ has one real root $\lambda_1>0$ and two complex conjugate roots $\lambda_2, \lambda_3$ (discriminant $(-1/3)^3+(-1/2)^2 = 23/108 > 0$). Eigenvalues of $A$ are among these. Since $A$ is real, $\lambda_2, \lambda_3$ have equal multiplicity $\beta$. Let $\lambda_1$ have multiplicity $\alpha$:
+\[\det A = \lambda_1^\alpha (\lambda_2\lambda_3)^\beta = \lambda_1^\alpha |\lambda_2|^{2\beta} > 0.\]
 
-(20 points)
-Solution 1. No. For, let π be a permutation of N and let N ∈ N. We shall argue that
+\section*{Problem 2}
+Does there exist a bijection $\pi:\mathbb{N}\to\mathbb{N}$ with $\sum_{n=1}^\infty \pi(n)/n^2 < \infty$?
 
-                                                      3N
-                                                      X  π(n)  1
-                                                            2
-                                                              > .
-                                                          n    9
-                                                    n=N +1
+\subsection*{Solution}
+No. For any $N$, among $\pi(N+1),\dots,\pi(3N)$ at most $N$ can be $\le N$, so at least $N$ exceed $N$. Hence
+\[\sum_{n=N+1}^{3N}\frac{\pi(n)}{n^2} \ge \frac{1}{(3N)^2}\sum_{n=N+1}^{3N}\pi(n) > \frac{1}{9N^2}\cdot N\cdot N = \frac 19.\]
+Taking $N\to\infty$ shows divergence.
 
+\section*{Problem 3}
+Suppose $f:\mathbb{R}\to\mathbb{R}$ satisfies $\left|\sum_{k=1}^n 3^k(f(x+ky)-f(x-ky))\right|\le 1$ for all $n,x,y$. Prove $f$ is constant.
 
-In fact, of the 2N numbers π(N + 1), . . . , π(3N ) only N can be ≤ N so that at least N of them are > N .
-Hence
-                           3N                        3N
-                           X   π(n)           1     X             1           1
-                                  2
-                                      ≥           2
-                                                         π(n) >     2
-                                                                      ·N ·N = .
-                                n           (3N )               9N            9
-                             n=N +1                     n=N +1
+\subsection*{Solution}
+Subtracting the $n-1$ inequality from the $n$ inequality: $|3^n(f(x+ny)-f(x-ny))|\le 2$, so $|f(x+ny)-f(x-ny)|\le 2/3^n$.
 
+For any $u<v$, pick $x=(u+v)/2$, $y=(v-u)/(2n)$ to get $|f(u)-f(v)|\le 2/3^n$. Letting $n\to\infty$, $f(u)=f(v)$.
 
-Solution 2. Let π be a permutation of N. For any n ∈ N, the numbers π(1), . . . , π(n) are distinct positive
-integers, thus π(1) + . . . + π(n) ≥ 1 + . . . + n = n(n+1)
-                                                        2   . By this inequality,
-                            ∞               ∞                                                     
-                            X π(n)          X                                     1       1
-                                        =         π(1) + . . . + π(n)                 −                ≥
-                            n=1
-                                  n2        n=1
-                                                                                   n2   (n + 1)2
+\section*{Problem 4}
+Find all strictly monotonic $f:(0,\infty)\to(0,\infty)$ with $f(x^2/f(x)) = x$.
 
-                           ∞                               ∞               ∞
-                           X n(n + 1)          2n + 1     X    2n + 1     X     1
-                       ≥                    · 2         =               ≥           = ∞.
-                           n=1
-                                  2          n (n + 1)2   n=1
-                                                              2n(n + 1)   n=1
-                                                                              n + 1
+\subsection*{Solution}
+Let $g(x)=f(x)/x$. The equation gives $g(x/g(x)) = g(x)$, and by induction $f(x/g^n(x)) = x/g^{n-1}(x)$. Substituting $x\to f(x)$ and using injectivity yields $g(xg(x))=g(x)$, so $f(xg^n(x))=xg^{n-1}(x)$.
 
-                                                             1
-3. Suppose that a function f : R → R satisfies the inequality
-                                         n
-                                         X                                   
-                                               3k f (x + ky) − f (x − ky)        ≤1                               (1)
-                                         k=1
+Combining, $f^{(m)}(xg^n(x)) = xg^{n-m}(x)$. If $g(x_1)<g(x_2)$, pick $n$ with $x_1 g^n(x_1)\le x_2 g^n(x_2)$. For $m$ even, $f^{(m)}$ is increasing, so $x_1 g^{n-m}(x_1)\le x_2 g^{n-m}(x_2)$; but for large $m$ this fails (reverse inequality). Contradiction: $g$ is constant.
 
-for every positive integer n and for all x, y ∈ R. Prove that f is a constant function. (20 points)
-Solution. Writing (1) with n − 1 instead of n,
-                                        n−1
-                                        X                                    
-                                               3k f (x + ky) − f (x − ky)        ≤ 1.                             (2)
-                                        k=1
+So $f(x) = Cx$ with $C>0$, and the original equation forces $C^2 \cdot (x/C) = x$, so $C = C$ is arbitrary positive. Verifying: $f(x^2/f(x)) = f(x/C) = x$. Answer: $f(x)=Cx$, $C>0$.
 
-From the difference of (1) and (2),
-                                                                         
-                                          3n f (x + ny) − f (x − ny)         ≤ 2;
+\section*{Problem 5}
+If $2n$ points are marked on an $n\times n$ grid, show that for some $k>1$ one can pick $2k$ distinct marked points $a_1,\dots,a_{2k}$ with $a_1,a_2$ in a row, $a_2,a_3$ in a column, $\dots$, $a_{2k-1},a_{2k}$ in a row, $a_{2k},a_1$ in a column.
 
-which means
-                                                                2
-                                                                  .
-                                            f (x + ny) − f (x − ny) ≤                               (3)
-                                                               3n
-    For arbitrary u, v ∈ R and n ∈ N one can choose x and y such that x − ny = u and x + ny = v, namely
-x = u+v           v−u
-     2 and y = 2n . Thus, (3) yields
-                                                           2
-                                           f (u) − f (v) ≤ n
-                                                          3
-for arbitrary positive integer n. Because 32n can be arbitrary small, this implies f (u) = f (v).
-                                                                              2 
-4. Find all strictly monotonic functions f : (0, +∞) → (0, +∞) such that f fx(x) ≡ x. (20 points)
-                          f (x)               x                                              x
-Solution. Let g(x) =            . We have g(      ) = g(x). By induction it follows that g( n    ) = g(x), i.e.
-                            x                g(x)                                          g (x)
-                                                x         x
-(1)                                         f( n    ) = n−1     , n ∈ N.
-                                              g (x)    g    (x)
+\subsection*{Solution}
+Make a graph $G$ with vertices = rows $\cup$ columns, and edge between $r$ and $c$ iff $(r,c)$ is marked. Then $G$ has $2n$ vertices, $2n$ edges, so $G$ contains a cycle. A cycle alternates rows and columns, and its consecutive edges correspond to marked points giving the required sequence.
 
-                                                    x2                                             f 2 (x)
-      On the other hand, let substitute x by f (x) in f () = x. ¿From the injectivity of f we get           =
-                                                   f (x)                                          f (f (x))
-x, i.e. g(xg(x)) = g(x). Again by induction we deduce that g(xg n (x)) = g(x) which can be written in the
-form
+\section*{Problem 6}
+(a) For $1<p<\infty$ find $c_p<\infty$ such that if $f\in C^1[-1,1]$ with $f(1)>f(-1)$ and $|f'|\le 1$, then there is $x\in[-1,1]$ with $f'(x)>0$ and $|f(y)-f(x)|\le c_p (f'(x))^{1/p}|y-x|$ for all $y$.
 
-(2)                                        f (xg n (x)) = xg n−1 (x), n ∈ N.
+(b) Does $c_1$ exist?
 
-      Set f (m) = f ◦ f ◦ . . . ◦ f . It follows from (1) and (2) that
-                  |     {z        }
-                      m times
+\subsection*{Solution}
+(a) Let $g(x)=\max(0,f'(x))$. Then $\int|f'|\le 2\int g$. Suppose the claim fails for $c=c_p$. For each $t>0$ and each $x$ with $g(x)>t$, take an interval $I_x=[x,y]$ with $|f(y)-f(x)|>c t^{1/p}|I_x|$. Vitali covering gives disjoint $I_{x_i}$ covering at least $\frac 13$ of $\{g>t\}$. Then $ct^{1/p}|I| \le \int_I f' \le 2\int g$, so $|\{g>t\}|\le (6/c)t^{-1/p}\int g$. Integrating in $t$:
+\[\int g = \int_0^1 |\{g>t\}|\,dt \le (6/c)\cdot p/(p-1)\cdot \int g,\]
+contradiction for $c_p = 6p/(p-1)$.
 
+(b) No. Given $c>1$, $\alpha=1/c$, pick $0<\varepsilon<1$ with $((1+\varepsilon)/(2\varepsilon))^{-\alpha}<1/4$. Let $g$ be even continuous on $[-1,1]$, $g(x)=-1$ for $|x|\le\varepsilon$, $0\le g(x)<\alpha((|x|+\varepsilon)/(2\varepsilon))^{-\alpha-1}$ for $\varepsilon<|x|\le 1$, chosen with $\int_\varepsilon^1 g > \varepsilon$. Let $f=\int g$. Then $f(1)-f(-1)>0$. For $\varepsilon<x<1$ and $y=-\varepsilon$, $|f(x)-f(y)|\ge 2\varepsilon((x+\varepsilon)/(2\varepsilon))^{-\alpha} > g(x)|x-y|/\alpha = f'(x)|x-y|/\alpha$. No valid $x$ exists.
 
-(3)                                    f (m) (xg n (x)) = xg n−m (x), m, n ∈ N.
-
-     Now, we shall prove that g is a constant. Assume g(x1 ) < g(x2 ). Then we may find n ∈ N such
-that x1 g n (x1 ) ≤ x2 g n (x2 ). On the other hand, if m is even then f (m) is strictly increasing and from (3) it
-follows that xm  1 g
-                     n−m
-                         (x1 ) ≤ xm2 g
-                                       n−m
-                                           (x2 ). But when n is fixed the opposite inequality holds ∀m  1. This
-contradiction shows that g is a constant, i.e. f (x) = Cx, C > 0.
-     Conversely, it is easy to check that the functions of this type verify the conditions of the problem.
-
-5. Suppose that 2n points of an n × n grid are marked. Show that for some k > 1 one can select 2k distinct
-marked points, say a1 , . . . , a2k , such that a1 and a2 are in the same row, a2 and a3 are in the same column,
-. . . , a2k−1 and a2k are in the same row, and a2k and a1 are in the same column. (20 points)
-
-                                                            2
-Solution 1. We prove the more general statement that if at least n + k points are marked in an n × k grid,
-then the required sequence of marked points can be selected.
-     If a row or a column contains at most one marked point, delete it. This decreases n + k by 1 and the
-number of the marked points by at most 1, so the condition remains true. Repeat this step until each row
-and column contains at least two marked points. Note that the condition implies that there are at least two
-marked points, so the whole set of marked points cannot be deleted.
-     We define a sequence b1 , b2 , . . . of marked points. Let b1 be an arbitrary marked point. For any positive
-integer n, let b2n be an other marked point in the row of b2n−1 and b2n+1 be an other marked point in the
-column of b2n .
-
-
-
-
-      Let m be the first index for which bm is the same as one of the earlier points, say bm = bl , l < m.
-      If m − l is even, the line segments bl bl+1 , bl+1 bl+2 , ..., bm−1 bl = bm−1 bm are alternating horizontal and
-vertical. So one can choose 2k = m − l, and (a1 , . . . , a2k ) = (bl , . . . , bm−1 ) or (a1 , . . . , a2k ) = (bl+1 , . . . , bm )
-if l is odd or even, respectively.
-      If m − l is odd, then the points bl = bm , bl+1 and bm−1 are in the same row/column. In this case chose
-2k = m − l − 1. Again, the line segments bl+1 bl+2 , bl+2 bl+3 , ..., bm−1 bl+1 are alternating horizontal and
-vertical and one can choose (a1 , . . . , a2k ) = (bl+1 , . . . , bm−1 ) or (a1 , . . . , a2k ) = (bl+2 , . . . , bm−1 , bl+1 ) if l is
-even or odd, respectively.
-Solution 2. Define the graph G in the following way: Let the vertices of G be the rows and the columns of
-the grid. Connect a row r and a column c with an edge if the intersection point of r and c is marked.
-     The graph G has 2n vertices and 2n edges. As is well known, if a graph of N vertices contains no circle,
-it can have at most N − 1 edges. Thus G does contain a circle. A circle is an alternating sequence of rows
-and columns, and the intersection of each neighbouring row and column is a marked point. The required
-sequence consists of these intersection points.
-
-6. a) For each 1 < p < ∞ find a constant cp < ∞ for which the following statement holds: If f : [−1, 1] → R
-is a continuously differentiable function satisfying f (1) > f (−1) and |f 0 (y)| ≤ 1 for all y ∈ [−1, 1], then there
-                                                                          1/p
-is an x ∈ [−1, 1] such that f 0 (x) > 0 and |f (y) − f (x)| ≤ cp f 0 (x)       |y − x| for all y ∈ [−1, 1]. (10 points)
-b) Does such a constant also exist for p = 1? (10 points)
-                                                             R1                 R1             R1
-Solution. (a) Let g(x) = max(0, f 0 (x)). Then 0 < −1 f 0 (x)dx = −1 g(x)dx + −1 (f 0 (x) − g(x))dx, so
-         R1                 R1             R1                          R1
-we get −1 |f 0 (x)|dx = −1 g(x)dx + −1 (g(x) − f 0 (x))dx < 2 −1 g(x)dx. Fix p and c (to be determined
-at the end). Given any t > 0, choose for every x such that g(x) > t an interval I x = [x, y] such that
-|f (y) − f (x)| > cg(x)1/p |y − x| > ct1/p |Ix | and choose disjoint Ixi that cover at least one third of the measure
-                                   S                                 R               R1                  R1
-of the set {g > t}. For I = i Ii we thus have ct1/p |I| ≤ I f 0 (x)dx ≤ −1 |f 0 (x)|dx < 2 −1 g(x)dx; so
-                                  R 1                                                  R 1            R 1
-|{g > t}| ≤ 3|I| < (6/c)t−1/p −1 g(x)dx. Integrating the inequality, we get −1 g(x)dx = 0 |{g > t}|dt <
-                 R1
-(6/c)p/(p − 1) −1 g(x)dx; this is a contradiction e.g. for cp = (6p)/(p − 1).
-      (b) No. Given c > 1, denote α = 1/c and choose 0 < ε < 1 such that ((1 + ε)/(2ε)) −α < 1/4. Let
-g : [−1, 1] → [−1, 1] be continuous, even, g(x) = −1 for |x| ≤ ε and 0 ≤ g(x) < α((|x| + ε)/(2ε)) −α−1 for ε <
-                              R1                    R1
-|x| ≤ 1 is chosen such that ε g(t)dt > −ε/2+ ε α((|x|+ε)/(2ε))−α−1 dt = −ε/2+2ε(1−((1+ε)/(2ε))−α) > ε.
-          R                                            R1
-Let f = g(t)dt. Then f (1) − f (−1) ≥ −2ε + 2 ε g(t)dt > 0. If ε < x < 1 and y = −ε, then |f (x) − f (y)| ≥
-       Rx                  Rx
-2ε − ε g(t)dt ≥ 2ε − ε α((t + ε)/(2ε))−α−1 = 2ε((x + ε)/(2ε))−α > g(x)|x − y|/α = f 0 (x)|x − y|/α;
-symmetrically for −1 < x < −ε and y = ε.
-
-
-
-                                                                  3
-
+\end{document}
