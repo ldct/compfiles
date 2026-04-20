@@ -1,40 +1,46 @@
-                   IMC2011, Blagoevgrad, Bulgaria
-                                   Day 1, July 30, 2011
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
 
+\title{IMC 2011, Blagoevgrad, Bulgaria \\ Day 1, July 30, 2011}
+\date{}
 
-Problem 1. Let f : R → R be a continuous function. A point x is called a shadow point
-if there exists a point y ∈ R with y > x such that f (y) > f (x). Let a < b be real numbers
-and suppose that
-   • all the points of the open interval I = (a, b) are shadow points;
-   • a and b are not shadow points.
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+Let $f : \mathbb{R} \to \mathbb{R}$ be a continuous function. A point $x$ is called a \emph{shadow point} if there exists a point $y \in \mathbb{R}$ with $y > x$ such that $f(y) > f(x)$. Let $a < b$ be real numbers and suppose that
+\begin{itemize}
+  \item all the points of the open interval $I = (a, b)$ are shadow points;
+  \item $a$ and $b$ are not shadow points.
+\end{itemize}
 Prove that
-   a) f (x) ≤ f (b) for all a < x < b;
-   b) f (a) = f (b).
-                                                                                        (10 points)
+\begin{enumerate}
+  \item[a)] $f(x) \le f(b)$ for all $a < x < b$;
+  \item[b)] $f(a) = f(b)$.
+\end{enumerate}
 
-Problem 2. Does there exist a real 3 × 3 matrix A such that tr(A) = 0 and A2 + At = I?
-(tr(A) denotes the trace of A, At is the transpose of A, and I is the identity matrix.)
-                                                                                (10 points)
+\section*{Problem 2}
+Does there exist a real $3 \times 3$ matrix $A$ such that $\operatorname{tr}(A) = 0$ and $A^2 + A^t = I$? ($\operatorname{tr}(A)$ denotes the trace of $A$, $A^t$ is the transpose of $A$, and $I$ is the identity matrix.)
 
-Problem 3. Let p be a prime number. Call a positive integer n interesting if
-                                xn − 1 = (xp − x + 1)f (x) + pg(x)
-for some polynomials f and g with integer coefficients.
-    a) Prove that the number pp − 1 is interesting.
-    b) For which p is pp − 1 the minimal interesting number?
-                                                                                        (10 points)
+\section*{Problem 3}
+Let $p$ be a prime number. Call a positive integer $n$ \emph{interesting} if
+\[
+x^n - 1 = (x^p - x + 1)f(x) + p\, g(x)
+\]
+for some polynomials $f$ and $g$ with integer coefficients.
+\begin{enumerate}
+  \item[a)] Prove that the number $p^p - 1$ is interesting.
+  \item[b)] For which $p$ is $p^p - 1$ the minimal interesting number?
+\end{enumerate}
 
-Problem 4. Let A1 , A2 , . . . , An be finite, nonempty sets. Define the function
-                                X
-                                n           X
-                      f (t) =                         (−1)k−1 t|Ai1 ∪Ai2 ∪...∪Aik | .
-                                k=1 1≤i1 <i2 <...<ik ≤n
+\section*{Problem 4}
+Let $A_1, A_2, \ldots, A_n$ be finite, nonempty sets. Define the function
+\[
+f(t) = \sum_{k=1}^{n} \sum_{1 \le i_1 < i_2 < \ldots < i_k \le n} (-1)^{k-1} t^{|A_{i_1} \cup A_{i_2} \cup \ldots \cup A_{i_k}|}.
+\]
+Prove that $f$ is nondecreasing on $[0, 1]$.
 
-Prove that f is nondecreasing on [0, 1].
-   (|A| denotes the number of elements in A.)
-                                                                                        (10 points)
+\section*{Problem 5}
+Let $n$ be a positive integer and let $V$ be a $(2n-1)$-dimensional vector space over the two-element field. Prove that for arbitrary vectors $v_1, \ldots, v_{4n-1} \in V$, there exists a sequence $1 \le i_1 < \ldots < i_{2n} \le 4n-1$ of indices such that $v_{i_1} + \ldots + v_{i_{2n}} = 0$.
 
-Problem 5. Let n be a positive integer and let V be a (2n − 1)-dimensional vector space
-over the two-element field. Prove that for arbitrary vectors v1 , . . . , v4n−1 ∈ V , there exists
-a sequence 1 ≤ i1 < . . . < i2n ≤ 4n − 1 of indices such that vi1 + . . . + vi2n = 0.
-                                                                                       (10 points)
-
+\end{document}

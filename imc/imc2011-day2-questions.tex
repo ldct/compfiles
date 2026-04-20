@@ -1,61 +1,42 @@
-                        IMC2011, Blagoevgrad, Bulgaria
-                                       Day 2, July 31, 2011
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
 
+\title{IMC 2011, Blagoevgrad, Bulgaria \\ Day 2, July 31, 2011}
+\date{}
 
-                                           1
-Problem 1. Let (an )∞
-                    n=0 be a sequence with 2 < an < 1 for all n ≥ 0. Define the sequence (xn )n=0
-                                                                                              ∞
+\begin{document}
+\maketitle
 
-by
-                                              an+1 + xn
-                          x0 = a0 ,   xn+1 =                (n ≥ 0).
-                                              1 + an+1 xn
-What are the possible values of lim xn ? Can such a sequence diverge?
-                                  n→∞
-                                                                                                (10 points)
+\section*{Problem 1}
+Let $(a_n)_{n=0}^\infty$ be a sequence with $\tfrac{1}{2} < a_n < 1$ for all $n \ge 0$. Define $(x_n)$ by
+\[
+x_0 = a_0, \qquad x_{n+1} = \frac{a_{n+1} + x_n}{1 + a_{n+1} x_n} \quad (n \ge 0).
+\]
+What are the possible values of $\lim_{n \to \infty} x_n$? Can such a sequence diverge?
 
-Problem 2. An alien race has three genders: male, female, and emale. A married triple consists
-of three persons, one from each gender, who all like each other. Any person is allowed to belong to
-at most one married triple. A special feature of this race is that feelings are always mutual — if x
-likes y, then y likes x.
-    The race is sending an expedition to colonize a planet. The expedition has n males, n females,
-and n emales. It is known that every expedition member likes at least k persons of each of the
-two other genders. The problem is to create as many married triples as possible to produce healthy
-offspring so the colony could grow and prosper.
+\section*{Problem 2}
+An alien race has three genders: male, female, and emale. A \emph{married triple} consists of three persons, one from each gender, who all like each other. Any person is allowed to belong to at most one married triple. Feelings are always mutual.
 
-  a) Show that if n is even and k = n2 , then it might be impossible to create even one married triple.
+The expedition has $n$ males, $n$ females, and $n$ emales; every member likes at least $k$ persons of each of the two other genders.
+\begin{enumerate}
+  \item[a)] Show that if $n$ is even and $k = n/2$, it might be impossible to create even one married triple.
+  \item[b)] Show that if $k \ge 3n/4$, it is always possible to create $n$ disjoint married triples.
+\end{enumerate}
 
-  b) Show that if k ≥ 3n4
-                          , then it is always possible to create n disjoint married triples, thus marrying
-     all of the expedition members.
+\section*{Problem 3}
+Determine the value of
+\[
+\sum_{n=1}^\infty \ln\!\left(1 + \frac{1}{n}\right) \cdot \ln\!\left(1 + \frac{1}{2n}\right) \cdot \ln\!\left(1 + \frac{1}{2n+1}\right).
+\]
 
-                                                                                                (10 points)
+\section*{Problem 4}
+Let $f(x)$ be a polynomial with real coefficients of degree $n$. Suppose $\dfrac{f(k) - f(m)}{k - m}$ is an integer for all integers $0 \le k < m \le n$. Prove that $a - b$ divides $f(a) - f(b)$ for all distinct integers $a$ and $b$.
 
-Problem 3. Determine the value of
-                     ∞                                         
-                    X             1             1               1
-                         ln 1 +       · ln 1 +      · ln 1 +          .
-                    n=1
-                                  n            2n            2n + 1
+\section*{Problem 5}
+Let $F = A_0 A_1 \ldots A_n$ be a convex polygon in the plane. For $1 \le k \le n - 1$, define the operation $f_k$ that replaces $F$ with
+\[
+f_k(F) = A_0 \ldots A_{k-1} A'_k A_{k+1} \ldots A_n,
+\]
+where $A'_k$ is the reflection of $A_k$ across the perpendicular bisector of $A_{k-1} A_{k+1}$. Prove that $(f_1 \circ f_2 \circ \cdots \circ f_{n-1})^n (F) = F$, assuming all intermediate polygons are convex.
 
-                                                                                                (10 points)
-
-                                                                                       f (k) − f (m)
-Problem 4. Let f (x) be a polynomial with real coefficients of degree n. Suppose that
-                                                                                           k−m
-is an integer for all integers 0 ≤ k < m ≤ n. Prove that a − b divides f (a) − f (b) for all pairs of
-distinct integers a and b.
-                                                                                         (10 points)
-
-Problem 5. Let F = A0 A1 . . . An be a convex polygon in the plane. Define for all 1 ≤ k ≤ n − 1
-the operation fk which replaces F with a new polygon
-
-                                   fk (F ) = A0 . . . Ak−1 A′k Ak+1 . . . An ,
-
-where A′k is the point symmetric to Ak with respect to the perpendicular bisector of Ak−1 Ak+1 . Prove
-that (f1 ◦ f2 ◦ . . . ◦ fn−1 )n (F ) = F . We suppose that all operations are well-defined on the polygons,
-to which they are applied, i.e. results are convex polygons again. (A0 , A1 , . . . , An are the vertices of
-F in consecutive order.)
-                                                                                                (10 points)
-
+\end{document}

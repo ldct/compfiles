@@ -1,269 +1,90 @@
-                                 IMC2011, Blagoevgrad, Bulgaria
-                                                 Day 2, July 31, 2011
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
 
-                                           1
-Problem 1. Let (an )∞                                                                         ∞
-                    n=0 be a sequence with 2 < an < 1 for all n ≥ 0. Define the sequence (xn )n=0 by
+\title{IMC 2011, Blagoevgrad, Bulgaria \\ Day 2, July 31, 2011 --- Solutions}
+\date{}
 
-                                                              an+1 + xn
-                                    x 0 = a0 ,      xn+1 =                 (n ≥ 0).
-                                                             1 + an+1 xn
+\begin{document}
+\maketitle
 
-What are the possible values of lim xn ? Can such a sequence diverge?
-                                  n→∞
-                                                                                             Johnson Olaleru, Lagos
+\section*{Problem 1}
+Let $\tfrac{1}{2} < a_n < 1$ and $x_0 = a_0$, $x_{n+1} = \tfrac{a_{n+1} + x_n}{1 + a_{n+1} x_n}$. Find $\lim x_n$.
 
-Solution 1. We prove by induction that
-                                                                    1
-                                                   0 < 1 − xn <        .
-                                                                  2n+1
-Then we will have (1 − xn ) → 0 and therefore xn → 1.
-     The case n = 0 is true since 12 < x0 = a0 < 1.
-     Supposing that the induction hypothesis holds for n, from the recurrence relation we get
-                                                    an+1 + xn     1 − an+1
-                                1 − xn+1 = 1 −                 =             (1 − xn ).
-                                                   1 + an+1 xn   1 + an+1 xn
+\subsection*{Solution}
+We show by induction that $0 < 1 - x_n < \tfrac{1}{2^{n+1}}$, hence $x_n \to 1$.
 
-By
-                                                   1 − an+1     1 − 12   1
-                                            0<                <        =
-                                                  1 + an+1 xn   1+0      2
-we obtain
-                                                      1            1   1     1
-                                   0 < 1 − xn+1 <       (1 − xn ) < · n+1 = n+2 .
-                                                      2            2 2     2
-     Hence, the sequence converges in all cases and xn → 1.
-Solution 2. As is well-known,
-                                                              tanh u + tanh v
-                                          tanh(u + v) =
-                                                             1 + tanh u tanh v
-for all real numbers u and v.
-    Setting un = ar tanh an we have xn = tanh(u0 + u1 + · · · + un ). Then u0 + u1 + · · · + un > (n + 1)ar tanh 12
-and lim xn = lim tanh u = 1.
-     n→∞        u→∞
-Remark. If the condition an ∈ ( 21 , 1) is replaced by an ∈ (0, 1) then the sequence remains increasing and bounded,
-but the limit can be less than 1.
-Problem 2. An alien race has three genders: male, female, and emale. A married triple consists of three persons,
-one from each gender, who all like each other. Any person is allowed to belong to at most one married triple. A
-special feature of this race is that feelings are always mutual — if x likes y, then y likes x.
-     The race is sending an expedition to colonize a planet. The expedition has n males, n females, and n emales.
-It is known that every expedition member likes at least k persons of each of the two other genders. The problem
-is to create as many married triples as possible to produce healthy offspring so the colony could grow and prosper.
+Base $n = 0$: $\tfrac{1}{2} < x_0 < 1$. Step: from the recurrence,
+\[
+1 - x_{n+1} = \frac{1 - a_{n+1}}{1 + a_{n+1} x_n}(1 - x_n),
+\]
+and $0 < \tfrac{1 - a_{n+1}}{1 + a_{n+1} x_n} < \tfrac{1/2}{1} = \tfrac{1}{2}$, so $0 < 1 - x_{n+1} < \tfrac{1}{2}(1 - x_n) < \tfrac{1}{2^{n+2}}$.
 
-  a) Show that if n is even and k = n2 , then it might be impossible to create even one married triple.
+\emph{Alt.} Using $\tanh(u+v) = \tfrac{\tanh u + \tanh v}{1 + \tanh u \tanh v}$, set $u_n = \operatorname{artanh} a_n$. Then $x_n = \tanh(u_0 + \cdots + u_n) \to 1$.
 
-  b) Show that if k ≥ 3n
-                       4 , then it is always possible to create n disjoint married triples, thus marrying all of the
-     expedition members.
+\section*{Problem 2}
+Married-triples problem.
 
-                                                                            Fedor Duzhin and Nick Gravin, Singapore
+\subsection*{Solution}
+(a) Split each of $M, F, E$ into halves. Draw edges only between different-indexed parts (so $M_1$--$F_2$, etc. but not $M_1$--$F_1$). Each vertex has degree $n/2$ to each other gender; but a 3-cycle must traverse an even number of 1$\to$2 swaps, while a 3-cycle has odd length --- so no 3-cycle exists.
 
+(b) Assign arbitrary triples; let \emph{unhappiness} = number of non-liking pairs within triples. Show: if unhappiness $> 0$, we can swap an emale (say) to strictly reduce unhappiness.
 
+Suppose $E_1$ dislikes someone in its triple. Need $i > 1$ with: $E_i$ likes both $F_1, M_1$, and $E_1$ likes both $F_i, M_i$. At most $n/4$ indices $i$ have $E_1$ disliking $F_i$, at most $n/4$ have $E_1$ disliking $M_i$; so at most $n/2$ bad indices (including $1$). Similarly at most $n/2$ indices where $M_1$ or $F_1$ dislikes $E_i$. Since each set has $\le n/2$ and both contain $1$, their union misses some index, giving a valid swap.
 
+\emph{Alt (for b).} Use Hall's theorem. With $k \ge 3n/4$, any $A \subseteq M$ has neighbor set $B \subseteq F$ with $|B| \ge |A|$ (else an $f \in F \setminus B$ has $M$-degree $< n/4$, contradiction). Get a perfect matching $P$ between $M$ and $F$. Form bipartite graph $H$ on $P \cup E$: edge from $(m,f) \in P$ to $e \in E$ iff $(m, f, e)$ is a 3-cycle in $G$. Each $p \in P$ has $H$-degree $\ge 2k - n$. Verifying Hall's condition on $H$ yields the matching.
 
-                                                             1
-Solution. (a) Let M be the set of males, F the set of females, and E the set of emales. Consider the (tripartite)
-graph G with vertices M ∪ F ∪ E and edges for likes. A 3-cycle is then a possible family. We’ll call G the graph
-of likes.
-    First, let k = n2 . Then n has to be even and we need to construct a graph of likes with no 3-cycles. We’ll do
-the following: divide each of the sets M , F , and E into two equal parts and draw all edges between two parts as
-shown below:
-                                                        F               E
+\section*{Problem 3}
+Compute $\sum_{n \ge 1} \ln(1 + 1/n) \ln(1 + 1/(2n)) \ln(1 + 1/(2n+1))$.
 
-                                                                             M
+\subsection*{Solution}
+Let $f(n) = \ln\tfrac{n+1}{n}$; observe $f(2n) + f(2n+1) = f(n)$ and $f(n) \le 1/n$. Define
+\[
+g(n) = \sum_{k=n}^{2n-1} f^3(k) < n f^3(n) \le 1/n^2.
+\]
+Using $(a+b)^3 - a^3 - b^3 = 3(a+b)ab$,
+\[
+g(n) - g(n+1) = f^3(n) - f^3(2n) - f^3(2n+1) = 3 f(n) f(2n) f(2n+1).
+\]
+So
+\[
+\sum_{n=1}^N f(n) f(2n) f(2n+1) = \tfrac{1}{3}(g(1) - g(N+1)) \to \tfrac{1}{3} g(1) = \tfrac{1}{3} \ln^3 2.
+\]
+Answer: $\boxed{\tfrac{1}{3} \ln^3 2}$.
 
-                                            M
+\section*{Problem 4}
+Polynomial with $\tfrac{f(k) - f(m)}{k - m} \in \mathbb{Z}$ for $0 \le k < m \le n$. Show $(a - b) \mid f(a) - f(b)$ for all distinct $a, b \in \mathbb{Z}$.
 
+\subsection*{Solution}
+Let $L(k) = \operatorname{lcm}(1, \ldots, k)$, $h_k(x) = L(k)\binom{x}{k}$.
 
-                                                        E
-                                                                        F
+\textbf{Lemma.} $(a - b) \mid h_k(a) - h_k(b)$.
 
+\emph{Proof.} From $\binom{a}{k} = \sum_{j=0}^k \binom{a-b}{j}\binom{b}{k-j}$,
+\[
+h_k(a) - h_k(b) = (a - b) \sum_{j=1}^k \frac{L(k)}{j} \binom{a-b-1}{j-1}\binom{b}{k-j},
+\]
+which is a multiple of $a - b$ since $L(k)/j \in \mathbb{Z}$.
 
-Clearly, there is no 3-cycle.
-     (b) First divide the the expedition into male-emale-female triples arbitrarily. Let the unhappiness of such a
-subdivision be the number of pairs of aliens that belong to the same triple but don’t like each other. We shall show
-that if unhappiness is positive, then the unhappiness can be decreased by a simple operation. It will follow that
-after several steps the unhappiness will be reduced to zero, which will lead to the happy marriage of everybody.
-     Assume that we have an emale which doesn’t like at least one member of its triple (the other cases are similar).
-We perform the following operation: we swap this emale with another emale, so that each of these two emales will
-like the members of their new triples. Thus the unhappiness related to this emales will decrease, and the other
-pairs that contribute to the unhappiness remain unchanged, therefore the unhappiness will be decreased.
-     So, it remains to prove that such an operation is always possible. Enumerate the triples with 1, 2, . . . , n and
-denote by Ei , Fi , Mi the emale, female, and male members of the ith triple, respectively. Without loss of generality
-we may assume that E1 doesn’t like either F1 or M1 or both. We have to find an index i > 1 such that Ei likes
-the couple F1 , M1 and E1 likes the couple Fi , Mi ; then we can swap E1 and Ei .
-     There are at most n/4 indices i for which E1 dislikes Fi and at most n/4 indices for which E1 dislikes Mi , so
-there are no more than n/2 indices i for which E1 dislikes someone from the couple Mi , Fi , and the set of these
-undesirable indexes includes 1. Similarly, there are no more than n/2 indices such that either M1 or F1 dislikes
-Ei . Since both undesirable sets of indices have at most n/2 elements and both contain 1, their union doesn’t cover
-all indices, so we have some i which satisfies all conditions. Therefore we can always perform the operation that
-decreases unhappiness.
-Solution 2 (for part b). Suppose that k ≥ 3n       4 and let’s show that it’s possible to marry all of the colonists.
-First, we’ll prove that there exists a perfect matching between M and F . We need to check the condition of Hall’s
-marriage theorem. In other words, for A ⊂ M , let B ⊂ F be the set of all vertices of F adjacent to at least one
-vertex of A. Then we need to show that |A| ≤ |B|. Let us assume the contrary, that is |A| > |B|. Clearly, |B| ≥ k
-if A is not empty. Let’s consider any f ∈ F \ B. Then f is not adjacent to any vertex in A, therefore, f has degree
-in M not more than n − |A| < n − |B| ≤ n − k ≤ n4 , a contradiction.
-     Let’s now construct a new bipartite graph, say H. The set of its vertices is P ∪ E, where P is the set of pairs
-male–female from the perfect matching we just found. We will have an edge from (m, f ) = p ∈ P to e ∈ E for
-each 3-cycle (m, f, e) of the graph G, where (m, f ) ∈ P and e ∈ E. Notice that the degree of each vertex of P in
-H is then at least 2k − n.
-     What remains is to show that H satisfies the condition of Hall’s marriage theorem and hence has a perfect
-matching. Assume, on the contrary, that the following happens. There is A ⊂ P and B ⊂ E such that |A| = l,
-|B| < l, and B is the set of all vertices of E adjacent to at least one vertex of A. Since the degree of each vertex
-of P is at least 2k − n, we have 2k − n ≤ |B| < l. On the other hand, let e ∈ E \ B. Then for each pair
-(m, f ) = p ∈ P , at most one of the pairs (e, m) and (e, f ) is joined by an edge and hence the degree of e in G is
-at most |M \ A| + |F \ A| + |A| = 2(n − l) + l = 2n − l. But the degree of any vertex of G is 2k and thus we get
-2k ≤ 2n − l, that is, l ≤ 2n − 2k.
-     Finally, 2k − n < l ≤ 2n − 2k implies that k < 3n4 . This contradiction concludes the solution.
-Problem 3. Determine the value of
-                                 ∞                                                     
-                                 X            1                 1                    1
-                                       ln 1 +         · ln 1 +          · ln 1 +                .
-                                              n                2n                  2n + 1
-                                 n=1
+Expand $f(x) = A_0 + A_1\binom{x}{1} + \cdots + A_n\binom{x}{n}$. By induction on $m$, show $L(m) \mid A_m$:
+\[
+\frac{f(m) - f(k)}{m - k} = \sum_{j=1}^{m-1} \frac{A_j}{L(j)} \cdot \frac{h_j(m) - h_j(k)}{m - k} + \frac{A_m}{m - k}.
+\]
+LHS and all terms but the last are integers, so $\tfrac{A_m}{m - k} \in \mathbb{Z}$ for all $0 \le k < m$; hence $L(m) \mid A_m$. By the lemma, $(a - b) \mid f(a) - f(b)$.
 
-                                                                                                    Gerhard Woeginger, Utrecht
+\section*{Problem 5}
+Polygon reflection operations. Show $(f_1 \circ \cdots \circ f_{n-1})^n = \operatorname{id}$.
 
-                                                                2
-Solution. Define f (n) = ln( n+1
-                              n ) for n ≥ 1, and observe that f (2n)+f (2n+1) = f (n). The well-known inequality
-ln(1 + x) ≤ x implies f (n) ≤ 1/n. Furthermore introduce
-                                                  2n−1
-                                                   X
-                                         g(n) =          f 3 (k) < n f 3 (n) ≤ 1/n2 .
-                                                  k=n
+\subsection*{Solution}
+The $f_i$ are rational maps; it suffices to verify identity on a neighborhood of the regular polygon.
 
-Then
+Verify:
+\begin{itemize}
+  \item (i) $f_i \circ f_i = \operatorname{id}$.
+  \item (ii) $f_i \circ f_j = f_j \circ f_i$ for $|i - j| \ge 2$.
+  \item (iii) $(f_i \circ f_{i+1})^3 = \operatorname{id}$.
+\end{itemize}
+For (iii): $f_i, f_{i+1}$ permute the consecutive side lengths of quadrilateral $A_{i-1} A_i A_{i+1} A_{i+2}$; the sums of opposite angles are preserved. With fixed sides and these sums fixed, the quadrilateral is determined. After $(f_i f_{i+1})^3$, side lengths return to original order, so the quadrilateral is restored.
 
-                          g(n) − g(n + 1) = f 3 (n) − f 3 (2n) − f 3 (2n + 1)
-                                              = (f (2n) + f (2n + 1))3 − f 3 (2n) − f 3 (2n + 1)
-                                              = 3 (f (2n) + f (2n + 1)) f (2n) f (2n + 1)
-                                              = 3 f (n) f (2n) f (2n + 1),
-therefore
-                   N                                       N
-                   X                                 1 X                   1
-                         f (n) f (2n) f (2n + 1) =       g(n) − g(n + 1) =   (g(1) − g(N + 1)) .
-                                                     3                     3
-                   n=1                                   n=1
-Since g(N + 1) → 0 as N → ∞, the value of the considered sum hence is
-                                   ∞
-                                   X                                 1        1 3
-                                         f (n) f (2n) f (2n + 1) =     g(1) =   ln (2).
-                                                                     3        3
-                                   n=1
+These are the Coxeter relations of $S_n$ with generators $\sigma_i = (i, i+1)$. Thus the group generated by the $f_i$ is a quotient of $S_n$. In $S_n$, $(\sigma_1 \sigma_2 \cdots \sigma_{n-1})^n = (1\,2\,\cdots\,n)^n = \operatorname{id}$, hence $(f_1 \circ \cdots \circ f_{n-1})^n = \operatorname{id}$.
 
-
-                                                                                             f (k) − f (m)
-Problem 4. Let f (x) be a polynomial with real coefficients of degree n. Suppose that                      is an integer
-                                                                                                 k−m
-for all integers 0 ≤ k < m ≤ n. Prove that a − b divides f (a) − f (b) for all pairs of distinct integers a and b.
-                                                                                        Fedor Petrov, St. Petersburg
-
-Solution 1. We need the following
-Lemma. Denote the least common multiple of 1, 2, . . . , k by L(k), and define
-                                                     
-                                                       x
-                                  hk (x) = L(k) ·              (k = 1, 2, . . .).
-                                                       k
-Then the polynomial hk (x) satisfies the condition, i.e. a − b divides hk (a) − hk (b) for all pairs of distinct integers
-a, b.
-Proof. It is known that
-                                             X    k               
-                                            a            a−b        b
-                                                =                        .
-                                            k              j      k−j
-                                                         j=0
-
-(This formula can be proved by comparing the coefficient of xk in (1 + x)a and (1 + x)a−b (1 + x)b .) From here we
-get
-                                          k                            k                        
-                            a     b            X      a−b        b              X   L(k) a − b − 1        b
-   hk (a) − hk (b) = L(K)     −        = L(K)                         = (a − b)                                .
-                            k     k                    j      k−j                     j      j−1         k−j
-                                                         j=1                            j=1
-
-On the right-hand side all fractions L(k)
-                                        j are integers, so the right-hand side is a multiple of (a, b). The lemma is
-proved.
-   Expand the polynomial f in the basis 1, x1 , x2 , . . . as
-                                                 
-
-                                                                            
-                                                    x          x                x
-                                  f (x) = A0 + A1       + A2      + · · · + An     .                            (1)
-                                                    1          2                n
-We prove by induction on j that Aj is a multiple of L(j) for 1 ≤ j ≤ n. (In particular, Aj is an integer for j ≥ 1.)
-Assume that L(j) divides Aj for 1 ≤ j ≤ m − 1. Substituting m and some k ∈ {0, 1, . . . , m − 1} in (1),
-                                                     m−1
-                                  f (m) − f (k)   X Aj hj (m) − hj (k)    Am
-                                                =        ·             +     .
-                                     m−k            L(j)   m−k           m−k
-                                                     j=1
-
-
-                                                               3
-                                                  Am
-Since all other terms are integers, the last term m−k is also an integer. This holds for all 0 ≤ k < m, so Am is an
-integer that is divisible by L(m).
-   Hence, Aj is a multiple of L(j) for every 1 ≤ j ≤ n. By the lemma this implies the problem statement.
-Solution 2. The statement of the problem follows immediately from the following claim, applied to the polynomial
-g(x, y) = f (x)−f
-              x−y
-                  (y)
-                      .
-Claim. Let g(x, y) be a real polynomial of two variables with total degree less than n. Suppose that g(k, m) is an
-integer whenever 0 ≤ k < m ≤ n are integers. Then g(k, m) is a integer for every pair k, m of integers.
-Proof. Apply induction on n. If n = 1 then g is a constant. This constant can be read from g(0, 1) which is an
-integer, so the claim is true.
-   Now suppose that n ≥ 2 and the claim holds for n − 1. Consider the polynomials
-
-                    g1 (x, y) = g(x + 1, y + 1) − g(x, y + 1)     and g2 (x, y) = g(x, y + 1) − g(x, y).                 (1)
-
-For every pair 0 ≤ k < m ≤ n − 1 of integers, the numbers g(k, m), g(k, m + 1) and g(k + 1, m + 1) are all
-integers, so g1 (k, m) and g2 (k, m) are integers, too. Moreover, in (1) the maximal degree terms of g cancel out, so
-deg g1 , deg g2 < deg g. Hence, we can apply the induction hypothesis to the polynomials g1 and g2 and we thus
-have g1 (k, m), g2 (k, m) ∈ Z for all k, m ∈ Z.
-   In view of (1), for all k, m ∈ Z, we have that
-
- (a) g(0, 1) ∈ Z;
-
- (b) g(k, m) ∈ Z if and only if g(k + 1, m + 1) ∈ Z;
-
- (c) g(k, m) ∈ Z if and only if g(k, m + 1) ∈ Z.
-
-For arbitrary integers k, m, apply (b) |k| times then apply (c) |m − k − 1| times as
-
-                              g(k, m) ∈ Z ⇔ . . . ⇔ g(0, m − k) ∈ Z ⇔ . . . ⇔ g(0, 1) ∈ Z.
-
-Hence, g(k, m) ∈ Z. The claim has been proved.
-
-Problem 5. Let F = A0 A1 . . . An be a convex polygon in the plane. Define for all 1 ≤ k ≤ n − 1 the operation
-fk which replaces F with a new polygon
-
-                                          fk (F ) = A0 . . . Ak−1 A′k Ak+1 . . . An ,
-
-where A′k is the point symmetric to Ak with respect to the perpendicular bisector of Ak−1 Ak+1 . Prove that
-(f1 ◦ f2 ◦ . . . ◦ fn−1 )n (F ) = F . We suppose that all operations are well-defined on the polygons, to which they are
-applied, i.e. results are convex polygons again. (A0 , A1 , . . . , An are the vertices of F in consecutive order.)
-                                                                                        Mikhail Khristoforov, St. Petersburg
-
-Solution. The operations fi are rational maps on the 2(n − 1)-dimensional phase space of coordinates of the
-vertices A1 , . . . , An−1 . To show that (f1 ◦ f2 ◦ . . . ◦ fn−1 )n is the identity, it is sufficient to verify this on some
-open set. For example, we can choose a neighborhood of the regular polygon, then all intermediate polygons in
-the proof will be convex.
-   Consider the operations fi . Notice that (i) fi ◦ fi = id and (ii) fi ◦ fj = fj ◦ fi for |i − j| ≥ 2. We also show
-that (iii) (fi ◦ fi+1 )3 = id for 1 ≤ i ≤ n − 1.
-   The operations fi and fi+1 change the order of side lengths by interchanging two consecutive sides; after
-performing (fi ◦ fi+1 )3 , the side lengths are in the original order. Moreover, the sums of opposite angles in
-the convex quadrilateral Ai−1 Ai Ai+1 Ai+2 are preserved in all operations. These quantities uniquely determine
-the quadrilateral, because with fixed sides, both angles ∠A1 A2 A3 and ∠A1 A4 A3 decrease when A1 A3 increases.
-Hence, property (iii) is proved.
-   In the symmetric group Sn , the transpositions σi = (i, i + 1), which from a generator system, satisfy the same
-properties (i–iii). It is well-known that Sn is the maximal group with n − 1 generators, satisfying (i–iii). In Sn we
-have (σ1 ◦ σ2 ◦ . . . ◦ σn−1 )n = (1, 2, 3, . . . , n)n = id, so this implies (f1 ◦ f2 ◦ . . . ◦ fn−1 )n = id.
-
-
-
-                                                              4
-
+\end{document}
