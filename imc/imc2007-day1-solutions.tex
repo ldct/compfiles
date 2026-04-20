@@ -1,187 +1,91 @@
-                               IMC2007, Blagoevgrad, Bulgaria
-                                          Day 1, August 5, 2007
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
 
+\title{IMC 2007, Blagoevgrad, Bulgaria \\ Day 1, August 5, 2007}
+\date{}
 
-Problem 1. Let f be a polynomial of degree 2 with integer coefficients. Suppose that f (k) is divisible
-by 5 for every integer k. Prove that all coefficients of f are divisible by 5.
-Solution 1. Let f (x) = ax2 + bx + c. Substituting x = 0, x = 1 and x = −1, we obtain that 5|f (0) = c,
-5|f (1) = (a + b + c) and 5|f (−1) = (a − b + c). Then 5|f (1) + f (−1) − 2f (0) = 2a and 5|f (1) − f (−1) = 2b.
-Therefore 5 divides 2a, 2b and c and the statement follows.
-Solution 2. Consider f (x) as a polynomial over the 5-element field (i.e. modulo 5). The polynomial has
-5 roots while its degree is at most 2. Therefore f ≡ 0 (mod 5) and all of its coefficients are divisible by 5.
+\begin{document}
+\maketitle
 
-Problem 2. Let n ≥ 2 be an integer. What is the minimal and maximal possible rank of an n × n matrix
-whose n2 entries are precisely the numbers 1, 2, . . . , n2 ?
-Solution. The minimal rank is 2 and the maximal rank is n. To prove this, we have to show that the rank
-can be 2 and n but it cannot be 1.
-   (i) The rank is at least 2. Consider an arbitrary matrix A = [aij ] with entries 1, 2, . . . , n2 in some
-order. Since permuting rows or columns of a matrix does not change its rank, we can assume that
-1 = a11 < a21 < · · · < an1 and a11 < a12 <
-                                            · · · < a1n . Hence an1 ≥ n and a1n ≥ n and at
-                                                                                           least one of these
-                                   a11 a1n                                         a   a
-inequalities is strict. Then det             < 1 · n2 − n · n = 0 so rk(A) ≥ rk 11 1n ≥ 2.
-                                  an1 ann                                         an1 ann
-   (ii) The rank can be 2. Let
-                                                                              
-                                               1              2      ... n
-                                         n+1                n+2     . . . 2n
-                                    T =        ..            ..            .. 
-                                                                              
-                                                                     ..
-                                                .             .         .   . 
-                                          n − n + 1 n − n + 2 . . . n2
-                                           2               2
+\section*{Problem 1}
+Let $f$ be a polynomial of degree 2 with integer coefficients. Suppose $5 \mid f(k)$ for every integer $k$. Prove all coefficients of $f$ are divisible by $5$.
 
+\subsection*{Solution}
+Consider $f \in \mathbb{F}_5[x]$. It has 5 roots (all of $\mathbb{F}_5$) but degree $\le 2$, so $f \equiv 0 \pmod 5$.
 
-The ith row is (1, 2, . . . , n) + n(i − 1) · (1, 1, . . . , 1) so each row is in the two-dimensional subspace generated
-by the vectors (1, 2, . . . , n) and (1, 1, . . . , 1). We already proved that the rank is at least 2, so rk(T ) = 2.
-   (iii) The rank can be n, i.e. the matrix can be nonsingular. Put odd numbers into the diagonal,
-only even numbers above the diagonal and arrange the entries under the diagonal arbitrarily. Then the
-determinant of the matrix is odd, so the rank is complete.
+\emph{Direct:} $f(x) = ax^2 + bx + c$. $5 \mid f(0) = c$, $5 \mid f(1) = a + b + c$, $5 \mid f(-1) = a - b + c$. Hence $5 \mid 2a, 2b, c$, so $5 \mid a, b, c$.
 
-Problem 3. Call a polynomial P (x1 , . . . , xk ) good if there exist 2 × 2 real matrices A1 , . . . , Ak such that
-                                                               k
-                                                                       !
-                                                              X
-                                 P (x1 , . . . , xk ) = det       xi Ai .
-                                                                  i=1
+\section*{Problem 2}
+For $n \ge 2$, find min/max rank of $n \times n$ matrix with entries $\{1, 2, \ldots, n^2\}$.
 
-Find all values of k for which all homogeneous polynomials with k variables of degree 2 are good.
-    (A polynomial is homogeneous if each term has the same total degree.)
-Solution. The possible values for k are 1 and 2.            
-    If k = 1 then P (x) = αx2 and we can choose A1 = 10 α0 .
-                                                                                                           
-                                   2     2                                                1 0             0 β
-    If k = 2 then P (x, y) = αx + βy + γxy and we can choose matrices A1 = 0 α and A2 = −1 γ .
-                                                                                k
-                                                                                   x2i is not good. Suppose that
-                                                                                P
-    Now let k ≥ 3. We show that the polynomial P (x1 , . . . , xk ) =
-                           k                                                 i=0
-                            P
-P (x1 , . . . , xk ) = det    xi Ai . Since the first columns of A1 , . . . , Ak are linearly dependent, the first
-                         i=0
+\subsection*{Solution}
+\textbf{Min = 2, max = $n$.}
 
+\emph{Rank $\ge 2$:} WLOG $a_{11} = 1 < a_{21} < \cdots < a_{n1}$ and $a_{11} < a_{12} < \cdots < a_{1n}$. So $a_{n1}, a_{1n} \ge n$ with strict inequality somewhere. Then $\det\begin{pmatrix}a_{11} & a_{1n} \\ a_{n1} & a_{nn}\end{pmatrix} < n^2 - n \cdot n = 0$ (using $a_{11} a_{nn} < n^2$ and $a_{1n} a_{n1} > n \cdot n$)\footnote{Properly: the $2 \times 2$ minor has rank 2.}, so rank $\ge 2$.
 
-                                                           1
-column of some non-trivial linear combination y1 A1 + . . . + yk Ak is zero. Then det(y1A1 + . . . + yk Ak ) = 0
-but P (y1, . . . , yk ) 6= 0, a contradiction.
+\emph{Rank can be 2:} $T_{ij} = (i-1) n + j$. Each row equals $(1, 2, \ldots, n) + n(i-1)(1, \ldots, 1)$, so rows span a 2-dim space.
 
-Problem 4. Let G be a finite group. For arbitrary sets U, V, W ⊂ G, denote by NU V W the number of
-triples (x, y, z) ∈ U × V × W for which xyz is the unity.
-    Suppose that G is partitioned into three sets A, B and C (i.e. sets A, B, C are pairwise disjoint and
-G = A ∪ B ∪ C). Prove that NABC = NCBA .
-Solution. We start with three preliminary observations.
-    Let U, V be two arbitrary subsets of G. For each x ∈ U and y ∈ V there is a unique z ∈ G for which
-xyz = e. Therefore,
-                                       NU V G = |U × V | = |U| · |V |.                                 (1)
-Second, the equation xyz = e is equivalent to yzx = e and zxy = e. For arbitrary sets U, V, W ⊂ G, this
-implies
+\emph{Rank can be $n$:} place odd numbers on the diagonal, even numbers above; determinant is odd.
 
-{(x, y, z) ∈ U ×V ×W : xyz = e} = {(x, y, z) ∈ U ×V ×W : yzx = e} = {(x, y, z) ∈ U ×V ×W : zxy = e}
+\section*{Problem 3}
+Call $P(x_1, \ldots, x_k)$ \emph{good} if there exist $2 \times 2$ real matrices $A_i$ with $P = \det(\sum x_i A_i)$. Find all $k$ for which every homogeneous degree-2 polynomial in $k$ variables is good.
 
-and therefore
-                                           NU V W = NV W U = NW U V .                                       (2)
-Third, if U, V ⊂ G and W1 , W2 , W3 are disjoint sets and W = W1 ∪ W2 ∪ W3 then, for arbitrary U, V ⊂ G,
+\subsection*{Solution}
+Answer: $k \in \{1, 2\}$.
 
-            {(x, y, z) ∈ U × V × W : xyz = e} = {(x, y, z) ∈ U × V × W1 : xyz = e}∪
+$k = 1$: $P(x) = \alpha x^2 = \det\bigl(x \begin{pmatrix}1 & 0\\0 & \alpha\end{pmatrix}\bigr)$.
 
-                     ∪{(x, y, z) ∈ U × V × W2 : xyz = e} ∪ {(x, y, z) ∈ U × V × W3 : xyz = e}
-so
-                                    NU V W = NU V W1 + NU V W2 + NU V W3 .                                  (3)
-     Applying these observations, the statement follows as
+$k = 2$: $\alpha x^2 + \beta y^2 + \gamma x y = \det\bigl(x A_1 + y A_2\bigr)$ with $A_1 = \begin{pmatrix}1 & 0\\0 & \alpha\end{pmatrix}$, $A_2 = \begin{pmatrix}0 & \beta\\-1 & \gamma\end{pmatrix}$.
 
-                      NABC = NABG − NABA − NABB = |A| · |B| − NBAA − NBAB =
+$k \ge 3$: $P = \sum x_i^2$ is not good. The first columns of $A_1, \ldots, A_k$ (in $\mathbb{R}^2$, $k \ge 3$ vectors) are linearly dependent, so $\sum y_i A_i$ has zero first column for some $(y_i) \ne 0$. Then $\det = 0 \ne P(y) = \sum y_i^2$.
 
-                                = NBAG − NBAA − NBAB = NBAC = NCBA .
+\section*{Problem 4}
+Finite group $G$ partitioned as $A \sqcup B \sqcup C$. For sets $U, V, W$, let $N_{UVW} = \#\{(x,y,z) \in U \times V \times W : xyz = e\}$. Prove $N_{ABC} = N_{CBA}$.
 
-Problem 5.     Let n be a positive integer and a1 , . . . , an be arbitrary integers. Suppose that a function
-                    n
-                    X
-f : Z → R satisfies   f (k + ai ℓ) = 0 whenever k and ℓ are integers and ℓ 6= 0. Prove that f = 0.
-                     i=1
-Solution. Let us define a subset I of the polynomial ring R[X] as follows:
-                       n          m
-                                  X              m
-                                                 X                                               o
-                                           j
-                  I = P (X) =           bj X :         bj f (k + jℓ) = 0 for all k, ℓ ∈ Z, ℓ 6= 0 .
-                                  j=0            j=0
+\subsection*{Solution}
+Basic identities:
+\begin{enumerate}
+  \item $N_{UVG} = |U| \cdot |V|$ (for each $(x, y)$, $z$ is determined).
+  \item $N_{UVW} = N_{VWU} = N_{WUV}$ (cyclic).
+  \item $N_{UVW}$ additive in each argument under disjoint union.
+\end{enumerate}
 
-This is a subspace of the real vector space R[X]. Furthermore, P (X)P∈ I implies X · P (X) ∈ I. Hence,
-                                                                         n     ai
-I is an ideal, and it is non-zero, because the polynomial R(X) =         i=1 X    belongs to I. Thus, I is
-generated (as an ideal) by some non-zero polynomial Q.
-   If Q is constant then the definition of I implies f = 0, so we can assume that Q has a complex zero c.
-Again, by the definition of I, the polynomial Q(X m ) belongs to I for every natural number m ≥ 1; hence
-Q(X) divides Q(X m ). This shows that all the complex numbers
+Compute:
+\begin{align*}
+N_{ABC} &= N_{ABG} - N_{ABA} - N_{ABB} = |A||B| - N_{BAA} - N_{BAB} \\
+&= N_{BAG} - N_{BAA} - N_{BAB} = N_{BAC} = N_{CBA}.
+\end{align*}
 
-                                                   c, c2 , c3 , c4 , . . .
+\section*{Problem 5}
+$f : \mathbb{Z} \to \mathbb{R}$ satisfies $\sum_{i=1}^n f(k + a_i \ell) = 0$ for all $k \in \mathbb{Z}, \ell \ne 0$. Prove $f = 0$.
 
-are roots of Q. Since Q can have only finitely many roots, we must have cN = 1 for some N ≥ 1; in
-particular, Q(1) = 0, which implies P (1) = 0 for all P ∈ I. This contradicts the fact that R(X) =
-P n     ai
-  i=1 X    ∈ I, and we are done.
+\subsection*{Solution}
+Define
+\[
+\mathcal{I} = \Bigl\{ \sum b_j X^j \in \mathbb{R}[X] : \sum b_j f(k + j \ell) = 0 \; \forall k, \ell \ne 0 \Bigr\}.
+\]
+$\mathcal I$ is an ideal. $R(X) = \sum X^{a_i} \in \mathcal I$, so $\mathcal I \ne 0$; generated by some $Q$. If $Q$ constant, $f = 0$.
 
-                                                             2
-Problem 6. How many nonzero coefficients can a polynomial P (z) have if its coefficients are integers
-and |P (z)| ≤ 2 for any complex number z of unit length?
-Solution. We show that the number of nonzero coefficients can be 0, 1 and 2. These values are possible,
-for example the polynomials P0 (z) = 0, P1 (z) = 1 and P2 (z) = 1 + z satisfy the conditions and they have
-0, 1 and 2 nonzero terms, respectively.
-    Now consider an arbitrary polynomial P (z) = a0 + a1 z + . . .+ an z n satisfying the conditions and assume
-that it has at least two nonzero coefficients. Dividing the polynomial by a power of z and optionally
-replacing p(z) by −p(z), we can achieve a0 > 0 such that conditions are not changed and the number of
-nonzero terms is preserved. So, without loss of generality, we can assume that a0 > 0.
-    Let Q(z) = a1 z + . . . + an−1 z n−1 . Our goal is to show that Q(z) = 0.
-    Consider those complex numbers w0 , w1 , . . . , wn−1 on the unit circle for which an wkn = |an |; namely, let
-                                      (
-                                        e2kπi/n      if an > 0
-                               wk =       (2k+1)πi/n
-                                                                  (k = 0, 1, . . . , n).
-                                        e            if an < 0
+Else $Q$ has a complex root $c$. For any $m \ge 1$, $Q(X^m) \in \mathcal I$ (replace $\ell$ by $m \ell$), so $Q \mid Q(X^m)$, giving $c^m$ is a root of $Q$ for all $m$. Since $Q$ has finitely many roots, $c^N = c^M$ for some $N > M$, so some $c^j = 1$; in particular one root of $Q$ is $1$, hence $Q(1) = 0$. But $R(1) = n \ne 0$, contradiction.
 
-Notice that
-                         n−1
-                         X                n−1
-                                          X                         n−1
-                                                                    X              n−1
-                                                                                   X
-                               Q(wk ) =          Q(w0 e2kπi/n ) =         aj w0j         (e2jπi/n )k = 0.
-                         k=0               k=0                      j=1            k=0
+\section*{Problem 6}
+How many nonzero coefficients can $P \in \mathbb{Z}[z]$ have if $|P(z)| \le 2$ on $|z| = 1$?
 
-   Taking the average of polynomial P (z) at the points wk , we obtain
-                              n−1             n−1
-                            1X              1X
-                                                  a0 + Q(wk ) + an wkn = a0 + |an |
-                                                                      
-                                  P (wk ) =
-                            n k=0           n k=0
+\subsection*{Solution}
+Answer: $0, 1, 2$ (examples: $0$, $1$, $1 + z$).
 
-and
-                                     n−1                    n−1
-                                  1X              1X
-                               2≥       P (wk ) ≥       P (wk ) = a0 + |an | ≥ 2.
-                                  n k=0           n k=0
+Suppose $P$ has $\ge 2$ nonzero coefficients. WLOG $a_0 > 0$. Let $Q(z) = a_1 z + \cdots + a_{n-1} z^{n-1}$. Choose $w_k$ with $a_n w_k^n = |a_n|$:
+\[
+w_k = \begin{cases} e^{2k\pi i/n} & a_n > 0 \\ e^{(2k+1)\pi i/n} & a_n < 0 \end{cases}.
+\]
+Then $\sum_{k=0}^{n-1} Q(w_k) = 0$ (sum of $n$th roots of unity). So
+\[
+\frac{1}{n}\sum P(w_k) = a_0 + |a_n|.
+\]
+Hence
+\[
+2 \ge \frac{1}{n}\sum |P(w_k)| \ge a_0 + |a_n| \ge 2.
+\]
+So $a_0 = |a_n| = 1$ and $|P(w_k)| = |2 + Q(w_k)| = 2$ for all $k$, meaning $Q(w_k)$ lies on $|2 + z| = 2$ with sum $0$, forcing $Q(w_k) = 0$. Since $Q$ has degree $< n$ but $n$ roots, $Q = 0$. Thus $P = a_0 + a_n z^n$ has 2 nonzero coefficients.
 
-This obviously implies a0 = |an | = 1 and P (wk ) = 2 + Q(wk ) = 2 for all k. Therefore, all values of
-Q(wk ) must lie on the circle |2 + z| = 2, while their sum is 0. This is possible only if Q(wk ) = 0 for all k.
-Then polynomial Q(z) has at least n distinct roots while its degree is at most n − 1. So Q(z) = 0 and
-P (z) = a0 + an z n has only two nonzero coefficients.
-Remark. From Parseval’s formula (i.e. integrating |P (z)|2 = P (z)P (z) on the unit circle) it can be
-obtained that                                       Z 2π                Z 2π
-                              2               2   1          it 2     1
-                         |a0 | + . . . + |an | =         P (e ) dt ≤         4 dt = 4.                      (4)
-                                                 2π 0                2π 0
-Hence, there cannot be more than four nonzero coefficients, and if there are more than one nonzero term,
-then their coefficients are ±1.
-   It is also easy to see that equality in (4) cannot hold two or more nonzero coefficients, so it is sufficient
-to consider only polynomials of the form 1 ± xm ± xn . However, we do not know (yet :-)) any simpler
-argument for these cases than the proof above.
-
-
-
-
-                                                             3
-
+\end{document}

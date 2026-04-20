@@ -1,253 +1,78 @@
-                       IMC2007, Blagoevgrad, Bulgaria
-                                   Day 2, August 6, 2007
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
 
-Problem 1. Let f : R → R be a continuous function. Suppose that for any c > 0, the graph
-of f can be moved to the graph of cf using only a translation or a rotation. Does this imply that
-f (x) = ax + b for some real numbers a and b ?
-Solution. No. The function f (x) = ex also has this property since cex = ex+log c .
-Problem 2. Let x, y, and z be integers such that S = x4 + y 4 + z 4 is divisible by 29. Show that S
-is divisible by 294 .
-Solution. We claim that 29 | x, y, z. Then, x4 + y 4 + z 4 is clearly divisible by 294 .
-    Assume, to the contrary, that 29 does not divide all of the numbers x, y, z. Without loss of
-generality, we can suppose that 29 ∤ x. Since the residue classes modulo 29 form a field, there is some
-w ∈ Z such that xw ≡ 1 (mod 29). Then, (xw)4 + (yw)4 + (zw)4 is also divisible by 29. So we can
-assume that x ≡ 1 (mod 29).
-    Thus, we need to show that y 4 + z 4 ≡ −1 (mod 29), i.e. y 4 ≡ −1 − z 4 (mod 29), is impossible.
-There are only eight fourth powers modulo 29,
+\title{IMC 2007, Blagoevgrad, Bulgaria \\ Day 2, August 6, 2007}
+\date{}
 
-                              0   ≡   04 ,
-                              1   ≡   14 ≡ 124 ≡ 174 ≡ 284 (mod 29),
-                              7   ≡   84 ≡ 94 ≡ 204 ≡ 214 (mod 29),
-                             16   ≡   24 ≡ 54 ≡ 244 ≡ 274 (mod 29),
-                             20   ≡   64 ≡ 144 ≡ 154 ≡ 234 (mod 29),
-                             23   ≡   34 ≡ 74 ≡ 224 ≡ 264 (mod 29),
-                             24   ≡   44 ≡ 104 ≡ 194 ≡ 254 (mod 29),
-                             25   ≡   114 ≡ 134 ≡ 164 ≡ 184 (mod 29).
+\begin{document}
+\maketitle
 
-The differences −1 − z 4 are congruent to 28, 27, 21, 12, 8, 5, 4, and 3. None of these residue classes
-is listed among the fourth powers.
-Problem 3. Let C be a nonempty closed bounded subset of the real line and f : C → C be a
-nondecreasing continuous function. Show that there exists a point p ∈ C such that f (p) = p.
-   (A set is closed if its complement is a union of open intervals. A function g is nondecreasing if
-g(x) ≤ g(y) for all x ≤ y.)
-Solution. Suppose f (x) 6= x for all x ∈ C. Let [a, b] be the smallest closed interval that contains C.
-Since C is closed, a, b ∈ C. By our hypothesis f (a) > a and f (b) < b. Let p = sup{x ∈ C : f (x) > x}.
-Since C is closed and f is continuous, f (p) ≥ p, so f (p) > p. For all x > p, x ∈ C we have f (x) < x.
-Therefore f f (p) < f (p) contrary to the fact that f is non-decreasing.
-Problem 4. Let n > 1 be an odd positive integer and A = (aij )i,j=1...n be the n × n matrix with
-                                 
-                                 2 if i = j
-                                 
-                            aij = 1 if i − j ≡ ±2 (mod n)
-                                 
-                                 
-                                   0 otherwise.
+\section*{Problem 1}
+Let $f : \mathbb{R} \to \mathbb{R}$ be continuous. Suppose that for every $c > 0$, the graph of $f$ can be moved to the graph of $cf$ by a translation or rotation. Does $f(x) = ax + b$?
 
-Find det A.
+\subsection*{Solution}
+\textbf{No.} $f(x) = e^x$ satisfies $c e^x = e^{x + \log c}$, a translation.
 
+\section*{Problem 2}
+Let $x, y, z \in \mathbb{Z}$ with $29 \mid x^4 + y^4 + z^4$. Show $29^4 \mid S$.
 
+\subsection*{Solution}
+It suffices to show $29 \mid x, y, z$.
 
-                                                  1
-                                                  
-                                  2                   1 if i − j ≡ ±1 (mod n)
-Solution. Notice that A = B , with bij =                                      . So it is sufficient to find
-                                                      0         otherwise
-det B.
-    To find det B, expand the determinant with respect to the first row, and then expad both terms
-with respect to the first column.
+Suppose $29 \nmid x$. Multiply by $w^4$ where $xw \equiv 1$: WLOG $x \equiv 1$. Need $y^4 + z^4 \equiv -1 \pmod{29}$.
 
-              0 1                     1
-                                                1 1              1                0 1
-              1 0 1
-                                                  01                              1 0  1
-                1 0   1                           .    .                              .    .
-                    .. ..                     1 .. ..                               1 .. ..
- det B =       1        .     .       =−                       +
-                                                  ..                                  ..
-                    ..                               . 0 1                               . 0 1
-                        . 0 1
-                                                        1 0 1                               1 0
-                             1 0 1
-                                          1                1 0   1                            1
-         1                       1 0
-                                                                                                        
-             0 1                      1                        1 0                 1          0 1
-                .. ..                0   1                                     .. ..       1 0 1        
-           1       .      .                                   1                   .  .                  
-                ..                      .. ..                                  ..              .. ..    
-       = −         . 0 1           − 1     .   .          +
-                                                                                   . 0 1  −   1    .  .  
-                                        ..                                                     ..       
-                         1 0 1             . 0 1                                    1 0           . 0 1
-                                1 0            1 0 1                                      1            1 0
-       = −(0 − 1) + (1 − 0) = 2,
+Fourth powers mod 29 are: $\{0, 1, 7, 16, 20, 23, 24, 25\}$ (using $29 = 4 \cdot 7 + 1$, exponent $4$ gives $\tfrac{28}{\gcd(28,4)} = 7$ nonzero values).
 
-since the second and the third matrices are lower/upper triangular, while in the first and the fourth
-matrices we have row1 − row3 + row5 − · · · ± rown−2 = 0̄.
-    So det B = 2 and thus det A = 4.
-Problem 5. For each positive integer k, find the smallest number nk for which there exist real
-nk × nk matrices A1 , A2 , . . . , Ak such that all of the following conditions hold:
+$-1 - z^4$ for these $z^4$: $28, 27, 21, 12, 8, 5, 4, 3$. None lies in the fourth-power set. So no solution, contradiction.
 
- (1) A21 = A22 = . . . = A2k = 0,
+\section*{Problem 3}
+$C \subset \mathbb{R}$ nonempty closed bounded, $f : C \to C$ continuous nondecreasing. Show $\exists p \in C$ with $f(p) = p$.
 
- (2) Ai Aj = Aj Ai for all 1 ≤ i, j ≤ k, and
+\subsection*{Solution}
+Suppose $f(x) \ne x$ on $C$. Let $[a, b]$ be the smallest closed interval containing $C$; $a, b \in C$. Since $a \le f(a) \in C \subseteq [a, b]$ and $f(a) \ne a$, $f(a) > a$. Similarly $f(b) < b$. Let $p = \sup\{x \in C : f(x) > x\}$; by closedness and continuity, $f(p) \ge p$, so $f(p) > p$. For all $x > p, x \in C$, we have $f(x) < x$. Since $f(p) \in C$ and $f(p) > p$, apply: $f(f(p)) < f(p)$, contradicting $f$ nondecreasing (as $p < f(p)$ should give $f(p) \le f(f(p))$).
 
- (3) A1 A2 . . . Ak 6= 0.
+\section*{Problem 4}
+$n > 1$ odd; $A = (a_{ij})$ with $a_{ii} = 2$, $a_{ij} = 1$ if $i - j \equiv \pm 2 \pmod n$, else $0$. Find $\det A$.
 
-Solution. The anwser is nk = 2k . In that case, the matrices can be constructed as follows: Let V be
-the n-dimensional real vector space with basis elements [S], where S runs through all n = 2k subsets
-of {1, 2, . . . , k}. Define Ai as an endomorphism of V by
-                                                  (
-                                                   0         if i ∈ S
-                                         Ai [S] =
-                                                   [S ∪ {i}] if i 6∈ S
+\subsection*{Solution}
+Note $A = B^2$ where $B$ has $b_{ij} = 1$ if $i - j \equiv \pm 1 \pmod n$ (so $B$ is the adjacency matrix of the $n$-cycle).
 
-for all i = 1, 2, . . . , k and S ⊂ {1, 2, . . . , k}. Then A2i = 0 and Ai Aj = Aj Ai . Furthermore,
+For $n$ odd, $\det B = 2$: expand along first row and then columns; ultimately reduces to $-(0 - 1) + (1 - 0) = 2$, as shown by the computation.
 
-                                      A1 A2 . . . Ak [∅] = [{1, 2, . . . , k}],
+Therefore $\det A = (\det B)^2 = 4$.
 
-and hence A1 A2 . . . Ak 6= 0.
-    Now let A1 , A2 , . . . , Ak be n × n matrices satisfying the conditions of the problem; we prove that
-n ≥ 2k . Let v be a real vector satisfying A1 A2 . . . Ak v 6= 0. Denote by P the set of all subsets of
-{1, 2, . . . , k}. Choose a complete ordering ≺ on P with the property
+\section*{Problem 5}
+Find smallest $n_k$ so there exist $n_k \times n_k$ real matrices $A_1, \ldots, A_k$ with $A_i^2 = 0$, $A_i A_j = A_j A_i$, and $A_1 \cdots A_k \ne 0$.
 
-                               X≺Y        ⇒      |X| ≤ |Y | for all X, Y ∈ P.
+\subsection*{Solution}
+$n_k = 2^k$.
 
-                                                         2
-For every element X = {x1 , x2 , . . . , xr } ∈ P, define AX = Ax1 Ax2 . . . Axr and vX = AX v. Finally,
-write X̄ = {1, 2, . . . , k} \ X for the complement of X.
-    Now take X, Y ∈ P with X  Y . Then AX̄ annihilates vY , because X  Y implies the existence
-of some y ∈ Y \ X = Y ∩ X̄, and
+\emph{Construction:} $V$ has basis $\{[S] : S \subseteq \{1, \ldots, k\}\}$, dimension $2^k$. $A_i[S] = [S \cup \{i\}]$ if $i \notin S$, else $0$. Then $A_i^2 = 0$, $A_i A_j = A_j A_i$, $A_1 \cdots A_k [\emptyset] = [\{1, \ldots, k\}] \ne 0$.
 
-                                     AX̄ vY = AX̄\{y} Ay Ay vY \{y} = 0,
+\emph{Lower bound:} Pick $v$ with $A_1 \cdots A_k v \ne 0$. For $X \subseteq \{1, \ldots, k\}$, let $A_X = \prod_{i \in X} A_i$ and $v_X = A_X v$. Claim: $\{v_X : X \subseteq \{1, \ldots, k\}\}$ is linearly independent.
 
-since A2y = 0. So, AX̄ annihilates the span of all the vY with X  Y . This implies that vX does not
-lie in this span, because AX̄ vX = v{1,2,...,k} 6= 0. Therefore, the vectors vX (with X ∈ P) are linearly
-independent; hence n ≥ |P| = 2k .
-Problem 6. Let f 6= 0 be a polynomial with real coefficients. Define the sequence f0 , f1 , f2 , . . . of
-polynomials by f0 = f and fn+1 = fn + fn′ for every n ≥ 0. Prove that there exists a number N such
-that for every n ≥ N, all roots of fn are real.
-Solution. For the proof, we need the following
-    Lemma 1. For any polynomial g, denote by d(g) the minimum distance of any two of its real
-zeros (d(g) = ∞ if g has at most one real zero). Assume that g and g + g ′ both are of degree k ≥ 2
-and have k distinct real zeros. Then d(g + g ′) ≥ d(g).
-    Proof of Lemma 1: Let x1 < x2 < · · · < xk be the roots of g. Suppose a, b are roots of g + g ′
-satisfying 0 < b − a < d(g). Then, a, b cannot be roots of g, and
+Order $\mathcal P$ by a total order $\prec$ refining size. For $X \subsetneq Y$, $A_{\bar X} v_Y = 0$ (some $y \in Y \setminus X$; $A_y^2 = 0$). So $A_{\bar X}$ annihilates $\operatorname{span}\{v_Y : X \subsetneq Y\}$. But $A_{\bar X} v_X = v_{\{1, \ldots, k\}} \ne 0$. By induction on $\prec$, $\{v_X\}$ are independent. Hence $n \ge 2^k$.
 
-                                              g ′ (a)   g ′ (b)
-                                                      =         = −1.                                    (1)
-                                              g(a)      g(b)
-       ′
-Since gg is strictly decreasing between consecutive zeros of g, we must have a < xj < b for some j.
-    For all i = 1, 2, . . . , k − 1 we have xi+1 − xi > b − a, hence a − xi > b − xi+1 . If i < j, both sides
-                                                                                    1
-of this inequality are negative; if i ≥ j, both sides are positive. In any case, a−x  i
-                                                                                        < b−x1i+1 , and hence
+\section*{Problem 6}
+$f \ne 0$ real polynomial; $f_0 = f$, $f_{n+1} = f_n + f_n'$. Prove for large $n$, $f_n$ has all real roots.
 
-                              k−1                 k−1
-                     g ′ (a) X 1            1     X      1        1      g ′ (b)
-                            =           +       <             +        =
-                     g(a)     i=1
-                                  a − xi a − xk       b − xi+1 b − x1    g(b)
-                                          | {z } i=1            | {z }
-                                                 <0                         >0
+\subsection*{Solution}
+\textbf{Lemma 1.} If $g$ and $g + g'$ both have $\deg = k \ge 2$ with $k$ distinct real roots, then $d(g + g') \ge d(g)$ (minimum root distance).
 
-This contradicts (1).
-     Now we turn to the proof of the stated problem. Denote by m the degree of f . We will prove
-by induction on m that fn has m distinct real zeros for sufficiently large n. The cases m = 0, 1 are
-trivial; so we assume m ≥ 2. Without loss of generality we can assume that f is monic. By induction,
-the result holds for f ′ , and by ignoring the first few terms we can assume that fn′ has m − 1 distinct
-                                                           (n)   (n)           (n)
-real zeros for all n. Let us denote these zeros by x1 > x2 > · · · > xm−1 . Then fn has minima
-       (n)  (n)  (n)                         (n)  (n)  (n)                                  (n)   (n)
-in x1 , x3 , x5 , . . . , and maxima in x2 , x4 , x6 , . . . . Note that in the interval (xi+1 , xi ), the
-              ′
-function fn+1     = fn′ + fn′′ must have a zero (this follows by applying Rolle’s theorem to the function
-                                                       (n)
-ex fn′ (x)); the same is true for the interval (−∞, xm−1 ). Hence, in each of these m − 1 intervals, fn+1
-                                                                                                       ′
+\emph{Proof.} Let $x_1 < \cdots < x_k$ be roots of $g$. Suppose $a, b$ are roots of $g + g'$ with $0 < b - a < d(g)$. Then $g'/g = -1$ at $a, b$. Since $g'/g$ is strictly decreasing between consecutive zeros of $g$, some $x_j \in (a, b)$. For $i = 1, \ldots, k-1$, $x_{i+1} - x_i > b - a$ gives $\tfrac{1}{a - x_i} < \tfrac{1}{b - x_{i+1}}$. Summing:
+\[
+\frac{g'(a)}{g(a)} = \sum_{i=1}^{k-1} \frac{1}{a - x_i} + \underbrace{\frac{1}{a - x_k}}_{< 0} < \sum \frac{1}{b - x_{i+1}} + \underbrace{\frac{1}{b - x_1}}_{> 0} = \frac{g'(b)}{g(b)},
+\]
+contradiction.
 
-has exactly one zero. This shows that
-                            (n)     (n+1)       (n)     (n+1)     (n)   (n+1)
-                           x1 > x1          > x2 > x2           > x3 > x3       > ...                    (2)
+\textbf{Main.} Induct on $m = \deg f$. $m \le 1$ trivial. For $m \ge 2$: WLOG monic; by induction, $f'$ eventually has $m-1$ distinct real zeros; WLOG $f_n'$ always has $m - 1$ distinct zeros $x_1^{(n)} > \cdots > x_{m-1}^{(n)}$. Apply Rolle to $e^x f_n'$: between consecutive zeros of $f_n'$, $f_{n+1}'$ has exactly one zero. Hence interlacing: $x_j^{(n)} > x_j^{(n+1)} > x_{j+1}^{(n)}$.
 
-                                        (n)                                        (n)
-   Lemma 2. We have limn→∞ fn (xj ) = −∞ if j is odd, and lim fn (xj ) = +∞ if j is even.
-                                                                        n→∞
-    Lemma 2 immediately implies the result: For sufficiently large n, the values of all maxima of fn
-are positive, and the values of all minima of fn are negative; this implies that fn has m distinct zeros.
+\textbf{Lemma 2.} $\lim_n f_n(x_j^{(n)}) = -\infty$ for $j$ odd, $+\infty$ for $j$ even. Once this holds, all local maxima are positive and minima negative, so $f_n$ has $m$ distinct roots.
 
+\emph{Proof sketch.} Let $d = \min(d(f'), 1)$, $\varepsilon = (m-1) d^{m-1}/m^{m-1}$. Write $f = f_n$, $b = x_j^{(n)}$ ($j$ even). Pick $a$ with $d \le b - a \le 1$ and $f'$ nonzero on $(a, b)$; set $\xi$ with $b - \xi = (b - a)/m$. Then $f''(\xi)/f'(\xi) < 0$ (from the rational expression), so $f'' < 0$ on $(\xi, b)$. Therefore
+\[
+f(b) - f(\xi) \le (b - \xi) f'(\xi),
+\]
+giving $f(\xi) + f'(\xi) \ge f(b) + (1 - 1/m) f'(\xi)$. Bound $f'(\xi) \ge d^{m-1}/m^{m-2}$, yielding $f(\xi) + f'(\xi) \ge f(b) + \varepsilon$. Combined with $x_j^{(n+1)} > b$: $f_{n+1}(x_j^{(n+1)}) \ge f_n(x_j^{(n)}) + \varepsilon$.
 
-                                                        3
-  Proof of Lemma 2: Let d = min{d(f ′), 1}; then by Lemma 1, d(fn′ ) ≥ d for all n. Define
-   (m − 1)dm−1
-ε=             ; we will show that
-      mm−1
-                                          (n+1)                (n)
-                                  fn+1 (xj        ) ≥ fn (xj ) + ε for j even.                                      (3)
-                                                                                                              (n)
-(The corresponding result for odd j can be shown similarly.) Do to so, write f = fn , b = xj , and
-choose a satisfying d ≤ b − a ≤ 1 such that f ′ has no zero inside (a, b). Define ξ by the relation
-        1
-b − ξ = (b − a); then ξ ∈ (a, b). We show that f (ξ) + f ′ (ξ) ≥ f (b) + ε.
-        m
-   Notice, that
-                                          m−1
-                                f ′′ (ξ) X       1
-                                   ′
-                                        =          (n)
-                                f (ξ)     i=1 ξ − xi
-                                          X      1         1    X     1
-                                        =          (n)
-                                                       +      +
-                                          i<j ξ − xi
-                                                         ξ − b i>j ξ − x(n)
-                                              | {z }               | {z i }
-                                                      1
-                                                   < ξ−a                          <0
-
-                                                         1   1
-                                       < (m − 1)           +    = 0.
-                                                        ξ−a ξ−b
-                                                                                  f ′′
-The last equality holds by definition of ξ. Since f ′ is positive and                  is decreasing in (a, b), we have
-                                                                                  f′
-that f ′′ is negative on (ξ, b). Therefore,
-                                          Z b           Z b
-                                               ′
-                          f (b) − f (ξ) =     f (t)dt ≤     f ′ (ξ)dt = (b − ξ)f ′ (ξ)
-                                              ξ                      ξ
-
-Hence,
-
-                                 f (ξ) + f ′ (ξ) ≥ f (b) − (b − ξ)f ′ (ξ) + f ′ (ξ)
-                                                 = f (b) + (1 − (ξ − b))f ′ (ξ)
-                                                 = f (b) + (1 − m1 (b − a))f ′ (ξ)
-                                                 ≥ f (b) + (1 − m1 )f ′ (ξ).
-
-Together with
-                                                  m−1
-                         ′         ′
-                                                  Y           (n)                       dm−1
-                        f (ξ) = |f (ξ)| = m             |ξ − xi | ≥ m|ξ − b|m−1 ≥
-                                                  i=1
-                                                        |    {z      }                  mm−2
-                                                            ≥|ξ−b|
-
-we get
-                                             f (ξ) + f ′ (ξ) ≥ f (b) + ε.
-Together with (2) this shows (3). This finishes the proof of Lemma 2.
-                                                  f + f′
-
-
-
-
-                                              f
-
-
-                                                                             f′
-                                         a                     ξ         b
-
-
-                                                              4
-
+\end{document}
