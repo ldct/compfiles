@@ -1,306 +1,50 @@
-                             IMC 2015, Blagoevgrad, Bulgaria
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{IMC 2015, Blagoevgrad, Bulgaria --- Day 2 Solutions}
+\date{July 30, 2015}
+\begin{document}
+\maketitle
 
-                                              Day 2, July 30, 2015
+\section*{Problem 6}
+\subsection*{Solution}
+We show $\frac{1}{\sqrt{n}(n+1)} < \frac{2}{\sqrt{n}} - \frac{2}{\sqrt{n+1}}$. Cross-multiplying by $\sqrt{n(n+1)}$: $1 < 2(n+1) - 2\sqrt{n(n+1)}$, i.e.\ $2\sqrt{n(n+1)} < n + (n+1)$, which is AM-GM. Summing telescopes to $< 2$.
 
+\section*{Problem 7}
+\subsection*{Solution}
+Answer: $1$.
 
+Lower: for $A > 1$, $A^{1/x} > 1$, so $\frac{1}{A}\int_1^A A^{1/x}\,dx > 1 - 1/A$.
 
+Upper: split $[1, A]$ at $1+\delta$ and $K \log A$. The integrand $A^{1/x}$ is decreasing:
+\[ \frac{1}{A}\int_1^A A^{1/x}\,dx < \frac{1}{A}\Big[\delta A + K\log A \cdot A^{1/(1+\delta)} + A \cdot A^{1/(K \log A)}\Big] = \delta + K A^{-\delta/(1+\delta)} \log A + e^{1/K}. \]
+As $A \to \infty$ the middle term $\to 0$, giving $\limsup \le \delta + e^{1/K}$; then $\delta \to 0$, $K \to \infty$ gives $\le 1$.
 
-Problem 6.     Prove that                          ∞
-                                                   X            1
-                                                         √             < 2.
-                                                   n=1
-                                                             n (n + 1)
-                                                                        (Proposed by Ivan Krijan, University of Zagreb)
-Solution.   We prove that
-                                                     1        2   2
-                                              √             <√ −√    .                                              (1)
-                                                  n (n + 1)    n n+1
-                 √
-Multiplying by       n(n + 1), the inequality (1) is equivalent with
-                                                            p
-                                           1 < 2(n + 1) − 2 n(n + 1)
-                                             p
-                                           2 n(n + 1) < n + (n + 1)
-which is true by the AM-GM inequality.
-   Applying (1) to the terms in the left-hand side,
-                                   ∞                ∞           
-                                   X        1       X    2    2
-                                       √          <     √ −√       = 2.
-                                   n=1
-                                         n (n + 1) n=1    n  n+1
+\section*{Problem 8}
+\subsection*{Solution}
+Let $n = 26$; then $3^{75} = (n+1)^{n-1}$. Using the finite-difference identity $\Delta^{n+1} f \equiv 0$ for $\deg f \le n$, applied to $f(x) = (n-x)^n$ at $x = -1$:
+\[ (n+1)^n = (n+1)\sum_{j=0}^n \binom{n}{j}\frac{(-1)^j}{j+1}(n-j)^n. \]
+Interpret: $\binom{n}{j}\frac{(-1)^j}{j+1}(n-j)^n$ = (choose $j$ absent letters) $\cdot$ (sum $(-1)^j/(j+1)$ over $(n-j)^n$ words avoiding them). Reverse order: for word $W$ with $k$ absent letters, contribution is $\sum_{j=0}^k \binom{k}{j}\frac{(-1)^j}{j+1} = \frac{1}{k+1}$ (alternating sum of $\binom{k+1}{j+1}$ vanishes). Hence total sum $= (n+1)^{n-1} = 3^{75}$.
 
+\section*{Problem 9}
+\subsection*{Solution}
+Answer: $n(n+1)/2$. Symmetric matrices work. For upper bound:
 
+Let $V \subseteq M_n$ be a t-normal subspace. Define $\pi: V \to S_n$ by $\pi(A) = A + A^t$. Then $\ker \pi \subseteq A_n$ (antisymmetric), and $\dim V = \dim\ker\pi + \dim\mathrm{im}\,\pi$.
 
-Problem 7.     Compute                                           Z A
-                                                         1               1
-                                                     lim               A x dx .
-                                                    A→+∞ A        1
+For $A \in \ker\pi$, $B \in V$: expand $(A+B)(A+B)^t = (A+B)^t(A+B)$ using $A^2A = AA^t$ (from $A \in V$, $A = -A^t$ gives $AA^t = -A^2$, $A^tA = -A^2$, fine), $BB^t = B^tB$: one gets $A\pi(B) = \pi(B) A$. So $\ker\pi$ and $\mathrm{im}\,\pi$ commute.
 
-                                                                        (Proposed by Jan ustek, University of Ostrava)
-Solution 1.   We prove that
-                                               1 A 1
-                                                 Z
-                                         lim         A x dx = 1 .
-                                        A→+∞ A 1
+\emph{Lemma.} If $X \subseteq S_n$, $Y \subseteq A_n$, every element of $X$ commutes with every element of $Y$, then $\dim X + \dim Y \le \dim S_n$.
 
-   For A > 1 the integrand is greater than 1, so
-                            1 A 1           1 A
-                              Z               Z
-                                                          1          1
-                                  A x dx >        1dx = (A − 1) = 1 − .
-                           A 1             A 1            A          A
-    In order to nd a tight upper bound, x two real numbers, δ > 0 and K > 0, and split the interval
-into three parts at the points 1 + δ and K log A. Notice that for suciently large A (i.e., for A > A0 (δ, K)
-with some A0 (δ, K) > 1) we have 1 + δ < K log A < A.) For A > 1 the integrand is decreasing, so we can
-estimate it by its value at the starting points of the intervals:
-                                   Z A                   Z 1+δ        Z K log A       Z A        
-                               1          1     1
-                                         A dx =
-                                          x                       +                +                  <
-                               A    1           A            1          1+δ             K log A
+\emph{Proof sketch.} Define $B: S_n \times A_n \to \mathbb{C}$ by $B(x,y) = \mathrm{tr}(d[x,y])$ with $d = \mathrm{diag}(1,\dots,n)$. One checks $\{[d,x]: x \in S_n\} = A_n$, and $B(x,y) = 0 \forall x \Rightarrow y = 0$. So linear independence of $y_1, \dots, y_k \in Y$ gives $k$ independent equations $B(\cdot, y_i) = 0$ on $S_n$, restricting to codimension $k$.
 
-                       1                               1                       1
-                                                                                  
-                        =  δ · A + (K log A − 1 − δ)A 1+δ + (A − K log A)A K log A <
-                       A
-                      1             1                 1
-                                                                        δ            1
-                  <       δA + KA log A + A · A
-                                    1+δ             K log A   = δ + KA− 1+δ log A + e K .
-                      A
-   Hence, for A > A0 (δ, K) we have
-                                       1 A 1
-                                        Z
-                                 1                                δ          1
-                            1− <            A x dx < δ + KA− 1+δ log A + e K .
-                                 A     A 1
-Taking the limit A → ∞ we obtain
-                                                  Z A                        Z A
-                                           1                1          1               1            1
-                               1 ≤ lim inf              A dx ≤ lim sup
-                                                            x                        A x dx ≤ δ + e K .
-                                    A→∞ A          1             A→∞ A         1
+Applying with $X = \mathrm{im}\,\pi$, $Y = \ker\pi$: $\dim V \le \dim S_n = n(n+1)/2$.
 
-Now from δ → +0 and K → ∞ we get
-                                          1 A 1                  1 A 1
-                                             Z                    Z
-                              1 ≤ lim inf       A dx ≤ lim sup
-                                                  x                 A x dx ≤ 1,
-                                    A→∞ A 1               A→∞ A 1
+\section*{Problem 10}
+\subsection*{Solution}
+Let $M = \max_{[0,1]} |p(x)|$. For $k \ge 1$, $J_k = \int_0^1 p(x)^{2k}\,dx$ is a positive rational $< M^{2k}$. Its denominator divides $\mathrm{lcm}(1, 2, \dots, 2kn+1)$, so
+\[ J_k \ge \frac{1}{\mathrm{lcm}(1, \dots, 2kn+1)}. \]
+By the prime number theorem, $\log\mathrm{lcm}(1, \dots, N) \sim N$. So for any $\varepsilon > 0$ and large $k$:
+\[ M^{2k} > \frac{1}{e^{(1+\varepsilon)(2kn+1)}} \implies M > e^{-(1+\varepsilon)(n + 1/(2k))}. \]
+Let $k \to \infty$, then $\varepsilon \to 0$: $M \ge e^{-n}$. Since $e$ is transcendental, equality is impossible.
 
-so lim inf A1 1A A x dx = lim sup A1 1A A x dx = 1 and therefore
-             R     1                 R    1
-
-      A→∞                      A→∞
-                                                                Z A
-                                                            1           1
-                                                        lim           A x dx = 1 .
-                                                       A→+∞ A     1
-
-Solution 2.    We will1 employ l'Hospital's    rule. R
-    Let f (A, x) = A x , g(A, x) = x1 A x , F (A) = 1A f (A, x)dx and G(A) = 1A g(A, x)dx. Since ∂A f and
-                                        1                                   R                     ∂
- ∂
-∂A
-   g are continuous, the parametric integrals F (A) and G(A) are dierentiable with respect to A, and
-                                        Z A                                  Z A
-                  0                             ∂                1                 1 1 −1       1  1
-                F (A) = f (A, A) +                f (A, x)dx = A A +                 A x dx = A A + G(A),
-                                         1     ∂A                             1    x               A
-and                                                    Z A       1    Z A
-                           0                      ∂             AA        1 1 −1
-                          G (A) = g(A, A) +         g(A, x)dx =     +      2
-                                                                             A x dx =
-                                              1 ∂A              A      1 x
-                                                   A      1       1
-                                    1      −1 1 −1        AA     AA         1
-                                =A +A           A x     =     −         +       .
-                                          log A       1    A    A log A log A
-      Since limA→∞ A A = 1, we can see that limA→∞ G0 (A) = 0. Aplying l'Hospital's rule to lim G(A) we
-                      1
-                                                                                                 A          A→∞
-get
-                                               G(A)        G0 (A)
-                                                  lim= lim        = 0,
-                                           A→∞    A   A→∞     1
-so                                                             
-                                         0             1   G(A)
-                                    lim F (A) = lim A A +         = 1 + 0 = 1.
-                                   A→∞         A→∞          A
-      Now applying l'Hospital's rule to lim F (A)
-                                              A
-                                                  we get
-                                               A→∞
-                                             Z A
-                                      1                 1           F (A)       F 0 (A)
-                                  lim              A x dx = lim           = lim         = 1.
-                                 A→+∞ A       1                 A→∞   A    A→∞      1
-
-
-
-Problem 8.     Consider all 2626 words of length 26 in the Latin alphabet. Dene the weight of a word as
-1/(k + 1), where k is the number of letters not used in this word. Prove that the sum of the weights of all
-words is 375 .
-                                             (Proposed by Fedor Petrov, St. Petersburg State University)
-Solution.  Let n = 26, then 375 = (n + 1)n−1 . We use the following well-known
-   Lemma. If f (x) is a polynomial of degree at most n, then its (n + 1)-st nite dierence vanishes:
-∆ f (x) := n+1          i n+1
-                              f (x + i) ≡ 0.
-  n+1
-             P               
-                i=0 (−1)   i
-   Proof. If ∆ is the operator which maps f (x) to f (x + 1) − f (x), then ∆        is indeed (n + 1)-st power
-                                                                              n+1
-
-of ∆ and the claim follows from   the observation   that ∆  decreases the power  of a polynomial.
-   In other words, f (x) = i=1 (−1)              f (x + i). Applying this for f (x) = (n − x)n , substituting
-                             Pn+1       i+1 n+1
-                                               
-                                             i
-x = −1 and denoting i = j + 1 we get
-                                 n                            n  
-                                                                      (−1)j
-                                         
-                           n
-                                 X   n+1 j        n
-                                                             X   n
-                 (n + 1) =     (−1)        (n − j) = (n + 1)        ·       · (n − j)n .
-                           j=0
-                                      j+1                    j=0
-                                                                 j    j+1
-The j -th summand nj · (−1)         · (n − j)n may be interpreted as follows: choose j letters, consider all
-                              j
-
-                              j+1
-(n − j)n words without those letters and sum up (−1)         over all those words. Now we change the order of
-                                                           j
-
-                                                        j+1
-summation, counting at rst by words. For any xed word W with k absent letters we get kj=0 kj · (−1)
-                                                                                            P             j
-
-                                                                                                        j+1
-                                                                                                             =
- 1
-    · kj=0 (−1)j · k+1      1
-                               , since the alternating sum of binomial coecients kj=−1 (−1)j · k+1   vanishes.
-     P                                                                            P                
-k+1                j+1
-                         = k+1                                                                  j+1
-That is, after changing order of summation we get exactly initial sum, and it equals (n + 1) .  n−1
-
-
-
-
-Problem 9.    An n × n complex matrix A is called t-normal if AAt = At A where At is the transpose of
-A. For each n, determine the maximum dimension of a linear space of complex n × n matrices consisting
-of t-normal matrices.
-                                      (Proposed by Shachar Carmeli, Weizmann Institute of Science)
-Solution.
-   Answer  : The maximum dimension of such a space is n(n+1) 2
-                                                                .
-   The number 2 can be achieved, for example the symmetric matrices are obviously t-normal and
-                  n(n+1)
-
-they form a linear space with dimension n(n+1)
-                                           2
-                                               . We shall show that this is the maximal possible dimension.
-   Let Mn denote the space of n × n complex matrices, let Sn ⊂ Mn be the subspace of all symmetric
-matrices and let An ⊂ Mn be the subspace of all anti-symmetric matrices, i.e. matrices A for which
-At = −A.
-   Let V ⊂ Mn be a linear subspace consisting of t-normal matrices. We have to show that dim(V ) ≤
-dim(Sn ). Let π : V → Sn denote the linear map π(A) = A + At . We have
-
-                                   dim(V ) = dim(Ker (π)) + dim(Im (π))
-
-so we have to prove that dim(Ker (π)) + dim(Im (π)) ≤ dim(Sn ). Notice that Ker (π) ⊆ An .
-   We claim that for every A ∈ Ker (π) and B ∈ V , Aπ(B) = π(B)A. In other words, Ker (π) and Im (π)
-commute. Indeed, if A, B ∈ V and A = −At then
-
-                                (A + B)(A + B)t = (A + B)t (A + B) ⇔
-                       ⇔ AAt + AB t + BAt + BB t = At A + At B + B t A + B t B ⇔
-                       ⇔ AB t − BA = −AB + B t A ⇔ A(B + B t ) = (B + B t )A ⇔
-                                         ⇔ Aπ(B) = π(B)A.
-
-   Our bound on the dimension on V follows from the following lemma:
-Lemma. Let X ⊆ Sn and Y ⊆ An be linear subspaces such that every element of X commutes with every
-element of Y . Then
-                                        dim(X) + dim(Y ) ≤ dim(Sn )
-
-Proof.  Without loss of generality we may assume X = ZSn (Y ) := {x ∈ Sn : xy = yx ∀y ∈ Y }. Dene the
-bilinear map B : Sn × An → C by B(x, y) = tr(d[x, y]) where [x, y] = xy − yx and d = diag(1, ..., n) is the
-matrix with diagonal elements 1, ..., n and zeros o the diagonal. Clearly B(X, Y ) = {0}. Furthermore, if
-y ∈ Y satises that B(x, y) = 0 for all x ∈ Sn then tr(d[x, y]) = −tr([d, x], y]) = 0 for every x ∈ Sn .
-    We claim that {[d, x] : x ∈ Sn } = An . Let Eij denote the matrix with 1 in the entry (i, j) and 0 in
-all other entries. Then a direct computation shows that [d, Eij ] = (j − i)Eij and therefore [d, Eij + Eji ] =
-(j − i)(Eij − Eji ) and the collection {(j − i)(Eij − Eji )}1≤i<j≤n span An for i 6= j .
-    It follows that if B(x, y) = 0 for all x ∈ Sn then tr(yz) = 0 for every z ∈ An . But then, taking z = ȳ ,
-where ȳ is the entry-wise complex conjugate of y , we get 0 = tr(yȳ) = −tr(yȳt ) which is the sum of squares
-of all the entries of y . This means that y = 0.
-    It follows that if y1 , ..., yk ∈ Y are linearly independent then the equations
-                                     B(x, y1 ) = 0,   ...,   B(x, yk ) = 0
-are linearly independent as linear equations in x, otherwise there are a1 , ..., ak such that B(x, a1 y1 + ... +
-ak yk ) = 0 for every x ∈ Sn , a contradiction to the observation above. Since the solution of k linearly
-independent linear equations is of codimension k,
-                                   dim({x ∈ Sn : [x, yi ] = 0, for i = 1, .., k}) ≤
-
-                           ≤ dim(x ∈ Sn : B(x, yi ) = 0 for i = 1, ..., k) = dim(Sn ) − k.
-The lemma follows by taking y1 , ..., yk to be a basis of Y .
-   Since Ker (π) and Im (π) commute, by the lemma we deduce that
-                                                                                         n(n + 1)
-                         dim(V ) = dim(Ker (π)) + dim(Im (π)) ≤ dim(Sn ) =                        .
-                                                                                            2
-
-
-
-Problem 10.        Let n be a positive integer, and let p(x) be a polynomial of degree n with integer coecients.
-Prove that
-                                                                      1
-                                                  max p(x) >             .
-                                                 0≤x≤1                en
-                                                             (Proposed by Géza Kós, Eötvös University, Budapest)
-Solution.    Let
-                                                 M = max p(x) .
-                                                         0≤x≤1
-
-   For every positive integer k, let                   Z 1
-                                                                  2k
-                                                Jk =          p(x) dx.
-                                                         0
-                                                                         2kn                       2kn
-Obviously 0 < Jk < M 2k is a rational number. If (p(x))2k =                    ak,i xi then Jk =
-                                                                                                         ak,i
-                                                                                                                . Taking the least
-                                                                         P                         P
-                                                                                                         i+1
-                                                                         i=0                       i=0
-                                                          1
-common denominator, we can see that Jk ≥                                .
-                                             lcm(1, 2, . . . , 2kn + 1)
-    An equivalent form of the prime number theorem is that log lcm(1, 2, . . . , N ) ∼ N if N → ∞. Therefore,
-for every ε > 0 and suciently large k we have
-                                       lcm(1, 2, . . . , 2kn + 1) < e(1+ε)(2kn+1)
-
-and therefore
-                                                          1                    1
-                               M 2k > Jk ≥                              > (1+ε)(2kn+1) ,
-                                             lcm(1, 2, . . . , 2kn + 1)  e
-                                                                1
-                                                M > (1+ε)(n+ 1 ) .
-                                                        e          2k
-
-
-Taking k → ∞ and then ε → +0 we get
-                                                               1
-                                                       M≥         .
-                                                               en
-Since e is transcendent, equality is impossible.
-
-
-Remark. The constant
-                          e ≈ 0.3679 is not sharp. It is known that the best constant is between 0.4213 and 0.4232.
-                          1
-
-(See I. E. Pritsker, The GelfondSchnirelman method in prime number theory, Canad. J. Math. 57 (2005),
-10801101.)
-
+\end{document}

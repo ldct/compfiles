@@ -1,228 +1,46 @@
-                   IMC 2015, Blagoevgrad, Bulgaria
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{IMC 2015, Blagoevgrad, Bulgaria --- Day 1 Solutions}
+\date{July 29, 2015}
+\begin{document}
+\maketitle
 
-                               Day 1, July 29, 2015
+\section*{Problem 1}
+\subsection*{Solution}
+Multiply the given equation by $(A+B)$:
+\[ I = (A+B)(A^{-1} + B^{-1}) = I + AB^{-1} + BA^{-1} + I, \]
+so $AB^{-1} + BA^{-1} + I = 0$. Let $X = AB^{-1}$; then $X + X^{-1} + I = 0$. Multiplying by $(X-I)X$: $(X-I)(X^2+X+I) = X^3 - I = 0$. So $X^3 = I$, hence $(\det X)^3 = 1$, and over $\mathbb{R}$, $\det X = 1$. Thus $\det A = \det X \cdot \det B = \det B$.
 
+Over $\mathbb{C}$: take $A = I$ and $B = \omega I$ where $\omega = e^{2\pi i/3}$ (for $n$ not divisible by $3$); then $1 + \omega + \omega^2 = 0$ and the condition holds, but $\det B \ne 1$.
 
+\section*{Problem 2}
+\subsection*{Solution}
+If $2^{r-1} \le k < 2^r$ then $k + f(k) = 2^r - 1$. Assume $2^{s-1} - 1 \le n \le 2^s - 1$. Then
+\[ \frac{n(n+1)}{2} + \sum_{k=1}^n f(k) = \sum_{k=1}^n (k+f(k)) = \sum_{r=1}^{s-1} 2^{r-1}(2^r - 1) + (n - 2^{s-1} + 1)(2^s - 1) = (2^s - 1) n - \tfrac{1}{3} 4^s + 2^s - \tfrac{2}{3}. \]
+After simplification,
+\[ \frac{n^2}{4} - \sum_{k=1}^n f(k) = \frac{3}{4}\Big(n - \frac{2^{s+1} - 2}{3}\Big)\Big(n - \frac{2^{s+1} - 4}{3}\Big). \]
+One factor is an integer (depending on parity of $s$) and the difference between factors is $< 1$, so either zero or same-sign. Equality iff $n = \frac{2^{s+1} - 2}{3}$ ($s$ even) or $n = \frac{2^{s+1} - 4}{3}$ ($s$ odd).
 
+\section*{Problem 3}
+\subsection*{Solution}
+Characteristic polynomial $x^2 - \tfrac{5}{2} x + 1 = 0$ has roots $2, 1/2$. With initial data, $F(n) = 2^n - 2^{-n}$. Then
+\[ \frac{1}{F(2^n)} = \frac{2^{2^n}}{(2^{2^n})^2 - 1} = \frac{1}{2^{2^n} - 1} - \frac{1}{2^{2^{n+1}} - 1}, \]
+which telescopes to $\sum_{n=0}^\infty \frac{1}{F(2^n)} = \frac{1}{2^{2^0} - 1} = 1$. Rational.
 
-Problem 1.     For any integer n ≥ 2 and two n × n matrices with real entries A, B that
-satisfy the equation
-                                A−1 + B −1 = (A + B)−1
-prove that det(A) = det(B).
-   Does the same conclusion follow for matrices with complex entries?
-                  (Proposed by Zbigniew Skoczylas, Wrocªaw University of Technology)
-Solution.   Multiplying the equation by (A + B) we get
-                    I = (A + B)(A + B)−1 = (A + B)(A−1 + B −1 ) =
-                = AA−1 + AB −1 + BA−1 + BB −1 = I + AB −1 + BA−1 + I
-                                AB −1 + BA−1 + I = 0.
+\section*{Problem 4}
+\subsection*{Solution}
+Suppose such integers exist. Then $z_1 = 1 + 16 i$ and $z_2 = \prod_{k=1}^{15}(1+ki)^{m_k}$ have the same argument, so $R = z_2/z_1 \in \mathbb{R}^*$, and $R$ is a nonzero integer (since $\mathrm{Re}(z_1) = 1$, $\mathrm{Re}(z_2) \in \mathbb{Z}$). Taking absolute values squared:
+\[ (1 + 16^2) R^2 = \prod_{k=1}^{15}(1+k^2)^{m_k}. \]
+But $p = 257$ is prime (Fermat prime); $p$ appears with odd exponent on LHS, but on RHS all prime factors are $< p$ (since $1 + k^2 < 257$ for $k \le 15$). Contradiction.
 
-Let X = AB −1 ; then A = XB and BA−1 = X −1 , so we have X +X −1 +I = 0; multiplying
-by (X − I)X ,
-            0 = (X − I)X · (X + X −1 + I) = (X − I) · (X 2 + X + I) = X 3 − I.
+\section*{Problem 5}
+\subsection*{Solution}
+Let $\mathbf{v}_i = \overrightarrow{BA_i}$. Then $\angle A_i B A_j > 90^\circ \iff \mathbf{v}_i \cdot \mathbf{v}_j < 0$. Since $B$ is interior, $\sum w_i \mathbf{v}_i = 0$ with $w_i > 0$.
 
-Hence,
-                                         X3 = I
-                             (det X)3 = det(X 3 ) = det I = 1
-                                       det X = 1
-                        det A = det(XB) = det X · det B = det B.
-                                                                         √
-    In case of complex matrices the statement is false. Let ω = 21 (−1 + i 3). Obviously
-ω∈ / R and ω 3 = 1, so 0 = 1 + ω + ω 2 = 1 + ω + ω .
-    Let A = I and let B be a diagonal matrix with all entries along the diagonal equal to
-either ω or ω = ω 2 such a way that det(B) 6= 1 (if n is not divisible by 3 then one may
-set B = ωI ). Then A−1 = I , B −1 = B . Obviously I + B + B = 0 and
-                    (A + B)−1 = (−B)−1 = −B = I + B = A−1 + B −1 .
+Form graph on $\{1, \dots, n+1\}$: edge $\{i,j\}$ iff $\mathbf{v}_i \cdot \mathbf{v}_j < 0$. A connected graph on $n+1$ vertices has $\ge n$ edges, so it suffices to show this graph is connected.
 
-By the choice of A and B , det A = 1 6= det B .
-Problem 2.       For a positive integer n, let f (n) be the number obtained by writing n
-in binary and replacing every 0 with 1 and vice versa. For example, n = 23 is 10111 in
-binary, so f (n) is 1000 in binary, therefore f (23) = 8. Prove that
-                                              n
-                                              X          n2
-                                                  f (k) ≤ .
-                                              k=1
-                                                         4
+Else partition $V, W$. Then
+\[ 0 = \Big(\sum_i w_i \mathbf{v}_i\Big)^2 = \Big(\sum_{i \in V} w_i \mathbf{v}_i\Big)^2 + \Big(\sum_{i \in W} w_i \mathbf{v}_i\Big)^2 + 2\sum_{i \in V, j \in W} w_i w_j (\mathbf{v}_i \cdot \mathbf{v}_j), \]
+all terms $\ge 0$. But first two are nonzero (else $\mathbf{v}_i$'s dependent, contradicting non-hyperplanarity), contradiction.
 
-When does equality hold?
-                                         (Proposed by Stephan Wagner, Stellenbosch University)
-Solution.    If r and k are positive integers with 2r−1 ≤ k < 2r then k has r binary digits,
-so k + f (k) = 11  . . . 1} = 2r − 1.
-                           (2)
-                | {z
-                   r
-   Assume that 2s−1 − 1 ≤ n ≤ 2s − 1. Then
-                                        n           n
-                             n(n + 1) X            X
-                                     +     f (k) =     (k + f (k)) =
-                                2      k=1         k=1
-                           s−1
-                           X         X                        X
-                       =                    (k + f (k)) +           (k + f (k)) =
-                           r=1 2r−1 ≤k<2r                   2s−1 ≤k≤n
-                           s−1
-                           X
-                       =         2r−1 · (2r − 1) + (n − 2s−1 + 1) · (2s − 1) =
-                           r=1
-                           s−1
-                           X                s−1
-                                            X
-                                 2r−1
-                       =         2      −         2r−1 + (n − 2s−1 + 1)(2s − 1) =
-                       r=1       r=1
-               = 3 (4 − 1) − (2 − 1) + (2s − 1)n − 22s−1 + 3 · 2s−1 − 1 =
-                 2 s−1         s−1
-
-                              = (2s − 1)n − 31 4s + 2s − 32
-
-and therefore
-                   n
-              n2 X            n2
-                                                                    
-                                     s        1 s    s  2   n(n + 1)
-                −     f (k) =    − (2 − 1)n − 3 4 + 2 − 3 −            =
-              4   k=1
-                              4                                2
-                              = 34 n2 − (2s − 23 )n + 13 4s − 2s + 23 =
-                                        2s+1 − 2             2s+1 − 4
-                                                                   
-                               3
-                             =      n−                 n−               .
-                               4            3                    3
-
-Notice that the dierence of the last two factors is less than 1, and one of them must
-be an integer: 2 3 −2 is integer if s is even, and 2 3 −4 is integer if s is odd. Therefore,
-                 s+1                                s+1
-
-
-either one of them is 0, resulting a zero product, or both factors have the same sign, so
-the product is strictly positive. This solves the problem and shows that equality occurs
-         2s+1 − 2                    2s+1 − 4
-if n =            (s is even) or n =          (s is odd).
-            3                           3
-Problem 3.     Let F (0) = 0, F (1) = 32 , and F (n) = 25 F (n − 1) − F (n − 2) for n ≥ 2.
-                                  ∞
-                                          1
-     Determine whether or not                  is a rational number.
-                                  X
-
-                                   n=0
-                                       F (2n )
-                    (Proposed by Gerhard Woeginger, Eindhoven University of Technology)
-Solution 1.    The characteristic equation of our linear recurrence is x2 − 52 x + 1 = 0, with
-roots x1 = 2 and x2 = 21 . So F (n) = a · 2n + b · ( 21 )n with some constants a, b. By F (0) = 0
-and F (1) = 32 , these constants satisfy a + b = 0 and 2a + 2b = 32 . So a = 1 and b = −1,
-and therefore
-                                             F (n) = 2n − 2−n .
-     Observe that
-                             n
-               1         22        1      1        1      1
-                 n
-                   =   2n 2
-                              = 2n   − 2n 2   = 2n   − 2n+1    ,
-            F (2 )   (2 ) − 1  2 − 1 (2 ) − 1  2 −1 2       −1
-so                ∞            ∞                 
-                  X      1     X      1      1           1
-                           n
-                             =     2n   − 2n+1      = 20   = 1.
-                  n=0
-                      F (2 ) n=0 2 − 1 2       −1    2 −1
-Hence the sum takes the value 1, which is rational.
-Solution 2. As in the rst solution we nd that F (n) = 2 − 2   . Then
-                                                         n   −n
-
-              ∞              ∞                ∞             n
-              X      1      X        1       X      ( 12 )2
-                          =                =
-              n=0
-                  F (2n )   n=0
-                                22n − 2−2n   n=0
-                                                 1 − ( 12 )2n+1
-                                 ∞               ∞                k       ∞               ∞
-                                             n               n+1                        n                  n
-                                 X               X                          X               X
-                           =           ( 12 )2         ( 21 )2          =         ( 12 )2         ( 12 )2k·2
-                                 n=0             k=0                        n=0             k=0
-                                 ∞ X
-                                   ∞                                ∞
-                                                   n
-                                 X                                  X
-                           =                 ( 12 )2 (2k+1) =             ( 12 )m = 1.
-                                 n=0 k=0                            m=1
-
-(Here we used the fact that every positive integer m has a unique representation m =
-2n (2k + 1) with non-negative integers n and k .)
-    This shows that the series converges to 1.
-
-
-Problem 4.     Determine whether or not there exist 15 integers m1 , . . . , m15 such that
-                                 15
-                                 X
-                                       mk · arctan(k) = arctan(16).                                            (1)
-                                 k=1
-
-                    (Proposed by Gerhard Woeginger, Eindhoven University of Technology)
-Solution. We show that such integers m1 , . . . , m15 do not exist.
-   Suppose that (1) is satised by some integers m1 , . . . , m15 . Then the argument of the
-complex number z1 = 1 + 16i coincides with the argument of the complex number
-                  z2 = (1 + i)m1 (1 + 2i)m2 (1 + 3i)m3 · · · · · · (1 + 15i)m15 .
-
-Therefore the ratio R = z2 /z1 is real (and not zero). As Re z1 = 1 and Re z2 is an integer,
-R is a nonzero integer.
-      By considering the squares of the absolute values of z1 and z2 , we get
-                                                                      15
-                                                                      Y
-                                                      2      2
-                                             (1 + 16 )R           =        (1 + k 2 )mk .
-                                                                      k=1
-
-Notice that p = 1 + 162 = 257 is a prime (the fourth Fermat prime), which yields an
-easy contradiction through p-adic valuations: all prime factors in the right hand side are
-strictly below p (as k < 16 implies 1 + k2 < p). On the other hand, in the left hand side
-the prime p occurs with an odd exponent.
-
-
-Problem 5.        Let n ≥ 2, let A1 , A2 , . . . , An+1 be n + 1 points in the n-dimensional
-Euclidean space, not lying on the same hyperplane, and let B be a point strictly inside
-the convex hull of A1 , A2 , . . . , An+1 . Prove that ∠Ai BAj > 90◦ holds for at least n pairs
-(i, j) with 1 ≤ i < j ≤ n + 1.
-                                        (Proposed by Géza Kós, Eötvös University, Budapest)
-                              −−→
-Solution.  Let vi = BAi . The condition ∠Ai BAj > 90◦ is equivalent with vi · vj < 0.
-Since B is an interior point of the simplex, there are some weights w1 , . . . , wn+1 > 0 with
-n+1
-      w i v i = 0.
-P
-i=1
-    Let us build a graph on the vertices 1, . . . , n + 1. Let the vertices i and j be connected
-by an edge if vi · vj < 0. We show that this graph is connected. Since every connected
-graph on n + 1 vertices has at least n edges, this will prove the problem statement.
-    Suppose the contrary that the graph is not connected; then the vertices can be split
-in two disjoint nonempty sets, say V and W such that V ∪ W = {1, 2, . . . , n + 1}. Since
-there is no edge between the two vertex sets, we have vi · vj ≥ 0 for all i ∈ V and j ∈ W .
-    Consider
-                                    !2                       !2                      !2
-                     X                        X                       X                        XX
-            0=             w i vi        =          w i vi        +          wi vi        +2             wi wj (vi · vj ).
-                 i∈V ∪W                       i∈V                     i∈W                      i∈V i∈W
-
-Notice that all terms are nonnegative on the right-hand side. Moreover,                                           wi vi 6= 0 and
-                                                                                                             P
-                                                                                                            i∈V
-       wi vi 6= 0, so there are at least two strictly nonzero terms, contradiction.
-P
-i∈W
-
-
-
-Remark 1.              The number n in the statement is sharp; if vn+1 = (1, 1, . . . , 1) and vi =
-
-(0, . . . , 0, −1, 0, . . . , 0) for i = 1, . . . , n then vi · vj < 0 holds only when i = n + 1 or j = n + 1.
- | {z }            | {z }
-      i−1            n−i
-
-
-
-                                       http://math.stackexchange.com/questions/476640/n
-Remark 2. The origin of the problem is here:
--simplex-in-an-intersection-of-n-balls/789390
-
+\end{document}
