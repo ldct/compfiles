@@ -1,241 +1,67 @@
-     5th INTERNATIONAL MATHEMATICS COMPETITION FOR UNIVERSITY
-                                  STUDENTS
-                 July 29 - August 3, 1998, Blagoevgrad, Bulgaria
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{IMC 1998, Day 2 --- Solutions}
+\begin{document}
+\maketitle
 
-                                                   Second day
+\section*{Problem 1}
+$V$ real vector space; $f, f_1,\dots,f_k: V\to\mathbb{R}$ linear. If $f_1(x)=\cdots=f_k(x)=0 \Rightarrow f(x)=0$, prove $f$ is a linear combination of $f_1,\dots,f_k$.
 
-                                       PROBLEMS AND SOLUTION
+\subsection*{Solution}
+WLOG $f_1,\dots,f_k$ linearly independent. By induction, $\exists\, a_k\in V$ with $f_i(a_k)=0$ for $i<k$, $f_k(a_k)=1$. Build similar $a_j$ so $f_i(a_j)=\delta_{ij}$. For any $x$, $y = x - \sum_j f_j(x) a_j$ satisfies $f_i(y)=0$ for all $i$, so $f(y)=0$. Hence $f(x) = \sum_j f_j(x) f(a_j)$.
 
+\section*{Problem 2}
+$\mathcal P = \{f(x) = \sum_{k=0}^3 a_k x^k : |f(\pm 1)|\le 1, |f(\pm 1/2)|\le 1\}$. Evaluate $\sup_{\mathcal P}\max_{[-1,1]}|f''(x)|$ and find extremal polynomials.
 
-Problem 1. (20 points) Let V be a real vector space, and let f, f1 , f2 , . . . , fk be linear maps from V
-to IR. Suppose that f (x) = 0 whenever f1 (x) = f2 (x) = . . . = fk (x) = 0. Prove that f is a linear
-combination of f1 , f2 , ..., fk .
+\subsection*{Solution}
+With nodes $x_0=-1, x_1=-1/2, x_2=1/2, x_3=1$, Lagrange interpolation gives $f = \sum_k l_k(x) f(x_k)$, so $f''(x) = \sum_k l_k''(x) f(x_k)$ and $|f''(x)|\le \sum_k |l_k''(x)|$.
 
-Solution. We use induction on k. By passing to a subset, we may assume that f1 , . . . , fk are linearly
-independent.
-      Since fk is independent of f1 , . . . , fk−1 , by induction there exists a vector ak ∈ V such that f1 (ak ) =
-. . . = fk−1 (ak ) = 0 and fk (ak ) 6= 0. After normalising, we may assume that fk (ak ) = 1. The vectors
-a1 , . . . , ak−1 are defined similarly to get
-                                                           
-                                                             1 if i = j
-                                                fi (aj ) =
-                                                             0 if i 6= j.
-                                                                                              Pk
-For an arbitrary x ∈ V and 1 ≤ i ≤ k, fi (x−f1 (x)a1 −f2 (x)a2 −· · ·−fk (x)ak ) = fi (x)− j=1 fj (x)fi (aj ) =
-fi (x) − fi (x)fi (ai ) = 0, thus f (x − f1 (x)a1 − · · · − fk (x)ak ) = 0. By the linearity of f this implies
-f (x) = f1 (x)f (a1 ) + · · · + fk (x)f (ak ), which gives f (x) as a linear combination of f1 (x), . . . , fk (x).
+$f''$ is linear, so $\max_{[-1,1]}|f''|$ attained at $\pm 1$. The values $\{l_k''(1)\}$ alternate in sign; setting $f(x_k) = \mathrm{sign}\,l_k''(1) = (-1)^{k-1}$ gives $f = T_3(x) = 4x^3 - 3x$, the Chebyshev polynomial, with $f''(1)=24$. So the sup is $24$, attained at $\pm T_3$.
 
-Problem 2. (20 points) Let
-                                         3
-                                         X                                         1
-                      P = {f : f (x) =         ak xk , ak ∈ IR, |f (±1)| ≤ 1, |f (± )| ≤ 1}.
-                                                                                   2
-                                         k=0
+\section*{Problem 3}
+$0<c<1$, $f(x)=x/c$ for $x\in[0,c]$, $f(x)=(1-x)/(1-c)$ for $x\in[c,1]$. Show the set of $n$-periodic points of $f$ is finite and non-empty.
 
-Evaluate
-                                                sup max |f 00 (x)|
-                                                f ∈P −1≤x≤1
+\subsection*{Solution}
+$f_n$ is piecewise linear with $2^n$ segments, each going from height 0 to 1 or vice versa. The graph of $y=x$ intersects each segment once, giving exactly $2^n$ solutions to $f_n(x)=x$. So periodic points of period dividing $n$ number $2^n$ — finite.
 
-and find all polynomials f ∈ P for which the above “sup” is attained.
+The points with period exactly $n$ are those with $f_n(x)=x$ but $f_k(x)\ne x$ for $k<n$. The excluded $k$ contribute at most $\sum_{k=1}^{n-1}2^k = 2^n - 2$, leaving at least $2$ points of exact period $n$.
 
-Solution. Denote x0 = 1, x1 = − 12 , x2 = 12 , x3 = 1,
-                                                          3
-                                                          Y
-                                                w(x) =            (x − xi ),
-                                                          i=0
+\section*{Problem 4}
+$A_n=\{1,\dots,n\}$, $n\ge 3$. $\mathcal F$ = non-constant $f:A_n\to A_n$ with $f(k)\le f(k+1)$ and $f(k)=f(f(k+1))$. Find $|\mathcal F|$.
 
-                                                     w(x)
-                                         wk (x) =          , k = 0, . . . , 3,
-                                                    x − xk
-                                                              wk (x)
-                                                  lk (x) =             .
-                                                              wk (xk )
-Then for every f ∈ P
-                                                         3
-                                                         X
-                                            f 00 (x) =            lk00 (x)f (xk ),
-                                                         k=0
-                                                              3
-                                                              X
-                                               |f 00 (x)| ≤          |lk00 (x)|.
-                                                              k=0
+\subsection*{Solution}
+Analysis shows every $f\in\mathcal F$ has form parameterized by $1\le k < l \le m \le n-1$ (with $l = f(m+1)$):
+\[f(i) = \begin{cases} k & i\le m \\ l & i=m+1\\ i-1 & i>m+1.\end{cases}\]
+Wait, correction: $f(i)=k$ for $i\le m$, $f(m+1)=l$, $f(i)=i-1$ for $i>m+1$.
 
+The number of triples $(k,l,m)$ with $1\le k<l\le m\le n-1$ equals $\binom{n}{3}$. So $|\mathcal F|=\binom{n}{3}$.
 
+\section*{Problem 5}
+$\mathcal S$ a family of spheres in $\mathbb{R}^n$ ($n\ge 2$), with pairwise intersections of at most one point. Show that $M = \{x:x\in S\cap T\text{ for some }S\ne T\in\mathcal S\}$ is countable.
 
+\subsection*{Solution}
+For $x\in M$ pick $S,T\in\mathcal S$, $S\ne T$, $x\in S\cap T$. $\mathbb{R}^n\setminus(S\cup T)$ has three components $U,V,W$ where $\partial U=S$, $\partial V=T$, and $x$ is the unique point of $\overline U\cap\overline V$. Choose rational-coordinate points $u\in U$, $v\in V$, $w\in W$. We claim $x$ is determined by $(u,v,w)$; since such triples are countable, $M$ is countable.
 
-                                                              1
-Since f 00 is a linear function max−1≤x≤1 |f 00 (x)| is attained either at x = −1 or at x = 1. Without loss
-of generality let the maximum point is x = 1. Then
-                                                                        3
-                                                                        X
-                                         sup max |f 00 (x)| =                 |lk00 (1)|.
-                                         f ∈P −1≤x≤1
-                                                                        k=0
+Suppose $x'\in M$ gave the same triple via $S',T',U',V',W'$. Since $|S\cap S'|\le 1$ and $U\cap U'\ni u$, we have $U\subseteq U'$ or $U'\subseteq U$, similarly for $V,W$. Two essential cases:
+(a) $U\supset U'$, $V\supset V'$: $\overline U\cap\overline V = \{x\}$ contains $x'$, so $x=x'$.
+(b) $U\subset U'$, $V\supset V'$, $W\subset W'$: $W\subset W'$ gives $U'\subset U\cup V\cup\{x\}$; since $U'$ open connected and $\overline U\cap\overline V=\{x\}$, $U'=U$, reducing to (a).
 
-In order to have equality for the extremal polynomial f∗ there must hold
+\section*{Problem 6}
+$f:(0,1)\to[0,\infty)$ zero except at distinct $a_n$; $b_n=f(a_n)$.
 
-                                         f∗ (xk ) = signlk00 (1), k = 0, 1, 2, 3.
+(a) If $\sum b_n < \infty$, $f$ is differentiable at some $x\in(0,1)$.
 
-It is easy to see that {lk00 (1)}3k=0 alternate in sign, so f∗ (xk ) = (−1)k−1 , k = 0, . . . , 3. Hence f∗ (x) =
-T3 (x) = 4x3 − 3x, the Chebyshev polynomial of the first kind, and f∗00 (1) = 24. The other extremal
-polynomial, corresponding to x = −1, is −T3 .
+(b) If $\sum b_n = \infty$, there exist $a_n$ making $f$ nowhere differentiable.
 
-Problem 3. (20 points) Let 0 < c < 1 and
-                                                     x
-                                                     c             for x ∈ [0, c],
-                                          f (x) =
-                                                     1−x
-                                                          1−c       for x ∈ [c, 1].
+\subsection*{Solution}
+(a) Construct $c_n\to\infty$ with $\sum c_n b_n < 1/2$: let $N_k$ be first index with $\sum_{n\ge N_k}b_n\le B/4^k$ (where $B=\sum b_n$), set $c_n = 2^k/(5B)$ for $N_k\le n<N_{k+1}$. Then $\sum c_n b_n\le \sum_k (2^k/5B)(B/4^k)=2/5$.
 
-We say that p is an n-periodic point if
-                                                 f (f (. . . f (p))) = p
-                                                 | {z }
-                                                      n
+Let $I_n=(a_n - c_n b_n, a_n + c_n b_n)$; total length $<1$, so $\exists x_0\in(0,1)$ outside all $I_n$. Then $f(x_0)=0$, and for $x=a_n$,
+\[\left|\frac{f(a_n)-0}{a_n-x_0}\right| \le \frac{b_n}{c_n b_n} = \frac{1}{c_n}\to 0.\]
+For other $x$, difference quotient is $0$. So $f'(x_0)=0$.
 
-and n is the smallest number with this property. Prove that for every n ≥ 1 the set of n-periodic points
-is non-empty and finite.
+(b) If $f$ is differentiable at $x_0$, then $f(x_0)=0$ and $f'(x_0)=0$. Pick $\beta_n$ with $0<\beta_n\le b_n$, $\beta_n\to 0$, $\sum\beta_n=\infty$. Choose $a_n$ so that $I_n=(a_n-\beta_n, a_n+\beta_n)$ covers every point of $(0,1)$ infinitely often (possible since $\sum\beta_n=\infty$). Then for any $x_0$, $\varepsilon>0$, exists $n$ with $\beta_n<\varepsilon$, $x_0\in I_n$, giving
+\[\frac{|f(a_n)-f(x_0)|}{|a_n - x_0|} > \frac{b_n}{\beta_n} \ge 1.\]
+So no derivative exists.
 
-Solution. Let fn (x) = f (f (. . . f (x))). It is easy to see that fn (x) is a picewise monotone function and
-                       | {z }
-                                n
-its graph contains 2n linear segments; one endpoint is always on {(x, y) : 0 ≤ x ≤ 1, y = 0}, the other is
-on {(x, y) : 0 ≤ x ≤ 1, y = 1}. Thus the graph of the identity function intersects each segment once, so
-the number of points for which fn (x) = x is 2n .
-    Since for each n-periodic points we have fn (x) = x, the number of n-periodic points is finite.
-    A point x is n-periodic if fn (x) = x but fk (x) 6= x for k = 1, . . . , n−1. But as we saw before fk (x) = x
-holds only at 2k points, so there are at most 21 + 22 + · · · + 2n−1 = 2n − 2 points x for which fk (x) = x
-for at least one k ∈ {1, 2, . . . , n − 1}. Therefore at least two of the 2n points for which fn (x) = x are
-n-periodic points.
-
-Problem 4. (20 points) Let An = {1, 2, . . . , n}, where n ≥ 3. Let F be the family of all non-constant
-functions f : An → An satisfying the following conditions:
- (1) f (k) ≤ f (k + 1) for k = 1, 2, . . . , n − 1,
- (2) f (k) = f (f (k + 1)) for k = 1, 2, . . . , n − 1.
-Find the number of functions in F.
-
-Solution. It is clear that id : An −→ An , given by id(x) = x, does not verify condition (2). Since id is
-the only increasing
-                     injection on An , F does not contain injections. Let us take any f ∈ F and suppose
-that # f −1 (k) ≥ 2. Since f is increasing, there exists i ∈ An such that f (i) = f (i + 1) = k. In view of
-(2), f (k) = f (f (i + 1)) = f (i) = k. If {i < k : f (i) < k} = ∅, then taking j = max{i < k : f (i) < k}
-                                                                                                         we
-get f (j) < f (j + 1) = k = f (f (j + 1)), a contradiction. Hence f (i) = k for i ≤ k. If # f −1 ({l})  ≥ 2
-for some l ≥ k, then the similar consideration shows that f (i) = l = k for i ≤ k. Hence # f −1 {i} = 0
-or 1 for every i > k. Therefore f (i) ≤ i for i > k. If f (l) = l, then taking j = max{i < l : f (i) < l}
-we get f (j) < f (j + 1) = l = f (f (j + 1)), a contradiction. Thus, f (i) ≤ i − 1 for i > k. Let
-m = max{i : f (i) = k}. Since f is non-constant m ≤ n − 1. Since k = f (m) = f (f (m + 1)),
-f (m + 1) ∈ [k + 1, m]. If f (l) > l − 1 for some l > m + 1, then l − 1 and f (l) belong to f −1 (f (l)) and
-
-                                                                2
-this contradicts the facts above. Hence f (i) = i − 1 for i > m + 1. Thus we show that every function f
-in F is defined by natural numbers k, l, m, where 1 ≤ k < l = f (m + 1) ≤ m ≤ n − 1.
-                                             
-                                              k       if i ≤ m
-                                     f (i) =   l       if i = m
-                                             
-                                               i − 1 if i > m + 1.
-
-Then                                                                      
-                                                                       n
-                                                       #(F) =                  .
-                                                                       3
-
-
-Problem 5. (20 points) Suppose that S is a family of spheres (i.e., surfaces of balls of positive radius)
-in IRn , n ≥ 2, such that the intersection of any two contains at most one point. Prove that the set M of
-those points that belong to at least two different spheres from S is countable.
-
-Solution. For every x ∈ M choose spheres S, T ∈ S such that S 6= T and x ∈ S ∩ T ; denote by U, V, W
-the three components of Rn \ (S ∪ T ), where the notation is such that ∂U = S, ∂V = T and x is the only
-point of U ∩ V , and choose points with rational coordinates u ∈ U , v ∈ V , and w ∈ W . We claim that
-x is uniquely determined by the triple hu, v, wi; since the set of such triples is countable, this will finish
-the proof.
-    To prove the claim, suppose, that from some x0 ∈ M we arrived to the same hu, v, wi using spheres
-S , T 0 ∈ S and components U 0 , V 0 , W 0 of Rn \ (S 0 ∪ T 0 ). Since S ∩ S 0 contains at most one point and since
-  0
-
-U ∩ U 0 6= ∅, we have that U ⊂ U 0 or U 0 ⊂ U ; similarly for V ’s and W ’s. Exchanging the role of x and
-x0 and/or of U ’s and V ’s if necessary, there are only two cases to consider: (a) U ⊃ U 0 and V ⊃ V 0 and
-(b) U ⊂ U 0 , V ⊃ V 0 and W ⊂ W 0 . In case (a) we recall that U ∩ V contains only x and that x0 ∈ U 0 ∩ V 0 ,
-so x = x0 . In case (b) we get from W ⊂ W 0 that U 0 ⊂ U ∪ V ; so since U 0 is open and connected, and
-U ∩ V is just one point, we infer that U 0 = U and we are back in the already proved case (a).
-
-Problem 6. (20 points) Let f : (0, 1) → [0, ∞) be a function that is zero except at the distinct points
-a1 , a2 , ... . Let bn = f (an ).
-                       ∞
-                       X
- (a) Prove that if           bn < ∞, then f is differentiable at at least one point x ∈ (0, 1).
-                       n=1
-                                                                                                         ∞
-                                                                                                         P
- (b) Prove that for any sequence of non-negative real numbers (bn )∞
-                                                                   n=1 , with                                  bn = ∞, there exists a
-                                                                                                         n=1
-       sequence (an )∞
-                     n=1 such that the function f defined as above is nowhere differentiable.
-
-Solution
-                                                                                ∞
-                                                                                P
-   a) We first construct a sequence cn of positive numbers such that cn → ∞ and   cn bn < 21 . Let
-                                                                                                                  n=1
-       ∞
-       P
-B=         bn , and for each k = 0, 1, . . . denote by Nk the first positive integer for which
-     n=1
-
-                                                         ∞
-                                                         X             B
-                                                               bn ≤       .
-                                                                       4k
-                                                        n=Nk
-
-                  k
-             2
-Now set cn = 5B for each n, Nk ≤ n < Nk+1 . Then we have cn → ∞ and
-                      ∞               ∞                          ∞    ∞                   ∞
-                      X               X      X                   X 2k X                   X 2k           B   2
-                            cn bn =                    cn bn ≤                     bn ≤              ·      = .
-                      n=1
-                                                                       5B                       5B       4k  5
-                                      k=0 Nk ≤n<Nk+1             k=0        n=Nk          k=0
-                                                                                        P
-   Consider the intervals In = (an − cn bn , an + cn bn ). The sum of their lengths is 2 cn bn < 1, thus
-there exists a point x0 ∈ (0, 1) which is not contained in any In . We show that f is differentiable at x0 ,
-
-
-                                                                 3
-and f 0 (x0 ) = 0. Since x0 is outside of the intervals In , x0 6= an for any n and f (x0 ) = 0. For arbitrary
-x ∈ (0, 1) \ {x0 }, if x = an for some n, then
-
-                                  f (x) − f (x0 )   f (an ) − 0    bn     1
-                                                  =             ≤       = ,
-                                      x − x0        |an − x0 |    cn bn  cn
-
-otherwise f (x)−f
-              x−x0
-                   (x0 )
-                         = 0. Since cn → ∞, this implies that for arbitrary ε > 0 there are only finitely many
-x ∈ (0, 1) \ {x0 } for which
-                                               f (x) − f (x0 )
-                                                               <ε
-                                                   x − x0
-does not hold, and we are done.
-    Remark. The variation of f is finite, which implies that f is differentiable almost everywhere .
-    b) We remove the zero elements from sequence bn . Since f (x) = 0 except for a countable subset of
-(0, 1), if f is differentiable at some point x0 , then f (x0 ) and f 0 (x0 ) must be P
-                                                                                     0.
-    It is easy to construct a sequence βn satisfying 0 < βn ≤ bn , bn → 0 and ∞         n=1 βn = ∞.
-    Choose the numbers a1 , a2 , . . . such that the intervals In = (an − βn , an + βn ) (nP= 1, 2, . . .) cover
-each point of (0, 1) infinitely many times (it is possible since the sum of lengths is 2 bn = ∞). Then
-for arbitrary x0 ∈ (0, 1), f (x0 ) = 0 and ε > 0 there is an n for which βn < ε and x0 ∈ In which implies
-
-                                         |f (an ) − f (x0 )|   bn
-                                                             >    ≥ 1.
-                                             |an − x0 |        βn
-
-
-
-
-                                                       4
-
+\end{document}
