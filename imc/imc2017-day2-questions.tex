@@ -1,63 +1,33 @@
-                       IMC 2017, Blagoevgrad, Bulgaria
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{IMC 2017, Blagoevgrad, Bulgaria --- Day 2}
+\date{August 3, 2017}
+\begin{document}
+\maketitle
 
+\section*{Problem 6}
+Let $f : [0, +\infty) \to \mathbb{R}$ be a continuous function such that $\lim_{x \to +\infty} f(x) = L$ exists (it may be finite or infinite). Prove that
+\[ \lim_{n \to \infty} \int_0^1 f(nx)\,dx = L. \]
 
-                                   Day 2, August 3, 2017
+\section*{Problem 7}
+Let $p(x)$ be a nonconstant polynomial with real coefficients. For every positive integer $n$, let
+\[ q_n(x) = (x+1)^n p(x) + x^n p(x+1). \]
+Prove that there are only finitely many numbers $n$ such that all roots of $q_n(x)$ are real.
 
+\section*{Problem 8}
+Define the sequence $A_1, A_2, \dots$ of matrices by
+\[ A_1 = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}, \qquad A_{n+1} = \begin{pmatrix} A_n & I_{2^n} \\ I_{2^n} & A_n \end{pmatrix} \quad (n=1,2,\dots), \]
+where $I_m$ is the $m \times m$ identity matrix. Prove that $A_n$ has $n+1$ distinct integer eigenvalues $\lambda_0 < \lambda_1 < \dots < \lambda_n$ with multiplicities $\binom{n}{0}, \binom{n}{1}, \dots, \binom{n}{n}$, respectively.
 
+\section*{Problem 9}
+Define the sequence $f_1, f_2, \dots : [0,1) \to \mathbb{R}$ of continuously differentiable functions by
+\[ f_1 = 1; \quad f'_{n+1} = f_n f_{n+1} \text{ on } (0,1), \quad f_{n+1}(0) = 1. \]
+Show that $\lim_{n\to\infty} f_n(x)$ exists for every $x \in [0,1)$ and determine the limit function.
 
+\section*{Problem 10}
+Let $K$ be an equilateral triangle in the plane. Prove that for every $p > 0$ there exists an $\varepsilon > 0$ with the following property: if $n$ is a positive integer, and $T_1, \dots, T_n$ are non-overlapping triangles inside $K$, each homothetic to $K$ with a negative ratio, and
+\[ \sum_{\ell=1}^n \mathrm{area}(T_\ell) > \mathrm{area}(K) - \varepsilon, \]
+then
+\[ \sum_{\ell=1}^n \mathrm{perimeter}(T_\ell) > p. \]
 
-Problem 6.    Let f : [0; +∞) → R be a continuous function such that lim f (x) = L exists
-                                                                    x→+∞
-(it may be nite or innite). Prove that
-                                                 Z1
-                                           lim        f (nx) dx = L.
-                                        n→∞
-                                                 0
-
-                                                                                           (10 points)
-
-Problem 7.       Let p(x) be a nonconstant polynomial with real coecients. For every positive
-integer n, let
-                                 qn (x) = (x + 1)n p(x) + xn p(x + 1).
-   Prove that there are only nitely many numbers n such that all roots of qn (x) are real.
-                                                                                   (10 points)
-
-Problem 8.       Dene the sequence A1 , A2 , . . . of matrices by the following recurrence:
-                                                               
-                             0 1                         An I2n
-                       A1 =        ,        An+1 =                     (n = 1, 2, . . .)
-                             1 0                         I2n An
-where Im is the m × m identity matrix.
-    Prove
-        thatnAn has n + 1 distinct integer eigenvalues λ0 < λ1 < . . . < λn with multiplicities
- n
- 0
-    , 1 , . . . , n , respectively.
-      n
-
-                                                                                    (10 points)
-
-Problem 9.    Dene the sequence f1 , f2 , . . . : [0, 1) → R of continuously dierentiable functions
-by the following recurrence:
-                   f1 = 1;         0
-                                  fn+1 = fn fn+1         on (0, 1),    and fn+1 (0) = 1.
-   Show that lim fn (x) exists for every x ∈ [0, 1) and determine the limit function.
-             n→∞
-                                                                                    (10 points)
-
-Problem 10.       Let K be an equilateral triangle in the plane. Prove that for every p > 0
-there exists an ε > 0 with the following property: If n is a positive integer, and T1 , . . . , Tn are
-non-overlapping triangles inside K such that each of them is homothetic to K with a negative
-ratio, and
-                                    n
-                                           area(T` ) > area(K) − ε,
-                                    X
-
-                                     `=1
-then                                   n
-                                              perimeter(T` ) > p.
-                                       X
-
-                                        `=1
-                                                                                           (10 points)
-
+\end{document}
