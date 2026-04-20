@@ -1,390 +1,80 @@
-      FOURTH INTERNATIONAL COMPETITION
-    FOR UNIVERSITY STUDENTS IN MATHEMATICS
-      July 30 – August 4, 1997, Plovdiv, BULGARIA
-
-
-                        First day — August 1, 1997
-
-
-                             Problems and Solutions
-
-
-
-          Problem 1.
-          Let {εn }∞
-                   n=1 be a sequence of positive real numbers, such that lim εn = n→∞
-0. Find                                  n
-                                     1                    k
-                                         X                         
-                               lim               ln         + εn ,
-                             n→∞ n                        n
-                                         k=1
-where ln denotes the natural logarithm.
-          Solution.
-          It is well known that
-                             Z 1                         n
-                                                      1X       k
-                                                                          
-                      −1 =         ln xdx = lim             ln
-                               0                  n→∞ n        n
-                                                        k=1
-
-(Riemman’s sums). Then
-                      n                 n
-                   1X       k        1X       k
-                                                              
-                         ln   + εn ≥       ln                            −→ −1.
-                   n k=1    n        n k=1    n                         n→∞
-
-Given ε > 0 there exist n0 such that 0 < εn ≤ ε for all n ≥ n0 . Then
-                        n                 n
-                     1X       k        1X       k
-                                                                         
-                           ln   + εn ≤       ln   +ε .
-                     n k=1    n        n k=1    n
-Since
-                          n                                   Z 1
-                        1X      k
-                                                
-                    lim      ln   +ε                      =         ln(x + ε)dx
-                   n→∞ n        n                              0
-                         k=1
-
-                                                              Z 1+ε
-                                                          =             ln xdx
-                                                               ε
-
-
-                                                 1
-we obtain the result when ε goes to 0 and so
-                                 n
-                              1X       k
-                                                  
-                           lim      ln   + εn          = −1.
-                          n→∞ n        n
-                                k=1
-
-
-
-        Problem∞2.
-        Suppose
-                P
-                   an converges. Do the following sums have to converge as
-                  n=1
-well?
-        a) a1 + a2 + a4 + a3 + a8 + a7 + a6 + a5 + a16 + a15 + · · · + a9 + a32 + · · ·
-        b) a1 + a2 + a3 + a4 + a5 + a7 + a6 + a8 + a9 + a11 + a13 + a15 + a10 +
-a12 + a14 + a16 + a17 + a19 + · · ·
-        Justify your answers.
-        Solution.       ∞            n
-        a) Yes. Let S =
-                        P
-                          an , S n =
-                                     P
-                                       ak . Fix ε > 0 and a number n0 such
-                           n=1            k=1
-that |Sn − S| < ε for n > n0 . The partial sums of the permuted series have
-the form L2n−1 +k = S2n−1 + S2n − S2n −k , 0 ≤ k < 2n−1 and for 2n−1 > n0 we
-have |L2n−1 +k − S| < 3ε, i.e. the permuted series converges.
-                             (−1)n+1                          2n−1
-                                                                P−1     1
-       b) No. Take an =         √    .Then L3.2n−2 = S2n−1 +         √
-                                 n                            k=2n−2  2k + 1
-                               1
-and L3.2n−2 − S2n−1 ≥ 2n−2 √ n −→ ∞, so L3.2n−2 −→ ∞.
-                               2 n→∞                n→∞
-
-
-       Problem 3.
-       Let A and B be real n×n matrices such that A 2 +B 2 =AB. Prove that
-if BA − AB is an invertible matrix then n is divisible by 3.
-        Solution.                       √
-                                   1      3
-        Set S = A + ωB, where ω = − + i     . We have
-                                   2     2
-            SS = (A + ωB)(A + ωB) = A2 + ωBA + ωAB + B 2
-                  = AB + ωBA + ωAB = ω(BA − AB),
-
-because ω + 1 = −ω. Since det(SS) = det S. det S is a real number and
-det ω(BA − AB) = ω n det(BA − AB) and det(BA − AB) 6= 0, then ω n is a
-real number. This is possible only when n is divisible by 3.
-
-
-                                          2
-          Problem 4.
-          Let α be a real number, 1 < α < 2.
-          a) Show that α has a unique representation as an infinite product
-
-                                      1              1
-                                                       
-                           α= 1+                1+      ...
-                                      n1             n2
-where each ni is a positive integer satisfying
-
-                                    n2i ≤ ni+1 .
-
-        b) Show that α is rational if and only if its infinite product has the
-following property:
-        For some m and all k ≥ m,
-
-                                    nk+1 = n2k .
-
-          Solution.
-          a) We construct inductively the sequence {n i } and the ratios
-                                               α
-                                 θ k = Qk         1
-                                           1 (1 + ni )
-
-so that
-                                θk > 1 for all k.
-Choose nk to be the least n for which
-                                         1
-                                    1+     < θk−1
-                                         n
-(θ0 = α) so that for each k,
-                               1                 1
-(1)                       1+      < θk−1 ≤ 1 +        .
-                               nk              nk − 1
-Since
-                                                  1
-                                θk−1 ≤ 1 +
-                                                nk − 1
-we have
-                                                      1
-                     1         θk−1    1 + nk −1       1
-               1+      < θk =      1 ≤       1   =1+ 2     .
-                  nk+1        1 + nk    1 + nk      nk − 1
-
-                                           3
-Hence, for each k, nk+1 ≥ n2k .
-       Since n1 ≥ 2, nk → ∞ so that θk → 1. Hence
-                                             ∞ 
-                                                         1
-                                             Y                
-                                        α=            1+          .
-                                              1
-                                                         nk
-
-        The uniquness of the infinite product will follow from the fact that on
-every step nk has to be determine by (1).
-        Indeed, if for some k we have
-                                                  1
-                                            1+       ≥ θk−1
-                                                  nk
-
-then θk ≤ 1, θk+1 < 1 and hence {θk } does not converge to 1.
-       Now observe that for M > 1,
-             1           1                 1                      1   1   1               1
-                                            
-(2)       1+          1+ 2              1+ 4         · · · = 1+     + 2 + 3 +· · · = 1+      .
-             M          M                 M                       M M    M              M −1
-Assume that for some k we have
-                                               1
-                                        1+          < θk−1 .
-                                             nk − 1
-Then we get
-                       α                              θk−1
-                                        =
-           (1 + n11 )(1 + n12 ) . . .              1         1
-                                             (1 + nk )(1 + nk+1 )...
-                                                      θk−1                  θk−1
-                                        ≥                               =           >1
-                                             (1 + n1k )(1 + n12 ) . . .   1 + nk1−1
-                                                                      k
-
-
-– a contradiction.
-        b) From (2) α is rational if its product ends in the stated way.
-                                                        p
-        Conversely, suppose α is the rational number . Our aim is to show
-                                                        q
-that for some m,
-                                           nm
-                               θm−1 =           .
-                                         nm − 1
-Suppose this is not the case, so that for every m,
-                                                       nm
-(3)                                      θm−1 <              .
-                                                      nm − 1
-
-                                                     4
-For each k we write
-                                          pk
-                                            θk =
-                                          qk
-as a fraction (not necessarily in lowest terms) where
-
-                                         p0 = p, q0 = q
-
-and in general
-                         pk = pk−1 nk , qk = qk−1 (nk + 1).
-The numbers pk − qk are positive integers: to obtain a contradiction it suffices
-to show that this sequence is strictly decreasing. Now,
-
-     pk − qk − (pk−1 − qk−1 ) = nk pk−1 − (nk + 1)qk−1 − pk−1 + qk−1
-                                         = (nk − 1)pk−1 − nk qk−1
-
-and this is negative because
-                            pk−1            nk
-                                 = θk−1 <
-                            qk−1          nk − 1
-by inequality (3).
-
-       Problem 5. For a natural n consider the hyperplane
-                                                                 n
-                         (                                                      )
-                                                          n
-                 R0n =
-                                                                 X
-                             x = (x1 , x2 , . . . , xn ) ∈ R :         xi = 0
-                                                                 i=1
-
-and the lattice Z0n = {y ∈ R0n : all yi are integers}. Define the (quasi–)norm
-                   n          1/p
-in Rn by kxkp =         |xi |p
-                     P
-                                    if 0 < p < ∞, and kxk∞ = max |xi |.
-                    i=1                                       i
-       a) Let x ∈ R0n be such that
-
-                                   max xi − min xi ≤ 1.
-                                     i             i
-
-For every p ∈ [1, ∞] and for every y ∈ Z0n prove that
-
-                                     kxkp ≤ kx + ykp .
-
-       b) For every p ∈ (0, 1), show that there is an n and an x ∈ R 0n with
-max xi − min xi ≤ 1 and an y ∈ Z0n such that
- i         i
-
-                                     kxkp > kx + ykp .
-
-                                               5
-            Solution.
-            a) For x = 0 the statement is trivial. Let x 6= 0. Then max xi > 0 and
-                                                                                             i
-min xi < 0. Hence kxk∞ < 1. From the hypothesis on x it follows that:
- i
-            i) If xj ≤ 0 then max xi ≤ xj + 1.
-                                     i
-            ii) If xj ≥ 0 then min xi ≥ xj − 1.
-                                         i
-            Consider y ∈ Z0n , y 6= 0. We split the indices {1, 2, . . . , n} into five
-sets:
-                                             I(0) = {i : yi = 0},
-             I(+, +) = {i : yi > 0, xi ≥ 0}, I(+, −) = {i : yi > 0, xi < 0},
-             I(−, +) = {i : yi < 0, xi > 0}, I(−, −) = {i : yi < 0, xi ≤ 0}.
-As least one of the last four index sets is not empty. If I(+, +) 6= Ø or
-I(−, −) 6= Ø then kx + yk∞ ≥ 1 > kxk∞ . If I(+, +) = I(−, −) = Ø then
-P
-   yi = 0 implies I(+, −) 6= Ø and I(−, +) 6= Ø. Therefore i) and ii) give
-kx + yk∞ ≥ kxk∞ which completes the case p = ∞.
-        Now let 1 ≤ p < ∞. Then using i) for every j ∈ I(+, −) we get
-|xj + yj | = yj − 1 + xj + 1 ≥ |yj | − 1 + max xi . Hence
-                                                             i
-
-         |xj + yj |p ≥ |yj | − 1 + |xk |p for every k ∈ I(−, +) and j ∈ I(+, −).
-
-Similarly
-
-         |xj + yj |p ≥ |yj | − 1 + |xk |p for every k ∈ I(+, −) and j ∈ I(−, +);
-
-                 |xj + yj |p ≥ |yj | + |xj |p for every j ∈ I(+, +) ∪ I(−, −).
-Assume that
-                       P
-                               1≥
-                                             P
-                                                 1. Then
-                    j∈I(+,−)        j∈I(−,+)
-
-          kx + ykpp − kxkpp
-                                                                                                           
-
-                            (|xj + yj |p − |xj |p ) +                      |xj + yj |p −              |xk |p 
-              X                                                    X                          X
-     =
-         j∈I(+,+)∪I(−,−)                                         j∈I(+,−)                   k∈I(−,+)
-                                                                 
-
-                            |xj + yj |p −                |xk |p 
-                   X                             X
-          +
-                 j∈I(−,+)                     k∈I(+,−)
-                  X                          X
-     ≥                         |yj | +            (|yj | − 1)
-          j∈I(+,+)∪I(−,−)                j∈I(+,−)
-
-
-                                                         6
-                                                                   
-                X                          X               X
-       +                (|yj | − 1) −              1+              1
-             j∈I(−,+)                    j∈I(+,−)        j∈I(−,+)
-       n
-       X                   X                X                            X
-  =          |yi | − 2              1=2              (yj − 1) + 2              yj ≥ 0.
-       i=1               j∈I(+,−)         j∈I(+,−)                  j∈I(+,+)
-                P               P
-The case                 1≤              1 is similar. This proves the statement.
-             j∈I(+,−)         j∈I(−,+)
-        b) Fix p ∈ (0, 1) and a rational t ∈ ( 21 , 1). Choose a pair of positive
-integers m and l such that mt = l(1 − t) and set n = m + l. Let
-
-       xi = t,       i = 1, 2, . . . , m; xi = t − 1,         i = m + 1, m + 2, . . . , n;
-       yi = −1, i = 1, 2, . . . , m; ym+1 = m; yi = 0, i = m + 2, . . . , n.
-
-Then x ∈ R0n , max xi − min xi = 1, y ∈ Z0n and
-                     i              i
-
-         kxkpp − kx + ykpp = m(tp − (1 − t)p ) + (1 − t)p − (m − 1 + t)p ,
-
-which is possitive for m big enough.
-
-
-       Problem 6. Suppose that F is a family of finite subsets of N and for
-any two sets A, B ∈ F we have A ∩ B 6= Ø.
-       a) Is it true that there is a finite subset Y of N such that for any
-A, B ∈ F we have A ∩ B ∩ Y 6= Ø?
-       b) Is the statement a) true if we suppose in addition that all of the
-members of F have the same size?
-       Justify your answers.
-        Solution.
-        a) No. Consider F = {A1 , B1 , . . . , An , Bn , . . .}, where An = {1, 3, 5, . . . , 2n−
-1, 2n}, Bn = {2, 4, 6, . . . , 2n, 2n + 1}.
-        b) Yes. We will prove inductively a stronger statement:
-        Suppose F , G are
-        two families of finite subsets of N such that:
-1) For every A ∈ F and B ∈ G we have A ∩ B 6= Ø;
-2) All the elements of F have the same size r, and elements of G – size s. (we
-shall write #(F ) = r, #(G) = s).
-
-
-                                                    7
-Then there is a finite set Y such that A ∪ B ∪ Y 6= Ø for every A ∈ F and
-B ∈ G.
-       The problem b) follows if we take F = G.
-       Proof of the statement: The statement is obvious for r = s = 1.
-Fix the numbers r, s and suppose the statement is proved for all pairs F 0 , G0
-with #(F 0 ) < r, #(G0 ) < s. Fix A0 ∈ F , B0 ∈ G. For any subset C ⊂ A0 ∪B0 ,
-denote
-                    F (C) = {A ∈ F : A ∩ (A0 ∪ B0 ) = C}.
-Then F =        ∪        F (C). It is enough to prove that for any pair of non-
-           Ø6=C⊂A0 ∪B0
-empty sets C, D ⊂ A0 ∪ B0 the families F (C) and G(D) satisfy the statement.
-         Indeed, if we denote by YC,D the corresponding finite set, then the
-finite set     ∪     YC,D will satisfy the statement for F and G. The proof
-         C,D⊂A0 ∪B0
-for F (C) and G(D).
-        If C ∩ D 6= Ø, it is trivial.
-        If C ∩ D = Ø, then any two sets A ∈ F (C), B ∈ G(D) must meet
-outside A0 ∪ B0 . Then if we denote F̃ (C) = {A \ C : A ∈ F (C)}, G̃(D) =
-{B \ D : B ∈ G(D)}, then F̃ (C) and G̃(D) satisfy the conditions 1) and 2)
-above, with #(F̃ (C)) = #(F ) − #C < r, #(G̃(D)) = #(G) − #D < s, and
-the inductive assumption works.
-
-
-
-
-                                        8
-
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{IMC 1997, Day 1 --- Solutions}
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+Let $\varepsilon_n>0$ with $\varepsilon_n\to 0$. Find $\lim_{n\to\infty}\frac 1n\sum_{k=1}^n \ln(k/n + \varepsilon_n)$.
+
+\subsection*{Solution}
+$\int_0^1 \ln x\,dx = -1 = \lim \frac 1n\sum \ln(k/n)$. Since $\ln(k/n)\le \ln(k/n+\varepsilon_n)\le \ln(k/n+\varepsilon)$ for $n\ge n_0$, and $\frac 1n\sum\ln(k/n+\varepsilon)\to\int_0^1\ln(x+\varepsilon)dx\to -1$ as $\varepsilon\to 0$, sandwich gives $\lim = -1$.
+
+\section*{Problem 2}
+$\sum a_n$ converges. Do the following permuted sums converge?
+
+(a) $a_1+a_2+a_4+a_3+a_8+a_7+a_6+a_5+a_{16}+\cdots+a_9+a_{32}+\cdots$
+
+(b) $a_1+a_2+a_3+a_4+a_5+a_7+a_6+a_8+a_9+a_{11}+a_{13}+a_{15}+a_{10}+a_{12}+a_{14}+a_{16}+\cdots$
+
+\subsection*{Solution}
+(a) Yes. Partial sums at boundary are $L_{2^{n-1}+k} = S_{2^{n-1}} + S_{2^n} - S_{2^n-k}$, and $|L_{2^{n-1}+k}-S|<3\varepsilon$ once $2^{n-1}>n_0$.
+
+(b) No. Take $a_n = (-1)^{n+1}/\sqrt n$. The odd-numbered odd indices $\{2^{n-2}\cdot 2+1, \ldots\}$ are grouped, and one can compute $L_{3\cdot 2^{n-2}} - S_{2^{n-1}} \ge 2^{n-2}/\sqrt{2^n} \to\infty$.
+
+\section*{Problem 3}
+Real $n\times n$ matrices $A,B$ with $A^2+B^2 = AB$. If $BA-AB$ is invertible, prove $3\mid n$.
+
+\subsection*{Solution}
+Let $\omega = e^{2\pi i/3} = -\frac 12 + i\frac{\sqrt 3}{2}$. Set $S = A+\omega B$. Then
+\[S\bar S = (A+\omega B)(A+\bar\omega B) = A^2 + \bar\omega AB + \omega BA + B^2 = (1+\bar\omega)AB + \omega BA = -\omega AB + \omega BA = \omega(BA - AB),\]
+using $1+\bar\omega = -\omega$. Taking determinants: $\det S\cdot \overline{\det S} = |\det S|^2\in\mathbb{R}$, while $\det(\omega(BA-AB)) = \omega^n\det(BA-AB)$ with $\det(BA-AB)\ne 0$ real. So $\omega^n\in\mathbb{R}$, forcing $3\mid n$.
+
+\section*{Problem 4}
+$1<\alpha<2$.
+
+(a) Show $\alpha$ has a unique representation $\alpha=\prod_{i\ge 1}(1+1/n_i)$ with $n_i$ positive integers, $n_i^2\le n_{i+1}$.
+
+(b) $\alpha$ is rational iff for some $m$ and all $k\ge m$, $n_{k+1}=n_k^2$.
+
+\subsection*{Solution}
+(a) Construct inductively: $\theta_0=\alpha$, and pick $n_k$ as the least $n$ with $1+1/n < \theta_{k-1}$. Then $1+1/n_k < \theta_{k-1} \le 1+1/(n_k-1)$, giving
+\[1+1/n_{k+1} < \theta_k = \theta_{k-1}/(1+1/n_k) \le (1+1/(n_k-1))/(1+1/n_k) = 1+1/(n_k^2-1),\]
+so $n_{k+1}\ge n_k^2$. Since $n_1\ge 2$, $n_k\to\infty$, so $\theta_k\to 1$ and $\alpha = \prod(1+1/n_k)$. Uniqueness: if $1+1/n_k\ge\theta_{k-1}$, then $\theta_k\le 1$, contradicting convergence to 1.
+
+(b) Using $(1+1/M)(1+1/M^2)(1+1/M^4)\cdots = 1 + 1/(M-1)$, if the product ends with $n_{k+1}=n_k^2$, $\alpha$ is rational. Conversely, if $\alpha=p/q$, write $\theta_k=p_k/q_k$ with $p_k=p_{k-1}n_k$, $q_k=q_{k-1}(n_k+1)$. The integers $p_k-q_k$ are positive; $p_k-q_k - (p_{k-1}-q_{k-1}) = (n_k-1)p_{k-1}-n_k q_{k-1} < 0$ if $\theta_{k-1}<n_k/(n_k-1)$. So if strict inequality held forever, we get an infinite strictly decreasing sequence of positive integers. Contradiction. So eventually $\theta_{k-1}=n_k/(n_k-1)$, meaning $n_{k+1}=n_k^2$ onward.
+
+\section*{Problem 5}
+$\mathbb{R}_0^n = \{x\in\mathbb{R}^n : \sum x_i = 0\}$, $\mathbb{Z}_0^n$ its integer lattice. $\|x\|_p$ as usual.
+
+(a) If $x\in\mathbb{R}_0^n$ with $\max x_i-\min x_i\le 1$ and $p\in[1,\infty]$, $y\in\mathbb{Z}_0^n$: $\|x\|_p\le\|x+y\|_p$.
+
+(b) For $p\in(0,1)$, give counterexample.
+
+\subsection*{Solution}
+(a) $x\ne 0$ gives $\|x\|_\infty <1$. For $x_j\le 0$: $\max x_i\le x_j+1$; for $x_j\ge 0$: $\min x_i\ge x_j-1$.
+
+Partition indices by signs of $y_i, x_i$ (sets $I(+,+), I(+,-), I(-,+), I(-,-), I(0)$). If $I(+,+)$ or $I(-,-)$ nonempty, $\|x+y\|_\infty\ge 1>\|x\|_\infty$. Otherwise, using the $\max/\min$ inequalities:
+\[|x_j+y_j|^p \ge |y_j|-1+|x_k|^p\quad (j\in I(+,-), k\in I(-,+))\]
+and symmetric. Case $|I(+,-)|\ge |I(-,+)|$: summing and simplifying gives
+\[\|x+y\|_p^p - \|x\|_p^p \ge \sum|y_i| - 2|I(+,-)| = 2\sum_{I(+,-)}(y_j-1) + 2\sum_{I(+,+)}y_j \ge 0.\]
+
+(b) For $p\in(0,1)$, $t\in(1/2,1)$ rational with $mt=l(1-t)$, $n=m+l$:
+\[x_i=t\text{ (}i\le m\text{)}, x_i=t-1\text{ (else)}; y_i=-1\text{ (}i\le m\text{)}, y_{m+1}=m, y_i=0\text{ (else)}.\]
+Then $\|x\|_p^p-\|x+y\|_p^p = m(t^p-(1-t)^p) + (1-t)^p - (m-1+t)^p$, positive for large $m$.
+
+\section*{Problem 6}
+$F$ a family of finite subsets of $\mathbb{N}$ with pairwise nonempty intersection.
+
+(a) Must there exist finite $Y$ with $A\cap B\cap Y\ne\emptyset$ for all $A,B\in F$?
+
+(b) Same question if all sets in $F$ have the same size.
+
+\subsection*{Solution}
+(a) No. $A_n=\{1,3,5,\dots,2n-1,2n\}$, $B_n=\{2,4,\dots,2n, 2n+1\}$; any two intersect but no finite $Y$ works.
+
+(b) Yes. Prove stronger: if $F,G$ are finite-set families, every $A\in F$ meets every $B\in G$, $|A|=r$, $|B|=s$, then finite $Y$ exists.
+
+Induct on $r+s$. Base $r=s=1$ trivial. Fix $A_0\in F, B_0\in G$. For $\emptyset\ne C\subseteq A_0\cup B_0$, let $F(C)=\{A\in F : A\cap(A_0\cup B_0)=C\}$; similarly $G(D)$. For each pair $(C,D)$: if $C\cap D\ne\emptyset$, done (use $Y_{C,D}=C$); else any $A\in F(C), B\in G(D)$ meet outside $A_0\cup B_0$, so $\tilde F(C)=\{A\setminus C\}$, $\tilde G(D)=\{B\setminus D\}$ satisfy condition with smaller $r,s$. Union of all $Y_{C,D}$ works.
+
+\end{document}
