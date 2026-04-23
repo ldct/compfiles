@@ -63,7 +63,7 @@ Status values: `not started`, `statement formalized`, `proof in progress`, `proo
 | 51 | IMC 2020 P3 | statement formalized | polytope eps-approximation with C(d)eps^{1-d} vertices | High | Very High | Convex body volume estimates; polytope approximation theorem. |
 | 52 | IMC 2023 P10 | statement formalized | g(n) > n^{0.999n} for factorial-LCD denominator | High | Very High | Deep p-adic valuation + 'special primes' machinery. |
 | 53 | IMC 2024 P9 | statement formalized | number of nice matrices is even | High | Very High | Young-tableau friendship graph handshake; bespoke combinatorics. |
-| 54 | IMC 2024 P10 | not started | Fermat-prime divisibility condition on almost primes | Very High | Very High | Multi-lemma cyclotomic/order argument in F_q. |
+| 54 | IMC 2024 P10 | statement formalized | Fermat-prime divisibility condition on almost primes | Very High | Very High | Multi-lemma cyclotomic/order argument in F_q. |
 
 ## Tier breakdown
 
