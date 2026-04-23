@@ -33,8 +33,24 @@ problem imc2023_p3 (P : MvPolynomial (Fin 2) ℝ) :
     P ∈ answer ↔
     ∀ x y z t : ℝ,
       (P.eval ![x, y]) * (P.eval ![z, t]) = P.eval ![x * z - y * t, x * t + y * z] := by
-  -- TODO: classify via complex factorization (x+iy)^n(x-iy)^m, real-coef
-  -- constraint forces n = m.
-  sorry
+  constructor
+  · -- Easy direction
+    rintro (hP | ⟨n, rfl⟩)
+    · -- P = 0
+      simp at hP
+      subst hP
+      intro x y z t
+      simp
+    · -- P = (X² + Y²)^n
+      intro x y z t
+      simp only [eval_pow, eval_add, eval_X, Matrix.cons_val_zero, Matrix.cons_val_one,
+                  Matrix.cons_val_fin_one]
+      rw [← mul_pow]
+      congr 1
+      ring
+  · -- Hard direction: classification
+    -- TODO: full classification requires factoring P over ℂ as
+    -- P(x,y) = c (x+iy)^n (x-iy)^m and using real-coefficient constraint.
+    sorry
 
 end Imc2023P3
