@@ -133,27 +133,71 @@ problem imc2024_p3 (n : ℕ) (hn : 0 < n) :
     -- From solution: A = [B_0 B_1 ... B_{k-1}; B_0 B_1 ... B_{k-1}; ...]
     -- So the block at position (block_row_idx, block_col_idx) is B_{block_col_idx}.
     -- Hence A((r, i), (c, j)) = (B_c) i j = 1 iff j - i ≡ c (mod k).
+    haveI : NeZero k := ⟨Nat.pos_iff_ne_zero.mp hk_pos⟩
     have hk2 : k ^ 2 = k * k := sq k
-    let e : Fin (k^2) ≃ Fin k × Fin k :=
-      (Fin.castOrderIso hk2).toEquiv.trans finProdFinEquiv.symm
+    -- Use ZMod k for indexing (Fin k ≃ ZMod k when k > 0).
+    let f : Fin (k^2) ≃ ZMod k × ZMod k :=
+      ((Fin.castOrderIso hk2).toEquiv.trans finProdFinEquiv.symm).trans
+        ((ZMod.finEquiv k).toEquiv.prodCongr (ZMod.finEquiv k).toEquiv)
+    -- A((r, i), (c, j)) = 1 iff j - i = c (in ZMod k)
     let A : Matrix (Fin (k^2)) (Fin (k^2)) ℕ := fun I J =>
-      if ((e J).2 : ℤ) - (e I).2 ≡ (e J).1 [ZMOD k] then 1 else 0
+      if (f J).2 - (f I).2 = (f J).1 then 1 else 0
     refine ⟨A, ?_, ?_⟩
     · intro I J
       simp only [A]
       split_ifs <;> [right; left] <;> rfl
     · -- Show A * A = allOnes.
-      -- TODO: for each (I, K), the system of conditions
-      --   (e J).2 - (e I).2 ≡ (e J).1 (mod k)   [A I J = 1]
-      --   (e K).2 - (e J).2 ≡ (e K).1 (mod k)   [A J K = 1]
-      -- has a unique solution J. Concretely:
-      --   (e J).1 = (e K).2 - (e K).1 - (e I).2  (as Fin k, via ZMod k)
-      --   (e J).2 = (e I).2 + (e J).1
-      -- So the sum ∑_J A I J * A J K has exactly one nonzero term, equal to 1.
-      -- The proof requires careful manipulation of Fin k subtraction / ZMod k arithmetic,
-      -- using (e.symm ⟨cJ, jJ⟩) as the unique witness and showing:
-      --   (i)  the witness satisfies both conditions (so its contribution is 1),
-      --   (ii) every J ≠ witness fails at least one condition.
-      sorry
+      funext I K
+      show (A * A) I K = 1
+      simp only [Matrix.mul_apply]
+      -- Reindex: sum over J via f.symm, where J corresponds to (c, j) ∈ ZMod k × ZMod k
+      rw [← Equiv.sum_comp f.symm (fun J => A I J * A J K)]
+      rw [Fintype.sum_prod_type]
+      -- Witness: jJstar and cJstar
+      set iI : ZMod k := (f I).2
+      set cK : ZMod k := (f K).1
+      set jK : ZMod k := (f K).2
+      let jJstar : ZMod k := jK - cK
+      let cJstar : ZMod k := jJstar - iI
+      rw [Finset.sum_eq_single cJstar]
+      · rw [Finset.sum_eq_single jJstar]
+        · -- Compute the single nonzero term = 1
+          show A I (f.symm (cJstar, jJstar)) * A (f.symm (cJstar, jJstar)) K = 1
+          simp only [A, f.apply_symm_apply]
+          have h1 : jJstar - iI = cJstar := rfl
+          have h2 : jK - jJstar = cK := by
+            show jK - (jK - cK) = cK; ring
+          rw [if_pos h1, if_pos h2]
+        · -- For j ≠ jJstar, the second factor is 0.
+          intro j _ hj_ne
+          show A I (f.symm (cJstar, j)) * A (f.symm (cJstar, j)) K = 0
+          simp only [A, f.apply_symm_apply]
+          have h2_neg : ¬ (jK - j = cK) := by
+            intro heq
+            apply hj_ne
+            show j = jJstar
+            show j = jK - cK
+            linear_combination -heq
+          rw [if_neg h2_neg, Nat.mul_zero]
+        · intro h; exact absurd (Finset.mem_univ _) h
+      · intro c _ hc_ne
+        apply Finset.sum_eq_zero
+        intro j _
+        show A I (f.symm (c, j)) * A (f.symm (c, j)) K = 0
+        simp only [A, f.apply_symm_apply]
+        by_cases h2 : jK - j = cK
+        · -- j = jJstar. Then if first holds: j - iI = c, combined gives c = cJstar.
+          have h1_neg : ¬ (j - iI = c) := by
+            intro h1
+            apply hc_ne
+            show c = cJstar
+            -- c = j - iI, and jK - j = cK means j = jK - cK = jJstar.
+            -- cJstar = jJstar - iI = (jK - cK) - iI.
+            show c = jJstar - iI
+            show c = (jK - cK) - iI
+            linear_combination -h1 - h2
+          rw [if_neg h1_neg, Nat.zero_mul]
+        · rw [if_neg h2, Nat.mul_zero]
+      · intro h; exact absurd (Finset.mem_univ _) h
 
 end Imc2024P3
