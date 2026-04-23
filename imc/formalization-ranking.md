@@ -58,7 +58,7 @@ Status values: `not started`, `statement formalized`, `proof in progress`, `proo
 | 46 | IMC 2023 P5 | statement formalized | preferred permutations >= k! | Med-High | High | Combinatorial argument with ordering + counting. |
 | 47 | IMC 2024 P5 | statement formalized | f(p)>=f(q) for convex hull coverage in ball | Med-High | Very High | Needs convex-geometry chi-function decomposition; measure theory. |
 | 48 | IMC 2022 P4 | statement formalized | chromatic number of triple-graph, log log n bounds | Med-High | Very High | Heavy graph coloring framework; iterated chromatic number. |
-| 49 | IMC 2023 P9 | not started | sup V of two disjoint-projection convex sets in cube | High | Very High | Convex geometry, symmetry argument, integration. |
+| 49 | IMC 2023 P9 | statement formalized | sup V of two disjoint-projection convex sets in cube | High | Very High | Convex geometry, symmetry argument, integration. |
 | 50 | IMC 2022 P8 | not started | expected vertices of intersection of two convex hulls | High | Very High | Integral geometry with 2 point clouds on circle. |
 | 51 | IMC 2020 P3 | not started | polytope eps-approximation with C(d)eps^{1-d} vertices | High | Very High | Convex body volume estimates; polytope approximation theorem. |
 | 52 | IMC 2023 P10 | not started | g(n) > n^{0.999n} for factorial-LCD denominator | High | Very High | Deep p-adic valuation + 'special primes' machinery. |
