@@ -73,8 +73,25 @@ problem imc2025_p7 (M : Set ℕ) (hMsub : M ⊆ Set.Ioi 0) (hMne : M.Nonempty) :
       rw [show 2 * (m + c') * (2 * c + 1) = 2 * ((m + c') * (2 * c + 1)) from by ring]
       exact Nat.mul_div_cancel_left _ (by norm_num : (0 : ℕ) < 2)
   · -- Reverse direction: the official solution's argument.
-    -- TODO: this requires showing M is closed under addition, contains odd
-    -- numbers, and forms an arithmetic progression with odd common difference.
+    -- TODO: Precise proof plan (following imc2025-day2-solutions P7):
+    -- 1. Closure under addition: x + y = 2x + 2y both have the same parity;
+    --    specifically (2x + 2y)/2 = x + y ∈ M, using (a) and (b).
+    -- 2. Closure under multiplication by ℕ (by induction on the multiplier,
+    --    using closure under addition).
+    -- 3. Existence of an odd element: if x ∈ M, then (x + 2x)/2 = 3x/2 ∈ M
+    --    (x + 2x = 3x, even iff x even); iterate to strip off factors of 2,
+    --    showing M contains the odd part of some element, hence contains odd elements.
+    -- 4. Let d = gcd of all members of M. Since M contains odd elements, d is odd.
+    --    M ⊆ d ℕ_{>0}. By Bezout-like argument using closure under addition and
+    --    existence of two elements with difference d (from the gcd structure),
+    --    find a, a+d ∈ M with a > c := min M.
+    -- 5. Key implication: (a, a+d ∈ M and c < a) ⇒ a - d ∈ M. Proof: pick
+    --    largest x ∈ M with x < a; show x = a - d by checking (x+a+d)/2 is
+    --    forced to be a, using M ⊆ dℤ.
+    -- 6. Dual implication: (a - d, a ∈ M) ⇒ a + d ∈ M (similar argument using 2a ∈ M).
+    -- 7. Conclude M = {c + kd : k ∈ ℕ, c + kd > 0}, which is the target form.
+    -- Mathlib gaps: requires manually constructing a descent argument and
+    -- manipulating gcd over infinite sets; no direct single-lemma formalization.
     sorry
 
 end Imc2025P7
