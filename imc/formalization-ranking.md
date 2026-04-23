@@ -14,7 +14,7 @@ Status values: `not started`, `statement formalized`, `proof in progress`, `proo
 | 2 | IMC 2025 P6 | proof complete | MVT-style: exists xi with f(xi) - xi f'(xi) = k | Low | Low | Direct Cauchy MVT with f/x. Same flavor as Imc2025P1. |
 | 3 | IMC 2023 P7 | proof complete | MVT: exists xi with f(xi) + alpha = f'(xi), find alpha | Low | Low | Cauchy MVT with F = f e^{-x}. |
 | 4 | IMC 2024 P1 | proof complete | \|a\|=\|b\|=1 and a+b+a\bar b real | Low | Low | Complex-number algebra; polish trig identity. |
-| 5 | IMC 2021 P1 | not started | unique X: X + AX + XA^2 = A given A^3=0 | Low | Low | Direct matrix manipulation; existence + uniqueness explicit. |
+| 5 | IMC 2021 P1 | proof complete | unique X: X + AX + XA^2 = A given A^3=0 | Low | Low | Direct matrix manipulation; existence + uniqueness explicit. |
 | 6 | IMC 2020 P2 | not started | rank(AB-BA+I)=1 implies trace identity | Low | Low-Med | trace cyclicity, rank-1 form X+I=vw^T. |
 | 7 | IMC 2024 P7 | not started | invertible A+B=I, polynomial identity, det(AB) values | Low | Low | Reduces to polynomial equation in C = AB; elementary. |
 | 8 | IMC 2023 P2 | not started | A,B,C with A^2=B^2=C^2 and B^3=ABC+2I imply A^6=I | Low | Low-Med | Pure matrix algebra; commute B with ABA. |
@@ -72,7 +72,7 @@ Status values: `not started`, `statement formalized`, `proof in progress`, `proo
 - IMC 2025 P6: direct Cauchy MVT application.
 - IMC 2023 P7: existence via Cauchy MVT with e^{-x} factor.
 - IMC 2024 P1: classify complex pairs via trig identity.
-- IMC 2021 P1: explicit matrix X = A - A^2 with A^3=0.
+- IMC 2021 P1: explicit matrix X = A - A^2 with A^3=0 (proof complete).
 - IMC 2020 P2: trace cyclicity and rank-1 decomposition.
 - IMC 2024 P7: reduce to polynomial in C = AB and factor.
 - IMC 2023 P2: pure matrix algebra to A^6=I.
