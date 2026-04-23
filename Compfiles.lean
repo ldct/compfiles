@@ -12,6 +12,7 @@ import Compfiles.Hungary1998P6
 import Compfiles.Imc2020P1
 import Compfiles.Imc2020P2
 import Compfiles.Imc2020P5
+import Compfiles.Imc2020P6
 import Compfiles.Imc2021P1
 import Compfiles.Imc2021P2
 import Compfiles.Imc2021P5
