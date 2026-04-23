@@ -142,18 +142,18 @@ problem imc2024_p3 (n : ℕ) (hn : 0 < n) :
     · intro I J
       simp only [A]
       split_ifs <;> [right; left] <;> rfl
-    · -- Show A * A = allOnes
-      funext I K
-      -- (A*A) I K = sum_J A I J * A J K
-      --        = # { J : (e J).2 - (e I).2 ≡ (e J).1 (mod k)
-      --              ∧ (e K).2 - (e J).2 ≡ (e K).1 (mod k) }
-      -- Let I' = e I = (r, i), K' = e K = (s, k'), J' = e J = (c, j).
-      -- Conditions: j - i ≡ c (mod k), k' - j ≡ s (mod k).
-      -- For each c, j is determined mod k by j ≡ i + c (mod k), i.e. j = (i+c) mod k.
-      -- Then check: k' - j = k' - (i+c) (mod k). We need this ≡ s (mod k).
-      -- i.e., c ≡ k' - i - s (mod k). So c is uniquely determined too!
-      -- Hence exactly one J satisfies both conditions, so (A*A) I K = 1 = allOnes I K.
-      -- TODO: complete the cyclic-block construction proof.
+    · -- Show A * A = allOnes.
+      -- TODO: for each (I, K), the system of conditions
+      --   (e J).2 - (e I).2 ≡ (e J).1 (mod k)   [A I J = 1]
+      --   (e K).2 - (e J).2 ≡ (e K).1 (mod k)   [A J K = 1]
+      -- has a unique solution J. Concretely:
+      --   (e J).1 = (e K).2 - (e K).1 - (e I).2  (as Fin k, via ZMod k)
+      --   (e J).2 = (e I).2 + (e J).1
+      -- So the sum ∑_J A I J * A J K has exactly one nonzero term, equal to 1.
+      -- The proof requires careful manipulation of Fin k subtraction / ZMod k arithmetic,
+      -- using (e.symm ⟨cJ, jJ⟩) as the unique witness and showing:
+      --   (i)  the witness satisfies both conditions (so its contribution is 1),
+      --   (ii) every J ≠ witness fails at least one condition.
       sorry
 
 end Imc2024P3
