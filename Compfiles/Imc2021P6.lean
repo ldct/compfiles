@@ -25,7 +25,19 @@ open Matrix
 problem imc2021_p6 (p : ℕ) [Fact p.Prime] :
     ¬ ∃ φ : (GL (Fin 2) (ZMod p)) →* Equiv.Perm (Fin p),
       Function.Injective φ := by
-  -- TODO: exhibit an element of GL₂(F_p) of order 2p; show S_p has no such element.
+  -- TODO: Full proof plan.
+  --
+  -- Case p = 2: |GL_2(ℤ/2)| = 6 > 2 = |S_2|. An injection between finite groups
+  -- requires |GL_2(ℤ/2)| ≤ |S_2|, contradiction.
+  --
+  -- Case odd prime p: Construct elements
+  --   A = !![1, 1; 0, 1] of order p (unipotent),
+  --   B = !![-1, 0; 0, -1] = -I of order 2,
+  -- which commute. Then A * B has order lcm(p, 2) = 2p. But in S_p, no element
+  -- has order 2p: any σ ∈ S_p with p | ord(σ) must be a p-cycle (since a
+  -- p-cycle needs p distinct elements, and we only have p to work with), hence
+  -- has order exactly p. Contradiction via injective homomorphism preserving
+  -- orders.
   sorry
 
 end Imc2021P6
