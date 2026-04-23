@@ -50,6 +50,44 @@ lemma one_add_pow_pos {k : ℕ} (hk : 2 ≤ k) (x : ℝ) :
     have h2 : 0 < (1 + x ^ (k - 1)) ^ k := pow_pos h1 k
     linarith
 
+/-- From `A + A^k = Aᵀ`, transposing and substituting gives the annihilating
+identity `A^k * (1 + (1 + A^(k-1))^k) = 0`. That is,
+`p(x) = x^k * (1 + (1 + x^(k-1))^k)` annihilates `A`. -/
+lemma annihilating_identity {n : ℕ} (A : Matrix (Fin n) (Fin n) ℝ) (k : ℕ) (hk : 1 ≤ k)
+    (hEq : A + A ^ k = A.transpose) :
+    A ^ k * (1 + (1 + A ^ (k - 1)) ^ k) = 0 := by
+  -- Take transpose of hEq: Aᵀ + (Aᵀ)^k = A.
+  have hT : A.transpose + (A.transpose) ^ k = A := by
+    have ht := congrArg Matrix.transpose hEq
+    simpa [Matrix.transpose_add, Matrix.transpose_pow] using ht
+  -- Substitute Aᵀ = A + A^k. Then (A + A^k) + (A + A^k)^k = A.
+  have h2 : (A + A ^ k) + (A + A ^ k) ^ k = A := by
+    conv_lhs => rw [hEq]
+    exact hT
+  -- So (A + A^k)^k = -A^k.
+  have h3 : (A + A ^ k) ^ k = - A ^ k := by
+    have : (A + A ^ k) + (A + A ^ k) ^ k - (A + A ^ k) = A - (A + A ^ k) := by
+      rw [h2]
+    simpa using this
+  -- Factor A + A^k = A * (1 + A^(k-1)) since k ≥ 1.
+  have hk' : k - 1 + 1 = k := Nat.sub_add_cancel hk
+  have hfac : A + A ^ k = A * (1 + A ^ (k - 1)) := by
+    rw [Matrix.mul_add, Matrix.mul_one, ← pow_succ', hk']
+  -- Substitute and compute: (A * (1 + A^(k-1)))^k = -A^k.
+  -- Since powers of A and (1 + A^(k-1)) commute (both are polynomials in A),
+  -- (A * (1 + A^(k-1)))^k = A^k * (1 + A^(k-1))^k.
+  have hcomm : Commute A (1 + A ^ (k - 1)) := by
+    refine (Commute.one_right A).add_right ?_
+    exact (Commute.refl A).pow_right (k - 1)
+  have hexp : (A * (1 + A ^ (k - 1))) ^ k = A ^ k * (1 + A ^ (k - 1)) ^ k :=
+    hcomm.mul_pow k
+  rw [hfac, hexp] at h3
+  -- h3 : A^k * (1 + A^(k-1))^k = -A^k.
+  -- So A^k * (1 + (1 + A^(k-1))^k) = A^k * 1 + A^k * (1 + A^(k-1))^k
+  --                                = A^k + (-A^k) = 0.
+  rw [Matrix.mul_add, Matrix.mul_one, h3]
+  exact add_neg_cancel (A ^ k)
+
 snip end
 
 problem imc2022_p2 {n : ℕ} (_hn : 0 < n) (A : Matrix (Fin n) (Fin n) ℝ)
