@@ -16,6 +16,7 @@ import Compfiles.Imc2020P6
 import Compfiles.Imc2021P1
 import Compfiles.Imc2021P2
 import Compfiles.Imc2021P5
+import Compfiles.Imc2021P6
 import Compfiles.Imc2021P7
 import Compfiles.Imc2021P8
 import Compfiles.Imc2022P1
