@@ -30,7 +30,7 @@ Status values: `not started`, `statement formalized`, `proof in progress`, `proo
 | 18 | IMC 2025 P3 | proof complete | rank-1 ±1 symmetric matrices commuting probability | Med | Med | Bijection to Bool × (Fin (n-1) → Bool); inner-product parity. |
 | 19 | IMC 2025 P8 | statement formalized | A = A^R (90-degree rotation) => Re(λ)=0 or Im(λ)=0 | Med | Med | Complex inner product; algebraic eigenvalue manipulation. |
 | 20 | IMC 2025 P1 | proof complete | odd-degree polynomials with tangent-sum property | Low-Med | Med | IVT for odd-degree real polys; filter limits at ±∞. |
-| 21 | IMC 2024 P3 | not started | {0,1}-matrix with A^2 = all-ones matrix iff n square | Med | Med | Row sums argument; cyclic block construction. |
+| 21 | IMC 2024 P3 | statement formalized | {0,1}-matrix with A^2 = all-ones matrix iff n square | Med | Med | Row sums argument; cyclic block construction. |
 | 22 | IMC 2023 P6 | not started | invariance via log-determinant, reachability | Med | Med | Invariant (det of log-matrix); simple once discovered. |
 | 23 | IMC 2022 P6 | not started | permutation with prescribed sum mod p | Low | Med | Explicit construction x_i ≡ i^{-1} mod p. |
 | 24 | IMC 2025 P7 | statement formalized | subsets closed under x->2x and (x+y)/2 | Low | Med | Elementary number theory; arithmetic progressions. |
