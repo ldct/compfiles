@@ -28,7 +28,7 @@ Status values: `not started`, `statement formalized`, `proof in progress`, `proo
 | 16 | IMC 2022 P7 | proof complete | idempotent anti-commuting complex matrices, rank bound | Low-Med | Med | trace = rank for idempotent; sum of A_i idempotent. |
 | 17 | IMC 2021 P5 | statement formalized | 2021 B = A^m + B^2 for all m => \|det A\| <= 1 | Low | Med | Eigenvalue analysis; discriminant argument. |
 | 18 | IMC 2025 P3 | proof complete | rank-1 ±1 symmetric matrices commuting probability | Med | Med | Bijection to Bool × (Fin (n-1) → Bool); inner-product parity. |
-| 19 | IMC 2025 P8 | statement formalized | A = A^R (90-degree rotation) => Re(λ)=0 or Im(λ)=0 | Med | Med | Complex inner product; algebraic eigenvalue manipulation. |
+| 19 | IMC 2025 P8 | proof complete | A = A^R (90-degree rotation) => Re(λ)=0 or Im(λ)=0 | Med | Med | Complex inner product; algebraic eigenvalue manipulation. |
 | 20 | IMC 2025 P1 | proof complete | odd-degree polynomials with tangent-sum property | Low-Med | Med | IVT for odd-degree real polys; filter limits at ±∞. |
 | 21 | IMC 2024 P3 | statement formalized | {0,1}-matrix with A^2 = all-ones matrix iff n square | Med | Med | Row sums argument; cyclic block construction. |
 | 22 | IMC 2023 P6 | proof complete | invariance via log-determinant, reachability | Med | Med | Invariant (det of log-matrix); simple once discovered. |
