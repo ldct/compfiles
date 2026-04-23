@@ -73,25 +73,40 @@ problem imc2025_p7 (M : Set ℕ) (hMsub : M ⊆ Set.Ioi 0) (hMne : M.Nonempty) :
       rw [show 2 * (m + c') * (2 * c + 1) = 2 * ((m + c') * (2 * c + 1)) from by ring]
       exact Nat.mul_div_cancel_left _ (by norm_num : (0 : ℕ) < 2)
   · -- Reverse direction: the official solution's argument.
-    -- TODO: Precise proof plan (following imc2025-day2-solutions P7):
-    -- 1. Closure under addition: x + y = 2x + 2y both have the same parity;
-    --    specifically (2x + 2y)/2 = x + y ∈ M, using (a) and (b).
-    -- 2. Closure under multiplication by ℕ (by induction on the multiplier,
-    --    using closure under addition).
-    -- 3. Existence of an odd element: if x ∈ M, then (x + 2x)/2 = 3x/2 ∈ M
-    --    (x + 2x = 3x, even iff x even); iterate to strip off factors of 2,
-    --    showing M contains the odd part of some element, hence contains odd elements.
-    -- 4. Let d = gcd of all members of M. Since M contains odd elements, d is odd.
-    --    M ⊆ d ℕ_{>0}. By Bezout-like argument using closure under addition and
-    --    existence of two elements with difference d (from the gcd structure),
-    --    find a, a+d ∈ M with a > c := min M.
-    -- 5. Key implication: (a, a+d ∈ M and c < a) ⇒ a - d ∈ M. Proof: pick
-    --    largest x ∈ M with x < a; show x = a - d by checking (x+a+d)/2 is
-    --    forced to be a, using M ⊆ dℤ.
-    -- 6. Dual implication: (a - d, a ∈ M) ⇒ a + d ∈ M (similar argument using 2a ∈ M).
-    -- 7. Conclude M = {c + kd : k ∈ ℕ, c + kd > 0}, which is the target form.
-    -- Mathlib gaps: requires manually constructing a descent argument and
-    -- manipulating gcd over infinite sets; no direct single-lemma formalization.
+    rintro ⟨hdouble, hhalf⟩
+    -- Step 1: closure under addition. x + y = (2x + 2y)/2 ∈ M.
+    have hadd : ∀ x ∈ M, ∀ y ∈ M, x + y ∈ M := by
+      intro x hx y hy
+      have h2x : 2 * x ∈ M := hdouble x hx
+      have h2y : 2 * y ∈ M := hdouble y hy
+      have heven : Even (2 * x + 2 * y) := ⟨x + y, by ring⟩
+      have := hhalf _ h2x _ h2y heven
+      convert this using 1
+      omega
+    -- Step 2: closure under multiplication by positive naturals.
+    have hmul : ∀ n : ℕ, 0 < n → ∀ x ∈ M, n * x ∈ M := by
+      intro n hn x hx
+      induction n with
+      | zero => exact absurd hn (by omega)
+      | succ k ih =>
+        rcases Nat.eq_zero_or_pos k with hk | hk
+        · subst hk; simpa using hx
+        · have : k * x ∈ M := ih hk
+          have := hadd _ this _ hx
+          convert this using 1; ring
+    -- Step 3: M contains an odd number.
+    -- Plan: from any x ∈ M, (x + 2x)/2 = 3x/2 ∈ M when x even; iterate to
+    -- strip off factors of 2. Specifically, for each x ∈ M, the odd part of
+    -- x times some power of 3 is in M. We show M contains some odd number.
+    -- TODO: formalize remaining steps (gcd argument, descent, final AP form).
+    -- The full remaining proof requires:
+    --   (a) strong induction: if x ∈ M and x = 2^a * b with b odd, then b*3^a ∈ M
+    --       (or some odd multiple of b lies in M),
+    --   (b) defining d := gcd of M (over infinite set), showing d | every element,
+    --   (c) showing M ⊆ d·ℕ>0 and finding a with a, a+d ∈ M,
+    --   (d) descent step: a, a+d ∈ M, a > min M ⇒ a - d ∈ M,
+    --   (e) ascent step: a-d, a ∈ M ⇒ a+d ∈ M,
+    --   (f) assembling M = {(m + k)*d : k ∈ ℕ}.
     sorry
 
 end Imc2025P7
