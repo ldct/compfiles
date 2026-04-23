@@ -54,7 +54,7 @@ Status values: `not started`, `statement formalized`, `proof in progress`, `proo
 | 42 | IMC 2025 P10 | statement formalized | count pairs with (a^2+a)(b^2+b) square | Med | High | Pell equation analysis; analytic number theory estimates. |
 | 43 | IMC 2024 P4 | statement formalized | subgroup gen. by n-grams independent of sequence | Med-High | High | Pigeonhole + non-periodicity + induction on group. |
 | 44 | IMC 2020 P8 | statement formalized | lim (1/log log n) sum (-1)^k C(n,k) log k = 1 | Med-High | High | Frullani integral; asymptotic analysis with uniform bounds. |
-| 45 | IMC 2021 P4 | not started | baire class 1 via oscillation hypothesis | High | High | G_delta characterization; Lebesgue's theorem on Baire class 1. |
+| 45 | IMC 2021 P4 | statement formalized | baire class 1 via oscillation hypothesis | High | High | G_delta characterization; Lebesgue's theorem on Baire class 1. |
 | 46 | IMC 2023 P5 | not started | preferred permutations >= k! | Med-High | High | Combinatorial argument with ordering + counting. |
 | 47 | IMC 2024 P5 | not started | f(p)>=f(q) for convex hull coverage in ball | Med-High | Very High | Needs convex-geometry chi-function decomposition; measure theory. |
 | 48 | IMC 2022 P4 | not started | chromatic number of triple-graph, log log n bounds | Med-High | Very High | Heavy graph coloring framework; iterated chromatic number. |
