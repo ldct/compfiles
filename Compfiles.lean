@@ -31,6 +31,7 @@ import Compfiles.Imc2022P4
 import Compfiles.Imc2022P5
 import Compfiles.Imc2022P6
 import Compfiles.Imc2022P7
+import Compfiles.Imc2022P8
 import Compfiles.Imc2023P1
 import Compfiles.Imc2023P2
 import Compfiles.Imc2023P3
