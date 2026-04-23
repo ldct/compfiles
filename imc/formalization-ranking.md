@@ -26,7 +26,7 @@ Status values: `not started`, `statement formalized`, `proof in progress`, `proo
 | 14 | IMC 2025 P2 | statement formalized | integral of (f'')^2 >= 15 with constraints | Low-Med | Med | Cauchy-Schwarz + integration by parts; equality condition. |
 | 15 | IMC 2020 P5 | statement formalized | f''f >= 2(f')^2 implies f constant | Low | Med | 1/f is concave positive => constant. |
 | 16 | IMC 2022 P7 | statement formalized | idempotent anti-commuting complex matrices, rank bound | Low-Med | Med | trace = rank for idempotent; sum of A_i idempotent. |
-| 17 | IMC 2021 P5 | not started | 2021 B = A^m + B^2 for all m => \|det A\| <= 1 | Low | Med | Eigenvalue analysis; discriminant argument. |
+| 17 | IMC 2021 P5 | statement formalized | 2021 B = A^m + B^2 for all m => \|det A\| <= 1 | Low | Med | Eigenvalue analysis; discriminant argument. |
 | 18 | IMC 2025 P3 | proof complete | rank-1 ±1 symmetric matrices commuting probability | Med | Med | Bijection to Bool × (Fin (n-1) → Bool); inner-product parity. |
 | 19 | IMC 2025 P8 | statement formalized | A = A^R (90-degree rotation) => Re(λ)=0 or Im(λ)=0 | Med | Med | Complex inner product; algebraic eigenvalue manipulation. |
 | 20 | IMC 2025 P1 | proof complete | odd-degree polynomials with tangent-sum property | Low-Med | Med | IVT for odd-degree real polys; filter limits at ±∞. |
