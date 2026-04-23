@@ -95,13 +95,70 @@ problem imc2025_p7 (M : Set ℕ) (hMsub : M ⊆ Set.Ioi 0) (hMne : M.Nonempty) :
           have := hadd _ this _ hx
           convert this using 1; ring
     -- Step 3: M contains an odd number.
-    -- Plan: from any x ∈ M, (x + 2x)/2 = 3x/2 ∈ M when x even; iterate to
-    -- strip off factors of 2. Specifically, for each x ∈ M, the odd part of
-    -- x times some power of 3 is in M. We show M contains some odd number.
+    -- Key lemma: if x ∈ M is even, then 3x/2 ∈ M (via (x + 2x)/2 = 3x/2).
+    have hhalf3 : ∀ x ∈ M, Even x → 3 * x / 2 ∈ M := by
+      intro x hx hxe
+      have h2x : 2 * x ∈ M := hdouble x hx
+      have hsum_even : Even (x + 2 * x) := by
+        obtain ⟨k, hk⟩ := hxe
+        exact ⟨k + x, by omega⟩
+      have h := hhalf x hx (2 * x) h2x hsum_even
+      -- (x + 2x) / 2 = 3x/2
+      have : (x + 2 * x) / 2 = 3 * x / 2 := by congr 1; ring
+      rwa [this] at h
+    -- Iteration: using strong induction on the 2-adic valuation, from any x ∈ M
+    -- we derive an odd element in M.
+    -- Key: if x ∈ M and x = 2^a * b with b odd, then 3^a * b ∈ M (odd).
+    have hstrip : ∀ a b : ℕ, Odd b → 0 < b → 2^a * b ∈ M → 3^a * b ∈ M := by
+      intro a
+      induction a with
+      | zero => intro b _ _ h; simpa using h
+      | succ n ih =>
+        intro b hb hbpos hx
+        -- 2^(n+1) * b = 2 * (2^n * b); apply hhalf3 to get 3 * (2^n * b) / 2 ∈ M
+        -- but 2^(n+1) * b is even, so hhalf3 gives 3 * (2^(n+1) * b) / 2 = 3 * 2^n * b ∈ M
+        have hxe : Even (2^(n+1) * b) := ⟨2^n * b, by ring⟩
+        have h1 : 3 * (2^(n+1) * b) / 2 ∈ M := hhalf3 _ hx hxe
+        have heq : 3 * (2^(n+1) * b) / 2 = 2^n * (3 * b) := by
+          have : 3 * (2^(n+1) * b) = 2 * (2^n * (3 * b)) := by ring
+          rw [this, Nat.mul_div_cancel_left _ (by norm_num : (0:ℕ) < 2)]
+        rw [heq] at h1
+        -- Now apply ih to (3*b): 3*b is odd (odd*odd), positive.
+        have h3b_odd : Odd (3 * b) := (by decide : Odd 3).mul hb
+        have h3b_pos : 0 < 3 * b := by positivity
+        have h2 : 3^n * (3 * b) ∈ M := ih _ h3b_odd h3b_pos h1
+        have : 3^n * (3 * b) = 3^(n+1) * b := by ring
+        rwa [this] at h2
+    have hodd_exists : ∃ x ∈ M, Odd x := by
+      obtain ⟨x₀, hx₀⟩ := hMne
+      have hx₀_pos : 0 < x₀ := hMsub hx₀
+      -- Write x₀ = 2^a * b with b odd, b > 0.
+      obtain ⟨a, b, hb_odd, hx0_eq⟩ : ∃ a b : ℕ, Odd b ∧ x₀ = 2^a * b := by
+        clear hx₀
+        -- Strong induction on the positive integer x₀.
+        have : ∀ n : ℕ, 0 < n → ∃ a b : ℕ, Odd b ∧ n = 2^a * b := by
+          intro n
+          induction n using Nat.strong_induction_on with
+          | _ n ih =>
+            intro hnpos
+            rcases Nat.even_or_odd n with he | ho
+            · obtain ⟨m, hm⟩ := he
+              have hmpos : 0 < m := by omega
+              have hm_lt : m < n := by omega
+              obtain ⟨a, b, hb, heq⟩ := ih m hm_lt hmpos
+              refine ⟨a + 1, b, hb, ?_⟩
+              rw [hm, heq]; ring
+            · exact ⟨0, n, ho, by simp⟩
+        exact this x₀ hx₀_pos
+      have hb_pos : 0 < b := by
+        rcases Nat.eq_zero_or_pos b with hb0 | hbp
+        · subst hb0; simp at hb_odd
+        · exact hbp
+      have hx_in : 2^a * b ∈ M := hx0_eq ▸ hx₀
+      have h3ab : 3^a * b ∈ M := hstrip a b hb_odd hb_pos hx_in
+      exact ⟨3^a * b, h3ab, ((by decide : Odd 3).pow).mul hb_odd⟩
     -- TODO: formalize remaining steps (gcd argument, descent, final AP form).
     -- The full remaining proof requires:
-    --   (a) strong induction: if x ∈ M and x = 2^a * b with b odd, then b*3^a ∈ M
-    --       (or some odd multiple of b lies in M),
     --   (b) defining d := gcd of M (over infinite set), showing d | every element,
     --   (c) showing M ⊆ d·ℕ>0 and finding a with a, a+d ∈ M,
     --   (d) descent step: a, a+d ∈ M, a > min M ⇒ a - d ∈ M,
