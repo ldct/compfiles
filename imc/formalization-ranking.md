@@ -17,7 +17,7 @@ Status values: `not started`, `statement formalized`, `proof in progress`, `proo
 | 5 | IMC 2021 P1 | proof complete | unique X: X + AX + XA^2 = A given A^3=0 | Low | Low | Direct matrix manipulation; existence + uniqueness explicit. |
 | 6 | IMC 2020 P2 | proof complete | rank(AB-BA+I)=1 implies trace identity | Low | Low-Med | trace cyclicity, rank-1 form X+I=vw^T. |
 | 7 | IMC 2024 P7 | statement formalized | invertible A+B=I, polynomial identity, det(AB) values | Low | Low | Reduces to polynomial equation in C = AB; elementary. |
-| 8 | IMC 2023 P2 | not started | A,B,C with A^2=B^2=C^2 and B^3=ABC+2I imply A^6=I | Low | Low-Med | Pure matrix algebra; commute B with ABA. |
+| 8 | IMC 2023 P2 | proof complete | A,B,C with A^2=B^2=C^2 and B^3=ABC+2I imply A^6=I | Low | Low-Med | Pure matrix algebra; commute B with ABA. |
 | 9 | IMC 2022 P2 | not started | A+A^k=A^T with real eigenvalues, find all A | Low | Low-Med | Minimal polynomial argument; A=0. |
 | 10 | IMC 2024 P2 | not started | limit of Riemann-sum type expression involving log | Low | Low | Convert to Riemann sum for integral of x log x. |
 | 11 | IMC 2021 P2 | not started | P(min Y > max X) independent of a | Low-Med | Low | Counting, finite probability. |
