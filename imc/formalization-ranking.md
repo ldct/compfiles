@@ -22,7 +22,7 @@ Status values: `not started`, `statement formalized`, `proof in progress`, `proo
 | 10 | IMC 2024 P2 | proof complete | limit of Riemann-sum type expression involving log | Low | Low | Convert to Riemann sum for integral of x log x. |
 | 11 | IMC 2021 P2 | statement formalized | P(min Y > max X) independent of a | Low-Med | Low | Counting, finite probability. |
 | 12 | IMC 2020 P1 | statement formalized | words over {a,b,c,d} with even count of a,b | Low | Low | Closed form 4^{n-1}+2^{n-1}; parity generating functions. |
-| 13 | IMC 2021 P7 | statement formalized | \|f(0)\| ≤ max_{\|z\|=1} \|f(z)p(z)\| for monic p | Low-Med | Med | Maximum modulus principle; needs complex analysis on closed disk. |
+| 13 | IMC 2021 P7 | proof complete | \|f(0)\| ≤ max_{\|z\|=1} \|f(z)p(z)\| for monic p | Low-Med | Med | Maximum modulus principle; needs complex analysis on closed disk. |
 | 14 | IMC 2025 P2 | statement formalized | integral of (f'')^2 >= 15 with constraints | Low-Med | Med | Cauchy-Schwarz + integration by parts; equality condition. |
 | 15 | IMC 2020 P5 | statement formalized | f''f >= 2(f')^2 implies f constant | Low | Med | 1/f is concave positive => constant. |
 | 16 | IMC 2022 P7 | statement formalized | idempotent anti-commuting complex matrices, rank bound | Low-Med | Med | trace = rank for idempotent; sum of A_i idempotent. |
