@@ -22,6 +22,7 @@ import Compfiles.Imc2022P2
 import Compfiles.Imc2022P6
 import Compfiles.Imc2022P7
 import Compfiles.Imc2023P2
+import Compfiles.Imc2023P3
 import Compfiles.Imc2023P6
 import Compfiles.Imc2023P7
 import Compfiles.Imc2024P1
