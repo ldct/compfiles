@@ -35,15 +35,46 @@ problem imc2025_p7 (M : Set ℕ) (hMsub : M ⊆ Set.Ioi 0) (hMne : M.Nonempty) :
     M ∈ answer ↔
     ((∀ x ∈ M, 2 * x ∈ M) ∧
      (∀ x ∈ M, ∀ y ∈ M, Even (x + y) → (x + y) / 2 ∈ M)) := by
-  -- TODO: Forward direction is computation.
-  -- Reverse direction (following the official solution):
-  -- (1) M is closed under addition: x + y = (2x + 2y)/2 (since 2x, 2y ∈ M
-  --     and their sum is even).
-  -- (2) M contains odd numbers: from x ∈ M, 3x/2 ∈ M (via x and 2x), iterate.
-  -- (3) Let d = gcd of M. Then d is odd. There exist a, a' ∈ M with
-  --     a' - a = d. Taking the least such with c := min M, one shows that
-  --     a - d ∈ M. Symmetrically, a + d ∈ M. Hence M is an arithmetic
-  --     progression c + k*d, k ∈ ℕ.
-  sorry
+  constructor
+  · -- Forward direction: straightforward computation.
+    rintro ⟨m, d, hm, hd, hdOdd, rfl⟩
+    refine ⟨?_, ?_⟩
+    · -- 2x ∈ M when x ∈ M.
+      rintro x ⟨k, rfl⟩
+      refine ⟨m + 2 * k, ?_⟩
+      ring
+    · -- (x + y) / 2 ∈ M when x, y ∈ M and x + y even.
+      rintro x ⟨k, rfl⟩ y ⟨l, rfl⟩ heven
+      obtain ⟨c, hc⟩ := hdOdd
+      subst hc
+      -- Now d = 2*c + 1.
+      have hkl : Even (k + l) := by
+        rcases Nat.even_or_odd (k + l) with he | ho
+        · exact he
+        · exfalso
+          -- (m+k)(2c+1) + (m+l)(2c+1) = (2m+k+l)(2c+1)
+          -- 2m+k+l is odd since 2m even and k+l odd; product of odd*odd is odd.
+          have h2mkl_odd : Odd (2 * m + (k + l)) := by
+            have h2m_even : Even (2 * m) := ⟨m, by ring⟩
+            exact Even.add_odd h2m_even ho
+          have hd_odd : Odd (2 * c + 1) := ⟨c, rfl⟩
+          have hprod_odd : Odd ((2 * m + (k + l)) * (2 * c + 1)) := h2mkl_odd.mul hd_odd
+          have heq : (m + k) * (2 * c + 1) + (m + l) * (2 * c + 1)
+                   = (2 * m + (k + l)) * (2 * c + 1) := by ring
+          rw [heq] at heven
+          exact (Nat.not_even_iff_odd.mpr hprod_odd) heven
+      obtain ⟨c', hc'⟩ := hkl
+      refine ⟨c', ?_⟩
+      show ((m + k) * (2 * c + 1) + (m + l) * (2 * c + 1)) / 2 = (m + c') * (2 * c + 1)
+      rw [show (m + k) * (2 * c + 1) + (m + l) * (2 * c + 1)
+           = (2 * m + (k + l)) * (2 * c + 1) from by ring]
+      rw [show k + l = c' + c' from hc']
+      rw [show 2 * m + (c' + c') = 2 * (m + c') from by ring]
+      rw [show 2 * (m + c') * (2 * c + 1) = 2 * ((m + c') * (2 * c + 1)) from by ring]
+      exact Nat.mul_div_cancel_left _ (by norm_num : (0 : ℕ) < 2)
+  · -- Reverse direction: the official solution's argument.
+    -- TODO: this requires showing M is closed under addition, contains odd
+    -- numbers, and forms an arithmetic progression with odd common difference.
+    sorry
 
 end Imc2025P7
