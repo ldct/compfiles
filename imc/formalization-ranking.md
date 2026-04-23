@@ -60,7 +60,7 @@ Status values: `not started`, `statement formalized`, `proof in progress`, `proo
 | 48 | IMC 2022 P4 | statement formalized | chromatic number of triple-graph, log log n bounds | Med-High | Very High | Heavy graph coloring framework; iterated chromatic number. |
 | 49 | IMC 2023 P9 | statement formalized | sup V of two disjoint-projection convex sets in cube | High | Very High | Convex geometry, symmetry argument, integration. |
 | 50 | IMC 2022 P8 | statement formalized | expected vertices of intersection of two convex hulls | High | Very High | Integral geometry with 2 point clouds on circle. |
-| 51 | IMC 2020 P3 | not started | polytope eps-approximation with C(d)eps^{1-d} vertices | High | Very High | Convex body volume estimates; polytope approximation theorem. |
+| 51 | IMC 2020 P3 | statement formalized | polytope eps-approximation with C(d)eps^{1-d} vertices | High | Very High | Convex body volume estimates; polytope approximation theorem. |
 | 52 | IMC 2023 P10 | not started | g(n) > n^{0.999n} for factorial-LCD denominator | High | Very High | Deep p-adic valuation + 'special primes' machinery. |
 | 53 | IMC 2024 P9 | not started | number of nice matrices is even | High | Very High | Young-tableau friendship graph handshake; bespoke combinatorics. |
 | 54 | IMC 2024 P10 | not started | Fermat-prime divisibility condition on almost primes | Very High | Very High | Multi-lemma cyclotomic/order argument in F_q. |
