@@ -42,7 +42,7 @@ Status values: `not started`, `statement formalized`, `proof in progress`, `proo
 | 30 | IMC 2025 P9 | proof complete | expected max of a prob 2^{-i} random process | Med | Med | Induction + geometric sum; countable probability space. |
 | 31 | IMC 2021 P6 | statement formalized | no injection GL_2(F_p) -> S_p | Med | Med | Element-of-order-2p + structure of S_p. |
 | 32 | IMC 2024 P8 | statement formalized | recursive sequence x_n/2^n limit bounds | Low | Med-High | Induction + telescoping sums; manage auxiliary sequence. |
-| 33 | IMC 2023 P4 | not started | a_i = i^k + i complete residue system mod p | Low-Med | Med-High | Product-of-cyclotomic-lemma; finite-field machinery. |
+| 33 | IMC 2023 P4 | statement formalized | a_i = i^k + i complete residue system mod p | Low-Med | Med-High | Product-of-cyclotomic-lemma; finite-field machinery. |
 | 34 | IMC 2020 P4 | not started | p(x+1)-p(x)=x^{100} => p(1-t) >= p(t) | Low | High | Complex analysis / max principle on rectangle. |
 | 35 | IMC 2022 P3 | not started | flea on Z, strategies mod p | Low-Med | Med-High | Generating functions mod p; binomial identities. |
 | 36 | IMC 2023 P1 | not started | f(7x+1)=49f(x) with C^2 => f(x)=c(6x+1)^2 | Low | Med | Fixed-point contraction argument. |
