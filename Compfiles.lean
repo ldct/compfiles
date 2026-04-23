@@ -11,6 +11,7 @@ import Compfiles.Egmo2023P1
 import Compfiles.Hungary1998P6
 import Compfiles.Imc2020P2
 import Compfiles.Imc2021P1
+import Compfiles.Imc2021P2
 import Compfiles.Imc2022P1
 import Compfiles.Imc2022P2
 import Compfiles.Imc2023P2
