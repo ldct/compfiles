@@ -10,7 +10,7 @@ Status values: `not started`, `statement formalized`, `proof in progress`, `proo
 
 | Rank | Problem | Status | Topic | Statement difficulty | Proof difficulty | Notes |
 |------|---------|--------|-------|---------------------|------------------|-------|
-| 1 | IMC 2022 P1 | not started | integral inequality via AM-GM, reciprocal functional equation | Low | Low | One-line AM-GM or Cauchy-Schwarz; integral facts standard. |
+| 1 | IMC 2022 P1 | proof complete | integral inequality via AM-GM, reciprocal functional equation | Low | Low | One-line AM-GM or Cauchy-Schwarz; integral facts standard. |
 | 2 | IMC 2025 P6 | statement formalized | MVT-style: exists xi with f(xi) - xi f'(xi) = k | Low | Low | Direct Cauchy MVT with f/x. Same flavor as Imc2025P1. |
 | 3 | IMC 2023 P7 | not started | MVT: exists xi with f(xi) + alpha = f'(xi), find alpha | Low | Low | Cauchy MVT with F = f e^{-x}. |
 | 4 | IMC 2024 P1 | not started | \|a\|=\|b\|=1 and a+b+a\bar b real | Low | Low | Complex-number algebra; polish trig identity. |
