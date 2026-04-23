@@ -38,6 +38,21 @@ problem imc2021_p5 {n : ℕ} (A : Matrix (Fin n) (Fin n) ℝ)
     (hAB : ∀ m : ℕ, 0 < m → ∃ B : Matrix (Fin n) (Fin n) ℝ,
       B.IsSymm ∧ (2021 : ℝ) • B = A ^ m + B ^ 2) :
     |A.det| ≤ 1 := by
+  -- TODO: Proof plan (out of reach within current formalization budget):
+  -- Step 1: From m=1 case, A = 2021·B₁ - B₁² with B₁ symmetric (so A is symmetric
+  --   and commutes with B₁). Use Matrix.IsHermitian.eigenvectorBasis to diagonalize A
+  --   and B₁ simultaneously; A's eigenvalues are real.
+  -- Step 2: For each m, obtain B_m symmetric; use that A commutes with B_m
+  --   (from 2021 B_m = A^m + B_m², A and B_m are polynomials in each other ⇒
+  --   they commute). Simultaneous diagonalization yields: for each eigenvalue λ of A
+  --   there is a real eigenvalue μ of B_m with 2021 μ = λ^m + μ². Discriminant ≥ 0
+  --   gives λ^m ≤ 2021²/4.
+  -- Step 3: Taking m even and m→∞, |λ| ≤ 1. Since |det A| = ∏|λᵢ| ≤ 1.
+  -- Mathlib gaps:
+  --   (a) Coupling the eigenvalues of two commuting Hermitian matrices (there is no
+  --       direct lemma; needs manual construction of simultaneous eigenvector basis).
+  --   (b) |det A| = ∏ |eigenvalue|: via Matrix.det_eq_prod_roots_charpoly_of_splits
+  --       over ℂ, combined with the fact that A's characteristic poly has real roots.
   sorry
 
 end Imc2021P5
