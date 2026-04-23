@@ -44,7 +44,12 @@ problem imc2025_p4 (a : ℕ) (ha_pos : 0 < a) (ha_even : Even a) (x : ℝ) :
   -- For each such m, we get the range (m+1)^a - 1 ≤ x < a(m+1).
   -- When a > 2: m=-1 gives [-1, 0); m=0 gives [0, a). Union is [-1, a).
   -- When a = 2: m=-1 gives [-1, 0); m=0 gives [0, 2); m=1 gives [3, 4).
-  -- The verification direction uses Bernoulli again.
+  -- The verification direction uses Bernoulli again to show:
+  --   (1 + m/b^a)^a ≤ 1 + x/b^a < (1 + (m+1)/b^a)^a,
+  -- whence b^a + m ≤ (b^a + x)^(1/a) · b^(a-1) < b^a + m + 1.
+  -- Main technical lemmas needed:
+  --  * Bernoulli: (1 + t)^n ≥ 1 + n t for t ≥ -1, n ∈ ℕ.
+  --  * Floor of a real rpow.
   sorry
 
 end Imc2025P4
