@@ -40,7 +40,7 @@ Status values: `not started`, `statement formalized`, `proof in progress`, `proo
 | 28 | IMC 2025 P4 | statement formalized | floor identity for b^{a-1} (b^a+x)^{1/a} | Low-Med | Med | Bernoulli inequality + case analysis. |
 | 29 | IMC 2021 P8 | statement formalized | unit vectors with 3-at-a-time orthogonality condition | Low-Med | Med | Projector trace identities; algebraic inequalities. |
 | 30 | IMC 2025 P9 | proof complete | expected max of a prob 2^{-i} random process | Med | Med | Induction + geometric sum; countable probability space. |
-| 31 | IMC 2021 P6 | not started | no injection GL_2(F_p) -> S_p | Med | Med | Element-of-order-2p + structure of S_p. |
+| 31 | IMC 2021 P6 | statement formalized | no injection GL_2(F_p) -> S_p | Med | Med | Element-of-order-2p + structure of S_p. |
 | 32 | IMC 2024 P8 | not started | recursive sequence x_n/2^n limit bounds | Low | Med-High | Induction + telescoping sums; manage auxiliary sequence. |
 | 33 | IMC 2023 P4 | not started | a_i = i^k + i complete residue system mod p | Low-Med | Med-High | Product-of-cyclotomic-lemma; finite-field machinery. |
 | 34 | IMC 2020 P4 | not started | p(x+1)-p(x)=x^{100} => p(1-t) >= p(t) | Low | High | Complex analysis / max principle on rectangle. |
