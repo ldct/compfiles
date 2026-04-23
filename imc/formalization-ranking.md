@@ -34,7 +34,7 @@ Status values: `not started`, `statement formalized`, `proof in progress`, `proo
 | 22 | IMC 2023 P6 | proof complete | invariance via log-determinant, reachability | Med | Med | Invariant (det of log-matrix); simple once discovered. |
 | 23 | IMC 2022 P6 | proof complete | permutation with prescribed sum mod p | Low | Med | Explicit construction x_i ≡ i^{-1} mod p. |
 | 24 | IMC 2025 P7 | statement formalized | subsets closed under x->2x and (x+y)/2 | Low | Med | Elementary number theory; arithmetic progressions. |
-| 25 | IMC 2020 P6 | not started | primes with unique root of x^3-3x+1 mod p | Low | Med | Elementary finite-field + root permutation via x^2-2. |
+| 25 | IMC 2020 P6 | statement formalized | primes with unique root of x^3-3x+1 mod p | Low | Med | Elementary finite-field + root permutation via x^2-2. |
 | 26 | IMC 2024 P6 | not started | every f:Q->Z has a,b,c with f(b) dominating | Low | Med | Pigeonhole on finite subintervals; countable argument. |
 | 27 | IMC 2023 P3 | not started | P(x,y)P(z,t) = P(xz-yt, xt+yz) classify polynomials | Low | Med | Complex factorization (x+iy)^n(x-iy)^m; real-coef constraint. |
 | 28 | IMC 2025 P4 | statement formalized | floor identity for b^{a-1} (b^a+x)^{1/a} | Low-Med | Med | Bernoulli inequality + case analysis. |
