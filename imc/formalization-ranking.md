@@ -47,7 +47,7 @@ Status values: `not started`, `statement formalized`, `proof in progress`, `proo
 | 35 | IMC 2022 P3 | proof complete | flea on Z, strategies mod p | Low-Med | Med-High | Generating functions mod p; binomial identities. |
 | 36 | IMC 2023 P1 | proof complete | f(7x+1)=49f(x) with C^2 => f(x)=c(6x+1)^2 | Low | Med | Fixed-point contraction argument. |
 | 37 | IMC 2020 P7 | proof complete | subgroups with index conditions are conjugate | Med | Med-High | Coset counting; finite group argument. |
-| 38 | IMC 2021 P3 | statement formalized | good d: sup=ln 2 with sequence partition | Med | High | Partial fraction/log identities; sequence construction. |
+| 38 | IMC 2021 P3 | partial: crude upper bound `d ≤ 2` via n=1 triangle inequality; main `sSup = log 2` sorry remains. The `Good` predicate in the file is a simplified covering condition (every x in [0,d] within 1/n of some a_i) that differs from the original sorted-partition condition; equality to log 2 may not be recoverable from this weakened form | good d: sup=ln 2 with sequence partition | Med | High | Partial fraction/log identities; sequence construction. |
 | 39 | IMC 2023 P8 | statement formalized | tree Wiener index times harmonic index bound | Med | Med | Cauchy-Schwarz; needs graph theory library (tree, distance). |
 | 40 | IMC 2022 P5 | statement formalized | count monochromatic triangles on K_{43} | Med | Med-High | Double counting 'cherries'; specific 43-vertex problem. |
 | 41 | IMC 2025 P5 | statement formalized | g(n) < f(n) + n^{0.501} (sym grp max order) | Med | High | Requires weak PNT bound on prime sum; Landau's function. |
