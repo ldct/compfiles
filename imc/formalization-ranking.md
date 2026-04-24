@@ -45,7 +45,7 @@ Status values: `not started`, `statement formalized`, `proof in progress`, `proo
 | 33 | IMC 2023 P4 | partial: p=2 (vacuous) and p=3 cases done; for p>3 the full structural reduction is done (surjective⇒bijective on F_p; factor ∏(α^k+α) = ∏α · ∏(α^{k-1}+1); deduce ∏(α^{k-1}+1)=1; derive 4 from 2^{k-1}=1). Remaining sorry: `key_product_lemma` asserting ∏_{α∈F_p*}(α^{k-1}+1)=1 ⟹ 2^{k-1}=1 (mod p) (the deep character-sum identity) | a_i = i^k + i complete residue system mod p | Low-Med | Med-High | Product-of-cyclotomic-lemma; finite-field machinery. |
 | 34 | IMC 2020 P4 | partial: boundary-value helpers (`D(0) = 0`, `D(1/2) = 0`) proved; main inequality sorry. Core analytic step = maximum principle on a rectangle for Re h, h(z) = p(1 - z̄) - p(z), on strip 0 ≤ Re z ≤ 1/2. | p(x+1)-p(x)=x^{100} => p(1-t) >= p(t) | Low | High | Complex analysis / max principle on rectangle. |
 | 35 | IMC 2022 P3 | proof complete | flea on Z, strategies mod p | Low-Med | Med-High | Generating functions mod p; binomial identities. |
-| 36 | IMC 2023 P1 | statement formalized | f(7x+1)=49f(x) with C^2 => f(x)=c(6x+1)^2 | Low | Med | Fixed-point contraction argument. |
+| 36 | IMC 2023 P1 | proof complete | f(7x+1)=49f(x) with C^2 => f(x)=c(6x+1)^2 | Low | Med | Fixed-point contraction argument. |
 | 37 | IMC 2020 P7 | statement formalized | subgroups with index conditions are conjugate | Med | Med-High | Coset counting; finite group argument. |
 | 38 | IMC 2021 P3 | statement formalized | good d: sup=ln 2 with sequence partition | Med | High | Partial fraction/log identities; sequence construction. |
 | 39 | IMC 2023 P8 | statement formalized | tree Wiener index times harmonic index bound | Med | Med | Cauchy-Schwarz; needs graph theory library (tree, distance). |
