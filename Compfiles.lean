@@ -15,6 +15,7 @@ import Compfiles.Imc2000P3
 import Compfiles.Imc2000P5
 import Compfiles.Imc2001P1
 import Compfiles.Imc2001P2
+import Compfiles.Imc2001P3
 import Compfiles.Imc2001P7
 import Compfiles.Imc2002P7
 import Compfiles.Imc2002P8
