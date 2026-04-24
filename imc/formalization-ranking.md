@@ -29,7 +29,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 13 | IMC 2013 P6 | proof complete | 85 | \|z+1\| > 2 implies \|z^3+1\| > 1 | Low | Low | Factor z^3+1=(z+1)(z^2-z+1); triangle inequality on second factor. |
 | 14 | IMC 2003 P7 | proof complete | 68 | AB+A+B=0 implies AB=BA | Low | Low | (A+I)(B+I)=I, so A+I and B+I commute. |
 | 15 | IMC 2007 P1 | proof complete | 103 | deg-2 integer polynomial vanishing mod 5 at all integers | Low | Low | Evaluate at small residues; linear system over Z/5. |
-| 16 | IMC 2004 P9 | not started | - | exists p in unit disc with sum \|p - p_i\| >= n | Low | Low | Pick p opposite centroid; triangle inequality. |
+| 16 | IMC 2004 P9 | proof complete | 84 | exists p in unit disc with sum \|p - p_i\| >= n | Low | Low | Pick p opposite centroid; triangle inequality. |
 | 17 | IMC 2021 P1 | proof complete | 224 | unique X: X + AX + XA^2 = A given A^3=0 | Low | Low | Direct matrix manipulation; existence + uniqueness explicit. |
 | 18 | IMC 2020 P2 | proof complete | 155 | rank(AB-BA+I)=1 implies trace identity | Low | Low-Med | trace cyclicity, rank-1 form X+I=vw^T. |
 | 19 | IMC 2005 P1 | not started | - | rank of n x n matrix with (i,j)-entry i+j equals 2 | Low | Low | Write as sum of two rank-1 matrices; 2x2 minor nonzero. |
