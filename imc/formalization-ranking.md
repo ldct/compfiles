@@ -142,7 +142,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 126 | IMC 2000 P6 | statement formalized | 78 | Euler-type iteration a_n+1=a_n+1/f(a_n); a_n - F^{-1}(n) -> 0 | Low-Med | Med | MVT on F; control sum of f'/f errors. |
 | 127 | IMC 2013 P1 | proof complete | 136 | real symmetric A,B with all eigenvalues > 1, real eigenvalue of AB has \|lambda\| > 1 | Low | Low-Med | Reduce via positive definite diagonalization. |
 | 128 | IMC 2003 P5 | statement formalized | 62 | averaging integral iteration f_{n+1}(x) = (1/x) int_0^x f_n | Low | Med | Power-series expansion; explicit limit. |
-| 129 | IMC 2018 P1 | not started | - | sum a_n/c_n and c_n/b_n both convergent iff sum sqrt(a_n/b_n) converges | Low | Med | Cauchy-Schwarz one way; explicit c_n = sqrt(a_n b_n) other. |
+| 129 | IMC 2018 P1 | proof complete | 98 | sum a_n/c_n and c_n/b_n both convergent iff sum sqrt(a_n/b_n) converges | Low | Med | Cauchy-Schwarz one way; explicit c_n = sqrt(a_n b_n) other. |
 | 130 | IMC 2003 P11 | not started | - | R->R function uniformly bounded by g(x) + g(y); classify g | Low-Med | Med | Inf-over-translate; subadditive decomposition. |
 | 131 | IMC 2015 P2 | not started | - | bit-complement f(k) satisfies sum_{k<=n} f(k) <= n^2/4 | Low-Med | Med | Pair k with 2^m-1-k; compute average. |
 | 132 | IMC 2003 P12 | not started | - | limit of sum a_k/2^k for a sequence via generating-function ODE | Low-Med | Med | Solve linear ODE on gen fn; evaluate at 1/2. |
