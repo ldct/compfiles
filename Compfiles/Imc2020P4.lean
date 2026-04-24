@@ -21,11 +21,43 @@ namespace Imc2020P4
 
 open Polynomial
 
+snip begin
+
+/--
+Helper: `0^100 = 0` evaluated over `ℝ`. Used for the boundary condition `D(0) = 0`.
+-/
+lemma zero_pow_hundred : (0 : ℝ) ^ 100 = 0 := by norm_num
+
+/--
+Boundary value: `D(0) = p(1) - p(0) = 0`.
+-/
+lemma boundary_zero (p : ℝ[X]) (hp : ∀ x : ℝ, p.eval (x + 1) - p.eval x = x ^ 100) :
+    p.eval 1 - p.eval 0 = 0 := by
+  have h := hp 0
+  simpa [zero_pow_hundred] using h
+
+/--
+Boundary value at `t = 1/2`: trivially `D(1/2) = p(1/2) - p(1/2) = 0`.
+-/
+lemma boundary_half (p : ℝ[X]) : p.eval (1 - (1/2 : ℝ)) - p.eval (1/2) = 0 := by
+  norm_num
+
+snip end
+
 problem imc2020_p4 (p : ℝ[X])
     (hp : ∀ x : ℝ, p.eval (x + 1) - p.eval x = x ^ 100)
     (t : ℝ) (ht0 : 0 ≤ t) (ht1 : t ≤ 1 / 2) :
     p.eval t ≤ p.eval (1 - t) := by
-  -- TODO: hard; proof uses complex analysis / max principle on a rectangle.
+  -- The standard proof uses complex analysis: extend p to ℂ, consider
+  -- `h(z) = p(1 - z̄) - p(z)`, show Re h ≥ 0 on the strip `0 ≤ Re z ≤ 1/2`
+  -- via the maximum principle on a rectangle `[0, 1/2] × [-N, N]`.
+  -- On the vertical line `Re z = 1/2`, `h(1/2 + it) + conj h(1/2 + it) = 0`
+  -- so Re h = 0 there. On `Re z = 0`, `h(it) = t^100 ≥ 0` is real.
+  -- For large |t|, Re h is dominated by the leading term with positive sign.
+  -- Hence Re h ≥ 0 on the strip, and on [0, 1/2] ⊆ ℝ we get p(1-t) - p(t) ≥ 0.
+  --
+  -- Formalizing the maximum-principle-on-a-rectangle argument in Mathlib
+  -- requires substantial complex-analysis scaffolding; this remains open.
   sorry
 
 end Imc2020P4
