@@ -88,7 +88,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 72 | IMC 2001 P2 | proof complete | 72 | a^r=b^s=(ab)^t=e with coprime r,s,t and abelian implies a=b=e | Low-Med | Low-Med | Bezout coprime combination; order divides 1. |
 | 73 | IMC 2006 P2 | proof complete | 316 | count of 0 <= x < 10^{2006} with 10^{2006} divides x^2 - x | Low-Med | Low-Med | CRT over 2^{2006} and 5^{2006}; idempotent count. |
 | 74 | IMC 2001 P7 | statement formalized | 64 | nonneg-coefficient polynomial product equals 1 + x + ... + x^n | Low | Low-Med | Cyclotomic factorization of x^{n+1}-1. |
-| 75 | IMC 2005 P4 | not started | - | polynomials with coefficients a permutation of 0..n and all rational roots | Low | Med | Vieta + AM-HM forces small degree; explicit enumeration. |
+| 75 | IMC 2005 P4 | partial | 232 | polynomials with coefficients a permutation of 0..n and all rational roots | Low | Med | Vieta + AM-HM forces small degree; explicit enumeration. |
 | 76 | IMC 2001 P3 | not started | - | limit (1-t) sum t^n/(1+t^n) equals ln 2 as t -> 1^- | Low | Low-Med | Abel summation; geometric comparison. |
 | 77 | IMC 2019 P5 | not started | - | no odd n with integer A,B and A^4+4A^2B^2+16B^4=2019I | Low | Med | Factor over Z[i], use determinants and parity mod 2. |
 | 78 | IMC 2003 P8 | not started | - | limit of integral sin^m t / t^n over [x, 2x] as x -> 0 | Low | Low-Med | Taylor expansion; leading-order computation. |
