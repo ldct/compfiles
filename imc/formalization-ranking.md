@@ -137,7 +137,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 121 | IMC 2015 P7 | proof complete | 401 | limit (1/A) integral_1^A A^{1/x} dx as A -> infinity | Low | Med | Substitute u=A^{1/x}; asymptotic of 1/ln A factor. |
 | 122 | IMC 2002 P4 | partial | 195 | iterates p_n of continuous self-map [a,b]->[a,b] closed implies finite | Low | Med | Topological dynamics; orbit closure finite. |
 | 123 | IMC 2012 P1 | proof complete | 139 | p(n)-p(n-1) equals partitions into parts > 1 | Low | Med | Generating-function bijection; needs Finset partitions API. |
-| 124 | IMC 2003 P4 | not started | - | partition Z+ into A, B with a A = b B; classify (a, b) | Low | Med | Characterize via gcd/lcm and 2-adic valuation. |
+| 124 | IMC 2003 P4 | proof complete | 279 | partition Z+ into A, B with a A = b B; classify (a, b) | Low | Med | Characterize via gcd/lcm and 2-adic valuation. |
 | 125 | IMC 2021 P5 | statement formalized | 58 | 2021 B = A^m + B^2 for all m => \|det A\| <= 1 | Low | Med | Eigenvalue analysis; discriminant argument. |
 | 126 | IMC 2000 P6 | not started | - | Euler-type iteration a_n+1=a_n+1/f(a_n); a_n - F^{-1}(n) -> 0 | Low-Med | Med | MVT on F; control sum of f'/f errors. |
 | 127 | IMC 2013 P1 | not started | - | real symmetric A,B with all eigenvalues > 1, real eigenvalue of AB has \|lambda\| > 1 | Low | Low-Med | Reduce via positive definite diagonalization. |
