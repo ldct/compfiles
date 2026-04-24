@@ -42,6 +42,7 @@ import Compfiles.Imc2005P10
 import Compfiles.Imc2005P3
 import Compfiles.Imc2005P4
 import Compfiles.Imc2005P5
+import Compfiles.Imc2005P6
 import Compfiles.Imc2005P7
 import Compfiles.Imc2005P8
 import Compfiles.Imc2005P9
