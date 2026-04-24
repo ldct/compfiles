@@ -53,7 +53,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 37 | IMC 2016 P1 | proof complete | 111 | f with infinite zeros and no common f=f'=0 forces f(a)f(b)=0 | Low | Low-Med | Accumulation of zeros plus Rolle gives f=f'=0. |
 | 38 | IMC 2006 P8 | proof complete | 289 | classify continuous f with f([a,b]) closed interval of length b-a | Low | Low-Med | Monotone pieces plus length preservation. |
 | 39 | IMC 2008 P1 | proof complete | 231 | continuous f with f(Q) subset Q and f(rationals closed under add) is f(x)=ax+b | Low | Low-Med | Density of Q plus Cauchy-style functional equation. |
-| 40 | IMC 2000 P1 | not started | - | monotone increasing f:[0,1]->[0,1] has a fixed point | Low | Low | sup of {x : f(x) > x}; no continuity required. |
+| 40 | IMC 2000 P1 | proof complete | 70 | monotone increasing f:[0,1]->[0,1] has a fixed point | Low | Low | sup of {x : f(x) > x}; no continuity required. |
 | 41 | IMC 2022 P2 | proof complete | 256 | A+A^k=A^T with real eigenvalues, find all A | Low | Low-Med | Minimal polynomial argument; A=0. |
 | 42 | IMC 2000 P5 | not started | - | three idempotents summing to 0 in char-0 ring are all 0 | Low | Low-Med | 3[e,f]=0 forces commutation; reduce to e=f=g. |
 | 43 | IMC 2010 P6 | not started | - | x_{n+1}=x_n cos x_n and y_{n+1}=y_n sin y_n convergence | Low | Low-Med | Monotone bounded; show limit satisfies x cos x = x or y sin y = y. |
