@@ -117,7 +117,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 101 | IMC 2001 P8 | proof complete | 196 | nested trig sequence a_n = 2 sin(pi/2^{n+1}) recursion | Low-Med | Med | Half-angle identity; induction on n. |
 | 102 | IMC 2020 P5 | proof complete | 210 | f''f >= 2(f')^2 implies f constant | Low | Med | 1/f is concave positive => constant. |
 | 103 | IMC 2017 P1 | proof complete | 222 | eigenvalues of real matrix with A^2=A^T | Low | Med | Classify: 0, 1, or roots of x^2+x+1=0 (primitive cube root of unity). |
-| 104 | IMC 2002 P3 | not started | - | binomial-coefficient sum identity with 2^k-indexed terms | Low | Med | Generating function or Vandermonde; finite sum. |
+| 104 | IMC 2002 P3 | proof complete | 340 | binomial-coefficient sum identity with 2^k-indexed terms | Low | Med | Generating function or Vandermonde; finite sum. |
 | 105 | IMC 2005 P6 | not started | - | G(m), G(n) commutative implies G(gcd(m,n)) commutative | Low | Med | Commutator is central; Bezout-based conjugation analysis. |
 | 106 | IMC 2003 P3 | not started | - | 3A^3 = A^2 + A + I implies A^k converges to idempotent | Low-Med | Med | Roots of 3x^3-x^2-x-1; only x=1 on unit circle. |
 | 107 | IMC 2006 P6 | not started | - | Rolle-type mean value for polynomials with real roots | Low-Med | Med | Induction on degree plus Rolle between consecutive roots. |
