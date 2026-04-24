@@ -10,6 +10,7 @@ import Compfiles.Canada1998P5
 import Compfiles.Egmo2023P1
 import Compfiles.Hungary1998P6
 import Compfiles.Imc2013P2
+import Compfiles.Imc2015P6
 import Compfiles.Imc2019P6
 import Compfiles.Imc2020P1
 import Compfiles.Imc2020P2
