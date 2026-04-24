@@ -61,7 +61,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 45 | IMC 2005 P7 | proof complete | 171 | measure of {x : \|x^2 + bx + c\| < 1} is at most 2 sqrt 2 | Low | Low-Med | Completing square; interval-length bound. |
 | 46 | IMC 2009 P7 | proof complete | 215 | f'' - 3f' + 2f <= 0 with f(0)=f'(0)=1 implies f(x) >= 3 e^{2x} - 2 e^{3x} | Low | Low-Med | Comparison ODE with explicit solution difference. |
 | 47 | IMC 2010 P3 | proof complete | 218 | x_{n+1}=x_n^2-2, x_1=sqrt 5; limit of x_1..x_n / x_{n+1} | Low | Low-Med | Parametrize x_n = 2 cosh(2^{n-1} t); telescope product. |
-| 48 | IMC 2004 P11 | not started | - | double integral of 1/(1/x + \|ln y\| - 1) bounded by 1 | Low | Low-Med | Show 1/x - 1 >= \|ln x\|; pointwise substitution bound. |
+| 48 | IMC 2004 P11 | partial | 93 | double integral of 1/(1/x + \|ln y\| - 1) bounded by 1 | Low | Low-Med | Show 1/x - 1 >= \|ln x\|; pointwise substitution bound. |
 | 49 | IMC 2007 P2 | not started | - | min and max rank of n x n matrix with entries 1..n^2 | Low | Low-Med | Explicit constructions plus rank-bound arguments. |
 | 50 | IMC 2004 P1 | not started | - | infinite S subset R+ with all finite sums bounded is countable | Low | Low-Med | Count {s >= 1/n}; union of countable sets. |
 | 51 | IMC 2006 P10 | not started | - | rational pairwise distances on n+1 points implies Q-linear dependence | Low | Low-Med | Cayley-Menger determinant over Q. |
