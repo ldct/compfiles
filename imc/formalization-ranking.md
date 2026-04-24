@@ -126,7 +126,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 110 | IMC 2000 P11 | not started | - | classify f with f(x) f(y f(x)) = f(x+y) | Low-Med | Med | Aczel-type FE; reciprocal form f(x)=1/(1+cx). |
 | 111 | IMC 2022 P7 | proof complete | 148 | idempotent anti-commuting complex matrices, rank bound | Low-Med | Med | trace = rank for idempotent; sum of A_i idempotent. |
 | 112 | IMC 2001 P6 | statement formalized | 58 | ratio-limit f'/g' + a f/g tends to A + 1 | Med | Med | Generalized L'Hopital with additive correction. |
-| 113 | IMC 2016 P3 | not started | - | fractional sum inequality with a_i b_i numerator | Low | Med | Cauchy-Schwarz and tangent-line trick on (ab-b^2)/(a+b). |
+| 113 | IMC 2016 P3 | proof complete | 66 | fractional sum inequality with a_i b_i numerator | Low | Med | Cauchy-Schwarz and tangent-line trick on (ab-b^2)/(a+b). |
 | 114 | IMC 2004 P10 | not started | - | eigenvalues of Lyapunov-type map X -> MX + X M^T | Med | Med | lambda_i + lambda_j with correct multiplicities; Jordan form. |
 | 115 | IMC 2008 P11 | not started | - | determinant of prime-indicator matrix is a perfect square | Low-Med | Med | Row/column factorization over Z. |
 | 116 | IMC 2000 P12 | not started | - | p(e^{AB}) nilpotent iff p(e^{BA}) is | Low | Med | Spectra of AB and BA agree off zero; functional calculus. |
