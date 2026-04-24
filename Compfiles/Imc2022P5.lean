@@ -305,6 +305,37 @@ private lemma sum_triSame (c : Fin 43 → Fin 43 → Bool) :
   rw [Finset.sum_const, smul_eq_mul]
   ring
 
+-- Count cherries grouped by permutation pattern.
+-- Helper: for any predicate on (i,j,k), the count over triples i<j<k
+-- equals the count after various permutations of coords.
+
+-- Pattern 1: t.1 < t.2.1 < t.2.2 (i,j,k order). Cherry condition c(i,j)=c(i,k).
+private lemma cherry_pattern1 (c : Fin 43 → Fin 43 → Bool) :
+    ((globalCherries c).filter (fun t => t.1 < t.2.1 ∧ t.2.1 < t.2.2)).card =
+    (allTri.filter (fun T => c T.1 T.2.1 = c T.1 T.2.2)).card := by
+  apply Finset.card_bij (fun t _ => t)
+  · intro t ht
+    rw [Finset.mem_filter] at ht
+    obtain ⟨hg, hlt⟩ := ht
+    simp only [globalCherries, Finset.mem_filter, Finset.mem_univ, true_and] at hg
+    rw [Finset.mem_filter]
+    refine ⟨?_, hg.2.2.2⟩
+    simp only [allTri, Finset.mem_filter, Finset.mem_univ, true_and]
+    exact hlt
+  · intros; assumption
+  · intro T hT
+    rw [Finset.mem_filter] at hT
+    obtain ⟨hall, hcol⟩ := hT
+    simp only [allTri, Finset.mem_filter, Finset.mem_univ, true_and] at hall
+    refine ⟨T, ?_, rfl⟩
+    rw [Finset.mem_filter]
+    refine ⟨?_, hall⟩
+    simp only [globalCherries, Finset.mem_filter, Finset.mem_univ, true_and]
+    refine ⟨?_, ?_, ?_, hcol⟩
+    · intro h; exact absurd (h ▸ hall.1) (lt_irrefl _)
+    · intro h; exact absurd (h ▸ hall.1.trans hall.2) (lt_irrefl _)
+    · intro h; exact absurd (h ▸ hall.2) (lt_irrefl _)
+
 -- The core identity: global cherries count = 4·mono + 2·total.
 private lemma cherry_triangle_identity (c : Fin 43 → Fin 43 → Bool)
     (hsym : ∀ i j, c i j = c j i) :
