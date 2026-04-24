@@ -91,7 +91,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 75 | IMC 2005 P4 | partial | 232 | polynomials with coefficients a permutation of 0..n and all rational roots | Low | Med | Vieta + AM-HM forces small degree; explicit enumeration. |
 | 76 | IMC 2001 P3 | statement formalized | 90 | limit (1-t) sum t^n/(1+t^n) equals ln 2 as t -> 1^- | Low | Low-Med | Abel summation; geometric comparison. |
 | 77 | IMC 2019 P5 | proof complete | 111 | no odd n with integer A,B and A^4+4A^2B^2+16B^4=2019I | Low | Med | Factor over Z[i], use determinants and parity mod 2. |
-| 78 | IMC 2003 P8 | not started | - | limit of integral sin^m t / t^n over [x, 2x] as x -> 0 | Low | Low-Med | Taylor expansion; leading-order computation. |
+| 78 | IMC 2003 P8 | proof complete | 528 | limit of integral sin^m t / t^n over [x, 2x] as x -> 0 | Low | Low-Med | Taylor expansion; leading-order computation. |
 | 79 | IMC 2005 P5 | not started | - | \|f''+2xf'+(x^2+1)f\| <= 1 implies f(x) -> 0 at infinity | Low-Med | Med | Integrating factor e^{x^2/2}; L'Hopital on growth ratio. |
 | 80 | IMC 2000 P9 | not started | - | polynomial of degree n has at least n+1 preimages of {0,1} | Low | Low-Med | Count roots of p and p-1; fundamental theorem. |
 | 81 | IMC 2015 P4 | not started | - | exist integer m_i with sum m_k arctan(k) = arctan 16 | Low | Med | Gauss integers: convert to product of (1+ki); diophantine. |
