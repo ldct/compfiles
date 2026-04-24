@@ -112,7 +112,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 96 | IMC 2021 P7 | proof complete | 159 | \|f(0)\| ≤ max_{\|z\|=1} \|f(z)p(z)\| for monic p | Low-Med | Med | Maximum modulus principle; needs complex analysis on closed disk. |
 | 97 | IMC 2006 P4 | statement formalized | 56 | rational function integer-valued on infinitely many integers is polynomial | Low | Med | Degree of denominator bounded; polynomial division. |
 | 98 | IMC 2000 P7 | proof complete | 169 | unit cube dissectible into n smaller cubes for all n >= N | Low | Med | Split one cube into 8; base-case induction on n. |
-| 99 | IMC 2007 P4 | not started | - | G = A sqcup B sqcup C partition; triple counts N_{ABC} = N_{CBA} | Low-Med | Med | Group-action reversal argument. |
+| 99 | IMC 2007 P4 | proof complete | 171 | G = A sqcup B sqcup C partition; triple counts N_{ABC} = N_{CBA} | Low-Med | Med | Group-action reversal argument. |
 | 100 | IMC 2025 P2 | proof complete | 479 | integral of (f'')^2 >= 15 with constraints | Low-Med | Med | Cauchy-Schwarz + integration by parts; equality condition. |
 | 101 | IMC 2001 P8 | not started | - | nested trig sequence a_n = 2 sin(pi/2^{n+1}) recursion | Low-Med | Med | Half-angle identity; induction on n. |
 | 102 | IMC 2020 P5 | proof complete | 210 | f''f >= 2(f')^2 implies f constant | Low | Med | 1/f is concave positive => constant. |
