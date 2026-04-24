@@ -95,7 +95,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 79 | IMC 2005 P5 | proof complete | 327 | \|f''+2xf'+(x^2+1)f\| <= 1 implies f(x) -> 0 at infinity | Low-Med | Med | Integrating factor e^{x^2/2}; L'Hopital on growth ratio. |
 | 80 | IMC 2000 P9 | proof complete | 146 | polynomial of degree n has at least n+1 preimages of {0,1} | Low | Low-Med | Count roots of p and p-1; fundamental theorem. |
 | 81 | IMC 2015 P4 | proof complete | 407 | exist integer m_i with sum m_k arctan(k) = arctan 16 | Low | Med | Gauss integers: convert to product of (1+ki); diophantine. |
-| 82 | IMC 2002 P1 | not started | - | reflection-related triple of parabolas, intersection pattern | Low-Med | Low-Med | Solve systems of quadratics; case analysis. |
+| 82 | IMC 2002 P1 | proof complete | 81 | reflection-related triple of parabolas, intersection pattern | Low-Med | Low-Med | Solve systems of quadratics; case analysis. |
 | 83 | IMC 2018 P4 | not started | - | f(b)-f(a)=(b-a)f'(sqrt(ab)) classify f | Low | Med | Substitute and differentiate; get f(x)=A ln x + B form. |
 | 84 | IMC 2002 P2 | not started | - | no C^1 positive f on R with f'(x) = f(f(x)) | Low | Low-Med | Growth analysis; contradict continuity. |
 | 85 | IMC 2008 P3 | not started | - | for integer polynomial, find a with p(a_i) dividing p(a) | Low | Med | Chinese remainder + a-b divides p(a)-p(b). |
