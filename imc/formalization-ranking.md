@@ -156,7 +156,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 140 | IMC 2000 P8 | proof complete | 190 | continuous nowhere-monotone function with dense local minima | Low | Med | Explicit construction, e.g., perturbed Weierstrass-type. |
 | 141 | IMC 2011 P6 | proof complete | 156 | iterated chord-average x_{n+1}=(a_{n+1}+x_n)/(1+a_{n+1}x_n) convergence | Low-Med | Med | tanh substitution linearizes; possible limits in (-1,1). |
 | 142 | IMC 2013 P4 | partial | 84 | power-sum inequality (n+1)A^2 B + (n-2)B^2 >= A^4 + (2n-2)AC | Low | Med | SOS / Schur-type inequality with power sums. |
-| 143 | IMC 2005 P2 | not started | - | trinary sequence bijection \|A_{n+1}\| = 3 \|B_n\| | Med | Med | Cyclic shift on Z_3 plus explicit bijection via differences. |
+| 143 | IMC 2005 P2 | proof complete | 199 | trinary sequence bijection \|A_{n+1}\| = 3 \|B_n\| | Med | Med | Cyclic shift on Z_3 plus explicit bijection via differences. |
 | 144 | IMC 2014 P2 | not started | - | triangular-block sequence a_n: find alpha, beta with sum a_k / n^alpha -> beta | Low-Med | Med | Partial-sums asymptotic; alpha=3/2, beta explicit. |
 | 145 | IMC 2002 P5 | not started | - | monotone / C^1 function with every fiber uncountable | Low-Med | Med | Cantor-set-over-Cantor-set construction. |
 | 146 | IMC 2011 P8 | not started | - | triple log product sum ln(1+1/n) ln(1+1/(2n)) ln(1+1/(2n+1)) | Low-Med | Med | Telescoping of ln(1+1/n) over all n; closed-form. |
