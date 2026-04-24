@@ -128,7 +128,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 112 | IMC 2001 P6 | statement formalized | 58 | ratio-limit f'/g' + a f/g tends to A + 1 | Med | Med | Generalized L'Hopital with additive correction. |
 | 113 | IMC 2016 P3 | proof complete | 66 | fractional sum inequality with a_i b_i numerator | Low | Med | Cauchy-Schwarz and tangent-line trick on (ab-b^2)/(a+b). |
 | 114 | IMC 2004 P10 | proof complete | 96 | eigenvalues of Lyapunov-type map X -> MX + X M^T | Med | Med | lambda_i + lambda_j with correct multiplicities; Jordan form. |
-| 115 | IMC 2008 P11 | not started | - | determinant of prime-indicator matrix is a perfect square | Low-Med | Med | Row/column factorization over Z. |
+| 115 | IMC 2008 P11 | partial | 368 | determinant of prime-indicator matrix is a perfect square | Low-Med | Med | Row/column factorization over Z. |
 | 116 | IMC 2000 P12 | not started | - | p(e^{AB}) nilpotent iff p(e^{BA}) is | Low | Med | Spectra of AB and BA agree off zero; functional calculus. |
 | 117 | IMC 2015 P10 | not started | - | int-coeff polynomial of degree n has max on [0,1] > 1/e^n | Low | Med | Shifted Chebyshev-like bound; coefficient integrality. |
 | 118 | IMC 2001 P5 | not started | - | every matrix similar to one with at most one nonzero diagonal entry | Low-Med | Med | Induction on n; conjugate by suitable GL_n element. |
