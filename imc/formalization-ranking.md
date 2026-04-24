@@ -100,7 +100,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 84 | IMC 2002 P2 | proof complete | 75 | no C^1 positive f on R with f'(x) = f(f(x)) | Low | Low-Med | Growth analysis; contradict continuity. |
 | 85 | IMC 2008 P3 | proof complete | 263 | for integer polynomial, find a with p(a_i) dividing p(a) | Low | Med | Chinese remainder + a-b divides p(a)-p(b). |
 | 86 | IMC 2003 P2 | proof complete | 330 | 51 nonzero field elements admit sum-of-others permutation | Low-Med | Low-Med | Counting sums + pigeonhole / Hall. |
-| 87 | IMC 2010 P5 | not started | - | 1+2abc >= sum a^2 generalizes to 1+2(abc)^n >= sum a^{2n} | Low | Med | Trig substitution a=cos A etc.; induction on n. |
+| 87 | IMC 2010 P5 | proof complete | 156 | 1+2abc >= sum a^2 generalizes to 1+2(abc)^n >= sum a^{2n} | Low | Med | Trig substitution a=cos A etc.; induction on n. |
 | 88 | IMC 2001 P9 | not started | - | max points on unit n-sphere with pairwise distance > sqrt 2 is n+1 | Low | Med | Inner products nonpositive; dim+1 linear-independence bound. |
 | 89 | IMC 2008 P7 | not started | - | x^{2k} - x^k + 1 divides x^{2n} + x^n + 1 implies x^{2k}+x^k+1 does too | Low | Med | Root conditions via 6k-th roots of unity. |
 | 90 | IMC 2012 P4 | not started | - | f continuously differentiable with f'>f(f) implies f^{(3)}<=0 on [0,inf) | Low | Med | Sign analysis + iterated monotonicity on f, f(f). |
