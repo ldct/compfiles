@@ -79,7 +79,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 63 | IMC 2024 P2 | proof complete | 741 | limit of Riemann-sum type expression involving log | Low | Low | Convert to Riemann sum for integral of x log x. |
 | 64 | IMC 2011 P1 | proof complete | 133 | shadow points f(a)=f(b) and f(x)<=f(b) on (a,b) | Low | Med | Continuity + IVT argument on shadow-point structure. |
 | 65 | IMC 2021 P2 | proof complete | 487 | P(min Y > max X) independent of a | Low-Med | Low | Counting, finite probability. |
-| 66 | IMC 2000 P2 | not started | - | complex (w,z) with w != z, p(w)=p(z), q(w)=q(z) for given quintics | Low | Low-Med | Symmetric polys w+z=1, wz in {1,2}; solve. |
+| 66 | IMC 2000 P2 | proof complete | 133 | complex (w,z) with w != z, p(w)=p(z), q(w)=q(z) for given quintics | Low | Low-Med | Symmetric polys w+z=1, wz in {1,2}; solve. |
 | 67 | IMC 2020 P1 | proof complete | 272 | words over {a,b,c,d} with even count of a,b | Low | Low | Closed form 4^{n-1}+2^{n-1}; parity generating functions. |
 | 68 | IMC 2002 P9 | not started | - | bilinear integer pair a_n + b_n sqrt 2 via conjugate expansion | Low | Low-Med | Induction using conjugate expansion. |
 | 69 | IMC 2007 P7 | not started | - | continuous f with f and cf related by translation-or-rotation | Low-Med | Low-Med | Functional-equation case analysis. |
