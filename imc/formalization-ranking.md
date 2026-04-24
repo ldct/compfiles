@@ -56,7 +56,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 40 | IMC 2000 P1 | proof complete | 70 | monotone increasing f:[0,1]->[0,1] has a fixed point | Low | Low | sup of {x : f(x) > x}; no continuity required. |
 | 41 | IMC 2022 P2 | proof complete | 256 | A+A^k=A^T with real eigenvalues, find all A | Low | Low-Med | Minimal polynomial argument; A=0. |
 | 42 | IMC 2000 P5 | proof complete | 149 | three idempotents summing to 0 in char-0 ring are all 0 | Low | Low-Med | 3[e,f]=0 forces commutation; reduce to e=f=g. |
-| 43 | IMC 2010 P6 | not started | - | x_{n+1}=x_n cos x_n and y_{n+1}=y_n sin y_n convergence | Low | Low-Med | Monotone bounded; show limit satisfies x cos x = x or y sin y = y. |
+| 43 | IMC 2010 P6 | proof complete | 166 | x_{n+1}=x_n cos x_n and y_{n+1}=y_n sin y_n convergence | Low | Low-Med | Monotone bounded; show limit satisfies x cos x = x or y sin y = y. |
 | 44 | IMC 2007 P9 | not started | - | continuous nondecreasing f: [a,b] -> [a,b] has fixed point | Low | Low-Med | Direct IVT on f(x)-x. |
 | 45 | IMC 2005 P7 | not started | - | measure of {x : \|x^2 + bx + c\| < 1} is at most 2 sqrt 2 | Low | Low-Med | Completing square; interval-length bound. |
 | 46 | IMC 2009 P7 | not started | - | f'' - 3f' + 2f <= 0 with f(0)=f'(0)=1 implies f(x) >= 3 e^{2x} - 2 e^{3x} | Low | Low-Med | Comparison ODE with explicit solution difference. |
