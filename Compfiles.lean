@@ -30,6 +30,7 @@ import Compfiles.Imc2004P11
 import Compfiles.Imc2005P1
 import Compfiles.Imc2005P10
 import Compfiles.Imc2005P3
+import Compfiles.Imc2005P4
 import Compfiles.Imc2005P7
 import Compfiles.Imc2005P8
 import Compfiles.Imc2005P9
