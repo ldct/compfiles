@@ -49,30 +49,33 @@ problem imc2023_p3 (P : MvPolynomial (Fin 2) ℝ) :
       congr 1
       ring
   · -- Hard direction: classification.
-    -- The key idea: view the identity as multiplicativity of the function
-    --   Q(w) := P(Re w, Im w) : ℂ → ℝ
-    -- under complex multiplication. Over ℂ, one factors
-    --   P(x,y) = c · (x + iy)^n · (x - iy)^m,
-    -- and the real-coefficient constraint forces n = m, giving
-    -- P(x,y) = (x² + y²)^n.
+    -- Outline of the mathematical argument (following the IMC 2023 solution):
+    -- 1. Over ℂ, factor P(x,y) = (x+iy)^n (x-iy)^m · Q(x,y) with Q not divisible
+    --    by (x+iy) or (x-iy). Using the identity one shows Q is a constant c
+    --    with c² = c, so c ∈ {0, 1}.
+    -- 2. If c = 0, then P = 0 (contradiction with P ≠ 0 case), else Q = 1.
+    -- 3. For P to have real coefficients, we need n = m, giving P = (x²+y²)^n.
     --
-    -- A full formalization requires substantial machinery:
-    --   * transfer to ℂ[x,y] via `MvPolynomial.map`,
-    --   * factorization over the UFD ℂ[x,y],
-    --   * the substitution w = x+iy, w̄ = x-iy (a ring isomorphism),
-    --   * real-coefficient reality constraint.
-    -- We state the key multiplicative identity as a `have` and leave
-    -- the classification argument as a scoped sorry.
+    -- The elementary intermediate steps are derived below. The full classification
+    -- requires factorization in ℂ[x, y], which needs substantial Mathlib
+    -- infrastructure (MvPolynomial as UFD, complex substitution isomorphism,
+    -- real-vs-complex coefficient descent). We state these intermediate facts as
+    -- `have` hypotheses and leave the full classification as a scoped sorry.
     intro hP
-    -- Establishing the functional multiplicativity:
     have hmul : ∀ x y z t : ℝ,
         (P.eval ![x, y]) * (P.eval ![z, t]) = P.eval ![x * z - y * t, x * t + y * z] := hP
-    -- Evaluating at (0,0) with z = t = 0 gives P(0,0)² = P(0,0),
+    -- Evaluating at (0,0,0,0) gives P(0,0)² = P(0,0),
     -- so P(0,0) = 0 or P(0,0) = 1.
     have hP00_sq : (P.eval ![0, 0]) * (P.eval ![0, 0]) = P.eval ![0, 0] := by
       have := hmul 0 0 0 0
       simpa using this
-    -- Setting z=x, t=-y gives P(x,y) * P(x,-y) = P(x² + y², 0).
+    have hP00_cases : P.eval ![0, 0] = 0 ∨ P.eval ![0, 0] = 1 := by
+      have h := hP00_sq
+      have : (P.eval ![0, 0]) * (P.eval ![0, 0] - 1) = 0 := by ring_nf; linarith
+      rcases mul_eq_zero.mp this with h1 | h2
+      · left; exact h1
+      · right; linarith
+    -- Setting z = x, t = -y gives P(x,y) * P(x,-y) = P(x² + y², 0).
     have hnorm : ∀ x y : ℝ,
         (P.eval ![x, y]) * (P.eval ![x, -y]) = P.eval ![x * x + y * y, 0] := by
       intro x y
@@ -81,7 +84,46 @@ problem imc2023_p3 (P : MvPolynomial (Fin 2) ℝ) :
       have e2 : x * (-y) + y * x = 0 := by ring
       rw [e1, e2] at h
       exact h
-    -- Classification proof (remaining):
+    -- Setting y = 0, t = 0 gives P(x,0) * P(z,0) = P(x*z, 0);
+    -- so R(s) := P(s, 0) is multiplicative on ℝ as a function.
+    have hmul_R : ∀ x z : ℝ,
+        (P.eval ![x, 0]) * (P.eval ![z, 0]) = P.eval ![x * z, 0] := by
+      intro x z
+      have h := hmul x 0 z 0
+      have e1 : x * z - 0 * 0 = x * z := by ring
+      have e2 : x * 0 + 0 * z = 0 := by ring
+      rw [e1, e2] at h
+      exact h
+    -- Setting y = 0, z = 0 gives P(x,0) * P(0,t) = P(0, x*t)
+    have hmix : ∀ x t : ℝ,
+        (P.eval ![x, 0]) * (P.eval ![0, t]) = P.eval ![0, x * t] := by
+      intro x t
+      have h := hmul x 0 0 t
+      have e1 : x * 0 - 0 * t = 0 := by ring
+      have e2 : x * t + 0 * 0 = x * t := by ring
+      rw [e1, e2] at h
+      exact h
+    -- Rotation: setting (x=0, y=1, z=x, t=y) gives P(0,1) · P(x,y) = P(-y, x).
+    have hrot : ∀ x y : ℝ,
+        (P.eval ![0, 1]) * (P.eval ![x, y]) = P.eval ![-y, x] := by
+      intro x y
+      have h := hmul 0 1 x y
+      have e1 : (0:ℝ) * x - 1 * y = -y := by ring
+      have e2 : (0:ℝ) * y + 1 * x = x := by ring
+      rw [e1, e2] at h
+      exact h
+    -- Scaling along x-axis: setting (x=s, y=0, z, t) gives
+    -- P(s,0) · P(z,t) = P(s*z, s*t): P(s,0) scales P uniformly.
+    have hscale : ∀ s z t : ℝ,
+        (P.eval ![s, 0]) * (P.eval ![z, t]) = P.eval ![s * z, s * t] := by
+      intro s z t
+      have h := hmul s 0 z t
+      have e1 : s * z - 0 * t = s * z := by ring
+      have e2 : s * t + 0 * z = s * t := by ring
+      rw [e1, e2] at h
+      exact h
+    -- Full classification requires UFD factorization over ℂ[x,y] and the
+    -- complex substitution argument; left as a scoped sorry.
     sorry
 
 end Imc2023P3
