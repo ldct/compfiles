@@ -21,7 +21,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 5 | IMC 2025 P6 | proof complete | 120 | MVT-style: exists xi with f(xi) - xi f'(xi) = k | Low | Low | Direct Cauchy MVT with f/x. Same flavor as Imc2025P1. |
 | 6 | IMC 2023 P7 | proof complete | 183 | MVT: exists xi with f(xi) + alpha = f'(xi), find alpha | Low | Low | Cauchy MVT with F = f e^{-x}. |
 | 7 | IMC 2024 P1 | proof complete | 134 | \|a\|=\|b\|=1 and a+b+a\bar b real | Low | Low | Complex-number algebra; polish trig identity. |
-| 8 | IMC 2010 P1 | not started | - | integral of (x^2+1)e^{-x^2} on [a,b] bounded below by e^{-a^2}-e^{-b^2} | Low | Low | Use x^2+1 >= 2x and antiderivative -e^{-x^2}. |
+| 8 | IMC 2010 P1 | proof complete | 82 | integral of (x^2+1)e^{-x^2} on [a,b] bounded below by e^{-a^2}-e^{-b^2} | Low | Low | Use x^2+1 >= 2x and antiderivative -e^{-x^2}. |
 | 9 | IMC 2009 P1 | not started | - | f <= g on dense Q implies f <= g on R for continuous vs monotone | Low | Low | Density of Q in R plus one-sided continuity. |
 | 10 | IMC 2006 P1 | not started | - | three implications between continuous, monotone, surjective for R->R | Low | Low | Direct IVT and monotonicity arguments. |
 | 11 | IMC 2009 P2 | not started | - | (A-B)C = B A^{-1} implies C(A-B) = A^{-1} B | Low | Low | Pure matrix-algebra manipulation. |
