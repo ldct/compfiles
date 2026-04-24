@@ -16,7 +16,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 |------|---------|--------|-----|-------|---------------------|------------------|-------|
 | 1 | IMC 2022 P1 | proof complete | 90 | integral inequality via AM-GM, reciprocal functional equation | Low | Low | One-line AM-GM or Cauchy-Schwarz; integral facts standard. |
 | 2 | IMC 2019 P6 | proof complete | 88 | MVT: f(0)-g'(0) and g'(1)-f(1) opposite signs implies f=g' somewhere | Low | Low | Apply IVT to f - g' on [0,1]. |
-| 3 | IMC 2013 P2 | not started | - | MVT: f twice-differentiable, f(0)=0, find xi with f''=f(1+2tan^2) | Low | Low | Consider g(x)=f(x)cos x; apply Rolle to g on (-pi/2,pi/2). |
+| 3 | IMC 2013 P2 | proof complete | 193 | MVT: f twice-differentiable, f(0)=0, find xi with f''=f(1+2tan^2) | Low | Low | Consider g(x)=f(x)cos x; apply Rolle to g on (-pi/2,pi/2). |
 | 4 | IMC 2015 P6 | not started | - | convergent series sum 1/(sqrt n (n+1)) bounded by 2 | Low | Low | Simple telescoping or direct comparison. |
 | 5 | IMC 2025 P6 | proof complete | 120 | MVT-style: exists xi with f(xi) - xi f'(xi) = k | Low | Low | Direct Cauchy MVT with f/x. Same flavor as Imc2025P1. |
 | 6 | IMC 2023 P7 | proof complete | 183 | MVT: exists xi with f(xi) + alpha = f'(xi), find alpha | Low | Low | Cauchy MVT with F = f e^{-x}. |
