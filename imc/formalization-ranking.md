@@ -144,7 +144,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 128 | IMC 2003 P5 | statement formalized | 62 | averaging integral iteration f_{n+1}(x) = (1/x) int_0^x f_n | Low | Med | Power-series expansion; explicit limit. |
 | 129 | IMC 2018 P1 | proof complete | 98 | sum a_n/c_n and c_n/b_n both convergent iff sum sqrt(a_n/b_n) converges | Low | Med | Cauchy-Schwarz one way; explicit c_n = sqrt(a_n b_n) other. |
 | 130 | IMC 2003 P11 | proof complete | 145 | R->R function uniformly bounded by g(x) + g(y); classify g | Low-Med | Med | Inf-over-translate; subadditive decomposition. |
-| 131 | IMC 2015 P2 | not started | - | bit-complement f(k) satisfies sum_{k<=n} f(k) <= n^2/4 | Low-Med | Med | Pair k with 2^m-1-k; compute average. |
+| 131 | IMC 2015 P2 | proof complete | 266 | bit-complement f(k) satisfies sum_{k<=n} f(k) <= n^2/4 | Low-Med | Med | Pair k with 2^m-1-k; compute average. |
 | 132 | IMC 2003 P12 | not started | - | limit of sum a_k/2^k for a sequence via generating-function ODE | Low-Med | Med | Solve linear ODE on gen fn; evaluate at 1/2. |
 | 133 | IMC 2019 P9 | not started | - | for which n do invertible A,B satisfy AB-BA = B^2 A | Low | Med | Take trace and iterate; restricts to even n. |
 | 134 | IMC 2004 P8 | not started | - | integral of sqrt(1+f) vs sqrt(1+g) under convex-order hypothesis | Low-Med | Med | Compare convex antiderivatives; integration by parts. |
