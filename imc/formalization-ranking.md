@@ -147,7 +147,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 131 | IMC 2015 P2 | proof complete | 266 | bit-complement f(k) satisfies sum_{k<=n} f(k) <= n^2/4 | Low-Med | Med | Pair k with 2^m-1-k; compute average. |
 | 132 | IMC 2003 P12 | statement formalized | 65 | limit of sum a_k/2^k for a sequence via generating-function ODE | Low-Med | Med | Solve linear ODE on gen fn; evaluate at 1/2. |
 | 133 | IMC 2019 P9 | proof complete | 392 | for which n do invertible A,B satisfy AB-BA = B^2 A | Low | Med | Take trace and iterate; restricts to even n. |
-| 134 | IMC 2004 P8 | not started | - | integral of sqrt(1+f) vs sqrt(1+g) under convex-order hypothesis | Low-Med | Med | Compare convex antiderivatives; integration by parts. |
+| 134 | IMC 2004 P8 | partial | 88 | integral of sqrt(1+f) vs sqrt(1+g) under convex-order hypothesis | Low-Med | Med | Compare convex antiderivatives; integration by parts. |
 | 135 | IMC 2008 P4 | not started | - | Pareto-dominating set of 3-tuples on simplex, size >= 4 | Med | Med | Extremal argument on monotone families in the simplex. |
 | 136 | IMC 2002 P12 | not started | - | Lipschitz-gradient convex function squared-gradient bound | Med | Med | Co-coercivity of gradient; standard convex analysis. |
 | 137 | IMC 2016 P2 | not started | - | preferred sequence of matrices with A_i^2 != 0, A_i A_j = 0 has k <= n | Low-Med | Med | Rank and image arguments; linear independence of images. |
