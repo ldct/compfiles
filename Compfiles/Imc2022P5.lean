@@ -547,81 +547,7 @@ private lemma pattern_exhaustive (c : Fin 43 → Fin 43 → Bool)
 -- Patterns are mutually exclusive by strict order properties.
 -- We use Fin 43's `<` compared via `.val` for omega.
 
--- Assign each triple t a pattern index in Fin 6 by its coordinate order.
-private def patIdx (t : Fin 43 × Fin 43 × Fin 43) : Fin 6 :=
-  if pat1 t then 0
-  else if pat2 t then 1
-  else if pat3 t then 2
-  else if pat4 t then 3
-  else if pat5 t then 4
-  else 5
-
-private lemma patIdx_mapsTo (c : Fin 43 → Fin 43 → Bool) :
-    ∀ t ∈ globalCherries c, patIdx t ∈ (Finset.univ : Finset (Fin 6)) := by
-  intro t _; exact Finset.mem_univ _
-
--- Each pattern-filtered set equals the patIdx-fiber at that index.
-private lemma filter_pat_eq_fiber1 (c : Fin 43 → Fin 43 → Bool) :
-    (globalCherries c).filter pat1 =
-      ((globalCherries c).filter fun t => patIdx t = 0) := by
-  ext t
-  simp only [Finset.mem_filter]
-  refine ⟨fun ⟨h1, h2⟩ => ⟨h1, ?_⟩, fun ⟨h1, h2⟩ => ⟨h1, ?_⟩⟩
-  · simp only [patIdx]; rw [if_pos h2]
-  · simp only [patIdx] at h2
-    split_ifs at h2 with hp1 hp2 hp3 hp4 hp5
-    · exact hp1
-    · exact Fin.noConfusion h2
-    · exact Fin.noConfusion h2
-    · exact Fin.noConfusion h2
-    · exact Fin.noConfusion h2
-    · exact Fin.noConfusion h2
-
-private lemma filter_pat_eq_fiber2 (c : Fin 43 → Fin 43 → Bool) :
-    (globalCherries c).filter pat2 =
-      ((globalCherries c).filter fun t => patIdx t = 1) := by
-  ext t
-  simp only [Finset.mem_filter]
-  refine ⟨fun ⟨h1, h2⟩ => ⟨h1, ?_⟩, fun ⟨h1, h2⟩ => ⟨h1, ?_⟩⟩
-  · have hn1 : ¬ pat1 t := by
-      rintro ⟨ha, hb⟩; rcases h2 with ⟨hc, hd⟩
-      have : (t.2.1 : Fin 43).val < t.2.2.val := hb
-      have : (t.2.2 : Fin 43).val < t.2.1.val := hd
-      omega
-    simp only [patIdx]; rw [if_neg hn1, if_pos h2]
-  · simp only [patIdx] at h2
-    split_ifs at h2 with hp1 hp2 hp3 hp4 hp5
-    · exact Fin.noConfusion h2
-    · exact hp2
-    · exact Fin.noConfusion h2
-    · exact Fin.noConfusion h2
-    · exact Fin.noConfusion h2
-    · exact Fin.noConfusion h2
-
-private lemma filter_pat_eq_fiber3 (c : Fin 43 → Fin 43 → Bool) :
-    (globalCherries c).filter pat3 =
-      ((globalCherries c).filter fun t => patIdx t = 2) := by
-  ext t
-  simp only [Finset.mem_filter]
-  refine ⟨fun ⟨h1, h2⟩ => ⟨h1, ?_⟩, fun ⟨h1, h2⟩ => ⟨h1, ?_⟩⟩
-  · have hn1 : ¬ pat1 t := fun ⟨ha, _⟩ => by
-      have : (t.1 : Fin 43).val < t.2.1.val := ha
-      have : (t.2.1 : Fin 43).val < t.1.val := h2.1
-      omega
-    have hn2 : ¬ pat2 t := fun ⟨ha, _⟩ => by
-      have : (t.1 : Fin 43).val < t.2.2.val := ha
-      have : (t.1 : Fin 43).val < t.2.2.val := h2.2
-      have : (t.2.1 : Fin 43).val < t.1.val := h2.1
-      -- pat2 says t.1 < t.2.2 ∧ t.2.2 < t.2.1. but pat3: t.2.1 < t.1.
-      -- t.2.1 < t.1 < t.2.2 < t.2.1 — contradiction.
-      have hlt : (t.2.2 : Fin 43).val < t.2.1.val := by
-        have := ha.trans_le (le_of_lt (h2.2)); sorry
-      omega
-    sorry
-  · sorry
-
--- Actually let me just prove the partition directly without the fiber machinery.
--- The 6 pat filters are pairwise disjoint and their union is globalCherries.
+-- Show globalCherries is the disjoint union of the 6 pattern-filtered sets.
 private lemma globalCherries_partition (c : Fin 43 → Fin 43 → Bool) :
     (globalCherries c).card =
       ((globalCherries c).filter pat1).card +
@@ -630,27 +556,117 @@ private lemma globalCherries_partition (c : Fin 43 → Fin 43 → Bool) :
       ((globalCherries c).filter pat4).card +
       ((globalCherries c).filter pat5).card +
       ((globalCherries c).filter pat6).card := by
-  -- Use Finset.card_eq_sum_card_fiberwise with patIdx: globalCherries → Fin 6.
-  rw [Finset.card_eq_sum_card_fiberwise (f := patIdx) (t := (Finset.univ : Finset (Fin 6)))
-      (patIdx_mapsTo c)]
-  -- Sum over 6 fibers.
-  rw [show (Finset.univ : Finset (Fin 6)) = {0, 1, 2, 3, 4, 5} from by decide]
-  rw [Finset.sum_insert (by decide), Finset.sum_insert (by decide),
-      Finset.sum_insert (by decide), Finset.sum_insert (by decide),
-      Finset.sum_insert (by decide), Finset.sum_singleton]
-  -- Now each summand is ((globalCherries c).filter fun t => patIdx t = i).card.
-  -- Swap argument order of eq.
-  have hcongr : ∀ (i : Fin 6), ((globalCherries c).filter fun t => patIdx t = i).card =
-      ((globalCherries c).filter fun t => i = patIdx t).card := by
-    intro i
-    apply Finset.card_bij (fun t _ => t)
-    · intro t ht; simp only [Finset.mem_filter] at ht ⊢; exact ⟨ht.1, ht.2.symm⟩
-    · intros; assumption
-    · intro t ht; simp only [Finset.mem_filter] at ht
-      exact ⟨t, by simp only [Finset.mem_filter]; exact ⟨ht.1, ht.2.symm⟩, rfl⟩
-  -- Now we need: sum of 6 fiber cards = sum of pat_i filter cards.
-  -- Use pattern_exhaustive and disjointness to establish fiber = pat_i filter.
-  sorry
+  set F1 := (globalCherries c).filter pat1
+  set F2 := (globalCherries c).filter pat2
+  set F3 := (globalCherries c).filter pat3
+  set F4 := (globalCherries c).filter pat4
+  set F5 := (globalCherries c).filter pat5
+  set F6 := (globalCherries c).filter pat6
+  -- Disjointness helper.
+  have dj : ∀ {P Q : Fin 43 × Fin 43 × Fin 43 → Prop} [DecidablePred P] [DecidablePred Q],
+      (∀ t, P t → Q t → False) →
+      Disjoint ((globalCherries c).filter P) ((globalCherries c).filter Q) := by
+    intro P Q _ _ h
+    rw [Finset.disjoint_left]
+    intro t hP hQ
+    simp only [Finset.mem_filter] at hP hQ
+    exact h t hP.2 hQ.2
+  -- Pairwise disjointness via omega on .val.
+  have exclude : ∀ (t : Fin 43 × Fin 43 × Fin 43) (p q : Fin 43 × Fin 43 × Fin 43 → Prop)
+      (_ : (pat1 t ∨ pat2 t ∨ pat3 t ∨ pat4 t ∨ pat5 t ∨ pat6 t → True))
+      (_ : True), True := fun _ _ _ _ _ => trivial
+  have d12 : Disjoint F1 F2 := dj (fun t ⟨h1,h2⟩ ⟨h3,h4⟩ => by
+    have : (t.1 : Fin 43).val < t.2.1.val := h1
+    have : (t.2.1 : Fin 43).val < t.2.2.val := h2
+    have : (t.1 : Fin 43).val < t.2.2.val := h3
+    have : (t.2.2 : Fin 43).val < t.2.1.val := h4
+    omega)
+  have d13 : Disjoint F1 F3 := dj (fun t ⟨h1,_⟩ ⟨h3,_⟩ => by
+    have : (t.1 : Fin 43).val < t.2.1.val := h1
+    have : (t.2.1 : Fin 43).val < t.1.val := h3; omega)
+  have d14 : Disjoint F1 F4 := dj (fun t ⟨_,h2⟩ ⟨h3,h4⟩ => by
+    have : (t.2.1 : Fin 43).val < t.2.2.val := h2
+    have : (t.2.2 : Fin 43).val < t.1.val := h3
+    have : (t.1 : Fin 43).val < t.2.1.val := h4; omega)
+  have d15 : Disjoint F1 F5 := dj (fun t ⟨h1,h2⟩ ⟨h3,h4⟩ => by
+    have : (t.1 : Fin 43).val < t.2.1.val := h1
+    have : (t.2.1 : Fin 43).val < t.2.2.val := h2
+    have : (t.2.2 : Fin 43).val < t.1.val := h4; omega)
+  have d16 : Disjoint F1 F6 := dj (fun t ⟨h1,_⟩ ⟨_,h4⟩ => by
+    have : (t.1 : Fin 43).val < t.2.1.val := h1
+    have : (t.2.1 : Fin 43).val < t.1.val := h4; omega)
+  have d23 : Disjoint F2 F3 := dj (fun t ⟨h1,_⟩ ⟨h3,h4⟩ => by
+    have : (t.1 : Fin 43).val < t.2.2.val := h1
+    have : (t.2.1 : Fin 43).val < t.1.val := h3
+    have : (t.1 : Fin 43).val < t.2.2.val := h4; omega)
+  have d24 : Disjoint F2 F4 := dj (fun t ⟨h1,h2⟩ ⟨h3,h4⟩ => by
+    have : (t.1 : Fin 43).val < t.2.2.val := h1
+    have : (t.2.2 : Fin 43).val < t.2.1.val := h2
+    have : (t.2.2 : Fin 43).val < t.1.val := h3; omega)
+  have d25 : Disjoint F2 F5 := dj (fun t ⟨_,h2⟩ ⟨h3,_⟩ => by
+    have : (t.2.2 : Fin 43).val < t.2.1.val := h2
+    have : (t.2.1 : Fin 43).val < t.2.2.val := h3; omega)
+  have d26 : Disjoint F2 F6 := dj (fun t ⟨h1,h2⟩ ⟨_,h4⟩ => by
+    have : (t.1 : Fin 43).val < t.2.2.val := h1
+    have : (t.2.2 : Fin 43).val < t.2.1.val := h2
+    have : (t.2.1 : Fin 43).val < t.1.val := h4; omega)
+  have d34 : Disjoint F3 F4 := dj (fun t ⟨_,h2⟩ ⟨h3,_⟩ => by
+    have : (t.1 : Fin 43).val < t.2.2.val := h2
+    have : (t.2.2 : Fin 43).val < t.1.val := h3; omega)
+  have d35 : Disjoint F3 F5 := dj (fun t ⟨h1,h2⟩ ⟨h3,h4⟩ => by
+    have : (t.2.1 : Fin 43).val < t.1.val := h1
+    have : (t.1 : Fin 43).val < t.2.2.val := h2
+    have : (t.2.1 : Fin 43).val < t.2.2.val := h3
+    have : (t.2.2 : Fin 43).val < t.1.val := h4; omega)
+  have d36 : Disjoint F3 F6 := dj (fun t hp hq => by
+    obtain ⟨h1, h2⟩ := hp
+    obtain ⟨h3, h4⟩ := hq
+    have : (t.2.1 : Fin 43).val < t.1.val := h1
+    have : (t.1 : Fin 43).val < t.2.2.val := h2
+    have : (t.2.2 : Fin 43).val < t.2.1.val := h3
+    omega)
+  have d45 : Disjoint F4 F5 := dj (fun t ⟨h1,h2⟩ ⟨h3,h4⟩ => by
+    have : (t.2.2 : Fin 43).val < t.1.val := h1
+    have : (t.1 : Fin 43).val < t.2.1.val := h2
+    have : (t.2.2 : Fin 43).val < t.1.val := h4; omega)
+  have d46 : Disjoint F4 F6 := dj (fun t ⟨_,h2⟩ ⟨_,h4⟩ => by
+    have : (t.1 : Fin 43).val < t.2.1.val := h2
+    have : (t.2.1 : Fin 43).val < t.1.val := h4; omega)
+  have d56 : Disjoint F5 F6 := dj (fun t ⟨h1,_⟩ ⟨h3,_⟩ => by
+    have : (t.2.1 : Fin 43).val < t.2.2.val := h1
+    have : (t.2.2 : Fin 43).val < t.2.1.val := h3; omega)
+  -- Now partition globalCherries into union.
+  have hUnion : globalCherries c = F1 ∪ F2 ∪ F3 ∪ F4 ∪ F5 ∪ F6 := by
+    ext t
+    simp only [F1, F2, F3, F4, F5, F6, Finset.mem_union, Finset.mem_filter]
+    refine ⟨fun ht => ?_, ?_⟩
+    · rcases pattern_exhaustive c ht with h|h|h|h|h|h
+      · left; left; left; left; left; exact ⟨ht, h⟩
+      · left; left; left; left; right; exact ⟨ht, h⟩
+      · left; left; left; right; exact ⟨ht, h⟩
+      · left; left; right; exact ⟨ht, h⟩
+      · left; right; exact ⟨ht, h⟩
+      · right; exact ⟨ht, h⟩
+    · rintro (((((⟨h, _⟩ | ⟨h, _⟩) | ⟨h, _⟩) | ⟨h, _⟩) | ⟨h, _⟩) | ⟨h, _⟩) <;> exact h
+  rw [hUnion]
+  -- Carefully apply card_union_of_disjoint 5 times, building disjointness proofs.
+  have D_16 : Disjoint (F1 ∪ F2 ∪ F3 ∪ F4 ∪ F5) F6 := by
+    rw [Finset.disjoint_union_left, Finset.disjoint_union_left,
+        Finset.disjoint_union_left, Finset.disjoint_union_left]
+    exact ⟨⟨⟨⟨d16, d26⟩, d36⟩, d46⟩, d56⟩
+  have D_15 : Disjoint (F1 ∪ F2 ∪ F3 ∪ F4) F5 := by
+    rw [Finset.disjoint_union_left, Finset.disjoint_union_left, Finset.disjoint_union_left]
+    exact ⟨⟨⟨d15, d25⟩, d35⟩, d45⟩
+  have D_14 : Disjoint (F1 ∪ F2 ∪ F3) F4 := by
+    rw [Finset.disjoint_union_left, Finset.disjoint_union_left]
+    exact ⟨⟨d14, d24⟩, d34⟩
+  have D_13 : Disjoint (F1 ∪ F2) F3 := by
+    rw [Finset.disjoint_union_left]; exact ⟨d13, d23⟩
+  rw [Finset.card_union_of_disjoint D_16]
+  rw [Finset.card_union_of_disjoint D_15]
+  rw [Finset.card_union_of_disjoint D_14]
+  rw [Finset.card_union_of_disjoint D_13]
+  rw [Finset.card_union_of_disjoint d12]
 
 -- Mono triangles partition into red and blue monochromatic.
 private lemma monoTri_split (c : Fin 43 → Fin 43 → Bool) :
