@@ -40,7 +40,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 24 | IMC 2019 P1 | proof complete | 151 | infinite product (n^3+3n)^2/(n^6-64) closed form | Low | Low-Med | Partial-fraction telescoping on (n^3-4n)(n^3+4n). |
 | 25 | IMC 2010 P2 | proof complete | 347 | series sum 1/((4k+1)(4k+2)(4k+3)(4k+4)) closed form | Low | Low-Med | Partial fractions give (ln 2)/6 - ... closed form; telescoping. |
 | 26 | IMC 2024 P7 | proof complete | 386 | invertible A+B=I, polynomial identity, det(AB) values | Low | Low | Reduces to polynomial equation in C = AB; elementary. |
-| 27 | IMC 2019 P3 | not started | - | 2f'+xf''>=1 implies integral of xf >= 1/3 | Low | Low-Med | Integration by parts plus hypothesis; direct. |
+| 27 | IMC 2019 P3 | proof complete | 155 | 2f'+xf''>=1 implies integral of xf >= 1/3 | Low | Low-Med | Integration by parts plus hypothesis; direct. |
 | 28 | IMC 2005 P3 | not started | - | integral inequality \|int f^3 - f^2(0) int f\| <= max\|f'\|(int f)^2 | Low | Low-Med | Integrate -M f <= f f' <= M f, multiply by f, integrate again. |
 | 29 | IMC 2011 P2 | not started | - | exists real 3x3 A with tr(A)=0 and A^2+A^T=I? | Low | Low-Med | Trace gives tr(A^2)=3; Frobenius-norm contradiction or explicit construction. |
 | 30 | IMC 2000 P3 | not started | - | rank-1 commutator AB-BA satisfies (AB-BA)^2 = 0 | Low | Low-Med | trace=0 on rank-1 matrix forces nilpotent 2x2 Jordan form. |
