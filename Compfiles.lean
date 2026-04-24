@@ -112,6 +112,7 @@ import Compfiles.Imc2013P2
 import Compfiles.Imc2013P4
 import Compfiles.Imc2013P6
 import Compfiles.Imc2014P1
+import Compfiles.Imc2014P2
 import Compfiles.Imc2015P1
 import Compfiles.Imc2015P2
 import Compfiles.Imc2015P4
