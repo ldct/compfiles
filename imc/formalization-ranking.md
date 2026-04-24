@@ -150,7 +150,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 134 | IMC 2004 P8 | partial | 88 | integral of sqrt(1+f) vs sqrt(1+g) under convex-order hypothesis | Low-Med | Med | Compare convex antiderivatives; integration by parts. |
 | 135 | IMC 2008 P4 | partial | 208 | Pareto-dominating set of 3-tuples on simplex, size >= 4 | Med | Med | Extremal argument on monotone families in the simplex. |
 | 136 | IMC 2002 P12 | partial | 150 | Lipschitz-gradient convex function squared-gradient bound | Med | Med | Co-coercivity of gradient; standard convex analysis. |
-| 137 | IMC 2016 P2 | not started | - | preferred sequence of matrices with A_i^2 != 0, A_i A_j = 0 has k <= n | Low-Med | Med | Rank and image arguments; linear independence of images. |
+| 137 | IMC 2016 P2 | proof complete | 129 | preferred sequence of matrices with A_i^2 != 0, A_i A_j = 0 has k <= n | Low-Med | Med | Rank and image arguments; linear independence of images. |
 | 138 | IMC 2001 P12 | not started | - | product f_n(theta) = prod sin(2^k theta) bound | Low-Med | Med-High | Telescoping via duplication identity. |
 | 139 | IMC 2007 P5 | not started | - | only f = 0 satisfies sum f(k + a_i l) = 0 for given a_i | Med | Med | Fourier/averaging argument on integer translates. |
 | 140 | IMC 2000 P8 | not started | - | continuous nowhere-monotone function with dense local minima | Low | Med | Explicit construction, e.g., perturbed Weierstrass-type. |
