@@ -34,7 +34,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 18 | IMC 2020 P2 | proof complete | 155 | rank(AB-BA+I)=1 implies trace identity | Low | Low-Med | trace cyclicity, rank-1 form X+I=vw^T. |
 | 19 | IMC 2005 P1 | proof complete | 149 | rank of n x n matrix with (i,j)-entry i+j equals 2 | Low | Low | Write as sum of two rank-1 matrices; 2x2 minor nonzero. |
 | 20 | IMC 2001 P1 | proof complete | 70 | n x n grid has permutation-transversal with prescribed sum | Low | Low | Any permutation gives the sum; direct evaluation. |
-| 21 | IMC 2014 P1 | not started | - | unique symmetric 2x2 real matrix with prescribed trace and determinant | Low | Low | Solve a^2=4b for discriminant zero condition. |
+| 21 | IMC 2014 P1 | proof complete | 136 | unique symmetric 2x2 real matrix with prescribed trace and determinant | Low | Low | Solve a^2=4b for discriminant zero condition. |
 | 22 | IMC 2008 P9 | not started | - | 2^{n-1} divides Fibonacci-coefficient binomial sum | Low | Low | Direct identity via generating functions or induction. |
 | 23 | IMC 2005 P8 | not started | - | if f^n is polynomial for all n >= 2 then f is polynomial | Low | Low | Degree argument; rational-function normal form. |
 | 24 | IMC 2019 P1 | not started | - | infinite product (n^3+3n)^2/(n^6-64) closed form | Low | Low-Med | Partial-fraction telescoping on (n^3-4n)(n^3+4n). |
