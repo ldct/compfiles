@@ -82,7 +82,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 66 | IMC 2000 P2 | proof complete | 133 | complex (w,z) with w != z, p(w)=p(z), q(w)=q(z) for given quintics | Low | Low-Med | Symmetric polys w+z=1, wz in {1,2}; solve. |
 | 67 | IMC 2020 P1 | proof complete | 272 | words over {a,b,c,d} with even count of a,b | Low | Low | Closed form 4^{n-1}+2^{n-1}; parity generating functions. |
 | 68 | IMC 2002 P9 | partial | 105 | bilinear integer pair a_n + b_n sqrt 2 via conjugate expansion | Low | Low-Med | Induction using conjugate expansion. |
-| 69 | IMC 2007 P7 | not started | - | continuous f with f and cf related by translation-or-rotation | Low-Med | Low-Med | Functional-equation case analysis. |
+| 69 | IMC 2007 P7 | proof complete | 112 | continuous f with f and cf related by translation-or-rotation | Low-Med | Low-Med | Functional-equation case analysis. |
 | 70 | IMC 2002 P11 | not started | - | A bar(A) = I iff A = S bar(S)^{-1} for some invertible S | Low | Low-Med | Hilbert 90-style matrix descent. |
 | 71 | IMC 2019 P4 | not started | - | integrality of sequence (n+3)a_{n+2}=(6n+9)a_{n+1}-na_n | Low | Med | Derive closed form via generating function; sum of Catalan-like terms. |
 | 72 | IMC 2001 P2 | not started | - | a^r=b^s=(ab)^t=e with coprime r,s,t and abelian implies a=b=e | Low-Med | Low-Med | Bezout coprime combination; order divides 1. |
