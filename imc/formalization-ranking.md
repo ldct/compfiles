@@ -119,7 +119,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 103 | IMC 2017 P1 | proof complete | 222 | eigenvalues of real matrix with A^2=A^T | Low | Med | Classify: 0, 1, or roots of x^2+x+1=0 (primitive cube root of unity). |
 | 104 | IMC 2002 P3 | proof complete | 340 | binomial-coefficient sum identity with 2^k-indexed terms | Low | Med | Generating function or Vandermonde; finite sum. |
 | 105 | IMC 2005 P6 | proof complete | 319 | G(m), G(n) commutative implies G(gcd(m,n)) commutative | Low | Med | Commutator is central; Bezout-based conjugation analysis. |
-| 106 | IMC 2003 P3 | not started | - | 3A^3 = A^2 + A + I implies A^k converges to idempotent | Low-Med | Med | Roots of 3x^3-x^2-x-1; only x=1 on unit circle. |
+| 106 | IMC 2003 P3 | statement formalized | 44 | 3A^3 = A^2 + A + I implies A^k converges to idempotent | Low-Med | Med | Roots of 3x^3-x^2-x-1; only x=1 on unit circle. |
 | 107 | IMC 2006 P6 | not started | - | Rolle-type mean value for polynomials with real roots | Low-Med | Med | Induction on degree plus Rolle between consecutive roots. |
 | 108 | IMC 2000 P4 | not started | - | discrete Hardy inequality l^2 tail vs l^1 bound | Low-Med | Med | Cauchy-Schwarz + integral bound on reciprocal root kernel. |
 | 109 | IMC 2006 P9 | not started | - | tan(sin x) > sin(tan x) on (0, pi/2) | Low | Med | Power-series comparison plus monotonicity. |
