@@ -52,6 +52,7 @@ import Compfiles.Imc2007P9
 import Compfiles.Imc2007P10
 import Compfiles.Imc2008P1
 import Compfiles.Imc2008P10
+import Compfiles.Imc2008P3
 import Compfiles.Imc2008P9
 import Compfiles.Imc2009P1
 import Compfiles.Imc2009P2
