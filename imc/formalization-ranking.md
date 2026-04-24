@@ -93,7 +93,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 77 | IMC 2019 P5 | proof complete | 111 | no odd n with integer A,B and A^4+4A^2B^2+16B^4=2019I | Low | Med | Factor over Z[i], use determinants and parity mod 2. |
 | 78 | IMC 2003 P8 | proof complete | 528 | limit of integral sin^m t / t^n over [x, 2x] as x -> 0 | Low | Low-Med | Taylor expansion; leading-order computation. |
 | 79 | IMC 2005 P5 | proof complete | 327 | \|f''+2xf'+(x^2+1)f\| <= 1 implies f(x) -> 0 at infinity | Low-Med | Med | Integrating factor e^{x^2/2}; L'Hopital on growth ratio. |
-| 80 | IMC 2000 P9 | not started | - | polynomial of degree n has at least n+1 preimages of {0,1} | Low | Low-Med | Count roots of p and p-1; fundamental theorem. |
+| 80 | IMC 2000 P9 | proof complete | 146 | polynomial of degree n has at least n+1 preimages of {0,1} | Low | Low-Med | Count roots of p and p-1; fundamental theorem. |
 | 81 | IMC 2015 P4 | not started | - | exist integer m_i with sum m_k arctan(k) = arctan 16 | Low | Med | Gauss integers: convert to product of (1+ki); diophantine. |
 | 82 | IMC 2002 P1 | not started | - | reflection-related triple of parabolas, intersection pattern | Low-Med | Low-Med | Solve systems of quadratics; case analysis. |
 | 83 | IMC 2018 P4 | not started | - | f(b)-f(a)=(b-a)f'(sqrt(ab)) classify f | Low | Med | Substitute and differentiate; get f(x)=A ln x + B form. |
