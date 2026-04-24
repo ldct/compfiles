@@ -31,6 +31,7 @@ import Compfiles.Imc2013P6
 import Compfiles.Imc2014P1
 import Compfiles.Imc2015P1
 import Compfiles.Imc2015P6
+import Compfiles.Imc2017P2
 import Compfiles.Imc2019P1
 import Compfiles.Imc2019P3
 import Compfiles.Imc2019P6
