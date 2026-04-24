@@ -45,7 +45,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 29 | IMC 2011 P2 | proof complete | 171 | exists real 3x3 A with tr(A)=0 and A^2+A^T=I? | Low | Low-Med | Trace gives tr(A^2)=3; Frobenius-norm contradiction or explicit construction. |
 | 30 | IMC 2000 P3 | proof complete | 90 | rank-1 commutator AB-BA satisfies (AB-BA)^2 = 0 | Low | Low-Med | trace=0 on rank-1 matrix forces nilpotent 2x2 Jordan form. |
 | 31 | IMC 2005 P10 | proof complete | 195 | MVT-style identity with third derivative and divided difference | Low | Low-Med | Taylor expansion with remainder; direct application. |
-| 32 | IMC 2004 P7 | not started | - | 4x2 A, 2x4 B with given AB block; compute BA | Low | Low | 2x2 block factorization; B_1 = A_1^{-1}, A_2 = -A_1. |
+| 32 | IMC 2004 P7 | proof complete | 122 | 4x2 A, 2x4 B with given AB block; compute BA | Low | Low | 2x2 block factorization; B_1 = A_1^{-1}, A_2 = -A_1. |
 | 33 | IMC 2023 P2 | proof complete | 168 | A,B,C with A^2=B^2=C^2 and B^3=ABC+2I imply A^6=I | Low | Low-Med | Pure matrix algebra; commute B with ABA. |
 | 34 | IMC 2017 P2 | not started | - | Lipschitz derivative and f>0 implies (f')^2 < 2Lf | Low | Low-Med | Classical: use Taylor expansion of f at nearby point. |
 | 35 | IMC 2009 P8 | not started | - | A^2 B + B A^2 = 2 A B A implies AB - BA nilpotent | Low | Low-Med | Expand powers of (AB-BA); use given identity to reduce. |
