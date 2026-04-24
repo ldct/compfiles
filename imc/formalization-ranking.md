@@ -49,7 +49,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 33 | IMC 2023 P2 | proof complete | 168 | A,B,C with A^2=B^2=C^2 and B^3=ABC+2I imply A^6=I | Low | Low-Med | Pure matrix algebra; commute B with ABA. |
 | 34 | IMC 2017 P2 | proof complete | 182 | Lipschitz derivative and f>0 implies (f')^2 < 2Lf | Low | Low-Med | Classical: use Taylor expansion of f at nearby point. |
 | 35 | IMC 2009 P8 | partial | 85 | A^2 B + B A^2 = 2 A B A implies AB - BA nilpotent | Low | Low-Med | Expand powers of (AB-BA); use given identity to reduce. |
-| 36 | IMC 2017 P6 | not started | - | integral of f(nx) over [0,1] tends to lim f | Low | Low-Med | Substitute u=nx and split at a large threshold. |
+| 36 | IMC 2017 P6 | proof complete | 176 | integral of f(nx) over [0,1] tends to lim f | Low | Low-Med | Substitute u=nx and split at a large threshold. |
 | 37 | IMC 2016 P1 | not started | - | f with infinite zeros and no common f=f'=0 forces f(a)f(b)=0 | Low | Low-Med | Accumulation of zeros plus Rolle gives f=f'=0. |
 | 38 | IMC 2006 P8 | not started | - | classify continuous f with f([a,b]) closed interval of length b-a | Low | Low-Med | Monotone pieces plus length preservation. |
 | 39 | IMC 2008 P1 | not started | - | continuous f with f(Q) subset Q and f(rationals closed under add) is f(x)=ax+b | Low | Low-Med | Density of Q plus Cauchy-style functional equation. |
