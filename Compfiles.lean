@@ -113,6 +113,7 @@ import Compfiles.Imc2015P6
 import Compfiles.Imc2015P7
 import Compfiles.Imc2015P10
 import Compfiles.Imc2016P1
+import Compfiles.Imc2016P2
 import Compfiles.Imc2016P3
 import Compfiles.Imc2017P1
 import Compfiles.Imc2017P2
