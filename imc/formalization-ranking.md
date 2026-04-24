@@ -145,7 +145,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 129 | IMC 2018 P1 | proof complete | 98 | sum a_n/c_n and c_n/b_n both convergent iff sum sqrt(a_n/b_n) converges | Low | Med | Cauchy-Schwarz one way; explicit c_n = sqrt(a_n b_n) other. |
 | 130 | IMC 2003 P11 | proof complete | 145 | R->R function uniformly bounded by g(x) + g(y); classify g | Low-Med | Med | Inf-over-translate; subadditive decomposition. |
 | 131 | IMC 2015 P2 | proof complete | 266 | bit-complement f(k) satisfies sum_{k<=n} f(k) <= n^2/4 | Low-Med | Med | Pair k with 2^m-1-k; compute average. |
-| 132 | IMC 2003 P12 | not started | - | limit of sum a_k/2^k for a sequence via generating-function ODE | Low-Med | Med | Solve linear ODE on gen fn; evaluate at 1/2. |
+| 132 | IMC 2003 P12 | statement formalized | 65 | limit of sum a_k/2^k for a sequence via generating-function ODE | Low-Med | Med | Solve linear ODE on gen fn; evaluate at 1/2. |
 | 133 | IMC 2019 P9 | not started | - | for which n do invertible A,B satisfy AB-BA = B^2 A | Low | Med | Take trace and iterate; restricts to even n. |
 | 134 | IMC 2004 P8 | not started | - | integral of sqrt(1+f) vs sqrt(1+g) under convex-order hypothesis | Low-Med | Med | Compare convex antiderivatives; integration by parts. |
 | 135 | IMC 2008 P4 | not started | - | Pareto-dominating set of 3-tuples on simplex, size >= 4 | Med | Med | Extremal argument on monotone families in the simplex. |
