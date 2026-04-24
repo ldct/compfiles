@@ -48,6 +48,7 @@ import Compfiles.Imc2010P1
 import Compfiles.Imc2010P2
 import Compfiles.Imc2010P3
 import Compfiles.Imc2010P6
+import Compfiles.Imc2011P1
 import Compfiles.Imc2011P2
 import Compfiles.Imc2012P7
 import Compfiles.Imc2013P2
