@@ -63,7 +63,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 47 | IMC 2010 P3 | proof complete | 218 | x_{n+1}=x_n^2-2, x_1=sqrt 5; limit of x_1..x_n / x_{n+1} | Low | Low-Med | Parametrize x_n = 2 cosh(2^{n-1} t); telescope product. |
 | 48 | IMC 2004 P11 | partial | 93 | double integral of 1/(1/x + \|ln y\| - 1) bounded by 1 | Low | Low-Med | Show 1/x - 1 >= \|ln x\|; pointwise substitution bound. |
 | 49 | IMC 2007 P2 | partial | 142 | min and max rank of n x n matrix with entries 1..n^2 | Low | Low-Med | Explicit constructions plus rank-bound arguments. |
-| 50 | IMC 2004 P1 | not started | - | infinite S subset R+ with all finite sums bounded is countable | Low | Low-Med | Count {s >= 1/n}; union of countable sets. |
+| 50 | IMC 2004 P1 | proof complete | 142 | infinite S subset R+ with all finite sums bounded is countable | Low | Low-Med | Count {s >= 1/n}; union of countable sets. |
 | 51 | IMC 2006 P10 | not started | - | rational pairwise distances on n+1 points implies Q-linear dependence | Low | Low-Med | Cayley-Menger determinant over Q. |
 | 52 | IMC 2004 P2 | not started | - | iterated x^2-1 polynomial has n+1 real roots | Low | Low-Med | Induction on iteration; count sign changes. |
 | 53 | IMC 2012 P7 | not started | - | sum a_{k+1}/a_k for nonlinear recurrence a_{n+1}=n a_n^2/(1+(n+1)a_n) | Low | Low-Med | Telescoping of 1/a_n difference; closed-form sum. |
