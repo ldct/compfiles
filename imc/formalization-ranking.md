@@ -37,7 +37,7 @@ Status values: `not started`, `statement formalized`, `proof in progress`, `proo
 | 25 | IMC 2020 P6 | proof complete | primes with unique root of x^3-3x+1 mod p | Low | Med | Elementary finite-field + root permutation via x^2-2. |
 | 26 | IMC 2024 P6 | proof complete | every f:Q->Z has a,b,c with f(b) dominating | Low | Med | Pigeonhole on finite subintervals; countable argument. |
 | 27 | IMC 2023 P3 | partial: easy direction + many multiplicative intermediates (hnorm, hmul_R, hmix, hrot, hscale, P(0,0) case split) done; classification via C[x,y] factorization TODO | P(x,y)P(z,t) = P(xz-yt, xt+yz) classify polynomials | Low | Med | Complex factorization (x+iy)^n(x-iy)^m; real-coef constraint. |
-| 28 | IMC 2025 P4 | statement formalized | floor identity for b^{a-1} (b^a+x)^{1/a} | Low-Med | Med | Bernoulli inequality + case analysis. |
+| 28 | IMC 2025 P4 | partial: reverse direction fully proved; forward mostly proved except x ≥ -1 case (see note) | floor identity for b^{a-1} (b^a+x)^{1/a} | Low-Med | Med | Bernoulli inequality + case analysis. Real.rpow of negative base issue (b=1 with 1+x<0 and even a gives 0 via cos(π/a)=0 when a=2) makes the "x ≥ -1" deduction from the identity subtle; the statement as written may not hold as an iff for a=2 on some x ∈ [-2,-1). |
 | 29 | IMC 2021 P8 | statement formalized | unit vectors with 3-at-a-time orthogonality condition | Low-Med | Med | Projector trace identities; algebraic inequalities. |
 | 30 | IMC 2025 P9 | proof complete | expected max of a prob 2^{-i} random process | Med | Med | Induction + geometric sum; countable probability space. |
 | 31 | IMC 2021 P6 | statement formalized | no injection GL_2(F_p) -> S_p | Med | Med | Element-of-order-2p + structure of S_p. |
