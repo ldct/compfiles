@@ -69,7 +69,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 53 | IMC 2012 P7 | proof complete | 214 | sum a_{k+1}/a_k for nonlinear recurrence a_{n+1}=n a_n^2/(1+(n+1)a_n) | Low | Low-Med | Telescoping of 1/a_n difference; closed-form sum. |
 | 54 | IMC 2008 P10 | proof complete | 115 | f-2008 has >= 81 integer roots; factor g of f with deg g between 2 and 5 does not divide | Low | Low-Med | Integer-root factor-size argument on f-2008. |
 | 55 | IMC 2002 P7 | proof complete | 119 | determinant of (-1)^{\|i-j\|} Toeplitz-like matrix is n+1 | Low | Low-Med | Row-reduce to tridiagonal; direct expansion. |
-| 56 | IMC 2018 P7 | not started | - | a_{n+1}^3 = a_n^2 - 8, show sum \|a_{n+1}-a_n\| converges | Low | Med | Fixed point near -2 with contraction; telescoping. |
+| 56 | IMC 2018 P7 | proof complete | 303 | a_{n+1}^3 = a_n^2 - 8, show sum \|a_{n+1}-a_n\| converges | Low | Med | Fixed point near -2 with contraction; telescoping. |
 | 57 | IMC 2007 P8 | not started | - | x^4 + y^4 + z^4 = 0 mod 29 implies 29 divides x, y, z | Low | Low-Med | Enumerate fourth powers mod 29. |
 | 58 | IMC 2003 P1 | not started | - | a_{n+1} > (3/2) a_n sequence behavior at (3/2)^{n-1} scale | Low | Low | Monotone ratio argument; explicit bound. |
 | 59 | IMC 2005 P9 | not started | - | max subspace of n x n matrices with tr(XY)=0 has dim C(n,2) | Low | Low-Med | Symmetric/antisymmetric split; trace-form kernel. |
