@@ -132,7 +132,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 116 | IMC 2000 P12 | proof complete | 332 | p(e^{AB}) nilpotent iff p(e^{BA}) is | Low | Med | Spectra of AB and BA agree off zero; functional calculus. |
 | 117 | IMC 2015 P10 | statement formalized | 43 | int-coeff polynomial of degree n has max on [0,1] > 1/e^n | Low | Med | Shifted Chebyshev-like bound; coefficient integrality. |
 | 118 | IMC 2001 P5 | statement formalized | 62 | every matrix similar to one with at most one nonzero diagonal entry | Low-Med | Med | Induction on n; conjugate by suitable GL_n element. |
-| 119 | IMC 2007 P6 | not started | - | integer polynomial with \|P\| <= 2 on unit circle has <= 2 nonzero terms | Low | Med | Parseval-type inequality on coefficients. |
+| 119 | IMC 2007 P6 | statement formalized | 110 | integer polynomial with \|P\| <= 2 on unit circle has <= 2 nonzero terms | Low | Med | Parseval-type inequality on coefficients. |
 | 120 | IMC 2001 P11 | not started | - | no f:R->R with f(0)>0 and f(x+y) >= f(x) + y f(f(x)) | Low | Med | Iterate to derive unbounded growth, contradiction. |
 | 121 | IMC 2015 P7 | not started | - | limit (1/A) integral_1^A A^{1/x} dx as A -> infinity | Low | Med | Substitute u=A^{1/x}; asymptotic of 1/ln A factor. |
 | 122 | IMC 2002 P4 | not started | - | iterates p_n of continuous self-map [a,b]->[a,b] closed implies finite | Low | Med | Topological dynamics; orbit closure finite. |
