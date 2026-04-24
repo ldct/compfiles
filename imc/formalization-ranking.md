@@ -41,7 +41,7 @@ Status values: `not started`, `statement formalized`, `proof in progress`, `proo
 | 29 | IMC 2021 P8 | partial: achievability (2n attained by {±e_i}) proved; upper bound N ≤ 2n remains as sorry | unit vectors with 3-at-a-time orthogonality condition | Low-Med | Med | Projector trace identities; algebraic inequalities. |
 | 30 | IMC 2025 P9 | proof complete | expected max of a prob 2^{-i} random process | Med | Med | Induction + geometric sum; countable probability space. |
 | 31 | IMC 2021 P6 | proof complete | no injection GL_2(F_p) -> S_p | Med | Med | Element-of-order-2p + structure of S_p. |
-| 32 | IMC 2024 P8 | statement formalized | recursive sequence x_n/2^n limit bounds | Low | Med-High | Induction + telescoping sums; manage auxiliary sequence. |
+| 32 | IMC 2024 P8 | partial: positivity + 2 x_n ≤ x_{n+1} monotonicity lemma proved; statement fixed (off-by-one in 2^n exponent and in limit target); remaining: upper bound x_{n+1} ≤ 2 x_n + n, y_n bounded/convergent, telescoping series → quadratic on c | recursive sequence x_n/2^n limit bounds | Low | Med-High | Induction + telescoping sums; manage auxiliary sequence. |
 | 33 | IMC 2023 P4 | statement formalized | a_i = i^k + i complete residue system mod p | Low-Med | Med-High | Product-of-cyclotomic-lemma; finite-field machinery. |
 | 34 | IMC 2020 P4 | statement formalized | p(x+1)-p(x)=x^{100} => p(1-t) >= p(t) | Low | High | Complex analysis / max principle on rectangle. |
 | 35 | IMC 2022 P3 | statement formalized | flea on Z, strategies mod p | Low-Med | Med-High | Generating functions mod p; binomial identities. |
