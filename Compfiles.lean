@@ -122,6 +122,7 @@ import Compfiles.Imc2019P3
 import Compfiles.Imc2019P4
 import Compfiles.Imc2019P5
 import Compfiles.Imc2019P6
+import Compfiles.Imc2019P9
 import Compfiles.Imc2020P1
 import Compfiles.Imc2020P2
 import Compfiles.Imc2020P3
