@@ -195,7 +195,7 @@ lemma coeff_one_sub_X_cubed_pow {R : Type*} [CommRing R] (m n : ℕ) :
       rw [if_neg this]; ring
     · intro hn
       rw [Finset.mem_range] at hn; omega
-  · push_neg at hcond
+  · push Not at hcond
     apply Finset.sum_eq_zero
     intro k hk
     by_cases h3k : n = 3 * k
@@ -209,11 +209,83 @@ lemma coeff_one_sub_X_cubed_pow {R : Type*} [CommRing R] (m n : ℕ) :
 
 -- snip end
 
+open Polynomial in
 problem imc2022_p3 (p : ℕ) (hp : p.Prime) :
     (f p : ZMod p) = answer p := by
-  -- Approach: Using f_eq_coeff and key_identity, the coefficient of X^(p-1) in
-  -- (1+X+X^2)^(p-1) equals the coefficient of X^(p-1) in (1-X^3)^(p-1)*(1-X) in ZMod p.
-  -- Expanding the latter and using choose_pred_prime gives the three-case answer.
-  sorry
+  haveI : Fact p.Prime := ⟨hp⟩
+  have hp1 : 1 ≤ p := hp.one_lt.le
+  have hp2 : 2 ≤ p := hp.two_le
+  -- Step 1: f p = [X^(p-1)] (1+X+X²)^(p-1) in ZMod p
+  rw [f_eq_coeff p hp1]
+  -- Step 2: Use key_identity. (1+X+X²)^(p-1) * (1-X^p) = (1-X³)^(p-1)*(1-X).
+  -- Since (1+X+X²)^(p-1) has degree 2(p-1) = 2p-2 < 2p but X^p * anything has
+  -- no X^(p-1) coefficient, we get [X^(p-1)](1+X+X²)^(p-1) = [X^(p-1)] RHS.
+  have hident := key_identity p
+  -- Let P = (1+X+X²)^(p-1).
+  set P : (ZMod p)[X] := (1 + Polynomial.X + Polynomial.X ^ 2) ^ (p - 1) with hP
+  set Q : (ZMod p)[X] := (1 - Polynomial.X ^ 3) ^ (p - 1) * (1 - Polynomial.X) with hQ
+  have hP_expand : P * (1 - Polynomial.X ^ p) = Q := hident
+  have hP_rearr : P = Q + P * Polynomial.X ^ p := by
+    have h1 : P * (1 - Polynomial.X ^ p) = P - P * Polynomial.X ^ p := by ring
+    have h2 : P - P * Polynomial.X ^ p = Q := h1 ▸ hP_expand
+    have : P = Q + P * Polynomial.X ^ p := by rw [← h2]; ring
+    exact this
+  have hcoeff_eq : P.coeff (p - 1) = Q.coeff (p - 1) := by
+    rw [hP_rearr, Polynomial.coeff_add]
+    have hzero : (P * Polynomial.X ^ p).coeff (p - 1) = 0 := by
+      rw [Polynomial.coeff_mul_X_pow', if_neg (by omega)]
+    rw [hzero, add_zero]
+  rw [hcoeff_eq]
+  -- Step 3: Compute [X^(p-1)] Q = [X^(p-1)](1-X³)^(p-1) - [X^(p-2)](1-X³)^(p-1).
+  have hQ_expand : Q.coeff (p - 1) = ((1 - Polynomial.X ^ 3 : (ZMod p)[X]) ^ (p - 1)).coeff (p - 1)
+      - ((1 - Polynomial.X ^ 3 : (ZMod p)[X]) ^ (p - 1)).coeff (p - 2) := by
+    have hqe : Q = (1 - Polynomial.X ^ 3 : (ZMod p)[X]) ^ (p - 1)
+             - (1 - Polynomial.X ^ 3 : (ZMod p)[X]) ^ (p - 1) * Polynomial.X := by
+      rw [hQ]; ring
+    rw [hqe, Polynomial.coeff_sub]
+    congr 1
+    rw [show (p - 1) = (p - 2) + 1 from by omega]
+    rw [show (Polynomial.X : (ZMod p)[X]) = Polynomial.X ^ 1 from by rw [pow_one]]
+    rw [Polynomial.coeff_mul_X_pow]
+  rw [hQ_expand]
+  rw [coeff_one_sub_X_cubed_pow, coeff_one_sub_X_cubed_pow]
+  -- Step 4: Case analysis on p mod 3
+  unfold answer
+  by_cases hp3 : p = 3
+  · subst hp3
+    -- p = 3: p-1 = 2, p-2 = 1. Neither divisible by 3.
+    simp
+  · rw [if_neg hp3]
+    -- p ≠ 3. Since p is prime and p ≠ 3, p % 3 is either 1 or 2.
+    have hp3div : ¬ (3 ∣ p) := by
+      intro hdvd
+      have h3 : (3 : ℕ).Prime := by decide
+      have := (Nat.prime_dvd_prime_iff_eq h3 hp).mp hdvd
+      omega
+    have hmod : p % 3 = 1 ∨ p % 3 = 2 := by omega
+    rcases hmod with h1 | h2
+    · rw [if_pos h1]
+      -- p ≡ 1 (mod 3): 3 | (p-1), 3 ∤ (p-2). Let k = (p-1)/3.
+      have hdvd1 : 3 ∣ (p - 1) := by omega
+      have hndvd2 : ¬ (3 ∣ (p - 2)) := by omega
+      have hk_le : (p - 1) / 3 ≤ p - 1 := Nat.div_le_self _ _
+      rw [if_pos ⟨hdvd1, hk_le⟩, if_neg (fun h => hndvd2 h.1)]
+      have hk_le' : (p - 1) / 3 ≤ p - 1 := hk_le
+      rw [choose_pred_prime p ((p-1)/3) hk_le']
+      -- Goal: (-1)^k * (-1)^k - 0 = 1 where k = (p-1)/3
+      rw [sub_zero, ← pow_add, ← two_mul, pow_mul,
+          show ((-1 : ZMod p) ^ 2) = 1 from neg_one_sq, one_pow]
+    · rw [if_neg (by omega : ¬ p % 3 = 1)]
+      -- p ≡ 2 (mod 3): 3 ∤ (p-1), 3 | (p-2). k = (p-2)/3.
+      have hndvd1 : ¬ (3 ∣ (p - 1)) := by omega
+      have hdvd2 : 3 ∣ (p - 2) := by omega
+      have hk_le2 : (p - 2) / 3 ≤ p - 1 := by
+        have : (p - 2) / 3 ≤ p - 2 := Nat.div_le_self _ _
+        omega
+      rw [if_neg (fun h => hndvd1 h.1), if_pos ⟨hdvd2, hk_le2⟩]
+      rw [choose_pred_prime p ((p-2)/3) hk_le2]
+      -- Goal: 0 - (-1)^k * (-1)^k = -1
+      rw [zero_sub, ← pow_add, ← two_mul, pow_mul,
+          show ((-1 : ZMod p) ^ 2) = 1 from neg_one_sq, one_pow]
 
 end Imc2022P3
