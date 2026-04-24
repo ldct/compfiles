@@ -409,17 +409,197 @@ problem imc2025_p4 (a : ℕ) (ha_pos : 0 < a) (ha_even : Even a) (x : ℝ) :
     exact floor_identity_from_bounds a b ha_two hb m x hm_ge hba_pos hba1_ne hsum_nn hlo hhi
   · -- Forward direction: identity for all b ⇒ x ∈ answer a.
     intro h
-    -- Apply at b = 1: ⌊(1+x)^(1/a)⌋ = 1 + ⌊x/a⌋.
+    -- Apply at b = 1.
     have h1 := h 1 Nat.one_pos
-    -- Simplify.
-    have hb1 : ((1 : ℕ) : ℝ) ^ a = 1 := by norm_num
-    have hb1' : ((1 : ℕ) : ℝ) ^ (a - 1) = 1 := by norm_num
-    -- Need to show x ∈ answer a. By the argument in the solution, this follows from:
-    --   * x ≥ -1 (else (1+x)^(1/a) undefined for even a with 1+x < 0, making floor bogus; but let's use Bernoulli)
-    --   * x < a*(m+1) (always)
-    --   * (m+1)^a - 1 ≤ x (from the b=1 identity)
-    --   * (m+1)^a ≤ a*(m+1) (from above two, giving m+1 ≤ a^(1/(a-1)))
-    -- The full forward argument requires careful case analysis. For now, we leave this as sorry.
-    sorry
+    -- Let m = ⌊x/a⌋.
+    set m : ℤ := ⌊x / a⌋ with hm_def
+    -- Simplify h1 to: ⌊(1+x)^(1/a)⌋ = 1 + m.
+    have h1' : ⌊((1 : ℝ) + x) ^ ((a : ℝ)⁻¹)⌋ = 1 + m := by
+      have : ((1 : ℕ) : ℝ) ^ a = 1 := by norm_num
+      have h1'' := h1
+      rw [show ((1 : ℕ) : ℝ) = 1 from by norm_num] at h1''
+      rw [one_pow, one_pow, mul_one] at h1''
+      have e : ((1 : ℕ) : ℤ) ^ a = 1 := by simp
+      rw [e] at h1''
+      exact h1''
+    -- Bounds: a*m ≤ x < a*(m+1).
+    have hx_lo_am : (a : ℝ) * m ≤ x := by
+      have h := Int.floor_le (x / a)
+      rw [show ⌊x / a⌋ = m from rfl] at h
+      have : (m : ℝ) * a ≤ x := (le_div_iff₀ ha_pos_r).mp h
+      linarith
+    have hx_hi_am1 : x < (a : ℝ) * ((m : ℝ) + 1) := by
+      have h := Int.lt_floor_add_one (x / a)
+      rw [show ⌊x / a⌋ = m from rfl] at h
+      have : x < (m + 1 : ℝ) * a := (div_lt_iff₀ ha_pos_r).mp h
+      linarith
+    -- From the b=1 identity and Int.floor_eq_iff:
+    -- 1 + m ≤ (1+x)^(1/a) < 1 + m + 1 = 2 + m.
+    have hfloor := Int.floor_eq_iff.mp h1'
+    obtain ⟨hle_rpow, hlt_rpow⟩ := hfloor
+    -- Both sides of the range: (1+m ≤ rpow) and (rpow < 2+m).
+    -- Since rpow is an rpow, its floor = 1+m ≥ 0 iff rpow ≥ 0 iff 1+x ≥ 0 is fine.
+    -- Actually: (1+x)^(1/a) ≥ 0 always (rpow_nonneg when base... wait rpow_nonneg needs base ≥ 0).
+    -- If 1+x < 0: (1+x)^(1/a) = 0 by convention (Real.rpow for negative base).
+    -- But then floor = 0 = 1+m means m = -1. Then am ≤ x means -a ≤ x, so x ≥ -a. But 1+x < 0 means x < -1.
+    -- Range m = -1: [-1, 0), so x ≥ -1. Contradiction. Unless we allow x ∈ [-a, -1), in which case
+    -- the floor identity holds trivially via rpow of negative.
+    -- Actually for even a, Real.rpow with negative base and noninteger exponent = 0, hmm let me think.
+    -- For cleanliness, let's first prove x ≥ -1.
+    have hx_lb : (-1 : ℝ) ≤ x := by
+      by_contra hxlt
+      push_neg at hxlt
+      -- 1+x < 0. Real.rpow for negative base: Real.rpow x y = Real.exp (y * Real.log x),
+      -- and Real.log of negative = Real.log |x|. But actually for Real.rpow when base < 0,
+      -- it's defined as some value. Let me just use: Real.rpow_nonneg actually only applies with base ≥ 0.
+      -- For base < 0, the value is irregular. This direction is delicate.
+      sorry
+    -- From 1+m ≤ (1+x)^(1/a), using rpow_inv_le_iff_of_nonneg backwards:
+    -- if 1+m ≥ 0, then (1+m)^a ≤ 1+x.
+    -- Case m = -1: trivially 0 ≤ 1+x, true.
+    -- Case m ≥ 0: 1+m ≥ 1 > 0, so we can square.
+    have hm_ge : (-1 : ℤ) ≤ m := by
+      by_contra hlt
+      push_neg at hlt
+      -- m < -1, so m ≤ -2. Then a*m ≤ -2a, so x ≤ -2a. But x ≥ -1 and a ≥ 2, so -2a ≤ -4 < -1 ≤ x.
+      have hm2 : m ≤ -2 := by omega
+      have : (m : ℝ) ≤ -2 := by exact_mod_cast hm2
+      have : (a : ℝ) * m ≤ (a : ℝ) * (-2) := mul_le_mul_of_nonneg_left this ha_pos_r.le
+      have ha_ge : (2 : ℝ) ≤ (a : ℝ) := by exact_mod_cast ha_two
+      linarith
+    -- Derive (m+1)^a - 1 ≤ x from b=1 lower bound.
+    have h1px_nn : (0 : ℝ) ≤ 1 + x := by linarith
+    have hmp1_nn : (0 : ℝ) ≤ ((m + 1 : ℤ) : ℝ) := by
+      push_cast; exact_mod_cast (by linarith : (0 : ℤ) ≤ m + 1)
+    have hlow1 : ((m + 1 : ℤ) : ℝ) ^ a - 1 ≤ x := by
+      -- (1+x)^(1/a) ≥ m+1 ≥ 0, so 1+x ≥ (m+1)^a.
+      have : (1 + m : ℝ) ≤ ((1 : ℝ) + x) ^ ((a : ℝ)⁻¹) := by
+        have := hle_rpow
+        push_cast at this
+        linarith
+      have hmp1_nn' : (0 : ℝ) ≤ (1 + m : ℝ) := by
+        push_cast; exact_mod_cast (by linarith : (0 : ℤ) ≤ 1 + m)
+      have h2' : 1 + m ≤ ((1 : ℝ) + x) ^ ((a : ℝ)⁻¹) := this
+      -- Use rpow_inv_le_iff_of_nonneg in reverse. We have `u ≥ v^a ⇔ u^(1/a) ≥ v`.
+      -- Specifically (rpow_inv_le_iff_of_nonneg): u^(1/a) ≤ v ↔ u ≤ v^a.
+      -- Contrapositive: u^(1/a) > v ↔ u > v^a. We have v ≤ u^(1/a), want v^a ≤ u.
+      -- Actually from h2': (1+m) ≤ (1+x)^(1/a), raise both to a-th power (both ≥ 0):
+      have : (1 + (m : ℝ)) ^ a ≤ ((1 + x) ^ ((a : ℝ)⁻¹)) ^ a :=
+        pow_le_pow_left₀ hmp1_nn' h2' a
+      rw [Real.rpow_inv_natCast_pow h1px_nn ha_nat_ne] at this
+      have hrw : ((m + 1 : ℤ) : ℝ) = 1 + (m : ℝ) := by push_cast; ring
+      rw [hrw]
+      linarith
+    -- Derive 1 + x < (m+2)^a from b=1 upper bound.
+    have hupp1 : 1 + x < ((m + 2 : ℤ) : ℝ) ^ a := by
+      have : ((1 : ℝ) + x) ^ ((a : ℝ)⁻¹) < 2 + m := by
+        have := hlt_rpow
+        push_cast at this
+        linarith
+      have hmp2_pos : (0 : ℝ) ≤ 2 + (m : ℝ) := by
+        push_cast; exact_mod_cast (by linarith : (0 : ℤ) ≤ 2 + m)
+      have h_lt_a : ((1 + x) ^ ((a : ℝ)⁻¹)) ^ a < (2 + (m : ℝ)) ^ a :=
+        pow_lt_pow_left₀ this (Real.rpow_nonneg h1px_nn _) ha_nat_ne
+      rw [Real.rpow_inv_natCast_pow h1px_nn ha_nat_ne] at h_lt_a
+      have hrw : ((m + 2 : ℤ) : ℝ) = 2 + (m : ℝ) := by push_cast; ring
+      rw [hrw]
+      exact h_lt_a
+    -- Now we have: (m+1)^a - 1 ≤ x < a*(m+1). From this: (m+1)^a < a*(m+1) + 1.
+    have hkey : ((m + 1 : ℤ) : ℝ) ^ a < (a : ℝ) * ((m + 1 : ℤ) : ℝ) + 1 := by
+      push_cast at hlow1 hx_hi_am1 ⊢
+      linarith
+    -- Derive upper bound on m: m ≤ 1 always.
+    have pow_ge : ∀ (k : ℕ), 2 ≤ k → ∀ (t : ℝ), 3 ≤ t → (k : ℝ) * t + 1 ≤ t ^ k := by
+      intro k hk t ht
+      induction k, hk using Nat.le_induction with
+      | base =>
+        show (2 : ℝ) * t + 1 ≤ t ^ 2
+        nlinarith [sq_nonneg (t - 2), ht]
+      | succ n hn ih =>
+        have hrec : t ^ (n + 1) = t * t ^ n := by ring
+        rw [hrec]
+        have hnn : ((n + 1 : ℕ) : ℝ) * t + 1 = (n : ℝ) * t + t + 1 := by push_cast; ring
+        rw [hnn]
+        have hn_ge : (2 : ℝ) ≤ (n : ℝ) := by exact_mod_cast hn
+        have ht_pos : 0 < t := by linarith
+        -- t * t^n ≥ t * (nt+1) = nt² + t ≥ nt + t + 1 iff n(t²-t) ≥ 1.
+        have hstep : t * t ^ n ≥ t * ((n : ℝ) * t + 1) := by
+          apply mul_le_mul_of_nonneg_left ih ht_pos.le
+        nlinarith [hstep, hn_ge, ht, sq_nonneg (t - 1)]
+    have hm_upper : m ≤ 1 := by
+      by_contra hlt
+      push_neg at hlt
+      have ht : (3 : ℝ) ≤ ((m + 1 : ℤ) : ℝ) := by
+        push_cast; exact_mod_cast (by linarith : (3 : ℤ) ≤ m + 1)
+      have hbound := pow_ge a ha_two _ ht
+      linarith
+    -- Now interval_cases works with -1 ≤ m ≤ 1.
+    interval_cases m
+    · -- m = -1: x ∈ [-1, 0). Check membership.
+      unfold answer
+      split_ifs with h2
+      · left
+        refine ⟨hx_lb, ?_⟩
+        -- x < a*0 = 0
+        have : x < 0 := by
+          have := hx_hi_am1
+          push_cast at this; linarith
+        linarith
+      · refine ⟨hx_lb, ?_⟩
+        have : x < 0 := by
+          have := hx_hi_am1
+          push_cast at this; linarith
+        have ha_pos' : (0 : ℝ) ≤ (a : ℝ) := ha_pos_r.le
+        linarith
+    · -- m = 0: x ∈ [0, a).
+      have hx_ge0 : (0 : ℝ) ≤ x := by
+        have := hx_lo_am
+        push_cast at this; linarith
+      have hx_lta : x < (a : ℝ) := by
+        have := hx_hi_am1
+        push_cast at this; linarith
+      unfold answer
+      split_ifs with h2
+      · left
+        refine ⟨by linarith, ?_⟩
+        have : ((a : ℝ)) = 2 := by exact_mod_cast h2
+        linarith
+      · exact ⟨by linarith, hx_lta⟩
+    · -- m = 1: from hkey, 2^a < 2a+1. For a ≥ 4, 2^a ≥ 2a+1. Hence a = 2.
+      have h2a : a = 2 := by
+        by_contra ha_ne_2
+        have ha_ge4 : 4 ≤ a := by
+          obtain ⟨k, hk⟩ := ha_even
+          omega
+        -- Show 2a + 1 ≤ 2^a for a ≥ 4.
+        have h_ind : ∀ (k : ℕ), 4 ≤ k → (2 * (k : ℝ) + 1 : ℝ) ≤ (2 : ℝ) ^ k := by
+          intro k hk
+          induction k, hk using Nat.le_induction with
+          | base => norm_num
+          | succ n hn ih =>
+            have h2n : (0 : ℝ) < (2 : ℝ) ^ n := by positivity
+            have hrec : (2 : ℝ) ^ (n + 1) = 2 * 2 ^ n := by ring
+            rw [hrec]
+            have hn_ge : (4 : ℝ) ≤ (n : ℝ) := by exact_mod_cast hn
+            push_cast
+            nlinarith [ih, hn_ge]
+        have h_ind_a := h_ind a ha_ge4
+        -- hkey: (1+1)^a < a*(1+1) + 1 = 2a + 1. So 2^a < 2a+1.
+        have hk' : (2 : ℝ) ^ a < 2 * (a : ℝ) + 1 := by
+          have hh := hkey
+          push_cast at hh
+          linarith
+        linarith
+      subst h2a
+      unfold answer
+      rw [if_pos rfl]
+      right
+      have hx_ge3 : (3 : ℝ) ≤ x := by
+        have := hlow1
+        push_cast at this; linarith
+      have hx_lt4 : x < 4 := by
+        have := hx_hi_am1
+        push_cast at this; linarith
+      exact ⟨hx_ge3, hx_lt4⟩
 
 end Imc2025P4
