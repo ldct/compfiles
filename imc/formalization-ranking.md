@@ -72,7 +72,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 56 | IMC 2018 P7 | proof complete | 303 | a_{n+1}^3 = a_n^2 - 8, show sum \|a_{n+1}-a_n\| converges | Low | Med | Fixed point near -2 with contraction; telescoping. |
 | 57 | IMC 2007 P8 | proof complete | 54 | x^4 + y^4 + z^4 = 0 mod 29 implies 29 divides x, y, z | Low | Low-Med | Enumerate fourth powers mod 29. |
 | 58 | IMC 2003 P1 | proof complete | 155 | a_{n+1} > (3/2) a_n sequence behavior at (3/2)^{n-1} scale | Low | Low | Monotone ratio argument; explicit bound. |
-| 59 | IMC 2005 P9 | not started | - | max subspace of n x n matrices with tr(XY)=0 has dim C(n,2) | Low | Low-Med | Symmetric/antisymmetric split; trace-form kernel. |
+| 59 | IMC 2005 P9 | proof complete | 232 | max subspace of n x n matrices with tr(XY)=0 has dim C(n,2) | Low | Low-Med | Symmetric/antisymmetric split; trace-form kernel. |
 | 60 | IMC 2007 P10 | not started | - | det of n-cycle-squared adjacency matrix equals 4 for odd n | Low | Low-Med | Expand determinant via circulant diagonalization. |
 | 61 | IMC 2009 P6 | not started | - | volume of region in R^3 defined by line-to-point distance ratio | Low-Med | Low-Med | Set up integral in cylindrical coordinates. |
 | 62 | IMC 2002 P8 | not started | - | 200 students; pigeonhole covering by two chosen students | Low | Low-Med | Combinatorial pigeonhole on friend sets. |
