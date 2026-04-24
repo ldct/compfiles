@@ -114,7 +114,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 98 | IMC 2000 P7 | proof complete | 169 | unit cube dissectible into n smaller cubes for all n >= N | Low | Med | Split one cube into 8; base-case induction on n. |
 | 99 | IMC 2007 P4 | proof complete | 171 | G = A sqcup B sqcup C partition; triple counts N_{ABC} = N_{CBA} | Low-Med | Med | Group-action reversal argument. |
 | 100 | IMC 2025 P2 | proof complete | 479 | integral of (f'')^2 >= 15 with constraints | Low-Med | Med | Cauchy-Schwarz + integration by parts; equality condition. |
-| 101 | IMC 2001 P8 | not started | - | nested trig sequence a_n = 2 sin(pi/2^{n+1}) recursion | Low-Med | Med | Half-angle identity; induction on n. |
+| 101 | IMC 2001 P8 | proof complete | 196 | nested trig sequence a_n = 2 sin(pi/2^{n+1}) recursion | Low-Med | Med | Half-angle identity; induction on n. |
 | 102 | IMC 2020 P5 | proof complete | 210 | f''f >= 2(f')^2 implies f constant | Low | Med | 1/f is concave positive => constant. |
 | 103 | IMC 2017 P1 | not started | - | eigenvalues of real matrix with A^2=A^T | Low | Med | Classify: 0, 1, or roots of x^2+x+1=0 (primitive cube root of unity). |
 | 104 | IMC 2002 P3 | not started | - | binomial-coefficient sum identity with 2^k-indexed terms | Low | Med | Generating function or Vandermonde; finite sum. |
