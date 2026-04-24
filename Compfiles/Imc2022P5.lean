@@ -305,10 +305,6 @@ private lemma sum_triSame (c : Fin 43 → Fin 43 → Bool) :
   rw [Finset.sum_const, smul_eq_mul]
   ring
 
--- Count cherries grouped by permutation pattern.
--- Helper: for any predicate on (i,j,k), the count over triples i<j<k
--- equals the count after various permutations of coords.
-
 -- Pattern 1: t.1 < t.2.1 < t.2.2 (i,j,k order). Cherry condition c(i,j)=c(i,k).
 private lemma cherry_pattern1 (c : Fin 43 → Fin 43 → Bool) :
     ((globalCherries c).filter (fun t => t.1 < t.2.1 ∧ t.2.1 < t.2.2)).card =
@@ -336,12 +332,324 @@ private lemma cherry_pattern1 (c : Fin 43 → Fin 43 → Bool) :
     · intro h; exact absurd (h ▸ hall.1.trans hall.2) (lt_irrefl _)
     · intro h; exact absurd (h ▸ hall.2) (lt_irrefl _)
 
--- The core identity: global cherries count = 4·mono + 2·total.
-private lemma cherry_triangle_identity (c : Fin 43 → Fin 43 → Bool)
-    (hsym : ∀ i j, c i j = c j i) :
-    (globalCherries c).card = 4 * (monoTri c).card + 2 * allTri.card := by
-  rw [← sum_triSame c]
-  -- Need: (globalCherries c).card = Σ T ∈ allTri, 2 * triSame c T.
+-- Pattern 2: t.1 < t.2.2 < t.2.1 (perm (i,k,j): σ(T) = (T.1, T.2.2, T.2.1)).
+-- Cherry condition c(T.1, T.2.2) = c(T.1, T.2.1), i.e. c(i,j)=c(i,k) → cond2.
+private lemma cherry_pattern2 (c : Fin 43 → Fin 43 → Bool) :
+    ((globalCherries c).filter (fun t => t.1 < t.2.2 ∧ t.2.2 < t.2.1)).card =
+    (allTri.filter (fun T => c T.1 T.2.1 = c T.1 T.2.2)).card := by
+  apply Finset.card_bij (fun t _ => (t.1, t.2.2, t.2.1))
+  · rintro ⟨a, b, d⟩ ht
+    rw [Finset.mem_filter] at ht
+    obtain ⟨hg, hlt⟩ := ht
+    simp only [globalCherries, Finset.mem_filter, Finset.mem_univ, true_and] at hg
+    simp only [Finset.mem_filter, allTri, Finset.mem_univ, true_and]
+    refine ⟨⟨hlt.1, hlt.2⟩, ?_⟩
+    exact hg.2.2.2.symm
+  · rintro ⟨a, b, d⟩ _ ⟨a', b', d'⟩ _ h
+    simp only [Prod.mk.injEq] at h
+    obtain ⟨h1, h2, h3⟩ := h
+    simp [h1, h2, h3]
+  · rintro ⟨i, j, k⟩ hT
+    rw [Finset.mem_filter] at hT
+    obtain ⟨hall, hcol⟩ := hT
+    simp only [allTri, Finset.mem_filter, Finset.mem_univ, true_and] at hall
+    refine ⟨(i, k, j), ?_, rfl⟩
+    rw [Finset.mem_filter]
+    refine ⟨?_, hall.1, hall.2⟩
+    simp only [globalCherries, Finset.mem_filter, Finset.mem_univ, true_and]
+    refine ⟨?_, ?_, ?_, hcol.symm⟩
+    · intro h; exact absurd (h ▸ hall.1.trans hall.2) (lt_irrefl _)
+    · intro h; exact absurd (h ▸ hall.1) (lt_irrefl _)
+    · intro h; exact absurd (h ▸ hall.2) (lt_irrefl _)
+
+-- Pattern 3: t.2.1 < t.1 < t.2.2 (perm (j,i,k): σ(T) = (T.2.1, T.1, T.2.2)).
+-- Cherry: c(t.1, t.2.1) = c(t.1, t.2.2) ≡ c(j,i)=c(j,k) ≡ c(i,j)=c(j,k) → cond1.
+private lemma cherry_pattern3 (c : Fin 43 → Fin 43 → Bool) (hsym : ∀ i j, c i j = c j i) :
+    ((globalCherries c).filter (fun t => t.2.1 < t.1 ∧ t.1 < t.2.2)).card =
+    (allTri.filter (fun T => c T.1 T.2.1 = c T.2.1 T.2.2)).card := by
+  apply Finset.card_bij (fun t _ => (t.2.1, t.1, t.2.2))
+  · rintro ⟨v, a, b⟩ ht
+    rw [Finset.mem_filter] at ht
+    obtain ⟨hg, hlt⟩ := ht
+    simp only [globalCherries, Finset.mem_filter, Finset.mem_univ, true_and] at hg
+    simp only [Finset.mem_filter, allTri, Finset.mem_univ, true_and]
+    refine ⟨⟨hlt.1, hlt.2⟩, ?_⟩
+    rw [hsym v a] at hg
+    exact hg.2.2.2
+  · rintro ⟨v, a, b⟩ _ ⟨v', a', b'⟩ _ h
+    simp only [Prod.mk.injEq] at h
+    obtain ⟨h1, h2, h3⟩ := h
+    simp [h1, h2, h3]
+  · rintro ⟨i, j, k⟩ hT
+    rw [Finset.mem_filter] at hT
+    obtain ⟨hall, hcol⟩ := hT
+    simp only [allTri, Finset.mem_filter, Finset.mem_univ, true_and] at hall
+    have hij : (i : Fin 43).val < (j : Fin 43).val := hall.1
+    have hjk : (j : Fin 43).val < (k : Fin 43).val := hall.2
+    refine ⟨(j, i, k), ?_, rfl⟩
+    rw [Finset.mem_filter]
+    refine ⟨?_, hall.1, hall.2⟩
+    simp only [globalCherries, Finset.mem_filter, Finset.mem_univ, true_and]
+    refine ⟨?_, ?_, ?_, ?_⟩
+    · intro h; have : (_ : ℕ) = _ := congrArg Fin.val h; omega
+    · intro h; have : (_ : ℕ) = _ := congrArg Fin.val h; omega
+    · intro h; have : (_ : ℕ) = _ := congrArg Fin.val h; omega
+    · rw [hsym j i]; exact hcol
+
+-- Pattern 4: t.2.2 < t.1 < t.2.1 (perm (j,k,i): σ(T) = (T.2.1, T.2.2, T.1)).
+-- Cherry: c(j,k)=c(j,i) ≡ c(j,k)=c(i,j) → cond1: c(i,j)=c(j,k).
+private lemma cherry_pattern4 (c : Fin 43 → Fin 43 → Bool) (hsym : ∀ i j, c i j = c j i) :
+    ((globalCherries c).filter (fun t => t.2.2 < t.1 ∧ t.1 < t.2.1)).card =
+    (allTri.filter (fun T => c T.1 T.2.1 = c T.2.1 T.2.2)).card := by
+  -- Map: (v,a,b) ↦ (b,v,a) (i.e. (t.2.2, t.1, t.2.1)).
+  apply Finset.card_bij (fun t _ => (t.2.2, t.1, t.2.1))
+  · rintro ⟨v, a, b⟩ ht
+    rw [Finset.mem_filter] at ht
+    obtain ⟨hg, hlt⟩ := ht
+    simp only [globalCherries, Finset.mem_filter, Finset.mem_univ, true_and] at hg
+    simp only [Finset.mem_filter, allTri, Finset.mem_univ, true_and]
+    refine ⟨⟨hlt.1, hlt.2⟩, ?_⟩
+    -- need c b v = c v a (as c T.1 T.2.1 = c T.2.1 T.2.2, where T=(b,v,a))
+    -- we have c v a = c v b from hg.2.2.2
+    rw [hsym b v]
+    exact hg.2.2.2.symm
+  · rintro ⟨v, a, b⟩ _ ⟨v', a', b'⟩ _ h
+    simp only [Prod.mk.injEq] at h
+    obtain ⟨h1, h2, h3⟩ := h
+    simp [h1, h2, h3]
+  · rintro ⟨i, j, k⟩ hT
+    rw [Finset.mem_filter] at hT
+    obtain ⟨hall, hcol⟩ := hT
+    simp only [allTri, Finset.mem_filter, Finset.mem_univ, true_and] at hall
+    have hij : (i : Fin 43).val < (j : Fin 43).val := hall.1
+    have hjk : (j : Fin 43).val < (k : Fin 43).val := hall.2
+    refine ⟨(j, k, i), ?_, rfl⟩
+    rw [Finset.mem_filter]
+    refine ⟨?_, hall.1, hall.2⟩
+    simp only [globalCherries, Finset.mem_filter, Finset.mem_univ, true_and]
+    refine ⟨?_, ?_, ?_, ?_⟩
+    · intro h; have : (_ : ℕ) = _ := congrArg Fin.val h; omega
+    · intro h; have : (_ : ℕ) = _ := congrArg Fin.val h; omega
+    · intro h; have : (_ : ℕ) = _ := congrArg Fin.val h; omega
+    · -- need c j k = c j i; we have c i j = c j k, i.e. hcol
+      rw [hsym j i]; exact hcol.symm
+
+-- Pattern 5: t.2.1 < t.2.2 < t.1 (perm (k,i,j): σ(T) = (T.2.2, T.1, T.2.1)).
+-- Cherry: c(k,i)=c(k,j) ≡ c(i,k)=c(j,k) → cond3: c(i,k) = c(j,k).
+private lemma cherry_pattern5 (c : Fin 43 → Fin 43 → Bool) (hsym : ∀ i j, c i j = c j i) :
+    ((globalCherries c).filter (fun t => t.2.1 < t.2.2 ∧ t.2.2 < t.1)).card =
+    (allTri.filter (fun T => c T.1 T.2.2 = c T.2.1 T.2.2)).card := by
+  -- Map: (v,a,b) ↦ (a,b,v) = (t.2.1, t.2.2, t.1).
+  apply Finset.card_bij (fun t _ => (t.2.1, t.2.2, t.1))
+  · rintro ⟨v, a, b⟩ ht
+    rw [Finset.mem_filter] at ht
+    obtain ⟨hg, hlt⟩ := ht
+    simp only [globalCherries, Finset.mem_filter, Finset.mem_univ, true_and] at hg
+    simp only [Finset.mem_filter, allTri, Finset.mem_univ, true_and]
+    refine ⟨⟨hlt.1, hlt.2⟩, ?_⟩
+    -- need c a v = c b v (T = (a,b,v))
+    have hh : c v a = c v b := hg.2.2.2
+    rw [hsym a v, hsym b v]
+    exact hh
+  · rintro ⟨v, a, b⟩ _ ⟨v', a', b'⟩ _ h
+    simp only [Prod.mk.injEq] at h
+    obtain ⟨h1, h2, h3⟩ := h
+    simp [h1, h2, h3]
+  · rintro ⟨i, j, k⟩ hT
+    rw [Finset.mem_filter] at hT
+    obtain ⟨hall, hcol⟩ := hT
+    simp only [allTri, Finset.mem_filter, Finset.mem_univ, true_and] at hall
+    have hij : (i : Fin 43).val < (j : Fin 43).val := hall.1
+    have hjk : (j : Fin 43).val < (k : Fin 43).val := hall.2
+    refine ⟨(k, i, j), ?_, rfl⟩
+    rw [Finset.mem_filter]
+    refine ⟨?_, hall.1, hall.2⟩
+    simp only [globalCherries, Finset.mem_filter, Finset.mem_univ, true_and]
+    refine ⟨?_, ?_, ?_, ?_⟩
+    · intro h; have : (_ : ℕ) = _ := congrArg Fin.val h; omega
+    · intro h; have : (_ : ℕ) = _ := congrArg Fin.val h; omega
+    · intro h; have : (_ : ℕ) = _ := congrArg Fin.val h; omega
+    · -- need c k i = c k j; we have c i k = c j k, i.e. hcol
+      rw [hsym k i, hsym k j]; exact hcol
+
+-- Pattern 6: t.2.2 < t.2.1 < t.1 (perm (k,j,i): σ(T) = (T.2.2, T.2.1, T.1)).
+-- Cherry: c(t.1, t.2.1) = c(t.1, t.2.2) ≡ c(k,j)=c(k,i) ≡ c(j,k)=c(i,k) → cond3.
+private lemma cherry_pattern6 (c : Fin 43 → Fin 43 → Bool) (hsym : ∀ i j, c i j = c j i) :
+    ((globalCherries c).filter (fun t => t.2.2 < t.2.1 ∧ t.2.1 < t.1)).card =
+    (allTri.filter (fun T => c T.1 T.2.2 = c T.2.1 T.2.2)).card := by
+  apply Finset.card_bij (fun t _ => (t.2.2, t.2.1, t.1))
+  · rintro ⟨v, a, b⟩ ht
+    rw [Finset.mem_filter] at ht
+    obtain ⟨hg, hlt⟩ := ht
+    simp only [globalCherries, Finset.mem_filter, Finset.mem_univ, true_and] at hg
+    simp only [Finset.mem_filter, allTri, Finset.mem_univ, true_and]
+    refine ⟨⟨hlt.1, hlt.2⟩, ?_⟩
+    have : c v a = c v b := hg.2.2.2
+    rw [hsym v a, hsym v b] at this
+    exact this.symm
+  · rintro ⟨v, a, b⟩ _ ⟨v', a', b'⟩ _ h
+    simp only [Prod.mk.injEq] at h
+    obtain ⟨h1, h2, h3⟩ := h
+    simp [h1, h2, h3]
+  · rintro ⟨i, j, k⟩ hT
+    rw [Finset.mem_filter] at hT
+    obtain ⟨hall, hcol⟩ := hT
+    simp only [allTri, Finset.mem_filter, Finset.mem_univ, true_and] at hall
+    refine ⟨(k, j, i), ?_, rfl⟩
+    rw [Finset.mem_filter]
+    refine ⟨?_, hall.1, hall.2⟩
+    simp only [globalCherries, Finset.mem_filter, Finset.mem_univ, true_and]
+    refine ⟨?_, ?_, ?_, ?_⟩
+    · intro h; exact absurd (h ▸ hall.2) (lt_irrefl _)
+    · intro h; exact absurd (h ▸ hall.1.trans hall.2) (lt_irrefl _)
+    · intro h; exact absurd (h ▸ hall.1) (lt_irrefl _)
+    · rw [hsym k j, hsym k i]; exact hcol.symm
+
+-- Six pattern predicates:
+private def pat1 (t : Fin 43 × Fin 43 × Fin 43) : Prop := t.1 < t.2.1 ∧ t.2.1 < t.2.2
+private def pat2 (t : Fin 43 × Fin 43 × Fin 43) : Prop := t.1 < t.2.2 ∧ t.2.2 < t.2.1
+private def pat3 (t : Fin 43 × Fin 43 × Fin 43) : Prop := t.2.1 < t.1 ∧ t.1 < t.2.2
+private def pat4 (t : Fin 43 × Fin 43 × Fin 43) : Prop := t.2.2 < t.1 ∧ t.1 < t.2.1
+private def pat5 (t : Fin 43 × Fin 43 × Fin 43) : Prop := t.2.1 < t.2.2 ∧ t.2.2 < t.1
+private def pat6 (t : Fin 43 × Fin 43 × Fin 43) : Prop := t.2.2 < t.2.1 ∧ t.2.1 < t.1
+
+instance : DecidablePred pat1 := fun t => by unfold pat1; infer_instance
+instance : DecidablePred pat2 := fun t => by unfold pat2; infer_instance
+instance : DecidablePred pat3 := fun t => by unfold pat3; infer_instance
+instance : DecidablePred pat4 := fun t => by unfold pat4; infer_instance
+instance : DecidablePred pat5 := fun t => by unfold pat5; infer_instance
+instance : DecidablePred pat6 := fun t => by unfold pat6; infer_instance
+
+-- Exactly one of the 6 patterns holds for any t in globalCherries.
+private lemma pattern_exhaustive (c : Fin 43 → Fin 43 → Bool)
+    {t : Fin 43 × Fin 43 × Fin 43} (ht : t ∈ globalCherries c) :
+    pat1 t ∨ pat2 t ∨ pat3 t ∨ pat4 t ∨ pat5 t ∨ pat6 t := by
+  simp only [globalCherries, Finset.mem_filter, Finset.mem_univ, true_and] at ht
+  obtain ⟨hva, hvb, hab, _⟩ := ht
+  simp only [pat1, pat2, pat3, pat4, pat5, pat6]
+  rcases lt_trichotomy t.1 t.2.1 with h1 | h1 | h1
+  · rcases lt_trichotomy t.2.1 t.2.2 with h2 | h2 | h2
+    · exact Or.inl ⟨h1, h2⟩
+    · exact absurd h2 hab
+    · rcases lt_trichotomy t.1 t.2.2 with h3 | h3 | h3
+      · exact Or.inr (Or.inl ⟨h3, h2⟩)
+      · exact absurd h3 hvb
+      · exact Or.inr (Or.inr (Or.inr (Or.inl ⟨h3, h1⟩)))
+  · exact absurd h1 hva
+  · rcases lt_trichotomy t.2.1 t.2.2 with h2 | h2 | h2
+    · rcases lt_trichotomy t.1 t.2.2 with h3 | h3 | h3
+      · exact Or.inr (Or.inr (Or.inl ⟨h1, h3⟩))
+      · exact absurd h3 hvb
+      · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inl ⟨h2, h3⟩))))
+    · exact absurd h2 hab
+    · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inr ⟨h2, h1⟩))))
+
+-- Patterns are mutually exclusive by strict order properties.
+-- We use Fin 43's `<` compared via `.val` for omega.
+
+-- Assign each triple t a pattern index in Fin 6 by its coordinate order.
+private def patIdx (t : Fin 43 × Fin 43 × Fin 43) : Fin 6 :=
+  if pat1 t then 0
+  else if pat2 t then 1
+  else if pat3 t then 2
+  else if pat4 t then 3
+  else if pat5 t then 4
+  else 5
+
+private lemma patIdx_mapsTo (c : Fin 43 → Fin 43 → Bool) :
+    ∀ t ∈ globalCherries c, patIdx t ∈ (Finset.univ : Finset (Fin 6)) := by
+  intro t _; exact Finset.mem_univ _
+
+-- Each pattern-filtered set equals the patIdx-fiber at that index.
+private lemma filter_pat_eq_fiber1 (c : Fin 43 → Fin 43 → Bool) :
+    (globalCherries c).filter pat1 =
+      ((globalCherries c).filter fun t => patIdx t = 0) := by
+  ext t
+  simp only [Finset.mem_filter]
+  refine ⟨fun ⟨h1, h2⟩ => ⟨h1, ?_⟩, fun ⟨h1, h2⟩ => ⟨h1, ?_⟩⟩
+  · simp only [patIdx]; rw [if_pos h2]
+  · simp only [patIdx] at h2
+    split_ifs at h2 with hp1 hp2 hp3 hp4 hp5
+    · exact hp1
+    · exact Fin.noConfusion h2
+    · exact Fin.noConfusion h2
+    · exact Fin.noConfusion h2
+    · exact Fin.noConfusion h2
+    · exact Fin.noConfusion h2
+
+private lemma filter_pat_eq_fiber2 (c : Fin 43 → Fin 43 → Bool) :
+    (globalCherries c).filter pat2 =
+      ((globalCherries c).filter fun t => patIdx t = 1) := by
+  ext t
+  simp only [Finset.mem_filter]
+  refine ⟨fun ⟨h1, h2⟩ => ⟨h1, ?_⟩, fun ⟨h1, h2⟩ => ⟨h1, ?_⟩⟩
+  · have hn1 : ¬ pat1 t := by
+      rintro ⟨ha, hb⟩; rcases h2 with ⟨hc, hd⟩
+      have : (t.2.1 : Fin 43).val < t.2.2.val := hb
+      have : (t.2.2 : Fin 43).val < t.2.1.val := hd
+      omega
+    simp only [patIdx]; rw [if_neg hn1, if_pos h2]
+  · simp only [patIdx] at h2
+    split_ifs at h2 with hp1 hp2 hp3 hp4 hp5
+    · exact Fin.noConfusion h2
+    · exact hp2
+    · exact Fin.noConfusion h2
+    · exact Fin.noConfusion h2
+    · exact Fin.noConfusion h2
+    · exact Fin.noConfusion h2
+
+private lemma filter_pat_eq_fiber3 (c : Fin 43 → Fin 43 → Bool) :
+    (globalCherries c).filter pat3 =
+      ((globalCherries c).filter fun t => patIdx t = 2) := by
+  ext t
+  simp only [Finset.mem_filter]
+  refine ⟨fun ⟨h1, h2⟩ => ⟨h1, ?_⟩, fun ⟨h1, h2⟩ => ⟨h1, ?_⟩⟩
+  · have hn1 : ¬ pat1 t := fun ⟨ha, _⟩ => by
+      have : (t.1 : Fin 43).val < t.2.1.val := ha
+      have : (t.2.1 : Fin 43).val < t.1.val := h2.1
+      omega
+    have hn2 : ¬ pat2 t := fun ⟨ha, _⟩ => by
+      have : (t.1 : Fin 43).val < t.2.2.val := ha
+      have : (t.1 : Fin 43).val < t.2.2.val := h2.2
+      have : (t.2.1 : Fin 43).val < t.1.val := h2.1
+      -- pat2 says t.1 < t.2.2 ∧ t.2.2 < t.2.1. but pat3: t.2.1 < t.1.
+      -- t.2.1 < t.1 < t.2.2 < t.2.1 — contradiction.
+      have hlt : (t.2.2 : Fin 43).val < t.2.1.val := by
+        have := ha.trans_le (le_of_lt (h2.2)); sorry
+      omega
+    sorry
+  · sorry
+
+-- Actually let me just prove the partition directly without the fiber machinery.
+-- The 6 pat filters are pairwise disjoint and their union is globalCherries.
+private lemma globalCherries_partition (c : Fin 43 → Fin 43 → Bool) :
+    (globalCherries c).card =
+      ((globalCherries c).filter pat1).card +
+      ((globalCherries c).filter pat2).card +
+      ((globalCherries c).filter pat3).card +
+      ((globalCherries c).filter pat4).card +
+      ((globalCherries c).filter pat5).card +
+      ((globalCherries c).filter pat6).card := by
+  -- Use Finset.card_eq_sum_card_fiberwise with patIdx: globalCherries → Fin 6.
+  rw [Finset.card_eq_sum_card_fiberwise (f := patIdx) (t := (Finset.univ : Finset (Fin 6)))
+      (patIdx_mapsTo c)]
+  -- Sum over 6 fibers.
+  rw [show (Finset.univ : Finset (Fin 6)) = {0, 1, 2, 3, 4, 5} from by decide]
+  rw [Finset.sum_insert (by decide), Finset.sum_insert (by decide),
+      Finset.sum_insert (by decide), Finset.sum_insert (by decide),
+      Finset.sum_insert (by decide), Finset.sum_singleton]
+  -- Now each summand is ((globalCherries c).filter fun t => patIdx t = i).card.
+  -- Swap argument order of eq.
+  have hcongr : ∀ (i : Fin 6), ((globalCherries c).filter fun t => patIdx t = i).card =
+      ((globalCherries c).filter fun t => i = patIdx t).card := by
+    intro i
+    apply Finset.card_bij (fun t _ => t)
+    · intro t ht; simp only [Finset.mem_filter] at ht ⊢; exact ⟨ht.1, ht.2.symm⟩
+    · intros; assumption
+    · intro t ht; simp only [Finset.mem_filter] at ht
+      exact ⟨t, by simp only [Finset.mem_filter]; exact ⟨ht.1, ht.2.symm⟩, rfl⟩
+  -- Now we need: sum of 6 fiber cards = sum of pat_i filter cards.
+  -- Use pattern_exhaustive and disjointness to establish fiber = pat_i filter.
   sorry
 
 -- Mono triangles partition into red and blue monochromatic.
@@ -372,6 +680,65 @@ private lemma monoTri_split (c : Fin 43 → Fin 43 → Bool) :
     rw [hb.2.2.1] at hr
     exact Bool.noConfusion hr.2.2.1
   rw [hunion, Finset.card_union_of_disjoint hdisj]
+
+-- Helper: the sum of indicators of a predicate over allTri equals card of filtered set.
+private lemma sum_indicator_eq_card (f : Fin 43 × Fin 43 × Fin 43 → Prop) [DecidablePred f] :
+    ∑ T ∈ allTri, (if f T then (1 : ℕ) else 0) = (allTri.filter f).card := by
+  rw [Finset.sum_boole]
+  rfl
+
+-- Combine the 6 pattern lemmas to get the core identity.
+set_option maxRecDepth 4000 in
+private lemma cherry_triangle_identity (c : Fin 43 → Fin 43 → Bool)
+    (hsym : ∀ i j, c i j = c j i) :
+    (globalCherries c).card = 4 * (monoTri c).card + 2 * allTri.card := by
+  rw [← sum_triSame c]
+  rw [globalCherries_partition c]
+  -- Rewrite each pattern-filtered card using its cherry_pattern bijection.
+  rw [show ((globalCherries c).filter pat1).card =
+        (allTri.filter (fun T => c T.1 T.2.1 = c T.1 T.2.2)).card from cherry_pattern1 c,
+      show ((globalCherries c).filter pat2).card =
+        (allTri.filter (fun T => c T.1 T.2.1 = c T.1 T.2.2)).card from cherry_pattern2 c,
+      show ((globalCherries c).filter pat3).card =
+        (allTri.filter (fun T => c T.1 T.2.1 = c T.2.1 T.2.2)).card from cherry_pattern3 c hsym,
+      show ((globalCherries c).filter pat4).card =
+        (allTri.filter (fun T => c T.1 T.2.1 = c T.2.1 T.2.2)).card from cherry_pattern4 c hsym,
+      show ((globalCherries c).filter pat5).card =
+        (allTri.filter (fun T => c T.1 T.2.2 = c T.2.1 T.2.2)).card from cherry_pattern5 c hsym,
+      show ((globalCherries c).filter pat6).card =
+        (allTri.filter (fun T => c T.1 T.2.2 = c T.2.1 T.2.2)).card from cherry_pattern6 c hsym]
+  -- Goal: |cond2| + |cond2| + |cond1| + |cond1| + |cond3| + |cond3| = Σ 2·triSame
+  -- Rewrite RHS using triSame and distribute the sum.
+  have hRHS : ∑ T ∈ allTri, 2 * triSame c T =
+      2 * (allTri.filter (fun T => c T.1 T.2.1 = c T.2.1 T.2.2)).card +
+      2 * (allTri.filter (fun T => c T.1 T.2.1 = c T.1 T.2.2)).card +
+      2 * (allTri.filter (fun T => c T.2.1 T.2.2 = c T.1 T.2.2)).card := by
+    simp only [triSame]
+    rw [Finset.sum_congr rfl (fun T _ =>
+      show 2 * (((if c T.1 T.2.1 = c T.2.1 T.2.2 then (1:ℕ) else 0) +
+          (if c T.1 T.2.1 = c T.1 T.2.2 then 1 else 0)) +
+          (if c T.2.1 T.2.2 = c T.1 T.2.2 then 1 else 0)) =
+        2 * (if c T.1 T.2.1 = c T.2.1 T.2.2 then 1 else 0) +
+        2 * (if c T.1 T.2.1 = c T.1 T.2.2 then 1 else 0) +
+        2 * (if c T.2.1 T.2.2 = c T.1 T.2.2 then 1 else 0) from by ring)]
+    rw [Finset.sum_add_distrib, Finset.sum_add_distrib,
+        ← Finset.mul_sum, ← Finset.mul_sum, ← Finset.mul_sum]
+    rw [sum_indicator_eq_card, sum_indicator_eq_card, sum_indicator_eq_card]
+  rw [hRHS]
+  -- The cond3 filter uses (c T.2.1 T.2.2 = c T.1 T.2.2) but cherry_pattern5/6 use
+  -- (c T.1 T.2.2 = c T.2.1 T.2.2). Equal by symmetry of =.
+  have hflip : (allTri.filter (fun T => c T.2.1 T.2.2 = c T.1 T.2.2)).card =
+               (allTri.filter (fun T => c T.1 T.2.2 = c T.2.1 T.2.2)).card := by
+    apply Finset.card_bij (fun T _ => T)
+    · intro T hT
+      simp only [Finset.mem_filter] at hT ⊢
+      exact ⟨hT.1, hT.2.symm⟩
+    · intros; assumption
+    · intro T hT
+      simp only [Finset.mem_filter] at hT
+      exact ⟨T, by simp only [Finset.mem_filter]; exact ⟨hT.1, hT.2.symm⟩, rfl⟩
+  rw [hflip]
+  ring
 
 snip end
 
