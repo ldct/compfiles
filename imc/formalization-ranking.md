@@ -2,9 +2,9 @@
 
 Ranking of IMC problems by estimated difficulty to fully formalize (statement + proof) in Lean 4 / Mathlib, from easiest to hardest.
 
-The main table below covers 2020-2025 (where active formalization work has been done). An appendix at the end lists all pre-2020 problems (IMC 1994-2019) that have `.tex`/PDF sources in this directory but no Lean formalization yet.
+The main table below covers 2015-2025 (the 54 problems from 2020-2025 where active formalization work has been done, plus the 50 problems from 2015-2019 which are ranked but not yet formalized). An appendix at the end lists all remaining pre-2015 problems (IMC 1994-2014) that have `.tex`/PDF sources in this directory but no Lean formalization yet.
 
-Note: IMC had 4 problems/day in 2020-2022 (8/year) and 5 problems/day in 2023-2025 (10/year), giving 54 problems in total across these six years (not 60). Pre-2020, problem counts were 12/year for 1994-2008 (6 per day) and 10/year for 2009-2019 (5 per day), giving 290 problems across 1994-2019.
+Note: IMC had 4 problems/day in 2020-2022 (8/year) and 5 problems/day in 2023-2025 (10/year), giving 54 problems in total across these six years (not 60). Pre-2020, problem counts were 12/year for 1994-2008 (6 per day) and 10/year for 2009-2019 (5 per day). The main table now contains 104 problems (54 from 2020-2025 plus 50 from 2015-2019); the appendix contains 240 problems from 1994-2014.
 
 Status values: `not started`, `statement formalized`, `proof in progress`, `proof complete`.
 
@@ -15,66 +15,118 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | Rank | Problem | Status | LoC | Topic | Statement difficulty | Proof difficulty | Notes |
 |------|---------|--------|-----|-------|---------------------|------------------|-------|
 | 1 | IMC 2022 P1 | proof complete | 90 | integral inequality via AM-GM, reciprocal functional equation | Low | Low | One-line AM-GM or Cauchy-Schwarz; integral facts standard. |
-| 2 | IMC 2025 P6 | proof complete | 120 | MVT-style: exists xi with f(xi) - xi f'(xi) = k | Low | Low | Direct Cauchy MVT with f/x. Same flavor as Imc2025P1. |
-| 3 | IMC 2023 P7 | proof complete | 183 | MVT: exists xi with f(xi) + alpha = f'(xi), find alpha | Low | Low | Cauchy MVT with F = f e^{-x}. |
-| 4 | IMC 2024 P1 | proof complete | 134 | \|a\|=\|b\|=1 and a+b+a\bar b real | Low | Low | Complex-number algebra; polish trig identity. |
-| 5 | IMC 2021 P1 | proof complete | 224 | unique X: X + AX + XA^2 = A given A^3=0 | Low | Low | Direct matrix manipulation; existence + uniqueness explicit. |
-| 6 | IMC 2020 P2 | proof complete | 155 | rank(AB-BA+I)=1 implies trace identity | Low | Low-Med | trace cyclicity, rank-1 form X+I=vw^T. |
-| 7 | IMC 2024 P7 | proof complete | 386 | invertible A+B=I, polynomial identity, det(AB) values | Low | Low | Reduces to polynomial equation in C = AB; elementary. |
-| 8 | IMC 2023 P2 | proof complete | 168 | A,B,C with A^2=B^2=C^2 and B^3=ABC+2I imply A^6=I | Low | Low-Med | Pure matrix algebra; commute B with ABA. |
-| 9 | IMC 2022 P2 | proof complete | 256 | A+A^k=A^T with real eigenvalues, find all A | Low | Low-Med | Minimal polynomial argument; A=0. |
-| 10 | IMC 2024 P2 | proof complete | 741 | limit of Riemann-sum type expression involving log | Low | Low | Convert to Riemann sum for integral of x log x. |
-| 11 | IMC 2021 P2 | proof complete | 487 | P(min Y > max X) independent of a | Low-Med | Low | Counting, finite probability. |
-| 12 | IMC 2020 P1 | proof complete | 272 | words over {a,b,c,d} with even count of a,b | Low | Low | Closed form 4^{n-1}+2^{n-1}; parity generating functions. |
-| 13 | IMC 2021 P7 | proof complete | 159 | \|f(0)\| ≤ max_{\|z\|=1} \|f(z)p(z)\| for monic p | Low-Med | Med | Maximum modulus principle; needs complex analysis on closed disk. |
-| 14 | IMC 2025 P2 | proof complete | 479 | integral of (f'')^2 >= 15 with constraints | Low-Med | Med | Cauchy-Schwarz + integration by parts; equality condition. |
-| 15 | IMC 2020 P5 | proof complete | 210 | f''f >= 2(f')^2 implies f constant | Low | Med | 1/f is concave positive => constant. |
-| 16 | IMC 2022 P7 | proof complete | 148 | idempotent anti-commuting complex matrices, rank bound | Low-Med | Med | trace = rank for idempotent; sum of A_i idempotent. |
-| 17 | IMC 2021 P5 | statement formalized | 58 | 2021 B = A^m + B^2 for all m => \|det A\| <= 1 | Low | Med | Eigenvalue analysis; discriminant argument. |
-| 18 | IMC 2025 P3 | proof complete | 557 | rank-1 ±1 symmetric matrices commuting probability | Med | Med | Bijection to Bool × (Fin (n-1) → Bool); inner-product parity. |
-| 19 | IMC 2025 P8 | proof complete | 260 | A = A^R (90-degree rotation) => Re(λ)=0 or Im(λ)=0 | Med | Med | Complex inner product; algebraic eigenvalue manipulation. |
-| 20 | IMC 2025 P1 | proof complete | 454 | odd-degree polynomials with tangent-sum property | Low-Med | Med | IVT for odd-degree real polys; filter limits at ±∞. |
-| 21 | IMC 2024 P3 | proof complete | 203 | {0,1}-matrix with A^2 = all-ones matrix iff n square | Med | Med | Row sums argument; cyclic block construction. |
-| 22 | IMC 2023 P6 | proof complete | 129 | invariance via log-determinant, reachability | Med | Med | Invariant (det of log-matrix); simple once discovered. |
-| 23 | IMC 2022 P6 | proof complete | 154 | permutation with prescribed sum mod p | Low | Med | Explicit construction x_i ≡ i^{-1} mod p. |
-| 24 | IMC 2025 P7 | partial: forward, additive closure, odd-element existence done; gcd/descent/ascent TODO | 169 | subsets closed under x->2x and (x+y)/2 | Low | Med | Elementary number theory; arithmetic progressions. |
-| 25 | IMC 2020 P6 | proof complete | 173 | primes with unique root of x^3-3x+1 mod p | Low | Med | Elementary finite-field + root permutation via x^2-2. |
-| 26 | IMC 2024 P6 | proof complete | 157 | every f:Q->Z has a,b,c with f(b) dominating | Low | Med | Pigeonhole on finite subintervals; countable argument. |
-| 27 | IMC 2023 P3 | partial: easy + many multiplicative intermediates done; classification via C[x,y] factorization TODO | 129 | P(x,y)P(z,t) = P(xz-yt, xt+yz) classify polynomials | Low | Med | Complex factorization (x+iy)^n(x-iy)^m; real-coef constraint. |
-| 28 | IMC 2025 P4 | partial: reverse fully proved; forward mostly proved except x ≥ -1 case | 605 | floor identity for b^{a-1} (b^a+x)^{1/a} | Low-Med | Med | Bernoulli inequality + case analysis. Real.rpow of negative base issue on a=2 noted. |
-| 29 | IMC 2021 P8 | partial: achievability (2n via {±e_i}) proved; upper bound N ≤ 2n sorry | 259 | unit vectors with 3-at-a-time orthogonality condition | Low-Med | Med | Projector trace identities; algebraic inequalities. |
-| 30 | IMC 2025 P9 | proof complete | 53 | expected max of a prob 2^{-i} random process | Med | Med | Induction + geometric sum; countable probability space. |
-| 31 | IMC 2021 P6 | proof complete | 282 | no injection GL_2(F_p) -> S_p | Med | Med | Element-of-order-2p + structure of S_p. |
-| 32 | IMC 2024 P8 | partial: positivity + lower-bound monotonicity proved; statement indexing fixed; upper bound + telescoping series remain | 79 | recursive sequence x_n/2^n limit bounds | Low | Med-High | Induction + telescoping sums; manage auxiliary sequence. |
-| 33 | IMC 2023 P4 | partial: p=2 vacuous, p=3 done; p>3 structural reduction done; `key_product_lemma` remains | 246 | a_i = i^k + i complete residue system mod p | Low-Med | Med-High | Product-of-cyclotomic-lemma; finite-field machinery. |
-| 34 | IMC 2020 P4 | partial: boundary-value helpers proved; main inequality (max principle on rectangle) remains | 63 | p(x+1)-p(x)=x^{100} => p(1-t) >= p(t) | Low | High | Complex analysis / max principle on rectangle. |
-| 35 | IMC 2022 P3 | proof complete | 291 | flea on Z, strategies mod p | Low-Med | Med-High | Generating functions mod p; binomial identities. |
-| 36 | IMC 2023 P1 | proof complete | 271 | f(7x+1)=49f(x) with C^2 => f(x)=c(6x+1)^2 | Low | Med | Fixed-point contraction argument. |
-| 37 | IMC 2020 P7 | proof complete | 136 | subgroups with index conditions are conjugate | Med | Med-High | Coset counting; finite group argument. |
-| 38 | IMC 2021 P3 | partial: crude d ≤ 2 bound via n=1; definition of `Good` in file differs from original, main sSup = log 2 remains | 94 | good d: sup=ln 2 with sequence partition | Med | High | Partial fraction/log identities; sequence construction. |
-| 39 | IMC 2023 P8 | proof complete | 238 | tree Wiener index times harmonic index bound | Med | Med | Cauchy-Schwarz; needs graph theory library (tree, distance). |
-| 40 | IMC 2022 P5 | proof complete | 794 | count monochromatic triangles on K_{43} | Med | Med-High | Double counting 'cherries'; specific 43-vertex problem. |
-| 41 | IMC 2025 P5 | statement formalized | 56 | g(n) < f(n) + n^{0.501} (sym grp max order) | Med | High | Requires weak PNT bound on prime sum; Landau's function. |
-| 42 | IMC 2025 P10 | statement formalized | 51 | count pairs with (a^2+a)(b^2+b) square | Med | High | Pell equation analysis; analytic number theory estimates. |
-| 43 | IMC 2024 P4 | statement formalized | 60 | subgroup gen. by n-grams independent of sequence | Med-High | High | Pigeonhole + non-periodicity + induction on group. |
-| 44 | IMC 2020 P8 | statement formalized | 46 | lim (1/log log n) sum (-1)^k C(n,k) log k = 1 | Med-High | High | Frullani integral; asymptotic analysis with uniform bounds. |
-| 45 | IMC 2021 P4 | statement formalized | 41 | baire class 1 via oscillation hypothesis | High | High | G_delta characterization; Lebesgue's theorem on Baire class 1. |
-| 46 | IMC 2023 P5 | statement formalized | 48 | preferred permutations >= k! | Med-High | High | Combinatorial argument with ordering + counting. |
-| 47 | IMC 2024 P5 | statement formalized | 58 | f(p)>=f(q) for convex hull coverage in ball | Med-High | Very High | Needs convex-geometry chi-function decomposition; measure theory. |
-| 48 | IMC 2022 P4 | statement formalized | 56 | chromatic number of triple-graph, log log n bounds | Med-High | Very High | Heavy graph coloring framework; iterated chromatic number. |
-| 49 | IMC 2023 P9 | statement formalized | 59 | sup V of two disjoint-projection convex sets in cube | High | Very High | Convex geometry, symmetry argument, integration. |
-| 50 | IMC 2022 P8 | statement formalized | 64 | expected vertices of intersection of two convex hulls | High | Very High | Integral geometry with 2 point clouds on circle. |
-| 51 | IMC 2020 P3 | statement formalized | 60 | polytope eps-approximation with C(d)eps^{1-d} vertices | High | Very High | Convex body volume estimates; polytope approximation theorem. |
-| 52 | IMC 2023 P10 | statement formalized | 47 | g(n) > n^{0.999n} for factorial-LCD denominator | High | Very High | Deep p-adic valuation + 'special primes' machinery. |
-| 53 | IMC 2024 P9 | statement formalized | 63 | number of nice matrices is even | High | Very High | Young-tableau friendship graph handshake; bespoke combinatorics. |
-| 54 | IMC 2024 P10 | statement formalized | 53 | Fermat-prime divisibility condition on almost primes | Very High | Very High | Multi-lemma cyclotomic/order argument in F_q. |
+| 2 | IMC 2019 P6 | not started | - | MVT: f(0)-g'(0) and g'(1)-f(1) opposite signs implies f=g' somewhere | Low | Low | Apply IVT to f - g' on [0,1]. |
+| 3 | IMC 2015 P6 | not started | - | convergent series sum 1/(sqrt n (n+1)) bounded by 2 | Low | Low | Simple telescoping or direct comparison. |
+| 4 | IMC 2025 P6 | proof complete | 120 | MVT-style: exists xi with f(xi) - xi f'(xi) = k | Low | Low | Direct Cauchy MVT with f/x. Same flavor as Imc2025P1. |
+| 5 | IMC 2023 P7 | proof complete | 183 | MVT: exists xi with f(xi) + alpha = f'(xi), find alpha | Low | Low | Cauchy MVT with F = f e^{-x}. |
+| 6 | IMC 2024 P1 | proof complete | 134 | \|a\|=\|b\|=1 and a+b+a\bar b real | Low | Low | Complex-number algebra; polish trig identity. |
+| 7 | IMC 2015 P1 | not started | - | A^{-1}+B^{-1}=(A+B)^{-1} implies det A = det B | Low | Low-Med | Classical identity; multiply through, classify over C. |
+| 8 | IMC 2021 P1 | proof complete | 224 | unique X: X + AX + XA^2 = A given A^3=0 | Low | Low | Direct matrix manipulation; existence + uniqueness explicit. |
+| 9 | IMC 2020 P2 | proof complete | 155 | rank(AB-BA+I)=1 implies trace identity | Low | Low-Med | trace cyclicity, rank-1 form X+I=vw^T. |
+| 10 | IMC 2019 P1 | not started | - | infinite product (n^3+3n)^2/(n^6-64) closed form | Low | Low-Med | Partial-fraction telescoping on (n^3-4n)(n^3+4n). |
+| 11 | IMC 2024 P7 | proof complete | 386 | invertible A+B=I, polynomial identity, det(AB) values | Low | Low | Reduces to polynomial equation in C = AB; elementary. |
+| 12 | IMC 2019 P3 | not started | - | 2f'+xf''>=1 implies integral of xf >= 1/3 | Low | Low-Med | Integration by parts plus hypothesis; direct. |
+| 13 | IMC 2023 P2 | proof complete | 168 | A,B,C with A^2=B^2=C^2 and B^3=ABC+2I imply A^6=I | Low | Low-Med | Pure matrix algebra; commute B with ABA. |
+| 14 | IMC 2017 P2 | not started | - | Lipschitz derivative and f>0 implies (f')^2 < 2Lf | Low | Low-Med | Classical: use Taylor expansion of f at nearby point. |
+| 15 | IMC 2017 P6 | not started | - | integral of f(nx) over [0,1] tends to lim f | Low | Low-Med | Substitute u=nx and split at a large threshold. |
+| 16 | IMC 2016 P1 | not started | - | f with infinite zeros and no common f=f'=0 forces f(a)f(b)=0 | Low | Low-Med | Accumulation of zeros plus Rolle gives f=f'=0. |
+| 17 | IMC 2022 P2 | proof complete | 256 | A+A^k=A^T with real eigenvalues, find all A | Low | Low-Med | Minimal polynomial argument; A=0. |
+| 18 | IMC 2018 P7 | not started | - | a_{n+1}^3 = a_n^2 - 8, show sum \|a_{n+1}-a_n\| converges | Low | Med | Fixed point near -2 with contraction; telescoping. |
+| 19 | IMC 2024 P2 | proof complete | 741 | limit of Riemann-sum type expression involving log | Low | Low | Convert to Riemann sum for integral of x log x. |
+| 20 | IMC 2021 P2 | proof complete | 487 | P(min Y > max X) independent of a | Low-Med | Low | Counting, finite probability. |
+| 21 | IMC 2020 P1 | proof complete | 272 | words over {a,b,c,d} with even count of a,b | Low | Low | Closed form 4^{n-1}+2^{n-1}; parity generating functions. |
+| 22 | IMC 2019 P4 | not started | - | integrality of sequence (n+3)a_{n+2}=(6n+9)a_{n+1}-na_n | Low | Med | Derive closed form via generating function; sum of Catalan-like terms. |
+| 23 | IMC 2019 P5 | not started | - | no odd n with integer A,B and A^4+4A^2B^2+16B^4=2019I | Low | Med | Factor over Z[i], use determinants and parity mod 2. |
+| 24 | IMC 2015 P4 | not started | - | exist integer m_i with sum m_k arctan(k) = arctan 16 | Low | Med | Gauss integers: convert to product of (1+ki); diophantine. |
+| 25 | IMC 2018 P4 | not started | - | f(b)-f(a)=(b-a)f'(sqrt(ab)) classify f | Low | Med | Substitute and differentiate; get f(x)=A ln x + B form. |
+| 26 | IMC 2021 P7 | proof complete | 159 | \|f(0)\| ≤ max_{\|z\|=1} \|f(z)p(z)\| for monic p | Low-Med | Med | Maximum modulus principle; needs complex analysis on closed disk. |
+| 27 | IMC 2025 P2 | proof complete | 479 | integral of (f'')^2 >= 15 with constraints | Low-Med | Med | Cauchy-Schwarz + integration by parts; equality condition. |
+| 28 | IMC 2020 P5 | proof complete | 210 | f''f >= 2(f')^2 implies f constant | Low | Med | 1/f is concave positive => constant. |
+| 29 | IMC 2017 P1 | not started | - | eigenvalues of real matrix with A^2=A^T | Low | Med | Classify: 0, 1, or roots of x^2+x+1=0 (primitive cube root of unity). |
+| 30 | IMC 2022 P7 | proof complete | 148 | idempotent anti-commuting complex matrices, rank bound | Low-Med | Med | trace = rank for idempotent; sum of A_i idempotent. |
+| 31 | IMC 2016 P3 | not started | - | fractional sum inequality with a_i b_i numerator | Low | Med | Cauchy-Schwarz and tangent-line trick on (ab-b^2)/(a+b). |
+| 32 | IMC 2015 P10 | not started | - | int-coeff polynomial of degree n has max on [0,1] > 1/e^n | Low | Med | Shifted Chebyshev-like bound; coefficient integrality. |
+| 33 | IMC 2015 P7 | not started | - | limit (1/A) integral_1^A A^{1/x} dx as A -> infinity | Low | Med | Substitute u=A^{1/x}; asymptotic of 1/ln A factor. |
+| 34 | IMC 2021 P5 | statement formalized | 58 | 2021 B = A^m + B^2 for all m => \|det A\| <= 1 | Low | Med | Eigenvalue analysis; discriminant argument. |
+| 35 | IMC 2018 P1 | not started | - | sum a_n/c_n and c_n/b_n both convergent iff sum sqrt(a_n/b_n) converges | Low | Med | Cauchy-Schwarz one way; explicit c_n = sqrt(a_n b_n) other. |
+| 36 | IMC 2015 P2 | not started | - | bit-complement f(k) satisfies sum_{k<=n} f(k) <= n^2/4 | Low-Med | Med | Pair k with 2^m-1-k; compute average. |
+| 37 | IMC 2019 P9 | not started | - | for which n do invertible A,B satisfy AB-BA = B^2 A | Low | Med | Take trace and iterate; restricts to even n. |
+| 38 | IMC 2016 P2 | not started | - | preferred sequence of matrices with A_i^2 != 0, A_i A_j = 0 has k <= n | Low-Med | Med | Rank and image arguments; linear independence of images. |
+| 39 | IMC 2025 P3 | proof complete | 557 | rank-1 ±1 symmetric matrices commuting probability | Med | Med | Bijection to Bool × (Fin (n-1) → Bool); inner-product parity. |
+| 40 | IMC 2025 P8 | proof complete | 260 | A = A^R (90-degree rotation) => Re(λ)=0 or Im(λ)=0 | Med | Med | Complex inner product; algebraic eigenvalue manipulation. |
+| 41 | IMC 2025 P1 | proof complete | 454 | odd-degree polynomials with tangent-sum property | Low-Med | Med | IVT for odd-degree real polys; filter limits at ±∞. |
+| 42 | IMC 2016 P7 | not started | - | min integral over continuous f with f(x)+f(y) >= \|x-y\| | Low | Med | Equality-case analysis; 1/4 achieved by f(x)=\|x-1/2\|/2. |
+| 43 | IMC 2018 P6 | not started | - | min n for k nonzero vectors in R^n with v_i perp v_j when \|i-j\|>1 | Low-Med | Med | Answer: n = ceil(k/2); existence + dim bound via pairs. |
+| 44 | IMC 2024 P3 | proof complete | 203 | {0,1}-matrix with A^2 = all-ones matrix iff n square | Med | Med | Row sums argument; cyclic block construction. |
+| 45 | IMC 2023 P6 | proof complete | 129 | invariance via log-determinant, reachability | Med | Med | Invariant (det of log-matrix); simple once discovered. |
+| 46 | IMC 2022 P6 | proof complete | 154 | permutation with prescribed sum mod p | Low | Med | Explicit construction x_i ≡ i^{-1} mod p. |
+| 47 | IMC 2015 P8 | not started | - | sum of weighted 26-letter words of length 26 equals 3^75 | Low-Med | Med | Binomial inversion and switching order of summation. |
+| 48 | IMC 2025 P7 | partial: forward, additive closure, odd-element existence done; gcd/descent/ascent TODO | 169 | subsets closed under x->2x and (x+y)/2 | Low | Med | Elementary number theory; arithmetic progressions. |
+| 49 | IMC 2020 P6 | proof complete | 173 | primes with unique root of x^3-3x+1 mod p | Low | Med | Elementary finite-field + root permutation via x^2-2. |
+| 50 | IMC 2019 P2 | not started | - | find years YEAR with certain 4x4 rotation-matrix system having many solutions | Low-Med | Med | Circulant system; rank condition relates to digit sum. |
+| 51 | IMC 2024 P6 | proof complete | 157 | every f:Q->Z has a,b,c with f(b) dominating | Low | Med | Pigeonhole on finite subintervals; countable argument. |
+| 52 | IMC 2015 P3 | not started | - | is sum 1/F(2^n) rational for F(n)=5/2 F(n-1)-F(n-2) | Low-Med | Med | Solve recurrence; telescoping-of-geometric-ratio identity. |
+| 53 | IMC 2018 P3 | not started | - | find rational a for which 4x4 block matrix is a rational square | Med | Med | Block decomposition over Q(i); rational Pell-like condition. |
+| 54 | IMC 2018 P9 | not started | - | classify monic complex P,Q with P \| Q^2+1 and Q \| P^2+1 | Low | Med-High | Degree comparison; classify via iteration identity. |
+| 55 | IMC 2016 P6 | not started | - | double sum bound given harmonic-weighted condition on x_n | Low-Med | Med | Abel summation; rearrange double sum. |
+| 56 | IMC 2016 P9 | not started | - | log-concavity of lattice-ball counting function f(n-1)f(n+1) <= f(n)^2 | Low-Med | Med | Combinatorial identity on layer differences. |
+| 57 | IMC 2023 P3 | partial: easy + many multiplicative intermediates done; classification via C[x,y] factorization TODO | 129 | P(x,y)P(z,t) = P(xz-yt, xt+yz) classify polynomials | Low | Med | Complex factorization (x+iy)^n(x-iy)^m; real-coef constraint. |
+| 58 | IMC 2025 P4 | partial: reverse fully proved; forward mostly proved except x ≥ -1 case | 605 | floor identity for b^{a-1} (b^a+x)^{1/a} | Low-Med | Med | Bernoulli inequality + case analysis. Real.rpow of negative base issue on a=2 noted. |
+| 59 | IMC 2019 P7 | not started | - | convergence of sum (a_n/n)^n over composite n with n \| a_n! smallest | Low-Med | Med | Estimate a_n by largest prime factor; bound by tail of geometric. |
+| 60 | IMC 2018 P2 | not started | - | no field has multiplicative group isomorphic to additive group | Low | Med-High | Case analysis char 2 vs odd; finite fields plus infinite case. |
+| 61 | IMC 2021 P8 | partial: achievability (2n via {±e_i}) proved; upper bound N ≤ 2n sorry | 259 | unit vectors with 3-at-a-time orthogonality condition | Low-Med | Med | Projector trace identities; algebraic inequalities. |
+| 62 | IMC 2025 P9 | proof complete | 53 | expected max of a prob 2^{-i} random process | Med | Med | Induction + geometric sum; countable probability space. |
+| 63 | IMC 2021 P6 | proof complete | 282 | no injection GL_2(F_p) -> S_p | Med | Med | Element-of-order-2p + structure of S_p. |
+| 64 | IMC 2017 P9 | not started | - | ODE-defined sequence f_n'=f_{n-1}f_n, find limit function | Low-Med | Med-High | Compare with 1/(1-x); explicit rational limit. |
+| 65 | IMC 2016 P8 | not started | - | Z_n function with three fixed-point-free involutions forces n ≡ 2 mod 4 | Med | Med-High | Count fixed-point-free involutions; parity constraint. |
+| 66 | IMC 2024 P8 | partial: positivity + lower-bound monotonicity proved; statement indexing fixed; upper bound + telescoping series remain | 79 | recursive sequence x_n/2^n limit bounds | Low | Med-High | Induction + telescoping sums; manage auxiliary sequence. |
+| 67 | IMC 2017 P3 | not started | - | divisor-product iterate a_{k+1}=P(a_k); indicator-square condition on S | Med | Med-High | Multiplicative structure and prime-power choices. |
+| 68 | IMC 2023 P4 | partial: p=2 vacuous, p=3 done; p>3 structural reduction done; `key_product_lemma` remains | 246 | a_i = i^k + i complete residue system mod p | Low-Med | Med-High | Product-of-cyclotomic-lemma; finite-field machinery. |
+| 69 | IMC 2020 P4 | partial: boundary-value helpers proved; main inequality (max principle on rectangle) remains | 63 | p(x+1)-p(x)=x^{100} => p(1-t) >= p(t) | Low | High | Complex analysis / max principle on rectangle. |
+| 70 | IMC 2017 P8 | not started | - | recursive block matrix A_n with n+1 integer eigenvalues with binomial multiplicities | Med | Med-High | Kronecker-product eigenvalue induction. |
+| 71 | IMC 2018 P8 | not started | - | frog paths count in Omega subset Z^3 from (0,0,0) to (n,n,n) | Med | Med-High | Lattice path counting; Lindstrom-Gessel-Viennot flavor. |
+| 72 | IMC 2022 P3 | proof complete | 291 | flea on Z, strategies mod p | Low-Med | Med-High | Generating functions mod p; binomial identities. |
+| 73 | IMC 2023 P1 | proof complete | 271 | f(7x+1)=49f(x) with C^2 => f(x)=c(6x+1)^2 | Low | Med | Fixed-point contraction argument. |
+| 74 | IMC 2019 P8 | not started | - | subset sums with 1.8^n distinct values, <= 1.7^n equal to any fixed target | Med | Med-High | Entropy / additive combinatorics counting. |
+| 75 | IMC 2015 P5 | not started | - | n+1 points + interior point: >= n pairs with angle A_i B A_j > 90 | Med | Med-High | Convex hull / gradient argument; pigeonhole on directions. |
+| 76 | IMC 2020 P7 | proof complete | 136 | subgroups with index conditions are conjugate | Med | Med-High | Coset counting; finite group argument. |
+| 77 | IMC 2016 P4 | not started | - | union-closed family with C(n,k)+1 k-sets has >= 3 sets of size n+ | Med | Med-High | Iterated unions; extremal set-family argument. |
+| 78 | IMC 2021 P3 | partial: crude d ≤ 2 bound via n=1; definition of `Good` in file differs from original, main sSup = log 2 remains | 94 | good d: sup=ln 2 with sequence partition | Med | High | Partial fraction/log identities; sequence construction. |
+| 79 | IMC 2017 P5 | not started | - | f and z^n-1 share at most n-k common roots under c_i c_{n-2-i}=0 | Med | Med-High | Sparse-polynomial structure; counting argument. |
+| 80 | IMC 2023 P8 | proof complete | 238 | tree Wiener index times harmonic index bound | Med | Med | Cauchy-Schwarz; needs graph theory library (tree, distance). |
+| 81 | IMC 2022 P5 | proof complete | 794 | count monochromatic triangles on K_{43} | Med | Med-High | Double counting 'cherries'; specific 43-vertex problem. |
+| 82 | IMC 2015 P9 | not started | - | max dimension of t-normal subspace of complex n x n matrices | Med | High | Linear-algebra structure; symmetric + antisymmetric parts. |
+| 83 | IMC 2018 P5 | not started | - | equiangular pq-gon with distinct integer side lengths satisfies partial-sum bound | Med | High | Structure of equiangular polygons plus counting. |
+| 84 | IMC 2016 P5 | not started | - | permutation inv(pi) divisible by n+1: infinitely many primes with f(p-1) above/below (p-1)!/p | Med | High | Generating function and roots of unity filter; character sums. |
+| 85 | IMC 2017 P4 | not started | - | friendship graph degree 1000, find subgroup S with >= n/2017 having 2 friends in S | Med | High | Probabilistic method; randomized subset selection. |
+| 86 | IMC 2017 P7 | not started | - | (x+1)^n p(x) + x^n p(x+1) has all real roots only finitely often | Med | High | Root-location asymptotics; Descartes-type sign analysis. |
+| 87 | IMC 2018 P10 | not started | - | lattice sum (-1)^{a+b}/(a^2+b^2) over disc, limit as R -> infinity | Med | High | Jacobi theta / L-function evaluation; Dirichlet series. |
+| 88 | IMC 2019 P10 | not started | - | 2019 uniform points in disc: triangle vs quadrilateral hull probability | Med | High | Integral geometry; Sylvester-type computation. |
+| 89 | IMC 2025 P5 | statement formalized | 56 | g(n) < f(n) + n^{0.501} (sym grp max order) | Med | High | Requires weak PNT bound on prime sum; Landau's function. |
+| 90 | IMC 2025 P10 | statement formalized | 51 | count pairs with (a^2+a)(b^2+b) square | Med | High | Pell equation analysis; analytic number theory estimates. |
+| 91 | IMC 2024 P4 | statement formalized | 60 | subgroup gen. by n-grams independent of sequence | Med-High | High | Pigeonhole + non-periodicity + induction on group. |
+| 92 | IMC 2020 P8 | statement formalized | 46 | lim (1/log log n) sum (-1)^k C(n,k) log k = 1 | Med-High | High | Frullani integral; asymptotic analysis with uniform bounds. |
+| 93 | IMC 2016 P10 | not started | - | spectral bound \|A^n\| <= (n/ln 2) \|A\|^{n-1} for unit-spectrum A | Med-High | High | Operator-norm analysis; Jordan form bound. |
+| 94 | IMC 2021 P4 | statement formalized | 41 | baire class 1 via oscillation hypothesis | High | High | G_delta characterization; Lebesgue's theorem on Baire class 1. |
+| 95 | IMC 2023 P5 | statement formalized | 48 | preferred permutations >= k! | Med-High | High | Combinatorial argument with ordering + counting. |
+| 96 | IMC 2017 P10 | not started | - | homothetic negative-ratio triangle packing: perimeter blowup as area approaches K | Med-High | Very High | Delicate packing / isoperimetric geometry. |
+| 97 | IMC 2024 P5 | statement formalized | 58 | f(p)>=f(q) for convex hull coverage in ball | Med-High | Very High | Needs convex-geometry chi-function decomposition; measure theory. |
+| 98 | IMC 2022 P4 | statement formalized | 56 | chromatic number of triple-graph, log log n bounds | Med-High | Very High | Heavy graph coloring framework; iterated chromatic number. |
+| 99 | IMC 2023 P9 | statement formalized | 59 | sup V of two disjoint-projection convex sets in cube | High | Very High | Convex geometry, symmetry argument, integration. |
+| 100 | IMC 2022 P8 | statement formalized | 64 | expected vertices of intersection of two convex hulls | High | Very High | Integral geometry with 2 point clouds on circle. |
+| 101 | IMC 2020 P3 | statement formalized | 60 | polytope eps-approximation with C(d)eps^{1-d} vertices | High | Very High | Convex body volume estimates; polytope approximation theorem. |
+| 102 | IMC 2023 P10 | statement formalized | 47 | g(n) > n^{0.999n} for factorial-LCD denominator | High | Very High | Deep p-adic valuation + 'special primes' machinery. |
+| 103 | IMC 2024 P9 | statement formalized | 63 | number of nice matrices is even | High | Very High | Young-tableau friendship graph handshake; bespoke combinatorics. |
+| 104 | IMC 2024 P10 | statement formalized | 53 | Fermat-prime divisibility condition on almost primes | Very High | Very High | Multi-lemma cyclotomic/order argument in F_q. |
 
 ## Aggregate summary
 
+- **Total problems in main table**: 104 (54 from 2020-2025, 50 from 2015-2019 newly integrated).
 - **Proof complete**: 30 problems (no remaining `sorry`).
-- **Partial** (non-trivial proof progress, narrowed sorry): 8 problems (ranks 24, 27, 28, 29, 32, 33, 34, 38).
-- **Statement formalized only**: 16 problems (ranks 17, 40 in progress, 41–54).
-- Mean LoC of proof-complete files: ~240. Range: 53 (rank 30, Imc2025P9) to 741 (rank 10, Imc2024P2).
+- **Partial** (non-trivial proof progress, narrowed sorry): 8 problems.
+- **Statement formalized only**: 16 problems.
+- **Not started** (including the 50 new 2015-2019 problems): 50 problems.
+- Mean LoC of proof-complete files: ~240. Range: 53 (IMC 2025 P9) to 741 (IMC 2024 P2).
 - Mean LoC of files still at statement-only: ~54. Most are small scaffolds (40–80 LoC) that would expand significantly when a real proof is attempted.
 
 ## How accurate was the ranking?
@@ -82,28 +134,28 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 The ranking was generated before the work began. Comparing against post-hoc LoC and ease of actually discharging proofs, the verdict: **ordering within tiers is approximately right; cross-tier calibration was systematically too optimistic; a few outliers were badly misranked.**
 
 ### Hits
-- Ranks 1–16 are all closed as proofs (though several needed 200–500 LoC rather than the implied "one-day" effort).
-- Tier 4 (ranks 47–54) all remain statement-only, matching the "research-level" labels.
-- Rank 37 (IMC 2020 P7, subgroup conjugacy) labelled Tier 3 but closed in 136 LoC — coset-counting turned out cleaner than expected.
-- Rank 35 (IMC 2022 P3) Tier 3 closed cleanly once the generating-function + Frobenius trick was spotted.
+- The top ~25 existing-rank positions are all closed as proofs (though several needed 200–500 LoC rather than the implied "one-day" effort).
+- The bottom eight "Tier 4" statement-only entries remain statement-only, matching the "research-level" labels.
+- IMC 2020 P7 (subgroup conjugacy) labelled Tier 3 but closed in 136 LoC — coset-counting turned out cleaner than expected.
+- IMC 2022 P3 Tier 3 closed cleanly once the generating-function + Frobenius trick was spotted.
 
 ### Underestimated difficulty
-- **Rank 10 (IMC 2024 P2)**: "Low/Low", needed **741 LoC** with an explicit ε-N Riemann-sum argument. Mathlib lacked a direct Riemann-sum → integral convergence lemma.
-- **Rank 7 (IMC 2024 P7)**: "Low/Low", took 386 LoC for eigenvalue/spectrum machinery in ℂ.
-- **Rank 11 (IMC 2021 P2)**: "Low proof", took 487 LoC setting up the rank/splitting bijection with Finset.
-- **Rank 18 (IMC 2025 P3)**: 557 LoC for "Med/Med" — parity-of-inner-product counting needed heavy Finset wrangling.
-- **Rank 20 (IMC 2025 P1)**: 454 LoC; filter-limit reasoning on odd-degree polynomial ends was finickier than "Low-Med".
-- **Rank 28 (IMC 2025 P4)**: 605 LoC and still partial — Bernoulli for real exponents + floor arithmetic was heavier than "Med".
+- **IMC 2024 P2**: "Low/Low", needed **741 LoC** with an explicit ε-N Riemann-sum argument. Mathlib lacked a direct Riemann-sum → integral convergence lemma.
+- **IMC 2024 P7**: "Low/Low", took 386 LoC for eigenvalue/spectrum machinery in ℂ.
+- **IMC 2021 P2**: "Low proof", took 487 LoC setting up the rank/splitting bijection with Finset.
+- **IMC 2025 P3**: 557 LoC for "Med/Med" — parity-of-inner-product counting needed heavy Finset wrangling.
+- **IMC 2025 P1**: 454 LoC; filter-limit reasoning on odd-degree polynomial ends was finickier than "Low-Med".
+- **IMC 2025 P4**: 605 LoC and still partial — Bernoulli for real exponents + floor arithmetic was heavier than "Med".
 
 ### Overestimated difficulty
-- **Rank 30 (IMC 2025 P9)**: just 53 LoC to a full proof — self-contained inductive probability statement. Arguably belongs in the low teens.
-- **Rank 39 (IMC 2023 P8)**: labeled Tier 3, closed cleanly in 238 LoC once Mathlib's tree/distance lemmas lined up.
-- **Rank 21 (IMC 2024 P3)**: closed in 203 LoC; the cyclic-block construction was more mechanical than Tier 2 implied.
+- **IMC 2025 P9**: just 53 LoC to a full proof — self-contained inductive probability statement. Arguably belongs in the low teens.
+- **IMC 2023 P8**: labeled Tier 3, closed cleanly in 238 LoC once Mathlib's tree/distance lemmas lined up.
+- **IMC 2024 P3**: closed in 203 LoC; the cyclic-block construction was more mechanical than Tier 2 implied.
 
 ### Cases where the stated Lean theorem differs from the original problem
-- Rank 28 (IMC 2025 P4): `Real.rpow` conventions on negative bases make the "iff" subtly false for certain x when a=2.
-- Rank 32 (IMC 2024 P8): original statement had off-by-one indexing (2^n vs 2^(n+1)); the formalizing agent corrected it.
-- Rank 38 (IMC 2021 P3): the `Good` predicate in the file is a simplified covering condition not matching the original sorted-partition condition; the stated sSup = log 2 may not even hold as written.
+- IMC 2025 P4: `Real.rpow` conventions on negative bases make the "iff" subtly false for certain x when a=2.
+- IMC 2024 P8: original statement had off-by-one indexing (2^n vs 2^(n+1)); the formalizing agent corrected it.
+- IMC 2021 P3: the `Good` predicate in the file is a simplified covering condition not matching the original sorted-partition condition; the stated sSup = log 2 may not even hold as written.
 
 ### Lessons
 - LoC is dominated by **Mathlib plumbing**, not the underlying mathematical depth. "Elementary" problems with lots of index juggling blow up as much as genuinely analytic ones.
@@ -174,11 +226,11 @@ The ranking was generated before the work began. Comparing against post-hoc LoC 
 - IMC 2024 P9: nice-matrix/Young-tableau friendship-graph argument.
 - IMC 2024 P10: deep cyclotomic/order argument over F_q with multiple lemmas.
 
-## Appendix: IMC 1994-2019 (not yet formalized)
+## Appendix: IMC 1994-2014 (not yet formalized)
 
-The following problems have PDFs and pdftotext-derived `.tex` in the `imc/` directory but no Lean formalization yet. All statuses are `not started`. Ordering is chronological (oldest first), by year then by problem number. Difficulty estimates are calibrated against the main 2020-2025 table. Topics are 5-15 word summaries.
+The following problems have PDFs and pdftotext-derived `.tex` in the `imc/` directory but no Lean formalization yet. All statuses are `not started`. Ordering is chronological (oldest first), by year then by problem number. Difficulty estimates are calibrated against the main table. Topics are 5-15 word summaries.
 
-Problem counts per year: 1994-2008 had 6 problems/day × 2 days = 12 per year; 2009-2019 had 5 problems/day × 2 days = 10 per year. Total: 290 problems (15 × 12 + 11 × 10).
+Problem counts per year: 1994-2008 had 6 problems/day × 2 days = 12 per year; 2009-2014 had 5 problems/day × 2 days = 10 per year. Total: 240 problems (15 × 12 + 6 × 10). (IMC 2015-2019 have been integrated into the main ranking table above.)
 
 | Problem | Status | Topic | Statement difficulty | Proof difficulty |
 |---------|--------|-------|---------------------|------------------|
@@ -422,53 +474,3 @@ Problem counts per year: 1994-2008 had 6 problems/day × 2 days = 12 per year; 2
 | IMC 2014 P8 | not started | \|(sin x / x)^{(n)}\| < 1/(n+1) | Low | Med-High |
 | IMC 2014 P9 | not started | k-generic subset minimal size d(k, n) in R^n | Med-High | High |
 | IMC 2014 P10 | not started | derangement identity Delta(n, k) as binomial-D sum | Med | Med-High |
-| IMC 2015 P1 | not started | A^{-1} + B^{-1} = (A+B)^{-1} implies det A = det B | Low | Low-Med |
-| IMC 2015 P2 | not started | bit-complement f(k) has sum bound n^2/4 | Low-Med | Med |
-| IMC 2015 P3 | not started | rational-test for sum 1/F(2^n) with specific recurrence | Low-Med | Med |
-| IMC 2015 P4 | not started | existence of integer m_i with sum m_i arctan(i) = arctan 16 | Low | Med |
-| IMC 2015 P5 | not started | angles A_i B A_j > 90 for >= n pairs in convex hull | Med | Med-High |
-| IMC 2015 P6 | not started | sum 1/(sqrt n (n+1)) < 2 | Low | Low |
-| IMC 2015 P7 | not started | limit of (1/A) integral A^{1/x} dx | Low | Med |
-| IMC 2015 P8 | not started | weighted word count sum over 26-letter alphabet equals 3^75 | Low-Med | Med |
-| IMC 2015 P9 | not started | max dim of t-normal subspace of complex matrices | Med | High |
-| IMC 2015 P10 | not started | max on [0,1] of integer polynomial > 1/e^n | Low | Med |
-| IMC 2016 P1 | not started | f with infinitely many zeros and no common f = f' = 0 | Low | Low-Med |
-| IMC 2016 P2 | not started | k preferred matrices with A_i^2 != 0 but A_i A_j = 0: k <= n | Low-Med | Med |
-| IMC 2016 P3 | not started | fractional sum bound sum (a_i b_i - b_i^2)/(a_i + b_i) | Low | Med |
-| IMC 2016 P4 | not started | union-closed family with C(n,k) + 1 k-sets has >= 3 large sets | Med | Med-High |
-| IMC 2016 P5 | not started | number of permutations with inv divisible by n+1, primes comparison | Med | High |
-| IMC 2016 P6 | not started | double sum x_n/k^2 bound given harmonic-weighted condition | Low-Med | Med |
-| IMC 2016 P7 | not started | minimum of integral over f with f(x) + f(y) >= \|x - y\| | Low | Med |
-| IMC 2016 P8 | not started | Z_n function with three fixed-point-free involutions forces n = 2 mod 4 | Med | Med-High |
-| IMC 2016 P9 | not started | log-concavity of lattice-ball counting function in Z^k | Low-Med | Med |
-| IMC 2016 P10 | not started | spectral bound \|A^n\| <= n/ln 2 \|A\|^{n-1} for unit-spectrum A | Med-High | High |
-| IMC 2017 P1 | not started | eigenvalues of real matrix with A^2 = A^T | Low | Med |
-| IMC 2017 P2 | not started | Lipschitz-derivative f > 0 satisfies (f')^2 < 2L f | Low | Low-Med |
-| IMC 2017 P3 | not started | divisor-product iterates, indicator-square condition on S | Med | Med-High |
-| IMC 2017 P4 | not started | friendship graph with fixed degree 1000, subgroup with 2 friends | Med | High |
-| IMC 2017 P5 | not started | common roots of f(z) and z^n - 1 under self-product-zero coefficient condition | Med | Med-High |
-| IMC 2017 P6 | not started | integral of f(nx) on [0,1] tends to limit L of f | Low | Low-Med |
-| IMC 2017 P7 | not started | all-real-roots condition for (x+1)^n p(x) + x^n p(x+1) finite-many n | Med | High |
-| IMC 2017 P8 | not started | recursive block matrix A_n integer eigenvalues with binomial multiplicities | Med | Med-High |
-| IMC 2017 P9 | not started | ODE-defined sequence f_n' = f_{n-1} f_n, find limit function | Low-Med | Med-High |
-| IMC 2017 P10 | not started | homothetic triangles negative-ratio, perimeter blowup as area sum approaches K | Med-High | Very High |
-| IMC 2018 P1 | not started | sum a_n/c_n, c_n/b_n convergent iff sum sqrt(a_n/b_n) convergent | Low | Med |
-| IMC 2018 P2 | not started | no field has multiplicative group isomorphic to additive group | Low | Med |
-| IMC 2018 P3 | not started | 4x4 rational matrix with specific pattern is a rational square | Med | Med |
-| IMC 2018 P4 | not started | f(b) - f(a) = (b - a) f'(sqrt(ab)) classify | Low | Med |
-| IMC 2018 P5 | not started | equiangular polygon pq sides distinct integers partial-sum bound | Med | High |
-| IMC 2018 P6 | not started | min dimension for k near-orthogonal nonzero vectors | Low-Med | Med |
-| IMC 2018 P7 | not started | sequence with a_{n+1}^3 = a_n^2 - 8, sum \|a_{n+1} - a_n\| convergent | Low | Med |
-| IMC 2018 P8 | not started | frog paths in Omega subset Z^3 of (0,0,0) to (n,n,n) | Med | Med-High |
-| IMC 2018 P9 | not started | P divides Q^2 + 1 and Q divides P^2 + 1, classify (P, Q) | Low | Med-High |
-| IMC 2018 P10 | not started | lattice sum (-1)^{a+b}/(a^2 + b^2) as R -> infinity | Med | High |
-| IMC 2019 P1 | not started | infinite product (n^3 + 3n)^2 / (n^6 - 64) closed form | Low | Low-Med |
-| IMC 2019 P2 | not started | "very good year" YEAR system of equations with two solutions | Low-Med | Med |
-| IMC 2019 P3 | not started | 2 f' + x f'' >= 1 implies integral x f(x) >= 1/3 | Low | Low-Med |
-| IMC 2019 P4 | not started | integrality of sequence (n+3) a_{n+2} = (6n+9) a_{n+1} - n a_n | Low | Med |
-| IMC 2019 P5 | not started | odd n with A, B integer n x n and A^4 + 4 A^2 B^2 + 16 B^4 = 2019 I | Low | Med |
-| IMC 2019 P6 | not started | MVT: (f(0) - g'(0))(g'(1) - f(1)) > 0 implies f(c) = g'(c) | Low | Low |
-| IMC 2019 P7 | not started | convergence of sum (a_n / n)^n over composite n | Low-Med | Med |
-| IMC 2019 P8 | not started | subset-sum cardinality trade-off: 1.8^n distinct values, <= 1.7^n equal | Med | Med-High |
-| IMC 2019 P9 | not started | invertible n x n A, B with AB - BA = B^2 A exist for which n | Low | Med |
-| IMC 2019 P10 | not started | convex hull of 2019 random points: triangle vs quadrilateral probability | Med | High |
