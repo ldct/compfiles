@@ -40,7 +40,7 @@ Status values: `not started`, `statement formalized`, `proof in progress`, `proo
 | 28 | IMC 2025 P4 | partial: reverse direction fully proved; forward mostly proved except x ≥ -1 case (see note) | floor identity for b^{a-1} (b^a+x)^{1/a} | Low-Med | Med | Bernoulli inequality + case analysis. Real.rpow of negative base issue (b=1 with 1+x<0 and even a gives 0 via cos(π/a)=0 when a=2) makes the "x ≥ -1" deduction from the identity subtle; the statement as written may not hold as an iff for a=2 on some x ∈ [-2,-1). |
 | 29 | IMC 2021 P8 | partial: achievability (2n attained by {±e_i}) proved; upper bound N ≤ 2n remains as sorry | unit vectors with 3-at-a-time orthogonality condition | Low-Med | Med | Projector trace identities; algebraic inequalities. |
 | 30 | IMC 2025 P9 | proof complete | expected max of a prob 2^{-i} random process | Med | Med | Induction + geometric sum; countable probability space. |
-| 31 | IMC 2021 P6 | statement formalized | no injection GL_2(F_p) -> S_p | Med | Med | Element-of-order-2p + structure of S_p. |
+| 31 | IMC 2021 P6 | proof complete | no injection GL_2(F_p) -> S_p | Med | Med | Element-of-order-2p + structure of S_p. |
 | 32 | IMC 2024 P8 | statement formalized | recursive sequence x_n/2^n limit bounds | Low | Med-High | Induction + telescoping sums; manage auxiliary sequence. |
 | 33 | IMC 2023 P4 | statement formalized | a_i = i^k + i complete residue system mod p | Low-Med | Med-High | Product-of-cyclotomic-lemma; finite-field machinery. |
 | 34 | IMC 2020 P4 | statement formalized | p(x+1)-p(x)=x^{100} => p(1-t) >= p(t) | Low | High | Complex analysis / max principle on rectangle. |
