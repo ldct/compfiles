@@ -77,7 +77,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 61 | IMC 2009 P6 | partial | 94 | volume of region in R^3 defined by line-to-point distance ratio | Low-Med | Low-Med | Set up integral in cylindrical coordinates. |
 | 62 | IMC 2002 P8 | proof complete | 125 | 200 students; pigeonhole covering by two chosen students | Low | Low-Med | Combinatorial pigeonhole on friend sets. |
 | 63 | IMC 2024 P2 | proof complete | 741 | limit of Riemann-sum type expression involving log | Low | Low | Convert to Riemann sum for integral of x log x. |
-| 64 | IMC 2011 P1 | not started | - | shadow points f(a)=f(b) and f(x)<=f(b) on (a,b) | Low | Med | Continuity + IVT argument on shadow-point structure. |
+| 64 | IMC 2011 P1 | proof complete | 133 | shadow points f(a)=f(b) and f(x)<=f(b) on (a,b) | Low | Med | Continuity + IVT argument on shadow-point structure. |
 | 65 | IMC 2021 P2 | proof complete | 487 | P(min Y > max X) independent of a | Low-Med | Low | Counting, finite probability. |
 | 66 | IMC 2000 P2 | not started | - | complex (w,z) with w != z, p(w)=p(z), q(w)=q(z) for given quintics | Low | Low-Med | Symmetric polys w+z=1, wz in {1,2}; solve. |
 | 67 | IMC 2020 P1 | proof complete | 272 | words over {a,b,c,d} with even count of a,b | Low | Low | Closed form 4^{n-1}+2^{n-1}; parity generating functions. |
