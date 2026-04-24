@@ -98,7 +98,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 82 | IMC 2002 P1 | proof complete | 81 | reflection-related triple of parabolas, intersection pattern | Low-Med | Low-Med | Solve systems of quadratics; case analysis. |
 | 83 | IMC 2018 P4 | partial | 128 | f(b)-f(a)=(b-a)f'(sqrt(ab)) classify f | Low | Med | Substitute and differentiate; get f(x)=A ln x + B form. |
 | 84 | IMC 2002 P2 | proof complete | 75 | no C^1 positive f on R with f'(x) = f(f(x)) | Low | Low-Med | Growth analysis; contradict continuity. |
-| 85 | IMC 2008 P3 | not started | - | for integer polynomial, find a with p(a_i) dividing p(a) | Low | Med | Chinese remainder + a-b divides p(a)-p(b). |
+| 85 | IMC 2008 P3 | proof complete | 263 | for integer polynomial, find a with p(a_i) dividing p(a) | Low | Med | Chinese remainder + a-b divides p(a)-p(b). |
 | 86 | IMC 2003 P2 | not started | - | 51 nonzero field elements admit sum-of-others permutation | Low-Med | Low-Med | Counting sums + pigeonhole / Hall. |
 | 87 | IMC 2010 P5 | not started | - | 1+2abc >= sum a^2 generalizes to 1+2(abc)^n >= sum a^{2n} | Low | Med | Trig substitution a=cos A etc.; induction on n. |
 | 88 | IMC 2001 P9 | not started | - | max points on unit n-sphere with pairwise distance > sqrt 2 is n+1 | Low | Med | Inner products nonpositive; dim+1 linear-independence bound. |
