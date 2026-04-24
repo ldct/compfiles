@@ -23,7 +23,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 7 | IMC 2024 P1 | proof complete | 134 | \|a\|=\|b\|=1 and a+b+a\bar b real | Low | Low | Complex-number algebra; polish trig identity. |
 | 8 | IMC 2010 P1 | proof complete | 82 | integral of (x^2+1)e^{-x^2} on [a,b] bounded below by e^{-a^2}-e^{-b^2} | Low | Low | Use x^2+1 >= 2x and antiderivative -e^{-x^2}. |
 | 9 | IMC 2009 P1 | proof complete | 118 | f <= g on dense Q implies f <= g on R for continuous vs monotone | Low | Low | Density of Q in R plus one-sided continuity. |
-| 10 | IMC 2006 P1 | not started | - | three implications between continuous, monotone, surjective for R->R | Low | Low | Direct IVT and monotonicity arguments. |
+| 10 | IMC 2006 P1 | proof complete | 112 | three implications between continuous, monotone, surjective for R->R | Low | Low | Direct IVT and monotonicity arguments. |
 | 11 | IMC 2009 P2 | not started | - | (A-B)C = B A^{-1} implies C(A-B) = A^{-1} B | Low | Low | Pure matrix-algebra manipulation. |
 | 12 | IMC 2015 P1 | not started | - | A^{-1}+B^{-1}=(A+B)^{-1} implies det A = det B | Low | Low-Med | Classical identity; multiply through, classify over C. |
 | 13 | IMC 2013 P6 | not started | - | \|z+1\| > 2 implies \|z^3+1\| > 1 | Low | Low | Factor z^3+1=(z+1)(z^2-z+1); triangle inequality on second factor. |
