@@ -25,7 +25,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 9 | IMC 2009 P1 | proof complete | 118 | f <= g on dense Q implies f <= g on R for continuous vs monotone | Low | Low | Density of Q in R plus one-sided continuity. |
 | 10 | IMC 2006 P1 | proof complete | 112 | three implications between continuous, monotone, surjective for R->R | Low | Low | Direct IVT and monotonicity arguments. |
 | 11 | IMC 2009 P2 | proof complete | 48 | (A-B)C = B A^{-1} implies C(A-B) = A^{-1} B | Low | Low | Pure matrix-algebra manipulation. |
-| 12 | IMC 2015 P1 | not started | - | A^{-1}+B^{-1}=(A+B)^{-1} implies det A = det B | Low | Low-Med | Classical identity; multiply through, classify over C. |
+| 12 | IMC 2015 P1 | proof complete | 104 | A^{-1}+B^{-1}=(A+B)^{-1} implies det A = det B | Low | Low-Med | Classical identity; multiply through, classify over C. |
 | 13 | IMC 2013 P6 | not started | - | \|z+1\| > 2 implies \|z^3+1\| > 1 | Low | Low | Factor z^3+1=(z+1)(z^2-z+1); triangle inequality on second factor. |
 | 14 | IMC 2003 P7 | not started | - | AB+A+B=0 implies AB=BA | Low | Low | (A+I)(B+I)=I, so A+I and B+I commute. |
 | 15 | IMC 2007 P1 | not started | - | deg-2 integer polynomial vanishing mod 5 at all integers | Low | Low | Evaluate at small residues; linear system over Z/5. |
