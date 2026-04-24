@@ -106,7 +106,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 90 | IMC 2012 P4 | statement formalized | 49 | f continuously differentiable with f'>f(f) implies f^{(3)}<=0 on [0,inf) | Low | Med | Sign analysis + iterated monotonicity on f, f(f). |
 | 91 | IMC 2007 P3 | proof complete | 182 | quadratic forms representable as det(sum x_i A_i) over 2x2 | Low-Med | Med | Discriminant and trace-zero basis argument. |
 | 92 | IMC 2006 P5 | statement formalized | 42 | power-sum triple comparison of a^3 + b^3 + c^3 vs d^3 + e^3 | Low | Med | Bounding via power-mean inequalities. |
-| 93 | IMC 2010 P7 | not started | - | product (1+1/(a_k-a_0)) <= (1+1/a_0) product (1+1/a_k) | Low | Med | Induction on n and a_{k+1}-a_k >= 1 hypothesis. |
+| 93 | IMC 2010 P7 | proof complete | 179 | product (1+1/(a_k-a_0)) <= (1+1/a_0) product (1+1/a_k) | Low | Med | Induction on n and a_{k+1}-a_k >= 1 hypothesis. |
 | 94 | IMC 2008 P2 | not started | - | multiplicative linear functional on polynomial ring is evaluation | Low-Med | Med | Kernel analysis; reduction to x-a generator. |
 | 95 | IMC 2004 P3 | not started | - | arcsine-sum interval length tends to pi/2 - 1 | Low-Med | Med | Riemann-sum limit; compute integral. |
 | 96 | IMC 2021 P7 | proof complete | 159 | \|f(0)\| ≤ max_{\|z\|=1} \|f(z)p(z)\| for monic p | Low-Med | Med | Maximum modulus principle; needs complex analysis on closed disk. |
