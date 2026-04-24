@@ -134,7 +134,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 118 | IMC 2001 P5 | statement formalized | 62 | every matrix similar to one with at most one nonzero diagonal entry | Low-Med | Med | Induction on n; conjugate by suitable GL_n element. |
 | 119 | IMC 2007 P6 | statement formalized | 110 | integer polynomial with \|P\| <= 2 on unit circle has <= 2 nonzero terms | Low | Med | Parseval-type inequality on coefficients. |
 | 120 | IMC 2001 P11 | proof complete | 161 | no f:R->R with f(0)>0 and f(x+y) >= f(x) + y f(f(x)) | Low | Med | Iterate to derive unbounded growth, contradiction. |
-| 121 | IMC 2015 P7 | not started | - | limit (1/A) integral_1^A A^{1/x} dx as A -> infinity | Low | Med | Substitute u=A^{1/x}; asymptotic of 1/ln A factor. |
+| 121 | IMC 2015 P7 | proof complete | 401 | limit (1/A) integral_1^A A^{1/x} dx as A -> infinity | Low | Med | Substitute u=A^{1/x}; asymptotic of 1/ln A factor. |
 | 122 | IMC 2002 P4 | not started | - | iterates p_n of continuous self-map [a,b]->[a,b] closed implies finite | Low | Med | Topological dynamics; orbit closure finite. |
 | 123 | IMC 2012 P1 | not started | - | p(n)-p(n-1) equals partitions into parts > 1 | Low | Med | Generating-function bijection; needs Finset partitions API. |
 | 124 | IMC 2003 P4 | not started | - | partition Z+ into A, B with a A = b B; classify (a, b) | Low | Med | Characterize via gcd/lcm and 2-adic valuation. |
