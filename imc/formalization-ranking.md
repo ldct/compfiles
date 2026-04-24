@@ -37,7 +37,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 21 | IMC 2014 P1 | proof complete | 136 | unique symmetric 2x2 real matrix with prescribed trace and determinant | Low | Low | Solve a^2=4b for discriminant zero condition. |
 | 22 | IMC 2008 P9 | proof complete | 181 | 2^{n-1} divides Fibonacci-coefficient binomial sum | Low | Low | Direct identity via generating functions or induction. |
 | 23 | IMC 2005 P8 | proof complete | 126 | if f^n is polynomial for all n >= 2 then f is polynomial | Low | Low | Degree argument; rational-function normal form. |
-| 24 | IMC 2019 P1 | not started | - | infinite product (n^3+3n)^2/(n^6-64) closed form | Low | Low-Med | Partial-fraction telescoping on (n^3-4n)(n^3+4n). |
+| 24 | IMC 2019 P1 | proof complete | 151 | infinite product (n^3+3n)^2/(n^6-64) closed form | Low | Low-Med | Partial-fraction telescoping on (n^3-4n)(n^3+4n). |
 | 25 | IMC 2010 P2 | not started | - | series sum 1/((4k+1)(4k+2)(4k+3)(4k+4)) closed form | Low | Low-Med | Partial fractions give (ln 2)/6 - ... closed form; telescoping. |
 | 26 | IMC 2024 P7 | proof complete | 386 | invertible A+B=I, polynomial identity, det(AB) values | Low | Low | Reduces to polynomial equation in C = AB; elementary. |
 | 27 | IMC 2019 P3 | not started | - | 2f'+xf''>=1 implies integral of xf >= 1/3 | Low | Low-Med | Integration by parts plus hypothesis; direct. |
