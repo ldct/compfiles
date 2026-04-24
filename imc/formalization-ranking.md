@@ -159,7 +159,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 143 | IMC 2005 P2 | proof complete | 199 | trinary sequence bijection \|A_{n+1}\| = 3 \|B_n\| | Med | Med | Cyclic shift on Z_3 plus explicit bijection via differences. |
 | 144 | IMC 2014 P2 | statement formalized | 59 | triangular-block sequence a_n: find alpha, beta with sum a_k / n^alpha -> beta | Low-Med | Med | Partial-sums asymptotic; alpha=3/2, beta explicit. |
 | 145 | IMC 2002 P5 | proof complete | 121 | monotone / C^1 function with every fiber uncountable | Low-Med | Med | Cantor-set-over-Cantor-set construction. |
-| 146 | IMC 2011 P8 | not started | - | triple log product sum ln(1+1/n) ln(1+1/(2n)) ln(1+1/(2n+1)) | Low-Med | Med | Telescoping of ln(1+1/n) over all n; closed-form. |
+| 146 | IMC 2011 P8 | proof complete | 269 | triple log product sum ln(1+1/n) ln(1+1/(2n)) ln(1+1/(2n+1)) | Low-Med | Med | Telescoping of ln(1+1/n) over all n; closed-form. |
 | 147 | IMC 2008 P5 | not started | - | finite group H normal in G with \|Aut H\| > \|Aut G\| | Med | Med | Construction via direct-product / non-characteristic subgroup. |
 | 148 | IMC 2006 P7 | not started | - | triangulation of n-gon with all odd-degree vertices condition | Med | Med | Parity argument on handshake in triangulation. |
 | 149 | IMC 2011 P9 | not started | - | integer divided differences on 0..n implies (a-b) divides f(a)-f(b) for all a,b | Low | Med | Newton forward-difference representation; integer coefficients. |
