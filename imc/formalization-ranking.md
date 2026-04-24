@@ -152,7 +152,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 136 | IMC 2002 P12 | partial | 150 | Lipschitz-gradient convex function squared-gradient bound | Med | Med | Co-coercivity of gradient; standard convex analysis. |
 | 137 | IMC 2016 P2 | proof complete | 129 | preferred sequence of matrices with A_i^2 != 0, A_i A_j = 0 has k <= n | Low-Med | Med | Rank and image arguments; linear independence of images. |
 | 138 | IMC 2001 P12 | partial | 104 | product f_n(theta) = prod sin(2^k theta) bound | Low-Med | Med-High | Telescoping via duplication identity. |
-| 139 | IMC 2007 P5 | not started | - | only f = 0 satisfies sum f(k + a_i l) = 0 for given a_i | Med | Med | Fourier/averaging argument on integer translates. |
+| 139 | IMC 2007 P5 | statement formalized | 68 | only f = 0 satisfies sum f(k + a_i l) = 0 for given a_i | Med | Med | Fourier/averaging argument on integer translates. |
 | 140 | IMC 2000 P8 | not started | - | continuous nowhere-monotone function with dense local minima | Low | Med | Explicit construction, e.g., perturbed Weierstrass-type. |
 | 141 | IMC 2011 P6 | not started | - | iterated chord-average x_{n+1}=(a_{n+1}+x_n)/(1+a_{n+1}x_n) convergence | Low-Med | Med | tanh substitution linearizes; possible limits in (-1,1). |
 | 142 | IMC 2013 P4 | not started | - | power-sum inequality (n+1)A^2 B + (n-2)B^2 >= A^4 + (2n-2)AC | Low | Med | SOS / Schur-type inequality with power sums. |
