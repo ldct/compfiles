@@ -86,7 +86,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 70 | IMC 2002 P11 | proof complete | 343 | A bar(A) = I iff A = S bar(S)^{-1} for some invertible S | Low | Low-Med | Hilbert 90-style matrix descent. |
 | 71 | IMC 2019 P4 | partial | 111 | integrality of sequence (n+3)a_{n+2}=(6n+9)a_{n+1}-na_n | Low | Med | Derive closed form via generating function; sum of Catalan-like terms. |
 | 72 | IMC 2001 P2 | proof complete | 72 | a^r=b^s=(ab)^t=e with coprime r,s,t and abelian implies a=b=e | Low-Med | Low-Med | Bezout coprime combination; order divides 1. |
-| 73 | IMC 2006 P2 | not started | - | count of 0 <= x < 10^{2006} with 10^{2006} divides x^2 - x | Low-Med | Low-Med | CRT over 2^{2006} and 5^{2006}; idempotent count. |
+| 73 | IMC 2006 P2 | proof complete | 316 | count of 0 <= x < 10^{2006} with 10^{2006} divides x^2 - x | Low-Med | Low-Med | CRT over 2^{2006} and 5^{2006}; idempotent count. |
 | 74 | IMC 2001 P7 | not started | - | nonneg-coefficient polynomial product equals 1 + x + ... + x^n | Low | Low-Med | Cyclotomic factorization of x^{n+1}-1. |
 | 75 | IMC 2005 P4 | not started | - | polynomials with coefficients a permutation of 0..n and all rational roots | Low | Med | Vieta + AM-HM forces small degree; explicit enumeration. |
 | 76 | IMC 2001 P3 | not started | - | limit (1-t) sum t^n/(1+t^n) equals ln 2 as t -> 1^- | Low | Low-Med | Abel summation; geometric comparison. |
