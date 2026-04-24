@@ -269,10 +269,48 @@ private lemma globalCherries_card (c : Fin 43 → Fin 43 → Bool)
   simp_rw [fun v => cherriesAt_card c hirrefl hred_deg v]
   simp
 
+-- For each T ∈ allTri, fiber cardinality under sortTriple equals 2·triSame T.
+-- That is: 2·triSame(T) = 4·[T mono] + 2.
+private lemma triSame_eq (c : Fin 43 → Fin 43 → Bool)
+    (T : Fin 43 × Fin 43 × Fin 43) (hT : T ∈ allTri) :
+    2 * triSame c T =
+      4 * (if T ∈ monoTri c then 1 else 0) + 2 := by
+  simp only [allTri, Finset.mem_filter, Finset.mem_univ, true_and] at hT
+  obtain ⟨hij, hjk⟩ := hT
+  simp only [monoTri, Finset.mem_filter, Finset.mem_univ, true_and, triSame,
+             hij, hjk, true_and]
+  rcases Bool.eq_false_or_eq_true (c T.1 T.2.1) with h1 | h1 <;>
+  rcases Bool.eq_false_or_eq_true (c T.2.1 T.2.2) with h2 | h2 <;>
+  rcases Bool.eq_false_or_eq_true (c T.1 T.2.2) with h3 | h3 <;>
+  simp [h1, h2, h3]
+
+private lemma monoTri_subset_allTri (c : Fin 43 → Fin 43 → Bool) :
+    monoTri c ⊆ allTri := by
+  intro T hT
+  simp only [monoTri, Finset.mem_filter, Finset.mem_univ, true_and] at hT
+  simp only [allTri, Finset.mem_filter, Finset.mem_univ, true_and]
+  exact ⟨hT.1, hT.2.1⟩
+
+set_option maxRecDepth 4000 in
+private lemma sum_triSame (c : Fin 43 → Fin 43 → Bool) :
+    ∑ T ∈ allTri, 2 * triSame c T = 4 * (monoTri c).card + 2 * allTri.card := by
+  rw [show (∑ T ∈ allTri, 2 * triSame c T) =
+       ∑ T ∈ allTri, (4 * (if T ∈ monoTri c then 1 else 0) + 2) from
+         Finset.sum_congr rfl (fun T hT => triSame_eq c T hT)]
+  rw [Finset.sum_add_distrib]
+  rw [← Finset.mul_sum]
+  rw [Finset.sum_ite_mem]
+  rw [Finset.inter_eq_right.mpr (monoTri_subset_allTri c)]
+  rw [Finset.sum_const, smul_eq_mul]
+  rw [Finset.sum_const, smul_eq_mul]
+  ring
+
 -- The core identity: global cherries count = 4·mono + 2·total.
 private lemma cherry_triangle_identity (c : Fin 43 → Fin 43 → Bool)
     (hsym : ∀ i j, c i j = c j i) :
     (globalCherries c).card = 4 * (monoTri c).card + 2 * allTri.card := by
+  rw [← sum_triSame c]
+  -- Need: (globalCherries c).card = Σ T ∈ allTri, 2 * triSame c T.
   sorry
 
 -- Mono triangles partition into red and blue monochromatic.
