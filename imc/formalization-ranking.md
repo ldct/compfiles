@@ -59,7 +59,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 43 | IMC 2010 P6 | proof complete | 166 | x_{n+1}=x_n cos x_n and y_{n+1}=y_n sin y_n convergence | Low | Low-Med | Monotone bounded; show limit satisfies x cos x = x or y sin y = y. |
 | 44 | IMC 2007 P9 | proof complete | 191 | continuous nondecreasing f: [a,b] -> [a,b] has fixed point | Low | Low-Med | Direct IVT on f(x)-x. |
 | 45 | IMC 2005 P7 | proof complete | 171 | measure of {x : \|x^2 + bx + c\| < 1} is at most 2 sqrt 2 | Low | Low-Med | Completing square; interval-length bound. |
-| 46 | IMC 2009 P7 | not started | - | f'' - 3f' + 2f <= 0 with f(0)=f'(0)=1 implies f(x) >= 3 e^{2x} - 2 e^{3x} | Low | Low-Med | Comparison ODE with explicit solution difference. |
+| 46 | IMC 2009 P7 | proof complete | 215 | f'' - 3f' + 2f <= 0 with f(0)=f'(0)=1 implies f(x) >= 3 e^{2x} - 2 e^{3x} | Low | Low-Med | Comparison ODE with explicit solution difference. |
 | 47 | IMC 2010 P3 | not started | - | x_{n+1}=x_n^2-2, x_1=sqrt 5; limit of x_1..x_n / x_{n+1} | Low | Low-Med | Parametrize x_n = 2 cosh(2^{n-1} t); telescope product. |
 | 48 | IMC 2004 P11 | not started | - | double integral of 1/(1/x + \|ln y\| - 1) bounded by 1 | Low | Low-Med | Show 1/x - 1 >= \|ln x\|; pointwise substitution bound. |
 | 49 | IMC 2007 P2 | not started | - | min and max rank of n x n matrix with entries 1..n^2 | Low | Low-Med | Explicit constructions plus rank-bound arguments. |
