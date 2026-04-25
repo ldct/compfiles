@@ -215,7 +215,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 199 | IMC 2025 P4 | partial: reverse fully proved; forward mostly proved except x ≥ -1 case | 605 | floor identity for b^{a-1} (b^a+x)^{1/a} | Low-Med | Med | Bernoulli inequality + case analysis. Real.rpow of negative base issue on a=2 noted. |
 | 200 | IMC 2019 P7 | proof complete | 198 | convergence of sum (a_n/n)^n over composite n with n \| a_n! smallest | Low-Med | Med | Estimate a_n by largest prime factor; bound by tail of geometric. |
 | 201 | IMC 2010 P8 | partial: statement + sum_x \|stab G x\| = (\|G\|-1)+n proven; orbit-counting deduction sorry'd | 186 | subgroup G <= S_n with each nontrivial pi having unique fixed point forces same fixed k | Med | Med | Frobenius-group structure; orbit counting. |
-| 202 | IMC 2009 P5 | not started | - | weighted circumcenter identity for simplex split at interior point | Med-High | High | Barycentric circumcenter formula; multi-dimensional geometry. |
+| 202 | IMC 2009 P5 | statement formalized | 100 | weighted circumcenter identity for simplex split at interior point | Med-High | High | Barycentric circumcenter formula; multi-dimensional geometry. |
 | 203 | IMC 2009 P10 | not started | - | minimal covering subspace T of matrices with dim bound delta(T) <= C(n,2) | Med-High | High | Linear-algebra extremal; delicate dimension counting. |
 | 204 | IMC 2012 P5 | not started | - | X^{2^n}(X+a)^{2^n} + 1 irreducible in Q[X] for rational a | Low-Med | Med-High | Eisenstein-like analysis after substitution; degree/root argument. |
 | 205 | IMC 2004 P5 | not started | - | monotone doubling subsequence from C(k-2, 2k-4)+1 reals | Med | Med-High | Erdos-Szekeres-style Ramsey bound; extremal. |
