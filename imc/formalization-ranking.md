@@ -225,7 +225,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 209 | IMC 2021 P6 | proof complete | 282 | no injection GL_2(F_p) -> S_p | Med | Med | Element-of-order-2p + structure of S_p. |
 | 210 | IMC 2017 P9 | partial: statement + bounds + monotonicity + fixed-point Φ(1/(1-·))=1/(1-·); limit identification TODO | 184 | ODE-defined sequence f_n'=f_{n-1}f_n, find limit function | Low-Med | Med-High | Compare with 1/(1-x); explicit rational limit. |
 | 211 | IMC 2010 P10 | statement formalized | 67 | f zero on (a,b) and sum_{k<p} f(y+k/p)=0 for all primes p, y => f=0 | Med | Med-High | Rational-shift density; Moebius-type cancellation across primes. |
-| 212 | IMC 2014 P10 | not started | - | Delta(n,k) derangement recursion via binomial-D_j sum | Med | Med-High | Combinatorial bijection on fixed-prefix derangements. |
+| 212 | IMC 2014 P10 | statement formalized | 91 | Delta(n,k) derangement recursion via binomial-D_j sum | Med | Med-High | Combinatorial bijection on fixed-prefix derangements. |
 | 213 | IMC 2014 P8 | not started | - | \|(sin x / x)^{(n)}\| < 1/(n+1) for x > 0 | Low | Med-High | Integral representation sin x/x = integral cos(xt) dt; dominated-conv bound. |
 | 214 | IMC 2011 P4 | not started | - | inclusion-exclusion polynomial f(t) = sum ±t^{\|union\|} nondecreasing on [0,1] | Med | Med-High | Express derivative as a positive combination via Mobius-style coefficients. |
 | 215 | IMC 2016 P8 | not started | - | Z_n function with three fixed-point-free involutions forces n ≡ 2 mod 4 | Med | Med-High | Count fixed-point-free involutions; parity constraint. |
