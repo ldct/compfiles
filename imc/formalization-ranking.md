@@ -196,7 +196,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 180 | IMC 2015 P8 | statement formalized | 50 | sum of weighted 26-letter words of length 26 equals 3^75 | Low-Med | Med | Binomial inversion and switching order of summation. |
 | 181 | IMC 2025 P7 | proof complete | 620 | subsets closed under x->2x and (x+y)/2 | Low | Med | Elementary number theory; arithmetic progressions. |
 | 182 | IMC 2020 P6 | proof complete | 173 | primes with unique root of x^3-3x+1 mod p | Low | Med | Elementary finite-field + root permutation via x^2-2. |
-| 183 | IMC 2019 P2 | not started | - | find years YEAR with certain 4x4 rotation-matrix system having many solutions | Low-Med | Med | Circulant system; rank condition relates to digit sum. |
+| 183 | IMC 2019 P2 | proof complete | 386 | find years YEAR with certain 4x4 rotation-matrix system having many solutions | Low-Med | Med | Circulant system; rank condition relates to digit sum. |
 | 184 | IMC 2024 P6 | proof complete | 157 | every f:Q->Z has a,b,c with f(b) dominating | Low | Med | Pigeonhole on finite subintervals; countable argument. |
 | 185 | IMC 2013 P8 | not started | - | d unit vectors in R^d, exists unit u with \|u.v_i\| <= 1/sqrt d | Med | Med | Averaging / pigeonhole on sphere; covering argument. |
 | 186 | IMC 2006 P12 | not started | - | GL_2(R) simultaneous conjugation of triples of matrices | Med | High | Representation-theoretic conjugacy invariants. |
