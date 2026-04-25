@@ -181,7 +181,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 165 | IMC 2003 P6 | statement formalized | 57 | log-concavity of coefficients for stable (all real-root) polynomials | Low | Med-High | Newton's inequalities on elementary symmetric polys. |
 | 166 | IMC 2016 P7 | proof complete | 189 | min integral over continuous f with f(x)+f(y) >= \|x-y\| | Low | Med | Equality-case analysis; 1/4 achieved by f(x)=\|x-1/2\|/2. |
 | 167 | IMC 2014 P3 | statement formalized | 45 | positive a_i: every signed polynomial sum_k ±a_k x^k has n distinct real roots | Low-Med | Med | Explicit widely-spaced positive sequence; IVT over sign changes. |
-| 168 | IMC 2018 P6 | not started | - | min n for k nonzero vectors in R^n with v_i perp v_j when \|i-j\|>1 | Low-Med | Med | Answer: n = ceil(k/2); existence + dim bound via pairs. |
+| 168 | IMC 2018 P6 | proof complete | 152 | min n for k nonzero vectors in R^n with v_i perp v_j when \|i-j\|>1 | Low-Med | Med | Answer: n = ceil(k/2); existence + dim bound via pairs. |
 | 169 | IMC 2014 P7 | not started | - | sum_{i<j} a_{ii} a_{jj} >= sum_{i<j} lambda_i lambda_j for symmetric A | Low | Med | Majorization/Schur; equality iff diagonal. |
 | 170 | IMC 2001 P10 | not started | - | principal-minor determinant vanishing implies nilpotent permutable | Med | Med | Characteristic polynomial roots; rank structure. |
 | 171 | IMC 2005 P11 | not started | - | 1-Lipschitz gradient disc max attained at unique point for r <= 1/2 | Med | High | Contraction on disc; delicate uniqueness argument. |
