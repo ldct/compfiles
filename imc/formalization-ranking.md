@@ -213,7 +213,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 197 | IMC 2016 P9 | statement formalized | 40 | log-concavity of lattice-ball counting function f(n-1)f(n+1) <= f(n)^2 | Low-Med | Med | Combinatorial identity on layer differences. |
 | 198 | IMC 2023 P3 | partial: easy + many multiplicative intermediates done; classification via C[x,y] factorization TODO | 166 | P(x,y)P(z,t) = P(xz-yt, xt+yz) classify polynomials | Low | Med | Complex factorization (x+iy)^n(x-iy)^m; real-coef constraint. |
 | 199 | IMC 2025 P4 | partial: reverse fully proved; forward mostly proved except x ≥ -1 case | 605 | floor identity for b^{a-1} (b^a+x)^{1/a} | Low-Med | Med | Bernoulli inequality + case analysis. Real.rpow of negative base issue on a=2 noted. |
-| 200 | IMC 2019 P7 | not started | - | convergence of sum (a_n/n)^n over composite n with n \| a_n! smallest | Low-Med | Med | Estimate a_n by largest prime factor; bound by tail of geometric. |
+| 200 | IMC 2019 P7 | proof complete | 198 | convergence of sum (a_n/n)^n over composite n with n \| a_n! smallest | Low-Med | Med | Estimate a_n by largest prime factor; bound by tail of geometric. |
 | 201 | IMC 2010 P8 | not started | - | subgroup G <= S_n with each nontrivial pi having unique fixed point forces same fixed k | Med | Med | Frobenius-group structure; orbit counting. |
 | 202 | IMC 2009 P5 | not started | - | weighted circumcenter identity for simplex split at interior point | Med-High | High | Barycentric circumcenter formula; multi-dimensional geometry. |
 | 203 | IMC 2009 P10 | not started | - | minimal covering subspace T of matrices with dim bound delta(T) <= C(n,2) | Med-High | High | Linear-algebra extremal; delicate dimension counting. |
