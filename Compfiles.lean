@@ -144,6 +144,7 @@ import Compfiles.Imc2014P3
 import Compfiles.Imc2014P7
 import Compfiles.Imc2015P1
 import Compfiles.Imc2015P2
+import Compfiles.Imc2015P3
 import Compfiles.Imc2015P4
 import Compfiles.Imc2015P6
 import Compfiles.Imc2015P7
