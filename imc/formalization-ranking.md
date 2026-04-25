@@ -174,7 +174,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 158 | IMC 2005 P12 | proof complete | 512 | (p + q sqrt 7) Pell-style fixed point of SL_2(Z) Mobius | Med | Med-High | Pell equation + SL_2(Z) orbit analysis. |
 | 159 | IMC 2008 P6 | proof complete | 351 | permutation displacement D(sigma) distribution parity for large d | Med | Med-High | Generating-function parity count; asymptotic. |
 | 160 | IMC 2001 P4 | statement formalized | 74 | polynomial with coeffs in {-1,0,1}, divisibility forces q-th roots as roots | Med | Med-High | Cyclotomic divisor analysis; sparse coefficient bound. |
-| 161 | IMC 2009 P3 | not started | - | friendship graph with sum a_i^2 = n^2 - n has girth 5 | Med | Med-High | Eigenvalue/counting argument; Friendship-theorem style. |
+| 161 | IMC 2009 P3 | statement formalized | 59 | friendship graph with sum a_i^2 = n^2 - n has girth 5 | Med | Med-High | Eigenvalue/counting argument; Friendship-theorem style. |
 | 162 | IMC 2025 P3 | proof complete | 557 | rank-1 ±1 symmetric matrices commuting probability | Med | Med | Bijection to Bool × (Fin (n-1) → Bool); inner-product parity. |
 | 163 | IMC 2025 P8 | proof complete | 260 | A = A^R (90-degree rotation) => Re(λ)=0 or Im(λ)=0 | Med | Med | Complex inner product; algebraic eigenvalue manipulation. |
 | 164 | IMC 2025 P1 | proof complete | 454 | odd-degree polynomials with tangent-sum property | Low-Med | Med | IVT for odd-degree real polys; filter limits at ±∞. |
