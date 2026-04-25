@@ -164,7 +164,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 148 | IMC 2006 P7 | statement formalized | 103 | triangulation of n-gon with all odd-degree vertices condition | Med | Med | Parity argument on handshake in triangulation. |
 | 149 | IMC 2011 P9 | statement formalized | 51 | integer divided differences on 0..n implies (a-b) divides f(a)-f(b) for all a,b | Low | Med | Newton forward-difference representation; integer coefficients. |
 | 150 | IMC 2000 P10 | proof complete | 218 | three-tangency sextic; ratio of two bounded areas | Med | Med | Parametrize sextic curve; compute areas via integration. |
-| 151 | IMC 2012 P2 | not started | - | smallest rank of n x n matrix with zero diagonal and positive off-diagonal entries | Low | Med | Answer is ceil(log_2 n); construction + rank bound. |
+| 151 | IMC 2012 P2 | proof complete | 334 | smallest rank of n x n matrix with zero diagonal and positive off-diagonal entries | Low | Med | Answer is ceil(log_2 n); construction + rank bound. |
 | 152 | IMC 2007 P11 | not started | - | smallest n with k commuting square-zero matrices and A_1 ... A_k != 0 | Med | Med | Nilpotent structure; Jordan block construction. |
 | 153 | IMC 2006 P11 | not started | - | infinitely many coprime (m, n) with (x+m)^3 = nx having three integer roots | Med | Med | Parametrized family via cubic Vieta. |
 | 154 | IMC 2008 P8 | not started | - | two distinct ellipses with common focus meet in at most 2 points | Med | Med | Polar-form equations; algebra of conic intersection. |
