@@ -162,7 +162,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 146 | IMC 2011 P8 | proof complete | 269 | triple log product sum ln(1+1/n) ln(1+1/(2n)) ln(1+1/(2n+1)) | Low-Med | Med | Telescoping of ln(1+1/n) over all n; closed-form. |
 | 147 | IMC 2008 P5 | statement formalized | 44 | finite group H normal in G with \|Aut H\| > \|Aut G\| | Med | Med | Construction via direct-product / non-characteristic subgroup. |
 | 148 | IMC 2006 P7 | statement formalized | 103 | triangulation of n-gon with all odd-degree vertices condition | Med | Med | Parity argument on handshake in triangulation. |
-| 149 | IMC 2011 P9 | not started | - | integer divided differences on 0..n implies (a-b) divides f(a)-f(b) for all a,b | Low | Med | Newton forward-difference representation; integer coefficients. |
+| 149 | IMC 2011 P9 | statement formalized | 51 | integer divided differences on 0..n implies (a-b) divides f(a)-f(b) for all a,b | Low | Med | Newton forward-difference representation; integer coefficients. |
 | 150 | IMC 2000 P10 | not started | - | three-tangency sextic; ratio of two bounded areas | Med | Med | Parametrize sextic curve; compute areas via integration. |
 | 151 | IMC 2012 P2 | not started | - | smallest rank of n x n matrix with zero diagonal and positive off-diagonal entries | Low | Med | Answer is ceil(log_2 n); construction + rank bound. |
 | 152 | IMC 2007 P11 | not started | - | smallest n with k commuting square-zero matrices and A_1 ... A_k != 0 | Med | Med | Nilpotent structure; Jordan block construction. |
