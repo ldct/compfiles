@@ -219,7 +219,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 203 | IMC 2009 P10 | statement formalized | 148 | minimal covering subspace T of matrices with dim bound delta(T) <= C(n,2) | Med-High | High | Linear-algebra extremal; delicate dimension counting. |
 | 204 | IMC 2012 P5 | statement formalized | 39 | X^{2^n}(X+a)^{2^n} + 1 irreducible in Q[X] for rational a | Low-Med | Med-High | Eisenstein-like analysis after substitution; degree/root argument. |
 | 205 | IMC 2004 P5 | proof complete | 493 | monotone doubling subsequence from C(k-2, 2k-4)+1 reals | Med | Med-High | Erdos-Szekeres-style Ramsey bound; extremal. |
-| 206 | IMC 2018 P2 | not started | - | no field has multiplicative group isomorphic to additive group | Low | Med-High | Case analysis char 2 vs odd; finite fields plus infinite case. |
+| 206 | IMC 2018 P2 | proof complete | 111 | no field has multiplicative group isomorphic to additive group | Low | Med-High | Case analysis char 2 vs odd; finite fields plus infinite case. |
 | 207 | IMC 2021 P8 | partial: achievability (2n via {±e_i}) proved; upper bound N ≤ 2n sorry | 259 | unit vectors with 3-at-a-time orthogonality condition | Low-Med | Med | Projector trace identities; algebraic inequalities. |
 | 208 | IMC 2025 P9 | proof complete | 53 | expected max of a prob 2^{-i} random process | Med | Med | Induction + geometric sum; countable probability space. |
 | 209 | IMC 2021 P6 | proof complete | 282 | no injection GL_2(F_p) -> S_p | Med | Med | Element-of-order-2p + structure of S_p. |
