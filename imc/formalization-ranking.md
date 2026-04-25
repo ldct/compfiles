@@ -227,7 +227,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 211 | IMC 2010 P10 | statement formalized | 67 | f zero on (a,b) and sum_{k<p} f(y+k/p)=0 for all primes p, y => f=0 | Med | Med-High | Rational-shift density; Moebius-type cancellation across primes. |
 | 212 | IMC 2014 P10 | statement formalized | 91 | Delta(n,k) derangement recursion via binomial-D_j sum | Med | Med-High | Combinatorial bijection on fixed-prefix derangements. |
 | 213 | IMC 2014 P8 | proof complete | 290 | \|(sin x / x)^{(n)}\| < 1/(n+1) for x > 0 | Low | Med-High | Integral representation sin x/x = integral cos(xt) dt; dominated-conv bound. |
-| 214 | IMC 2011 P4 | not started | - | inclusion-exclusion polynomial f(t) = sum ±t^{\|union\|} nondecreasing on [0,1] | Med | Med-High | Express derivative as a positive combination via Mobius-style coefficients. |
+| 214 | IMC 2011 P4 | statement formalized | 53 | inclusion-exclusion polynomial f(t) = sum ±t^{\|union\|} nondecreasing on [0,1] | Med | Med-High | Express derivative as a positive combination via Mobius-style coefficients. |
 | 215 | IMC 2016 P8 | not started | - | Z_n function with three fixed-point-free involutions forces n ≡ 2 mod 4 | Med | Med-High | Count fixed-point-free involutions; parity constraint. |
 | 216 | IMC 2024 P8 | partial: positivity + lower-bound monotonicity proved; statement indexing fixed; upper bound + telescoping series remain | 79 | recursive sequence x_n/2^n limit bounds | Low | Med-High | Induction + telescoping sums; manage auxiliary sequence. |
 | 217 | IMC 2017 P3 | not started | - | divisor-product iterate a_{k+1}=P(a_k); indicator-square condition on S | Med | Med-High | Multiplicative structure and prime-power choices. |
