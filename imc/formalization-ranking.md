@@ -238,7 +238,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 222 | IMC 2020 P4 | partial: boundary helpers + reflect identity p(1-t)=p(-t)+t^{100}; main inequality (max principle on rectangle) remains | 86 | p(x+1)-p(x)=x^{100} => p(1-t) >= p(t) | Low | High | Complex analysis / max principle on rectangle. |
 | 223 | IMC 2017 P8 | statement formalized | 110 | recursive block matrix A_n with n+1 integer eigenvalues with binomial multiplicities | Med | Med-High | Kronecker-product eigenvalue induction. |
 | 224 | IMC 2002 P6 | statement formalized | 70 | power-bounded matrices via norm-difference decay | Med | High | Summable norm differences implies power boundedness; Jordan. |
-| 225 | IMC 2018 P8 | not started | - | frog paths count in Omega subset Z^3 from (0,0,0) to (n,n,n) | Med | Med-High | Lattice path counting; Lindstrom-Gessel-Viennot flavor. |
+| 225 | IMC 2018 P8 | statement formalized | 72 | frog paths count in Omega subset Z^3 from (0,0,0) to (n,n,n) | Med | Med-High | Lattice path counting; Lindstrom-Gessel-Viennot flavor. |
 | 226 | IMC 2014 P6 | not started | - | finitely many zeros in (d_n(a_n)) implies infinitely many missing positive integers | Med | Med | Density/counting argument on digit pattern constraints. |
 | 227 | IMC 2011 P5 | not started | - | 4n-1 vectors in (2n-1)-dim F_2 space contain 2n with zero sum | Med | Med | Erdos-Ginzburg-Ziv style over F_2; pigeonhole on subset sums. |
 | 228 | IMC 2022 P3 | proof complete | 291 | flea on Z, strategies mod p | Low-Med | Med-High | Generating functions mod p; binomial identities. |
