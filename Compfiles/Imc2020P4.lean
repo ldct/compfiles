@@ -42,6 +42,29 @@ Boundary value at `t = 1/2`: trivially `D(1/2) = p(1/2) - p(1/2) = 0`.
 lemma boundary_half (p : ℝ[X]) : p.eval (1 - (1/2 : ℝ)) - p.eval (1/2) = 0 := by
   norm_num
 
+/--
+Reformulation: substituting `x = -t` into the difference equation gives
+`p(1 - t) = p(-t) + t^100`. Hence `p(1 - t) ≥ p(t)` is equivalent to
+`p(t) - p(-t) ≤ t^100`.
+-/
+lemma reflect_identity (p : ℝ[X]) (hp : ∀ x : ℝ, p.eval (x + 1) - p.eval x = x ^ 100)
+    (t : ℝ) :
+    p.eval (1 - t) = p.eval (-t) + t ^ 100 := by
+  have h := hp (-t)
+  have hpow : (-t : ℝ) ^ 100 = t ^ 100 := by ring
+  have h1 : p.eval (-t + 1) = p.eval (-t) + t ^ 100 := by
+    rw [← hpow]; linarith
+  rw [show (1 : ℝ) - t = -t + 1 from by ring]
+  exact h1
+
+/--
+Equivalent formulation: `p(1-t) - p(t) = (p(-t) - p(t)) + t^{100}`.
+-/
+lemma diff_eq_reflect (p : ℝ[X]) (hp : ∀ x : ℝ, p.eval (x + 1) - p.eval x = x ^ 100)
+    (t : ℝ) :
+    p.eval (1 - t) - p.eval t = (p.eval (-t) - p.eval t) + t ^ 100 := by
+  rw [reflect_identity p hp t]; ring
+
 snip end
 
 problem imc2020_p4 (p : ℝ[X])
