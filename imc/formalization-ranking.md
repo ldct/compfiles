@@ -229,7 +229,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 213 | IMC 2014 P8 | proof complete | 290 | \|(sin x / x)^{(n)}\| < 1/(n+1) for x > 0 | Low | Med-High | Integral representation sin x/x = integral cos(xt) dt; dominated-conv bound. |
 | 214 | IMC 2011 P4 | statement formalized | 53 | inclusion-exclusion polynomial f(t) = sum ±t^{\|union\|} nondecreasing on [0,1] | Med | Med-High | Express derivative as a positive combination via Mobius-style coefficients. |
 | 215 | IMC 2016 P8 | proof complete | 168 | Z_n function with three fixed-point-free involutions forces n ≡ 2 mod 4 | Med | Med-High | Count fixed-point-free involutions; parity constraint. |
-| 216 | IMC 2024 P8 | partial: positivity + lower-bound monotonicity proved; statement indexing fixed; upper bound + telescoping series remain | 79 | recursive sequence x_n/2^n limit bounds | Low | Med-High | Induction + telescoping sums; manage auxiliary sequence. |
+| 216 | IMC 2024 P8 | proof complete | 337 | recursive sequence x_n/2^n limit bounds | Low | Med-High | Induction + telescoping sums; manage auxiliary sequence. |
 | 217 | IMC 2017 P3 | not started | - | divisor-product iterate a_{k+1}=P(a_k); indicator-square condition on S | Med | Med-High | Multiplicative structure and prime-power choices. |
 | 218 | IMC 2023 P4 | partial: p=2 vacuous, p=3 done; p>3 structural reduction done; `key_product_lemma` remains | 246 | a_i = i^k + i complete residue system mod p | Low-Med | Med-High | Product-of-cyclotomic-lemma; finite-field machinery. |
 | 219 | IMC 2013 P3 | not started | - | 2n students, weekly trip of n, minimum trips covering all pairs | Low-Med | Med | Combinatorial design; block-design lower bound. |
