@@ -184,7 +184,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 168 | IMC 2018 P6 | proof complete | 152 | min n for k nonzero vectors in R^n with v_i perp v_j when \|i-j\|>1 | Low-Med | Med | Answer: n = ceil(k/2); existence + dim bound via pairs. |
 | 169 | IMC 2014 P7 | proof complete | 221 | sum_{i<j} a_{ii} a_{jj} >= sum_{i<j} lambda_i lambda_j for symmetric A | Low | Med | Majorization/Schur; equality iff diagonal. |
 | 170 | IMC 2001 P10 | statement formalized | 144 | principal-minor determinant vanishing implies nilpotent permutable | Med | Med | Characteristic polynomial roots; rank structure. |
-| 171 | IMC 2005 P11 | not started | - | 1-Lipschitz gradient disc max attained at unique point for r <= 1/2 | Med | High | Contraction on disc; delicate uniqueness argument. |
+| 171 | IMC 2005 P11 | partial | 110 | 1-Lipschitz gradient disc max attained at unique point for r <= 1/2 | Med | High | Contraction on disc; delicate uniqueness argument. |
 | 172 | IMC 2024 P3 | proof complete | 203 | {0,1}-matrix with A^2 = all-ones matrix iff n square | Med | Med | Row sums argument; cyclic block construction. |
 | 173 | IMC 2023 P6 | proof complete | 129 | invariance via log-determinant, reachability | Med | Med | Invariant (det of log-matrix); simple once discovered. |
 | 174 | IMC 2022 P6 | proof complete | 154 | permutation with prescribed sum mod p | Low | Med | Explicit construction x_i ≡ i^{-1} mod p. |
