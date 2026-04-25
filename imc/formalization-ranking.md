@@ -166,7 +166,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 150 | IMC 2000 P10 | proof complete | 218 | three-tangency sextic; ratio of two bounded areas | Med | Med | Parametrize sextic curve; compute areas via integration. |
 | 151 | IMC 2012 P2 | proof complete | 334 | smallest rank of n x n matrix with zero diagonal and positive off-diagonal entries | Low | Med | Answer is ceil(log_2 n); construction + rank bound. |
 | 152 | IMC 2007 P11 | partial | 269 | smallest n with k commuting square-zero matrices and A_1 ... A_k != 0 | Med | Med | Nilpotent structure; Jordan block construction. |
-| 153 | IMC 2006 P11 | not started | - | infinitely many coprime (m, n) with (x+m)^3 = nx having three integer roots | Med | Med | Parametrized family via cubic Vieta. |
+| 153 | IMC 2006 P11 | proof complete | 115 | infinitely many coprime (m, n) with (x+m)^3 = nx having three integer roots | Med | Med | Parametrized family via cubic Vieta. |
 | 154 | IMC 2008 P8 | not started | - | two distinct ellipses with common focus meet in at most 2 points | Med | Med | Polar-form equations; algebra of conic intersection. |
 | 155 | IMC 2006 P3 | not started | - | integer-matrix Smith-type factorization given determinant factorization | Med | Med-High | Smith normal form over Z; lift factorization. |
 | 156 | IMC 2008 P12 | not started | - | equidistant set in infinite Hilbert space is orthonormal translate | Med | Med-High | Inner-product Gram-matrix analysis; separable Hilbert space. |
