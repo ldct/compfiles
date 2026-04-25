@@ -199,7 +199,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 183 | IMC 2019 P2 | proof complete | 386 | find years YEAR with certain 4x4 rotation-matrix system having many solutions | Low-Med | Med | Circulant system; rank condition relates to digit sum. |
 | 184 | IMC 2024 P6 | proof complete | 157 | every f:Q->Z has a,b,c with f(b) dominating | Low | Med | Pigeonhole on finite subintervals; countable argument. |
 | 185 | IMC 2013 P8 | partial | 80 | d unit vectors in R^d, exists unit u with \|u.v_i\| <= 1/sqrt d | Med | Med | Averaging / pigeonhole on sphere; covering argument. |
-| 186 | IMC 2006 P12 | not started | - | GL_2(R) simultaneous conjugation of triples of matrices | Med | High | Representation-theoretic conjugacy invariants. |
+| 186 | IMC 2006 P12 | statement formalized | 80 | GL_2(R) simultaneous conjugation of triples of matrices | Med | High | Representation-theoretic conjugacy invariants. |
 | 187 | IMC 2015 P3 | not started | - | is sum 1/F(2^n) rational for F(n)=5/2 F(n-1)-F(n-2) | Low-Med | Med | Solve recurrence; telescoping-of-geometric-ratio identity. |
 | 188 | IMC 2009 P4 | not started | - | polynomial convolution with convex-coefficient kernel preserves sup norm | Med | High | Bernstein-type inequality; convex coefficient analysis. |
 | 189 | IMC 2007 P12 | not started | - | iterated f_n = f_{n-1} + f_{n-1}' eventually has all real roots | Med | High | Root interlacing via derivative; Rolle plus asymptotic count. |
