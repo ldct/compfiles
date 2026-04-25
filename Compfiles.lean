@@ -47,6 +47,7 @@ import Compfiles.Imc2003P2
 import Compfiles.Imc2003P3
 import Compfiles.Imc2003P4
 import Compfiles.Imc2003P5
+import Compfiles.Imc2003P6
 import Compfiles.Imc2003P7
 import Compfiles.Imc2003P8
 import Compfiles.Imc2004P1
