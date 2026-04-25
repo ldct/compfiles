@@ -209,7 +209,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 193 | IMC 2010 P4 | partial | 89 | Z \ {a x^n + b y^n} finite implies n = 1 | Low | Med | Density of n-th-power sums in Z; n>=2 leaves holes. |
 | 194 | IMC 2016 P6 | proof complete | 156 | double sum bound given harmonic-weighted condition on x_n | Low-Med | Med | Abel summation; rearrange double sum. |
 | 195 | IMC 2003 P10 | statement formalized | 67 | Steiner triple with closure rule iff n = 2^m - 1 | Med | Med-High | Identify with F_2^m minus zero; affine geometry. |
-| 196 | IMC 2010 P9 | not started | - | F_2 symmetric zero-diagonal A, every column of A^n has a zero | Med | Med | Parity/handshake in F_2; A^n diagonal zero via trace argument. |
+| 196 | IMC 2010 P9 | proof complete | 187 | F_2 symmetric zero-diagonal A, every column of A^n has a zero | Med | Med | Parity/handshake in F_2; A^n diagonal zero via trace argument. |
 | 197 | IMC 2016 P9 | not started | - | log-concavity of lattice-ball counting function f(n-1)f(n+1) <= f(n)^2 | Low-Med | Med | Combinatorial identity on layer differences. |
 | 198 | IMC 2023 P3 | partial: easy + many multiplicative intermediates done; classification via C[x,y] factorization TODO | 129 | P(x,y)P(z,t) = P(xz-yt, xt+yz) classify polynomials | Low | Med | Complex factorization (x+iy)^n(x-iy)^m; real-coef constraint. |
 | 199 | IMC 2025 P4 | partial: reverse fully proved; forward mostly proved except x ≥ -1 case | 605 | floor identity for b^{a-1} (b^a+x)^{1/a} | Low-Med | Med | Bernoulli inequality + case analysis. Real.rpow of negative base issue on a=2 noted. |
