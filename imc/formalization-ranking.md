@@ -192,7 +192,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 176 | IMC 2003 P9 | proof complete | 181 | closed A in R^n; set of points with unique nearest point in A is dense | Med | Med | Baire category; a.e. differentiability of distance fn. |
 | 177 | IMC 2013 P9 | statement formalized | 50 | infinite subset of positive integers with pairwise sums square-free | Low | Med | Explicit construction avoiding squarefull primes; diagonal argument. |
 | 178 | IMC 2012 P9 | partial | 78 | find real a with exists x_i satisfying x_i(1-x_{i+1})=a cyclic | Low | Med | Case analysis on sign and fixed-point analysis. |
-| 179 | IMC 2012 P8 | not started | - | is {n: n!+1 divides (2012n)!} finite or infinite | Low | Med | Density/residue argument using Wilson's-type lemma. |
+| 179 | IMC 2012 P8 | proof complete | 221 | is {n: n!+1 divides (2012n)!} finite or infinite | Low | Med | Density/residue argument using Wilson's-type lemma. |
 | 180 | IMC 2015 P8 | not started | - | sum of weighted 26-letter words of length 26 equals 3^75 | Low-Med | Med | Binomial inversion and switching order of summation. |
 | 181 | IMC 2025 P7 | partial: forward, additive closure, odd-element existence done; gcd/descent/ascent TODO | 169 | subsets closed under x->2x and (x+y)/2 | Low | Med | Elementary number theory; arithmetic progressions. |
 | 182 | IMC 2020 P6 | proof complete | 173 | primes with unique root of x^3-3x+1 mod p | Low | Med | Elementary finite-field + root permutation via x^2-2. |
