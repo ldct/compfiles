@@ -122,8 +122,45 @@ problem imc2023_p3 (P : MvPolynomial (Fin 2) ℝ) :
       have e2 : s * t + 0 * z = s * t := by ring
       rw [e1, e2] at h
       exact h
+    -- Setting y = 0 in hnorm gives P(x,0)² = P(x², 0): the restriction to the
+    -- x-axis is a polynomial R with R(x)² = R(x²), forcing R(x) = x^n.
+    have hRsq : ∀ x : ℝ, (P.eval ![x, 0]) ^ 2 = P.eval ![x * x, 0] := by
+      intro x
+      have h := hnorm x 0
+      have e1 : (![x, (-0 : ℝ)]) = ![x, 0] := by
+        ext i; fin_cases i <;> simp
+      rw [e1] at h
+      have : x * x + 0 * 0 = x * x := by ring
+      rw [this] at h
+      rw [sq]
+      exact h
+    -- Setting x = 0 in hnorm gives P(0,y) · P(0,-y) = P(y², 0): the restriction
+    -- to the y-axis has the same norm-squared as the restriction to the x-axis.
+    have hP0y : ∀ y : ℝ,
+        (P.eval ![0, y]) * (P.eval ![0, -y]) = P.eval ![y * y, 0] := by
+      intro y
+      have h := hnorm 0 y
+      have : (0:ℝ) * 0 + y * y = y * y := by ring
+      rw [this] at h
+      exact h
+    -- From P(0,0)² = P(0,0) and (hmul x y 0 0): if P(0,0) ≠ 0 then
+    -- P(0,0) = 1 and P(x,y) · 1 = P(0,0) = 1, so P(x,y) = 1 for all (x,y),
+    -- which corresponds to (X² + Y²)^0 = 1.
+    have hconst_one : P.eval ![0, 0] = 1 →
+        ∀ x y : ℝ, P.eval ![x, y] = 1 := by
+      intro h00 x y
+      have h := hmul x y 0 0
+      have e1 : x * 0 - y * 0 = 0 := by ring
+      have e2 : x * 0 + y * 0 = 0 := by ring
+      rw [e1, e2] at h
+      rw [h00, mul_one] at h
+      exact h
     -- Full classification requires UFD factorization over ℂ[x,y] and the
     -- complex substitution argument; left as a scoped sorry.
+    -- TODO: complete the classification by:
+    --   (a) showing R(x) := P(x, 0) equals x^n for some n (using hRsq + degree),
+    --   (b) using hrot/hscale to express P in terms of (X² + Y²)^n,
+    --   (c) handling the c = 0 case via P(0,0) = 0 ⇒ (X² + Y²) ∣ P.
     sorry
 
 end Imc2023P3
