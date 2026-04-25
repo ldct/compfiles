@@ -188,7 +188,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 172 | IMC 2024 P3 | proof complete | 203 | {0,1}-matrix with A^2 = all-ones matrix iff n square | Med | Med | Row sums argument; cyclic block construction. |
 | 173 | IMC 2023 P6 | proof complete | 129 | invariance via log-determinant, reachability | Med | Med | Invariant (det of log-matrix); simple once discovered. |
 | 174 | IMC 2022 P6 | proof complete | 154 | permutation with prescribed sum mod p | Low | Med | Explicit construction x_i ≡ i^{-1} mod p. |
-| 175 | IMC 2013 P7 | not started | - | sum_{k=0}^{pq-1} (-1)^{floor(k/p)+floor(k/q)} = 0 or 1 by parity of pq | Low-Med | Med | CRT enumeration; case on parity of pq. |
+| 175 | IMC 2013 P7 | proof complete | 235 | sum_{k=0}^{pq-1} (-1)^{floor(k/p)+floor(k/q)} = 0 or 1 by parity of pq | Low-Med | Med | CRT enumeration; case on parity of pq. |
 | 176 | IMC 2003 P9 | not started | - | closed A in R^n; set of points with unique nearest point in A is dense | Med | Med | Baire category; a.e. differentiability of distance fn. |
 | 177 | IMC 2013 P9 | not started | - | infinite subset of positive integers with pairwise sums square-free | Low | Med | Explicit construction avoiding squarefull primes; diagonal argument. |
 | 178 | IMC 2012 P9 | not started | - | find real a with exists x_i satisfying x_i(1-x_{i+1})=a cyclic | Low | Med | Case analysis on sign and fixed-point analysis. |
