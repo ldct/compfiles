@@ -217,7 +217,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 201 | IMC 2010 P8 | partial: statement + sum_x \|stab G x\| = (\|G\|-1)+n proven; orbit-counting deduction sorry'd | 186 | subgroup G <= S_n with each nontrivial pi having unique fixed point forces same fixed k | Med | Med | Frobenius-group structure; orbit counting. |
 | 202 | IMC 2009 P5 | statement formalized | 100 | weighted circumcenter identity for simplex split at interior point | Med-High | High | Barycentric circumcenter formula; multi-dimensional geometry. |
 | 203 | IMC 2009 P10 | statement formalized | 148 | minimal covering subspace T of matrices with dim bound delta(T) <= C(n,2) | Med-High | High | Linear-algebra extremal; delicate dimension counting. |
-| 204 | IMC 2012 P5 | not started | - | X^{2^n}(X+a)^{2^n} + 1 irreducible in Q[X] for rational a | Low-Med | Med-High | Eisenstein-like analysis after substitution; degree/root argument. |
+| 204 | IMC 2012 P5 | statement formalized | 39 | X^{2^n}(X+a)^{2^n} + 1 irreducible in Q[X] for rational a | Low-Med | Med-High | Eisenstein-like analysis after substitution; degree/root argument. |
 | 205 | IMC 2004 P5 | not started | - | monotone doubling subsequence from C(k-2, 2k-4)+1 reals | Med | Med-High | Erdos-Szekeres-style Ramsey bound; extremal. |
 | 206 | IMC 2018 P2 | not started | - | no field has multiplicative group isomorphic to additive group | Low | Med-High | Case analysis char 2 vs odd; finite fields plus infinite case. |
 | 207 | IMC 2021 P8 | partial: achievability (2n via {±e_i}) proved; upper bound N ≤ 2n sorry | 259 | unit vectors with 3-at-a-time orthogonality condition | Low-Med | Med | Projector trace identities; algebraic inequalities. |
