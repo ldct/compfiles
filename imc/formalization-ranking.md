@@ -205,7 +205,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 189 | IMC 2007 P12 | statement formalized | 40 | iterated f_n = f_{n-1} + f_{n-1}' eventually has all real roots | Med | High | Root interlacing via derivative; Rolle plus asymptotic count. |
 | 190 | IMC 2004 P12 | statement formalized | 126 | row sum of A_n^{k-1} equals row sum of A_k^{n-1} for recursive block | Med | Med-High | Induction on block structure; Kronecker-product identity. |
 | 191 | IMC 2018 P3 | proof complete | 201 | find rational a for which 4x4 block matrix is a rational square | Med | Med | Block decomposition over Q(i); rational Pell-like condition. |
-| 192 | IMC 2018 P9 | not started | - | classify monic complex P,Q with P \| Q^2+1 and Q \| P^2+1 | Low | Med-High | Degree comparison; classify via iteration identity. |
+| 192 | IMC 2018 P9 | partial: backward direction proved; forward (Vieta-jumping descent) sorry'd | 96 | classify monic complex P,Q with P \| Q^2+1 and Q \| P^2+1 | Low | Med-High | Degree comparison; classify via iteration identity. |
 | 193 | IMC 2010 P4 | not started | - | Z \ {a x^n + b y^n} finite implies n = 1 | Low | Med | Density of n-th-power sums in Z; n>=2 leaves holes. |
 | 194 | IMC 2016 P6 | not started | - | double sum bound given harmonic-weighted condition on x_n | Low-Med | Med | Abel summation; rearrange double sum. |
 | 195 | IMC 2003 P10 | not started | - | Steiner triple with closure rule iff n = 2^m - 1 | Med | Med-High | Identify with F_2^m minus zero; affine geometry. |
