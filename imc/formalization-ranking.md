@@ -233,7 +233,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 217 | IMC 2017 P3 | statement formalized | 66 | divisor-product iterate a_{k+1}=P(a_k); indicator-square condition on S | Med | Med-High | Multiplicative structure and prime-power choices. |
 | 218 | IMC 2023 P4 | partial: p=2 vacuous, p=3 done; p>3 structural reduction done; `key_product_lemma` remains | 246 | a_i = i^k + i complete residue system mod p | Low-Med | Med-High | Product-of-cyclotomic-lemma; finite-field machinery. |
 | 219 | IMC 2013 P3 | partial: lower bound proved (each student in ≥3 trips, double counting); upper bound construction sorry'd | 169 | 2n students, weekly trip of n, minimum trips covering all pairs | Low-Med | Med | Combinatorial design; block-design lower bound. |
-| 220 | IMC 2002 P10 | not started | - | tetrahedron dihedral angle inequality via spherical areas | Med-High | High | Spherical polygon area bound; Gauss-Bonnet flavor. |
+| 220 | IMC 2002 P10 | statement formalized | 88 | tetrahedron dihedral angle inequality via spherical areas | Med-High | High | Spherical polygon area bound; Gauss-Bonnet flavor. |
 | 221 | IMC 2014 P4 | not started | - | perfect n > 6 with factorization p_1^{e_1}..p_k^{e_k} has e_1 even | Low | Med-High | sigma = 2n analysis; parity of e_1 from mod-p counting. |
 | 222 | IMC 2020 P4 | partial: boundary-value helpers proved; main inequality (max principle on rectangle) remains | 63 | p(x+1)-p(x)=x^{100} => p(1-t) >= p(t) | Low | High | Complex analysis / max principle on rectangle. |
 | 223 | IMC 2017 P8 | not started | - | recursive block matrix A_n with n+1 integer eigenvalues with binomial multiplicities | Med | Med-High | Kronecker-product eigenvalue induction. |
