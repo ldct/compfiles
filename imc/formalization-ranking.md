@@ -190,7 +190,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 174 | IMC 2022 P6 | proof complete | 154 | permutation with prescribed sum mod p | Low | Med | Explicit construction x_i ≡ i^{-1} mod p. |
 | 175 | IMC 2013 P7 | proof complete | 235 | sum_{k=0}^{pq-1} (-1)^{floor(k/p)+floor(k/q)} = 0 or 1 by parity of pq | Low-Med | Med | CRT enumeration; case on parity of pq. |
 | 176 | IMC 2003 P9 | proof complete | 181 | closed A in R^n; set of points with unique nearest point in A is dense | Med | Med | Baire category; a.e. differentiability of distance fn. |
-| 177 | IMC 2013 P9 | not started | - | infinite subset of positive integers with pairwise sums square-free | Low | Med | Explicit construction avoiding squarefull primes; diagonal argument. |
+| 177 | IMC 2013 P9 | statement formalized | 50 | infinite subset of positive integers with pairwise sums square-free | Low | Med | Explicit construction avoiding squarefull primes; diagonal argument. |
 | 178 | IMC 2012 P9 | not started | - | find real a with exists x_i satisfying x_i(1-x_{i+1})=a cyclic | Low | Med | Case analysis on sign and fixed-point analysis. |
 | 179 | IMC 2012 P8 | not started | - | is {n: n!+1 divides (2012n)!} finite or infinite | Low | Med | Density/residue argument using Wilson's-type lemma. |
 | 180 | IMC 2015 P8 | not started | - | sum of weighted 26-letter words of length 26 equals 3^75 | Low-Med | Med | Binomial inversion and switching order of summation. |
