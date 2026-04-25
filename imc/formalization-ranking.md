@@ -201,7 +201,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 185 | IMC 2013 P8 | partial | 80 | d unit vectors in R^d, exists unit u with \|u.v_i\| <= 1/sqrt d | Med | Med | Averaging / pigeonhole on sphere; covering argument. |
 | 186 | IMC 2006 P12 | statement formalized | 80 | GL_2(R) simultaneous conjugation of triples of matrices | Med | High | Representation-theoretic conjugacy invariants. |
 | 187 | IMC 2015 P3 | proof complete | 158 | is sum 1/F(2^n) rational for F(n)=5/2 F(n-1)-F(n-2) | Low-Med | Med | Solve recurrence; telescoping-of-geometric-ratio identity. |
-| 188 | IMC 2009 P4 | not started | - | polynomial convolution with convex-coefficient kernel preserves sup norm | Med | High | Bernstein-type inequality; convex coefficient analysis. |
+| 188 | IMC 2009 P4 | statement formalized | 67 | polynomial convolution with convex-coefficient kernel preserves sup norm | Med | High | Bernstein-type inequality; convex coefficient analysis. |
 | 189 | IMC 2007 P12 | not started | - | iterated f_n = f_{n-1} + f_{n-1}' eventually has all real roots | Med | High | Root interlacing via derivative; Rolle plus asymptotic count. |
 | 190 | IMC 2004 P12 | not started | - | row sum of A_n^{k-1} equals row sum of A_k^{n-1} for recursive block | Med | Med-High | Induction on block structure; Kronecker-product identity. |
 | 191 | IMC 2018 P3 | not started | - | find rational a for which 4x4 block matrix is a rational square | Med | Med | Block decomposition over Q(i); rational Pell-like condition. |
