@@ -223,7 +223,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 207 | IMC 2021 P8 | proof complete | 586 | unit vectors with 3-at-a-time orthogonality condition | Low-Med | Med | Projector trace identities; algebraic inequalities. |
 | 208 | IMC 2025 P9 | proof complete | 53 | expected max of a prob 2^{-i} random process | Med | Med | Induction + geometric sum; countable probability space. |
 | 209 | IMC 2021 P6 | proof complete | 282 | no injection GL_2(F_p) -> S_p | Med | Med | Element-of-order-2p + structure of S_p. |
-| 210 | IMC 2017 P9 | not started | - | ODE-defined sequence f_n'=f_{n-1}f_n, find limit function | Low-Med | Med-High | Compare with 1/(1-x); explicit rational limit. |
+| 210 | IMC 2017 P9 | partial: statement + bounds + monotonicity + fixed-point Φ(1/(1-·))=1/(1-·); limit identification TODO | 184 | ODE-defined sequence f_n'=f_{n-1}f_n, find limit function | Low-Med | Med-High | Compare with 1/(1-x); explicit rational limit. |
 | 211 | IMC 2010 P10 | not started | - | f zero on (a,b) and sum_{k<p} f(y+k/p)=0 for all primes p, y => f=0 | Med | Med-High | Rational-shift density; Moebius-type cancellation across primes. |
 | 212 | IMC 2014 P10 | not started | - | Delta(n,k) derangement recursion via binomial-D_j sum | Med | Med-High | Combinatorial bijection on fixed-prefix derangements. |
 | 213 | IMC 2014 P8 | not started | - | \|(sin x / x)^{(n)}\| < 1/(n+1) for x > 0 | Low | Med-High | Integral representation sin x/x = integral cos(xt) dt; dominated-conv bound. |
