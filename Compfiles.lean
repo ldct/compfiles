@@ -91,6 +91,7 @@ import Compfiles.Imc2007P11
 import Compfiles.Imc2008P1
 import Compfiles.Imc2008P10
 import Compfiles.Imc2008P11
+import Compfiles.Imc2008P12
 import Compfiles.Imc2008P2
 import Compfiles.Imc2008P3
 import Compfiles.Imc2008P4
