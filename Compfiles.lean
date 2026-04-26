@@ -25,6 +25,7 @@ import Compfiles.Imc1995P1
 import Compfiles.Imc1995P2
 import Compfiles.Imc1995P3
 import Compfiles.Imc1995P4
+import Compfiles.Imc1995P5
 import Compfiles.Imc2000P1
 import Compfiles.Imc2000P2
 import Compfiles.Imc2000P3
