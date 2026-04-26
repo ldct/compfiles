@@ -72,6 +72,7 @@ import Compfiles.Imc1998P12
 import Compfiles.Imc1999P1
 import Compfiles.Imc1999P2
 import Compfiles.Imc1999P3
+import Compfiles.Imc1999P4
 import Compfiles.Imc2000P1
 import Compfiles.Imc2000P2
 import Compfiles.Imc2000P3
