@@ -136,6 +136,7 @@ import Compfiles.Imc2010P9
 import Compfiles.Imc2010P10
 import Compfiles.Imc2011P1
 import Compfiles.Imc2011P2
+import Compfiles.Imc2011P3
 import Compfiles.Imc2011P4
 import Compfiles.Imc2011P5
 import Compfiles.Imc2011P6
