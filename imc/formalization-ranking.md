@@ -342,7 +342,7 @@ Problem counts per year: 1994-1999 had 6 problems/day × 2 days = 12 per year. T
 | IMC 1994 P2 | proof complete (130 LoC) | ODE inequality f' + f^2 >= -1 implies b - a >= pi | Low | Low-Med |
 | IMC 1994 P3 | statement + base case (126 LoC, sorry on inductive step) | 2n-1 irrationals, find n with Q+-independent sums | Med | Med |
 | IMC 1994 P4 | proof complete (130 LoC) | linear operator FG - GF = alpha F implies F nilpotent | Low | Low-Med |
-| IMC 1994 P5 | not started | limit of integral f(x)g(nx) with g periodic | Low-Med | Med |
+| IMC 1994 P5 | statement + key substitution lemma (104 LoC, sorry on main limit) | limit of integral f(x)g(nx) with g periodic | Low-Med | Med |
 | IMC 1994 P6 | not started | convex C^2 function, rational-point count on graph | Med | Med-High |
 | IMC 1994 P7 | not started | f(a)=0 and \|f'\| <= lambda \|f\| implies f = 0 | Low | Low |
 | IMC 1994 P8 | not started | extrema of (x^2 - y^2)exp(-x^2 - y^2) | Low | Low |
