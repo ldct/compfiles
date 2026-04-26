@@ -12,6 +12,7 @@ import Compfiles.Hungary1998P6
 import Compfiles.Imc1994P1
 import Compfiles.Imc1994P2
 import Compfiles.Imc1994P3
+import Compfiles.Imc1994P4
 import Compfiles.Imc2000P1
 import Compfiles.Imc2000P2
 import Compfiles.Imc2000P3
