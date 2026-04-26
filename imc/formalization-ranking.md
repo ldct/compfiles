@@ -346,7 +346,7 @@ Problem counts per year: 1994-1999 had 6 problems/day × 2 days = 12 per year. T
 | IMC 1994 P6 | parts (a)-MVT step + (b) complete (151 LoC, sorry on rational-counting + optimisation in (c)) | convex C^2 function, rational-point count on graph | Med | Med-High |
 | IMC 1994 P7 | proof complete (51 LoC) | f(a)=0 and \|f'\| <= lambda \|f\| implies f = 0 | Low | Low |
 | IMC 1994 P8 | proof complete (117 LoC) | extrema of (x^2 - y^2)exp(-x^2 - y^2) | Low | Low |
-| IMC 1994 P9 | not started | MVT-style existence via log sum of derivatives | Low | Low |
+| IMC 1994 P9 | proof complete (162 LoC) | MVT-style existence via log sum of derivatives | Low | Low |
 | IMC 1994 P10 | not started | dim of commutant of diagonal matrix is sum d_i^2 | Low | Low-Med |
 | IMC 1994 P11 | not started | permutation of zero-sum vectors with bounded partial sums | Med | Med |
 | IMC 1994 P12 | not started | asymptotic double-log Riemann sum to 1 | Low-Med | Med |
