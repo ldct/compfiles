@@ -344,7 +344,7 @@ Problem counts per year: 1994-1999 had 6 problems/day × 2 days = 12 per year. T
 | IMC 1994 P4 | proof complete (130 LoC) | linear operator FG - GF = alpha F implies F nilpotent | Low | Low-Med |
 | IMC 1994 P5 | statement + key substitution lemma (104 LoC, sorry on main limit) | limit of integral f(x)g(nx) with g periodic | Low-Med | Med |
 | IMC 1994 P6 | parts (a)-MVT step + (b) complete (151 LoC, sorry on rational-counting + optimisation in (c)) | convex C^2 function, rational-point count on graph | Med | Med-High |
-| IMC 1994 P7 | not started | f(a)=0 and \|f'\| <= lambda \|f\| implies f = 0 | Low | Low |
+| IMC 1994 P7 | proof complete (51 LoC) | f(a)=0 and \|f'\| <= lambda \|f\| implies f = 0 | Low | Low |
 | IMC 1994 P8 | not started | extrema of (x^2 - y^2)exp(-x^2 - y^2) | Low | Low |
 | IMC 1994 P9 | not started | MVT-style existence via log sum of derivatives | Low | Low |
 | IMC 1994 P10 | not started | dim of commutant of diagonal matrix is sum d_i^2 | Low | Low-Med |
