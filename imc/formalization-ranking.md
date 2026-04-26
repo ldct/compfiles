@@ -242,7 +242,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 226 | IMC 2014 P6 | proof complete | 172 | finitely many zeros in (d_n(a_n)) implies infinitely many missing positive integers | Med | Med | Density/counting argument on digit pattern constraints. |
 | 227 | IMC 2011 P5 | statement formalized | 53 | 4n-1 vectors in (2n-1)-dim F_2 space contain 2n with zero sum | Med | Med | Erdos-Ginzburg-Ziv style over F_2; pigeonhole on subset sums. |
 | 228 | IMC 2022 P3 | proof complete | 291 | flea on Z, strategies mod p | Low-Med | Med-High | Generating functions mod p; binomial identities. |
-| 229 | IMC 2004 P4 | not started | - | 2-coloring condition on sphere intersections forces cosphericity | Med | High | Topological/convexity argument; separating sphere analysis. |
+| 229 | IMC 2004 P4 | statement formalized | 84 | 2-coloring condition on sphere intersections forces cosphericity | Med | High | Topological/convexity argument; separating sphere analysis. |
 | 230 | IMC 2023 P1 | proof complete | 271 | f(7x+1)=49f(x) with C^2 => f(x)=c(6x+1)^2 | Low | Med | Fixed-point contraction argument. |
 | 231 | IMC 2019 P8 | not started | - | subset sums with 1.8^n distinct values, <= 1.7^n equal to any fixed target | Med | Med-High | Entropy / additive combinatorics counting. |
 | 232 | IMC 2015 P5 | not started | - | n+1 points + interior point: >= n pairs with angle A_i B A_j > 90 | Med | Med-High | Convex hull / gradient argument; pigeonhole on directions. |
