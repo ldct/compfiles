@@ -250,7 +250,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 234 | IMC 2016 P4 | proof complete | 367 | union-closed family with C(n,k)+1 k-sets has >= 3 sets of size n+ | Med | Med-High | Iterated unions; extremal set-family argument. |
 | 235 | IMC 2021 P3 | partial: `Good` definition aligned with original (sorted-partition gap ≤ 1/n); `good_le_two` reproved; main split into `good_le_harmonic_block` + `good_le_log_two` + `log_two_le_sSup_good` (all sorry'd) | 175 | good d: sup=ln 2 with sequence partition | Med | High | Partial fraction/log identities; sequence construction. |
 | 236 | IMC 2017 P5 | statement formalized | 66 | f and z^n-1 share at most n-k common roots under c_i c_{n-2-i}=0 | Med | Med-High | Sparse-polynomial structure; counting argument. |
-| 237 | IMC 2013 P10 | not started | - | 2013-bead necklace, count good paintings with every 21 successive having a green is odd | Med | Med-High | Transfer-matrix determinant over F_2; trace parity. |
+| 237 | IMC 2013 P10 | statement formalized | 84 | 2013-bead necklace, count good paintings with every 21 successive having a green is odd | Med | Med-High | Transfer-matrix determinant over F_2; trace parity. |
 | 238 | IMC 2023 P8 | proof complete | 238 | tree Wiener index times harmonic index bound | Med | Med | Cauchy-Schwarz; needs graph theory library (tree, distance). |
 | 239 | IMC 2022 P5 | proof complete | 794 | count monochromatic triangles on K_{43} | Med | Med-High | Double counting 'cherries'; specific 43-vertex problem. |
 | 240 | IMC 2015 P9 | not started | - | max dimension of t-normal subspace of complex n x n matrices | Med | High | Linear-algebra structure; symmetric + antisymmetric parts. |
