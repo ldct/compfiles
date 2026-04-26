@@ -247,7 +247,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 231 | IMC 2019 P8 | proof complete | 261 | subset sums with 1.8^n distinct values, <= 1.7^n equal to any fixed target | Med | Med-High | Entropy / additive combinatorics counting. |
 | 232 | IMC 2015 P5 | partial: statement formalized; barycentric weights extracted, v_i ≠ 0 proved, angle ↔ inner product reduction done; connectedness of negative-inner-product graph remains | 173 | n+1 points + interior point: >= n pairs with angle A_i B A_j > 90 | Med | Med-High | Convex hull / gradient argument; pigeonhole on directions. |
 | 233 | IMC 2020 P7 | proof complete | 136 | subgroups with index conditions are conjugate | Med | Med-High | Coset counting; finite group argument. |
-| 234 | IMC 2016 P4 | not started | - | union-closed family with C(n,k)+1 k-sets has >= 3 sets of size n+ | Med | Med-High | Iterated unions; extremal set-family argument. |
+| 234 | IMC 2016 P4 | proof complete | 367 | union-closed family with C(n,k)+1 k-sets has >= 3 sets of size n+ | Med | Med-High | Iterated unions; extremal set-family argument. |
 | 235 | IMC 2021 P3 | partial: crude d ≤ 2 bound via n=1; definition of `Good` in file differs from original, main sSup = log 2 remains | 94 | good d: sup=ln 2 with sequence partition | Med | High | Partial fraction/log identities; sequence construction. |
 | 236 | IMC 2017 P5 | not started | - | f and z^n-1 share at most n-k common roots under c_i c_{n-2-i}=0 | Med | Med-High | Sparse-polynomial structure; counting argument. |
 | 237 | IMC 2013 P10 | not started | - | 2013-bead necklace, count good paintings with every 21 successive having a green is odd | Med | Med-High | Transfer-matrix determinant over F_2; trace parity. |
