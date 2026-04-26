@@ -372,7 +372,7 @@ Problem counts per year: 1994-1999 had 6 problems/day × 2 days = 12 per year. T
 | IMC 1996 P8 | proof complete (262 LoC) | cosh k theta, cosh(k+1) theta rational implies cosh theta rational | Low | Med |
 | IMC 1996 P9 | sorry skeleton (statements of (a) abelian and (b) not finitely generated; matrix `M(x)`, generators `A`, `B`, subgroups `G`, `H` defined; key auxiliary lemmas `M_mul_M`, `M_inv`, `A_inv_M_A` (the conjugation `A⁻¹ M(x) A = M(x/2)`) all fully proved; structural upper-triangularity argument left as sorry, 170 LoC) | commutator subgroup of <diag(2,1),unipotent> not finitely generated | Med | Med |
 | IMC 1996 P10 | sorry skeleton (statement of the contradiction form: closed/bounded/convex/symmetric `B` whose maximal inscribed axis-aligned ellipse is the unit disc admits no closed arc of length ≥ π/2 strictly inside `B`; definitions `unitDisc`, `unitCircle`, `circlePoint`, `ellipse a b`, `arc α β`; detailed outline of the area-comparison proof using `E_ε : x²/(1+ε)² + y²/b² = 1`, 152 LoC) | inscribed disc of convex body, arc-length 90-degree condition | High | High |
-| IMC 1996 P11 | not started | limit of sum nx/(n^2+x)^2 and error rate | Low-Med | Med |
+| IMC 1996 P11 | sorry skeleton (statements of (i) and (ii); auxiliary `f(t) = t/(1+t²)²` and the algebraic identity `term n x = (1/√x) · f(n/√x)` (valid for `x > 0`) fully proved, 159 LoC) | limit of sum nx/(n^2+x)^2 and error rate | Low-Med | Med |
 | IMC 1996 P12 | not started | Carleman's inequality and its sharp constant | Low | Med |
 | IMC 1997 P1 | not started | limit (1/n) sum log(k/n + eps_n) = -1 | Low | Low-Med |
 | IMC 1997 P2 | not started | convergence under two specific permutations | Low | Med |
