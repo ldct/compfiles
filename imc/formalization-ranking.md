@@ -360,7 +360,7 @@ Problem counts per year: 1994-1999 had 6 problems/day × 2 days = 12 per year. T
 | IMC 1995 P8 | proof complete (198 LoC) | nested radical sequence, evaluate sum b_n 2^n | Low | Low-Med |
 | IMC 1995 P9 | proof complete (231 LoC) | roots on unit circle, roots of 2z P'(z) - n P(z) too | Med | Med |
 | IMC 1995 P10 | part (a) proved, part (b) sorry skeleton (237 LoC) | approximation by odd polynomials with only odd degrees >= 3 | Low-Med | Med |
-| IMC 1995 P11 | not started | cosine sum sign-change and zero-count bounds | Med | Med-High |
+| IMC 1995 P11 | sorry skeleton (statement + outline, 156 LoC) | cosine sum sign-change and zero-count bounds | Med | Med-High |
 | IMC 1995 P12 | not started | uniformly bounded orthonormal sequence, no pointwise limit | Low-Med | Med |
 | IMC 1996 P1 | not started | determinant of symmetric arithmetic-progression matrix | Low | Low-Med |
 | IMC 1996 P2 | not started | integral sin(nx)/((1+2^x) sin x) = 0 or pi | Low | Low |
