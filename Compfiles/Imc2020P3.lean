@@ -51,10 +51,25 @@ problem imc2020_p3 (d : ℕ) (hd : 2 ≤ d) :
       ∃ L : Polytope d,
         (L.vertices.card : ℝ) ≤ C * ε ^ (1 - (d : ℤ)) ∧
         smulSet (1 - ε) K.toSet ⊆ L.toSet ∧ L.toSet ⊆ K.toSet := by
-  -- TODO: Classical John-ellipsoid style result.
-  -- Cover the boundary of K by O(ε^{(1-d)/2}) "caps" each of angular
-  -- radius ~√ε; take a spanning polytope with vertices on these caps.
-  -- Centrally symmetric version of Dudley-Bronshtein theorem.
+  -- TODO: Official solution (volume packing + separating hyperplane).
+  -- Take an inclusion-maximal set {p₁, …, p_m} ⊆ ∂K such that the
+  -- translated bodies Kᵢ = pᵢ + (ε/2) K have pairwise disjoint interiors,
+  -- and let L = conv{p₁, …, p_m}.
+  --
+  -- Counting:  Each Kᵢ ⊆ (1+ε/2) K \ (1-ε/2) K (using central symmetry
+  -- and pᵢ ∈ ∂K).  Volume comparison gives
+  --   m · (ε/2)^d · vol K ≤ ((1+ε/2)^d - (1-ε/2)^d) · vol K
+  --                      ≤ (3/2)^d · ε · vol K,
+  -- whence m ≤ 3^d · ε^{1-d}.  So C(d) := 3^d works.
+  --
+  -- Inclusion (1-ε) K ⊆ L:  if p ∈ (1-ε) K \ L, separate by a linear
+  -- functional ℓ with ℓ(p) > maxᵢ ℓ(pᵢ).  Pick x ∈ K maximising ℓ; by
+  -- maximality of {pᵢ}, x + (ε/2) K meets some Kᵢ, giving
+  -- ℓ(pᵢ) ≥ (1-ε) · max_K ℓ ≥ ℓ(p), contradiction.
+  --
+  -- Mathlib gaps:  volume scaling for centrally symmetric convex bodies
+  -- in EuclideanSpace, Minkowski-sum volume bound, and a usable
+  -- formulation of the geometric Hahn–Banach theorem on Finset.convexHull.
   sorry
 
 end Imc2020P3
