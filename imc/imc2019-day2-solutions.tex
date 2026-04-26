@@ -1,0 +1,46 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+
+\title{IMC 2019, Day 2 Solutions}
+\date{July 31, 2019}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 6}
+\subsection*{Solution}
+Let $F(x) = \int_0^x f(t)\, dt$ and $h(x) = F(x) - g(x)$. Then $h'(x) = f(x) - g'(x)$. The hypothesis says $h'(0) \cdot (-h'(1)) > 0$, so $h'(0)$ and $h'(1)$ have opposite signs. By Darboux's theorem (intermediate value property for derivatives), there is $c \in (0, 1)$ with $h'(c) = 0$, i.e., $f(c) = g'(c)$.
+
+\section*{Problem 7}
+\subsection*{Solution}
+Converges. We show $a_n/n \leq 2/3$ for $n > 4$.
+\begin{itemize}
+\item \textbf{Two distinct primes:} $n = qr$, $\gcd(q,r) = 1$, $q > r \geq 2$. Then $n \mid q!$, so $a_n \leq q$ and $a_n/n \leq 1/r \leq 1/2$.
+\item \textbf{$n = p^2$, $p \geq 3$:} $n \mid (2p)!$, $a_n = 2p$, ratio $2/p \leq 2/3$.
+\item \textbf{$n = p^k$, $k \geq 3$:} $n \mid p \cdot p^2 \cdots p^{k-1}$, so $a_n \leq p^{k-1}$, ratio $\leq 1/p \leq 1/2$.
+\end{itemize}
+Thus $\sum (a_n/n)^n \leq \sum (2/3)^n$ converges.
+
+\section*{Problem 8}
+\subsection*{Solution}
+Let $A \geq 1.8^n$ distinct sets $I_1, \ldots, I_A$ give distinct sums, and assume $B \geq 1.7^n$ sets $J_1, \ldots, J_B$ have $s(J_b) = 2019$. Identify sets with $\{0,1\}^n$. Then $AB \geq (1.8 \cdot 1.7)^n = 3.06^n > 3^n$. By pigeonhole on the $3^n$ possible values of $I_a - J_b \in \{-1, 0, 1\}^n$, some $(a,b) \neq (c,d)$ give $I_a - J_b = I_c - J_d$. Dot with $x$: $s(I_a) - 2019 = s(I_c) - 2019$, so $a = c$, then $J_b = J_d$, $b = d$. Contradiction.
+
+\section*{Problem 9}
+\subsection*{Solution}
+Answer: all even $n$.
+
+\textbf{Odd $n$ impossible.} $AB - BA = B^2 A$ gives $B = A^{-1}(B^2 + B) A$, so $B$ and $B^2 + B$ are similar. $B$ has a real eigenvalue $\lambda_1$ (odd $n$). Then $\lambda_{k+1} = \lambda_k^2 + \lambda_k$ is always an eigenvalue of $B$. Finitely many eigenvalues, so $\lambda_{l+1} = \lambda_k$ for some $k \leq l$. Summing the telescoping gives $\lambda_k^2 + \cdots + \lambda_l^2 = 0$, all real, so all zero, contradicting $B$ invertible.
+
+\textbf{Even $n$ works.} $A_2 = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$, $B_2 = \begin{pmatrix} -1 & 1 \\ -1 & -1 \end{pmatrix}$ satisfy the relation; block diagonal extends to $n = 2k$.
+
+\section*{Problem 10}
+\subsection*{Solution}
+The quadrilateral is more likely. Let
+\[ p = \mathbb{P}(C \text{ is } \triangle X_1 X_2 X_3), \quad q = \mathbb{P}(C \text{ is quad on } X_1,\ldots,X_4). \]
+By symmetry, $\mathbb{P}(\triangle) = \binom{2019}{3} p$, $\mathbb{P}(\text{quad}) = \binom{2019}{4} q$. Suffices to show $p < 504 q$, equivalently $\operatorname{area}(\triangle X_1 X_2 X_3) \leq 500 \operatorname{area}(\Omega)$ where $\Omega = \{Y : X_1 X_2 X_3 Y \text{ convex quad}\}$.
+
+Suppose $\operatorname{area}(\triangle) > 500 \operatorname{area}(\Omega)$. Extend lines $X_i X_j$ to the disc boundary giving points $A_i, B_i$. The disc splits into 7 regions $D_0, \ldots, D_6$; $\Omega = D_4 \cup D_5 \cup D_6$. From $\triangle X_1 X_3 B_3 \subseteq \Omega$: $X_3 B_3 / X_2 X_3 < 1/500$, so each segment $A_i X_j, B_i X_j < 1/250$. Then $D_1, D_2, D_3$ fit in disks of radius $1/250$, $\operatorname{area}(D_1 + D_2 + D_3) < 3\pi/250^2$. Also $\operatorname{area}(D_0) \leq 3\sqrt 3/4$. Sum:
+\[ \sum \operatorname{area}(D_i) < \frac{3\sqrt 3}{4} + \frac{3\pi}{250^2} + \frac{\pi}{500} < \pi = \operatorname{area}(D). \]
+Contradiction.
+
+\end{document}

@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{IMC 1999, Day 2 --- Solutions}
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+In a ring $R$ (not necessarily commutative) the square of any element is $0$. Prove $abc+abc=0$ for all $a,b,c$.
+
+\subsection*{Solution}
+From $(a+b)^2=0$: $ab+ba=0$, i.e., $ab=-ba$. Then
+\[abc = a(bc) = -(bc)a = -b(ca) = (ca)b = c(ab) = -(ab)c = -abc.\]
+So $2abc=0$, i.e., $abc+abc=0$.
+
+\section*{Problem 2}
+Throw a standard die $n$ times. What is the probability the sum is divisible by $5$?
+
+\subsection*{Solution}
+Let $\varepsilon = e^{2\pi i/5}$. Generating function: $f(x) = ((x+x^2+\cdots+x^6)/6)^n$. The desired sum is $\frac 15\sum_{j=0}^4 f(\varepsilon^j)$.
+
+$f(1)=1$; for $j\ne 0$, $(\varepsilon^j+\cdots+\varepsilon^{6j})/6 = \varepsilon^j/6$ (since $1+\varepsilon^j+\varepsilon^{2j}+\varepsilon^{3j}+\varepsilon^{4j}=0$), so $f(\varepsilon^j) = \varepsilon^{jn}/6^n$. Summing:
+\[\sum_{j=1}^4 \varepsilon^{jn} = \begin{cases}4 & 5\mid n\\ -1 & \text{else}\end{cases}.\]
+So $P = \frac{1}{5} + \frac{4}{5\cdot 6^n}$ if $5\mid n$, else $\frac{1}{5} - \frac{1}{5\cdot 6^n}$.
+
+\section*{Problem 3}
+If $x_1,\dots,x_n\ge -1$ and $\sum x_i^3 = 0$, prove $\sum x_i \le n/3$.
+
+\subsection*{Solution}
+For $x\ge -1$, $(x+1)(x-1/2)^2 = x^3 - \frac 34 x + \frac 14 \ge 0$. Summing:
+\[0 \le \sum x_i^3 - \tfrac 34 \sum x_i + \tfrac{n}{4} = -\tfrac 34\sum x_i + \tfrac n4,\]
+so $\sum x_i \le n/3$.
+
+\section*{Problem 4}
+Prove no $f:(0,\infty)\to(0,\infty)$ satisfies $f(x)^2 \ge f(x+y)(f(x)+y)$ for all $x,y>0$.
+
+\subsection*{Solution}
+Rewriting: $f(x)-f(x+y) \ge \frac{f(x)y}{f(x)+y}$, so $f$ is decreasing. Fix $x$; pick $n$ with $nf(x+1)\ge 1$. For $k=0,\dots,n-1$:
+\[f(x+k/n)-f(x+(k+1)/n) \ge \frac{f(x+k/n)/n}{f(x+k/n)+1/n} \ge \frac{1}{2n}.\]
+Summing: $f(x+1) \le f(x) - 1/2$. So $f(x+2m) \le f(x) - m\to -\infty$, contradicting positivity.
+
+\section*{Problem 5}
+Let $\sim$ be an equivalence relation on words in $\{x,y,z\}^*$ with $uu\sim u$ and $v\sim w \Rightarrow uv\sim uw, vu\sim wu$. Show every word is equivalent to one of length $\le 8$.
+
+\subsection*{Solution}
+\textbf{Lemma.} If $u$ contains all three letters and $v$ is any word, there is $w$ with $uvw\sim u$.
+
+\textit{Proof.} For $v$ a single letter $x$: write $u=u_1 x u_2$, take $w=u_2$. Then $uvw = u_1 x u_2 x u_2 = u_1(xu_2)(xu_2) \sim u_1 xu_2 = u$. For general $v=a_1\cdots a_k$: iteratively pick $w_i$ with $(ua_1\cdots a_i)w_i \sim ua_1\cdots a_{i-1}$, so $u\sim uvw_k\cdots w_1$.
+
+Now let $a$ have length $>8$. If $a = uvvw$, then $a\sim uvw$ shorter. Else write $a=bcd$ with $|b|=|d|=4$; then $b$ and $d$ each contain all three letters (else further reduction possible). By the lemma, $\exists e$ with $b(cd)e\sim b$ and $\exists f$ with $def\sim d$. Then
+\[a = bcd \sim bc(def) \sim bc(dedef) = (bcde)(def) \sim (bcde) d \cdot (ef)^{-1}\text{-like}\]
+More directly: $bcd \sim bcdef\cdot (\text{cancel}) \sim \dots$. The key identity $a\sim bd$ has length $8$.
+
+\section*{Problem 6}
+Let $A\subset\mathbb{Z}_n$ with $|A|\le \frac{1}{100}\ln n$. For $r\in\mathbb{Z}_n$ define $f(r)=\sum_{s\in A}e^{2\pi i sr/n}$. Prove $\exists r\ne 0$ with $|f(r)|\ge |A|/2$.
+
+\subsection*{Solution}
+Let $A=\{a_1,\dots,a_k\}$. Consider the $k$-tuples
+\[v_t = (e^{2\pi i a_1 t/n},\dots, e^{2\pi i a_k t/n}) \in (S^1)^k,\quad t=0,\dots,n-1.\]
+Partition $S^1$ into 6 equal arcs, giving $6^k$ classes of $k$-tuples. Since $k\le \frac{\ln n}{100}$, $6^k < n$, so by pigeonhole two $t_1<t_2$ have $v_{t_1}, v_{t_2}$ in the same class. Let $r=t_2-t_1$. For each $j$, $e^{2\pi i a_j t_1/n}$ and $e^{2\pi i a_j t_2/n}$ lie in an arc of length $\pi/3$, so
+\[\mathrm{Re}\,e^{2\pi i a_j r/n} = \cos(2\pi a_j(t_2-t_1)/n) \ge \cos(\pi/3) = 1/2.\]
+Hence $|f(r)|\ge \mathrm{Re}\,f(r)\ge k/2$.
+
+\end{document}

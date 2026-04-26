@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{IMC 2012, Blagoevgrad, Bulgaria --- Day 1 Solutions}
+\date{July 28, 2012}
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+\subsection*{Solution}
+Partitions of $n$ containing a $1$ correspond bijectively (remove the $1$) with partitions of $n-1$. So partitions of $n$ not containing $1$ number $p(n) - p(n-1)$.
+
+Alternatively via generating functions: $F(x) = \prod_{k \ge 1}(1-x^k)^{-1}$, $G(x) = \prod_{k \ge 2}(1-x^k)^{-1} = (1-x) F(x)$, so $q(n) = p(n) - p(n-1)$.
+
+\section*{Problem 2}
+\subsection*{Solution}
+$n = 1$: rank $0$. $n = 2$: $\det < 0$, rank $2$. For $n \ge 3$: rank is $3$.
+
+Lower bound $3$: the first three rows are linearly independent. A relation $c_1 r_1 + c_2 r_2 + c_3 r_3 = 0$ restricted to column $1$: $c_2 a_{21} + c_3 a_{31} = 0$ with $a_{21}, a_{31} > 0$, so $c_2, c_3$ opposite signs or both zero; similarly pairs $(c_1, c_2), (c_1, c_3)$. All zero.
+
+Upper bound: $M_{ij} = (i-j)^2 = i^2 - 2ij + j^2$ is the sum of three rank-$1$ matrices, so $\mathrm{rank} \le 3$.
+
+\section*{Problem 3}
+\subsection*{Solution}
+$A$ wins for $n = 2$ (pick identity) and $n = 3$ (pick a 3-cycle).
+
+For $n \ge 4$, $B$ wins. At game end the selected elements generate $S_n$; since no other element is playable without generating, the selected set equals a maximal subgroup $H$. If $|H|$ is even, then the total number of moves is odd, so $A$ made the last move and loses. Thus $B$ wants $|H|$ even, i.e.\ the subgroup after two moves is already an even-order proper subgroup.
+
+Let $g$ be $A$'s first choice. If $\mathrm{ord}(g)$ even, $B$ picks identity: subgroup stays $\langle g \rangle$, even order, proper. If $\mathrm{ord}(g)$ odd, $g$ is a product of odd cycles, so even permutation. $B$ picks $h = (1\,2)(3\,4)$: both in $A_n$, so $\langle g, h \rangle \subseteq A_n \subsetneq S_n$, and $|\langle g, h\rangle|$ is divisible by $2$.
+
+\section*{Problem 4}
+\subsection*{Solution}
+\emph{Lemma 1.} $\lim_{t \to \infty} f(t) \ne +\infty$. If it were, eventually $f > 2$, then $f > T_1$, so $f'(t) > f(f(t)) > 2$; then $f(t) > t$, so $f'(t) > f(t)$, giving $f \ge T_3 e^{t-T_3}$; then $f'(t) e^{-f(t)} > T_3 e^{-T_3}$, integrating gives LHS bounded, RHS $\to \infty$, contradiction.
+
+\emph{Lemma 2.} $f(t) < t$ for all $t > 0$. If $f(t_0) = t_0 > 0$, either some $t \ge t_0$ has $f(t) < t_0$ (take $T = \inf$; at $T$, $f'(T) > f(t_0) = t_0 > 0$ contradicts); or $f \ge t_0$ on $[t_0, \infty)$, giving $f' \ge t_0$ forever, contradicting Lemma 1.
+
+\emph{Lemma 3.} If $s_1 \le 0$ and $f(s_1) > 0$, then $f(s) > s_1$ for all $s > s_1$. (Similar inf argument.)
+
+Now assume $f(f(f(t_0))) > 0$. Set $t_1 = f(t_0), t_2 = f(t_1), t_3 = f(t_2) > 0$. Using Lemmas, show $0 < t_3 < t_2 < t_1 < t_0$. Then Lemma 3(a): $f(t) > t_1$ for $t > t_0$, $f(t) > t_2$ for $t > t_1$. So for $t > t_0$, $f'(t) > f(f(t)) > t_2 > 0$, giving $f \to +\infty$, contradicting Lemma 1.
+
+\section*{Problem 5}
+\subsection*{Solution}
+$a = 0$: $X^{2^{n+1}} + 1$ is the cyclotomic polynomial $\Phi_{2^{n+2}}$, irreducible.
+
+$a \ne 0$: substitute $X = Y - a/2$; polynomial becomes $(Y^2 - a^2/4)^{2^n} + 1$. As a polynomial in $Z = Y^2 - a^2/4$, it's cyclotomic $\Phi_{2^{n+1}}(Z)$, so irreducible as a polynomial in $Y^2$.
+
+If reducible in $\mathbb{Q}[Y]$: write as product of distinct monic irreducibles $\prod f_i^{m_i}$; since the LHS is in $Y^2$, $\prod f_i(Y)^{m_i} = \prod f_i(-Y)^{m_i}$. Irreducibles pair as $f_{i+r/2}(-Y) = \pm f_i(Y)$. Take $f = \prod_{i=1}^{r/2} f_i^{m_i}$, monic of degree $2^n$, with $(Y^2 - a^2/4)^{2^n} + 1 = f(Y) f(-Y)$. Comparing constant terms: $(a/2)^{2^{n+1}} + 1 = b^2$ where $b = f(0) \in \mathbb{Q}$. Set $c = (a/2)^{2^{n-1}} \ne 0$: $c^4 + 1 = b^2$.
+
+No nonzero rational solution: infinite descent on $u^4 + v^4 = w^2$ (Fermat): if $(u, v, w)$ with minimal $w$, write primitive Pythagorean decomposition $u^2 = d^2 - e^2$, $v^2 = 2de$, giving $d = f^2$, $e = 2g^2$; then $(u, e, d)$ primitive Pythagorean gives $f^2 = k^4 + l^4$ with $f < w$. Contradiction.
+
+\end{document}

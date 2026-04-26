@@ -1,0 +1,55 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+
+\title{IMC 2022, First Day Solutions}
+\date{August 3, 2022}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+\subsection*{Solution 1}
+By AM--GM, $f(x) + f(1-x) \geq 2\sqrt{f(x) f(1-x)} = 2$. Integrating on $[0, 1/2]$:
+\[ \int_0^1 f\, dx = \int_0^{1/2} f(x)\, dx + \int_0^{1/2} f(1-x)\, dx \geq \int_0^{1/2} 2\, dx = 1. \]
+
+\subsection*{Solution 2}
+$\int_0^1 f(x)\, dx = \int_0^1 f(1-x)\, dx = \int_0^1 \frac{1}{f(x)}\, dx$, and by Cauchy-Schwarz,
+\[ \left(\int f\right)^2 = \int f \cdot \int \tfrac{1}{f} \geq \left(\int 1\right)^2 = 1. \]
+
+\section*{Problem 2}
+\subsection*{Solution 1}
+Taking transpose and substituting: $A + A^k + (A + A^k)^k = A$, so $A^k(I + (I + A^{k-1})^k) = 0$. Thus $p(x) = x^k(1 + (1 + x^{k-1})^k)$ annihilates $A$. For $x \in \mathbb{R}$, $(1 + x^{k-1})^k \geq 0$, so the only real root of $p$ is $x = 0$. Hence all eigenvalues of $A$ are $0$; since $A$ is $n \times n$, $A^n = 0$, so $A^k = 0$, giving $A = A^T$. A symmetric nilpotent matrix is zero.
+
+\subsection*{Solution 2}
+If $\lambda$ is an eigenvalue, so is $\lambda + \lambda^k$ (since $A^T$ has the same eigenvalues as $A$). For $k$ odd, max $|\lambda|$ gives contradiction unless all $\lambda = 0$. For $k$ even, compare traces. Thus $A$ is nilpotent, $A^n = 0 = A^k$, so $A = A^T$ is symmetric and zero.
+
+\textbf{Answer:} $A = 0$.
+
+\section*{Problem 3}
+\subsection*{Solution}
+Answer: $f(p) \equiv 0 \pmod 3$ for $p = 3$; otherwise $f(p) \equiv 1$ for $p \equiv 1 \pmod 3$, $f(p) \equiv -1$ for $p \equiv 2 \pmod 3$.
+
+\textbf{Generating functions.} $f(p) = [x^{p-1}](1 + x + x^2)^{p-1}$. Over $\mathbb{F}_p$:
+\[ [x^{p-1}](1-x^3)^{p-1}(1-x)^{1-p} = [x^{p-1}](1 - x^3)^p (1-x)^{-p} (1 - x^3)^{-1}(1-x). \]
+Using $(1-x^3)^p \equiv 1 - x^{3p}$, $(1-x)^{-p} \equiv (1 - x^p)^{-1}$:
+\[ = [x^{p-1}](1 - x^3)^{-1}(1-x). \]
+Expanding $(1-x^3)^{-1} = \sum x^{3k}$ gives the stated answer.
+
+\section*{Problem 4}
+\subsection*{Solution}
+For $k$-subsets $\Omega_k$ of $[n]$, define directed graph $G_k$ on $\Omega_k$: $(a_1,\ldots,a_{k+1})$ gives edge $(a_1,\ldots,a_k) \to (a_2,\ldots,a_{k+1})$. An edge subset is \emph{admissible} if it contains no directed path of length 2; let $b(G)$ be the min number of admissible sets covering $E$.
+
+\textbf{Lemma 1.} $A_k \subseteq \Omega_k$ is independent in $G_k$ iff it is admissible as edges of $G_{k-1}$. So $\chi(G_k) = b(G_{k-1})$.
+
+\textbf{Lemma 2.} $\log_2 \chi(G) \leq b(G) \leq 2\lceil \log_2 \chi(G) \rceil$.
+
+\emph{Lower bound.} Given admissible cover $E_1, \ldots, E_m$, color $v$ by $\{i : \exists vw \in E_i\} \subseteq [m]$. For any edge $vw$, some $i \in c(v), i \notin c(w)$, so $c(v) \neq c(w)$; so $\chi(G) \leq 2^m$.
+
+\emph{Upper bound.} Given proper coloring $\tau: V \to \{0,\ldots,k-1\}$, $r = \lceil \log_2 k \rceil$, for each bit $i$ set
+\[ E_{i,+} = \{vu : \varepsilon_i(\tau v) = 0, \varepsilon_i(\tau u) = 1\}, \quad E_{i,-} = \{vu : \varepsilon_i(\tau v) = 1, \varepsilon_i(\tau u) = 0\}. \]
+Each is admissible; $2r$ sets cover.
+
+Now $\chi(G_1) = n$, $b(G_1) = \lceil \log_2 n \rceil$. Then $m = \chi(G_3) = b(G_2)$ satisfies
+\[ \log_2 \lceil \log_2 n \rceil \leq m \leq 2 \lceil \log_2 \lceil \log_2 n \rceil \rceil. \]
+
+\end{document}

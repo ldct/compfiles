@@ -1,0 +1,44 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{IMC 2013, Blagoevgrad, Bulgaria --- Day 1 Solutions}
+\date{August 8, 2013}
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+\subsection*{Solution}
+In an eigenbasis, $A$ and $B$ diagonal with entries $> 1$ strictly increase length of any nonzero vector. So does their product. Hence real eigenvalues of $AB$ satisfy $|\lambda| > 1$.
+
+\section*{Problem 2}
+\subsection*{Solution}
+Let $g(x) = f(x) \cos x$. Then $g(-\pi/2) = g(0) = g(\pi/2) = 0$, so by Rolle there exist $\xi_1 \in (-\pi/2, 0)$, $\xi_2 \in (0, \pi/2)$ with $g'(\xi_1) = g'(\xi_2) = 0$. Let $h(x) = g'(x)/\cos^2 x$; then $h(\xi_1) = h(\xi_2) = 0$, so Rolle gives $\xi \in (\xi_1, \xi_2)$ with $h'(\xi) = 0$. Expanding:
+\[ h'(\xi) = \frac{1}{\cos\xi}\big(f''(\xi) - f(\xi)(1 + 2\tan^2\xi)\big) = 0, \]
+giving the result.
+
+\section*{Problem 3}
+\subsection*{Solution}
+Answer: $6$.
+
+Lower: each student appears in $\ge 3$ trips (to meet $2n-1$ others, $n-1$ per trip). Total attendance $\ge 6n$; each trip has $n$ attendees, so $\ge 6$ trips.
+
+Upper (construction): if $n$ even, split into 4 equal groups $A,B,C,D$ and use pairs $(A,B), (C,D), (A,C), (B,D), (A,D), (B,C)$. If $n$ divisible by 3, split into 6 equal groups and use 6 triples covering all pairs. For $n = 2x + 3y$, combine.
+
+\section*{Problem 4}
+\subsection*{Solution}
+Let $p(X) = \prod(X - x_i)$. Then $\frac{6}{n!} p^{(n-3)}(X) = X^3 - \frac{3A}{n} X^2 + \frac{3(A^2-B)}{n(n-1)} X - \frac{A^3 - 3AB + 2C}{n(n-1)(n-2)}$. Since $p^{(n-3)}$ has three nonnegative real roots $u \le v \le w$,
+\[ u+v+w = \tfrac{3A}{n},\quad uv+vw+wu = \tfrac{3(A^2-B)}{n(n-1)},\quad uvw = \tfrac{A^3-3AB+2C}{n(n-1)(n-2)}. \]
+Direct computation gives
+\[ \tfrac{n^2(n-1)^2(n-2)}{9}\big((n+1)A^2 B + (n-2) B^2 - A^4 - (2n-2) AC\big) = u^2 v^2 + v^2 w^2 + w^2 u^2 - uvw(u+v+w), \]
+which equals $uv(u-w)(v-w) + vw(v-u)(w-u) + wu(w-v)(u-v) \ge 0$ (Schur-like).
+
+\section*{Problem 5}
+\subsection*{Solution}
+Yes. More generally, for any partition $\mathbb{N} = C \cup D$ there exists $(a_n)$ with $\sum a_n^p$ convergent for $p \in C$, divergent for $p \in D$.
+
+\emph{Lemma.} For each $k \in \mathbb{N}$, there exist $N_k$ and $(x_{k,j})_{j=1}^{N_k}$ such that for $p \le k$: $|\sum_j x_{k,j}^p| \ge 1$ if $p \in D_k$; $\sum_j x_{k,j}^p = 0$ and $|\sum_{j=1}^m x_{k,j}^p| \le 1/k$ for all $m \le N_k$ if $p \in C_k$.
+
+\emph{Proof.} By Newton's identities, find $z_1, \dots, z_k$ with $\sum z_j^p = 0$ for $p \in C_k$, $= 1$ for $p \in D_k$. Set $M = \max_{m, p \in C_k} |\sum_{j=1}^m z_j^p|$, $N_k = k(kM)^k$, and define $x_{k,\ell} = z_j/(kM)$ where $\ell \equiv j \pmod k$. Then $\sum_{j=1}^{N_k} x_{k,j}^p = (kM)^{k-p} \sum z_j^p$.
+
+Concatenate blocks $X_1, X_2, \dots$ to form $(a_n)$. For $p \in D$ and $k \ge p$, block sum $|\sum_{j \in \text{block } k}| \ge 1$, so divergent. For $p \in C$ and large $n$, partial sums stabilize to $0$, so $\sum a_n^p = 0$ converges.
+
+\end{document}

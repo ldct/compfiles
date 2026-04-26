@@ -1,0 +1,42 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{IMC 2014, Blagoevgrad, Bulgaria --- Day 1 Solutions}
+\date{July 31, 2014}
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+\subsection*{Solution}
+Answer: $a^2 = 4b$. Write $M = \begin{pmatrix} x & z \\ z & y \end{pmatrix}$ with $x+y = a$, $xy - z^2 = b$. Symmetry in $x, y$ and in $z, -z$ forces $x = y$, $z = 0$ for uniqueness. Then $a^2 = 4b$, and $M = (a/2) I$.
+
+Conversely if $a^2 = 4b$: $(x-y)^2 + 4z^2 = (x+y)^2 - 4(xy - z^2) = a^2 - 4b = 0$, so $x = y$, $z = 0$. Unique.
+
+\section*{Problem 2}
+\subsection*{Solution}
+Let $N_n = \binom{n+1}{2}$. Then
+\[ b_{N_n} := \frac{\sum_{k=1}^{N_n} a_k}{N_n^\alpha} = \frac{\sum_{k=1}^n \binom{k+1}{2}}{\binom{n+1}{2}^\alpha} = \frac{\binom{n+2}{3}}{\binom{n+1}{2}^\alpha} \sim \frac{n^3/6}{(n^2/2)^\alpha} = \frac{2^{\alpha-1}}{3} n^{3 - 2\alpha}. \]
+Finite positive limit iff $\alpha = 3/2$, giving $\beta = \sqrt{2}/3$. For $N = N_n + m$ ($1 \le m \le n+1$), bounds $\frac{\binom{n+2}{3}}{(\binom{n+1}{2}+n)^{3/2}} \le b_N \le \frac{\binom{n+2}{3}+\binom{n+1}{2}}{\binom{n+1}{2}^{3/2}}$ both $\to \sqrt{2}/3$.
+
+\section*{Problem 3}
+\subsection*{Solution}
+Induction on $n$. Trivial for $n=1$. Given $a_0, \dots, a_n$ working for degree $n$, consider
+\[ \tilde{P}(x) = \pm a_n x^{n+1} \pm \dots \pm a_0 x. \]
+Each has $n+1$ distinct roots (the $n$ roots of $\pm a_n x^n \pm \dots \pm a_0$, plus $0$). Choose $\varepsilon > 0$ less than the minimum absolute value of $\tilde P$ at its local extrema over all sign choices. Then $P(x) = \tilde P(x) \pm \varepsilon$ still has opposite signs at consecutive extrema, so $n+1$ distinct real roots. Set $a'_{n+1} = a_n, \dots, a'_1 = a_0, a'_0 = \varepsilon$.
+
+\section*{Problem 4}
+\subsection*{Solution}
+Suppose $e_1$ odd. Then $(1 + p_1 + \dots + p_1^{e_1})$ is divisible by $p_1 + 1$, which divides $s(n) = 2n$. Since $p_1 + 1 > 2$ and $p_1 \nmid p_1+1$, and $p_j > p_1+1$ for $j \ge 3$, we need $p_2 \mid p_1+1$. So $p_2 = p_1 + 1$, forcing $p_1 = 2$, $p_2 = 3$, and $6 \mid n$. Then $n, n/2, n/3, n/6, 1$ are distinct divisors summing to $> 2n$. Contradiction.
+
+\section*{Problem 5}
+\subsection*{Solution}
+Place the broken line in an equilateral triangle $T$ with sides parallel to the $3$ directions of segments. Let $x_i$ = distance from $A_i A_{i+1}$ to the parallel side of $T$.
+
+Two polylines $A_i A_{i+1} A_{i+2}$ and $A_j A_{j+1} A_{j+2}$ with $i \equiv j \pmod 3$ intersect at most once, and only if the pair $(i,j)$ satisfies:
+\[ (*) \quad i \equiv j \pmod 3 \text{ and } (x_i < x_{i+1}, x_j > x_{j+1}) \text{ or } (x_i > x_{i+1}, x_j < x_{j+1}). \]
+All self-intersections give such pairs. There are $3\binom{n}{2}$ index pairs with $i \equiv j \pmod 3$.
+
+We show: for every $1 \le k < n/2$, some pair $(i, i+6k)$ fails $(*)$. Assume WLOG $x_0$ is the minimum. If pairs $(-6k, 0), (-6k+1, 1), \dots, (0, 6k)$ all satisfy $(*)$, then $x_{-6k} > x_0$ (minimum); $(*)$ at $(-6k, 0)$ gives $x_{-6k+1} < x_1$; successively $x_{-6k+j} > x_j$ for $j$ even, $< x_j$ for $j$ odd, ending $x_0 > x_{6k}$, contradicting minimality of $x_0$.
+
+So $\lfloor (n-1)/2 \rfloor$ pairs fail, giving at most $3\binom{n}{2} - \lfloor(n-1)/2\rfloor \le \tfrac{3}{2} n^2 - 2n + 1$ intersections.
+
+\end{document}

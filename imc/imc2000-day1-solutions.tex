@@ -1,0 +1,66 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{IMC 2000, Day 1 --- Solutions}
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+Is it true that if $f:[0,1]\to[0,1]$ is (a) monotone increasing, (b) monotone decreasing, then there exists $x\in[0,1]$ with $f(x)=x$?
+
+\subsection*{Solution}
+(a) Yes. Let $A=\{x: f(x)>x\}$. If $f(0)=0$ done. Otherwise $0\in A$, $A$ is bounded, let $a=\sup A$, $b=f(a)$. If $a<b$: monotonicity and $a=\sup A$ give $b=f(a)\le f((a+b)/2)\le (a+b)/2$, contradiction. If $a>b$: $b=f(a)\ge f((a+b)/2) > (a+b)/2$, contradiction. So $a=b$.
+
+(b) No. Counterexample: $f(x)=1-x/2$ for $x\le 1/2$, $f(x)=1/2-x/2$ for $x>1/2$.
+
+\section*{Problem 2}
+Let $p(x)=x^5+x$, $q(x)=x^5+x^2$. Find all complex pairs $(w,z)$ with $w\ne z$, $p(w)=p(z)$, $q(w)=q(z)$.
+
+\subsection*{Solution}
+$P(x,y) = \frac{p(x)-p(y)}{x-y} = x^4+x^3y+x^2y^2+xy^3+y^4+1$, similarly $Q(x,y)$ ends with $\dots+x+y$. We need $P(w,z)=Q(w,z)=0$; subtracting gives $w+z=1$. Let $c=wz$: substitute to get $c^2-3c+2=0$, so $c\in\{1,2\}$. Solving $w+z=1$, $wz=c$:
+\[\left(\tfrac{1\pm\sqrt{-3}}{2}, \tfrac{1\mp\sqrt{-3}}{2}\right),\quad \left(\tfrac{1\pm\sqrt{-7}}{2}, \tfrac{1\mp\sqrt{-7}}{2}\right).\]
+
+\section*{Problem 3}
+$A,B$ square complex matrices, $\mathrm{rank}(AB-BA)=1$. Show $(AB-BA)^2=0$.
+
+\subsection*{Solution}
+$C=AB-BA$ has rank 1, so at most one nonzero eigenvalue. But $\mathrm{tr}\,C=0$, so all eigenvalues vanish. Jordan form allows only one $2\times 2$ block, so $C^2=0$.
+
+\section*{Problem 4}
+(a) If $(x_i)$ is a decreasing positive sequence, then $\left(\sum_{i=1}^n x_i^2\right)^{1/2} \le \sum_{i=1}^n \frac{x_i}{\sqrt i}$.
+
+(b) There is $C$ so that $\sum_{m=1}^\infty \frac{1}{\sqrt m}\left(\sum_{i=m}^\infty x_i^2\right)^{1/2} \le C\sum_{i=1}^\infty x_i$.
+
+\subsection*{Solution}
+(a) Using monotonicity,
+\[\left(\sum \frac{x_i}{\sqrt i}\right)^2 = \sum_{i,j}\frac{x_ix_j}{\sqrt{ij}}\ge \sum_i \frac{x_i}{\sqrt i}\sum_{j\le i}\frac{x_i}{\sqrt j}\ge \sum_i \frac{x_i}{\sqrt i}\cdot i\cdot\frac{x_i}{\sqrt i}\cdot\frac{1}{\sqrt i\cdot\sqrt i}\cdot(\dots) = \sum x_i^2.\]
+
+(b) By (a):
+\[\sum_m \frac{1}{\sqrt m}\left(\sum_{i\ge m} x_i^2\right)^{1/2} \le \sum_m \frac{1}{\sqrt m}\sum_{i\ge m}\frac{x_i}{\sqrt{i-m+1}} = \sum_i x_i \sum_{m=1}^i \frac{1}{\sqrt m \sqrt{i-m+1}}.\]
+The inner sum is bounded: $\sum_{m=1}^i \frac{1}{\sqrt m \sqrt{i+1-m}}\le \int_0^{i+1}\frac{dx}{\sqrt x\sqrt{i+1-x}}=\pi$. So $C=\pi$ works.
+
+\section*{Problem 5}
+Let $R$ be a ring of characteristic zero, $e,f,g\in R$ idempotents with $e+f+g=0$. Show $e=f=g=0$.
+
+\subsection*{Solution}
+$g = g^2 = (-(e+f))^2 = e + (ef+fe) + f = (ef+fe) - g$, so $ef+fe=2g$. Thus
+\[[e,f] = [e, ef+fe] = 2[e,g] = 2[e,-e-f] = -2[e,f],\]
+so $3[e,f]=0$, i.e., $ef=fe$ (char 0). Then $ef=g$, so $e+f+ef=0$. Multiplying by $e$: $e+2ef=0$; similarly $f+2ef=0$, giving $e=f$. By symmetry $e=f=g$. Then $3e=0$, so $e=0$.
+
+\section*{Problem 6}
+Let $f:\mathbb{R}\to(0,\infty)$ be increasing, differentiable, $f(x)\to\infty$, $f'$ bounded. Let $F(x)=\int_0^x f$. Define $a_0=1$, $a_{n+1}=a_n+1/f(a_n)$, and $b_n=F^{-1}(n)$. Prove $a_n-b_n\to 0$.
+
+\subsection*{Solution}
+By MVT, $F(a_{k+1})-F(a_k) = f(\xi)/f(a_k)$ with $\xi\in(a_k,a_{k+1})$. So
+\[1\le F(a_{k+1})-F(a_k)\le 1 + \frac{f(a_{k+1})-f(a_k)}{f(a_k)}.\]
+Summing with $F(b_n)=n$:
+\[F(b_n) < n + F(a_0) \le F(a_n) \le F(b_n) + F(a_0) + \sum_{k=0}^{n-1}\frac{f(a_{k+1})-f(a_k)}{f(a_k)}.\tag{4}\]
+Hence $a_n>b_n$, $a_n\to\infty$.
+
+Given $\varepsilon>0$, pick $K_\varepsilon$ with $f(a_{K_\varepsilon})>2/\varepsilon$. Splitting the sum at $K_\varepsilon$ and bounding the tail by $\frac{\varepsilon}{2}(f(a_n)-f(a_{K_\varepsilon}))$, for large $n$,
+\[F(a_n) - F(b_n) < \varepsilon f(a_n).\]
+
+By MVT, $F(a_n)-F(b_n) = f(\zeta)(a_n-b_n) > f(b_n)(a_n-b_n)$. Let $B$ bound $f'$; then $f(a_n) < f(b_n) + B(a_n-b_n)$, so
+\[f(b_n)(a_n-b_n) < \varepsilon f(b_n) + \varepsilon B(a_n-b_n),\]
+i.e., $(f(b_n)-\varepsilon B)(a_n-b_n) < \varepsilon f(b_n)$. Since $f(b_n)\to\infty$, this gives $a_n-b_n<2\varepsilon$ for large $n$.
+
+\end{document}

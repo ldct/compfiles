@@ -1,0 +1,60 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{IMC 2017, Blagoevgrad, Bulgaria --- Day 1 Solutions}
+\date{August 2, 2017}
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+Determine all complex numbers $\lambda$ for which there exist a positive integer $n$ and a real $n \times n$ matrix $A$ such that $A^2 = A^T$ and $\lambda$ is an eigenvalue of $A$.
+
+\subsection*{Solution}
+Squaring: $A^4 = (A^2)^2 = (A^T)^2 = (A^2)^T = (A^T)^T = A$, so $A^4 - A = 0$. Hence every eigenvalue is a root of $X^4 - X = X(X^3 - 1)$, i.e.\ $0, 1, \frac{-1 \pm \sqrt{3}i}{2}$.
+
+All four are attained: $A_0 = (0)$, $A_1 = (1)$,
+\[ A_2 = \begin{pmatrix} -\tfrac12 & \tfrac{\sqrt3}{2} \\ -\tfrac{\sqrt3}{2} & -\tfrac12 \end{pmatrix}, \qquad A_2^2 = \begin{pmatrix} -\tfrac12 & -\tfrac{\sqrt3}{2} \\ \tfrac{\sqrt3}{2} & -\tfrac12 \end{pmatrix} = A_2^T. \]
+($A_2$ is rotation by $2\pi/3$.) A block-diagonal matrix realises all four eigenvalues.
+
+\section*{Problem 2}
+\subsection*{Solution}
+$f'$ is Lipschitz, hence continuous. Fix $x$; let $d = f'(x)$. We show $f(x) > d^2/(2L)$.
+
+If $d = 0$ trivial. If $d > 0$: $f'(x-t) \ge d - Lt > 0$ for $0 \le t < d/L$. Then
+\[ f(x) > f(x) - f(x - d/L) = \int_0^{d/L} f'(x-t)\,dt \ge \int_0^{d/L}(d-Lt)\,dt = \frac{d^2}{2L}. \]
+If $d < 0$: apply $f'(x+t) \le d + Lt = -|d| + Lt$ similarly.
+
+\section*{Problem 3}
+\subsection*{Solution}
+Answer: yes. Take $n = 2^{w_1}$; then $a_k(n) = 2^{w_k}$ with
+\[ w_{k+1} = \frac{w_k(w_k+1)}{2}. \]
+It suffices to realise any parity pattern of $(w_k)_{k=1}^{2017}$.
+
+\emph{Lemma.} If $c_1 = b_1 + 2^m$ and both satisfy the recurrence, then for $k = 1, \dots, m$,
+\[ c_k \equiv b_k + 2^{m-k+1} \pmod{2^{m-k+2}}. \]
+\emph{Proof.} Induction: assume for $k$; then
+\[ c_{k+1} = \tfrac{c_k(c_k+1)}{2} \equiv \tfrac{(b_k + 2^{m-k+1})(b_k + 2^{m-k+1}+1)}{2} \equiv \tfrac{b_k(b_k+1)}{2} + 2^{m-k} \pmod{2^{m-k+1}}. \]
+Consequently $b_k \equiv c_k \pmod 2$ for $k \le m$, but $b_{m+1} \not\equiv c_{m+1} \pmod 2$.
+
+Now build $(w_k)$ inductively: for $m=1$ choose $w_1 \in \{0,1\}$ matching $1 \in S$; at each step either keep the sequence or replace $w_1$ by $w_1 + 2^m$, flipping the parity of $w_{m+1}$ while preserving earlier parities. Iterate to $m = 2017$.
+
+\section*{Problem 4}
+\subsection*{Solution}
+Let $d = 1000$. Select each person into $S$ independently with probability $p \in (0,1)$. The probability that a fixed person is in $S$ with exactly 2 friends in $S$ is
+\[ q = \binom{d}{2} p^3 (1-p)^{d-2}. \]
+Choose $p = 3/(d+1)$:
+\[ q = \binom{d}{2} \Big(\tfrac{3}{d+1}\Big)^3 \Big(\tfrac{d-2}{d+1}\Big)^{d-2} = \frac{27 d(d-1)}{2(d+1)^3}\Big(1 + \tfrac{3}{d-2}\Big)^{-(d-2)} > \frac{27 d(d-1)}{2(d+1)^3} e^{-3} > \frac{1}{2017}. \]
+So the expected number of such persons is $> n/2017$; some outcome realises this.
+
+\section*{Problem 5}
+\subsection*{Solution}
+Let $M = \{z : z^n = 1\}$, $A = \{z \in M : f(z) \ne 0\}$. Need $|A| \ge k$.
+
+\emph{Claim.} For every $\eta \in M$ there exist $a, b \in A$ with $a b^{-1} = \eta$.
+
+Set $c_{n-1} = 1$. Using $\sum_{z \in M} z^m = n$ if $n \mid m$, else $0$:
+\[ \sum_{z \in M} z^2 f(z) f(\eta z) = \sum_{j,\ell} c_j c_\ell \eta^\ell \sum_{z \in M} z^{j+\ell+2} = n\Big(c_{n-1}^2 + \sum_{j=0}^{n-2} c_j c_{n-2-j} \eta^{n-2-j}\Big) = n \ne 0, \]
+since $c_j c_{n-2-j} = 0$. So some $b \in M$ has $f(b) \ne 0$ and $f(\eta b) \ne 0$; take $a = \eta b$.
+
+Double-counting gives $|A|(|A|-1) \ge |M \setminus \{1\}| = n - 1 \ge k^2 - 3k + 3 > (k-1)(k-2)$, so $|A| \ge k$.
+
+\end{document}

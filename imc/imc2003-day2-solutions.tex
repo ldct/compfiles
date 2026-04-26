@@ -1,0 +1,74 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+
+\title{IMC 2003, Cluj-Napoca \\ Day 2}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+Real $n \times n$ matrices $A, B$ with $AB + A + B = 0$. Prove $AB = BA$.
+
+\subsection*{Solution}
+$(A + I)(B + I) = AB + A + B + I = I$, so $A + I$ and $B + I$ are inverses. Then $(B + I)(A + I) = I$ too, giving $BA + A + B = 0 = AB + A + B$, so $AB = BA$.
+
+\section*{Problem 2}
+Evaluate $\displaystyle \lim_{x \to 0^+} \int_x^{2x} \frac{\sin^m t}{t^n} dt$ for $m, n \in \mathbb{N}$.
+
+\subsection*{Solution}
+Since $\tfrac{\sin t}{t}$ is decreasing on $(0, \pi)$ to $1$ at $0^+$: for $t \in [x, 2x]$, $\tfrac{\sin 2x}{2x} \le \tfrac{\sin t}{t} \le 1$, so
+\[
+\bigl(\tfrac{\sin 2x}{2x}\bigr)^m \int_x^{2x} t^{m - n} dt \le \int_x^{2x} \frac{\sin^m t}{t^n} dt \le \int_x^{2x} t^{m - n} dt.
+\]
+$\int_x^{2x} t^{m-n} dt = x^{m - n + 1} \int_1^2 u^{m - n} du$. As $x \to 0^+$:
+\[
+\lim = \begin{cases} 0 & m \ge n \\ \ln 2 & n - m = 1 \\ +\infty & n - m > 1. \end{cases}
+\]
+
+\section*{Problem 3}
+$A \subset \mathbb{R}^n$ closed; $B = \{b : \exists ! a_0 \in A, |a_0 - b| = \operatorname{dist}(b, A)\}$. Show $B$ is dense.
+
+\subsection*{Solution}
+If $b_0 \in A$: $b_0 \in B$. Else let $\rho = \operatorname{dist}(b_0, A) > 0$; compactness of $A \cap \overline{B_{\rho + 1}(b_0)}$ gives some $a_0 \in A$ with $|a_0 - b_0| = \rho$. If $a_0$ unique: $b_0 \in B$. Else: any $a$ on the open segment $(a_0, b_0)$ has $\overline{B_{|a - a_0|}(a)} \subset \overline{B_\rho(b_0)}$ with boundaries touching only at $a_0$, so $a \in B$. Hence $b_0$ is an accumulation point of $B$.
+
+\section*{Problem 4}
+Find all $n$ with a family $\mathcal F$ of 3-element subsets of $S = \{1, \ldots, n\}$ such that (i) each pair lies in exactly one $A \in \mathcal F$; (ii) if $\{a,b,x\}, \{a,c,y\}, \{b,c,z\} \in \mathcal F$, then $\{x, y, z\} \in \mathcal F$.
+
+\subsection*{Solution}
+Answer: $n = 2^m - 1$.
+
+Define $a * b = c$ iff $\{a, b, c\} \in \mathcal F$ (for $a \ne b$). Properties: $a * b = b * a$, $a * (a * b) = b$, and (from (ii)) $(a * b) * c = a * (b * c)$ for $a, b, c$ distinct.
+
+Extend by $a * a = 0$ with new element $0$, and $0 * a = a * 0 = a$. Then $(S \cup \{0\}, *)$ is an abelian group where every element has order $\le 2$. So $|S \cup \{0\}| = 2^m$, i.e., $n = 2^m - 1$.
+
+\emph{Construction:} $S = \mathbb{F}_2^m \setminus \{0\}$; $a * b = a \oplus b$ (XOR).
+
+\section*{Problem 5}
+(a) Show for each $f : \mathbb{Q}^2 \to \mathbb{R}$ there is $g : \mathbb{Q} \to \mathbb{R}$ with $f(x, y) \le g(x) + g(y)$.
+(b) Find $f : \mathbb{R}^2 \to \mathbb{R}$ with no such $g$.
+
+\subsection*{Solution}
+(a) Let $\varphi : \mathbb{Q} \to \mathbb{N}$ bijection. Set $g(x) = \max\{|f(s, t)| : \varphi(s), \varphi(t) \le \varphi(x)\}$. Then $f(x, y) \le \max(g(x), g(y)) \le g(x) + g(y)$.
+
+(b) Take $f(x, y) = 1/|x - y|$ for $x \ne y$, $f(x, x) = 0$. If $g$ worked, then $g(y) \ge \tfrac{1}{|x-y|} - g(x)$, so $\lim_{y \to x} g(y) = \infty$. Let $A_k = \{x \in [0,1] : |g(x)| \le k\}$. Then $[0,1] = \bigcup A_k$ is a countable union; some $A_k$ is uncountable, hence contains a convergent sequence $x_n \to x$. But $g(x_n) \to \infty$ while $|g(x_n)| \le k$. Contradiction.
+
+\section*{Problem 6}
+$a_0 = 1$, $a_{n+1} = \tfrac{1}{n+1} \sum_{k=0}^n \tfrac{a_k}{n - k + 2}$. Find $\lim \sum_{k=0}^n a_k / 2^k$.
+
+\subsection*{Solution}
+Generating function $f(x) = \sum a_n x^n$. Goal: $f(1/2)$.
+
+From recurrence:
+\[
+f'(x) = \sum_{n \ge 0} (n + 1) a_{n+1} x^n = \sum_{n \ge 0} \sum_{k=0}^n \frac{a_k}{n - k + 2} x^n = \sum_k a_k x^k \sum_{m \ge 0} \frac{x^m}{m + 2} = f(x) \sum_{m \ge 0} \frac{x^m}{m + 2}.
+\]
+Integrate:
+\[
+\ln f(x) = \sum_{m \ge 0} \frac{x^{m+1}}{(m+1)(m+2)} = \sum_{m \ge 0} \left(\frac{x^{m+1}}{m+1} - \frac{x^{m+1}}{m+2}\right) = -\ln(1 - x) - \frac{1}{x}\bigl(-\ln(1 - x) - x\bigr).
+\]
+Simplifying: $\ln f(x) = 1 + \bigl(1 - \tfrac{1}{x}\bigr) \ln \tfrac{1}{1 - x}$.
+
+At $x = 1/2$: $\ln f(1/2) = 1 + (-1) \ln 2 = 1 - \ln 2$, so $f(1/2) = e/2$.
+
+\end{document}

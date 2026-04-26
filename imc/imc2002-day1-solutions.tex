@@ -1,0 +1,77 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{IMC 2002, Day 1 --- Solutions}
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+A standard parabola is the graph of $y = x^2 + ax + b$. Three standard parabolas with vertices $V_1, V_2, V_3$ intersect pairwise at points $A_1, A_2, A_3$. Let $s$ denote reflection across the $x$-axis. Prove that standard parabolas with vertices $s(A_1), s(A_2), s(A_3)$ intersect pairwise at $s(V_1), s(V_2), s(V_3)$.
+
+\subsection*{Solution}
+We show: the standard parabola with vertex $V$ contains $A$ iff the one with vertex $s(A)$ contains $s(V)$.
+
+Let $A=(a,b)$, $V=(v,w)$. The parabola with vertex $V$ has equation $y=(x-v)^2+w$, so contains $A$ iff $b=(a-v)^2+w$. The parabola with vertex $s(A)=(a,-b)$ has equation $y=(x-a)^2-b$, and contains $s(V)=(v,-w)$ iff $-w=(v-a)^2-b$. Equivalent.
+
+\section*{Problem 2}
+Does there exist a continuously differentiable $f:\mathbb{R}\to\mathbb{R}$ with $f(x)>0$ and $f'(x)=f(f(x))$ for all $x$?
+
+\subsection*{Solution}
+No. Since $f'(x)=f(f(x))>0$, $f$ is strictly increasing. Then $f(x)>0 \Rightarrow f(f(x))>f(0)$, so $f'(x)>f(0)$. Hence for $x<0$,
+\[f(x) < f(0) + x\cdot f(0) = (1+x)f(0),\]
+so $f(-1)\le 0$, contradiction.
+
+\section*{Problem 3}
+Let $a_k = 1/\binom{n}{k}$, $b_k = 2^{k-n}$ for $k=1,\dots,n$. Show
+\[\sum_{k=1}^n \frac{a_k - b_k}{k} = 0.\]
+
+\subsection*{Solution}
+Since $k\binom{n}{k} = n\binom{n-1}{k-1}$, this is equivalent to
+\[\frac{2^n}{n}\sum_{k=0}^{n-1}\frac{1}{\binom{n-1}{k}} = \sum_{k=1}^n \frac{2^k}{k}. \tag{2}\]
+
+Induct on $n$; both sides equal $2$ at $n=1$. Let $x_n$ be the LHS of (2). Then
+\begin{align*}
+x_{n+1} &= \frac{2^{n+1}}{n+1}\sum_{k=0}^n \frac{1}{\binom{n}{k}} = \frac{2^n}{n+1}\left(1 + \sum_{k=0}^{n-1}\left(\frac{1}{\binom{n}{k}} + \frac{1}{\binom{n}{k+1}}\right) + 1\right)\\
+&= \frac{2^n}{n+1}\sum_{k=0}^{n-1}\frac{\frac{n-k}{n}+\frac{k+1}{n}}{\binom{n-1}{k}} + \frac{2^{n+1}}{n+1} = x_n + \frac{2^{n+1}}{n+1}.
+\end{align*}
+
+\section*{Problem 4}
+Let $f:[a,b]\to[a,b]$ be continuous, $p_0=p$, $p_{n+1}=f(p_n)$. Suppose $T_p=\{p_n\}$ is closed. Show $T_p$ is finite.
+
+\subsection*{Solution}
+Assume all $p_n$ distinct. A convergent subsequence gives $p_{n_k}\to q\in T_p$; by continuity $f(p_{n_k})\to f(q)$, so all but finitely many $p_n$ are accumulation points. WLOG all are.
+
+Let $d=\sup|p_m-p_n|$, choose $\delta_n>0$ with $\sum\delta_n < d/2$, and intervals $I_n$ of length $<\delta_n$ centered at $p_n$ with infinitely many $p_k\notin\bigcup_{j\le n}I_j$. Define $n_0=0$, $n_{m+1}=\min\{k>n_m:p_k\notin\bigcup_{j\le n_m}I_j\}$. Any limit of $(p_{n_m})$ must lie in $T_p$ but cannot by construction of the $I_n$. Contradiction.
+
+\textit{Remark.} Alternatively, Baire's theorem applied to the countable union of singletons.
+
+\section*{Problem 5}
+(a) Does there exist a monotone $f:[0,1]\to[0,1]$ with every fiber $f^{-1}(y)$ uncountable?
+
+(b) Same for continuously differentiable $f$.
+
+\subsection*{Solution}
+(a) No. Each preimage is empty, a point, or an interval; nonempty intervals are pairwise disjoint, so at most countably many.
+
+(b) No. Each uncountable fiber has an accumulation point $x_0$ with $f'(x_0)=0$. For $\varepsilon>0$, around each critical point pick open $I_{x_0}$ with $|f'|<\varepsilon$. Their union is a disjoint union of intervals $J_n$; by MVT $f(J_n)$ has length $<\varepsilon\,\ell(J_n)$. So $f([0,1])$ is covered by intervals of total length $\le\varepsilon$, impossible for $\varepsilon<1$.
+
+\textit{Remark.} This is the easy case of Sard's theorem.
+
+\section*{Problem 6}
+For real $n\times n$ $M$ let $\|M\|$ be the operator $2$-norm. Assume $\|A^k-A^{k-1}\|\le \frac{1}{2002k}$ for all $k\ge 1$. Prove $\|A^k\|\le 2002$.
+
+\subsection*{Solution}
+\textbf{Lemma 1.} If $(a_n)$ non-negative satisfies $a_{2k}-a_{2k+1}\le a_k^2$, $a_{2k+1}-a_{2k+2}\le a_k a_{k+1}$, and $\limsup n a_n<1/4$, then $\limsup\sqrt[n]{a_n}<1$.
+
+\textit{Proof.} Let $c_l=\sup_{n\ge 2^l}(n+1)a_n$. For $n\ge 2^{l+1}$, writing $n=2k$ or $2k+1$ with $k\ge 2^l$ gives $a_n\le 4c_l^2/(n+1)$, so $c_{l+1}\le 4c_l^2$. Then $(4c_l)^{2^{-l}}$ is non-increasing, bounded by $q\in(0,1)$; so $a_n\le q^{2^l}\le(\sqrt q)^n$.
+
+\textbf{Lemma 2.} If $T:\mathbb{R}^n\to\mathbb{R}^n$ has $\limsup n\|T^{n+1}-T^n\|<1/4$, then $T$ is power bounded.
+
+\textit{Proof.} Let $a_n=\|T^{n+1}-T^n\|$. The identity
+\[T^{k+m+1}-T^{k+m}=(T^{k+m+2}-T^{k+m+1})-(T^{k+1}-T^k)(T^{m+1}-T^m)\]
+gives $a_{k+m}\le a_{k+m+1}+a_k a_m$. Apply Lemma 1.
+
+The hypothesis yields $\limsup k\|A^k-A^{k-1}\|\le 1/2002 < 1/4$, so $A$ is power bounded.
+
+\textit{Remark.} The problem was mis-stated at the contest with $\frac{1}{2002n}$ instead of $\frac{1}{2002k}$; that version is false (e.g., $A=\begin{pmatrix}1&\varepsilon\\0&1\end{pmatrix}$).
+
+\end{document}

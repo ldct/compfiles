@@ -1,0 +1,81 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+
+\title{IMC 2005, Blagoevgrad \\ Second Day}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+Let $f(x) = x^2 + bx + c$, $M = \{x : |f(x)| < 1\}$. Prove $|M| \le 2\sqrt 2$.
+
+\subsection*{Solution}
+Complete square: $f(x) = (x + b/2)^2 + d$ where $d = c - b^2/4$.
+
+If $d \ge 1$: $M = \emptyset$.
+
+If $-1 < d < 1$: $M = \{|x + b/2| < \sqrt{1 - d}\}$, length $2\sqrt{1 - d} < 2\sqrt 2$.
+
+If $d \le -1$: $M = \{\sqrt{|d| - 1} < |x + b/2| < \sqrt{|d| + 1}\}$, length
+\[
+2(\sqrt{|d| + 1} - \sqrt{|d| - 1}) = \frac{2 \cdot 2}{\sqrt{|d| + 1} + \sqrt{|d| - 1}} \le \frac{4}{\sqrt 2 + 0} = 2\sqrt 2.
+\]
+
+\section*{Problem 2}
+$f : \mathbb{R} \to \mathbb{R}$ with $f^n$ a polynomial for all $n \ge 2$. Is $f$ a polynomial?
+
+\subsection*{Solution}
+\textbf{Yes.} Even $f^2, f^3$ polynomials suffice. Let $p/q$ be $f^3/f^2$ in lowest terms (as rational function). Then $(p/q)^2 = f^2$ is a polynomial, so $q$ is constant; hence $f = p/q$ is a polynomial.
+
+\section*{Problem 3}
+Find max $\dim V$, where $V \subseteq M_n(\mathbb{R})$ is a subspace with $\operatorname{tr}(XY) = 0$ for all $X, Y \in V$.
+
+\subsection*{Solution}
+Answer: $\binom{n}{2} = n(n-1)/2$.
+
+If $A \ne 0$ symmetric, $\operatorname{tr}(A^2) = \operatorname{tr}(A^T A) = $ sum of squared entries $> 0$. So $V \cap \{\text{symmetric}\} = \{0\}$. Dim of symmetric is $n(n+1)/2$, so $\dim V \le n^2 - n(n+1)/2 = n(n-1)/2$.
+
+Strictly upper triangular matrices form a subspace of dimension $n(n-1)/2$ satisfying the condition (product is strictly upper triangular, zero diagonal).
+
+\section*{Problem 4}
+$f$ three-times differentiable. Prove $\exists \xi \in (-1, 1)$ with $\tfrac{f'''(\xi)}{6} = \tfrac{f(1) - f(-1)}{2} - f'(0)$.
+
+\subsection*{Solution}
+Let
+\[
+g(x) = -\tfrac{f(-1)}{2} x^2(x-1) - f(0)(x^2 - 1) + \tfrac{f(1)}{2} x^2(x+1) - f'(0) x(x-1)(x+1).
+\]
+Check $g(\pm 1) = f(\pm 1)$, $g(0) = f(0)$, $g'(0) = f'(0)$. Let $h = f - g$. Then $h(-1) = h(0) = h(1) = 0$, so Rolle gives $h'(\eta) = 0$ for some $\eta \in (-1, 0)$ and $h'(\vartheta) = 0$ for $\vartheta \in (0, 1)$. Also $h'(0) = 0$, so $h''$ vanishes at two points in $(\eta, \vartheta)$, and $h'''(\xi) = 0$ for some $\xi \in (-1, 1)$.
+
+Compute $g'''(\xi) = -3 f(-1) + 3 f(1) - 6 f'(0) = 3(f(1) - f(-1)) - 6 f'(0)$, so $\tfrac{f'''(\xi)}{6} = \tfrac{f(1) - f(-1)}{2} - f'(0)$.
+
+\section*{Problem 5}
+Find all $r > 0$ such that: whenever $f : \mathbb{R}^2 \to \mathbb{R}$ is differentiable with $|\nabla f(0,0)| = 1$ and $\nabla f$ is $1$-Lipschitz, the max of $f$ on $\{|u| \le r\}$ is attained at exactly one point.
+
+\subsection*{Solution}
+Answer: $r \le 1/2$.
+
+\emph{Upper bound.} $f(x, y) = x - x^2/2 + y^2/2$ satisfies all conditions. On $|u| \le r$, $f = \tfrac{r^2}{2} + \tfrac{1}{4} - (x - \tfrac{1}{2})^2$, maximized at $x = 1/2$, $y = \pm\sqrt{r^2 - 1/4}$ — two points when $r > 1/2$.
+
+\emph{Lower bound.} Suppose $r \le 1/2$ and $f$ attains max at $u \ne v$. Since $|\nabla f(z) - \nabla f(0)| \le r \le 1/2$, $|\nabla f(z)| \ge 1/2 > 0$ on $D_r$. So max is on boundary: $|u| = |v| = r$ and $\nabla f(u) = au$, $\nabla f(v) = bv$ with $a, b \ge 0$ (outward gradient at boundary max).
+
+Both $au, bv$ lie in the disk $D'$ centered at $\nabla f(0)$ of radius $r$. Since $D_r \cap D'$ has at most one point (internal tangency at $\nabla f(0) = (1, 0)$ when $r = 1/2$), $au, bv$ are outside the interior of $D_r$, giving $|au - bv| \ge |u - v|$ strictly if they're distinct. This contradicts $|\nabla f(u) - \nabla f(v)| \le |u - v|$.
+
+\section*{Problem 6}
+For $p, q \in \mathbb{Q}$ and $r = p + q \sqrt 7$, prove there exists $\begin{pmatrix}a & b\\c & d\end{pmatrix} \ne \pm I$ in $SL_2(\mathbb{Z})$ with $\tfrac{ar + b}{cr + d} = r$.
+
+\subsection*{Solution}
+\emph{Case $q = 0$ (r rational):} Pick integer $t > 0$ with $r^2 t \in \mathbb{Z}$, set $\begin{pmatrix}1 + rt & -r^2 t \\ t & 1 - rt\end{pmatrix}$.
+
+\emph{Case $q \ne 0$:} Let minimal polynomial of $r$ in $\mathbb{Z}[x]$ be $u x^2 + v x + w$. Discriminant is $7(2uq)^2$; let $\Delta = 2uq \in \mathbb{Z}$.
+
+$\tfrac{ar+b}{cr+d} = r$ means $c r^2 + (d-a) r - b = 0$, a multiple of the minimal poly. So $c = ut$, $d - a = vt$, $-b = wt$ for some $t \ne 0$. Using $ad - bc = 1$:
+\[
+(a + d)^2 = (a - d)^2 + 4 ad = 4 + (v^2 - 4uw) t^2 = 4 + 7 \Delta^2 t^2.
+\]
+Need Pell-like integer solution $s^2 - 7 \Delta^2 t^2 = 4$ with $t \ne 0$.
+
+Use $(8 \pm 3\sqrt 7)^n = k_n \pm l_n \sqrt 7$: $k_n^2 - 7 l_n^2 = 1$. By pigeonhole on $l_n \pmod \Delta$, the sequence is periodic, so infinitely many $n$ with $\Delta \mid l_n$. Take $s = 2 k_n$, $t = 2 l_n / \Delta$: then $s^2 - 7 \Delta^2 t^2 = 4$, and $s, t$ even ensures integer $a, d$.
+
+\end{document}

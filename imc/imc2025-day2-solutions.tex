@@ -1,0 +1,218 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+
+\title{IMC 2025 \\ Second Day, July 31, 2025 \\ Solutions}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 6}
+Let $f : (0, \infty) \to \mathbb{R}$ be a continuously differentiable function, and let $b > a > 0$ be real numbers such that $f(a) = f(b) = k$. Prove that there exists a point $\xi \in (a,b)$ such that
+\[
+f(\xi) - \xi f'(\xi) = k.
+\]
+(proposed by Alberto Cagnetta, Universit\`a degli Studi di Udine)
+
+\paragraph{Solution.}
+Observe that if we consider $g(x) = f(x)/x$ and take its derivative, we get
+\[
+g'(x) = \frac{x f'(x) - f(x)}{x^2},
+\]
+where the numerator is almost the expression we have in the problem.
+
+Now we apply Cauchy's theorem to the functions $g(x) = f(x)/x$ and $h(x) = 1/x$, well-defined over $[a,b]$. This gives us the existence of a value $\xi \in [a,b]$ such that
+\[
+\frac{g(a) - g(b)}{h(a) - h(b)} = \frac{g'(\xi)}{h'(\xi)}.
+\]
+Here,
+\[
+\frac{g'(\xi)}{h'(\xi)} = \frac{\frac{\xi f'(\xi) - f(\xi)}{\xi^2}}{-\frac{1}{\xi^2}} = f(\xi) - \xi f'(\xi)
+\]
+and
+\[
+\frac{g(a) - g(b)}{h(a) - h(b)} = \frac{\frac{f(a)}{a} - \frac{f(b)}{b}}{\frac{1}{a} - \frac{1}{b}} = k,
+\]
+which concludes the proof.
+
+\section*{Problem 7}
+Let $\mathbb{Z}_{>0}$ be the set of positive integers. Find all nonempty subsets $M \subseteq \mathbb{Z}_{>0}$ satisfying both of the following properties:
+\begin{itemize}
+\item[(a)] if $x \in M$, then $2x \in M$,
+\item[(b)] if $x, y \in M$ and $x + y$ is even, then $\dfrac{x+y}{2} \in M$.
+\end{itemize}
+(proposed by Alexandr Bolbot, Novosibirsk State University)
+
+\paragraph{Solution.}
+Note that $M$ is closed under addition since $x + y = \frac{2x + 2y}{2}$. Therefore it is closed under multiplication by an arbitrary natural number. Also, $M$ contains some odd numbers since $x \in M \implies \frac{x + 2x}{2} = \frac{3x}{2} \in M$, and we can repeat this until all factors of 2 are removed from a number.
+
+Let $d$ be the greatest common divisor of all members of $M$. Then $M \subseteq d\,\mathbb{Z}_{>0}$ and $d$ is odd. Since $d$ can be represented in the form
+\[
+d = v_1 a_1 + v_2 a_2 + \ldots + v_k a_k - v_{k+1} a_{k+1} - v_{k+2} a_{k+2} - \ldots - v_n a_n
+\]
+for some $a_i \in M$ and $v_i \in \mathbb{Z}_{>0}$, there exist two members of $M$ with difference $d$.
+
+Let $c$ be the minimal element of $M$, $c < a$, and $a, a+d \in M$. We choose the largest $x \in M$ such that $x < a$. Then the only elements of $M$ in the interval $[x, a+d]$ are $x$, $a$, and $a+d$, since $M \subseteq d\,\mathbb{Z}$. Meanwhile, $x < \frac{x+a}{2} < a$, so $x+a$ must be odd, hence $x + a + d$ is even, and then $x < \frac{x+a+d}{2} < a+d$ means $x = a - d$. Thus, the following implication holds:
+\[
+(a, a+d \in M \text{ and } c < a) \implies a - d \in M.
+\]
+Similarly, by setting $x \in M$ to be the smallest such that $x > a$ (we know that such an element exists, since $2a \in M$), we obtain
+\[
+a - d, a \in M \implies a + d \in M.
+\]
+We thus get that $M$ is obtained as the set of elements of the arithmetic progression $c + kd$ ($k \in \mathbb{Z}_{\geq 0}$). Obviously, this set satisfies both of the properties (a) and (b). Hence, we have proved that $M$ satisfies these properties if and only if $M = \{nd \mid m \leq n \in \mathbb{N}\}$ for some $m \in \mathbb{N}$ and odd $d$.
+
+\section*{Problem 8}
+For an $n \times n$ real matrix $A \in M_n(\mathbb{R})$, denote by $A^{\mathsf{R}}$ its counter-clockwise $90^\circ$ rotation. For example,
+\[
+\begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{bmatrix}^{\mathsf{R}} = \begin{bmatrix} 3 & 6 & 9 \\ 2 & 5 & 8 \\ 1 & 4 & 7 \end{bmatrix}.
+\]
+Prove that if $A = A^{\mathsf{R}}$ then for any eigenvalue $\lambda$ of $A$, we have $\operatorname{Re}\lambda = 0$ or $\operatorname{Im}\lambda = 0$.
+
+(proposed by Jan Kuś, University of Warwick)
+
+\paragraph{Solution.}
+If $\lambda = 0$, the claim holds as $0 \in \mathbb{R}$. Assume $\lambda \neq 0$ is an eigenvalue of $A$ with a corresponding eigenvector $x \in \mathbb{C}^n \setminus \{0\}$.
+
+We will first express the operation $A \mapsto A^{\mathsf{R}}$ algebraically. The element at position $(i,j)$ in $A$ ends up at position $(n+1-j, i)$ in $A^{\mathsf{R}}$. Thus, the rotation is defined by the relation $(A^{\mathsf{R}})_{i,j} = A_{j, n+1-i}$.
+
+Let $J$ be the matrix where $J_{i,j} = \delta_i^{n+1-j}$. The operation of transposing $A$ and then reversing the rows gives the matrix $J A^{\top}$. The $(i,j)$-th element of this matrix is
+\[
+(J A^{\top})_{i,j} = \sum_{k=1}^n J_{i,k} (A^{\top})_{k,j} = (A^{\top})_{n+1-i, j} = A_{j, n+1-i}.
+\]
+This matches the definition of $A^{\mathsf{R}}$, so we get the identity $A^{\mathsf{R}} = J A^{\top}$. Note that the matrix $J$ is symmetric ($J = J^{\top}$) and it is its own inverse ($J^2 = I$).
+
+The given condition $A = A^{\mathsf{R}}$ thus means $A = J A^{\top}$. Left-multiplying by $J$ yields
+\begin{equation}
+J A = J (J A^{\top}) = (J^2) A^{\top} = A^{\top}. \tag{$*$}
+\end{equation}
+Now, consider the standard Hermitian inner product $(u, v) = v^* u$ on $\mathbb{C}^n$. We evaluate $(A x, A x)$ in two ways. First, using our choice of $x$ as an eigenvector corresponding to $\lambda$:
+\[
+(A x, A x) = (\lambda x, \lambda x) = |\lambda|^2 \|x\|^2.
+\]
+Second, using the adjoint property and $(*)$:
+\[
+(A x, A x) = (A^* A x, x) = (A^{\top} A x, x) = (J A (\lambda x), x) = \lambda (J A x, x) = \lambda^2 (J x, x).
+\]
+Together, these give us $|\lambda|^2 \|x\|^2 = \lambda^2 (J x, x)$.
+
+The term $(J x, x)$ is real, since $(J x, x)^* = (J^* x, x) = (J x, x)$ because $J$ is real and symmetric. Since $\lambda \neq 0$ and $x \neq 0$, the left side $|\lambda|^2 \|x\|^2$ is a positive real number. This implies that $\lambda^2 (x, J x)$ must also be a positive real number. And as $(x, J x)$ is real, so is $\lambda^2$.
+
+Thus, either $\lambda$ is real (if $\lambda^2 > 0$) or its real part is $0$ (if $\lambda^2 < 0$). This completes the proof.
+
+\section*{Problem 9}
+Let $n$ be a positive integer. Consider the following random process which produces a sequence of $n$ distinct positive integers $X_1, X_2, \ldots, X_n$. First, $X_1$ is chosen randomly with $\mathbb{P}(X_1 = i) = 2^{-i}$ for every positive integer $i$. For $1 \leq j \leq n-1$, having chosen $X_1, \ldots, X_j$, arrange the remaining positive integers in increasing order as $n_1 < n_2 < \cdots$, and choose $X_{j+1}$ randomly with $\mathbb{P}(X_{j+1} = n_i) = 2^{-i}$ for every positive integer $i$. Let $Y_n = \max\{X_1, \ldots, X_n\}$. Show that
+\[
+\mathbb{E}[Y_n] = \sum_{i=1}^n \frac{2^i}{2^i - 1}.
+\]
+(proposed by Jan Kuś and Jun Yan, University of Warwick)
+
+\paragraph{Solution 1.}
+For each $j \in [n] = \{1, 2, \ldots, n\}$, let $Y_j = \max\{X_1, \ldots, X_j\}$. We use induction on $j$ to show that
+\[
+\mathbb{E}[Y_j] = \sum_{i=1}^j \frac{2^i}{2^i - 1} \quad \text{for all } j \in [n].
+\]
+The base case $j = 1$ follows easily from definition.
+
+For the inductive step, it suffices to show that $\mathbb{E}[Y_{j+1} - Y_j] = \frac{2^{j+1}}{2^{j+1} - 1}$ for every $j \in [n-1]$. Note that $Y_{j+1} \neq Y_j$ if and only if $X_{j+1} > Y_j = \max\{X_1, \ldots, X_j\}$, in which case $Y_{j+1} = X_{j+1}$. Thus,
+\[
+\mathbb{E}[Y_{j+1} - Y_j] = \mathbb{P}[X_{j+1} > Y_j] \cdot \mathbb{E}[X_{j+1} - Y_j \mid X_{j+1} > Y_j].
+\]
+To compute $\mathbb{P}[X_{j+1} > Y_j]$, note that for any fixed pairwise distinct positive integers $a_1, \ldots, a_j$ and $a > \max\{a_1, \ldots, a_j\}$,
+\begin{align*}
+\mathbb{P}[(X_1, \ldots, X_{j+1}) = (a, a_1, \ldots, a_j)] &= \mathbb{P}[(X_1, \ldots, X_{j+1}) = (a_1, a, \ldots, a_j)]/2 \\
+&= \mathbb{P}[(X_1, \ldots, X_{j+1}) = (a_1, a_2, a, \ldots, a_j)]/4 \\
+&= \cdots = \mathbb{P}[(X_1, \ldots, X_{j+1}) = (a_1, \ldots, a_j, a)]/2^j.
+\end{align*}
+Therefore, summing over all possible $a_1, \ldots, a_j$ and $a > \max\{a_1, \ldots, a_j\}$, we see that
+\[
+\mathbb{P}[X_{j+1} > Y_j] = \frac{2^j}{\sum_{i=0}^j 2^i} = \frac{2^j}{2^{j+1} - 1}.
+\]
+To finish, it is easy to see that
+\[
+\mathbb{E}[X_{j+1} - Y_j \mid X_{j+1} > Y_j] = \sum_{t=1}^{\infty} t \cdot \mathbb{P}[X_{j+1} = Y_j + t \mid X_{j+1} > Y_j] = \sum_{t=1}^{\infty} \frac{t}{2^t} = 2.
+\]
+
+\paragraph{Solution 2.}
+Since $Y_n$ takes values in $\mathbb{Z}_{>0}$,
+\[
+\mathbb{E}[Y_n] = \sum_{k=1}^{\infty} \mathbb{P}[Y_n \geq k].
+\]
+For each $k \in [n]$, $\mathbb{P}[Y_n \geq k] = 1$, while for each $k > n$,
+\[
+\mathbb{P}[Y_n \geq k] = 1 - \mathbb{P}[Y_n < k] = 1 - \mathbb{P}[X_1, \ldots, X_n < k] = 1 - \prod_{i=1}^n \left(1 - \frac{1}{2^{k-i}}\right).
+\]
+Note that this formula also works for every $k \in [n]$, as the $i = k$ term in the product is $0$. Thus, it suffices to show that
+\[
+\sum_{i=1}^n \frac{2^i}{2^i - 1} = \sum_{k=1}^{\infty}\left(1 - \prod_{i=1}^n \left(1 - \frac{1}{2^{k-i}}\right)\right).
+\]
+The case of $n = 1$ is easy to verify. Using induction on $n$, it suffices to show that for every $n \geq 2$,
+\[
+\frac{1}{1 - \frac{1}{2^n}} = \sum_{k=1}^{\infty}\left(\prod_{i=1}^{n-1}\left(1 - \frac{1}{2^{k-i}}\right) - \prod_{i=1}^n\left(1 - \frac{1}{2^{k-i}}\right)\right) = \sum_{k=1}^{\infty}\left(\frac{1}{2^{k-n}} \prod_{i=1}^{n-1}\left(1 - \frac{1}{2^{k-i}}\right)\right).
+\]
+Indeed, for every $N > n$, after multiplying by $1 - \frac{1}{2^n}$, the sum on the right telescopes as
+\begin{align*}
+&\left(1 - \frac{1}{2^n}\right) \sum_{k=1}^N\left(\frac{1}{2^{k-n}} \prod_{i=1}^{n-1}\left(1 - \frac{1}{2^{k-i}}\right)\right) \\
+&= \sum_{k=1}^N\left(\left(\frac{1}{2^{k-n}} - \frac{1}{2^k}\right)\prod_{i=1}^{n-1}\left(1 - \frac{1}{2^{k-i}}\right)\right) \\
+&= \sum_{k=1}^N\left(\prod_{i=1}^n\left(1 - \frac{1}{2^{k+1-i}}\right) - \prod_{i=1}^n\left(1 - \frac{1}{2^{k-i}}\right)\right) = \prod_{i=1}^n\left(1 - \frac{1}{2^{N+1-i}}\right).
+\end{align*}
+Taking $N$ to infinity finishes the proof.
+
+\paragraph{Solution 3 (sketch).}
+It can be shown by induction or another method that for any sequence of positive integers $a_1 < a_2 < \cdots < a_n$,
+\[
+\mathbb{P}[\{X_1, \ldots, X_n\} = \{a_1, \ldots, a_n\}] = 2^{-\sum_{i=1}^n a_i} \prod_{i=1}^n (2^i - 1).
+\]
+For any $a_1 < a_2 < \cdots < a_n$, let $d_1 = a_1$ and $d_{i+1} = a_{i+1} - a_i$ for $i \in [n-1]$, so
+\[
+\mathbb{P}[\{X_1, \ldots, X_n\} = \{d_1, d_1 + d_2, \ldots, d_1 + \cdots + d_n\}] = 2^{-\sum_{i=1}^n (n+1-i) d_i} \prod_{i=1}^n (2^i - 1).
+\]
+Note that $(a_1, \ldots, a_n) \mapsto (d_1, \ldots, d_n)$ is a bijection between strictly increasing sequences in $\mathbb{Z}_{>0}$ of length $n$ and $(\mathbb{Z}_{>0})^n$, so, using $\sum_{i \geq 1} x^i = x/(1-x)$ and $\sum_{i \geq 1} i x^i = x/(1-x)^2$, we get
+\begin{align*}
+\mathbb{E}[Y_n] &= \prod_{i=1}^n (2^i - 1) \sum_{d_1, \ldots, d_n \geq 1} \left(\sum_{i=1}^n d_i\right) 2^{-\sum_{j=1}^n (n+1-j) d_j} \\
+&= \prod_{i=1}^n (2^i - 1) \sum_{i=1}^n \left(\sum_{d_i \geq 1} d_i 2^{-(n+1-i) d_i}\right) \prod_{j \neq i} \left(\sum_{d_j \geq 1} 2^{-(n+1-j) d_j}\right) = \cdots = \sum_{i=1}^n \frac{2^i}{2^i - 1}.
+\end{align*}
+
+\section*{Problem 10}
+For any positive integer $N$, let $S_N$ be the number of pairs of integers $1 \leq a, b \leq N$ such that the number $(a^2 + a)(b^2 + b)$ is a perfect square. Prove that the limit
+\[
+\lim_{N \to \infty} \frac{S_N}{N}
+\]
+exists and find its value.
+
+(proposed by Besfort Shala, University of Bristol)
+
+\paragraph{Solution.}
+Throughout the solution, we use the Vinogradov notation $A \ll B$ to mean $A = O(B)$, which in turn means that there exists a constant $C > 0$, independent of the quantities $A$ and $B$, such that $|A| \leq C|B|$, on the entirety of the domain where $A$ and $B$ are defined (for us, this will always be the interval $[1, \infty)$).
+
+We will show that the limit equals $1$, corresponding to the trivial solutions $a = b$. Note that $(a^2 + a)(b^2 + b)$ is a perfect square if and only if $a^2 + a = d z_1^2$ and $b^2 + b = d z_2^2$ for some square-free $d$ and $z_1, z_2 \in \mathbb{Z}_{>0}$. From this point on, all sums over $d$ will be over square-free positive integers. Multiplying the equations by $4$ and setting $y_i = 2 z_i$, we get
+\[
+S_N = \sum_{d \ll N^2} c_d(N)^2 + O(1),
+\]
+where $c_d(N)$ is the number of solutions to $(2k+1)^2 - d y^2 = 1$ with $1 \leq k \leq N$ and $1 \leq y \leq N/2$ with $y$ even. Other than for the purpose of identifying the trivial solutions, we will work with Pell's equation $x^2 - d y^2 = 1$ with $1 \leq x, y \ll N$. Split the sum as
+\[
+\sum_{\substack{d \ll N^2 \\ c_d(N) \leq 1}} c_d(N) + \sum_{\substack{d \ll N^2 \\ c_d(N) > 1}} c_d(N)^2.
+\]
+Note that if $d \gg N$, then the size of the second solution $x_2 = x_1^2 + d y_1^2$ (coming from $x_2 + y_2 \sqrt{d} = (x_1 + y_1 \sqrt{d})^2$, where $x_1 + y_1 \sqrt{d}$ is the fundamental solution) is $\gg d \gg N$. Hence we may assume that $d \ll N$ if $c_d(N) > 1$ (with a suitable choice of hidden constants). Denote the second sum by $E$ (for error, which we will bound momentarily). The first sum is easily manipulated into being asymptotic to $N$ (up to the error $E$), using the fact that fixing $x = 2a + 1 \leq 2N + 1$ fixes the square-free $d$ and the square $y^2$, namely
+\[
+\sum_{\substack{d \ll N^2 \\ c_d(N) \leq 1}} c_d(N) = \sum_{d \ll N^2} \sum_{\substack{1 \leq a \leq N \\ 1 \leq y \leq N/2}} \chi_{(2a+1)^2 - d y^2 = 1} + O(E) = \sum_{a=1}^N \sum_{d, y} \chi_{(2a+1)^2 - 1 = d y^2} + O(E) = N + O(E).
+\]
+Here $\chi_\cdot$ denotes the characteristic function (taking the value $0$ if $\cdot$ is not satisfied, and $1$ otherwise).
+
+Now we bound the error sum $E$. Note that solutions to Pell's equation $x^2 - d y^2 = 1$ grow exponentially, hence we have $c_d(N) \ll \log N$. This means we may assume that $N \gg d \gg N^{1-\delta}$ for some small enough fixed $\delta > 0$, since the contribution of $d \ll N^{1-\delta}$ is bounded by $N^{1-\delta} \log N$. By $x^2 - d y^2 = 1$, we have that $d \gg N^{1-\delta}$ implies $y \ll N^{1/2+\delta}$.
+
+Fixing each $y \ll N^{\delta/2}$ gives $\ll N^{1-\delta}$ choices for $x$ (hence also for $d$). So we may assume $N^{1/2+\delta} \gg y \gg N^{\delta/2}$, since the contribution of $y \ll N^{\delta/2}$ is bounded by $N^{1-\delta/2}$.
+
+By placing $x$ in residue classes modulo $y^2$ and splitting the interval $[1, 2N+1]$ into intervals of length $y^2$, we get that each choice of $N^{\delta/2} \ll y \ll N^{1/2+\delta}$ gives $\ll N g(y)/y^2$ choices for $x$ (hence also for $d$) by $y^2 \mid x^2 + 1$, where $g(y) = |\{1 \leq x \leq y^2 : x^2 + 1 \equiv 0 \pmod{y^2}\}|$. By elementary number theory, $g$ is multiplicative and $g(p^k) \leq 2$ for all prime powers $p^k$. In particular we obtain $g(n) \leq \tau(n) \ll n^{\varepsilon}$ for any $\varepsilon > 0$ (this is not hard to prove directly for $g$, but may be used as a well-known fact for the divisor function $\tau$). Therefore the contribution of such $y$ is
+\[
+\ll \sum_{N^{\delta/2} \ll y \ll N^{1/2+\delta}} \frac{N g(y)}{y^2} \ll N^{1-\delta/2+\varepsilon},
+\]
+which is acceptable by choosing $\varepsilon > 0$ small enough. We conclude that $S_N = N(1 + o(1))$, as desired.
+
+\paragraph{Remark.}
+There is a secondary infinite family of solutions of ``size'' $\sqrt{N}$, namely given by $a = 4b(b+1)$. This shows that
+\[
+\limsup_{N \to \infty} \frac{S_N - N}{\sqrt{N}} > 0.
+\]
+
+\end{document}

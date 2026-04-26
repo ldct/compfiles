@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{IMC 2002, Day 2 --- Solutions}
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+Compute $\det A$ where $A=[a_{ij}]$, $a_{ij}=(-1)^{|i-j|}$ if $i\ne j$, $a_{ii}=2$.
+
+\subsection*{Solution}
+Add row $i+1$ to row $i$ for $i=1,\dots,n-1$: rows $1,\dots,n-1$ become $(1,1,0,\dots,0)$ shifted, and row $n$ is unchanged. Then subtract column $j$ from column $j+1$ successively to diagonalize; the last diagonal entry becomes $n+1$. Thus $\det A = n+1$.
+
+\section*{Problem 2}
+Two hundred students, 6 problems. Each problem was solved by at least 120. Prove there exist two students whose combined solutions cover all problems.
+
+\subsection*{Solution}
+For each pair of students let $S(\text{pair})$ be the set of problems neither solved. There are $\binom{200}{2}=19900$ pairs. Each problem was missed by at most $80$ students, contributing to at most $\binom{80}{2}=3160$ pairs. So the total (problem, pair) incidences is at most $6\cdot 3160 = 18960$. Thus at least $19900-18960 = 940$ pairs have $S=\emptyset$.
+
+\section*{Problem 3}
+For $n\ge 1$ let
+\[a_n = \sum_{k=0}^\infty \frac{k^n}{k!},\quad b_n = \sum_{k=0}^\infty (-1)^k\frac{k^n}{k!}.\]
+Show $a_n b_n\in\mathbb{Z}$.
+
+\subsection*{Solution}
+We prove by induction that $a_n/e\in\mathbb{Z}$ and $b_n\cdot e\in\mathbb{Z}$. Base $n=0$: $a_0=e$, $b_0=1/e$ (with $0^0=1$).
+
+Inductive step:
+\[a_{n+1}=\sum_{k\ge 0}\frac{(k+1)^n}{k!}=\sum_m\binom{n}{m}a_m,\]
+and similarly $b_{n+1}=-\sum_m \binom{n}{m}b_m$. Integer linear combinations preserve the divisibility property.
+
+\section*{Problem 4}
+In tetrahedron $OABC$, $\angle BOC=\alpha$, $\angle COA=\beta$, $\angle AOB=\gamma$. Let $\sigma$ be the dihedral angle along $OA$ (between faces $OAB$, $OAC$) and $\tau$ the dihedral angle along $OB$. Prove
+\[\gamma > \beta\cos\sigma + \alpha\cos\tau.\]
+
+\subsection*{Solution}
+Take $OA=OB=OC=1$. Intersect the unit sphere with the three angular regions; the slice areas are $\frac12\alpha$, $\frac12\beta$, $\frac12\gamma$.
+
+Project slices $AOC$, $COB$ onto the plane $OAB$. The signed projected areas are $\frac12\beta\cos\sigma$ and $\frac12\alpha\cos\tau$. These projections are bounded by ellipse arcs, meeting the opposite slice's boundary in at most 4 points (two distinct conics). Case analysis on the signs of $\cos\sigma,\cos\tau$ shows their sum is strictly less than the area of slice $BOA$.
+% Figure omitted.
+
+\section*{Problem 5}
+Let $A$ be $n\times n$ complex, $n>1$. Prove
+\[A\overline A = I_n \iff \exists\, S\in GL_n(\mathbb{C})\text{ with }A=S\overline S^{-1}.\]
+
+\subsection*{Solution}
+($\Leftarrow$) $A\overline A = S\overline S^{-1}\overline S S^{-1}=I_n$.
+
+($\Rightarrow$) We need $S$ with $A\overline S = S$. Try $S = wA + \overline w I_n$ for $w\ne 0$. Then $A\overline S = A(\overline w\overline A + wI_n) = \overline w I_n + wA = S$. If $S$ is singular then $A - (\overline w/w)I_n$ is singular, i.e., $\overline w/w$ is an eigenvalue. Since $\overline w/w$ ranges over the unit circle and $A$ has finitely many eigenvalues, some $w$ gives $S$ invertible.
+
+\section*{Problem 6}
+Let $f:\mathbb{R}^n\to\mathbb{R}$ be convex, differentiable, with $\|\nabla f(x_1)-\nabla f(x_2)\|\le L\|x_1-x_2\|$. Prove
+\[\|\nabla f(x_1)-\nabla f(x_2)\|^2 \le L\langle \nabla f(x_1)-\nabla f(x_2), x_1-x_2\rangle.\]
+
+\subsection*{Solution}
+Let $g(x)=f(x)-f(x_1)-\langle \nabla f(x_1),x-x_1\rangle$; then $g(x_1)=\nabla g(x_1)=0$, $g$ has the same Lipschitz gradient, and $x_1$ is the minimum. We claim
+\[g(x_2)\ge \frac{1}{2L}\|\nabla g(x_2)\|^2. \tag{2}\]
+
+Let $y_0 = x_2 - \frac1L\nabla g(x_2)$, $y(t)=y_0+t(x_2-y_0)$. Then
+\begin{align*}
+g(x_2) &= g(y_0) + \int_0^1 \langle \nabla g(y(t)), x_2-y_0\rangle\,dt\\
+&\ge \langle \nabla g(x_2), x_2-y_0\rangle - \int_0^1 \|\nabla g(x_2)-\nabla g(y(t))\|\cdot\|x_2-y_0\|\,dt\\
+&\ge \frac1L\|\nabla g(x_2)\|^2 - L\|x_2-y_0\|^2\int_0^1 t\,dt = \frac{1}{2L}\|\nabla g(x_2)\|^2.
+\end{align*}
+
+Substituting the definition of $g$:
+\[\|\nabla f(x_2)-\nabla f(x_1)\|^2 \le 2L\langle \nabla f(x_1), x_1-x_2\rangle + 2L(f(x_2)-f(x_1)). \tag{3}\]
+Swapping $x_1\leftrightarrow x_2$:
+\[\|\nabla f(x_2)-\nabla f(x_1)\|^2 \le 2L\langle \nabla f(x_2), x_2-x_1\rangle + 2L(f(x_1)-f(x_2)). \tag{4}\]
+The statement is the average of (3), (4).
+
+\end{document}
