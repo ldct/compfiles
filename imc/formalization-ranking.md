@@ -365,7 +365,7 @@ Problem counts per year: 1994-1999 had 6 problems/day × 2 days = 12 per year. T
 | IMC 1996 P1 | sorry skeleton (statement + outline, base cases n=0,1 proved, 153 LoC) | determinant of symmetric arithmetic-progression matrix | Low | Low-Med |
 | IMC 1996 P2 | sorry skeleton (statement + closed-form answer, key algebraic + trig identity lemmas proved, 169 LoC) | integral sin(nx)/((1+2^x) sin x) = 0 or pi | Low | Low |
 | IMC 1996 P3 | sorry skeleton (part (i) — eigenspace decomposition — fully proved; part (ii) statement with closed-form answer, proof sorry, 180 LoC) | involutions are diagonalizable; max commuting family 2^n | Low | Med |
-| IMC 1996 P4 | not started | convolution recurrence, growth rate lim sup bounds | Med | Med |
+| IMC 1996 P4 | sorry skeleton (statement + sequence definition, base cases a₂=1/2, a₃=1/3, positivity, and key bounds 7/10 < 2^(-1/2), 2/(7/10)+1/(7/10)² ≤ 5 proven, 200 LoC) | convolution recurrence, growth rate lim sup bounds | Med | Med |
 | IMC 1996 P5 | not started | asymptotic of n integral (1+ax+bx^2)^n | Med | Med-High |
 | IMC 1996 P6 | not started | upper content vs lower content via contractions | Med-High | High |
 | IMC 1996 P7 | not started | iterates converge iff x_{n+1} - x_n -> 0 | Low | Med |
