@@ -270,7 +270,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 254 | IMC 2024 P4 | partial: easy direction `ngramSubgroup w n ≤ ghSubgroup g h n` proven; hard direction reduced to single sorry'd lemma `ghSubgroup_le_ngramSubgroup` (the official solution's induction on j) | 119 | subgroup gen. by n-grams independent of sequence | Med-High | High | Pigeonhole + non-periodicity + induction on group. |
 | 255 | IMC 2020 P8 | statement formalized | 48 | lim (1/log log n) sum (-1)^k C(n,k) log k = 1 | Med-High | High | Frullani integral; asymptotic analysis with uniform bounds. |
 | 256 | IMC 2013 P5 | statement formalized | 70 | complex sequence with sum a_n^p convergent iff p is not prime | Med-High | Very High | Delicate construction; sieve over prime exponents. |
-| 257 | IMC 2016 P10 | not started | - | spectral bound \|A^n\| <= (n/ln 2) \|A\|^{n-1} for unit-spectrum A | Med-High | High | Operator-norm analysis; Jordan form bound. |
+| 257 | IMC 2016 P10 | statement formalized | 47 | spectral bound \|A^n\| <= (n/ln 2) \|A\|^{n-1} for unit-spectrum A | Med-High | High | Operator-norm analysis; Jordan form bound. |
 | 258 | IMC 2021 P4 | statement formalized | 41 | baire class 1 via oscillation hypothesis | High | High | G_delta characterization; Lebesgue's theorem on Baire class 1. |
 | 259 | IMC 2023 P5 | statement formalized | 48 | preferred permutations >= k! | Med-High | High | Combinatorial argument with ordering + counting. |
 | 260 | IMC 2017 P10 | not started | - | homothetic negative-ratio triangle packing: perimeter blowup as area approaches K | Med-High | Very High | Delicate packing / isoperimetric geometry. |
