@@ -362,7 +362,7 @@ Problem counts per year: 1994-1999 had 6 problems/day × 2 days = 12 per year. T
 | IMC 1995 P10 | part (a) proved, part (b) sorry skeleton (237 LoC) | approximation by odd polynomials with only odd degrees >= 3 | Low-Med | Med |
 | IMC 1995 P11 | sorry skeleton (statement + outline, 156 LoC) | cosine sum sign-change and zero-count bounds | Med | Med-High |
 | IMC 1995 P12 | proof complete (213 LoC) | uniformly bounded orthonormal sequence, no pointwise limit | Low-Med | Med |
-| IMC 1996 P1 | not started | determinant of symmetric arithmetic-progression matrix | Low | Low-Med |
+| IMC 1996 P1 | sorry skeleton (statement + outline, base cases n=0,1 proved, 153 LoC) | determinant of symmetric arithmetic-progression matrix | Low | Low-Med |
 | IMC 1996 P2 | not started | integral sin(nx)/((1+2^x) sin x) = 0 or pi | Low | Low |
 | IMC 1996 P3 | not started | involutions are diagonalizable; max commuting family 2^n | Low | Med |
 | IMC 1996 P4 | not started | convolution recurrence, growth rate lim sup bounds | Med | Med |
