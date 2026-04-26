@@ -40,6 +40,7 @@ import Compfiles.Imc1996P4
 import Compfiles.Imc1996P5
 import Compfiles.Imc1996P6
 import Compfiles.Imc1996P7
+import Compfiles.Imc1996P8
 import Compfiles.Imc2000P1
 import Compfiles.Imc2000P2
 import Compfiles.Imc2000P3
