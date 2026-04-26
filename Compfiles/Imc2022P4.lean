@@ -44,13 +44,33 @@ problem imc2022_p4 :
       ((1 : ℝ) / 100) * Real.log (Real.log n) ≤ m n ∧
       (m n : ℝ) ≤ 100 * Real.log (Real.log n) := by
   -- TODO: Following the official solution.
-  -- Setup directed graphs G_k on k-subsets with an edge from
-  -- (a_1,…,a_k) to (a_2,…,a_{k+1}). An admissible edge set has no
-  -- directed path of length 2; let b(G) be the min number of admissible
-  -- sets covering E. Then chi(G_k) = b(G_{k-1}) and
-  --   log₂ chi(G) ≤ b(G) ≤ 2 ⌈log₂ chi(G)⌉.
-  -- Applying twice starting from chi(G_1) = n gives
-  --   log₂ ⌈log₂ n⌉ ≤ m ≤ 2 ⌈log₂ ⌈log₂ n⌉⌉.
+  --
+  -- Step 1. For each k ≥ 1, define a digraph G_k on strictly increasing
+  --   k-tuples from [n], with an edge (a₁,…,a_k) → (a₂,…,a_{k+1}) for
+  --   each strictly increasing (k+1)-tuple (a₁,…,a_{k+1}). The problem's
+  --   constraint says exactly that m n = χ(G_3).
+  --
+  -- Step 2. Call an edge set admissible if it contains no directed path
+  --   of length 2; let b(G) be the minimum number of admissible sets
+  --   covering E(G). Lemma 1: an independent set in G_k is exactly an
+  --   admissible edge set of G_{k-1}, so χ(G_k) = b(G_{k-1}).
+  --
+  -- Step 3. Lemma 2: for any digraph G,
+  --     log₂ χ(G) ≤ b(G) ≤ 2 ⌈log₂ χ(G)⌉.
+  --   Lower bound: from an admissible cover E₁,…,E_b, label v ↦
+  --     {i : v has an outgoing edge in E_i} ⊆ [b]; endpoints of any
+  --     edge get distinct labels, so χ(G) ≤ 2^b.
+  --   Upper bound: from a proper k-colouring τ with r = ⌈log₂ k⌉, for
+  --     each bit i form E_{i,+} = {vu : bit_i τv = 0, bit_i τu = 1} and
+  --     E_{i,-} symmetrically. These 2r sets are admissible and cover E.
+  --
+  -- Step 4. χ(G_1) = n (vertices are points of [n], complete forward
+  --   tournament), so b(G_1) = ⌈log₂ n⌉. Then χ(G_2) = b(G_1) =
+  --   ⌈log₂ n⌉ and m = χ(G_3) = b(G_2) ∈ [⌈log₂ ⌈log₂ n⌉⌉,
+  --   2⌈log₂ ⌈log₂ n⌉⌉].
+  --
+  -- Step 5. Translate ⌈log₂⌉ ↔ Real.log via Real.log x / Real.log 2,
+  --   absorb constants into (1/100, 100) for n ≥ N.
   sorry
 
 end Imc2022P4
