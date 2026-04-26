@@ -339,7 +339,7 @@ Problem counts per year: 1994-1999 had 6 problems/day × 2 days = 12 per year. T
 | Problem | Status | Topic | Statement difficulty | Proof difficulty |
 |---------|--------|-------|---------------------|------------------|
 | IMC 1994 P1 | proof complete (part (a); 163 LoC) | symmetric positive matrix, zero count in inverse | Low-Med | Med |
-| IMC 1994 P2 | not started | ODE inequality f' + f^2 >= -1 implies b - a >= pi | Low | Low-Med |
+| IMC 1994 P2 | proof complete (130 LoC) | ODE inequality f' + f^2 >= -1 implies b - a >= pi | Low | Low-Med |
 | IMC 1994 P3 | not started | 2n-1 irrationals, find n with Q+-independent sums | Med | Med |
 | IMC 1994 P4 | not started | linear operator FG - GF = alpha F implies F nilpotent | Low | Low-Med |
 | IMC 1994 P5 | not started | limit of integral f(x)g(nx) with g periodic | Low-Med | Med |
