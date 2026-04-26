@@ -353,7 +353,7 @@ Problem counts per year: 1994-1999 had 6 problems/day × 2 days = 12 per year. T
 | IMC 1995 P1 | proof complete (323 LoC) | column-shift matrix Y, ranks/eigenvalues of YX^-1 | Low | Low |
 | IMC 1995 P2 | proof complete (176 LoC) | integral tail condition implies L^2 norm lower bound | Low | Low |
 | IMC 1995 P3 | proof complete (240 LoC) | f/f' -> 0 given f' -> -inf, f'' -> +inf at 0+ | Low | Low-Med |
-| IMC 1995 P4 | not started | range of F(x) = integral from x to x^2 of 1/ln t | Low | Low-Med |
+| IMC 1995 P4 | sorry skeleton (statement + outline, 97 LoC) | range of F(x) = integral from x to x^2 of 1/ln t | Low | Low-Med |
 | IMC 1995 P5 | not started | A + t_i B nilpotent at n+1 values, show A, B nilpotent | Low | Low-Med |
 | IMC 1995 P6 | not started | Clarkson-type inequality for \|x\|^p + \|y\|^p = 2 | Low-Med | Med |
 | IMC 1995 P7 | not started | 3x3 real matrix with Au perp u is cross product | Low | Low |
