@@ -147,6 +147,7 @@ import Compfiles.Imc2012P2
 import Compfiles.Imc2012P3
 import Compfiles.Imc2012P4
 import Compfiles.Imc2012P5
+import Compfiles.Imc2012P6
 import Compfiles.Imc2012P7
 import Compfiles.Imc2012P8
 import Compfiles.Imc2012P9
