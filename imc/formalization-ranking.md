@@ -285,7 +285,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 269 | IMC 2020 P3 | statement formalized; official volume-packing + separating-hyperplane proof sketched in TODO (C(d) = 3^d); blocked on Mathlib gaps (volume scaling of convex bodies in EuclideanSpace, Minkowski-sum volume bound, geometric Hahn-Banach for Finset.convexHull) | 75 | polytope eps-approximation with C(d)eps^{1-d} vertices | High | Very High | Convex body volume estimates; polytope approximation theorem. |
 | 270 | IMC 2023 P10 | statement formalized; detailed TODO outline of official solution (special-primes lemma, p-adic block argument, asymptotic contradiction) | 70 | g(n) > n^{0.999n} for factorial-LCD denominator | High | Very High | Deep p-adic valuation + 'special primes' machinery. |
 | 271 | IMC 2024 P9 | partial: statement formalized; SYT and friend-relation definitions, friendCount, plus statements of the two key lemmas (handshaking + multiplicity-expansion bijection) added as sorry'd helpers | 127 | number of nice matrices is even | High | Very High | Young-tableau friendship graph handshake; bespoke combinatorics. |
-| 272 | IMC 2024 P10 | statement formalized | 53 | Fermat-prime divisibility condition on almost primes | Very High | Very High | Multi-lemma cyclotomic/order argument in F_q. |
+| 272 | IMC 2024 P10 | statement formalized; structured roadmap with Lemma 1 (gcd(n,φ(n))=1) and Lemma 3 (ord_{q-1}(p) odd) sorry'd as named stubs, main argument's residue-class reduction sketched in TODO | 117 | Fermat-prime divisibility condition on almost primes | Very High | Very High | Multi-lemma cyclotomic/order argument in F_q. |
 
 ## Aggregate summary
 
