@@ -253,7 +253,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 237 | IMC 2013 P10 | statement formalized | 84 | 2013-bead necklace, count good paintings with every 21 successive having a green is odd | Med | Med-High | Transfer-matrix determinant over F_2; trace parity. |
 | 238 | IMC 2023 P8 | proof complete | 238 | tree Wiener index times harmonic index bound | Med | Med | Cauchy-Schwarz; needs graph theory library (tree, distance). |
 | 239 | IMC 2022 P5 | proof complete | 794 | count monochromatic triangles on K_{43} | Med | Med-High | Double counting 'cherries'; specific 43-vertex problem. |
-| 240 | IMC 2015 P9 | not started | - | max dimension of t-normal subspace of complex n x n matrices | Med | High | Linear-algebra structure; symmetric + antisymmetric parts. |
+| 240 | IMC 2015 P9 | statement formalized | 88 | max dimension of t-normal subspace of complex n x n matrices | Med | High | Linear-algebra structure; symmetric + antisymmetric parts. |
 | 241 | IMC 2018 P5 | not started | - | equiangular pq-gon with distinct integer side lengths satisfies partial-sum bound | Med | High | Structure of equiangular polygons plus counting. |
 | 242 | IMC 2016 P5 | not started | - | permutation inv(pi) divisible by n+1: infinitely many primes with f(p-1) above/below (p-1)!/p | Med | High | Generating function and roots of unity filter; character sums. |
 | 243 | IMC 2012 P3 | not started | - | two players pick S_n elements, generating ends game; last mover loses | Med | Med-High | Game-theory analysis on subgroup-lattice parity of S_n. |
