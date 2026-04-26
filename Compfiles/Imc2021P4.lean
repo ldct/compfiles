@@ -29,13 +29,26 @@ problem imc2021_p4 (f : ℝ → ℝ)
       ∀ x y, |x - y| < min (g x) (g y) → |f x - f y| < ε) :
     ∃ (φ : ℕ → ℝ → ℝ), (∀ n, Continuous (φ n)) ∧
       ∀ x, Filter.Tendsto (fun n => φ n x) Filter.atTop (nhds (f x)) := by
-  -- TODO: Following the official solution.
-  -- The hypothesis says f has "small oscillation on small balls" in a
-  -- uniform-over-pairs sense. The proof constructs piecewise-linear
-  -- approximations φₙ using a finite partition of unity associated to
-  -- the gauge function g with ε = 1/n, then shows φₙ x → f x pointwise.
-  -- This is an instance of Baire class 1; the full argument is delicate
-  -- but elementary (no measure theory).
+  -- Following the official solution (Lebesgue characterization).
+  -- For each n, hypothesis with ε = 1/(n+1) gives a gauge gₙ : ℝ → ℝ₊ with
+  --     |x-y| < min (gₙ x) (gₙ y) → |f x - f y| < 1/(n+1).
+  -- One shows every superlevel set {x : f x ≥ c} is Gδ:
+  --     {x : f x ≥ c} = ⋂_{n,k} ⋃_{y : f y ≥ c}
+  --       (y - min(1/k, gₙ y), y + min(1/k, gₙ y)).
+  -- ⊆: take y = x. ⊇: if f x < c, choose n with f x < c - 1/(n+1) and k
+  -- with gₙ x > 1/k; if x lies in the RHS pick witness y, then
+  -- |x-y| < min(gₙ y, 1/k) ≤ min(gₙ y, gₙ x), so |f x - f y| < 1/(n+1),
+  -- contradicting f y ≥ c and f x < c - 1/(n+1).
+  -- Sublevel sets are Fσ symmetrically. Lebesgue's theorem then gives
+  -- that f is Baire class 1. Mathlib does not currently have Lebesgue's
+  -- theorem on Baire class 1 functions, so completing this proof would
+  -- require formalizing that theorem from scratch (a substantial side
+  -- project: piecewise-linear approximations on a refined partition of
+  -- unity of ℝ adapted to the gauges, and a careful pointwise
+  -- convergence argument).
+  -- Extract a gauge sequence as concrete partial progress:
+  choose g hg_pos hg_close using fun n : ℕ => hyp (1 / (n + 1 : ℝ))
+    (by positivity)
   sorry
 
 end Imc2021P4
