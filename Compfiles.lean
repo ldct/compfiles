@@ -192,6 +192,7 @@ import Compfiles.Imc2017P3
 import Compfiles.Imc2017P4
 import Compfiles.Imc2017P5
 import Compfiles.Imc2017P6
+import Compfiles.Imc2017P7
 import Compfiles.Imc2017P8
 import Compfiles.Imc2017P9
 import Compfiles.Imc2018P1
