@@ -355,7 +355,7 @@ Problem counts per year: 1994-1999 had 6 problems/day × 2 days = 12 per year. T
 | IMC 1995 P3 | proof complete (240 LoC) | f/f' -> 0 given f' -> -inf, f'' -> +inf at 0+ | Low | Low-Med |
 | IMC 1995 P4 | sorry skeleton (statement + outline, 97 LoC) | range of F(x) = integral from x to x^2 of 1/ln t | Low | Low-Med |
 | IMC 1995 P5 | proof complete (247 LoC) | A + t_i B nilpotent at n+1 values, show A, B nilpotent | Low | Low-Med |
-| IMC 1995 P6 | not started | Clarkson-type inequality for \|x\|^p + \|y\|^p = 2 | Low-Med | Med |
+| IMC 1995 P6 | sorry skeleton (statement + outline, 138 LoC) | Clarkson-type inequality for \|x\|^p + \|y\|^p = 2 | Low-Med | Med |
 | IMC 1995 P7 | not started | 3x3 real matrix with Au perp u is cross product | Low | Low |
 | IMC 1995 P8 | not started | nested radical sequence, evaluate sum b_n 2^n | Low | Low-Med |
 | IMC 1995 P9 | not started | roots on unit circle, roots of 2z P'(z) - n P(z) too | Med | Med |
