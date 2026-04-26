@@ -37,10 +37,12 @@ problem imc2020_p8 :
       Filter.atTop (nhds answer) := by
   -- TODO: Following the official solution via the Frullani integral
   --   log k = ∫_0^∞ (e^{-x} - e^{-kx}) / x dx.
-  -- Substituting into S n gives
-  --   S n = ∫_0^∞ ((1 - e^{-x}) - (1 - e^{-x})^n - something) / x dx.
-  -- After careful splitting at M with M · e^M = n, the tail is O(1) and
-  -- the main term matches (1 + o(1)) · log log n.
+  -- Combined with `Σ_{k=0}^n (-1)^k C(n,k) e^{-kx} = (1 - e^{-x})^n` and
+  -- `Σ_{k=0}^n (-1)^k C(n,k) = 0` (n ≥ 1), this yields for n ≥ 1:
+  --   S n = ∫_0^∞ (1 - e^{-x} - (1 - e^{-x})^n) / x dx.
+  -- After substituting `u = 1 - e^{-x}` and splitting at a threshold `M`
+  -- with `M · e^M ≈ n`, the tail is O(1) and the head matches
+  -- (1 + o(1)) · log log n.
   sorry
 
 end Imc2020P8
