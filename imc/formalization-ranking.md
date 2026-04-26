@@ -255,7 +255,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 239 | IMC 2022 P5 | proof complete | 794 | count monochromatic triangles on K_{43} | Med | Med-High | Double counting 'cherries'; specific 43-vertex problem. |
 | 240 | IMC 2015 P9 | statement formalized | 88 | max dimension of t-normal subspace of complex n x n matrices | Med | High | Linear-algebra structure; symmetric + antisymmetric parts. |
 | 241 | IMC 2018 P5 | statement formalized | 108 | equiangular pq-gon with distinct integer side lengths satisfies partial-sum bound | Med | High | Structure of equiangular polygons plus counting. |
-| 242 | IMC 2016 P5 | not started | - | permutation inv(pi) divisible by n+1: infinitely many primes with f(p-1) above/below (p-1)!/p | Med | High | Generating function and roots of unity filter; character sums. |
+| 242 | IMC 2016 P5 | statement formalized | 62 | permutation inv(pi) divisible by n+1: infinitely many primes with f(p-1) above/below (p-1)!/p | Med | High | Generating function and roots of unity filter; character sums. |
 | 243 | IMC 2012 P3 | not started | - | two players pick S_n elements, generating ends game; last mover loses | Med | Med-High | Game-theory analysis on subgroup-lattice parity of S_n. |
 | 244 | IMC 2011 P3 | not started | - | p^p-1 is interesting for x^n-1 = (x^p-x+1)f + p g; minimal interesting n | Med | High | Order of x mod (x^p-x+1, p); cyclotomic-type argument. |
 | 245 | IMC 2017 P4 | not started | - | friendship graph degree 1000, find subgroup S with >= n/2017 having 2 friends in S | Med | High | Probabilistic method; randomized subset selection. |
