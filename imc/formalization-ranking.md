@@ -272,7 +272,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 256 | IMC 2013 P5 | statement formalized | 70 | complex sequence with sum a_n^p convergent iff p is not prime | Med-High | Very High | Delicate construction; sieve over prime exponents. |
 | 257 | IMC 2016 P10 | statement formalized | 47 | spectral bound \|A^n\| <= (n/ln 2) \|A\|^{n-1} for unit-spectrum A | Med-High | High | Operator-norm analysis; Jordan form bound. |
 | 258 | IMC 2021 P4 | statement formalized; gauge sequence extracted; full Gδ-superlevel argument outlined but blocked on absence of Lebesgue's Baire-class-1 theorem in Mathlib | 54 | baire class 1 via oscillation hypothesis | High | High | G_delta characterization; Lebesgue's theorem on Baire class 1. |
-| 259 | IMC 2023 P5 | statement formalized | 48 | preferred permutations >= k! | Med-High | High | Combinatorial argument with ordering + counting. |
+| 259 | IMC 2023 P5 | statement formalized; TODO notes statement bug (missing bijectivity hypothesis) and sketches official solution (linear-functional maximizer cosets) | 60 | preferred permutations >= k! | Med-High | High | Combinatorial argument with ordering + counting. |
 | 260 | IMC 2017 P10 | not started | - | homothetic negative-ratio triangle packing: perimeter blowup as area approaches K | Med-High | Very High | Delicate packing / isoperimetric geometry. |
 | 261 | IMC 2004 P6 | not started | - | sum of log^{-4} over branches equals explicit rational function | High | High | Complex analysis; residue / partial-fraction evaluation. |
 | 262 | IMC 2024 P5 | statement formalized | 58 | f(p)>=f(q) for convex hull coverage in ball | Med-High | Very High | Needs convex-geometry chi-function decomposition; measure theory. |
