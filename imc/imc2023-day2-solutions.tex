@@ -1,0 +1,69 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+
+\title{IMC 2023, Second Day Solutions}
+\date{August 3, 2023}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 6}
+\subsection*{Solution}
+No. All reachable matrices have positive entries. Let $L(X)$ be the entrywise $\log_2$ of $X$. The operations correspond to adding/subtracting a row or column to another, which preserve $\det L$.
+\[ \det L(A) = \log_2 2 \cdot \log_2 4 - \log_2 4 \cdot \log_2 3 = \log_2(4/3) > 0, \]
+while $\det L(B) < 0$. So Ivan cannot reach $B$.
+
+\section*{Problem 7}
+\subsection*{Solution}
+Answer: $\alpha = 1/(e-1)$.
+
+\textbf{Existence.} Let $h(x) = (e^x - 1)/(e-1) \in V$ so that $h'(x) - h(x) = 1/(e-1)$. For $f \in V$, set $g(x) = f(x) e^{-x} + h(-x)$. Then $g(0) = 0$ and $g(1) = e^{-1} + (e^{-1}-1)/(e-1) = 0$. By Rolle, $g'(\xi) = 0$, giving
+\[ f'(\xi) e^{-\xi} - f(\xi) e^{-\xi} - \frac{e^{-\xi}}{e-1} = 0, \]
+so $f'(\xi) = f(\xi) + 1/(e-1)$.
+
+\textbf{Uniqueness.} For $f(x) = (e^x - 1)/(e-1) \in V$, $f'(x) - f(x) \equiv 1/(e-1)$ for all $x$, so no other $\alpha$ works.
+
+\subsection*{Solution 2}
+The expression $f'(x) - f(x)$ appears in the derivative of $F(x) = f(x) e^{-x}$: $F'(x) = (f'(x) - f(x)) e^{-x}$. Apply Cauchy's MVT to $F$ and $G(x) = -e^{-x}$: there is $\xi \in (0,1)$ with
+\[ \frac{F'(\xi)}{G'(\xi)} = \frac{F(1) - F(0)}{G(1) - G(0)} = \frac{e^{-1}}{1 - e^{-1}} = \frac{1}{e-1}. \]
+
+\section*{Problem 8}
+\subsection*{Solution}
+Let $k = \binom{n}{2}$ and $x_1 \leq x_2 \leq \cdots \leq x_k$ the pairwise distances. Since $T$ has $n-1$ edges, $x_1 = \cdots = x_{n-1} = 1$, and $x_i \geq 2$ for $i \geq n$. Then
+\[ W \cdot H = (n-1)^2 + (n-1) \sum_{i=n}^{k}\left(x_i + \tfrac{1}{x_i}\right) + \left(\sum_{i=n}^{k} x_i\right)\left(\sum_{i=n}^{k} \tfrac{1}{x_i}\right). \]
+By Cauchy-Schwarz, $\left(\sum x_i\right)\left(\sum 1/x_i\right) \geq (k-n+1)^2 = (n-1)^2(n-2)^2/4$. And $x_i + 1/x_i \geq 2 + 1/2 = 5/2$ for $x_i \geq 2$. So
+\[ W H \geq (n-1)^2 + (n-1) \cdot \tfrac{5}{2}(k-n+1) + \tfrac{(n-1)^2(n-2)^2}{4} = \frac{(n-1)^3(n+2)}{4}. \]
+Equality holds for the star $S_n$.
+
+\section*{Problem 9}
+\subsection*{Solution}
+Answer: $\sup V = 1/4$.
+
+Use $U = [-1/2, 1/2]^3$. Lower bound: $X = [-1/2, -\varepsilon]^2 \times [-1/2, 1/2]$, $Y = [\varepsilon, 1/2]^2 \times [-1/2, 1/2]$ gives volumes $\to 1/4$.
+
+Upper bound: For $P = (x,y,z) \in U$ with $xyz \neq 0$, let $\overline{P}$ be the 8 sign-reflections. Suffices to show $|\overline{P} \cap (X \cup Y)| \leq 4$ for all such $P$, then integrate.
+
+\textbf{Claim 1.} One body is \emph{thick} (all 3 projections contain origin). Label $\overline{P} = ABCDA'B'C'D'$. If $|\overline{P} \cap (X \cup Y)| \geq 5$, by pigeonhole some antipodal pair lies in $X \cup Y$. Case analysis (using disjoint projections) forces one body (say $X$) to contain 4 mutually-symmetric points and thus be thick.
+
+\textbf{Claim 2.} If $X$ is thick, replace $X$ by $Y' = -Y$: same volume, admissible (projections of $Y$ miss origin, so disjoint from those of $Y'$). For such symmetric $(Y, Y')$, if $|\overline{P} \cap Y'| \geq 3$, then wlog $A, B, D \in Y'$ forces $B', D' \in Y$, contradicting disjoint projections.
+
+\section*{Problem 10}
+\subsection*{Solution}
+Yes. Let $\varepsilon = 10^{-10}$. Call prime $p$ \emph{special} if for some $k \in \{1,\ldots,p-1\}$, $p \mid f(j)$ for at least $\varepsilon k$ values $j \leq k$.
+
+\textbf{Lemma.} Only finitely many special primes exist.
+
+\emph{Proof.} If $p \mid f(j)$ and $p \mid f(j+r)$, then $p$ divides
+\[ (j+r)! \left(\tfrac{f(j+r)}{g(j+r)} - \tfrac{f(j)}{g(j)}\right) = 1 + (j+r) + (j+r)(j+r-1) + \cdots + (j+r)\cdots(j+2), \]
+a degree $r-1$ polynomial in $j$, vanishing for $\leq r-1$ values mod $p$. Among $\varepsilon k$ values, at most $\varepsilon k/2$ gaps exceed $2/\varepsilon$, so $\geq \varepsilon k/2 - 1$ gaps are small; the small-gap count is bounded by a constant, bounding $k$ and hence $p$.
+
+For non-special $p \leq n$: partition $\{p, \ldots, n\}$ into length-$p$ intervals $\Delta = [ap, ap+k']$. All $x!$ in $\Delta$ have same $\nu_p = T = \nu_p((ap)!)$. For non-special $p$, at least $(1-\varepsilon)(k'+1)$ of $g(ap+j)$ satisfy $\nu_p(g(ap+j)) = T$. So
+\[ \nu_p(g(1) \cdots g(n)) \geq (1-\varepsilon) \nu_p(1! \cdot 2! \cdots n!). \tag{1} \]
+
+Summing over non-special primes:
+\[ A \cdot g(1) \cdots g(n) \geq (1! \cdots n!)^{1-\varepsilon}, \]
+where $A = \prod_{p \text{ special}, k} p^{\nu_p(g(k))} \leq C^{n^2}$. If $g(n) \leq n^{0.999 n}$ for all $n$, then
+\[ \log(A \cdot g(1) \cdots g(n)) \leq O(n^2) + 0.999 \log(1!\cdots n!) < (1-\varepsilon) \log(1!\cdots n!) \]
+for large $n$, contradiction.
+
+\end{document}

@@ -1,0 +1,67 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{IMC 1997, Day 2 --- Solutions}
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+$f\in C^3(\mathbb{R})$ non-negative, $f(0)=f'(0)=0$, $f''(0)>0$. Define $g(x) = (\sqrt{f(x)}/f'(x))'$ for $x\ne 0$, $g(0)=0$. Show $g$ is bounded near $0$. Does it hold for $f\in C^2$?
+
+\subsection*{Solution}
+Let $c = f''(0)/2$. Compute
+\[g = \frac{(f')^2 - 2ff''}{2(f')^2\sqrt f}.\]
+Taylor: $f=cx^2+O(x^3)$, $f'=2cx+O(x^2)$, $f''=2c+O(x)$, so $(f')^2 = 4c^2x^2+O(x^3)$, $2ff''=4c^2x^2+O(x^3)$, numerator $= O(x^3)$. Denominator $\sim 8c^{5/2}|x|^3$. So $g=O(1)$.
+
+$C^2$ counterexample: $f(x)=(x+|x|^{3/2})^2$. Then for $x>0$,
+\[g(x) = \tfrac 12\left(\frac{1}{1+\tfrac 32\sqrt x}\right)' = -\frac{3/8}{(1+\tfrac 32\sqrt x)^2\sqrt x} \to -\infty.\]
+
+\section*{Problem 2}
+$M$ a $2n\times 2n$ invertible block matrix $\begin{pmatrix}A&B\\C&D\end{pmatrix}$, $M^{-1} = \begin{pmatrix}E&F\\G&H\end{pmatrix}$. Show $\det M\cdot\det H = \det A$.
+
+\subsection*{Solution}
+\[\det M\cdot\det H = \det M\cdot\det\begin{pmatrix}I&F\\0&H\end{pmatrix} = \det\left(M\begin{pmatrix}I&F\\0&H\end{pmatrix}\right).\]
+Now $M\begin{pmatrix}I&F\\0&H\end{pmatrix}$: using $MM^{-1}=I$, $M\begin{pmatrix}F\\H\end{pmatrix}=\begin{pmatrix}0\\I\end{pmatrix}$, so the product equals $\begin{pmatrix}A&0\\C&I\end{pmatrix}$. Its determinant is $\det A$.
+
+\section*{Problem 3}
+Show $\sum_{n=1}^\infty \frac{(-1)^{n-1}\sin(\log n)}{n^\alpha}$ converges iff $\alpha>0$.
+
+\subsection*{Solution}
+Let $f(t) = \sin(\log t)/t^\alpha$. $f'(t) = \frac{-\alpha\sin\log t + \cos\log t}{t^{\alpha+1}}$, so $|f'(t)|\le (1+\alpha)/t^{\alpha+1}$. For $\alpha>0$, by MVT $|f(n+1)-f(n)|\le (1+\alpha)/n^{\alpha+1}$, summable, so by pairing, $\sum(-1)^{n-1}f(n)$ converges.
+
+For $\alpha\le 0$, suffices $\alpha=0$: show $\sin\log n\not\to 0$. If $\sin\log n\to 0$, then $\log n/\pi = k_n+\lambda_n$ with $k_n\in\mathbb{Z}$, $\lambda_n\to 0$. But $k_{n+1}-k_n = \frac{1}{\pi}\log(1+1/n) - (\lambda_{n+1}-\lambda_n)\to 0$, so eventually $k_n$ constant; but $\log n\to\infty$, contradiction.
+
+\section*{Problem 4}
+$M_n = \mathbb{R}^{n^2}$, space of $n\times n$ real matrices.
+
+(a) If $f:M_n\to\mathbb{R}$ is linear, there is unique $C$ with $f(A)=\mathrm{tr}(AC)$.
+
+(b) If also $f(AB)=f(BA)$, then $f(A)=\lambda\,\mathrm{tr}\,A$ for some $\lambda$.
+
+\subsection*{Solution}
+(a) With standard basis $E_{ij}$ of $M_n$, set $c_{ij} = f(E_{ji})$. Uniqueness is immediate.
+
+(b) Let $L = \ker\mathrm{tr}$. $L$ is spanned by $\{E_{ij} : i\ne j\}\cup\{E_{ii}-E_{nn}\}$. Using
+\[E_{ij} = E_{ij}E_{jj} - E_{jj}E_{ij},\quad E_{ii}-E_{nn} = E_{in}E_{ni}-E_{ni}E_{in},\]
+condition (2) gives $f$ vanishes on all basis elements, so $f|_L=0$. For any $A$, $A - \frac{\mathrm{tr}\,A}{n} I\in L$, so $f(A) = \frac{f(I)}{n}\mathrm{tr}\,A$.
+
+\section*{Problem 5}
+$X$ a set, $f:X\to X$ a bijection. Prove $f = g_1\circ g_2$ with $g_1^2=g_2^2 = \mathrm{id}$.
+
+\subsection*{Solution}
+Orbits of $f$ partition $X$; handle each orbit. For finite orbit of size $n$, model as rotation by $2\pi/n$ of a regular $n$-gon; a rotation is a product of two reflections in symmetry axes.
+
+For infinite orbit, model as $f(m)=m+1$ on $\mathbb{Z}$. Take $g_1 = $ reflection about $1/2$ ($m\mapsto 1-m$), $g_2 = $ reflection about $0$ ($m\mapsto -m$). Then $g_1(g_2(m)) = 1-(-m) = m+1 = f(m)$. Both are involutions.
+
+\section*{Problem 6}
+$f:[0,1]\to\mathbb{R}$ continuous. $f$ "crosses the axis" at $x$ if $f(x)=0$ but every neighborhood has both positive and negative values.
+
+(a) Give an example crossing infinitely often.
+
+(b) Can it cross uncountably often?
+
+\subsection*{Solution}
+(a) $f(x)=x\sin(1/x)$ crosses at $1/(k\pi)$.
+
+(b) Yes. Let $C$ be the Cantor set, uncountable. $[0,1)\setminus C = \bigcup_{k,i}(a_{k,i}, b_{k,i})$, disjoint open intervals (where $k$ is the depth). On each such interval, put a "tent" $g_k$ piecewise linear with $g_k(a_{k,i})=g_k(b_{k,i})=0$, $g_k((a_{k,i}+b_{k,i})/2) = 2^{-k}$, and $g_k=0$ elsewhere. Let $f(x) = \sum_{k=1}^\infty (-1)^k g_k(x)$; converges uniformly since $|g_k|\le 2^{-k}$, so $f$ continuous. On the $k$-th level intervals $f$ takes sign $(-1)^k$; points of $C$ are limits of intervals of both signs, so $f$ vanishes on $C$ and crosses the axis there.
+
+\end{document}

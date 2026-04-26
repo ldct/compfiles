@@ -1,0 +1,48 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+
+\title{IMC 2018, Day 1 Solutions}
+\date{July 24, 2018}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+\subsection*{Solution}
+\textbf{(1) $\Rightarrow$ (2).} By AM-GM, $\sqrt{a_n/b_n} = \sqrt{(a_n/c_n)(c_n/b_n)} \leq \tfrac{1}{2}(a_n/c_n + c_n/b_n)$. Sum converges.
+
+\textbf{(2) $\Rightarrow$ (1).} Take $c_n = \sqrt{a_n b_n}$. Then $a_n/c_n = c_n/b_n = \sqrt{a_n/b_n}$.
+
+\section*{Problem 2}
+\subsection*{Solution}
+No. Suppose $g: F^* \to F^+$ is an isomorphism. Then $g(1) = 0$ and $a := g(-1)$ satisfies $2a = g((-1)^2) = g(1) = 0$. So $a = 0$ or $\operatorname{char} F = 2$. If $a = 0$, $-1 = 1$, so $\operatorname{char} F = 2$ in either case.
+
+For all $x \in F$: $g(x^2) = 2 g(x) = 0$, so $x^2 = 1$. But this has at most 2 solutions, so $|F^*| \leq 2$ and $F$ has $\leq 3$ elements. For $F = \mathbb{F}_2$: $|F^*| = 1 \neq 2 = |F^+|$. Contradiction.
+
+\section*{Problem 3}
+\subsection*{Solution}
+Answer: $a = 0$.
+
+The characteristic polynomial of $A$ is $(x^2 + 1)^2$. If $A = B^2$, the minimal polynomial $\mu_B(x)$ divides $p_A(x^2) = (x^4 + 1)^2$. Over $\mathbb{Q}$, $x^4 + 1$ is irreducible (8th cyclotomic), so with $\deg \mu_B \leq 4$, $\mu_B(x) = x^4 + 1$. Hence $A^2 + I = 0$. But
+\[ A^2 + I = \begin{pmatrix} 0 & 0 & -2a & 2a \\ 0 & 0 & -2a & 2a \\ 2a & -2a & 0 & 0 \\ 2a & -2a & 0 & 0 \end{pmatrix}, \]
+forcing $a = 0$. And $a = 0$ works: $A$ is a cyclic shift squared.
+
+\section*{Problem 4}
+\subsection*{Solution}
+Answer: $f(t) = C_1 t + C_2/t + C_3$.
+
+Setting $a = t/2, b = 2t$: $f'(t) = \frac{f(2t) - f(t/2)}{3t/2}$, so $f$ is $C^\infty$ by induction.
+
+Substitute $b = e^h t, a = e^{-h} t$ and differentiate 3 times in $h$, then set $h = 0$:
+\[ 2t^3 f'''(t) + 6t^2 f''(t) = 0 \implies (tf(t))''' = 0, \]
+so $t f(t)$ is a quadratic polynomial. Verification: all such $f$ satisfy the equation.
+
+\section*{Problem 5}
+\subsection*{Solution}
+Place the polygon in $\mathbb{C}$ counterclockwise with $P_2 - P_1 > 0$. Let $a_i = |P_{i+2} - P_{i+1}|$, $\omega = e^{2\pi i/(pq)}$. Then $P_{i+1} - P_i = a_{i-1} \omega^{i-1}$ and
+\[ f(x) = \sum_{i=0}^{pq-1} a_i x^i \quad \text{satisfies } f(\omega) = 0. \]
+The minimal polynomial $\Phi_{pq}(x)$ of $\omega$ equals $\gcd(\Phi_q(x^p), \Phi_p(x^q))$, so by Bézout, $f(x) = \Phi_q(x^p) u(x) + \Phi_p(x^q) v(x)$ with $\deg u \leq p-1$, $\deg v \leq q-1$. Write $u(x) = \sum u_i x^i$, $v(x) = \sum v_j x^j$. Let $(i,j)$ be the unique $n \in \{0, \ldots, pq-1\}$ with $n \equiv i \pmod p, n \equiv j \pmod q$. Then $a_{(i,j)} = u_i + v_j$. For $k \leq p$:
+\[ \sum_{i=0}^{k-1} a_{(i,i)} = \sum_{i=0}^{k-1}(u_i + v_i) = \frac{1}{k} \sum_{i,j=0}^{k-1}(u_i + v_j) = \frac{1}{k}\sum_{i,j=0}^{k-1} a_{(i,j)} \geq \frac{1}{k}(1 + 2 + \cdots + k^2) = \frac{k^3 + k}{2}, \]
+since the $a_{(i,j)}$ are distinct positive integers (the $(i,j)$ are distinct).
+
+\end{document}

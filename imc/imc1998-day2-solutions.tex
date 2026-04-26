@@ -1,0 +1,67 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{IMC 1998, Day 2 --- Solutions}
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+$V$ real vector space; $f, f_1,\dots,f_k: V\to\mathbb{R}$ linear. If $f_1(x)=\cdots=f_k(x)=0 \Rightarrow f(x)=0$, prove $f$ is a linear combination of $f_1,\dots,f_k$.
+
+\subsection*{Solution}
+WLOG $f_1,\dots,f_k$ linearly independent. By induction, $\exists\, a_k\in V$ with $f_i(a_k)=0$ for $i<k$, $f_k(a_k)=1$. Build similar $a_j$ so $f_i(a_j)=\delta_{ij}$. For any $x$, $y = x - \sum_j f_j(x) a_j$ satisfies $f_i(y)=0$ for all $i$, so $f(y)=0$. Hence $f(x) = \sum_j f_j(x) f(a_j)$.
+
+\section*{Problem 2}
+$\mathcal P = \{f(x) = \sum_{k=0}^3 a_k x^k : |f(\pm 1)|\le 1, |f(\pm 1/2)|\le 1\}$. Evaluate $\sup_{\mathcal P}\max_{[-1,1]}|f''(x)|$ and find extremal polynomials.
+
+\subsection*{Solution}
+With nodes $x_0=-1, x_1=-1/2, x_2=1/2, x_3=1$, Lagrange interpolation gives $f = \sum_k l_k(x) f(x_k)$, so $f''(x) = \sum_k l_k''(x) f(x_k)$ and $|f''(x)|\le \sum_k |l_k''(x)|$.
+
+$f''$ is linear, so $\max_{[-1,1]}|f''|$ attained at $\pm 1$. The values $\{l_k''(1)\}$ alternate in sign; setting $f(x_k) = \mathrm{sign}\,l_k''(1) = (-1)^{k-1}$ gives $f = T_3(x) = 4x^3 - 3x$, the Chebyshev polynomial, with $f''(1)=24$. So the sup is $24$, attained at $\pm T_3$.
+
+\section*{Problem 3}
+$0<c<1$, $f(x)=x/c$ for $x\in[0,c]$, $f(x)=(1-x)/(1-c)$ for $x\in[c,1]$. Show the set of $n$-periodic points of $f$ is finite and non-empty.
+
+\subsection*{Solution}
+$f_n$ is piecewise linear with $2^n$ segments, each going from height 0 to 1 or vice versa. The graph of $y=x$ intersects each segment once, giving exactly $2^n$ solutions to $f_n(x)=x$. So periodic points of period dividing $n$ number $2^n$ — finite.
+
+The points with period exactly $n$ are those with $f_n(x)=x$ but $f_k(x)\ne x$ for $k<n$. The excluded $k$ contribute at most $\sum_{k=1}^{n-1}2^k = 2^n - 2$, leaving at least $2$ points of exact period $n$.
+
+\section*{Problem 4}
+$A_n=\{1,\dots,n\}$, $n\ge 3$. $\mathcal F$ = non-constant $f:A_n\to A_n$ with $f(k)\le f(k+1)$ and $f(k)=f(f(k+1))$. Find $|\mathcal F|$.
+
+\subsection*{Solution}
+Analysis shows every $f\in\mathcal F$ has form parameterized by $1\le k < l \le m \le n-1$ (with $l = f(m+1)$):
+\[f(i) = \begin{cases} k & i\le m \\ l & i=m+1\\ i-1 & i>m+1.\end{cases}\]
+Wait, correction: $f(i)=k$ for $i\le m$, $f(m+1)=l$, $f(i)=i-1$ for $i>m+1$.
+
+The number of triples $(k,l,m)$ with $1\le k<l\le m\le n-1$ equals $\binom{n}{3}$. So $|\mathcal F|=\binom{n}{3}$.
+
+\section*{Problem 5}
+$\mathcal S$ a family of spheres in $\mathbb{R}^n$ ($n\ge 2$), with pairwise intersections of at most one point. Show that $M = \{x:x\in S\cap T\text{ for some }S\ne T\in\mathcal S\}$ is countable.
+
+\subsection*{Solution}
+For $x\in M$ pick $S,T\in\mathcal S$, $S\ne T$, $x\in S\cap T$. $\mathbb{R}^n\setminus(S\cup T)$ has three components $U,V,W$ where $\partial U=S$, $\partial V=T$, and $x$ is the unique point of $\overline U\cap\overline V$. Choose rational-coordinate points $u\in U$, $v\in V$, $w\in W$. We claim $x$ is determined by $(u,v,w)$; since such triples are countable, $M$ is countable.
+
+Suppose $x'\in M$ gave the same triple via $S',T',U',V',W'$. Since $|S\cap S'|\le 1$ and $U\cap U'\ni u$, we have $U\subseteq U'$ or $U'\subseteq U$, similarly for $V,W$. Two essential cases:
+(a) $U\supset U'$, $V\supset V'$: $\overline U\cap\overline V = \{x\}$ contains $x'$, so $x=x'$.
+(b) $U\subset U'$, $V\supset V'$, $W\subset W'$: $W\subset W'$ gives $U'\subset U\cup V\cup\{x\}$; since $U'$ open connected and $\overline U\cap\overline V=\{x\}$, $U'=U$, reducing to (a).
+
+\section*{Problem 6}
+$f:(0,1)\to[0,\infty)$ zero except at distinct $a_n$; $b_n=f(a_n)$.
+
+(a) If $\sum b_n < \infty$, $f$ is differentiable at some $x\in(0,1)$.
+
+(b) If $\sum b_n = \infty$, there exist $a_n$ making $f$ nowhere differentiable.
+
+\subsection*{Solution}
+(a) Construct $c_n\to\infty$ with $\sum c_n b_n < 1/2$: let $N_k$ be first index with $\sum_{n\ge N_k}b_n\le B/4^k$ (where $B=\sum b_n$), set $c_n = 2^k/(5B)$ for $N_k\le n<N_{k+1}$. Then $\sum c_n b_n\le \sum_k (2^k/5B)(B/4^k)=2/5$.
+
+Let $I_n=(a_n - c_n b_n, a_n + c_n b_n)$; total length $<1$, so $\exists x_0\in(0,1)$ outside all $I_n$. Then $f(x_0)=0$, and for $x=a_n$,
+\[\left|\frac{f(a_n)-0}{a_n-x_0}\right| \le \frac{b_n}{c_n b_n} = \frac{1}{c_n}\to 0.\]
+For other $x$, difference quotient is $0$. So $f'(x_0)=0$.
+
+(b) If $f$ is differentiable at $x_0$, then $f(x_0)=0$ and $f'(x_0)=0$. Pick $\beta_n$ with $0<\beta_n\le b_n$, $\beta_n\to 0$, $\sum\beta_n=\infty$. Choose $a_n$ so that $I_n=(a_n-\beta_n, a_n+\beta_n)$ covers every point of $(0,1)$ infinitely often (possible since $\sum\beta_n=\infty$). Then for any $x_0$, $\varepsilon>0$, exists $n$ with $\beta_n<\varepsilon$, $x_0\in I_n$, giving
+\[\frac{|f(a_n)-f(x_0)|}{|a_n - x_0|} > \frac{b_n}{\beta_n} \ge 1.\]
+So no derivative exists.
+
+\end{document}

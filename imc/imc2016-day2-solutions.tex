@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{IMC 2016, Blagoevgrad, Bulgaria --- Day 2 Solutions}
+\date{July 28, 2016}
+\begin{document}
+\maketitle
+
+\section*{Problem 6}
+\subsection*{Solution}
+Interchange sums:
+\[ \sum_{k=1}^\infty \sum_{n=1}^k \frac{x_n}{k^2} = \sum_{n=1}^\infty x_n \sum_{k=n}^\infty \frac{1}{k^2}. \]
+Bound
+\[ \sum_{k=n}^\infty \frac{1}{k^2} \le \sum_{k=n}^\infty \frac{1}{k^2 - 1/4} = \sum_{k=n}^\infty\Big(\frac{1}{k-1/2} - \frac{1}{k+1/2}\Big) = \frac{1}{n - 1/2}. \]
+Thus the sum is $< \sum_n \frac{x_n}{n - 1/2} = 2\sum_n \frac{x_n}{2n-1} = 2$.
+
+\section*{Problem 7}
+\subsection*{Solution}
+Minimum is $1/4$. With $y = x + 1/2$, $f(x) + f(x + 1/2) \ge 1/2$, so
+\[ \int_0^1 f = \int_0^{1/2} (f(x) + f(x+1/2))\,dx \ge 1/4. \]
+Attained by $f(x) = |x - 1/2|$: $|x - y| = |(x - 1/2) - (y - 1/2)| \le |x-1/2| + |y-1/2|$, and $\int_0^1 |x-1/2| = 1/4$.
+
+\section*{Problem 8}
+\subsection*{Solution}
+By (ii), $f$ is an involution; by (i), fixed-point-free. So $n$ is even and $f$ is a product of $n/2$ transpositions.
+
+Let $g(x) = f(x+1)$. Condition (iii) says $g \circ g \circ g = \mathrm{id}$, which is even; so $g$ is even. But $h(x) = x - 1$ is a single $n$-cycle, odd (since $n$ even). Then $f = g \circ h$ is odd. Since $f$ is a product of $n/2$ transpositions, $n/2$ must be odd, i.e.\ $n \equiv 2 \pmod 4$.
+
+% Remark with figure: construction exists for every such n via triangulation of regular polygon.
+
+\section*{Problem 9}
+\subsection*{Solution (generating function)}
+\[ \sum_{n \ge 0} f(n) q^n = \Big(\sum_{x \in \mathbb{Z}} q^{|x|}\Big)^k \cdot \frac{1}{1-q} = \frac{(1+q)^k}{(1-q)^{k+1}}. \]
+Define $g_a(n)$ by $\frac{(1+q)^a}{(1-q)^{k+1}} = \sum g_a(n) q^n$. Then $g_{a+1}(n) = g_a(n) + g_a(n-1)$, $g_a(0) = 1$. Call $(g(n))$ \emph{good} if $g(n-1)/g(n)$ is increasing. $g_0(n) = \binom{k+n}{k}$ is good: $g_0(n-1)/g_0(n) = n/(k+n)$.
+
+If $g$ is good and $g'(n) = g(n) + g(n-1)$, then
+\[ \frac{g'(n-1)}{g'(n)} = \frac{1 + g(n-2)/g(n-1)}{1 + g(n)/g(n-1)} \]
+is increasing in $n$, so $g'$ is good. Thus $g_k = f$ is good, giving $f(n-1) f(n+1) \le f(n)^2$.
+
+\section*{Problem 10}
+\subsection*{Solution 1 (Cayley--Hamilton)}
+Let $r = \|A\|$. Characteristic polynomial $\chi(t) = t^n + c_1 t^{n-1} + \dots + c_n$; by Vieta, $|c_k| \le \binom{n}{k}$. Cayley-Hamilton gives $A^n = -\sum c_k A^{n-k}$, so
+\[ \|A^n\| \le \sum_{k=1}^n \binom{n}{k} r^{n-k} = (1+r)^n - r^n. \]
+Combined with $\|A^n\| \le r^n$: let $r_0 = (2^{1/n} - 1)^{-1}$, where the two bounds agree; $r_0 < n/\ln 2$. For $r \le r_0$, $\|A^n\| \le r^n \le r_0 r^{n-1} < \frac{n}{\ln 2} r^{n-1}$. For $r > r_0$, $\frac{(1+r)^n - r^n}{r^{n-1}}$ is decreasing in $r$, so it is $\le r_0((1+1/r_0)^n - 1) = r_0 < n/\ln 2$.
+
+\subsection*{Solution 2 (stronger: $\|A^n\| \le n \|A\|^{n-1}$ by induction)}
+WLOG $A$ upper-triangular. Split $A = X + Y + Z$ with $X = a_{11} E_{11}$, $Y$ = first row minus $(1,1)$ entry, $Z$ = lower-right $(n-1) \times (n-1)$ block. Then $Y^2 = YX = ZY = ZX = 0$, so $A^n = X A^{n-1} + (Y+Z) Z^{n-1}$. By induction $\|Z^{n-1}\| \le (n-1)\|Z\|^{n-2} \le (n-1)\|A\|^{n-2}$, and $\|X\| \le 1$:
+\[ \|A^n\| \le \|A\|^{n-1} + (n-1)\|A\|\|A\|^{n-2} = n \|A\|^{n-1}. \]
+
+\end{document}

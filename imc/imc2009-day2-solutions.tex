@@ -1,0 +1,77 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+
+\title{IMC 2009, Budapest, Hungary \\ Day 2}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+Let $\ell$ be a line and $P$ a point in $\mathbb{R}^3$. Let $S$ be the set of $X$ such that $\operatorname{dist}(X, \ell) \ge 2 \operatorname{dist}(X, P)$. If $\operatorname{dist}(P, \ell) = d > 0$, find $\operatorname{vol}(S)$.
+
+\subsection*{Solution}
+Place $\ell$ as the $z$-axis, $P = (d, 0, 0)$. Condition: $x^2 + y^2 \ge 4((x-d)^2 + y^2 + z^2)$, i.e.,
+\[
+3\left(x - \tfrac{4d}{3}\right)^2 + 3 y^2 + 4 z^2 \le \tfrac{4 d^2}{3}.
+\]
+This is an ellipsoid. Normalizing gives
+\[
+\left(\tfrac{3 x_1}{2d}\right)^2 + \left(\tfrac{3 y}{2d}\right)^2 + \left(\tfrac{\sqrt 3 \, z}{d}\right)^2 \le 1.
+\]
+Volume $= \tfrac{4\pi}{3} \cdot \tfrac{2d}{3} \cdot \tfrac{2d}{3} \cdot \tfrac{d}{\sqrt 3} = \boxed{\dfrac{16 \pi d^3}{27 \sqrt 3}}$.
+
+\section*{Problem 2}
+Suppose $f : \mathbb{R} \to \mathbb{R}$ is $C^2$ with $f(0) = 1$, $f'(0) = 0$, and $f''(x) - 5 f'(x) + 6 f(x) \ge 0$ on $[0, \infty)$. Prove $f(x) \ge 3 e^{2x} - 2 e^{3x}$.
+
+\subsection*{Solution}
+Factor: $(D - 3)(D - 2) f \ge 0$. Let $g = f' - 2f$, so $g' - 3g \ge 0$, hence $(g e^{-3x})' \ge 0$, giving $g(x) e^{-3x} \ge g(0) = -2$, i.e., $f'(x) - 2 f(x) \ge -2 e^{3x}$.
+
+Then $(f e^{-2x})' \ge -2 e^x$, so $(f e^{-2x} + 2 e^x)' \ge 0$. Hence $f(x) e^{-2x} + 2 e^x \ge f(0) + 2 = 3$, i.e., $f(x) \ge 3 e^{2x} - 2 e^{3x}$.
+
+\section*{Problem 3}
+Let $A, B \in M_n(\mathbb{C})$ with $A^2 B + B A^2 = 2 ABA$. Prove there exists $k > 0$ with $(AB - BA)^k = 0$.
+
+\subsection*{Solution}
+Set $X = AB - BA$. Then
+\[
+AX - XA = A^2 B - ABA - ABA + BA^2 = A^2 B + BA^2 - 2ABA = 0,
+\]
+so $X$ commutes with $A$. For $m \ge 0$:
+\[
+X^{m+1} = X^m(AB - BA) = A(X^m B) - (X^m B)A.
+\]
+Taking trace: $\operatorname{tr}(X^{m+1}) = 0$. So all power sums of eigenvalues of $X$ vanish, hence all eigenvalues are $0$; $X$ is nilpotent.
+
+\section*{Problem 4}
+Let $p$ prime, $\mathbb{F}_p$. Let $W$ be the smallest set of polynomials over $\mathbb{F}_p$ such that
+\begin{itemize}
+  \item $x + 1$ and $x^{p-2} + x^{p-3} + \cdots + x^2 + 2x + 1$ are in $W$;
+  \item if $h_1, h_2 \in W$ then the remainder of $h_1(h_2(x))$ modulo $x^p - x$ is in $W$.
+\end{itemize}
+Count $|W|$.
+
+\subsection*{Solution}
+Both generators, viewed as functions $\mathbb{F}_p \to \mathbb{F}_p$, are bijections: $f_1 = x + 1$ is the $p$-cycle; $f_2(x) = \tfrac{x^{p-1} - 1}{x - 1} + x$ satisfies $f_2(0) = 1$, $f_2(1) = 0$ (by Fermat), $f_2(k) = k$ for $k \ne 0, 1$, i.e., the transposition $0 \leftrightarrow 1$.
+
+$f_1^k \circ f_2 \circ f_1^{-k}$ yields the transposition $k \leftrightarrow k+1$; these generate $S_p$. Since reduction mod $x^p - x$ preserves values on $\mathbb{F}_p$, and polynomials of degree $< p$ are uniquely determined by values on $\mathbb{F}_p$, $W$ is exactly the set of polynomials of degree $< p$ representing bijections $\mathbb{F}_p \to \mathbb{F}_p$.
+
+Answer: $|W| = p!$.
+
+\section*{Problem 5}
+Let $\mathbb{M}$ be $m \times p$ real matrices. For subspace $S \subseteq \mathbb{M}$, let $\delta(S) = \dim(\text{span of all columns of matrices in } S)$. $T$ is \emph{covering} if $\bigcup_{A \in T, A \ne 0} \ker A = \mathbb{R}^p$. Minimal = no proper covering subspace.
+(a) If $T$ minimal covering and $n = \dim T$, prove $\delta(T) \le \binom{n}{2}$.
+(b) Construct an example achieving equality.
+
+\subsection*{Solution}
+(a) Claim: in any covering $S$ we can find $A \in S$ with $\operatorname{rk} A \le \dim S - 1$. Take minimal $S_0 \subseteq S$, $s = \dim S_0$, $S' \subset S_0$ of dimension $s - 1$. $S'$ not covering, so $\exists u$ with $\tau(u) \ne 0$ for all nonzero $\tau \in S'$. Let $V = S'(u)$ ($\dim V = s - 1$). Some $A \in S_0 \setminus S'$ has $Au = 0$; show $\operatorname{Im} A \subset V$. If $Av \notin V$, define $f_\alpha : S_0 \to \mathbb{R}^m$ by $(\tau + \beta A) \mapsto \tau(u + \alpha v) + \beta A v$; $f_0$ has rank $s$, so $f_\alpha$ does too for all but finitely many $\alpha$, giving $\ker f_\alpha = 0$. Then for $\alpha \ne 0$, $B(u + \alpha v) \ne 0$ for all nonzero $B \in S_0$, contradicting minimality.
+
+Apply iteratively: decompose $T = Z_0 \oplus Z_1 \oplus \cdots$ and $\operatorname{span}(\text{columns}) = W_0 \oplus W_1 \oplus \cdots$ with $\dim W_i \le n - 1 - i$. Thus $\delta(T) \le (n-1) + (n-2) + \cdots = \binom{n}{2}$.
+
+(b) Index rows by pairs $(i,j)$, $1 \le i < j \le n$. For $u \in \mathbb{R}^n$, let
+\[
+(A(u))_{(i,j), k} = \begin{cases} u_i & k = j \\ -u_j & k = i \\ 0 & \text{otherwise}. \end{cases}
+\]
+Then $\ker A(u) = \mathbb{R} u$; $T = \{A(u) : u \in \mathbb{R}^n\}$ is minimal covering. And $A(e_i)_{(i,j), j} = $ standard basis vector in $\mathbb{R}^{\binom{n}{2}}$, so $\delta(T) = \binom{n}{2}$.
+
+\end{document}

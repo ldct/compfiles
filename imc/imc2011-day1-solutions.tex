@@ -1,0 +1,91 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+
+\title{IMC 2011, Blagoevgrad, Bulgaria \\ Day 1, July 30, 2011 --- Solutions}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+Let $f : \mathbb{R} \to \mathbb{R}$ be continuous. Call $x$ a \emph{shadow point} if there exists $y > x$ with $f(y) > f(x)$. Let $a < b$, suppose all points of $(a, b)$ are shadow points, and $a$, $b$ are not. Prove: (a) $f(x) \le f(b)$ on $(a,b)$; (b) $f(a) = f(b)$.
+
+\subsection*{Solution}
+(a) Suppose for contradiction $c \in (a,b)$ with $f(c) > f(b)$. By Weierstrass, $f$ attains a max $m$ on $[c,b]$ at some $d$. Since $f(d) \ge f(c) > f(b)$, we have $d \ne b$, so $d \in [c, b) \subset (a, b)$. Thus $d$ is a shadow point, so $f(y) > f(d)$ for some $y > d$, giving $f(y) > f(b)$.
+\begin{itemize}
+  \item If $y > b$: contradicts $b$ not being a shadow point.
+  \item If $y \le b$: $y \in (d, b]$, so $f(y) \le m = f(d) < f(y)$, contradiction.
+\end{itemize}
+
+(b) Since $a$ is not a shadow point, $f(a) \ge f(b)$. By (a) and continuity at $a$:
+\[
+f(a) = \lim_{x \to a^+} f(x) \le f(b).
+\]
+Hence $f(a) = f(b)$.
+
+\section*{Problem 2}
+Does there exist a real $3 \times 3$ matrix $A$ with $\operatorname{tr}(A) = 0$ and $A^2 + A^t = I$?
+
+\subsection*{Solution}
+The answer is \textbf{No}. Suppose such $A$ exists. Transposing: $A = I - (A^2)^t = I - (I - A^2)^2 = 2A^2 - A^4$, so
+\[
+A^4 - 2A^2 + A = 0.
+\]
+The roots of $x^4 - 2x^2 + x = x(x-1)(x^2 + x - 1)$ are $0$, $1$, $\tfrac{-1 \pm \sqrt{5}}{2}$, so these are the possible eigenvalues of $A$. Eigenvalues of $A^2$ lie in $\{0, 1, \tfrac{1 \pm \sqrt{5}}{2}\}$.
+
+From $\operatorname{tr}(A) = 0$, the eigenvalues sum to $0$; from $\operatorname{tr}(A^2) = \operatorname{tr}(I - A^t) = 3$, their squares sum to $3$. One checks no multiset of three eigenvalues from the allowed set satisfies both conditions.
+
+\section*{Problem 3}
+Let $p$ be prime. Call $n$ interesting if $x^n - 1 = (x^p - x + 1)f(x) + p\, g(x)$ for some $f, g \in \mathbb{Z}[x]$.
+(a) Show $p^p - 1$ is interesting. (b) For which $p$ is $p^p - 1$ the minimal interesting number?
+
+\subsection*{Solution}
+Reformulate: $n$ is interesting iff $x^n - 1$ is divisible by $x^p - x + 1$ in $\mathbb{F}_p[x]$. Work modulo $x^p - x + 1$ in this ring.
+
+(a) We have $x^p \equiv x - 1$, so
+\[
+x^{p^2} \equiv (x-1)^p \equiv x^p - 1 \equiv x - 2, \quad x^{p^3} \equiv x - 3, \ldots, \quad x^{p^p} \equiv x - p \equiv x.
+\]
+Thus $x(x^{p^p - 1} - 1) \equiv 0$; since $\gcd(x^p - x + 1, x) = 1$, we get $x^{p^p - 1} \equiv 1$.
+
+(b) Compute
+\[
+x^{1 + p + p^2 + \cdots + p^{p-1}} = x \cdot x^p \cdot x^{p^2} \cdots x^{p^{p-1}} \equiv x(x-1)(x-2)\cdots(x-(p-1)) = x^p - x \equiv -1,
+\]
+so $a = 2(1 + p + \cdots + p^{p-1})$ is interesting. If $p > 3$: $a = \tfrac{2}{p-1}(p^p - 1) < p^p - 1$, so $p^p - 1$ is not minimal.
+
+Since $\gcd(x^m - 1, x^k - 1) = x^{\gcd(m,k)} - 1$, the gcd of interesting numbers is interesting; the minimal interesting number divides $p^p - 1$.
+
+For $p = 2$: $p^p - 1 = 3$; divisors $1, 3$. Since $x^2 - x + 1 \nmid x - 1$, minimum is $3$.
+
+For $p = 3$: $p^p - 1 = 26$; divisors $1, 2, 13, 26$. Check $1, 2$ too small; $x^{13} \equiv -1 \not\equiv 1$. So minimum is $26$.
+
+Hence $p^p - 1$ is minimal iff $p \in \{2, 3\}$.
+
+\section*{Problem 4}
+Let $A_1, \ldots, A_n$ be finite nonempty sets. Show $f(t) = \sum_{k=1}^n \sum_{i_1 < \cdots < i_k} (-1)^{k-1} t^{|A_{i_1} \cup \cdots \cup A_{i_k}|}$ is nondecreasing on $[0,1]$.
+
+\subsection*{Solution}
+Let $\Omega = \bigcup A_i$. Pick random $X \subset \Omega$ by including each element independently with probability $t$. For any $C \subset \Omega$, $P(C \subset X) = t^{|C|}$. By inclusion-exclusion,
+\[
+P\bigl( (A_1 \subset X) \lor \cdots \lor (A_n \subset X) \bigr) = \sum_{k=1}^n \sum_{i_1 < \cdots < i_k} (-1)^{k-1} t^{|A_{i_1} \cup \cdots \cup A_{i_k}|} = f(t).
+\]
+This probability is clearly nondecreasing in $t$.
+
+\section*{Problem 5}
+Let $V$ be $(2n-1)$-dimensional over $\mathbb{F}_2$. Show that for any $v_1, \ldots, v_{4n-1} \in V$, some $2n$ of them sum to $0$.
+
+\subsection*{Solution}
+Since the statement is translation-invariant, WLOG $0 \in V' := \operatorname{aff}\{v_1, \ldots, v_{4n-1}\}$. Let $d = \dim V'$.
+
+\textbf{Lemma.} The $v_i$ can be permuted so that $v_1 + v_2, v_3 + v_4, \ldots, v_{2d-1} + v_{2d}$ form a basis of $V'$.
+
+\emph{Proof.} Induction on $d$. For $d \le 1$ trivial. Choose $v_1$ so $\operatorname{aff}(v_2, \ldots, v_{4n-1}) = V'$ (possible since $V'$ is spanned by some $d+1 \le 2n < 4n - 1$ vectors). Choose $v_2 \ne v_1$. Let $\ell = \{0, v_1 + v_2\}$, $V'' = V'/\ell$. Apply induction to images of $v_3, \ldots, v_{4n-1}$ in $V''$.
+
+Now assume the basis condition. The vector $w = (v_1 + v_3 + \cdots + v_{2d-1}) + (v_{2d+1} + v_{2d+2} + \cdots + v_{2n+d})$ is a sum of $2n$ vectors, so $w \in V'$. Writing $w + \varepsilon_1(v_1 + v_2) + \cdots + \varepsilon_d(v_{2d-1} + v_{2d}) = 0$ in the basis gives
+\[
+\sum_{i=1}^d \bigl( (1-\varepsilon_i) v_{2i-1} + \varepsilon_i v_{2i} \bigr) + \sum_{i=2d+1}^{2n+d} v_i = 0,
+\]
+a sum of $2n$ vectors.
+
+\end{document}

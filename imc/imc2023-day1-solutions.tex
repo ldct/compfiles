@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+
+\title{IMC 2023, First Day Solutions}
+\date{August 2, 2023}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+Find all $f: \mathbb{R} \to \mathbb{R}$ with continuous $f''$ satisfying $f(7x+1) = 49 f(x)$.
+
+\subsection*{Solution}
+Differentiating twice,
+\[ f''(7x+1) = f''(x), \quad \text{i.e., } f''(x) = f''\left(\tfrac{x-1}{7}\right). \]
+For any $x$, set $x_0 = x$, $x_{k+1} = (x_k-1)/7$. Then $|x_{k+1} + 1/6| = \tfrac{1}{7}|x_k + 1/6|$, so $x_k \to -1/6$. By continuity, $f''(x) = f''(-1/6)$ is constant, so $f(x) = ax^2 + bx + c$. Substituting and equating coefficients gives $a = 36c$, $b = 12c$, so
+\[ f(x) = c(6x+1)^2. \]
+
+\section*{Problem 2}
+Prove $A^6 = I$ given $A^2 = B^2 = C^2$ and $B^3 = ABC + 2I$.
+
+\subsection*{Solution}
+From $B^3 = A^2 B$: $A^2 B - ABC = 2I$, so $A(AB - BC) = 2I$. From $B^3 = BC^2$: $BC^2 - ABC = 2I$, so $(BC - AB)C = 2I$. Thus $A$ is a left inverse of $(AB - BC)/2$ and $-C$ is a right inverse, giving $A = -C$, and $ABA = 2I - B^3$, which commutes with $B$, so $(AB)^2 = (BA)^2$. Then
+\[ (AB - BA)(AB + BA) = (AB)^2 + AB^2A - BA^2B - (BA)^2 = A^4 - B^4 = 0. \]
+Since $AB - BC = AB + BA$ is invertible, $AB = BA$. Hence $ABA = A^2 B = B^3$, so $B^3 = I$. Thus $A^6 = B^6 = I$.
+
+\section*{Problem 3}
+Find all real polynomials $P$ with $P(x,y)P(z,t) = P(xz-yt, xt+yz)$.
+
+\subsection*{Solution}
+Work over $\mathbb{C}$. Write $P(x,y) = (x+iy)^n (x-iy)^m Q(x,y)$ with $Q$ not divisible by $x \pm iy$. Then $Q$ satisfies the same identity. Setting $z = t = 0$: $Q(x,y) Q(0,0) = Q(0,0)$. If $Q(0,0) \neq 0$, then $Q \equiv 1$. If $Q(0,0) = 0$, set $x = iy$, $z = -it$: $Q(iy,y) Q(-it,t) = 0$. But $Q(iy,y)$ and $Q(-it,t)$ are not identically zero (since $Q$ is not divisible by $x \mp iy$), contradiction.
+
+So $P = 0$ or $P = (x+iy)^n(x-iy)^m$. For real coefficients we need $n = m$, giving
+\[ P(x,y) = 0 \quad \text{or} \quad P(x,y) = (x^2 + y^2)^n. \]
+
+\section*{Problem 4}
+\subsection*{Solution}
+$p = 2$ fails so $p$ is odd.
+
+\textbf{Lemma.} For odd prime $p$ and $1 \leq n < p$:
+\[ \prod_{\alpha \in \mathbb{F}_p^*} (1 + \alpha^n) = \begin{cases} 0 & \text{if } (p-1)/\gcd(p-1,n) \text{ is even} \\ 2^n & \text{otherwise} \end{cases} \]
+Assume $n \mid p-1$. Let $t_1, \ldots, t_n$ be roots of $t^n + 1$. Then
+\[ \prod_\alpha (1 + \alpha^n) = \prod_i \prod_\alpha (t_i - \alpha) = \prod_i (t_i^{p-1} - 1) = \prod_i ((-1)^{(p-1)/n} - 1). \]
+
+Now $\prod_{\alpha \in \mathbb{F}_p^*}(\alpha^k + \alpha) = \prod \alpha$ gives $\prod(\alpha^{k-1} + 1) = 1$, so by the lemma $2^{k-1} = 1$ in $\mathbb{F}_p$. Hence $a_2 = 2^k + 2 \equiv 4 \pmod{p}$. Answer: $\{4\}$ for $p > 3$, $\{1\}$ for $p = 3$.
+
+\section*{Problem 5}
+\subsection*{Solution}
+Let $S$ be all $n!$ permutations, $P$ preferred. For $x \in S, m \in M$, $x^{-1}(m)$ denotes position of $m$. For $x \in P$, define
+\[ A(x) = \left\{ z \in S : \forall y \in P,\ \sum_m x^{-1}(m) z^{-1}(m) \geq \sum_m y^{-1}(m) z^{-1}(m) \right\}. \]
+Every $z \in S$ lies in some $A(x)$ (pick maximizer). It suffices to show $|A(x)| \leq n!/k!$.
+
+Fix $x \in P$ and $z \in A(x)$; let $i_1 < \cdots < i_k$ and $m_j = x_{i_j}$. Swapping $m_s, m_{s+1}$ gives $y \in P$, and the defining inequality yields
+\[ i_s z^{-1}(m_s) + i_{s+1} z^{-1}(m_{s+1}) \geq i_{s+1} z^{-1}(m_s) + i_s z^{-1}(m_{s+1}), \]
+so $z^{-1}(m_{s+1}) \geq z^{-1}(m_s)$. Thus $m_1, \ldots, m_k$ appear in $z$ in this order — exactly $n!/k!$ such $z$.
+
+\end{document}

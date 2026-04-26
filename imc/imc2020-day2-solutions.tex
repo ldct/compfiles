@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+
+\title{IMC 2020, Day 2 Solutions}
+\date{July 27, 2020}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 5}
+\subsection*{Solution}
+Answer: only positive constants.
+
+Let $g = 1/f$. Then
+\[ g'' = \left(-\frac{f'}{f^2}\right)' = \frac{2(f')^2 - f'' f}{f^3} \leq 0, \]
+so $g > 0$ is concave. For any $a < b$, concavity gives $\frac{g(a) - g(u)}{a-u} \geq \frac{g(b) - g(a)}{b-a} \geq \frac{g(v) - g(b)}{v - b}$. Using $g(u), g(v) > 0$: $\frac{g(a)}{a-u} > \frac{g(b)-g(a)}{b-a} > \frac{-g(b)}{v-b}$. As $u \to -\infty, v \to \infty$, both outer terms go to $0$, so $g(a) = g(b)$. Thus $g$ is constant, so $f$ is constant.
+
+\section*{Problem 6}
+\subsection*{Solution}
+Answer: $p = 3$.
+
+Let $f(x) = x^3 - 3x + 1$. The map $\varphi(x) = x^2 - 2$ cyclically permutes the three roots (from $2\cos 2t = (2\cos t)^2 - 2$). If $a$ is a root in $\mathbb{F}_p$, then $g(x) = f(x)/(x-a) = x^2 + ax + (a^2 - 3)$ has $b = a^2 - 2$ as a root:
+\[ g(a^2 - 2) = (a^2-2)^2 + a(a^2-2) + (a^2 - 3) = (a+1) f(a) = 0. \]
+Other root: $c = -a - b = -a^2 - a + 2$. If unique root, $a = a^2 - 2 = -a^2 - a + 2$, giving $a \in \{-1, 2\}$, both with $f(a) = 3$. So $p \mid 3$, i.e., $p = 3$.
+
+Check $p = 3$: $f(1) = -1, f(2) = 3, f(3) = 19$; only $a = 2$ works.
+
+\section*{Problem 7}
+\subsection*{Solution}
+Let $K = H_1 \cap H_2$. From $n(n-1) = [G:K] = [G:H_1][H_1:K]$, $[H_1 : K] = n-1$. Write $H_1 = \bigsqcup_{i=1}^{n-1} h_i K$. Then
+\[ H_1 H_2 = \bigsqcup_{i=1}^{n-1} h_i K H_2 = \bigsqcup_{i=1}^{n-1} h_i H_2 \]
+(since $K \subseteq H_2$). The union is disjoint: $h_i H_2 \cap h_j H_2 \neq \emptyset \iff h_i^{-1} h_j \in H_2 \cap H_1 = K \iff h_i = h_j$.
+
+So $H_1 H_2$ is a union of $n - 1$ left cosets of $H_2$; let $L = G \setminus H_1 H_2$ be the remaining coset. Similarly $L$ is a right coset of $H_1$. For any $g \in L$: $L = g H_2 = H_1 g$, so $H_2 = g^{-1} H_1 g$.
+
+\section*{Problem 8}
+\subsection*{Solution}
+Answer: $1$.
+
+Using the Frullani integral $\log k = \int_0^\infty \frac{e^{-x} - e^{-kx}}{x}\, dx$:
+\[ A := \sum_{k=1}^n (-1)^k \binom{n}{k} \log k = \int_0^\infty \frac{-e^{-x} + 1 - (1 - e^{-x})^n}{x}\, dx. \]
+
+Bound on $[M, \infty)$: by Bernoulli, $(1 - e^{-x})^n \geq 1 - n e^{-x}$, so integrand $\leq n e^{-x}/x$, giving $\int_M^\infty \leq n M^{-1} e^{-M}$. Choose $M$ with $M e^M = n$; then $M = \log n - \log\log n + o(1)$ and the tail is $O(1)$.
+
+On $[0, M]$: $(1 - e^{-x})^{n-1} \leq e^{-(n-1) e^{-x}} \leq e^{-(n-1) M / n} \to 0$ uniformly, so
+\[ \int_0^M \frac{(1 - e^{-x})(1 - (1 - e^{-x})^{n-1})}{x}\, dx = (1 + o(1)) \int_0^M \frac{1 - e^{-x}}{x}\, dx. \]
+The latter equals $\log M + O(1) = \log \log n + O(1)$. So $A = (1 + o(1)) \log \log n$.
+
+\end{document}

@@ -1,0 +1,89 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+
+\title{IMC 2008, Blagoevgrad, Bulgaria \\ Day 2, July 28, 2008}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+Let $n, k$ be positive integers. Suppose $x^{2k} - x^k + 1$ divides $x^{2n} + x^n + 1$. Prove $x^{2k} + x^k + 1$ divides $x^{2n} + x^n + 1$.
+
+\subsection*{Solution}
+Let $g(x) = x^{2k} - x^k + 1$, $f(x) = x^{2n} + x^n + 1$, $h(x) = x^{2k} + x^k + 1$. A root of $g$ is $x_1 = \cos(\pi/(3k)) + i \sin(\pi/(3k))$ (satisfying $x^k = e^{i\pi/3}$, a primitive 6th root).
+
+Let $\alpha = \pi n/(3k)$. Since $g \mid f$, $f(x_1) = 0$, i.e., $(2 \cos \alpha + 1)(\cos \alpha + i \sin \alpha) = 0$. So $\cos \alpha = -1/2$, $\alpha = \pm 2\pi/3 + 2\pi c$.
+
+Roots of $h$ are $x_2 = \cos(2\pi s/(3k)) + i \sin(2\pi s/(3k))$ where $s = 3a \pm 1$, $a \in \mathbb{Z}$ (primitive $3k$th roots other than $k$th). Compute
+\[
+f(x_2) = (2\cos(2s\alpha) + 1)(\cos(2s\alpha) + i \sin(2s\alpha)).
+\]
+But $2 \cos(2 s \alpha) + 1 = 2 \cos(\tfrac{4\pi}{3}(3a \pm 1)) + 1 = 2 \cos(\tfrac{4\pi}{3}) + 1 = 0$. So $f(x_2) = 0$, hence $h \mid f$.
+
+\section*{Problem 2}
+Two different ellipses share a focus. Prove they have at most two common points.
+
+\subsection*{Solution}
+An ellipse with focus $F$, directrix $\ell$, eccentricity $e$ is $\{X : \operatorname{dist}(X, F) = e \cdot \operatorname{dist}(X, \ell)\}$. Two ellipses with common focus $F$ have directrices $\ell_1, \ell_2$ and eccentricities $e_1, e_2$. A common point $X$ satisfies $e_1 \operatorname{dist}(X, \ell_1) = e_2 \operatorname{dist}(X, \ell_2)$; this is a pair of lines (equations linear in $X$), but only one relevant since $X$ and $F$ lie on the same side of each directrix. So common points lie on a line; intersecting a line with an ellipse yields $\le 2$ points.
+
+\section*{Problem 3}
+Let $n$ be a positive integer. Prove that $2^{n-1}$ divides
+\[
+\sum_{0 \le k < n/2} \binom{n}{2k+1} 5^k.
+\]
+
+\subsection*{Solution}
+Using Binet: $F_n = \tfrac{1}{\sqrt 5}\bigl(\bigl(\tfrac{1+\sqrt 5}{2}\bigr)^n - \bigl(\tfrac{1-\sqrt 5}{2}\bigr)^n\bigr)$. Expanding via binomial theorem,
+\[
+F_n = \frac{1}{2^{n-1}} \sum_{0 \le k < n/2} \binom{n}{2k+1} 5^k.
+\]
+Since $F_n \in \mathbb{Z}$, $2^{n-1}$ divides the sum.
+
+\section*{Problem 4}
+Let $g, f \in \mathbb{Z}[x]$ be nonconstant with $g \mid f$. Prove: if $f(x) - 2008$ has at least $81$ distinct integer roots, then $\deg g > 5$.
+
+\subsection*{Solution}
+Write $f = gh$. If $a_1, \ldots, a_{81}$ are distinct integer roots of $f - 2008$, then $g(a_i) h(a_i) = 2008$ for each $i$; in particular $g(a_i) \mid 2008$.
+
+$2008 = 2^3 \cdot 251$ has $16$ divisors (including negatives, so $16$ total nonzero divisors of form $\pm d$: actually $2 \cdot 8 = 16$). By pigeonhole, some value $c$ is taken by $g$ at $\ge \lceil 81/16 \rceil = 6$ of the $a_i$. Then $g - c$ has $\ge 6$ roots, so $\deg g \ge 6 > 5$.
+
+\section*{Problem 5}
+Let $A = (a_{ij})$ with $a_{ij} = 1$ if $i + j$ is prime, else $0$. Prove $|\det A| = k^2$ for some integer $k$.
+
+\subsection*{Solution}
+Call a square matrix \emph{type (B)} if it has $0$s on all entries with even row+column index AND all entries with odd row+column index in alternating rows --- specifically, a $(2k-1) \times (2k-1)$ matrix whose nonzero entries are in positions $(i, j)$ with $i + j$ odd, and with $k$ columns of zeros. Such matrices have determinant $0$.
+
+Call \emph{type (C)} a $2k \times 2k$ matrix whose nonzero entries are in positions with $i + j$ odd, which can be permuted to $\begin{pmatrix} C & 0 \\ 0 & C \end{pmatrix}$, giving $|\det| = |\det C|^2$.
+
+Let $X'$ be $A$ with first row replaced by $(1, 0, \ldots, 0)$, and $Y$ be $A$ with $a_{11}$ replaced by $0$ (note $a_{11} = 0$ since $2$ is prime but $1 + 1 = 2$ is prime, so actually $a_{11} = 1$; but we can still do: since $A$ has $a_{11} = 1$ if $2$ prime, treat appropriately). By multilinearity $\det A = \det X' + \det Y$. Writing $X' = \begin{pmatrix} 1 & 0 \\ v & X \end{pmatrix}$, $\det X' = \det X$.
+
+If $n$ odd, $X$ is type (C) and $Y$ is type (B), so $|\det A| = |\det X|$ is a perfect square. If $n$ even, $X$ is type (B) and $Y$ is type (C), so $|\det A| = |\det Y|$ is a perfect square.
+
+\section*{Problem 6}
+Let $\mathcal H$ be an infinite-dim real Hilbert space, $d > 0$, $S \subset \mathcal H$ with any two distinct points at distance $d$. Show $\exists y$ with $\{\tfrac{\sqrt 2}{d}(x - y) : x \in S\}$ orthonormal.
+
+\subsection*{Solution}
+The canonical model: an orthonormal set $\{e_i\}$ gives equidistant points $\{(d/\sqrt 2) e_i\}$; any equidistant set should be a translate.
+
+\textbf{Key computation:} for distinct $x_1, x_2, x_3, x_4 \in S$, inner products among differences are determined by $d$ alone:
+\[
+\langle x_2 - x_1, x_2 - x_1\rangle = d^2, \quad \langle x_2 - x_1, x_3 - x_1\rangle = d^2/2, \quad \langle x_2 - x_1, x_4 - x_3\rangle = 0.
+\]
+More generally, for integer coefficients summing to $0$, inner products match the canonical example. By continuity, rationals and reals work too.
+
+\textbf{Finite case:} $S = \{x_1, \ldots, x_n\}$. Let $x = \tfrac{1}{n}\sum x_i$. Pick $z \perp \operatorname{span}\{x_i - x\}$, and set $y = x + \lambda z$. Then
+\[
+\langle x_1 - y, x_2 - y\rangle = \langle x_1 - x, x_2 - x\rangle + \lambda^2 \|z\|^2.
+\]
+By the canonical computation $\langle x_1 - x, x_2 - x\rangle = -d^2/(2n)$. Choose $\lambda = d/(\sqrt{2n} \|z\|)$ making inner products $0$; lengths $d/\sqrt 2$.
+
+\textbf{Infinite case:} pick countable sequence $T = \{x_1, x_2, \ldots\} \subset S$. Set $y_n = \tfrac{1}{n}(x_1 + \cdots + x_n)$. By the canonical computation
+\[
+\|y_m - y_n\|^2 = \tfrac{d^2}{2}\bigl(\tfrac{1}{n} - \tfrac{1}{m}\bigr) \to 0,
+\]
+so $y_n$ is Cauchy; let $y = \lim y_n$. Check $\|x_n - y\| = d/\sqrt 2$ and $\langle x_n - y, x_p - y\rangle = 0$.
+
+For $x', x'' \in S \setminus T$, apply the procedure to $T \cup \{x', x''\}$; the limit is still $y$, and orthonormality extends.
+
+\end{document}

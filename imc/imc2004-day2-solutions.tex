@@ -1,0 +1,85 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+
+\title{IMC 2004, Skopje \\ Day 2}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+$A$ is real $4 \times 2$, $B$ is real $2 \times 4$, $AB = \begin{pmatrix}1 & 0 & -1 & 0\\ 0 & 1 & 0 & -1\\ -1 & 0 & 1 & 0\\ 0 & -1 & 0 & 1\end{pmatrix}$. Find $BA$.
+
+\subsection*{Solution}
+Block $A = \begin{pmatrix}A_1\\A_2\end{pmatrix}$, $B = (B_1, B_2)$ ($2 \times 2$ blocks). Then $A_1 B_1 = A_2 B_2 = I_2$, $A_1 B_2 = A_2 B_1 = -I_2$. So $B_1 = A_1^{-1}$, $B_2 = -A_1^{-1}$, $A_2 = -A_1$. Compute
+\[
+BA = B_1 A_1 + B_2 A_2 = I_2 + (-A_1^{-1})(-A_1) = 2 I_2.
+\]
+
+\section*{Problem 2}
+$f, g : [a, b] \to [0, \infty)$ continuous nondecreasing, $\int_a^x \sqrt f \le \int_a^x \sqrt g$ for all $x$, and $\int_a^b \sqrt f = \int_a^b \sqrt g$. Prove $\int_a^b \sqrt{1 + f} \ge \int_a^b \sqrt{1 + g}$.
+
+\subsection*{Solution}
+Let $F(x) = \int_a^x \sqrt f$, $G(x) = \int_a^x \sqrt g$. Both convex (since $\sqrt f, \sqrt g$ nondecreasing), $F(a) = G(a) = 0$, $F(b) = G(b)$, $F \le G$. Need
+\[
+\int_a^b \sqrt{1 + F'(t)^2} dt \ge \int_a^b \sqrt{1 + G'(t)^2} dt,
+\]
+i.e., the graph of $F$ is longer than the graph of $G$. Both graphs connect $(a, 0)$ to $(b, F(b))$; $F$ is convex below $G$ (also convex) with same endpoints. The graph of $F$ bounds a larger convex region, whose perimeter is longer.
+
+\section*{Problem 3}
+$D$ closed unit disk, $p_1, \ldots, p_n \in D$. Show $\exists p \in D$ with $\sum |p - p_i| \ge n$.
+
+\subsection*{Solution}
+Take $p = -\sum p_i / |\sum p_i|$ (unit vector opposite to centroid; if $\sum p_i = 0$, any unit vector). By triangle inequality:
+\[
+\sum |p - p_i| \ge \Bigl| n p - \sum p_i \Bigr| = n + \Bigl|\sum p_i\Bigr| \ge n.
+\]
+
+\section*{Problem 4}
+$M$ complex $n \times n$ with distinct eigenvalues $\lambda_1, \ldots, \lambda_k$ of multiplicities $m_i$. For $L_M(X) = MX + X M^T$, find eigenvalues with multiplicities.
+
+\subsection*{Solution}
+\emph{Special case: $M$ has distinct $\lambda_r$ and all $\lambda_r + \lambda_s$ are distinct.} With $M v_r = \lambda_r v_r$, compute
+\[
+L_M(v_r v_s^T) = M v_r v_s^T + v_r v_s^T M^T = \lambda_r v_r v_s^T + \lambda_s v_r v_s^T = (\lambda_r + \lambda_s) v_r v_s^T.
+\]
+So $\lambda_r + \lambda_s$ are eigenvalues (eigenmatrix $v_r v_s^T$). For $r \ne s$, both $v_r v_s^T$ and $v_s v_r^T$ give multiplicity $2$; diagonal $2 \lambda_r$ has multiplicity $1$. Total $n^2$.
+
+\emph{General case.} Approximate $M$ by matrices in the special case; by continuity, eigenvalues of $L_M$ are:
+\begin{itemize}
+  \item $2 \lambda_r$ with multiplicity $m_r^2$;
+  \item $\lambda_r + \lambda_s$ ($r < s$) with multiplicity $2 m_r m_s$.
+\end{itemize}
+
+\section*{Problem 5}
+Prove $\displaystyle \int_0^1 \int_0^1 \frac{dx\, dy}{x^{-1} + |\ln y| - 1} \le 1$.
+
+\subsection*{Solution}
+Claim: $x^{-1} - 1 \ge |\ln x|$ on $(0, 1]$. At $x = 1$ both sides $0$; derivatives $(x^{-1} - 1)' = -1/x^2 \le -1/x = (|\ln x|)'$ (for $x \in (0, 1)$, $|\ln x| = -\ln x$, derivative $-1/x$). So the inequality holds.
+
+Thus
+\[
+\int_0^1 \int_0^1 \frac{dx\, dy}{x^{-1} + |\ln y| - 1} \le \int_0^1 \int_0^1 \frac{dx\, dy}{|\ln x| + |\ln y|} = \int_0^1 \int_0^1 \frac{dx\, dy}{|\ln(xy)|}.
+\]
+Substitute $u = xy$ (so $y = u/x$, $dy = du/x$, range $x \in [u, 1]$):
+\[
+\int_0^1 \int_0^1 \frac{dx\, dy}{|\ln(xy)|} = \int_0^1 \frac{du}{|\ln u|} \int_u^1 \frac{dx}{x} = \int_0^1 \frac{|\ln u|}{|\ln u|} du = 1.
+\]
+
+\section*{Problem 6}
+$A_0 = B_0 = (1)$. For $n > 0$:
+\[
+A_n = \begin{pmatrix} A_{n-1} & A_{n-1} \\ A_{n-1} & B_{n-1} \end{pmatrix}, \quad B_n = \begin{pmatrix} A_{n-1} & A_{n-1} \\ A_{n-1} & 0 \end{pmatrix}.
+\]
+Let $S(M)$ = sum of entries. Prove $S(A_n^{k-1}) = S(A_k^{n-1})$.
+
+\subsection*{Solution}
+Combinatorial interpretation: $S(A_n^{k-1})$ counts $n \times k$ $0/1$-fillings with no $2 \times 2$ all-$1$ submatrix.
+
+Each row is a binary number in $[0, 2^n)$. Fillings correspond to $k$-tuples of such numbers where consecutive pairs don't form a $2 \times 2$ all-$1$ (in any adjacent-column pair).
+
+Claim: the $(i+1, j+1)$-entry of $A_n$ equals $1$ iff rows $i$ and $j$ (as binary) can be consecutive. Induct on $n$ using the block structure: binary expansions $i = \overline{i_n \ldots i_1}$, $j = \overline{j_n \ldots j_1}$. If $i_n j_n = 0$: use $A_{n-1}$ (no constraint from leading bits). If $i_n = j_n = 1$: use $B_{n-1}$ (also need lower bits to give no all-1 square, plus $i_{n-1} j_{n-1} = 0$).
+
+Then $S(A_n^{k-1}) = \sum_{i_1, \ldots, i_k} a_{i_1 i_2} a_{i_2 i_3} \cdots a_{i_{k-1} i_k}$ counts valid $n \times k$ fillings $F_{nk}$. Since $F_{nk} = F_{kn}$ by symmetry of the table: $S(A_n^{k-1}) = F_{nk} = F_{kn} = S(A_k^{n-1})$.
+
+\end{document}

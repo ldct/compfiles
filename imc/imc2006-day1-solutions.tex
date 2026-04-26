@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+
+\title{IMC 2006, Odessa \\ First Day}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+Prove or disprove, for $f : \mathbb{R} \to \mathbb{R}$:
+(a) continuous with range $\mathbb{R}$ $\Rightarrow$ monotonic;
+(b) monotonic with range $\mathbb{R}$ $\Rightarrow$ continuous;
+(c) monotonic and continuous $\Rightarrow$ range $\mathbb{R}$.
+
+\subsection*{Solution}
+(a) \textbf{False.} $f(x) = x^3 - x$: continuous, surjective, not monotonic.
+
+(b) \textbf{True.} If $f$ non-decreasing and not continuous at $a$, then $\lim_{a^-} f = b < c = \lim_{a^+} f$, so $f$ skips $(b, c) \setminus \{f(a)\}$, contradicting surjectivity.
+
+(c) \textbf{False.} $\arctan$ is monotonic and continuous but range is $(-\pi/2, \pi/2)$.
+
+\section*{Problem 2}
+Count positive integers $x < 10^{2006}$ with $10^{2006} \mid x^2 - x$.
+
+\subsection*{Solution}
+$x^2 - x = x(x-1)$ with $\gcd(x, x-1) = 1$. Need $2^{2006} \mid x$ or $2^{2006} \mid x - 1$, and similarly for $5^{2006}$. Four cases; CRT gives a unique solution in $[0, 10^{2006})$. All four solutions distinct; one is $0$. So $3$ solutions.
+
+\section*{Problem 3}
+$A$ integer $n \times n$, $\det A = b_1 \cdots b_k$ ($b_i \in \mathbb{Z}$). Prove there exist integer matrices $B_i$ with $A = B_1 \cdots B_k$, $\det B_i = b_i$.
+
+\subsection*{Solution}
+Induct on $k$; reduce to $k = 2$. Multiplying by unimodular integer matrices, WLOG $A$ is upper-triangular.
+
+\textbf{Lemma.} For upper-triangular integer $A$, $\det A = bc$, $\exists$ upper-triangular integer $B, C$ with $A = BC$, $\det B = b$, $\det C = c$.
+
+Induct on $n$. Set $B_{nn} = \gcd(b, A_{nn})$, $C_{nn} = A_{nn}/B_{nn}$. Both are integers (as $C_{nn} \mid c$). Apply induction to the $(n-1) \times (n-1)$ principal submatrix with $b' = b/B_{nn}$, $c' = c/C_{nn}$.
+
+Since $\gcd(B_{ii}, C_{nn}) = 1$ for $i < n$, the equations
+\[
+A_{j, n} = B_{j,j} C_{j,n} + B_{j, j+1} C_{j+1, n} + \cdots + B_{j, n} C_{n, n}
+\]
+can be solved inductively in $j$ (from $j = n - 1$ downwards) for integer $B_{j,n}, C_{j,n}$.
+
+\section*{Problem 4}
+$f$ rational function with $f(n) \in \mathbb{Z}$ for infinitely many $n \in \mathbb{Z}$. Prove $f$ is a polynomial.
+
+\subsection*{Solution}
+Write $f = p/q$ (real coefficients). The relation $p(x) = q(x) f(x)$ for $x \in S$ (infinite) determines $p, q$ as linear functions of the coefficients with rational data, so we may assume $p, q$ have rational coefficients, and then integer.
+
+Polynomial division: $p = qs + r$, $\deg r < \deg q$, $s, r \in \mathbb{Q}[x]$. Then $f = s + r/q$, and $r/q \to 0$ as $|x| \to \infty$. If $r \ne 0$: pick $N$ with $N s \in \mathbb{Z}[x]$; then $Nf - Ns = Nr/q$ is an integer for infinitely many $x \in S$ tending to $\infty$ while $\to 0$, forcing $Nr/q = 0$ for large $x$, so $r = 0$. Hence $f = s$ is a polynomial.
+
+\section*{Problem 5}
+$a, b, c, d, e > 0$ with $a^2 + b^2 + c^2 = d^2 + e^2$ and $a^4 + b^4 + c^4 = d^4 + e^4$. Compare $a^3 + b^3 + c^3$ with $d^3 + e^3$.
+
+\subsection*{Solution}
+WLOG $a \ge b \ge c$, $d \ge e$. Compute: setting $c^2 = e^2 + \Delta$, from the second equation $\Delta = -\tfrac{a^2 b^2}{a^2 + b^2 - e^2}$. From $c^2 > 0$, get $a > e > b$; then $d^2 < a^2$, giving $a > d \ge e > b \ge c$.
+
+Let $f(x) = a^x + b^x + c^x - d^x - e^x$. $f(2) = f(4) = 0$. If $f$ has $\ge 3$ zeros, Rolle gives $f'$ with $\ge 2$ zeros; WLOG $a = 1$. Then $f'(x) = 0$ becomes $\ln b \cdot b^x + \ln c \cdot c^x = \ln d \cdot d^x + \ln e \cdot e^x$, i.e., the ratio of the negatives is bounded on one side by $b^{x_2 - x_1}$ and on the other by at least $e^{x_2 - x_1}$; since $b < e$ this contradicts two coincident $x_1 < x_2$. So $f$ has sign constant on $(2, 4)$; $f(0) = 1 > 0$, so $f < 0$ on $(2, 4)$.
+
+Therefore $f(3) = a^3 + b^3 + c^3 - d^3 - e^3 < 0$: $a^3 + b^3 + c^3 < d^3 + e^3$.
+
+\section*{Problem 6}
+Find all $(a_0, \ldots, a_n)$, $a_n \ne 0$, such that: if $f$ is $n$-times differentiable with $f(x_0) = \cdots = f(x_n) = 0$, then $\sum a_i f^{(i)}(\xi) = 0$ for some $\xi \in (x_0, x_n)$.
+
+\subsection*{Solution}
+Answer: iff all roots of $A(x) = \sum a_i x^i$ are real.
+
+\emph{Sufficient.} Induct on $n$. For $n = 1$, consider $g(x) = e^{a_0 x/a_1} f(x)$; Rolle gives $\xi$ with $g'(\xi) = 0$, yielding $a_0 f(\xi) + a_1 f'(\xi) = 0$.
+
+For $n > 1$: factor $A(x) = (x - c) B(x)$ with $c \in \mathbb{R}$. Between consecutive $x_i$, find $y_i$ with $(f' - cf)(y_i) = 0$. Apply induction to $B$ and $g = f' - cf$.
+
+\emph{Necessary.} Suppose $u + iv$ is a non-real root. Let $g_1(x) = e^{ux} \sin(vx)$, solving $\sum a_i g_1^{(i)} = 0$ (for the polynomial $A$), with infinitely many zeros. Let $k = $ min index with $a_k \ne 0$. Set $f(x) = g_1(x) + \varepsilon x^k$. For small $\varepsilon$, $f$ still has $n + 1$ zeros but $\sum a_i f^{(i)} = a_k \cdot \varepsilon \cdot k! \ne 0$ everywhere.
+
+\end{document}

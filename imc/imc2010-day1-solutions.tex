@@ -1,0 +1,78 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+
+\title{IMC 2010, Blagoevgrad, Bulgaria \\ Day 1, July 26, 2010 --- Solutions}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+Let $0 < a < b$. Prove $\int_a^b (x^2 + 1) e^{-x^2} dx \ge e^{-a^2} - e^{-b^2}$.
+
+\subsection*{Solution}
+Since $x^2 + 1 \ge 2x$ for $x > 0$,
+\[
+\int_a^b (x^2 + 1) e^{-x^2} dx \ge \int_a^b 2x e^{-x^2} dx = \bigl[-e^{-x^2}\bigr]_a^b = e^{-a^2} - e^{-b^2}.
+\]
+
+\section*{Problem 2}
+Compute $\sum_{k=0}^\infty \tfrac{1}{(4k+1)(4k+2)(4k+3)(4k+4)}$.
+
+\subsection*{Solution}
+Partial fractions:
+\[
+\frac{1}{(4k+1)(4k+2)(4k+3)(4k+4)} = \frac{1}{6}\cdot\frac{1}{4k+1} - \frac{1}{2}\cdot\frac{1}{4k+2} + \frac{1}{2}\cdot\frac{1}{4k+3} - \frac{1}{6}\cdot\frac{1}{4k+4}.
+\]
+Write $A_m = \tfrac{1}{3} C_m - \tfrac{1}{6} B_m - \tfrac{1}{6} D_m$ where
+\[
+B_m = \sum \Bigl(\tfrac{1}{4k+1} - \tfrac{1}{4k+3}\Bigr) \to \tfrac{\pi}{4}, \quad C_m \to \ln 2, \quad D_m = \sum\Bigl(\tfrac{1}{4k+2} - \tfrac{1}{4k+4}\Bigr) \to \tfrac{\ln 2}{2}.
+\]
+Therefore
+\[
+\lim A_m = \tfrac{1}{3}\ln 2 - \tfrac{1}{6}\cdot \tfrac{\pi}{4} - \tfrac{1}{6}\cdot\tfrac{\ln 2}{2} = \boxed{\tfrac{\ln 2}{4} - \tfrac{\pi}{24}}.
+\]
+
+\emph{Alt.} Setting $F(x) = \sum \tfrac{x^{4k+4}}{(4k+1)(4k+2)(4k+3)(4k+4)}$, $F^{(IV)}(x) = \tfrac{1}{1-x^4}$. Integrate four times with $F^{(j)}(0) = 0$.
+
+\section*{Problem 3}
+Compute $\lim \tfrac{x_1 \cdots x_n}{x_{n+1}}$, $x_1 = \sqrt 5$, $x_{n+1} = x_n^2 - 2$.
+
+\subsection*{Solution}
+Let $y_n = x_n^2$. Then $y_{n+1} = (y_n - 2)^2$ and
+\[
+y_{n+1} - 4 = y_n^2 - 4 y_n = y_n(y_n - 4).
+\]
+From $y_1 = 5 > 4$ induction gives $y_n > 5$ for $n \ge 2$, hence $y_n \to \infty$. Then
+\[
+\left(\frac{x_1 \cdots x_n}{x_{n+1}}\right)^2 = \frac{y_1 \cdots y_n}{y_{n+1}} = \frac{y_{n+1} - 4}{y_{n+1}} \cdot \frac{1}{y_1 - 4} = \frac{y_{n+1} - 4}{y_{n+1}} \to 1,
+\]
+using the telescoping $\tfrac{y_1 \cdots y_n}{y_{n+1} - 4} = \tfrac{y_1 \cdots y_{n-1}}{y_n - 4} = \cdots = \tfrac{1}{y_1 - 4}$. So the limit is $1$.
+
+\section*{Problem 4}
+If $\mathbb{Z} \setminus \{ax^n + by^n\}$ is finite, then $n = 1$.
+
+\subsection*{Solution}
+Assume $n > 1$; replace $n$ by any prime $p \mid n$. WLOG $\gcd(a,b) = 1$.
+
+\emph{$p = 2$:} If $b$ is even, $ax^2$ takes $\le 3$ residues mod 8 and $by^2$ takes $\le 2$, so $ax^2 + by^2$ takes $\le 6 < 8$. If both odd, $ax^2 + by^2 \equiv x^2 \pm y^2 \pmod 4$, missing residue 3 (for $+$) or 2 (for $-$). Infinitely many non-representable.
+
+\emph{$p \ge 3$:} $p$th powers take exactly $p$ residues mod $p^2$ (since $(x+kp)^p \equiv x^p$ mod $p^2$, and $0^p, \ldots, (p-1)^p$ are distinct mod $p$). So $ax^p + by^p$ takes $\le p^2$ residues mod $p^2$. If strictly less, done. If exactly $p^2$, then $p^2 \mid ax^p + by^p$ forces $p \mid x, y$, hence $p^p \mid ax^p + by^p$; numbers $\equiv p^2 \pmod{p^3}$ are non-representable.
+
+\section*{Problem 5}
+Given $a, b, c \in [-1, 1]$ with $1 + 2abc \ge a^2 + b^2 + c^2$. Show $1 + 2(abc)^n \ge a^{2n} + b^{2n} + c^{2n}$.
+
+\subsection*{Solution}
+Consider the symmetric matrix
+\[
+A = \begin{pmatrix} 1 & a & b \\ a & 1 & c \\ b & c & 1 \end{pmatrix}.
+\]
+The hypothesis is $\det A \ge 0$; the $2 \times 2$ principal minors $1 - a^2, 1 - b^2, 1 - c^2 \ge 0$. So $A$ is positive semidefinite; write $A = B^2$ with $B$ symmetric. Let rows be $x, y, z$: $|x| = |y| = |z| = 1$, $x \cdot y = a$, $y \cdot z = c$, $z \cdot x = b$.
+
+Form tensor powers $X = x^{\otimes n}$, etc. Then $|X|=|Y|=|Z|=1$, $X \cdot Y = a^n$, $Y \cdot Z = c^n$, $Z \cdot X = b^n$. The Gram matrix
+\[
+\begin{pmatrix} 1 & a^n & b^n \\ a^n & 1 & c^n \\ b^n & c^n & 1 \end{pmatrix}
+\]
+is positive semidefinite, so its determinant $1 + 2(abc)^n - a^{2n} - b^{2n} - c^{2n} \ge 0$.
+
+\end{document}

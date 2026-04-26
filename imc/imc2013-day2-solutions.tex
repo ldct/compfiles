@@ -1,0 +1,42 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{IMC 2013, Blagoevgrad, Bulgaria --- Day 2 Solutions}
+\date{August 9, 2013}
+\begin{document}
+\maketitle
+
+\section*{Problem 6}
+\subsection*{Solution}
+$z^3 + 1 = (z+1)(z^2 - z + 1)$, so suffices to show $|z^2 - z + 1| > 1/2$. Write $z + 1 = r e^{i\varphi}$ with $r > 2$. Then $z^2 - z + 1 = r^2 e^{2i\varphi} - 3 r e^{i\varphi} + 3$, and
+\[ |z^2 - z + 1|^2 = 12\Big(r\cos\varphi - \tfrac{r^2+3}{4}\Big)^2 + \tfrac{1}{4}(r^2 - 3)^2 > \tfrac{1}{4}. \]
+
+\section*{Problem 7}
+\subsection*{Solution}
+Case $pq$ even: $p, q$ opposite parities. Let $a_k = (-1)^{\lfloor k/p\rfloor + \lfloor k/q\rfloor}$. Using $\{k/p\} + \{(p-1-k)/p\} = (p-1)/p$:
+\[ \lfloor k/p \rfloor + \lfloor (pq-1-k)/p \rfloor = q - 1, \quad \lfloor k/q \rfloor + \lfloor (pq-1-k)/q \rfloor = p - 1. \]
+Opposite parities give $a_{pq-1-k} = -a_k$, pair cancellation, sum $= 0$.
+
+Case $pq$ odd: Let $p_k, q_k$ be residues mod $p, q$. Then $\lfloor k/p \rfloor + \lfloor k/q \rfloor \equiv p_k + q_k \pmod 2$. By CRT, $k \mapsto (p_k, q_k)$ is bijection $\{0,\dots,pq-1\} \to \{0,\dots,p-1\}\times\{0,\dots,q-1\}$. So
+\[ \sum_k (-1)^{p_k + q_k} = \Big(\sum_{i=0}^{p-1}(-1)^i\Big)\Big(\sum_{j=0}^{q-1}(-1)^j\Big) = 1 \cdot 1 = 1. \]
+
+\section*{Problem 8}
+\subsection*{Solution}
+If $v_i$ dependent, take $u$ perpendicular to their span. Else let $w_1, \dots, w_d$ be the dual basis: $w_i \cdot v_j = \delta_{ij}$. Then $|w_i| \ge 1$. For $\varepsilon \in \{\pm 1\}^d$, set $u_\varepsilon = \sum \varepsilon_i w_i$. Then $|u_\varepsilon \cdot v_k| = |\varepsilon_k| = 1$. Average:
+\[ 2^{-d}\sum_\varepsilon |u_\varepsilon|^2 = \sum_{i,j}(w_i \cdot w_j)\delta_{ij} = \sum |w_i|^2 \ge d. \]
+So some $|u_\varepsilon|^2 \ge d$; take $u = u_\varepsilon/|u_\varepsilon|$.
+
+\section*{Problem 9}
+\subsection*{Solution}
+Yes. Inductively build $1 = n_1 < 2 = n_2 < \dots$ with all $n_i + n_j$ square-free. Given $n_1, \dots, n_k$, set $M = ((n_1 + \dots + n_k + 2k)!)^2$ and seek $n_{k+1} = 1 + M x$. For each $i$, any square dividing $n_i + n_{k+1}$ must be coprime to $M$, so use primes $p > 2k$.
+
+Count bad $x \in [1, N]$: for each $i$, prime $p$ with $2k < p < \sqrt{M(N+1)}$, at most $N/p^2 + 1$ values $x$ with $p^2 \mid 1 + Mx + n_i$. Total $< N/2 + k\sqrt{M(N+1)} < N$ for large $N$. So a good $x$ exists.
+
+\section*{Problem 10}
+\subsection*{Solution}
+Let $N_k$ = number of good open laces of length $k$ (every 21 consecutive beads include a green). For $k \le 20$, $N_k = 2^k$, so $N_0$ odd, $N_1, \dots, N_{20}$ even. For $k \ge 21$, conditioning on position $\ell$ of last green bead:
+\[ N_k = N_{k-1} + N_{k-2} + \dots + N_{k-21}. \]
+Apply twice: $N_k \equiv N_{k-22} \pmod 2$. Base: $N_{21} \equiv N_0 \equiv 1$, $N_{22} \equiv \sum_{1}^{21} N_i \equiv 1$. So $N_k$ odd iff $k \equiv 0$ or $21 \pmod{22}$.
+
+For circular necklace of 2013 beads: cut at a fixed point. If $x$ white at start, $y$ white at end ($x + y \le 20$), middle is a good open lace of length $2011 - x - y$. Number of good circular = $\sum_{x+y \le 20} N_{2011 - x - y} = \sum_{s=0}^{20}(s+1) N_{2011-s}$. Mod 2: only odd-coefficient terms matter: $\sum_{s \text{ even}} N_{2011-s} = N_{2011} + N_{2009} + \dots + N_{1991}$. Among these, $2001 = 91 \cdot 22 - 1 \equiv 21 \pmod{22}$, so $N_{2001}$ odd; others even. Total odd.
+
+\end{document}

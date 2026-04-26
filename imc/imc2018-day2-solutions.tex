@@ -1,0 +1,62 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+
+\title{IMC 2018, Day 2 Solutions}
+\date{July 25, 2018}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 6}
+\subsection*{Solution}
+Answer: $n = \lceil k/2 \rceil$.
+
+\textbf{Lower bound.} If $2n + 1 \leq k$, then $v_1, v_3, \ldots, v_{2n+1}$ are $n+1$ pairwise orthogonal nonzero vectors in $\mathbb{R}^n$: impossible.
+
+\textbf{Construction.} With orthogonal basis $e_1, \ldots, e_n$ of $\mathbb{R}^n$, set $v_{2i-1} = v_{2i} = e_i$. Then non-adjacent pairs are different basis vectors.
+
+\section*{Problem 7}
+\subsection*{Solution}
+First, for $n \geq 1$: $-2 \leq a_n \leq -\sqrt[3]{4}$ (by induction from $a_1 = -2$: $a_{n+1} = \sqrt[3]{a_n^2 - 8} \leq \sqrt[3]{-4}$).
+
+Using $x^3 - y^3 = (x-y)(x^2 + xy + y^2)$ and the recurrence:
+\[ (a_{n+2}^2 + a_{n+2} a_{n+1} + a_{n+1}^2) |a_{n+2} - a_{n+1}| = |a_{n+1}^2 - a_n^2| = |a_{n+1} + a_n| \cdot |a_{n+1} - a_n|. \]
+LHS $\geq 3 \cdot 4^{2/3}$, $|a_{n+1} + a_n| \leq 4$, so
+\[ |a_{n+2} - a_{n+1}| \leq \frac{4}{3 \cdot 4^{2/3}} |a_{n+1} - a_n| = \frac{\sqrt[3]{4}}{3} |a_{n+1} - a_n|. \]
+Ratio $\sqrt[3]{4}/3 < 1$, so series is majorized by a convergent geometric series.
+
+\section*{Problem 8}
+\subsection*{Solution}
+The map $\pi(x,y,z) = (x+y, z)$ is a bijection from $\Omega$ to $\Psi = \{(u,v) : v \geq 0, u \geq 2v\}$, sending unit jumps to unit jumps. We count paths in $\Psi$ from $(0,0)$ to $(2n,n)$.
+
+By reflection principle: the number of paths is
+\[ f(2n, n) = \binom{3n}{n} - 2 \binom{3n}{n-1} = \frac{1}{2n+1} \binom{3n}{n}. \]
+This candidate $f^*(u,v) = \binom{u+v}{v} - 2\binom{u+v}{v-1}$ satisfies the recurrence $f(u,v) = f(u-1,v) + f(u,v-1)$, vanishes on boundaries $v = -1$ and $2v = u+1$ (since $\binom{3v-1}{v} = 2\binom{3v-1}{v-1}$), and $f^*(0,0) = 1$.
+
+\section*{Problem 9}
+\subsection*{Solution}
+Answer: $(1, 1)$ and $(P, P \pm i)$ for monic nonconstant $P$.
+
+If $P \mid Q^2 + 1$ and $Q \mid P^2 + 1$, then $\gcd(P, Q) = 1$ and $PQ \mid P^2 + Q^2 + 1$.
+
+\textbf{Lemma.} If $PQ \mid P^2 + Q^2 + 1$ with $P, Q$ monic, then $\deg P = \deg Q$.
+
+\emph{Proof.} WLOG $\deg P > \deg Q$. Let $S = (P^2 + Q^2 + 1)/(PQ)$. Then $P$ solves $X^2 - QSX + Q^2 + 1 = 0$; by Vieta, other root $R = QS - P = (Q^2+1)/P$ is monic with $\deg R = 2\deg Q - \deg P < \deg P$, giving smaller pair — contradiction.
+
+So $\deg P = \deg Q$; $(P^2 + Q^2 + 1)/(PQ) = 2$ (from leading coefficient). Then $(P - Q)^2 = -1$, so $Q = P \pm i$.
+
+\section*{Problem 10}
+\subsection*{Solution}
+Answer: $-\pi \log 2$.
+
+Let $E_R = \{(a,b) \in \mathbb{Z}^2 \setminus 0 : a^2 + b^2 < R,\ a+b \text{ even}\}$. Then
+\[ \sum_{D_R} \frac{(-1)^{a+b}}{a^2 + b^2} = 2 \sum_{E_R} \frac{1}{a^2+b^2} - \sum_{D_R} \frac{1}{a^2+b^2}. \]
+Substitute $(a,b) = (m-n, m+n)$: $a^2+b^2 = 2(m^2+n^2)$, $a^2+b^2 < R$ iff $m^2+n^2 < R/2$. So
+\[ 2\sum_{E_R} \frac{1}{a^2+b^2} = \sum_{D_{R/2}} \frac{1}{m^2+n^2}. \]
+Thus the sum equals $-\sum_{R/2 \leq a^2+b^2 < R} \frac{1}{a^2+b^2}$.
+
+Let $N(r) = \pi r^2 + O(r)$ be the number of lattice points in disk of radius $r$. Writing as Stieltjes:
+\[ \int_{\sqrt{R/2}}^{\sqrt{R}} \frac{1}{r^2}\, dN(r) = \left[\frac{N(r)}{r^2}\right]_{\sqrt{R/2}}^{\sqrt R} + \int_{\sqrt{R/2}}^{\sqrt R} \frac{2 N(r)}{r^3}\, dr = 2\pi \int_{\sqrt{R/2}}^{\sqrt R} \frac{dr}{r} + O(R^{-1/2}) = \pi \log 2 + o(1). \]
+So the limit is $-\pi \log 2$.
+
+\end{document}

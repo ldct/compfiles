@@ -1,0 +1,100 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+
+\title{IMC 2024 \\ Second Day, August 8, 2024 \\ Solutions}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 6}
+(proposed by Mehdi Golafshan \& Markus A. Whiteland, Li\`ege)
+
+\paragraph{Solution 1.}
+WLOG (by replacing $f(x)$ with $f(1-x)$) assume $f(0) \leq f(1)$.
+
+If $f(1) \geq f(2)$ take $(a,b,c) = (0,1,2)$. Otherwise $f(0) \leq f(1) < f(2)$.
+
+If some $x \in (1,2)$ has $f(x) \geq f(2)$, take $(1, x, 2)$. If some $x \in (1,2)$ has $f(x) \leq f(1)$, take $(0, 1, x)$. Otherwise $f(1) \leq f(x) \leq f(2)$ for all $x \in (1,2)$. Then $f$ takes only finitely many values on $[1,2]$ but $[1,2] \cap \mathbb{Q}$ is infinite, so some value $y$ is attained $\geq 3$ times; pick $a < b < c$ with $f(a) = f(b) = f(c) = y$.
+
+\paragraph{Solution 2.}
+Suppose not: for all $a < b < c$, $f(b) < \max(f(a), f(c))$. For any $x < y$, let $I(x,y) = [x,y] \cap \mathbb{Q}$. If $\inf f(I(x,y))$ were finite, then $f(I(x,y))$ being bounded and integer-valued is finite, so some value repeats $\geq 3$ times, contradiction. So $\inf f(I(x,y)) = -\infty$.
+
+Now for any $x < b < y$: pick $a \in I(x,b)$ with $f(a) < f(b)$ and $c \in I(b,y)$ with $f(c) < f(b)$. Contradiction.
+
+\section*{Problem 7}
+Find all $\det(AB)$.
+
+(proposed by Sergey Bondarev, Sergey Chernov, Belarusian State University)
+
+\paragraph{Solution.}
+Since $AB = A(I-A) = (I-A)A = BA$, $A$ and $B$ commute. Let $C = AB$. Using $A + B = I$:
+\begin{align*}
+A^2+B^2 &= I - 2C, \\
+A^4+B^4 &= I - 4C + 2C^2, \\
+A^5+B^5 &= I - 5C + 5C^2.
+\end{align*}
+So $0 = (A^5+B^5) - (A^2+B^2)(A^4+B^4) = 4C^3 - 5C^2 + C = 4C(C-I)(C - \tfrac14 I)$.
+
+Since $C$ is invertible, $(C-I)(C - \tfrac14 I) = 0$. So eigenvalues of $C$ are in $\{1, \tfrac14\}$, and
+\[
+\det(AB) \in \{1, \tfrac{1}{4}, \tfrac{1}{4^2}, \ldots, \tfrac{1}{4^n}\}.
+\]
+All values achieved by $A = \mathrm{diag}(\tfrac12, \ldots, \tfrac12, e^{i\pi/3}, \ldots, e^{i\pi/3})$ (with $k$ copies of $\tfrac12$) and corresponding $B$.
+
+\section*{Problem 8}
+(proposed by Karen Keryan, Yerevan State University \& AUA)
+
+\paragraph{Solution.}
+\emph{Claim:} $2 x_n \leq x_{n+1} \leq 2x_n + n$.
+
+\emph{Lower bound (induction):} base $n=1$: $4 \geq 4$. Step: $x_{n+2} = 2 x_{n+1} + (x_{n+1} - 2x_n) + \frac{2^n}{x_n} > 2 x_{n+1}$.
+
+\emph{Upper bound:} $x_n \geq 2^n$ so $\frac{2^n}{x_n} \leq 1$. Then $x_{n+2} \leq 3x_{n+1} - 2 x_n + 1 \leq 2 x_{n+1} + (2x_n + n) - 2x_n + 1 = 2 x_{n+1} + n + 1$.
+
+Let $y_n = x_n/2^n$. Then $y_{n+1} \leq y_n + n/2^n$, so $(y_n)$ is increasing and bounded; let $c = \lim y_n$. Also $y_1 = 1$, so $c \geq 1$.
+
+The recurrence becomes $4 y_{n+2} - 2 y_{n+1} = 4 y_{n+1} - 2 y_n + \frac{1}{2^n y_n}$. Summing:
+\begin{equation}
+4 y_{m+2} - 2 y_{m+1} = 2 + \sum_{n=1}^m \frac{1}{2^n y_n}. \tag{1}
+\end{equation}
+Since $1 \leq y_n \leq c$, $\frac{1}{c} \leq \sum_n \frac{1}{2^n y_n} \leq 1$. Taking $m \to \infty$ in (1): $2c \in [2 + \tfrac{1}{c}, 3]$. So $2c \leq 3$ and $2c^2 - 2c - 1 \geq 0$, giving $2c \geq 1 + \sqrt{3}$.
+
+\section*{Problem 9}
+(proposed by Fedor Petrov, St Petersburg)
+
+\paragraph{Solution.}
+Define a \emph{standard Young tableau} of shape $m \times n$ as an $m \times n$ matrix with entries $\{1, \ldots, mn\}$ strictly increasing in rows and columns.
+
+Two tableaux $Y_1, Y_2$ are \emph{friends} if they differ by swapping consecutive integers $x, x+1$ (located non-adjacently, so monotonicity preserves).
+
+For nice matrix $A$ with $n_i$ entries equal to $i$, replace them (preserving monotonicity) by $n_1 + \cdots + n_{i-1}+1, \ldots, n_1+\cdots+n_i$, getting a standard Young tableau $Y_A$.
+
+Then $Y_A$ has exactly $2t-1$ (odd) friends, where $2t$ is the number of distinct values in $A$. Conversely every tableau with odd number of friends comes from a unique nice matrix.
+
+By handshaking lemma in the friendship graph (sum of degrees even), the number of tableaux with odd degree is even; so the number of nice $m \times n$ matrices is even.
+
+\section*{Problem 10}
+(proposed by Tigran Hakobyan, Yerevan State University, Vanadzor)
+
+\paragraph{Solution.}
+
+\textbf{Lemma 1.} If $n$ is almost prime then $\gcd(n, \varphi(n)) = 1$.
+
+\emph{Proof.} Suppose primes $p, q \mid n$ with $p \equiv 1 \pmod q$. For $0 \leq i \leq p-2$ let $h_i$ be the number of divisors of $n$ congruent to $i$ mod $p-1$; let $\nu_j$ similarly mod $q$. The polynomial $F_n(x) = \sum x^{d_i} - kx$ vanishes on $\mathbb{F}_p$, giving $F_n \equiv (h_1 - k)x + \sum_{i \neq 1} h_i x^i$ in $\mathbb{F}_p[x]$, so $p \mid h_i$ for $i \neq 1$. Then $2^{\omega(n)-1} = \nu_0 = h_0 + h_q + h_{2q} + \ldots \equiv 0 \pmod p$, contradiction. $\square$
+
+\textbf{Lemma 2.} Let $q$ prime, $h$ coprime to $q-1$ with order $\ell$ mod $q-1$. Then $\exists a \in \mathbb{F}_q$ with $a^{h^\ell} = a$ and $a - a^h + a^{h^2} - \ldots + (-1)^{\ell-1} a^{h^{\ell-1}} \neq 0$.
+
+\emph{Proof.} $a^{h^\ell} = a$ always. The exponents $h^0, \ldots, h^{\ell-1}$ are distinct mod $q-1$, so $f(x) = x - x^h + \ldots + (-1)^{\ell-1} x^{h^{\ell-1}}$ is nonzero as function on $\mathbb{F}_q$. $\square$
+
+\textbf{Lemma 3.} If $n$ almost prime and $p, q \mid n$ primes, then $\mathrm{ord}_{q-1}(p)$ is odd.
+
+\emph{Proof.} Suppose $\ell$ even. By Lemma 2, $\exists a$ with $a^{p^\ell} = a$ and $f(a) \neq 0$. Define $a_0 = a$, $a_{i+1} = -a_i^p$; since $\ell$ even, $a_\ell = a_0$. Then
+\[
+\sum_{i=0}^{\ell-1} \sum_{d \mid n} a_i^d = \sum_i \sum_{d \mid n/p} (a_i^d + a_i^{pd}) = \sum_i \sum_{d \mid n/p} (a_{i+1}^d + a_i^{pd}) = 0,
+\]
+(using $d$ odd). But $\sum_{d \mid n} a_i^d = k a_i$, so $k f(a) = k \sum a_i = 0$, contradiction since $\gcd(k, q) = 1$ and $f(a) \neq 0$. $\square$
+
+\emph{Main argument.} Suppose $p \mid n$, $r$ Fermat prime, $p \equiv 1 \pmod r$. For any prime $q \mid n$, by Lemma 3, $q^\ell \equiv 1 \pmod{p-1}$ for some odd $\ell$, hence $q^\ell \equiv 1 \pmod r$, hence $q = q^{\gcd(\ell, r-1)} \equiv 1 \pmod r$. So every divisor $d$ of $n$ satisfies $d \equiv 1 \pmod r$. $\square$
+
+\end{document}

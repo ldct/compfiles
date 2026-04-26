@@ -1,0 +1,46 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+
+\title{IMC 2021, First Day Solutions}
+\date{August 3, 2021}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+\subsection*{Solution}
+Answer: $X = A - A^2$.
+
+\textbf{Uniqueness.} Suppose $X$ satisfies the equation. Multiplying by $A^2$ from the right using $A^3 = 0$: $XA^2 + AXA^2 + 0 = A^3 = 0$, so $XA^2 + AXA^2 = 0$. More directly, from $X + AX + XA^2 = A$:
+\begin{itemize}
+\item Multiply by $A^2$ right: $XA^2 = A^3 = 0$, so $XA^2 = 0$.
+\item Multiply by $A$ left: $AX + A^2 X + AXA^2 = A^2$. Since $XA^2 = 0$ gives $AXA^2 = 0$, so $AX + A^2X = A^2$. Multiply again by $A$ left: $A^2 X = A^3 = 0$. Hence $AX = A^2$.
+\end{itemize}
+Then $X = A - AX - XA^2 = A - A^2$.
+
+\textbf{Existence.} $(A - A^2) + A(A - A^2) + (A - A^2)A^2 = A - A^2 + A^2 - A^3 + A^3 - A^4 = A$.
+
+\section*{Problem 2}
+\subsection*{Solution 1}
+Total outcomes: $\binom{k+a}{k}\binom{n+k+a}{n}$. Favorable outcomes: the union $X \cup Y$ has $n+k$ elements chosen from $\{1,\ldots,n+k+a\}$, and once fixed, $X$ (smallest $k$) and $Y$ (largest $n$) are determined. Number: $\binom{n+k+a}{n+k}$. Probability:
+\[ \frac{\binom{n+k+a}{n+k}}{\binom{k+a}{k}\binom{n+k+a}{n}} = \frac{1}{\binom{n+k}{k}}, \]
+independent of $a$.
+
+\section*{Problem 3}
+\subsection*{Solution}
+Answer: $\sup = \ln 2$.
+
+\textbf{Upper bound.} Let $\ell_1 \leq \cdots \leq \ell_{n+1}$ be segment lengths after $n$ steps. After $k$ more steps, at least $n+1-k$ segments are intact, so $\ell_{n+1-k} \leq 1/(n+k)$. Thus
+\[ d = \sum \ell_i \leq \frac{1}{n} + \frac{1}{n+1} + \cdots + \frac{1}{2n} \to \ln 2. \]
+
+\textbf{Lower bound.} Use the partition of $[0, \ln 2]$ into $n$ parts of lengths $\ln(1 + 1/(n+i-1))$, $i = 1, \ldots, n$, each $< 1/n$. Going from $n$ to $n+1$: the summand $\ln(1 + 1/n)$ is split into $\ln(1 + 1/(2n)) + \ln(1 + 1/(2n+1))$, so a single new partition point suffices. This gives a valid sequence for $d = \ln 2$.
+
+\section*{Problem 4}
+\subsection*{Solution (Lebesgue characterization)}
+It suffices to show the sublevel/superlevel sets $\{x : f(x) \geq c\}$ are $G_\delta$. We claim
+\[ \{x : f(x) \geq c\} = \bigcap_{n,k=1}^\infty \bigcup_{\substack{y \in \mathbb{R} \\ f(y) \geq c}} \left(y - \min\{1/k, g(y, 1/n)\},\ y + \min\{1/k, g(y, 1/n)\}\right). \]
+$\subseteq$: take $y = x$. $\supseteq$: if $f(x) < c$, pick $n$ with $f(x) < c - 1/n$ and $k$ with $g(x, 1/n) > 1/k$. If $x$ is in the RHS, find $y$ with $f(y) \geq c$ and $|x - y| < \min\{g(y, 1/n), 1/k\} \leq \min\{g(y, 1/n), g(x, 1/n)\}$. Then $|f(x) - f(y)| < 1/n$, so $f(x) \geq c - 1/n$, contradiction.
+
+Since sublevel/superlevel sets are $G_\delta$, by Lebesgue's theorem $f$ is a pointwise limit of continuous functions.
+
+\end{document}
