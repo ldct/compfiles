@@ -263,7 +263,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 247 | IMC 2018 P10 | statement formalized | 74 | lattice sum (-1)^{a+b}/(a^2+b^2) over disc, limit as R -> infinity | Med | High | Jacobi theta / L-function evaluation; Dirichlet series. |
 | 248 | IMC 2012 P6 | statement formalized | 155 | coefficient-assignment game with m(x)=x-2012 or m(x)=x^2+1 | Med | High | Game analysis: Homer/Einstein strategies per monic divisor. |
 | 249 | IMC 2011 P7 | statement formalized | 121 | three-gender matching: k >= 3n/4 guarantees n married triples | Med | High | Hall-type theorem for 3-uniform hypergraphs; tight bound. |
-| 250 | IMC 2019 P10 | not started | - | 2019 uniform points in disc: triangle vs quadrilateral hull probability | Med | High | Integral geometry; Sylvester-type computation. |
+| 250 | IMC 2019 P10 | statement formalized | 85 | 2019 uniform points in disc: triangle vs quadrilateral hull probability | Med | High | Integral geometry; Sylvester-type computation. |
 | 251 | IMC 2025 P5 | statement formalized | 56 | g(n) < f(n) + n^{0.501} (sym grp max order) | Med | High | Requires weak PNT bound on prime sum; Landau's function. |
 | 252 | IMC 2025 P10 | statement formalized | 51 | count pairs with (a^2+a)(b^2+b) square | Med | High | Pell equation analysis; analytic number theory estimates. |
 | 253 | IMC 2012 P10 | not started | - | abelian group: \|A+A\| <= c\|A\| implies \|kA\| <= c^k \|A\| | Med | High | Plünnecke-Ruzsa inequality; additive combinatorics. |
