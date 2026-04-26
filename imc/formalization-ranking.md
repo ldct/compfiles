@@ -368,7 +368,7 @@ Problem counts per year: 1994-1999 had 6 problems/day × 2 days = 12 per year. T
 | IMC 1996 P4 | sorry skeleton (statement + sequence definition, base cases a₂=1/2, a₃=1/3, positivity, and key bounds 7/10 < 2^(-1/2), 2/(7/10)+1/(7/10)² ≤ 5 proven, 200 LoC) | convolution recurrence, growth rate lim sup bounds | Med | Med |
 | IMC 1996 P5 | sorry skeleton (statement of both parts + auxiliary algebraic lemmas: poly_ge_quadratic, p_le_linear, c_nonneg, 240 LoC) | asymptotic of n integral (1+ax+bx^2)^n | Med | Med-High |
 | IMC 1996 P6 | sorry skeleton (statements of (a),(b),(c) + numeric bounds `√52 < 8`, `2√10 < 8`, box-distance bound proven, 214 LoC) | upper content vs lower content via contractions | Med-High | High |
-| IMC 1996 P7 | not started | iterates converge iff x_{n+1} - x_n -> 0 | Low | Med |
+| IMC 1996 P7 | sorry skeleton (statement + forward direction `Tendsto → x_{n+1} - x_n → 0` proved, reverse direction sorry with detailed outline, 158 LoC) | iterates converge iff x_{n+1} - x_n -> 0 | Low | Med |
 | IMC 1996 P8 | not started | cosh k theta, cosh(k+1) theta rational implies cosh theta rational | Low | Med |
 | IMC 1996 P9 | not started | commutator subgroup of <diag(2,1),unipotent> not finitely generated | Med | Med |
 | IMC 1996 P10 | not started | inscribed disc of convex body, arc-length 90-degree condition | High | High |
