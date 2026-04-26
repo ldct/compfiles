@@ -348,7 +348,7 @@ Problem counts per year: 1994-1999 had 6 problems/day × 2 days = 12 per year. T
 | IMC 1994 P8 | proof complete (117 LoC) | extrema of (x^2 - y^2)exp(-x^2 - y^2) | Low | Low |
 | IMC 1994 P9 | proof complete (162 LoC) | MVT-style existence via log sum of derivatives | Low | Low |
 | IMC 1994 P10 | proof complete (257 LoC) | dim of commutant of diagonal matrix is sum d_i^2 | Low | Low-Med |
-| IMC 1994 P11 | not started | permutation of zero-sum vectors with bounded partial sums | Med | Med |
+| IMC 1994 P11 | statement + per-step extension lemma (187 LoC, sorry on dependent recursion glue) | permutation of zero-sum vectors with bounded partial sums | Med | Med |
 | IMC 1994 P12 | not started | asymptotic double-log Riemann sum to 1 | Low-Med | Med |
 | IMC 1995 P1 | not started | column-shift matrix Y, ranks/eigenvalues of YX^-1 | Low | Low |
 | IMC 1995 P2 | not started | integral tail condition implies L^2 norm lower bound | Low | Low |
