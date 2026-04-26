@@ -262,7 +262,7 @@ LoC = total lines of the corresponding `Compfiles/Imc{YYYY}P{N}.lean` file (incl
 | 246 | IMC 2017 P7 | partial: statement formalized; proof outline (Newton-type ineq + top-coefficient asymptotics) sketched but lemmas remain sorry | 98 | (x+1)^n p(x) + x^n p(x+1) has all real roots only finitely often | Med | High | Root-location asymptotics; Descartes-type sign analysis. |
 | 247 | IMC 2018 P10 | statement formalized | 74 | lattice sum (-1)^{a+b}/(a^2+b^2) over disc, limit as R -> infinity | Med | High | Jacobi theta / L-function evaluation; Dirichlet series. |
 | 248 | IMC 2012 P6 | statement formalized | 155 | coefficient-assignment game with m(x)=x-2012 or m(x)=x^2+1 | Med | High | Game analysis: Homer/Einstein strategies per monic divisor. |
-| 249 | IMC 2011 P7 | not started | - | three-gender matching: k >= 3n/4 guarantees n married triples | Med | High | Hall-type theorem for 3-uniform hypergraphs; tight bound. |
+| 249 | IMC 2011 P7 | statement formalized | 121 | three-gender matching: k >= 3n/4 guarantees n married triples | Med | High | Hall-type theorem for 3-uniform hypergraphs; tight bound. |
 | 250 | IMC 2019 P10 | not started | - | 2019 uniform points in disc: triangle vs quadrilateral hull probability | Med | High | Integral geometry; Sylvester-type computation. |
 | 251 | IMC 2025 P5 | statement formalized | 56 | g(n) < f(n) + n^{0.501} (sym grp max order) | Med | High | Requires weak PNT bound on prime sum; Landau's function. |
 | 252 | IMC 2025 P10 | statement formalized | 51 | count pairs with (a^2+a)(b^2+b) square | Med | High | Pell equation analysis; analytic number theory estimates. |
