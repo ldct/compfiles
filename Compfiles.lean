@@ -80,6 +80,7 @@ import Compfiles.Imc1999P8
 import Compfiles.Imc1999P9
 import Compfiles.Imc1999P10
 import Compfiles.Imc1999P11
+import Compfiles.Imc1999P12
 import Compfiles.Imc2000P1
 import Compfiles.Imc2000P2
 import Compfiles.Imc2000P3
