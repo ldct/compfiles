@@ -60,6 +60,7 @@ import Compfiles.Imc2004P2
 import Compfiles.Imc2004P3
 import Compfiles.Imc2004P4
 import Compfiles.Imc2004P5
+import Compfiles.Imc2004P6
 import Compfiles.Imc2004P7
 import Compfiles.Imc2004P8
 import Compfiles.Imc2004P9
