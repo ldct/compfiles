@@ -49,11 +49,36 @@ def IsGood (V : ℝ) : Prop :=
 noncomputable determine answer : ℝ := 1 / 4
 
 problem imc2023_p9 : sSup {V : ℝ | IsGood V} = answer := by
-  -- TODO: Following the official solution.
-  -- Lower bound: X = [0,1/2] × [0,1/2-ε] × [0,1], Y = [1/2+ε,1] × [1/2,1] × [0,1]
-  -- work after an affine shift; volumes → 1/4.
-  -- Upper bound: for P with nonzero signed coordinates, the 8 sign-reflections
-  -- intersect X ∪ Y in at most 4 points; integrate.
+  -- TODO: Following the official solution (IMC 2023, Day 2, Problem 9).
+  --
+  -- LOWER BOUND (sSup ≥ 1/4):
+  --   For each ε ∈ (0, 1/2), take (after shifting from [-1/2,1/2]^3 to [0,1]^3):
+  --     X = [0, 1/2] × [0, 1/2 - ε] × [0, 1]
+  --     Y = [1/2 + ε, 1] × [1/2, 1] × [0, 1]
+  --   Both are closed, convex, in the unit cube. The projections:
+  --     onto x_3=0 plane: X_proj = [0,1/2] × [0,1/2-ε], Y_proj = [1/2+ε,1] × [1/2,1]  -- disjoint
+  --     onto x_2=0 plane: X_proj = [0,1/2] × [0,1],     Y_proj = [1/2+ε,1] × [0,1]    -- disjoint (x-coords)
+  --     onto x_1=0 plane: X_proj = [0,1/2-ε] × [0,1],   Y_proj = [1/2,1] × [0,1]      -- disjoint (y-coords)
+  --   Volume of each = (1/2)(1/2 - ε)(1) = 1/4 - ε/2 → 1/4 as ε → 0.
+  --   So 1/4 - ε/2 ∈ {V | IsGood V} for all small ε > 0, giving sSup ≥ 1/4.
+  --
+  -- UPPER BOUND (sSup ≤ 1/4):
+  --   Use cube U = [-1/2, 1/2]^3 (translate by (1/2,1/2,1/2)).
+  --   For P = (x,y,z) ∈ U with xyz ≠ 0, let \bar{P} = {(±x, ±y, ±z)} (8 sign-reflections).
+  --   Key claim: |\bar{P} ∩ (X ∪ Y)| ≤ 4 for all such P.
+  --   Then integrating the indicator of X ∪ Y over U via the symmetry group action gives
+  --     8 · vol(X ∪ Y) = ∫_U ∑_{σ ∈ {±1}^3} 𝟙[σP ∈ X ∪ Y] dP ≤ 4 · vol(U) = 4,
+  --   so vol(X) + vol(Y) = vol(X ∪ Y) ≤ 1/2 (X, Y disjoint by disjoint projections),
+  --   hence V ≤ 1/4.
+  --
+  --   Proof of key claim (Claims 1 & 2 in solution):
+  --     Claim 1: If |\bar{P} ∩ (X ∪ Y)| ≥ 5, pigeonhole forces an antipodal pair in
+  --       one body, and case analysis (each pair of points whose projection coincides
+  --       must lie in the same body) makes one body, say X, contain 4 mutually-symmetric
+  --       points, so X is "thick" (all 3 projections contain origin in their closures).
+  --     Claim 2: If X is thick, replace X by -Y (same volume, projections of -Y are
+  --       reflections of Y's, still disjoint from Y's since Y's miss origin). The
+  --       symmetry then shows |\bar{P} ∩ Y'| ≥ 3 leads to projection conflict.
   sorry
 
 end Imc2023P9
