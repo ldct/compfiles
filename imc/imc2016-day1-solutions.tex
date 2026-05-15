@@ -1,0 +1,52 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{IMC 2016, Blagoevgrad, Bulgaria --- Day 1 Solutions}
+\date{July 27, 2016}
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+\subsection*{Solution}
+(a) Take a convergent subsequence of zeros $z_n \to c \in [a,b]$. By continuity $f(c) = 0$. If $c \in (a,b)$ then
+\[ f'(c) = \lim \frac{f(z_n) - f(c)}{z_n - c} = 0, \]
+contradiction. Hence $c = a$ or $c = b$.
+
+(b)
+\[ f(x) = \begin{cases} x \sin(1/x) & 0 < x \le 1 \\ 0 & x = 0 \end{cases} \]
+Zeros at $x = 1/(k\pi)$; in $(0,1)$, $f'(x) = \sin(1/x) - (1/x)\cos(1/x)$, and $\sin(1/x), \cos(1/x)$ never vanish simultaneously, so $f(x) = 0 \Rightarrow f'(x) \ne 0$.
+
+\section*{Problem 2}
+\subsection*{Solution}
+For each $i$ pick a column $v_i$ of $A_i$ with $A_i v_i \ne 0$. If $\sum c_j v_j = 0$, apply $A_i$: since $A_i v_j = 0$ for $j \ne i$, we get $c_i (A_i v_i) = 0$, so $c_i = 0$. Hence $v_1, \dots, v_k$ are linearly independent, $k \le n$.
+
+Example: $A_i = E_{ii}$ (the matrix with single $1$ at $(i,i)$). Then $A_i^2 = A_i \ne 0$ and $A_i A_j = 0$ for $i \ne j$.
+
+\section*{Problem 3}
+\subsection*{Solution}
+Use $\frac{XY - Y^2}{X+Y} = Y - \frac{2Y^2}{X+Y}$. Both sides transform into $\sum b_i - 2(\cdot)$, so the inequality is equivalent to
+\[ \sum_{i=1}^n \frac{b_i^2}{a_i + b_i} \ge \frac{(\sum b_i)^2}{\sum (a_i + b_i)}, \]
+which is Cauchy-Schwarz (Engel form).
+
+\section*{Problem 4}
+\subsection*{Solution}
+Assume $n > k$ (case $n = k$ trivial). Take $\binom{n}{k}+1$ ``generator'' $k$-sets in $\mathcal{F}$; let $V$ be their union. Then $|V| > n$ since $V$ has more than $\binom{n}{k}$ size-$k$ subsets among the generators.
+
+Call $v \in V$ \emph{appropriate} if $v$ is in at most $\binom{n-1}{k-1}$ generators; then $\binom{n-1}{k}+1$ generators avoid $v$, and their union has size $\ge n$ and excludes $v$.
+
+Claim: among any $n$ elements of $V$, some is appropriate. Total incidences with generators $\le (\binom{n}{k}+1) k$; if all $n$ elements were non-appropriate, incidences $\ge n(\binom{n-1}{k-1}+1) > (\binom{n-1}{k-1}+1) k$, contradicting.
+
+Pick appropriate $v_1 \in V$, get $U_1$ (union of generators avoiding $v_1$) with $|U_1| \ge n$, $v_1 \notin U_1$. Then pick appropriate $v_2 \in U_1$, get $U_2$ with $|U_2| \ge n$, $v_2 \notin U_2$. So $V, U_1, U_2$ are three distinct sets of size $\ge n$.
+
+\section*{Problem 5}
+\subsection*{Solution}
+Standard: $G_n(x) := \sum_{\pi \in S_n} x^{\mathrm{inv}(\pi)} = \prod_{j=1}^n (1 + x + \dots + x^{j-1})$.
+
+Let $\varepsilon = e^{2\pi i/(n+1)}$. Then
+\[ f(n) = \frac{1}{n+1} \sum_{k=0}^{n} G_n(\varepsilon^k) = \frac{n!}{n+1} + \frac{1}{n+1} \sum_{k=1}^{n-1} G_n(\varepsilon^k). \]
+For $n = p - 1$ ($p$ odd prime), $1 \le k \le p-1$:
+\[ G_{p-1}(\varepsilon^k) = \prod_{j=1}^{p-1} \frac{1 - \varepsilon^{jk}}{1 - \varepsilon^k} = \frac{(1-\varepsilon)(1-\varepsilon^2)\cdots(1-\varepsilon^{p-1})}{(1-\varepsilon^k)^{p-1}} = \frac{p}{(1-e^{2k\pi i/p})^{p-1}}. \]
+So $f(p-1) - \frac{(p-1)!}{p}$ has the same sign as
+\[ \sum_{k=1}^{p-1} (1 - e^{2k\pi i/p})^{1-p} = 2 \cdot 2^{1-p}(-1)^{(p-1)/2} \sum_{k=1}^{(p-1)/2} \cos\frac{\pi k(p-1)}{p}\Big(\sin\frac{\pi k}{p}\Big)^{1-p}. \]
+The $k=1$ term dominates exponentially; $\cos(\pi(p-1)/p) \to -1$. So for large $p$, the sign is positive when $(p-1)/2$ is odd ($p \equiv 3 \pmod 4$) and negative when $p \equiv 1 \pmod 4$.
+
+\end{document}

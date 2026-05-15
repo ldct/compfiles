@@ -1,0 +1,84 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+
+\title{IMC 2010, Blagoevgrad, Bulgaria \\ Day 2, July 27, 2010 --- Solutions}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+(a) $x_{n+1} = x_n \cos x_n$: does this converge?
+(b) $y_{n+1} = y_n \sin y_n$: same question.
+
+\subsection*{Solution}
+(a) \textbf{No.} Take $x_1 = \pi$; then $x_n = (-1)^{n-1}\pi$, divergent.
+
+(b) \textbf{Yes.} $|y_{n+1}| = |y_n| \cdot |\sin y_n| \le |y_n|$, so $|y_n| \downarrow a \ge 0$. If $a = 0$ done. Else $a = a \cdot |\sin a|$, so $|\sin a| = 1$ and $a = (k + \tfrac{1}{2})\pi$. For large $n$, $|y_n| \in [(k + \tfrac12)\pi, (k+1)\pi)$, so $y_n$ lies in one of two intervals $I_\pm$ (where $\sin$ has definite sign). In both cases $y_{n+1}$ lands in $I_+$, so eventually $y_n$ has constant sign; combined with $|y_n| \to a$, $y_n$ converges.
+
+\emph{Alt for (b):} $t \sin t = |t| \sin |t|$, so $y_{n+1} = |y_n| \sin|y_n| \to a \sin a = a$ by continuity.
+
+\section*{Problem 2}
+Prove the product inequality.
+
+\subsection*{Solution}
+Induct on $n$. Base $n = 0$ is equality. The step reduces to showing
+\[
+\frac{1}{a_0}\prod_{k=1}^n\!\Bigl(1 + \tfrac{1}{a_k - a_0}\Bigr) \cdot \frac{1}{a_{n+1} - a_0} \le \prod_{k=0}^n\!\Bigl(1 + \tfrac{1}{a_k}\Bigr) \cdot \frac{1}{a_{n+1}}.
+\]
+Induct further: the base $n = 0$ case, $\tfrac{1}{a_0(a_1 - a_0)} \le \tfrac{a_0 + 1}{a_0 a_1}$, reduces to $a_1 - a_0 \ge 1$. For the step,
+\[
+\Bigl(1 + \tfrac{1}{a_{n+1} - a_0}\Bigr) \tfrac{a_{n+1} - a_0}{a_{n+2} - a_0} \le \Bigl(1 + \tfrac{1}{a_{n+1}}\Bigr) \tfrac{a_{n+1}}{a_{n+2}}
+\]
+simplifies to $a_{n+2} - a_{n+1} \ge 1$.
+
+\section*{Problem 3}
+Subgroup $G \le S_n$ where every non-identity element has a unique fixed point. Show this fixed point is the same.
+
+\subsection*{Solution}
+Let $G_x, Gx$ be the stabilizer and orbit. Conditions: $G = \bigcup_x G_x$; $G_x \cap G_y = \{e\}$ for $x \ne y$. Let $Gx_1, \ldots, Gx_k$ be distinct orbits. Note $|G_y| = |G|/|Gy| = |G|/|Gx_i| = |G_{x_i}|$ for $y \in Gx_i$. Counting:
+\[
+|G| - 1 = \sum_{i=1}^k |Gx_i|(|G_{x_i}| - 1) = \sum_{i=1}^k \frac{|G|}{|G_{x_i}|}(|G_{x_i}| - 1),
+\]
+so
+\[
+1 - \frac{1}{|G|} = \sum_{i=1}^k\!\Bigl(1 - \frac{1}{|G_{x_i}|}\Bigr).
+\]
+If two terms had $|G_{x_i}| \ge 2$, RHS $\ge 1 > 1 - 1/|G|$. So at most one term has $|G_{x_i}| > 1$, and that one has $|G_{x_k}| = |G|$, i.e. $G_{x_k} = G$.
+
+\section*{Problem 4}
+$A$ symmetric over $\mathbb{F}_2$ with zero diagonal. Show each column of $A^n$ has a zero.
+
+\subsection*{Solution}
+Let $e_k$ be the $k$th standard basis vector, $u$ the all-ones vector. Bilinear form $(x,y) = x^T y$. Facts: $(x,x) = (x,u)$, and $(w, Aw) = w^T A w = 0$ (symmetric, zero diagonal, over $\mathbb{F}_2$).
+
+\textbf{Lemma.} If $A^n v = u$ then $(v, v) = 0$.
+
+Induct on $n$. \emph{$n = 2k+1$:} set $w = A^k v$;
+\[
+(v,v) = (v, u) = v^T A^n v = (A^k v, A^{k+1} v) = (w, Aw) = 0.
+\]
+\emph{$n = 2k$:} set $w = A^k v$; then $A^k w = u$ so $(w,w) = 0$ by induction. Thus
+\[
+(v,v) = v^T A^{2k} v = (A^k v)^T (A^k v) = (w,w) = 0.
+\]
+
+If $A^n e_k = u$, then $(e_k, e_k) = 0$. But $(e_k, e_k) = 1$, contradiction.
+
+\section*{Problem 5}
+If $f$ vanishes on $(a,b)$ and $\sum_{k=0}^{p-1} f(y + k/p) = 0$ for all primes $p$ and all $y$, then $f \equiv 0$.
+
+\subsection*{Solution}
+Fix integer $N > 1$. Define
+\[
+\mathcal J_N = \Bigl\{ \sum c_k x^k \in \mathbb{R}[x] : \forall x \in \mathbb{R}, \sum_k c_k f(x + k/N) = 0 \Bigr\}.
+\]
+$\mathcal J_N$ is an ideal (closed under multiplication by $x$). For each prime $p \mid N$, the hypothesis gives $\tfrac{x^N - 1}{x^{N/p} - 1} \in \mathcal J_N$. The gcd of these (as $p$ ranges over prime divisors of $N$) equals the cyclotomic polynomial $\Phi_N(x)$ (roots are primitive $N$th roots of unity). Hence $\Phi_N \in \mathcal J_N$, with degree $\varphi(N)$.
+
+Choose $N$ with $\varphi(N)/N < b - a$ (possible since $\liminf \varphi(N)/N = 0$). Write $\Phi_N = \sum a_k x^k$ with $a_{\varphi(N)} = 1$, $|a_0| = 1$. For $x \in [b, b + 1/N)$,
+\[
+f(x) = -\sum_{k=0}^{\varphi(N)-1} a_k f\!\bigl(x - \tfrac{\varphi(N) - k}{N}\bigr).
+\]
+All arguments on the RHS lie in $(a, b)$ (since the span $\varphi(N)/N < b - a$), so $f(x) = 0$. Similarly $f = 0$ on $(a - 1/N, a]$. Iterating, $f \equiv 0$.
+
+\end{document}

@@ -1,0 +1,87 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{IMC 2001, Day 2 --- Solutions}
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+Let $r,s\ge 1$ be integers, $a_0,\dots,a_{r-1}, b_0,\dots,b_{s-1}\ge 0$ reals satisfying
+\[(a_0 + a_1 x + \cdots + a_{r-1}x^{r-1} + x^r)(b_0 + \cdots + b_{s-1}x^{s-1} + x^s) = 1 + x + \cdots + x^{r+s}.\]
+Prove each $a_i, b_j \in \{0,1\}$.
+
+\subsection*{Solution}
+Comparing coefficients: $a_0 b_0 = 1$, and the coefficients of $x^{s}$ and $x^r$ give
+\[a_0 + a_1 b_{s-1} + \cdots = 1,\quad b_0 + b_1 a_{r-1} + \cdots = 1.\]
+So $a_0, b_0 \le 1$; with $a_0 b_0 = 1$ this gives $a_0 = b_0 = 1$. Then all $a_i \le 1$ and $b_j \le 1$. From $a_0 b_1 + a_1 b_0 = 1$, one of $a_1, b_1$ is $0$ and the other $1$. Induct.
+
+\section*{Problem 2}
+Let $a_0=\sqrt{2}$, $b_0=2$, $a_{n+1}=\sqrt{2-\sqrt{4-a_n^2}}$, $b_{n+1}=\frac{2b_n}{2+\sqrt{4+b_n^2}}$.
+
+\textbf{(a)} Show $(a_n), (b_n)$ decrease to $0$.
+
+\textbf{(b)} Show $(2^n a_n)$ increases, $(2^n b_n)$ decreases, both to the same limit.
+
+\textbf{(c)} Show $0 < b_n - a_n < C/8^n$ for some $C>0$.
+
+\subsection*{Solution}
+$f(x)=\sqrt{2-\sqrt{4-x^2}}$ is increasing on $[0,2]$, so $a_1<a_0$ implies $a_n$ decreasing. Similarly for $b_n$ using $g(x)=\frac{2x}{2+\sqrt{4+x^2}}$. One checks $2f(x)>x$ and $2g(x)<x$ on $(0,2)$, giving monotonicity of $2^n a_n$ and $2^n b_n$.
+
+By induction $a_n^2 = \frac{4b_n^2}{4+b_n^2}$, so
+\[\lim 4^n a_n^2 = \lim \frac{4\cdot 4^n b_n^2}{4+b_n^2} = \lim 4^n b_n^2,\]
+(since $b_n\to 0$), so the two limits agree, positive since $(2^n a_n)$ increases.
+
+For (c):
+\[2^n b_n - 2^n a_n = \frac{4^n b_n^2 - 4^n a_n^2}{2^n b_n + 2^n a_n} = \frac{(2^n b_n)^4}{4+b_n^2}\cdot\frac{1}{4^n}\cdot\frac{1}{2^n(b_n+a_n)},\]
+which gives $b_n - a_n = O(1/8^n)$.
+
+\textit{Remark.} $a_n = 2\sin(\pi/2^{n+1})$, $b_n = 2\tan(\pi/2^{n+1})$.
+
+\section*{Problem 3}
+Find the maximum number of points on the unit sphere in $\mathbb{R}^n$ with pairwise distances strictly greater than $\sqrt{2}$.
+
+\subsection*{Solution}
+$d(X,Y)>\sqrt 2 \iff \langle X,Y\rangle < 0$. WLOG $A_1=(-1,0,\dots,0)$; then for any other $Y=(y_1,\bar Y)$ we need $y_1>0$. For $X,Y\in M_n\setminus\{A_1\}$ with $X=(x_1,\bar X), Y=(y_1,\bar Y)$:
+\[\langle X,Y\rangle < 0 \Rightarrow \langle \bar X, \bar Y\rangle < 0,\]
+and normalizing $\bar X, \bar Y$ to unit vectors in $\mathbb{R}^{n-1}$ gives the same setup. So $a_n \le 1 + a_{n-1}$, $a_1 = 2$, hence $a_n \le n+1$.
+
+Construction: the $n+1$ vertices of a regular simplex inscribed in the unit sphere realize pairwise distance $\sqrt{2(1+1/n)} > \sqrt 2$. Explicitly,
+\[A_1=(-1,0,\dots,0),\quad A_k=\big(\tfrac 1n, \tfrac{c_1}{n-1}, \dots, \tfrac{c_{k-2}}{n-k+2}, -c_{k-1}, 0, \dots\big)\]
+for $k\ge 2$, with $c_k = \sqrt{(1+1/n)(1-1/(n-k+1))}$, and $A_{n+1}$ differs from $A_n$ in the sign of the last coordinate. Answer: $\boxed{n+1}$.
+
+\section*{Problem 4}
+Let $A=(a_{k\ell})$ be $n\times n$ complex such that for every $m$ and every $1\le j_1<\cdots<j_m\le n$, $\det(a_{j_k,j_\ell})_{k,\ell=1}^m = 0$. Prove $A^n = 0$ and there is a permutation $\sigma$ such that $(a_{\sigma(k),\sigma(\ell)})$ is strictly upper triangular.
+
+\subsection*{Solution}
+Consider the digraph $G$ with edge $V_k\to V_\ell$ iff $a_{k\ell}\ne 0$. If $G$ has a cycle, take a minimum-length cycle of length $m$ through vertices $j_1<\cdots<j_m$ with permutation $\sigma_0$ realizing it ($a_{j_k,j_{\sigma_0(k)}}\ne 0$). For any $\sigma\ne\sigma_0$, some term $a_{j_k,j_{\sigma(k)}}=0$ (else another cycle of $\le m$ through same set exists, contradicting minimality). So
+\[0 = \det(a_{j_k,j_\ell})_{k,\ell=1}^m = \pm\prod_k a_{j_k,j_{\sigma_0(k)}} \ne 0,\]
+contradiction.
+
+$G$ is acyclic, so has a topological ordering $\sigma$: $a_{\sigma(k),\sigma(\ell)}\ne 0 \Rightarrow k<\ell$. Then $(a_{\sigma(k),\sigma(\ell)})$ is strictly upper triangular, so $A^n=0$.
+
+\section*{Problem 5}
+Show there is no $f:\mathbb{R}\to\mathbb{R}$ with $f(0)>0$ and $f(x+y)\ge f(x)+yf(f(x))$ for all $x,y$.
+
+\subsection*{Solution}
+Suppose such $f$ exists. If $f(f(x))\le 0$ for all $x$, then for $y\le 0$, $f(x+y)\ge f(x)$, so $f$ is decreasing, giving $f(x)\ge f(0)>0$, contradicting $f(f(x))\le 0$. So $f(f(z))>0$ for some $z$. Then $f(z+x)\ge f(z)+xf(f(z))\to\infty$, so $f\to\infty$ and $f(f(x))\to\infty$.
+
+Pick $x,y>0$ with $f(x)\ge 0$, $f(f(x))>1$, $y\ge (x+1)/(f(f(x))-1)$, $f(f(x+y+1))\ge 0$. Then $f(x+y)\ge f(x)+yf(f(x))\ge x+y+1$. Applying the inequality with $(x+y+1, f(x+y)-(x+y+1))$:
+\begin{align*}
+f(f(x+y)) &\ge f(x+y+1) + (f(x+y)-(x+y+1))f(f(x+y+1))\\
+&\ge f(x+y+1) \ge f(x+y) + f(f(x+y))\\
+&\ge f(x) + yf(f(x)) + f(f(x+y)) > f(f(x+y)),
+\end{align*}
+contradiction.
+
+\section*{Problem 6}
+For $f_n(\vartheta) = \prod_{k=0}^n \sin(2^k \vartheta)$, prove $|f_n(\vartheta)| \le \frac{2}{\sqrt 3}|f_n(\pi/3)|$.
+
+\subsection*{Solution}
+Let $g(\vartheta) = |\sin\vartheta|\cdot|\sin(2\vartheta)|^{1/2}$. By AM-GM,
+\[g(\vartheta)^2 = |\sin\vartheta|^2\cdot 2|\sin\vartheta||\cos\vartheta| = \frac{2}{\sqrt 3}\big(\sqrt[4]{|\sin\vartheta|^3\cdot\sqrt 3|\cos\vartheta|}\big)^4 \le \frac{2}{\sqrt 3}\cdot\frac{(3\sin^2+3\cos^2)^2}{16} = (\sqrt 3 / 2)^3,\]
+so $g(\vartheta)\le (\sqrt 3/2)^{3/2}$, attained at $\vartheta=2^k\pi/3$.
+
+Writing
+\[\left|\frac{f_n(\vartheta)}{f_n(\pi/3)}\right| = \prod_{k=0}^{n-1}\left|\frac{g(2^k\vartheta)}{g(2^k\pi/3)}\right|^{2^{-k}E_k}\cdot \left|\frac{\sin(2^n\vartheta)}{\sin(2^n\pi/3)}\right|^{1-E/2}\]
+with appropriate exponents, where $E = \frac{2}{3}(1-(-1/2)^n)$. Each $g$-factor is $\le 1$, and $|\sin(2^n\pi/3)|=\sqrt 3/2$ gives the final factor $\le (2/\sqrt 3)^{1-E/2}\le 2/\sqrt 3$.
+
+\end{document}

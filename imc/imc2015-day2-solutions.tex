@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{IMC 2015, Blagoevgrad, Bulgaria --- Day 2 Solutions}
+\date{July 30, 2015}
+\begin{document}
+\maketitle
+
+\section*{Problem 6}
+\subsection*{Solution}
+We show $\frac{1}{\sqrt{n}(n+1)} < \frac{2}{\sqrt{n}} - \frac{2}{\sqrt{n+1}}$. Cross-multiplying by $\sqrt{n(n+1)}$: $1 < 2(n+1) - 2\sqrt{n(n+1)}$, i.e.\ $2\sqrt{n(n+1)} < n + (n+1)$, which is AM-GM. Summing telescopes to $< 2$.
+
+\section*{Problem 7}
+\subsection*{Solution}
+Answer: $1$.
+
+Lower: for $A > 1$, $A^{1/x} > 1$, so $\frac{1}{A}\int_1^A A^{1/x}\,dx > 1 - 1/A$.
+
+Upper: split $[1, A]$ at $1+\delta$ and $K \log A$. The integrand $A^{1/x}$ is decreasing:
+\[ \frac{1}{A}\int_1^A A^{1/x}\,dx < \frac{1}{A}\Big[\delta A + K\log A \cdot A^{1/(1+\delta)} + A \cdot A^{1/(K \log A)}\Big] = \delta + K A^{-\delta/(1+\delta)} \log A + e^{1/K}. \]
+As $A \to \infty$ the middle term $\to 0$, giving $\limsup \le \delta + e^{1/K}$; then $\delta \to 0$, $K \to \infty$ gives $\le 1$.
+
+\section*{Problem 8}
+\subsection*{Solution}
+Let $n = 26$; then $3^{75} = (n+1)^{n-1}$. Using the finite-difference identity $\Delta^{n+1} f \equiv 0$ for $\deg f \le n$, applied to $f(x) = (n-x)^n$ at $x = -1$:
+\[ (n+1)^n = (n+1)\sum_{j=0}^n \binom{n}{j}\frac{(-1)^j}{j+1}(n-j)^n. \]
+Interpret: $\binom{n}{j}\frac{(-1)^j}{j+1}(n-j)^n$ = (choose $j$ absent letters) $\cdot$ (sum $(-1)^j/(j+1)$ over $(n-j)^n$ words avoiding them). Reverse order: for word $W$ with $k$ absent letters, contribution is $\sum_{j=0}^k \binom{k}{j}\frac{(-1)^j}{j+1} = \frac{1}{k+1}$ (alternating sum of $\binom{k+1}{j+1}$ vanishes). Hence total sum $= (n+1)^{n-1} = 3^{75}$.
+
+\section*{Problem 9}
+\subsection*{Solution}
+Answer: $n(n+1)/2$. Symmetric matrices work. For upper bound:
+
+Let $V \subseteq M_n$ be a t-normal subspace. Define $\pi: V \to S_n$ by $\pi(A) = A + A^t$. Then $\ker \pi \subseteq A_n$ (antisymmetric), and $\dim V = \dim\ker\pi + \dim\mathrm{im}\,\pi$.
+
+For $A \in \ker\pi$, $B \in V$: expand $(A+B)(A+B)^t = (A+B)^t(A+B)$ using $A^2A = AA^t$ (from $A \in V$, $A = -A^t$ gives $AA^t = -A^2$, $A^tA = -A^2$, fine), $BB^t = B^tB$: one gets $A\pi(B) = \pi(B) A$. So $\ker\pi$ and $\mathrm{im}\,\pi$ commute.
+
+\emph{Lemma.} If $X \subseteq S_n$, $Y \subseteq A_n$, every element of $X$ commutes with every element of $Y$, then $\dim X + \dim Y \le \dim S_n$.
+
+\emph{Proof sketch.} Define $B: S_n \times A_n \to \mathbb{C}$ by $B(x,y) = \mathrm{tr}(d[x,y])$ with $d = \mathrm{diag}(1,\dots,n)$. One checks $\{[d,x]: x \in S_n\} = A_n$, and $B(x,y) = 0 \forall x \Rightarrow y = 0$. So linear independence of $y_1, \dots, y_k \in Y$ gives $k$ independent equations $B(\cdot, y_i) = 0$ on $S_n$, restricting to codimension $k$.
+
+Applying with $X = \mathrm{im}\,\pi$, $Y = \ker\pi$: $\dim V \le \dim S_n = n(n+1)/2$.
+
+\section*{Problem 10}
+\subsection*{Solution}
+Let $M = \max_{[0,1]} |p(x)|$. For $k \ge 1$, $J_k = \int_0^1 p(x)^{2k}\,dx$ is a positive rational $< M^{2k}$. Its denominator divides $\mathrm{lcm}(1, 2, \dots, 2kn+1)$, so
+\[ J_k \ge \frac{1}{\mathrm{lcm}(1, \dots, 2kn+1)}. \]
+By the prime number theorem, $\log\mathrm{lcm}(1, \dots, N) \sim N$. So for any $\varepsilon > 0$ and large $k$:
+\[ M^{2k} > \frac{1}{e^{(1+\varepsilon)(2kn+1)}} \implies M > e^{-(1+\varepsilon)(n + 1/(2k))}. \]
+Let $k \to \infty$, then $\varepsilon \to 0$: $M \ge e^{-n}$. Since $e$ is transcendental, equality is impossible.
+
+\end{document}

@@ -1,0 +1,26 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{IMC 2014, Blagoevgrad, Bulgaria --- Day 2}
+\date{August 1, 2014}
+\begin{document}
+\maketitle
+
+\section*{Problem 6}
+For a positive integer $x$, denote its $n$th decimal digit by $d_n(x) \in \{0,1,\dots,9\}$ (so $x = \sum_{n=1}^\infty d_n(x) 10^{n-1}$). Suppose that for some sequence $(a_n)_{n=1}^\infty$ there are only finitely many zeros in the sequence $(d_n(a_n))$. Prove that there are infinitely many positive integers that do not occur in $(a_n)$.
+
+\section*{Problem 7}
+Let $A = (a_{ij})_{i,j=1}^n$ be a symmetric $n \times n$ real matrix with eigenvalues $\lambda_1, \dots, \lambda_n$. Show that
+\[ \sum_{1 \le i < j \le n} a_{ii} a_{jj} \ge \sum_{1 \le i < j \le n} \lambda_i \lambda_j, \]
+and determine all matrices for which equality holds.
+
+\section*{Problem 8}
+Let $f(x) = \frac{\sin x}{x}$ for $x > 0$, and let $n$ be a positive integer. Prove that $|f^{(n)}(x)| < \frac{1}{n+1}$.
+
+\section*{Problem 9}
+A subset of $\mathbb{R}^n$ is $k$-almost contained by a hyperplane if fewer than $k$ points of the set are not on the hyperplane. A finite set is $k$-generic if no hyperplane $k$-almost contains it. For each pair $(k, n)$ of positive integers, find the minimal $d(k, n)$ such that every finite $k$-generic set in $\mathbb{R}^n$ contains a $k$-generic subset of at most $d(k, n)$ elements.
+
+\section*{Problem 10}
+For every positive integer $n$, let $D_n$ be the number of permutations $(x_1, \dots, x_n)$ of $(1, \dots, n)$ with $x_j \ne j$ for all $j$. For $1 \le k \le n/2$, let $\Delta(n, k)$ be the number of such derangements additionally satisfying $x_i = k+i$ for every $1 \le i \le k$. Prove that
+\[ \Delta(n, k) = \sum_{i=0}^{k-1} \binom{k-1}{i} \frac{D_{(n+1)-(k+i)}}{n - (k+i)}. \]
+
+\end{document}

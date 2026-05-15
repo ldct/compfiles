@@ -1,0 +1,45 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+
+\title{IMC 2019, Day 1 Solutions}
+\date{July 30, 2019}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+\subsection*{Solution}
+Answer: $72/7$.
+
+\[ a_n = \frac{n^2(n^2+3)^2}{(n-2)(n^2+2n+4)(n+2)(n^2-2n+4)} = \frac{n}{n-2} \cdot \frac{n}{n+2} \cdot \frac{n^2+3}{(n-1)^2+3} \cdot \frac{n^2+3}{(n+1)^2+3}. \]
+Telescoping from $n = 3$ to $N$:
+\[ \prod_{n=3}^N a_n = \frac{N(N-1)}{1 \cdot 2} \cdot \frac{3 \cdot 4}{(N+1)(N+2)} \cdot \frac{N^2+3}{7} \cdot \frac{12}{(N+1)^2+3} \to \frac{72}{7}. \]
+
+\section*{Problem 2}
+\subsection*{Solution}
+The system has multiple solutions iff the coefficient matrix is singular. Row reducing (sum of all rows $= Y+E+A+R$), the matrix is singular iff one of:
+\begin{enumerate}
+\item $E \neq R$ and $A + Y = E + R$
+\item $E = R$ and $Y = A$
+\item $E = R$, $A \neq Y$ and $Y + A = 2R$
+\end{enumerate}
+For $Y = 2, E = 0$: case 1 gives $A + 2 = R$ with $R \neq 0$: years 2002, 2013, 2024, 2035, 2046, 2057, 2068, 2079. Case 2 gives 2020. Case 3 is impossible. Total: 9 years.
+
+\section*{Problem 3}
+\subsection*{Solution}
+Let $g(x) = x f(x) - x^2/2$. Then $g'(x) = f(x) + x f'(x) - x$, and $g''(x) = 2 f'(x) + x f''(x) - 1 \geq 0$, so $g$ is convex. With $g(0) = 0$, the tangent line at $0$ is $g'(0) x = ax$, and by convexity $g(x) \geq ax$. Thus
+\[ \int_{-1}^1 x f(x)\, dx = \int_{-1}^1 \left(g(x) + \tfrac{x^2}{2}\right) dx \geq \int_{-1}^1 \left(ax + \tfrac{x^2}{2}\right) dx = \tfrac{1}{3}. \]
+
+\section*{Problem 4}
+\subsection*{Solution}
+Let $f(x) = \sum a_n x^n$. The recurrence yields (after manipulation) the ODE $(x^3 - 6x^2 + x) f'(x) + (1 - 3x) f(x) - 1 - x = 0$. Solving with $f(0) = 1$:
+\[ f(x) = \frac{1 - x - \sqrt{x^2 - 6x + 1}}{2x}. \]
+Then $f$ satisfies $x f(x)^2 - (1-x) f(x) + 1 = 0$. Expanding gives
+\[ \sum_{n \geq 0} \left(\sum_{k=0}^n a_k a_{n-k}\right) x^{n+1} = \sum_{n \geq 0} (a_{n+1} - a_n) x^{n+1}, \]
+so $a_{n+1} = a_n + \sum_{k=0}^n a_k a_{n-k}$. By induction from $a_0 = 1, a_1 = 2 \in \mathbb{Z}$, all $a_n \in \mathbb{Z}$.
+
+\section*{Problem 5}
+\subsection*{Solution}
+No. Take determinants mod 4: $A^4 \equiv 2019 I \pmod 4$, so $(\det A)^4 \equiv 2019^n \equiv 3 \pmod 4$ (since $n$ odd). But $(\det A)^4 = ((\det A)^2)^2$ is a quadratic residue mod 4, i.e., $0$ or $1$. Contradiction.
+
+\end{document}

@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+
+\title{IMC 2023, Second Day}
+\date{August 3, 2023}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 6}
+Ivan writes the matrix $\begin{pmatrix} 2 & 3 \\ 2 & 4 \end{pmatrix}$ on the board. Then he performs the following operation on the matrix several times:
+\begin{itemize}
+  \item he chooses a row or a column of the matrix, and
+  \item he multiplies or divides the chosen row or column entry-wise by the other row or column, respectively.
+\end{itemize}
+Can Ivan end up with the matrix $\begin{pmatrix} 2 & 4 \\ 2 & 3 \end{pmatrix}$ after finitely many steps?
+
+\section*{Problem 7}
+Let $V$ be the set of all continuous functions $f : [0,1] \to \mathbb{R}$, differentiable on $(0,1)$, with $f(0) = 0$ and $f(1) = 1$. Determine all $\alpha \in \mathbb{R}$ such that for every $f \in V$, there exists some $\xi \in (0,1)$ such that
+\[ f(\xi) + \alpha = f'(\xi). \]
+
+\section*{Problem 8}
+Let $T$ be a tree with $n$ vertices. For every pair $u, v$ of vertices, let $d(u,v)$ denote the distance between them. Consider
+\[ W(T) = \sum_{\{u,v\} \subseteq V(T),\, u \neq v} d(u,v), \qquad H(T) = \sum_{\{u,v\} \subseteq V(T),\, u \neq v} \frac{1}{d(u,v)}. \]
+Prove that
+\[ W(T) \cdot H(T) \geq \frac{(n-1)^3 (n+2)}{4}. \]
+
+\section*{Problem 9}
+We say a real number $V$ is \emph{good} if there exist two closed convex subsets $X, Y$ of the unit cube in $\mathbb{R}^3$, with volume $V$ each, such that for each of the three coordinate planes, the projections of $X$ and $Y$ onto that plane are disjoint.
+
+Find $\sup\{V \mid V \text{ is good}\}$.
+
+\section*{Problem 10}
+For every positive integer $n$, let $f(n), g(n)$ be the minimal positive integers such that
+\[ 1 + \frac{1}{1!} + \frac{1}{2!} + \cdots + \frac{1}{n!} = \frac{f(n)}{g(n)}. \]
+Determine whether there exists a positive integer $n$ for which $g(n) > n^{0.999 n}$.
+
+\end{document}

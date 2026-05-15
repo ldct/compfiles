@@ -1,0 +1,86 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+
+\title{IMC 2004, Skopje \\ Day 1}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+Let $S$ be an infinite set of reals with $|s_1 + \cdots + s_k| < 1$ for every finite subset. Show $S$ is countable.
+
+\subsection*{Solution}
+Let $S_n = S \cap (1/n, \infty)$. If $|S_n| \ge n$, sum $n$ elements each $> 1/n$: gives $> 1$, contradiction. Similarly $|S_{-n}| < n$ for $S_{-n} = S \cap (-\infty, -1/n)$. Every nonzero $x \in S$ lies in some $S_n$ or $S_{-n}$. So $S \subset \{0\} \cup \bigcup_n (S_n \cup S_{-n})$, a countable union of finite sets.
+
+\section*{Problem 2}
+$P(x) = x^2 - 1$. How many distinct real solutions has $P^{2004}(x) = 0$?
+
+\subsection*{Solution}
+Answer: $2005$.
+
+Since $P(x) \ge -1$, $P^n(x) \ge -1$ for $n \ge 1$. For $a > 0$, $P^n(x) = a$ has exactly $2$ real solutions (induction: $P^n(x) = a$ iff $P^{n-1}(x) = \pm\sqrt{a+1}$; only $+\sqrt{a+1} > 1 > 0$ gives solutions, inductively 2).
+
+For $P^n(x) = 0$ count $= n + 1$ by induction: $P^{n+2} = 0$ iff $P^n(x) = 0, \sqrt 2, -\sqrt 2$; these give $(n+1), 2, 0$ solutions respectively, total $n + 3$.
+
+\section*{Problem 3}
+$S_n = $ set of sums $\sum x_k$, with $0 \le x_k \le \pi/2$, $\sum \sin x_k = 1$. (a) Show $S_n$ is an interval. (b) Find $\lim (\text{length of } S_n)$.
+
+\subsection*{Solution}
+(a) The set $Y = \{y \in [0,1]^n : \sum y_j = 1\}$ is connected. The map $f(y) = \sum \arcsin y_j$ is continuous, and $f(Y) = S_n$. Image of connected is connected; connected subsets of $\mathbb{R}$ are intervals.
+
+(b) Using concavity of $\sin$ on $[0, \pi/2]$: chord inequality $2x/\pi \le \sin x$ gives $\sum x_i \le \pi/2 \cdot \sum \sin x_i = \pi/2$ (max attained at $x_1 = \pi/2$, rest $0$).
+
+Jensen: $1/n = \sum \sin x_i / n \le \sin(\bar x)$, so $\bar x \ge \arcsin(1/n)$, giving $\sum x_i \ge n \arcsin(1/n)$ (min at $x_i = \arcsin(1/n)$).
+
+So $S_n = [n \arcsin(1/n), \pi/2]$, length $l_n = \pi/2 - n \arcsin(1/n)$.
+
+$\lim l_n = \pi/2 - \lim \frac{\arcsin(1/n)}{1/n} = \pi/2 - 1$.
+
+\section*{Problem 4}
+$M \subset \mathbb{R}^3$, $|M| = n \ge 4$, no 4 coplanar. 2-color $M$ so every sphere intersecting $M$ in $\ge 4$ points has exactly half white. Prove all of $M$ on one sphere.
+
+\subsection*{Solution}
+Define $f : M \to \{-1, 1\}$ from coloring. Condition: $\sum_{X \in S \cap M} f(X) = 0$ for any sphere $S$ with $|S \cap M| \ge 4$.
+
+For distinct $A, B, C \in M$, let $\mathcal S(A, B, C)$ = spheres through $A, B, C$ containing at least one other point of $M$. Sum over $S \in \mathcal S(A, B, C)$ and $X \in S \cap M$ of $f(X)$:
+\[
+0 = (|\mathcal S(A,B,C)| - 1)(f(A) + f(B) + f(C)) + \Sigma,
+\]
+where $\Sigma = \sum_{X \in M} f(X)$.
+
+If some $|\mathcal S(A,B,C)| = 1$, all points through $A, B, C$ lie on one sphere: done.
+
+Else: summing over all triples, $\binom{n}{3} \Sigma \lessgtr 0$ gives $\Sigma = 0$. Then $f(A) + f(B) + f(C) = 0$ for all triples. Comparing with $D$: $f(A) = f(B) = f(C) = f(D) = 0$, contradicting $f \in \{\pm 1\}$.
+
+\section*{Problem 5}
+$X$ has $\binom{2k-4}{k-2} + 1$ reals ($k \ge 2$). Prove there's a monotone sequence $x_1, \ldots, x_k$ in $X$ with $|x_{i+1} - x_1| \ge 2 |x_i - x_1|$.
+
+\subsection*{Solution}
+\textbf{Lemma.} For $k, l \ge 2$, $|X| \ge \binom{k+l-4}{k-2} + 1$ implies $X$ has an increasing sequence of length $k$ with the doubling property, OR a decreasing sequence of length $l$ with the doubling property.
+
+Induct on $k + l$; $k = 2$ or $l = 2$ trivial. Split $X$ at midpoint $(m + M)/2$ of min/max. Pascal: $\binom{k+l-4}{k-2} = \binom{k+l-5}{k-2} + \binom{k+l-5}{k-3}$. Either $|X_m| \ge \binom{(k-1) + l - 4}{(k-1) - 2} + 1$ or $|X_M| \ge \binom{k + (l-1) - 4}{k-2} + 1$. Apply induction; extend the increasing sequence by appending $M$ (or decreasing by prepending $m$).
+
+Setting $k = l$ gives the problem statement.
+
+\section*{Problem 6}
+$f(z) = \sum (\log z)^{-4}$ over all branches. (a) $f$ is rational. (b) $f(z) = z \tfrac{z^2 + 4z + 1}{6(z - 1)^4}$.
+
+\subsection*{Solution}
+(a) Sum converges like $\sum n^{-4}$ uniformly on compacts of $\mathbb{C} \setminus \{0, 1\}$. $\log$ has simple zero at $z = 1$, so $f$ has quadruple pole there. Near $\infty$: $|\sum (\log z)^{-4}| = O((\log|z|)^{-3}) \to 0$. Also $f(1/z) = f(z)$ (since branches negate), so $f$ has a zero at $0$. Hence $f$ is rational.
+
+(b) With pole only at $z = 1$ (order 4), zero at $0$ and $\infty$, and $f(z) \to 0$ as $z \to \infty$: $f(z) = z(a z^2 + b z + c)/(z-1)^4$. From $f(1/z) = f(z)$: $a = c$.
+
+Use cotangent sum: $\sum_k \tfrac{1}{w + 2\pi i k} = \tfrac{i}{2} \cot(iw/2)$. Setting $w = \log z$:
+\[
+\sum_k \frac{1}{\log z + 2\pi i k} = \frac{1}{2} + \frac{1}{z - 1}.
+\]
+Take $-z \cdot (\cdot)'$ iteratively:
+\[
+\sum \frac{1}{(\log z)^2} = \frac{z}{(z-1)^2}, \quad \sum \frac{1}{(\log z)^3} = \frac{z(z+1)}{2(z-1)^3},
+\]
+\[
+\sum \frac{1}{(\log z)^4} = \frac{z(z^2 + 4z + 1)}{6(z-1)^4}.
+\]
+
+\end{document}

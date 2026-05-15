@@ -1,0 +1,52 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{IMC 2017, Blagoevgrad, Bulgaria --- Day 2 Solutions}
+\date{August 3, 2017}
+\begin{document}
+\maketitle
+
+\section*{Problem 6}
+\subsection*{Solution (L'Hopital)}
+Let $F(x) = \int_0^x f$. Then for $t > 0$, $\int_0^1 f(tx)\,dx = F(t)/t$. Since $F'(t) = f(t) \to L$ and $t \to \infty$, L'Hopital gives $\lim_{t \to \infty} F(t)/t = L$.
+
+\subsection*{Alternative (finite $L$ case, direct)}
+For $\varepsilon > 0$ pick $K_1$ with $|f(x) - L| < \varepsilon/2$ for $x \ge K_1$. Then
+\[ \Big|\int_0^1 f(nx)\,dx - L\Big| = \frac{1}{n}\Big|\int_0^n (f-L)\Big| \le \frac{1}{n}\int_0^{K_1}|f-L| + \frac{\varepsilon}{2}, \]
+and the first term is $< \varepsilon/2$ for $n$ large. Cases $L = \pm\infty$ handled analogously.
+
+\section*{Problem 7}
+\subsection*{Solution}
+\emph{Lemma.} If $f(x) = a_m x^m + \dots + a_0$, $a_m \ne 0$, has all real roots, then $a_{m-1}^2 - 2 a_m a_{m-2} \ge 0$. (By Vieta: $0 \le \sum w_i^2 = (\sum w_i)^2 - 2\sum_{i<j} w_i w_j$.)
+
+Write $p(x) = a x^k + b x^{k-1} + c x^{k-2} + \dots$ and $q_n(x) = A_n x^{n+k} + B_n x^{n+k-1} + C_n x^{n+k-2} + \dots$. Expanding,
+\[ A_n = 2a,\quad B_n = (n+k)a + 2b,\quad C_n = \tfrac{n(n-1)+k(k-1)}{2} a + (n+k-1) b + 2c. \]
+As $n \to \infty$,
+\[ B_n^2 - 2 A_n C_n = (na + O(1))^2 - 4a\Big(\tfrac{n^2 a}{2} + O(n)\Big) = -a n^2 + O(n) \to -\infty, \]
+so eventually negative, contradicting the Lemma.
+
+\section*{Problem 8}
+\subsection*{Solution}
+Write $A_n = I_{2^{n-1}} \otimes A_1 + A_{n-1} \otimes I_2$ (Kronecker sum). If $(\lambda, y)$ is an eigenpair of $A_1$ and $(\mu, z)$ of $A_{n-1}$, then
+\[ A_n (z \otimes y) = (I \otimes A_1 + A_{n-1} \otimes I)(z \otimes y) = (\lambda + \mu)(z \otimes y). \]
+So $\mathrm{spec}(A_n) = \mathrm{spec}(A_{n-1}) + \mathrm{spec}(A_1)$ with $\mathrm{spec}(A_1) = \{-1, 1\}$. By induction, eigenvalues of $A_n$ are $-n, -n+2, \dots, n-2, n$ with multiplicities $\binom{n}{0}, \binom{n}{1}, \dots, \binom{n}{n}$.
+
+\section*{Problem 9}
+\subsection*{Solution}
+The recurrence gives $f_{n+1}(x) = \exp\int_0^x f_n(t)\,dt$. The map $\Phi(g)(x) = \exp\int_0^x g$ is monotone. Since $f_2(x) = e^x > 1 = f_1$, induction gives $f_n$ increasing in $n$. The function $f(x) = 1/(1-x)$ satisfies $f' = f^2$, $f(0)=1$, so $\Phi(f) = f$, and $f_1 < f$ gives $f_n < f$. Thus the pointwise limit $g(x) := \lim f_n(x)$ exists on $[0,1)$.
+
+Each $f_n$ is convex (as $f'_{n+1} = f_n f_{n+1}$ is increasing), so $g$ is convex and continuous on $(0,1)$; with $1 \le g \le f$, $g$ is continuous at $0$. By Dini's theorem, $f_n \to g$ uniformly on $[0, 1-\varepsilon]$. Since $\Phi$ is continuous, $g = \Phi(g)$. The unique fixed point with $g(0) = 1$ is $f$, so
+\[ \lim_{n \to \infty} f_n(x) = \frac{1}{1-x}. \]
+
+\section*{Problem 10}
+\subsection*{Solution}
+By affine transformation, take $K$ with vertices $(0,0)$, $(0,1)$, $(1,0)$, projecting to $[0,1]$ on the $x$-axis. Replace perimeter by projection lengths.
+
+Let $f_i(a)$ be the length of $\{x = a\} \cap T_i$, $f = \sum_i f_i$. Since $T_i$ is homothetic with negative ratio, $f_i$ is increasing on its support with a downward gap at its right end; where differentiable, $f_i'(a) = f_i(a)/a$. So $f$ is piecewise increasing with downward gaps $d_1, \dots, d_N$; each $d_j$ sums some side-lengths of $T_i$'s, and every $T_i$ contributes to exactly one $d_j$. Also $f(a) \le 1-a$ and $\int_0^1 f \ge 1/2 - \varepsilon$.
+
+Pick $m = \lfloor 1/(8\varepsilon) \rfloor$. For $0 \le k \le (m-1)/2$, area in strip $k/m \le x \le (k+1)/m$ is $\ge 1/(2m) - \varepsilon \ge 1/(4m)$. Thus
+\[ \int_{k/m}^{(k+1)/m} f'(x)\,dx \ge \int_{k/m}^{(k+1)/m} \frac{f(x)}{x}\,dx \ge \frac{m}{k+1}\cdot\frac{1}{4m} = \frac{1}{4(k+1)}. \]
+Summing,
+\[ \int_0^{1/2} f'(x)\,dx \ge \frac{1}{4}\sum_{k=0}^{\lfloor (m-1)/2\rfloor} \frac{1}{k+1} \to \infty \quad (\varepsilon \to 0). \]
+The left side equals $f(1/2) + \sum_{x_i < 1/2} d_i$; hence $\sum d_i \to \infty$.
+
+\end{document}

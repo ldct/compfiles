@@ -1,0 +1,72 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+
+\title{IMC 2006, Odessa \\ Second Day}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+$V$ convex $n$-gon. (a) If $3 \mid n$, triangulate so each vertex belongs to an odd number of triangles. (b) If $3 \nmid n$, triangulate so exactly two vertices belong to an even number.
+
+\subsection*{Solution}
+Induct on $n$. For $n = 3, 4, 5$: small explicit triangulations work (e.g., the single triangle for $n = 3$; for $n = 4$, one diagonal gives two odd vertices and two even; for $n = 5$, fan from one vertex gives all vertices odd except... \emph{see figure}).
+
+Step from $n = k$ to $n = k + 3$: triangulate $P_1 \ldots P_k$ by hypothesis. Add triangles $P_1 P_k P_{k+2}$, $P_k P_{k+1} P_{k+2}$, $P_1 P_{k+2} P_{k+3}$. Then $P_1$ and $P_k$ get $2$ new incidences (parity preserved), $P_{k+1}, P_{k+3}$ get $1$ each (odd), $P_{k+2}$ gets $3$ (odd). So parity counts transfer.
+
+\section*{Problem 2}
+Find all $f : \mathbb{R} \to \mathbb{R}$ such that $f([a, b])$ is a closed interval of length $b - a$ for all $a < b$.
+
+\subsection*{Solution}
+Answer: $f(x) = \pm x + c$.
+
+$f$ is $1$-Lipschitz, hence continuous. For $x < y$, let $a, b \in [x, y]$ with $f(a) = \max$, $f(b) = \min$: $y - x = f(a) - f(b) \le |a - b| \le y - x$. So $\{a, b\} = \{x, y\}$, meaning $f$ is monotone. If increasing, $f(x) - f(y) = x - y$ so $f(x) - x$ is constant. Similarly for decreasing.
+
+\section*{Problem 3}
+Compare $\tan(\sin x)$ and $\sin(\tan x)$ for $x \in (0, \pi/2)$.
+
+\subsection*{Solution}
+$\tan(\sin x) > \sin(\tan x)$. Let $f(x) = \tan(\sin x) - \sin(\tan x)$.
+\[
+f'(x) = \frac{\cos x}{\cos^2(\sin x)} - \frac{\cos(\tan x)}{\cos^2 x} = \frac{\cos^3 x - \cos(\tan x) \cos^2(\sin x)}{\cos^2 x \cos^2(\tan x)}.
+\]
+For $0 < x < \arctan(\pi/2)$, by AM-GM and concavity of $\cos$:
+\[
+\sqrt[3]{\cos(\tan x) \cos^2(\sin x)} < \tfrac{\cos(\tan x) + 2 \cos(\sin x)}{3} \le \cos\!\Bigl(\tfrac{\tan x + 2 \sin x}{3}\Bigr) < \cos x,
+\]
+where the last step uses $(\tan x + 2 \sin x)/3 > x$ (derivative analysis). So $f' > 0$ on $[0, \arctan(\pi/2)]$, giving $f > 0$ there.
+
+For $x \in [\arctan(\pi/2), \pi/2)$: $\sin x \ge \tfrac{\pi/2}{\sqrt{1 + \pi^2/4}} > \pi/4$, so $\tan(\sin x) > 1 \ge \sin(\tan x)$.
+
+\section*{Problem 4}
+$v_0 = 0 \in \mathbb{R}^n$, $v_1, \ldots, v_{n+1} \in \mathbb{R}^n$ with $|v_i - v_j| \in \mathbb{Q}$ for all $i, j$. Prove $v_1, \ldots, v_{n+1}$ are linearly dependent over $\mathbb{Q}$.
+
+\subsection*{Solution}
+Assume $v_1, \ldots, v_n$ independent over $\mathbb{R}$; write $v_{n+1} = \sum \lambda_j v_j$. From $-2 \langle v_i, v_j\rangle = |v_i - v_j|^2 - |v_i|^2 - |v_j|^2 \in \mathbb{Q}$. Let $A_{ij} = \langle v_i, v_j\rangle$ (rational), $w_i = \langle v_i, v_{n+1}\rangle$ (rational). Then $A\lambda = w$; $A$ invertible rational, so $\lambda = A^{-1} w \in \mathbb{Q}^n$.
+
+\section*{Problem 5}
+Prove there are infinitely many coprime pairs $(m, n)$ of positive integers for which $(x+m)^3 = nx$ has three distinct integer roots.
+
+\subsection*{Solution}
+Substitute $y = x + m$: $y^3 - n y + mn = 0$. Three roots $u, v, w$ with $u + v + w = 0$ (so $w = -u-v$), $uv + uw + vw = -n$, $uvw = -mn$. So $u^2 + uv + v^2 = n$ and $uv(u+v) = mn$, giving $m = \tfrac{uv(u+v)}{u^2 + uv + v^2}$.
+
+Try $u = kp$, $v = kq$ with $p, q$ coprime: $u^2 + uv + v^2 = k^2(p^2 + pq + q^2)$, $uv(u+v) = k^3 pq(p+q)$. Set $k = p^2 + pq + q^2$:
+\[
+m = p^2 q + pq^2, \quad n = (p^2 + pq + q^2)^3.
+\]
+Roots: $x_1 = p^3, x_2 = q^3, x_3 = -(p+q)^3$. Distinct for $p \ne q$, $p, q \ge 1$; coprimality of $(m, n)$ holds generically.
+
+\section*{Problem 6}
+$A_i, B_i, S_i \in GL_2(\mathbb{R})$ with (1) not all $A_i$ share a real eigenvector; (2) $A_i = S_i^{-1} B_i S_i$; (3) $A_1 A_2 A_3 = B_1 B_2 B_3 = I$. Prove $\exists S \in GL_2(\mathbb{R})$ with $A_i = S^{-1} B_i S$ for all $i$.
+
+\subsection*{Solution}
+If any $A_j = \lambda I$: trivial. Skip that case.
+
+\emph{Case 1: some $A_3$ has two distinct real eigenvalues.} Conjugate so $A_3 = B_3 = \operatorname{diag}(\lambda, \mu)$. Write $A_2 = \begin{pmatrix}a & b\\c & d\end{pmatrix}$, $B_2 = \begin{pmatrix}a' & b'\\c' & d'\end{pmatrix}$. From $\operatorname{tr}(A_2) = \operatorname{tr}(B_2)$ and $\operatorname{tr}(A_2 A_3) = \operatorname{tr}(A_1^{-1}) = \operatorname{tr}(B_1^{-1}) = \operatorname{tr}(B_2 B_3)$: $a = a'$, $d = d'$. Then $bc = b'c'$ (from $\det$). If $c, c' \ne 0$ (else common eigenvector), $S = \operatorname{diag}(c', c)$ (or similar) conjugates $A_2$ to $B_2$ and commutes with $A_3$.
+
+\emph{Case 2: $A_3$ has complex eigenvalues.} Work over $\mathbb{C}$: $\exists S_\mathbb{C} \in GL_2(\mathbb{C})$ with $S_\mathbb{C} A_j S_\mathbb{C}^{-1} = B_j$. Write $S_\mathbb{C} = S_0 + i S_1$. If $S_0$ or $S_1$ invertible: done (real $S$). Else both singular; then $S_0$ is rank 1, so after conjugation $S_0 = \begin{pmatrix}x & 0 \\ y & 0\end{pmatrix}$, yielding a common eigenvector of all $A_j$ --- contradiction.
+
+\emph{Case 3: no $A_j$ has distinct eigenvalues.} Then eigenvalues are real and equal. By conjugation and scaling, $A_3 = \begin{pmatrix}1 & b\\0 & 1\end{pmatrix}$, $b \ne 0$; further $A_2 = \begin{pmatrix}0 & u\\1 & v\end{pmatrix}$. Then $v^2 = -4u$ (repeated eigenvalue), and $A_1 = A_3^{-1} A_2^{-1}$ forces $b = -2v$. So all $A_j$ are determined (up to similarity) by $u, v$, invariants of similarity. Same for $B_j$, hence $A_j \sim B_j$ simultaneously.
+
+\end{document}

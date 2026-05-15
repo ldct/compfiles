@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+
+\title{IMC 2022, Second Day Solutions}
+\date{August 4, 2022}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 5}
+\subsection*{Solution}
+Answer: $\mathbf{859}$.
+
+A \emph{cherry} is a pair of edges sharing a vertex. A monochromatic triangle has 3 monochromatic cherries; a polychromatic triangle has 1 monochromatic and 2 polychromatic. Let $M$ = \# mono cherries, $P$ = \# poly cherries. Summing over triangles:
+\[ 2M - P = 6 \cdot \#(\text{mono triangles}). \]
+At vertex $v$: $M_v = \binom{20}{2} + \binom{22}{2} = 421$, $P_v = 20 \cdot 22 = 440$, so $2M_v - P_v = 402$. Sum over 43 vertices: $2M - P = 43 \cdot 402$. Total mono triangles $= 43 \cdot 67 = 2881$. Red: $2881 - 2022 = 859$.
+
+\section*{Problem 6}
+\subsection*{Solution 1}
+Take $x_i \equiv i^{-1} \pmod p$. Then
+\[ \sum_{i=1}^{p-2} \tfrac{1}{i(i+1)} = \sum_{i=1}^{p-2}\left(\tfrac{1}{i} - \tfrac{1}{i+1}\right) = 1 - \tfrac{1}{p-1} \equiv 1 - (-1) = 2 \pmod p. \]
+
+\subsection*{Solution 2}
+Identity permutation gives $\sum i(i+1) = 2\binom{p}{3} \equiv 0 \pmod p$. Swapping consecutive $(i+1, i+2) \to (i+2, i+1)$ in a block decreases sum by $3$. For $p \equiv 2 \pmod 3$, perform this $\tfrac{p-2}{3}$ times to reach $-(p-2) \equiv 2$. For $p \equiv 1 \pmod 3$, change $(1,2,3,4,5) \to (1,4,3,2,5)$ (decrement 8), then apply the trick. Small cases: $p=3 \colon (1,2)$; $p=7 \colon (1,4,5,2,3,6)$.
+
+\section*{Problem 7}
+\subsection*{Solution 1}
+For idempotent $B$, $\operatorname{tr}(B) = \operatorname{rank}(B)$ (minimal poly $\lambda(\lambda-1)$ so diagonalizable with eigenvalues $0,1$).
+
+$\sum A_i$ is idempotent:
+\[ \left(\sum A_i\right)^2 = \sum A_i^2 + \sum_{i \neq j}(A_i A_j + A_j A_i) = \sum A_i. \]
+So
+\[ \sum_i \operatorname{rank}(A_i) = \sum \operatorname{tr}(A_i) = \operatorname{tr}\!\left(\sum A_i\right) = \operatorname{rank}\!\left(\sum A_i\right) \leq n. \]
+So some $\operatorname{rank}(A_i) \leq n/k$.
+
+\subsection*{Solution 2}
+Show $A_i A_j = 0$ for $i \neq j$: multiplying $AB = -BA$ by $A$:
+\[ -BA = AB = A^2 B = -ABA = BA^2 = BA, \]
+so $BA = 0$.
+
+Then image spaces $V_i = \operatorname{im}(A_i)$ are linearly independent: if $\sum v_i = 0$ with $v_i = A_i w_i$, apply $A_1$: $v_1 + \sum_{j\geq 2} A_1 A_j w_j = v_1 = 0$. So $\sum \dim V_i \leq n$.
+
+\section*{Problem 8}
+\subsection*{Solution}
+Answer: $\displaystyle E(m) = \frac{2kn}{n+k-1} - \frac{2\, k!\, n!}{(k+n-1)!}$.
+
+Let $C_1, \ldots, C_{n+k}$ be the colors in cyclic order. If the two color classes don't appear as contiguous arcs, then $m$ equals the number of color changes; if they do (exceptional case), $m = 0$ but there are 2 color changes.
+
+Probability $C_i C_{i+1}$ is a color change: $\frac{2nk}{(n+k)(n+k-1)}$. Expected color changes: $\frac{2nk}{n+k-1}$.
+
+Exceptional case probability: among $\binom{n+k}{n}$ arrangements, $n+k$ are contiguous, giving probability $(n+k)/\binom{n+k}{n}$. Subtracting $2 \cdot (n+k) \binom{n+k}{n}^{-1} = \frac{2\, n!\, k!}{(n+k-1)!}$ gives the answer.
+
+\end{document}

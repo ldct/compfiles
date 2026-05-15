@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{IMC 2014, Blagoevgrad, Bulgaria --- Day 2 Solutions}
+\date{August 1, 2014}
+\begin{document}
+\maketitle
+
+\section*{Problem 6}
+\subsection*{Solution}
+Suppose $d_n(a_n) \ne 0$ for $n \ge n_0$. Then $a_n \ge 10^{n-1}$ (the digit at position $n$ contributes). So for $m > n$, $a_m \ge 10^{m-1} > 10^n$. Hence only $a_1, \dots, a_n$ can lie in $[1, 10^n]$, leaving at least $10^n - n$ integers missing. $\to \infty$.
+
+\section*{Problem 7}
+\subsection*{Solution}
+Since $\sum a_{ii} = \sum \lambda_i$, the inequality is equivalent to $\sum a_{ii}^2 \le \sum \lambda_i^2$. But
+\[ \sum a_{ii}^2 \le \sum_{i,j} a_{ij}^2 = \mathrm{tr}(A^T A) = \mathrm{tr}(A^2) = \sum \lambda_i^2. \]
+Equality iff $a_{ij} = 0$ for $i \ne j$, i.e.\ $A$ diagonal.
+
+\section*{Problem 8}
+\subsection*{Solution}
+\[ \Big(\frac{\sin x}{x}\Big)^{(n)} = \frac{d^n}{dx^n}\int_0^1 \cos(xt)\,dt = \int_0^1 \frac{\partial^n}{\partial x^n}\cos(xt)\,dt = \int_0^1 t^n g_n(xt)\,dt, \]
+where $g_n \in \{\pm\sin, \pm\cos\}$ so $|g_n| \le 1$ with equality only on a discrete set. Thus
+\[ |f^{(n)}(x)| \le \int_0^1 t^n |g_n(xt)|\,dt < \int_0^1 t^n\,dt = \frac{1}{n+1}. \]
+
+\section*{Problem 9}
+\subsection*{Solution}
+Answer: $d(k, n) = kn$ if $k, n > 1$; else $d(k, n) = k + n$.
+
+$n = 1$ trivial. $k = 1$: add points one at a time outside current affine span; gives simplex of $n+1$ points.
+
+For $k, n > 1$: on each of $n$ coordinate axes, pick $k$ points $\ne 0$ (total $kn$ points). A hyperplane through $0$ containing some axis omits all $k$ on another axis. A hyperplane not through $0$ contains at most one point per axis, so omits $\ge n(k-1) \ge k$. So $k$-generic. Minimal: removing any point, the coordinate hyperplane of that axis skips only $k-1$.
+
+Upper bound $kn$: in a minimal $k$-generic set every point is skipped by some \emph{ample} hyperplane (skipping exactly $k$ points). Iteratively pick $n$ ample hyperplanes each skipping a new point; after $n$ steps, their intersection is a point (dimension decreases each step). Each step paints $\le k$ points, plus one residual, giving $\le kn + 1$. Careful analysis (changing the order of the chosen planes) gives exactly $kn$ plus the residual point $O$; removing $O$ gives the axes construction.
+
+\section*{Problem 10}
+\subsection*{Solution}
+Let $\Delta(n, k, \ell)$ be the derangement count with given $\{i_1,\dots,i_k\}, \{a_1,\dots,a_k\}$ having $\ell$-element intersection and $x_{i_j} = a_j$. By merging pairs $a_r = i_s$, one shows $\Delta(n,k,\ell) = \Delta(n-\ell, k-\ell, 0)$. So it suffices to compute $\Delta(n,k,0)$ (WLOG $\ell = 0$, which matches our problem's case).
+
+For $\ell = 0$: case on $x_{a_1} = i_1$ or not, gives
+\[ \Delta(n, k, 0) = \Delta(n-1, k-1, 0) + \Delta(n-2, k-1, 0). \]
+Base $k=0$: $\Delta(n, 0, 0) = D_n$. Base $k=1$: $\Delta(n,1,0) = D_{n-1} + D_{n-2} = \frac{D_n}{n-1}$ (using $D_n = (n-1)(D_{n-1}+D_{n-2})$).
+
+Induction: assume formula for $k-1$. Then
+\begin{align*}
+\Delta(n,k,0) &= \sum_{i=0}^{k-2}\binom{k-2}{i}\frac{D_{n-(k-1+i)}}{(n-1)-(k-1+i)} + \sum_{i=0}^{k-2}\binom{k-2}{i}\frac{D_{(n-1)-(k-1+i)}}{(n-2)-(k-1+i)} \\
+&= \frac{D_{(n+1)-k}}{n-k} + \sum_{i=1}^{k-2}\Big[\binom{k-2}{i}+\binom{k-2}{i-1}\Big]\frac{D_{(n+1)-(k+i)}}{n-(k+i)} + \frac{D_{(n+1)-(2k-1)}}{n-(2k-1)} \\
+&= \sum_{i=0}^{k-1}\binom{k-1}{i}\frac{D_{(n+1)-(k+i)}}{n-(k+i)}.
+\end{align*}
+
+\end{document}

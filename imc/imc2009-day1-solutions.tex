@@ -1,0 +1,77 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+
+\title{IMC 2009, Budapest, Hungary \\ Day 1}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+Suppose $f, g : \mathbb{R} \to \mathbb{R}$ satisfy $f(r) \le g(r)$ for every rational $r$. Does $f(x) \le g(x)$ for every real $x$ if
+\begin{enumerate}
+  \item[a)] $f, g$ are non-decreasing?
+  \item[b)] $f, g$ are continuous?
+\end{enumerate}
+
+\subsection*{Solution}
+(a) \textbf{No.} Take $f = \chi_{[\sqrt 3, \infty)}$ and $g = \chi_{(\sqrt 3, \infty)}$. Then $f(r) \le g(r)$ for rational $r$ (both equal) but $f(\sqrt 3) = 1 > 0 = g(\sqrt 3)$.
+
+(b) \textbf{Yes.} $g - f$ is continuous and $\ge 0$ on $\mathbb{Q}$. By density, $g - f \ge 0$ everywhere.
+
+\section*{Problem 2}
+Let $A, B, C$ be real square matrices of the same size, with $A$ invertible. Prove that if $(A - B)C = BA^{-1}$, then $C(A - B) = A^{-1} B$.
+
+\subsection*{Solution}
+$(A - B) C = BA^{-1}$ gives $AC - BC = BA^{-1}$, i.e., $AC - BC + AA^{-1} - BA^{-1} = I$, which factors as $(A - B)(C + A^{-1}) = I$. Hence $(C + A^{-1})(A - B) = I$ too, yielding $C(A - B) = I - A^{-1}(A - B) = A^{-1} B$.
+
+\section*{Problem 3}
+In a town, every two non-friends have a common friend; no one is friends with everyone. Residents numbered $1, \ldots, n$; $a_i$ = number of friends of $i$. Suppose $\sum a_i^2 = n^2 - n$. Let $k$ be the shortest cycle (length $\ge 3$) with consecutive residents friends. Find all possible $k$.
+
+\subsection*{Solution}
+Model as a graph $G$. The number of walks of length 2 (ordered triples $(v_i, v_j, v_l)$ with $v_i v_j, v_j v_l \in E$) is $\sum a_j^2 = n^2 - n$.
+
+Define $f$ from ordered pairs of distinct vertices to these walks: if $v_i v_j \notin E$, pick $v_l$ with $v_i v_l, v_l v_j \in E$ (exists by assumption); if $v_i v_j \in E$, let $f(v_i, v_j) = (v_i, v_j, v_i)$. This is an injection.
+
+Since $n^2 - n$ ordered pairs map injectively into $n^2 - n$ walks, $f$ is a bijection. Thus no other walk-of-length-2 exists: no triangles ($C_3$) and no $C_4$.
+
+So $G$ has no $C_3, C_4$. Not a forest (no vertex has degree $n - 1$, but any forest with every two vertices at distance $\le 2$ is a star). So $G$ has cycles; the shortest has length $\ge 5$. Any cycle of length $\ge 6$ can be shortened (using some common-friend path). Hence shortest cycle has length exactly $5$. $C_5$ itself is a realization.
+
+Answer: $k = 5$.
+
+\section*{Problem 4}
+Let $p(z) = \sum_{k=0}^n a_k z^k$. Suppose $1 = c_0 \ge c_1 \ge \cdots \ge c_n \ge 0$ is convex: $2c_k \le c_{k-1} + c_{k+1}$. Set $q(z) = \sum c_k a_k z^k$. Prove $\max_{|z| \le 1} |q(z)| \le \max_{|z| \le 1} |p(z)|$.
+
+\subsection*{Solution}
+Let $M_f = \max_{|z| = 1} |f(z)|$. By reducing to $c_n = 0$ (taking positive combinations), it suffices to show $M_q \le M_p$ in that case.
+
+Using Cauchy's formula, $a_j = \frac{1}{2\pi} \int_S p(z) z^{-j} |dz|$ and $\int_S p(z) z^{-j} |dz| = 0$ for $j \notin [0, n]$. So
+\[
+2\pi q(w) = \int_S K(w/z) p(z) |dz|, \quad K(u) = \sum_{j=-n}^n c_{|j|} u^j.
+\]
+Show $K \ge 0$ on $|u| = 1$. Set $d_k = c_{k-1} - 2 c_k + c_{k+1} \ge 0$ (with $c_{n+1} = 0$) and $F_k(u) = \sum_{j=-k+1}^{k-1}(k - |j|) u^j$. Then $K = \sum d_k F_k$. Finally
+\[
+F_k(u) = \biggl|\sum_{j=0}^{k-1} u^j\biggr|^2 \ge 0 \quad \text{(Fejér kernel)}.
+\]
+Then $\int_S |K| |du| = \int_S K |du| = 2\pi c_0 = 2\pi$. So $2\pi |q(w)| \le M_p \int_S |K| |du| = 2\pi M_p$.
+
+\section*{Problem 5}
+$n$-simplex $S = P_0 \ldots P_n$, $P$ inside. $S_i$ = $S$ with $P_i$ replaced by $P$. Let $v(\cdot)$ be volume, $C(\cdot)$ the circumcenter. Prove $\sum v(S_i) C(S_i) = v(S) C(S)$.
+
+\subsection*{Solution}
+Set $q_j = C(S_j) - C(S)$ and $p_j = P_j - P$. For $j \ne k$ (both $\ne i$), $C(S_j)$ lies on hyperplane through midpoint of $P_k P$ perpendicular to $p_k$; etc. So $\langle p_i, q_j - q_k \rangle = 0$ and $\langle q_i, p_j - p_k \rangle = 0$ for distinct $i, j, k$. For $n \ge 2$ this forces $\langle p_i, q_j \rangle = \langle p_j, q_i \rangle$ for all $i, j$.
+
+For such $\{p_i\}, \{q_i\}$, the volumes $V_j = |\det(p_0, \ldots, \hat p_j, \ldots, p_n)|$ and $W_j = |\det(q_0, \ldots, \hat q_j, \ldots, q_n)|$ are proportional:
+\[
+V_j = \left|\frac{\det(p_0, \ldots, p_{n-1})}{\det(q_0, \ldots, q_{n-1})}\right| W_j
+\]
+(from the shared inner-product matrix $(\langle p_k, q_l \rangle)$).
+
+Since $\sum (-1)^j q_j W_j = 0$ (standard volume identity), and weights proportional, $\sum (-1)^j q_j V_j = 0$, i.e.,
+\[
+\sum_j (C(S_j) - C(S)) v(S_j) = 0 \implies \sum v(S_j) C(S_j) = C(S) \sum v(S_j) = v(S) C(S).
+\]
+
+Base case $n = 1$: direct check $(b-p)\tfrac{b+p}{2} + (p-a)\tfrac{p+a}{2} = (b-a)\tfrac{b+a}{2}$.
+
+\end{document}

@@ -1,0 +1,39 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+
+\title{IMC 2021, Second Day Solutions}
+\date{August 4, 2021}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 5}
+\subsection*{Solution}
+Let $B_m$ be the matrix with $2021 B_m = A^m + B_m^2$. For $m = 1$: $A = 2021 B_1 - B_1^2$, so $A$ is real symmetric, hence diagonalizable with real eigenvalues.
+
+For any eigenvalue $\lambda$ of $A$ and corresponding eigenvalue $\mu$ of $B_m$: $\mu^2 - 2021\mu + \lambda^m = 0$. Real discriminant: $2021^2 - 4\lambda^m \geq 0$, so $\lambda^m \leq 2021^2/4$. If $|\lambda| > 1$, taking $m$ even and large gives contradiction. Hence $|\lambda| \leq 1$ for all eigenvalues, so $|\det A| \leq 1$.
+
+\section*{Problem 6}
+\subsection*{Solution}
+For $p = 2$: $|\mathrm{GL}_2(\mathbb{Z}/2)| = 6 > 2 = |S_2|$.
+
+For odd $p$: $A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$ has order $p$, and commutes with $B = -I$ of order $2$. So $AB$ has order $2p$. But in $S_p$, any element of order divisible by $p$ must be a $p$-cycle (order exactly $p$), so no element has order $2p$. Contradiction.
+
+\section*{Problem 7}
+\subsection*{Solution}
+Let $p(z) = z^n + a_{n-1} z^{n-1} + \cdots + a_0$ and $q(z) = z^n \overline{p(1/\bar z)} = 1 + \overline{a_{n-1}} z + \cdots + \overline{a_0} z^n$. For $|z| = 1$, $1/\bar z = z$, so $|q(z)| = |p(z)|$. Also $q(0) = 1$. By maximum modulus applied to $f \cdot q$:
+\[ |f(0)| = |f(0) q(0)| \leq \max_{|z|=1} |f(z) q(z)| = \max_{|z|=1} |f(z) p(z)|. \]
+
+\section*{Problem 8}
+\subsection*{Solution}
+Answer: $2n$.
+
+\textbf{Example.} A basis $e_1, \ldots, e_n$ and $-e_1, \ldots, -e_n$: from any 3, at least 2 are orthogonal (only pair $e_i, -e_i$ is non-orthogonal).
+
+\textbf{Upper bound (Solution 2).} Let $P_i$ be the rank-1 projection onto the $i$-th vector. The hypothesis gives $\operatorname{tr}(P_i P_j P_k) = 0$ for distinct $i, j, k$. Let $Q = \sum P_i$, with eigenvalues $t_1, \ldots, t_n \geq 0$ and $\sum t_i = \operatorname{tr}(Q) = N$.
+\[ \sum t_i^3 = \operatorname{tr}(Q^3) = N + 6 \sum_{i<j} \operatorname{tr}(P_i P_j) = N + 3(\operatorname{tr}(Q^2) - N) = 3 \sum t_i^2 - 2N. \]
+Since $(t-2)^2(t+1) \geq 0$ gives $t^3 - 3t^2 + 4 \geq 0$:
+\[ -2N = \sum (t_i^3 - 3 t_i^2) \geq -4n, \]
+so $N \leq 2n$.
+
+\end{document}

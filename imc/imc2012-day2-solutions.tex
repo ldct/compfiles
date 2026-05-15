@@ -1,0 +1,48 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{IMC 2012, Blagoevgrad, Bulgaria --- Day 2 Solutions}
+\date{July 29, 2012}
+\begin{document}
+\maketitle
+
+\section*{Problem 6}
+\subsection*{Solution}
+Homer wins both.
+
+(a) Homer makes the last move. Homer wants $f(2012) = 0$, which is a linear equation in the remaining coefficient; solvable.
+
+(b) $f(x) = g(x^2) + x h(x^2)$ where $g, h$ have even and odd coefficients. $(x^2+1) \mid f(x) \iff g(-1) = h(-1) = 0$. Both $g, h$ have even number of undetermined coefficients. Homer's strategy: whenever Albert assigns a coefficient in $g$ (resp.\ $h$), Homer responds in the same polynomial. Homer assigns the last coefficient in each; uses it to set $g(-1) = 0$, $h(-1) = 0$.
+
+\section*{Problem 7}
+\subsection*{Solution}
+The recurrence gives $k a_k = \frac{(1 + (k+1) a_k) a_{k+1}}{a_k} = \frac{a_{k+1}}{a_k} + (k+1) a_{k+1}$ for $k \ge 1$. So
+\[ \sum_{k=0}^n \frac{a_{k+1}}{a_k} = \tfrac{a_1}{a_0} + \sum_{k=1}^n (k a_k - (k+1) a_{k+1}) = \tfrac{1}{2} + 1 \cdot a_1 - (n+1) a_{n+1} = 1 - (n+1) a_{n+1}. \]
+All terms positive and partial sums $< 1$, so series converges; $a_{k+1}/a_k \to 0$, so $a_n < C/2^n$ eventually, so $(n+1) a_{n+1} \to 0$. Therefore $\sum = 1$.
+
+\section*{Problem 8}
+\subsection*{Solution}
+Finite. If $n! + 1 \mid (2012n)!$: since $(n!)^{2012} \mid (2012n)!$ (multinomial) and $\gcd(n!+1, (n!)^{2012}) = 1$, we have $(n!+1)(n!)^{2012} \le (2012 n)!$. Using $(n!)^{2013} < (n!+1)(n!)^{2012} \le (2012n)!$ and $((n+1)/e)^n < n! \le n^n$:
+\[ (n/e)^{2013 n} < (2012 n)^{2012 n} \implies n < 2012^{2012} \cdot e^{2013}. \]
+Only finitely many such $n$.
+
+\section*{Problem 9}
+\subsection*{Solution}
+Answer: $(-\infty, 1/4] \cup \{1/(4\cos^2(k\pi/n)) : k \in \mathbb{N}, 1 \le k < n/2\}$.
+
+For $a \le 1/4$: choose $x_1(1-x_1) = a$, set all equal. For $a > 1/4$, the recurrence $x_{i+1} = \varphi(x_i) = 1 - a/x_i$ is a Mobius transform with matrix $M = \begin{pmatrix} 1 & -a \\ 1 & 0 \end{pmatrix}$. Characteristic polynomial $\lambda^2 - \lambda + a$, roots $\lambda_{1,2} = \frac{1 \pm i\sqrt{4a-1}}{2}$, complex. The composition $\varphi^n$ is the identity on $\mathbb{RP}^1$ iff $\lambda_1^n = \lambda_2^n$ iff $\arg\lambda_1 = k\pi/n$, giving $\pm\sqrt{4a-1} = \tan(k\pi/n)$, i.e.\ $a = 1/(4\cos^2(k\pi/n))$. Then all but finitely many starting points give valid cycles.
+
+\section*{Problem 10}
+\subsection*{Solution (Petridis)}
+Let $B \subseteq A$ nonempty minimizing $c_1 := |A+B|/|B|$; so $c_1 \le c$.
+
+\emph{Lemma 1.} $|A + B + D| \le c_1 |B + D|$ for any finite $D$.
+
+Induction on $|D|$. Base $|D|=1$: definition of $c_1$. Step: add $x \notin D$, let $B_1 = \{y \in B : x+y \in B+D\}$. Then $|B + (D \cup \{x\})| = |B+D| + |B| - |B_1|$ and
+\[ |A + B + (D \cup \{x\})| \le |A+B+D| + |A+B| - |A+B_1|. \]
+Use inductive hypothesis on $D$ and definition $|A+B_1|/|B_1| \ge c_1$.
+
+\emph{Lemma 2.} $|\underbrace{A + \dots + A}_k + B| \le c_1^k |B|$. Induction on $k$ with $D = \underbrace{A+\dots+A}_{k-1}$.
+
+Then $|\underbrace{A+\dots+A}_k| \le |\underbrace{A+\dots+A}_k + B| \le c_1^k |B| \le c^k |A|$.
+
+\end{document}
